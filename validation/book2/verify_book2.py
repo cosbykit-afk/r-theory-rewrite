@@ -49,6 +49,16 @@ Page claims verified (Part I figures, then Part II sections):
  V38 complex carrier |Z_car| = 1, Z_car' = 2i Z_car        (2.XI T7,T8)
  V39 H_D range 0<|H_D|<=1/4, max at midpoints             (2.VIII C1)
  V40 Moebius denominator eps*z-1 != 0 on D                (2.VII L1,C1)
+ V41 A=2cot x, B=2tan x                                   (2.XI L3)
+ V42 AB = 4                                               (2.XI L3)
+ V43 S^2-D^2 = 16                                         (2.XI L5)
+ V44 sin2x = 4/S, cos2x = D/S                            (2.XI L6)
+ V45 Z2 = e^{2ix}, |Z2| = 1                               (2.XI L7)
+ V46 S' = -SD/2, D' = -S^2/2 (finite diff)                (2.XI L8)
+ V47 complementary-swap closure Psi(Cx)=T(Psi(x))         (2.XI L1)
+ V48 norm-pair invariant Psi*T(Psi)=i|Psi|^2              (2.XI L2)
+ V49 (S,D) are the parent pair as functions               (2.XI L4)
+ V50 (urx^2-uxp^2)' not identically zero: L9 firewall core (2.XI L9)
 """
 import numpy as np
 
@@ -332,6 +342,50 @@ print(f"OK [NC] V39 0 < |H_D| <= 1/4 on D grid; max 1/4 at midpoints; "
 med = float(np.min(np.abs(eps*z - 1)))
 assert med > 0
 print(f"OK [NC] V40 min|eps*srx-1| = {med:.3e} > 0 on D grid")
+
+# ------------------------------------------------------------- 2.XI L-series
+# V41-V50: complementary-swap audit (2.XI.L1-L9). A=srx-sxp, B=cxp-crx.
+A = z - sxp(xg)
+B = w - crx(xg)
+check("V41 A = 2cot x", A - 2*np.cos(xg)/np.sin(xg), 1e-9, "CP", "L")
+check("V41 B = 2tan x", B - 2*np.sin(xg)/np.cos(xg), 1e-9, "CP", "L")
+check("V42 AB = 4", A*B - 4, 1e-9, "CP", "L")
+Sg = A + B
+Dg = A - B
+check("V43 S^2-D^2 = 16", Sg**2 - Dg**2 - 16, 1e-9, "CP", "L")
+check("V44 sin2x = 4/S", np.sin(2*xg) - 4/Sg, 1e-9, "CP", "L")
+check("V44 cos2x = D/S", np.cos(2*xg) - Dg/Sg, 1e-9, "CP", "L")
+Z2 = (Dg + 4j)/Sg
+check("V45 Z2 = e^{2ix}", np.abs(Z2 - np.exp(2j*xg)), 1e-9, "CP", "L")
+check("V45 |Z2| = 1", np.abs(Z2) - 1, 1e-9, "CP", "L")
+# V46: L8 differential closure by central differences (seam-safe grid).
+def Sfun(t): return 2*(np.cos(t)/np.sin(t) + np.sin(t)/np.cos(t))
+def Dfun(t): return 2*(np.cos(t)/np.sin(t) - np.sin(t)/np.cos(t))
+DS = (Sfun(xs + h) - Sfun(xs - h))/(2*h)
+DD = (Dfun(xs + h) - Dfun(xs - h))/(2*h)
+check("V46 S' = -S*D/2", DS + Sfun(xs)*Dfun(xs)/2, 1e-4, "NC", "L")
+check("V46 D' = -S^2/2", DD + Sfun(xs)**2/2, 1e-4, "NC", "L")
+# V47: L1 complementary-swap closure Psi(Cx) = T(Psi(x)), T(z) = i*conj(z).
+def PsiU(t): return urx(t) + 1j*uxp(t)
+def Tinv(z): return 1j*np.conj(z)
+check("V47 Psi(Cx) = T(Psi(x))",
+      np.abs(PsiU(np.pi/2 - xg) - Tinv(PsiU(xg))), 1e-9, "CP", "L")
+# V48: L2 norm-pair invariant Psi*T(Psi) = i|Psi|^2.
+Pu = PsiU(xg)
+check("V48 Psi*T(Psi) = i|Psi|^2",
+      np.abs(Pu*Tinv(Pu) - 1j*np.abs(Pu)**2), 1e-9, "CP", "L")
+# V49: L4 identification — the L-series (S,D) are the parent pair as
+# functions (ledger correction: not a third colliding use).
+check("V49 S = urx+uxp", Sg - (u1 + u2), 1e-9, "CP", "L")
+check("V49 D = (srx+crx)-(sxp+cxp)",
+      Dg - ((z + crx(xg)) - (sxp(xg) + w)), 1e-9, "CP", "L")
+# V50: L9 firewall core — (urx^2-uxp^2)' is not identically zero, so no
+# real scalar rate f with Psi' = f*T(Psi) can exist on an open chart.
+d_udiff = np.gradient(u1**2 - u2**2, xg)
+m_udiff = float(np.max(np.abs(d_udiff)))
+assert m_udiff > 1.0, f"V50 non-constancy failed: {m_udiff}"
+print(f"OK [NC] V50 max|(urx^2-uxp^2)'| = {m_udiff:.3e} >> 0: "
+      f"no real f with Psi'=f*T(Psi) on an open chart")
 
 n_cp = sum(1 for _, _, _, s in results if s == "CP")
 n_nc = sum(1 for _, _, _, s in results if s == "NC")
