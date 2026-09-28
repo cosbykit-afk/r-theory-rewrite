@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>R Theory — Calibration Predictions</title>
+<style>
+  :root { --ink:#1a1a1a; --muted:#5a5a5a; --accent:#1b5faa; --paper:#fff; --wash:#f6f8fb; --line:#dfe5ec;
+          --ok:#1c7a3d; --chk:#8a6d00; --ass:#7a4d00; --ref:#a02020; --inc:#555; --open:#1b5faa; }
+  body { font-family: -apple-system, "Segoe UI", Georgia, serif; color:var(--ink); background:var(--paper);
+         max-width: 900px; margin:0 auto; padding: 24px 20px 80px; line-height:1.65; }
+  h1 { font-size:1.9em; line-height:1.25; margin-bottom:.2em; }
+  h2 { margin-top:2em; border-bottom:1px solid var(--line); padding-bottom:.3em; }
+  h3 { margin-top:1.4em; }
+  .sub { color:var(--muted); font-size:1.05em; margin-top:0; }
+  .about { background:var(--wash); border:1px solid var(--line); border-radius:8px; padding:14px 18px; margin:1.5em 0; }
+  .about p { margin:.5em 0; }
+  .boundary { background:#fff8e6; border:2px solid #d8a900; border-radius:8px; padding:14px 18px; margin:1.5em 0; }
+  .boundary p { margin:.5em 0; }
+  .tag { display:inline-block; font-size:.72em; font-weight:700; border:1px solid var(--line); border-radius:3px;
+         padding:1px 7px; margin-right:5px; background:var(--wash); color:var(--muted); vertical-align:middle; }
+  .tag.proved { color:var(--ok); border-color:var(--ok); }
+  .tag.checked { color:var(--chk); border-color:var(--chk); }
+  .tag.asserted { color:var(--ass); border-color:var(--ass); }
+  .tag.refuted { color:var(--ref); border-color:var(--ref); }
+  .tag.incomplete { color:var(--inc); border-color:var(--inc); }
+  .tag.open { color:var(--open); border-color:var(--open); }
+  table { border-collapse:collapse; width:100%; margin:1em 0; font-size:.93em; }
+  th, td { border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top; }
+  th { background:var(--wash); }
+  code { background:var(--wash); padding:1px 5px; border-radius:3px; font-size:.92em; }
+  a { color:var(--accent); }
+  footer { margin-top:3em; color:var(--muted); font-size:.88em; border-top:1px solid var(--line); padding-top:1em; }
+  .date { display:block; font-size:.8em; color:var(--muted); margin-top:.6em; }
+  .pred { border:1px solid var(--line); border-radius:8px; padding:14px 18px; margin:1.5em 0; }
+  .pred h3 { margin-top:.2em; }
+  .pred dl { margin:.8em 0; }
+  .pred dt { font-weight:700; margin-top:.6em; }
+  .pred dd { margin:.2em 0 .4em 0; }
+</style>
+<!-- SITENAV-START -->
+<style>
+.sitenav{font-family:Georgia,serif;font-size:.88em;background:#f4f4f0;border:1px solid #bbb;
+ border-radius:4px;padding:8px 14px;margin:0 0 1.5em;display:flex;flex-wrap:wrap;
+ align-items:center;gap:8px 16px;line-height:1.4}
+.sitenav a{color:#0645ad;text-decoration:none;white-space:nowrap}
+.sitenav a:hover{text-decoration:underline}
+.sitenav .sitenav-brand{font-weight:bold;color:#1a1a1a}
+.sitenav .sitenav-links{display:flex;flex-wrap:wrap;gap:8px 14px}
+.sitenav-search{margin-left:auto;display:flex;gap:6px;align-items:center}
+.sitenav-search input{font-family:Georgia,serif;font-size:.95em;padding:4px 8px;
+ border:1px solid #999;border-radius:3px;width:170px;background:#fff;color:#1a1a1a}
+.sitenav-search button{font-family:Georgia,serif;font-size:.95em;padding:4px 12px;
+ border:1px solid #666;border-radius:3px;background:#eee;cursor:pointer;color:#1a1a1a}
+</style>
+<!-- SITENAV-END -->
+</head>
+<body>
+<!-- SITENAV-NAV-START -->
+<nav class="sitenav" aria-label="Site navigation">
+<a class="sitenav-brand" href="../">R Theory — Rewrite</a>
+<span class="sitenav-links">
+<a href="../contents/">Contents</a><a href="../index/">Index</a><a href="../contents/#vol-0">Vol&nbsp;0</a><a href="../contents/#vol-1">Vol&nbsp;I</a><a href="../contents/#vol-2">Vol&nbsp;II</a><a href="../contents/#vol-3">Vol&nbsp;III</a><a href="../contents/#vol-4">Vol&nbsp;IV</a><a href="../tables/">Tables</a><a href="../research/">Research</a>
+</span>
+<form class="sitenav-search" action="https://www.google.com/search" method="get" target="_blank" role="search"
+ onsubmit="if(!this.q.value.trim())return false;this.q.value='site:cosbykit-afk.github.io/r-theory-rewrite '+this.q.value">
+<input type="text" name="q" placeholder="Search this site&#8230;" aria-label="Search this site">
+<button type="submit">Search</button>
+</form>
+</nav>
+<!-- SITENAV-NAV-END -->
+
+<h1>R Theory — Calibration Predictions</h1>
+<p class="sub">Falsifiable predictions from the three-anchor calibration program: what the proved dial theorems say must hold, once the missing inputs are supplied.</p>
+<span class="date">Ledger opened: 2026-09-28</span>
+
+<div class="boundary">
+<p><strong>Scope boundary.</strong> The predictions below are exact consequences of <span class="tag proved">PROVED</span> block-algebra theorems (the 8-cycle dial theorems, runs 30–31), conditional on candidate E/O witness models. <strong>No prediction is confirmed until the missing inputs — physical E_k / Oprop matrices and the dial↔observable identifications — are supplied.</strong> A prediction's falsification kills the candidate framework it was derived in, not established R Theory results.</p>
+<p>Every claim carries a scope label: <span class="tag proved">PROVED</span> <span class="tag checked">CHECKED</span> <span class="tag asserted">ASSERTED</span> <span class="tag refuted">REFUTED</span> <span class="tag incomplete">INCOMPLETE</span>, and every prediction carries a ledger status: <span class="tag open">OPEN</span> <span class="tag checked">CONFIRMED</span> <span class="tag refuted">FALSIFIED</span>.</p>
+</div>
+
+<h2 id="anchors">The three anchors</h2>
+<div class="about">
+<p>Calibration needs three things: a rule for how numbers cross from mathematics to physics, a scale, and a sign. The anchors supply exactly these:</p>
+<table>
+<tr><th>Anchor</th><th>Supplies</th><th>Does not supply</th></tr>
+<tr><td><strong>SI-DIMLESS-01</strong> — the SI 2019 dimensionless calibration (7 anchors, ratio rules)</td><td>The dimensionless discipline: every bridge quantity is a declared ratio Q/Q<sub>ref</sub> with a unit vector. Forces unit declarations for m₀, m₂ before any physical number can be read off.</td><td>No numbers by itself.</td></tr>
+<tr><td><strong>CHIRAL-ANCHOR-01</strong> — the 21&nbsp;cm H&nbsp;I hyperfine line (ν = 1420.405751768&nbsp;MHz)</td><td>The scale: ν₂₁, λ₂₁, E₂₁, A₁₀ convert any rate/energy dial to SI; fixes the absolute Z-scale once one dial is identified.</td><td>Handedness — a frequency standard is a scalar.</td></tr>
+<tr><td><strong>CHIRAL-ANCHOR-02</strong> — sector occupancy (Re·Im &lt; 0 is ours)</td><td>The sign branch: the dials determine m₀², (m₀m₂)² — magnitudes. Occupancy (+ ε-pattern) selects which of ±√ is physical.</td><td>A derivation of the occupancy (forbidden by 0.III.T1); it is asserted physical content.</td></tr>
+</table>
+<p>This makes the ledger's standing point operational: <em>magnitude-only anchors leave ±α degenerate</em> — the 21&nbsp;cm anchor gives |·|, the sector occupancy gives σ.</p>
+</div>
+
+<h2 id="dials">The dials (proved closed forms)</h2>
+<div class="about">
+<p>Setup: E<sub>t</sub> = Π<sub>E</sub> + F(Z), Z real 368×556 pure B↔O flip, ε-odd; O<sub>d</sub> = Π₂ + F(γ), γ any real 368×556; M<sub>e</sub> = diag(m₀I₃₆₈, m₂I₅₅₆, M<sub>rest</sub>). All three closed forms are <span class="tag proved">PROVED</span> by exact block algebra (runs 30–31), conditional on the established witnesses/flip theorem/𝔟 content:</p>
+<ul>
+<li><strong>D₈</strong> := Tr(E<sub>t</sub>Π₀E<sub>t</sub>O<sub>d</sub>E<sub>t</sub>Π₀E<sub>t</sub>O<sub>d</sub>) = ‖Z<sup>T</sup>Z‖<sup>2</sup><sub>F</sub> — <strong>blind to γ</strong> (T1).</li>
+<li><strong>D<sub>W</sub></strong> := Tr(E<sub>t</sub>M<sub>e</sub>E<sub>t</sub>O<sub>d</sub>E<sub>t</sub>M<sub>e</sub>E<sub>t</sub>O<sub>d</sub>) = 2m₀m₂·C + m₀²·D₈ — <strong>sees γ</strong> (T3), C := Tr(ZZ<sup>T</sup>γZ<sup>T</sup>Zγ<sup>T</sup>) ≥ 0.</li>
+<li><strong>D<sub>B</sub></strong> := Tr(E<sub>t</sub>M<sub>e</sub><sup>−1</sup>E<sub>t</sub>O<sub>d</sub>E<sub>t</sub>M<sub>e</sub><sup>−1</sup>E<sub>t</sub>O<sub>d</sub>) = 2(m₀m₂)<sup>−1</sup>·C + m₀<sup>−2</sup>·D₈ — <strong>sees γ</strong> (T4).</li>
+</ul>
+<p><strong>Why this calibrates a missing input:</strong> the m₀/m₂ decoupling theorem (omnibus Q4) <span class="tag proved">PROVES</span> the [M<sub>e</sub>,M<sub>ε</sub>] commutator is independent of m₀,m₂ for all real m₀,m₂ — so no commutator measurement can ever select them. The dials <em>do</em> see m₀,m₂. The dial ratios are therefore the selecting observables: "m₀/m₂ unselected" becomes a measurement problem, not a free choice.</p>
+</div>
+
+<h2 id="ledger">Prediction ledger</h2>
+
+<div class="pred" id="CAL-P1">
+<h3>CAL-P1 — Dial consistency inequality <span class="tag open">OPEN</span></h3>
+<p><em>Added 2026-09-28.</em></p>
+<dl>
+<dt>Prediction</dt>
+<dd>With r<sub>W</sub> := D<sub>W</sub>/D₈, r<sub>B</sub> := D<sub>B</sub>/D₈, R := C/D₈ ≥ 0:<br>
+<code>r_W = m₀² + 2m₀m₂·R ≥ m₀²</code>, <code>r_B = m₀⁻² + 2(m₀m₂)⁻¹·R ≥ m₀⁻²</code>.<br>
+<strong>Bare (R = 0):</strong> <code>m₀² = D_W/D₈</code> exactly, and <code>D_W·D_B = D₈²</code> exactly.<br>
+<strong>Dressed:</strong> <code>D_W·D_B ≥ D₈²</code>, equality iff R = 0.<br>
+<strong>Cross-ratio (exact, dressed):</strong> <code>(D_W − m₀²D₈)/(D_B − m₀⁻²D₈) = (m₀m₂)²</code>.<br>
+The Z-scale cancels in every ratio — m₀ and m₀m₂ calibrate independently of Z.</dd>
+<dt>Derivation</dt>
+<dd><span class="tag proved">PROVED</span> T1/T3/T4 (exact block algebra, runs 30–31). Verified on run-31 <span class="tag checked">CHECKED</span> numbers (m₀=2, m₂=5): dressed draw gives D<sub>W</sub>·D<sub>B</sub> = 3523 ≥ 2401 = D₈²; cross-ratio = 100.0 = (m₀m₂)²; bare draw gives D<sub>W</sub>·D<sub>B</sub> = 2401 = D₈² exactly, D<sub>W</sub>/D₈ = 4.0 = m₀², D<sub>B</sub>/D₈ = 0.25 = m₀⁻².</dd>
+<dt>Constrains</dt>
+<dd>Whether the E<sub>t</sub>/O<sub>d</sub> candidate block model can describe physical dials at all; secondarily whether physical γ-content (R &gt; 0) is present (strict inequality) or absent (equality).</dd>
+<dt>Needs</dt>
+<dd>Physical E<sub>k</sub> and Oprop witnesses with the established block shapes (both <span class="tag incomplete">OPEN</span>), plus the dial↔observable identifications (open slots below).</dd>
+<dt>Falsification</dt>
+<dd>Measured dials violating <code>D_W·D_B ≥ D₈²</code> kill the candidate block framework itself — not just parameter values. A strict, stable inequality confirms γ-content; stable equality confirms the bare reading.</dd>
+<dt>Scope notes</dt>
+<dd>Conditional on the E<sub>t</sub>/O<sub>d</sub> candidate models; m₀=2, m₂=5 are archived reference values, not physical selections; g, position↔k, ε-pattern adopted/<span class="tag asserted">ASSERTED</span>.</dd>
+</dl>
+</div>
+
+<h2 id="open-slots">Open slots (physical content required)</h2>
+<div class="about">
+<p>Per the Anti-Fabrication Rule these are not filled by derivation — they are choices/inputs for the physicist:</p>
+<ol>
+<li><strong>Dial↔observable identifications</strong> for D₈, D<sub>W</sub>, D<sub>B</sub> — which measured quantities each dial corresponds to.</li>
+<li><strong>Unit declarations</strong> for m₀, m₂ (e.g. masses → {kg:1}), per the SI-DIMLESS-01 ratio rules.</li>
+<li><strong>Bare vs dressed:</strong> is physical γ-content (R &gt; 0) present? The inequality D<sub>W</sub>·D<sub>B</sub> ≥ D₈² tests this once dials are measured.</li>
+<li><strong>Falsification conditions</strong> for the calibration as a whole.</li>
+</ol>
+<p>Honest caveat: the calibration is a loaded instrument with no target yet — physical E<sub>k</sub> and Oprop matrices remain <span class="tag incomplete">OPEN</span>, so every prediction above is conditional on witnesses with the established block shapes.</p>
+</div>
+
+<p>← <a href="./">Back to Active Research</a></p>
+
+<footer>
+<p>R Theory — Calibration Predictions. Status discipline: proved / checked / asserted / incomplete / refuted for claims; open / confirmed / falsified for predictions — nothing rounded up or down.</p>
+<p>Christopher Cosby · <a href="https://orcid.org/0009-0003-5392-2359">ORCID 0009-0003-5392-2359</a></p>
+</footer>
+</body>
+</html>
