@@ -1,0 +1,413 @@
+<h2 id="P-8">P-8. Reproducibility index</h2>
+<p>Every CHECKED claim in this appendix is an executable claim: the script below is the derivation,
+and the run log (or result artifact) next to it is the record of its last completed run.
+Only scripts actually present on disk are listed. "Log not found" means no adjacent run record was
+found — never that the script passed.</p>
+
+<h3>P-8.1 The Casimir modules (Wolfram port)</h3>
+<table>
+<tr><th>Script</th><th>What it establishes</th><th>Claim coverage</th><th>Last known run result</th></tr>
+<tr><td><code>wolfram/b6_weyl_check.py</code></td>
+<td>Exact rational-arithmetic re-derivation of the D8 Weyl dimensions
+dim V(ω₈)=128, V(ω₄)=1820, V(2ω₈)=6435 and Casimir values 30/48/64
+(grounds PROOFS_Casimir.md K-7/K-9)</td>
+<td>P-1 (Weyl dims, K-7/K-9)</td>
+<td>Log not found. theorem_ledger.md records a completed exit-0 run.</td></tr>
+<tr><td><code>wolfram/verify_independent.py</code></td>
+<td>From-definitions verification of the corrected Casimir pipeline:
+Clifford violation 0.0 on all 120 generators; so(16) relations on all
+7,140 pairs; original Module-6 break (10 diagonal cases, violation exactly
+1.0); corrected C′ entry-by-entry cross-check against the literal operator;
+full 8,256-dim spectrum {0:1, 48:1820, 64:6435} (max dev 3.7e-13)</td>
+<td>P-1 (Casimir spectrum, Module-6 break)</td>
+<td>Log not found. theorem_ledger.md records a completed exit-0 run.</td></tr>
+<tr><td><code>wolfram/diag_casimir.py</code></td>
+<td>Diagnostics for the Casimir anomaly: S₊ invariance under all
+ΓᵢΓⱼ, so(16) commutators on all generator pairs, exhibit of the
+unguarded-diagonal break (violation 1.0 on the 10 diagonal cases)</td>
+<td>P-1 / P-4 (background diagnostics)</td>
+<td>Log not found.</td></tr>
+<tr><td><code>wolfram/b2_projector_check.py</code></td>
+<td>B-2: Lagrange projector identities on the corrected Casimir C′ —
+idempotence, orthogonality, completeness on ≥8 random symmetric matrices
+(accept &lt; 1e-6 relative)</td>
+<td>P-4 (M11′ Lagrange projectors)</td>
+<td>Log exists (<code>b2_projector_check.log</code>): all residuals ≤ 3.6e-16 —
+but the script's own verdict line reads False because it wrongly includes the
+||M|| row in the &lt;1e-6 comparison (verdict-line bug, not a math failure).</td></tr>
+<tr><td><code>wolfram/b5_reality_check.py</code></td>
+<td>B-5: reality of the 128 half-spin — Frobenius–Schur indicator via the
+invariant bilinear form; explicit real orthonormal basis and real
+antisymmetric generators; Module-8 consequence check (manuscript R(M)
+vs corrected C′)</td>
+<td>P-4 (M8′ consequence; reality of the 128)</td>
+<td><code>b5_reality_check.log</code> empty (0 bytes); run-2 log shows a
+superseded dimension-mismatch crash; run-3 log (<code>b5_reality_check_run3.log</code>):
+"REAL (symmetric invariant bilinear form)", indicator +1, "B-5 COMPLETE".</td></tr>
+<tr><td><code>wolfram/b1_module12_image_check.py</code></td>
+<td>B-1: per-form C′(v) = 48v residuals over all 1820 four-forms under the
+corrected Casimir (tests the naive Module-12 image claim)</td>
+<td>P-4 (naive Module-12 image claim)</td>
+<td><code>b1_module12_run.log</code> is a partial, superseded run (checkpoint
+128/1820 forms). Final merged records: <code>b1_module12_result.json</code>
+(max entrywise residual 16.0) and <code>m12a_classify.json</code>
+(896 sym-zero / 140 pure-48 / 784 pure-64 / 0 mixed) — the naive claim REFUTED.</td></tr>
+<tr><td><code>wolfram/b1_spotcheck.py</code></td>
+<td>B-1 spot-check: attributes the worst forms' eigenspace content
+(pure-64 vs mixed); cross-checks the parallel workers' residual numbers
+by independent recomputation</td>
+<td>P-4 (naive Module-12 classification)</td>
+<td>Log not found (the parallel campaign's slice logs sit next to
+<code>b1_cprime_worker.py</code>).</td></tr>
+<tr><td><code>wolfram/test_casimir2.py</code></td>
+<td>Corrected congruence Casimir C′(M) = −Σₐ(Aₐ²M + 2AₐMAₐᵀ + M(Aₐᵀ)²):
+eigenvalue check for {0:1, 48:1820, 64:6435}</td>
+<td>P-1 (corrected Casimir spectrum, numeric)</td>
+<td><code>casimir2b.log</code>: {0.0: 1, 48.0: 1820, 64.0: 6435}
+(eig max 64.00000000000173). Older <code>casimir2.log</code> shows a
+superseded iteration {0:1, 48:1820, 64:6307, 128:128}.</td></tr>
+<tr><td><code>wolfram/run_modules.py</code></td>
+<td>Faithful NumPy port of the manuscript's 12 Wolfram modules (Module 1
+with the s3→I fix); records which as-encoded claims fail</td>
+<td>P-4 (background: why the original encodings failed)</td>
+<td><code>run_fixed.log</code>: "ALL MODULES DONE" — M1 CliffordOK=true;
+M12 ImageInP1820=false, max_sampleVerify=21.0 (original Module 12 not
+established). <code>run.log</code> is a truncated earlier run.</td></tr>
+<tr><td><code>wolfram/b1_cprime_worker.py</code></td>
+<td>B-1 parallel worker: applies corrected C′ to a slice of the 1820
+forms; writes per-form entrywise-max and Frobenius residuals of C′(v)−48v</td>
+<td>P-4 (naive Module-12 residual campaign)</td>
+<td>Campaign slice logs: <code>b1_slice0.log</code> shows a worker completing
+("worker done: max residual = 1.600e+01"); merged results in
+<code>b1_module12_result.json</code> / <code>m12a_classify.json</code>.</td></tr>
+</table>
+
+<h3>P-8.2 Book verification scripts (one numbered check per checkable claim)</h3>
+<table>
+<tr><th>Script</th><th>What it establishes</th><th>Claim coverage</th><th>Last known run result</th></tr>
+<tr><td><code>r-theory-rewrite/validation/book0/verify_book0.py</code></td>
+<td>Every checkable claim on book0/index.html (CP checked-proof, NC
+numerical, ST standard-imported scope tags); exits 0 only if all pass</td>
+<td>P-7 (Book 0 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book1/verify_book1.py</code></td>
+<td>Every checkable claim on book1/index.html; CP/NC/ST tags; exit 0 only
+if all pass</td>
+<td>P-7 (Book 1 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book2/verify_book2.py</code></td>
+<td>Every checkable claim on book2/index.html; CP/NC/ST tags; exit 0 only
+if all pass (page: 116/12/1 + V1–V40)</td>
+<td>P-7 (Book 2 audit-claim checks; L9 nonconstancy in P-6)</td>
+<td>Scanner log (2026-09-21): scope labels in the script match the page's
+116/12/1 + V1–V40 counts. No adjacent .log.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book3/verify_book3.py</code></td>
+<td>Every checkable claim on book3/index.html; CP/NC tags; exit 0 only
+if all pass</td>
+<td>P-7 (Book 3 audit-claim checks)</td>
+<td>Scanner log (2026-09-22): 67 checks pass (22 CP + 45 NC). No adjacent .log.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book4/verify_book4.py</code></td>
+<td>Every checkable claim on book4/index.html; CP/SC/NC/ST tags; exit 0
+only if all pass</td>
+<td>P-7 (Book 4 audit-claim checks)</td>
+<td>Scanner log (2026-09-23): 29/29 pass (18 CP / 6 CS / 5 NC), worst
+measured error 2.84e-14. No adjacent .log.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book5/verify_book5.py</code></td>
+<td>Every checkable claim on book5/index.html; CP/NC/ST tags (Axiom Zero
+stays AX, manuscript assertions are not checked); exit 0 only if all pass</td>
+<td>P-7 (Book 5 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book6/verify_book6.py</code></td>
+<td>Every checkable claim on book6/index.html; CP/NC/ST tags; exit 0 only
+if all pass</td>
+<td>P-7 (Book 6 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book7/verify_book7.py</code></td>
+<td>Every checkable claim on book7/index.html (V1..V88, V4 split:
+89 assertions); CP/SC/NC/ST tags; exit 0 only if all pass; full run ~4 s</td>
+<td>P-7 (Book 7 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book8/verify_book8.py</code></td>
+<td>Every checkable claim on book8/index.html; CP/SC/NC tags; exit 0 only
+if all pass</td>
+<td>P-7 (Book 8 audit-claim checks)</td>
+<td>Fresh exit-0 run verified 2026-09-28: 42 check() executions,
+scope counts CP=45 SC=5 NC=22 (=72), worst NC error 5.315e-08. No adjacent .log.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book9/verify_book9.py</code></td>
+<td>Every checkable claim on book9/index.html; CP/NC/SC/ST tags (the
+§9.6 Poisson-recovery claims stay manuscript assertions); exit 0 only if
+all pass</td>
+<td>P-7 (Book 9 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book10/verify_book10.py</code></td>
+<td>Every checkable claim on book10/index.html; CP/SC/NC/ST/MA tags
+(dependency verdicts rest on the Volume I ledger, citation accuracy
+machine-checked); exit 0 only if all pass</td>
+<td>P-7 (Book 10 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book11/verify_book11.py</code></td>
+<td>Every checkable claim on book11/index.html; CP/SC/NC/ST/MA tags;
+exit 0 only if all pass</td>
+<td>P-7 (Book 11 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book12/verify_book12.py</code></td>
+<td>Every checkable claim on book12/index.html; CP/SC/NC tags (page
+ST/MA/AX/IC/IN verdicts not re-checked); exit 0 only if all pass</td>
+<td>P-7 (Book 12 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book13/verify_book13.py</code></td>
+<td>Every checkable claim on book13/index.html; CP/SC/NC/ST tags; exit 0
+only if all pass</td>
+<td>P-7 (Book 13 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book14/verify_book14.py</code></td>
+<td>Every checkable claim on book14/index.html; CP/NC/ST tags; exit 0 only
+if all pass</td>
+<td>P-7 (Book 14 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book15/verify_book15.py</code></td>
+<td>Every checkable claim on book15/index.html; CP/SC/NC/ST/MA tags; exit
+0 only if all pass</td>
+<td>P-7 (Book 15 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book16/verify_book16.py</code></td>
+<td>Every checkable claim on book16/index.html; CP/SC/NC/ST tags (MA/IC
+items re-verified where a self-contained model exists: V17, V35, V36,
+V40); exit 0 only if all pass</td>
+<td>P-7 (Book 16 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book17/verify_book17.py</code></td>
+<td>Every checkable claim on book17/index.html; CP/SC/NC tags; exit 0 only
+if all pass</td>
+<td>P-7 (Book 17 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book18/verify_book18.py</code></td>
+<td>Every checkable claim on book18/index.html; CP/NC/ST tags (the IC
+exhibits re-verify the key arithmetic behind the chunk-4 findings); exit
+0 only if all pass</td>
+<td>P-7 (Book 18 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book19/verify_book19.py</code></td>
+<td>Every checkable claim on book19/index.html; CP/SC/NC/ST tags (exact
+text match against the v1 source file for the text exhibits); exit 0 only
+if all pass</td>
+<td>P-7 (Book 19 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/vol4/verify_vol4.py</code></td>
+<td>Structural/data assertions for the Volume IV overview page: referenced
+pages exist, links resolve, chunk totals add to 407, IC-1..IC-18 all
+appear, v1 authority stated, open-issue chain complete</td>
+<td>vol4 overview page (structural; not an appendix P-section)</td>
+<td>Log not found.</td></tr>
+</table>
+
+<h3>P-8.3 The 1820 campaign, dial, and gate scripts</h3>
+<table>
+<tr><th>Script</th><th>What it establishes</th><th>Claim coverage</th><th>Last known run result</th></tr>
+<tr><td><code>goals/r-theory-volume-i-audit/hidden_files/io_word_sweep/bilinear_odd_intersection.py</code></td>
+<td>Constructs the real bilinear-odd space 𝔟 (runs 6/12/15): T-epsodd
+{M_ε,X̃}=0, X̃ᵀ=−X̃; saves <code>bilinear_odd_B_cross.npy</code> (24×368×556)</td>
+<td>P-2 (conditional collapse, 𝔟 construction)</td>
+<td><code>bilinear_odd_intersection_run.log</code>: 19/19 PASS (371 s).</td></tr>
+<tr><td><code>…/io_word_sweep/f02_exact_proof.py</code></td>
+<td>f₀₂ = 47/182 exactly; Gram diag = 188, off-diag = 0; phase selection
+⟨d_pq, o_rs⟩ = 0</td>
+<td>P-2 (f₀₂ exact proof)</td>
+<td><code>f02_exact_proof_run.log</code>: 13/13 PASS (max rel dev 4.54e-16).</td></tr>
+<tr><td><code>…/io_word_sweep/pairing_proof.py</code></td>
+<td>ρ(g) pairing structure T1a–T4 (T1a h=g² block-diag, T3
+ρ(g)²=∓I on Range(Π₀)/Range(Π₂)); dim_R(𝔟) ≤ 12 proved as an upper
+bound — run-12 SVD CHECKED = 12, so the bound is tight</td>
+<td>P-2 (conditional collapse)</td>
+<td><code>pairing_proof_run.log</code>: all PASS, all_pass=True (28.7 s).</td></tr>
+<tr><td><code>…/io_word_sweep/cross_phase_proof.py</code></td>
+<td>Closes the last CHECKED-not-proved gap in the 𝔟 mode structure:
+the uniform +94i cross-phase of the per-plane-pair Q2 blocks
+(Q₂+Q₆ = 188·I₁₂)</td>
+<td>P-2 (cross-phase)</td><td>Log not found.</td></tr>
+<tr><td><code>…/io_word_sweep/q1_752_proof.py</code></td>
+<td>Omnibus Q1: ‖[B,M_ε]‖²_F = 752 = 4·188 on all 12 𝔟 reps; commutator
+Gram 752·I₁₂; spectrum {752×12}</td>
+<td>P-2 (752 identity)</td>
+<td><code>q1_752_run.log</code>: 17/17 PASS, EXIT=0;
+wrote <code>q1_752_results.json</code>.</td></tr>
+<tr><td><code>…/io_word_sweep/q2_commutant_slots.py</code></td>
+<td>Omnibus Q2: M_ε commutant — the (0,2)/(2,0) pure Π₀↔Π₂ flip slot is
+{0}; full commutant M₈₁₆(ℂ)⊕M₁₀₀₄(ℂ); all four real transfer slots {0};
+tripwire ‖[M_e,M_ε]‖_F ≈ 0</td>
+<td>P-2 (M_ε commutant)</td>
+<td><code>q2_run.log</code>: all PASS; wrote
+<code>q2_commutant_results.json</code> (4.4 s).</td></tr>
+<tr><td><code>…/io_word_sweep/q3_census.py</code></td>
+<td>Omnibus Q3: selection census — every established operator tabulated
+against 𝔟; complete negative (none selects a vector or proper subspace
+of the real 12-dim space)</td>
+<td>P-2 (selection census)</td>
+<td>Log not found; <code>q3_census_results.json</code> exists.</td></tr>
+<tr><td><code>…/io_word_sweep/q3_census_followup.py</code></td>
+<td>Resolves the two FAILs from q3_census.py (F1: σ̃=[·,M_ε]/2 not
+preserving 𝔟 — image transverse to 𝔟; F2: Re(C3XC3) not in 𝔟)</td>
+<td>P-2 (selection census, follow-up)</td><td>Log not found.</td></tr>
+<tr><td><code>…/io_word_sweep/q4_m0m2.py</code></td>
+<td>Omnibus Q4: m₀/m₂ decoupling — [M_e,M_ε] = i·[M_rest,K] for ALL real
+m₀,m₂ (masses absent from the commutator), validated by exact-algebra
+proof-mechanism toys</td>
+<td>P-2 (m₀/m₂ decoupling)</td>
+<td><code>q4_m0m2_run.log</code>: 11/11 PASS.</td></tr>
+<tr><td><code>…/io_word_sweep/n1820_cycle_probe.py</code></td>
+<td>Run 25: falsification of manuscript §19.4's N_1820 8-cycle —
+EBEOEBEO = 0 exactly (‖·‖_F = 1.99e-61), 24/24 checks, robust under any
+letter↔projector bijection; full 87,380-word cyclic classification
+(85,866 exactly zero, 32 nonzero classes with only sector-dimension /
+rest-spectrum content)</td>
+<td>P-5 (run-25 refutation)</td>
+<td>Log not found; <code>n1820_cycle_probe_results.json</code> exists
+(+ write-up <code>N1820_CYCLE_PROBE.md</code>).</td></tr>
+<tr><td><code>…/io_word_sweep/epsodd_8cycle_dial.py</code></td>
+<td>Runs 30–31 dial block-algebra CHECKED: T7 eps-odd-E + M_e⁻¹ + flip-O
+8-cycle ≠ 0 (3 draws); T8 W4 skeleton with eps-odd E ≠ 0 (3 draws);
+16/16 tripwires</td>
+<td>P-3 (dial theorems)</td>
+<td><code>epsodd_8cycle_dial_run.log</code>: 16/16 PASS (1351.8 s).</td></tr>
+<tr><td><code>…/io_word_sweep/diag_direct.py</code></td>
+<td>Dict-level diagnostics: commutator vs diagonal M_ε in the u-basis
+(M_ε = diag(σ_wch) exactly — no sparse matrix needed)</td>
+<td>P-2 (run-21 commutant diagnostics)</td><td>Log not found.</td></tr>
+<tr><td><code>…/io_word_sweep/diag_comm2.py</code></td>
+<td>Commutant diagnostics for run 21</td>
+<td>P-2 (run-21 commutant diagnostics)</td>
+<td><code>diag_comm2.log</code> exists but is empty (0 lines).</td></tr>
+<tr><td><code>…/io_word_sweep/diag_comm3.py</code></td>
+<td>Block-structured diagnostic of the run-21 K2 claim on the archived
+real basis: [X̃,M_ε] = −2X̃ EXACTLY for real pure flips — kernel inside
+real 𝔟 is {0}</td>
+<td>P-2 (run-21 kernel withdrawal)</td><td>Log not found.</td></tr>
+<tr><td><code>…/io_word_sweep/diag_reality.py</code></td>
+<td>Reality diagnostics: w₂/w₆ weight structure, σ-pattern checks</td>
+<td>P-2 (reality theorem diagnostics)</td><td>Log not found.</td></tr>
+<tr><td><code>…/io_word_sweep/diag_rerun21.py</code></td>
+<td>Run-21 rerun diagnostics: d/o rep sizes and norm²=752 entries</td>
+<td>P-2 (run-21 diagnostics)</td>
+<td><code>diag_rerun21.log</code>: EXIT=0; d_norm2 all 752.0000.</td></tr>
+<tr><td><code>…/io_word_sweep/diag_sigma.py</code></td>
+<td>Dict-level check: max |σ_ri−σ_ci|·|v| for o01/d01 u-basis reps;
+whether o01's entries sit on σ-constant positions</td>
+<td>P-2 (σ-pattern diagnostics)</td><td>Log not found.</td></tr>
+<tr><td><code>…/io_word_sweep/sf_w4_conditionals.py</code></td>
+<td>W4 (C2a) discharged: deferred skeleton substitution = 0 on
+established witnesses (|Tr| = 4.26e-30); ΠB M_e ΠB = 2ΠB, ΠO M_e ΠO = 5ΠO;
+archived 16×16 P_54 basis fixes T̃ and (6/5)T̃; ‖(6/5)T̃‖² = 18/5</td>
+<td>P-2 (W4 (C2a) discharged)</td>
+<td><code>sf_w4_conditionals_run.log</code>: 26/26 PASS, EXIT=0 (179 s).</td></tr>
+<tr><td><code>…/io_word_sweep/saw_transfer_c1.py</code></td>
+<td>Saw-transfer C1 sanity/attainability checks (background to the
+saw firewall FW-T12)</td>
+<td>P-2 (saw firewall)</td>
+<td><code>saw_transfer_c1_run2.log</code>: T1 120/120 generator
+conjugations match the analytic sign prediction; T2/T3/F1 tripwires all
+~1e-16; DONE in 1269 s.</td></tr>
+<tr><td><code>…/io_word_sweep/q5_c1_gate.py</code></td>
+<td>Q5 gate audit for the W4 condition (C1) "E, M_e, Oprop exist as
+1820×1820 matrices": does NOT execute (C1) — audits whether its required
+inputs exist (PRESENT / ABSENT / PARTIAL per input)</td>
+<td>P-open (S_F gate C1 missing-input inventory)</td>
+<td>Log not found; <code>q5_c1_gate_results.json</code>: E_k ABSENT,
+Oprop 1820×1820 matrix ABSENT (only the 12-dim candidate-space basis),
+M_e reference PARTIAL.</td></tr>
+<tr><td><code>…/io_word_sweep/q6_120_probe.py</code></td>
+<td>Q6: Tier-1 "120" Z₂-sector location probe — which indices/subspace of
+the 1820 constitute the "120" block of M_e</td>
+<td>P-2 (Z₂-sector anatomy)</td><td>Log not found.</td></tr>
+<tr><td><code>…/io_word_sweep/meps_120_channel.py</code></td>
+<td>M_ε 120-channel probes: H-orbit constancy spot checks (rot8/mixed
+channel pairs), annihilation patterns</td>
+<td>P-2 (M_ε channel probes)</td>
+<td><code>meps_120_channel_run.log</code>: DONE, EXIT=0.</td></tr>
+<tr><td><code>…/io_word_sweep/run28_cos_utility_sweep.py</code></td>
+<td>Run 28: cos-utility sweep (sign-content lifts A2e–A2g; operator avenue
+word-matrix rank; angle-2 no-go re-examination)</td>
+<td>P-3 (dial-adjacent sweep)</td>
+<td><code>run28_stdout.log</code>: 11/11 PASS, EXIT:0 (37.3 s);
+"angle-2 no-go stands".</td></tr>
+</table>
+
+<p class="prov">Provenance: scripts enumerated by direct disk listing of
+<code>~/workspace/wolfram/</code>, <code>~/workspace/r-theory-rewrite/validation/</code>,
+and <code>~/workspace/goals/r-theory-volume-i-audit/hidden_files/io_word_sweep/</code>
+(2026-09-28); run results from adjacent <code>.log</code> files and result JSONs
+as cited per row; scanner confirmations from
+<code>~/workspace/r-theory-rewrite/scanner/scan.log</code>; analytic-proof
+references from <code>~/workspace/wolfram/theorem_ledger.md</code> and
+<code>~/workspace/r-theory-rewrite/research/book23_feasibility.md</code> §1, §4(a).
+Per-book figure/HTML check scripts (<code>make_graphs.py</code>,
+<code>test_embeds.py</code>) are out of scope for this table; exploratory
+sweep scripts without direct claim coverage were also omitted.</p>
+
+<h2 id="P-open">What remains open</h2>
+<p><strong>This section is explicitly open. Nothing below is a chapter; no item
+is presented as closed.</strong></p>
+
+<h3>Physical witnesses</h3>
+<p><span class="tag IN">incomplete or failed computation</span>
+<strong>Physical Oprop / E_k witnesses: OPEN.</strong> Every conditional theorem
+of the 1820 campaign and every calibration prediction (CAL-P1..P5) is conditional
+on physical E_k and Oprop matrices with the established block shapes. They have
+not been identified; the instrument is calibrated, the target is absent.</p>
+
+<h3>The 29 GATEs (GATE-8..GATE-36)</h3>
+<p><span class="tag IN">incomplete or failed computation</span>
+The full list of 29 open gates, each with a precise crossing criterion, is kept
+at <code>research/index.html</code> §7 ("Open gates — the research to-do
+ledger"). In brief: GATE-8/9 (biquadratic components, urx–uxp rational
+parametrization); GATE-10–16 (ℓs/ℓc faithfulness, phase circle, eighth-turn
+realization, D₄ Lorentz lift, chart-transition group, antipode, seam limits);
+GATE-17–25 (periodic-point census, 2-adic completion, centralizer,
+transfer-chart iteration, spinor lift, seam/doubling/Möbius polar laws,
+S1-polar classification); GATE-26–32 (spinor-polar formulas, seam-polar lift,
+radial-flow time, total-scale dynamics, Riccati–radial equivalence,
+relative-scale sectors, p-branch section); GATE-33 (explicit Dirac-type
+operator — or a no-go theorem, which also crosses); GATE-34 (the missing
+channel-spinor definiens for S = −iγ¹ as a falsifiable conjecture);
+GATE-35/36 (E₈ centralizer, A₇ branching of the 30380). These belong to the
+S1/doubling/polar domain of Books 1–2. The proving-ground gates —
+Λ²(16)↪1820 branching (CP-EBO) and S_F — stay in research/ as open gates too.</p>
+
+<h3>N_1820</h3>
+<p><span class="tag IN">incomplete or failed computation</span>
+<strong>N_1820: OPEN.</strong> Its 8-cycle is dead (<a href="#P-5-run25">P-5</a>:
+EBEOEBEO = 0 exactly, ‖·‖_F = 1.99e-61, 24/24 checks; full 87,380-word cyclic
+classification: 85,866 exactly zero, 32 nonzero classes with only
+sector-dimension / rest-spectrum content). N_1820 itself is unresolved.</p>
+
+<h3>m₀/m₂ selection</h3>
+<p><span class="tag IN">incomplete or failed computation</span>
+<strong>OPEN.</strong> The decoupling theorem PROVES [M_e,M_ε] = i·[M_rest,K]
+for ALL real m₀,m₂ — no commutator measurement can ever select them.
+Dial identification (the D₈/D_W/D_B ratios) is the path, and it is
+unidentified.</p>
+
+<h3>S_F gate (C1)</h3>
+<p><span class="tag IN">incomplete or failed computation</span>
+<strong>INCOMPLETE.</strong> The (C1) condition "E, M_e, Oprop exist as
+1820×1820 matrices" cannot execute: the Q5 audit found E_k ABSENT,
+Oprop 1820×1820 matrix ABSENT (only the 12-dim candidate-space basis
+<code>bilinear_odd_B_cross.npy</code> exists), the M_e reference only PARTIAL;
+the 128-dim gammas and C^t_2222 / F_C8 are absent.</p>
+
+<h3>Axiom One, sector occupancy, m₀=2, m₂=5</h3>
+<p><span class="tag AX">assumption or axiom</span>
+ASSERTED or reference, labeled, never chapters. <strong>Axiom One</strong>
+(Kit, 2026-09-28): the rest-energy / minimum-volume reference — mc² as the
+unit of the srx/sxp/cxp/crx system, V_min as the conjugate unit; the numerical
+mc² / V_min are undeclared (system scope is the physicist's call).
+<strong>CHIRAL-ANCHOR-02</strong> sector occupancy (Re·Im &lt; 0 is ours):
+ASSERTED physical content, forbidden to derive by 0.III.T1.
+<strong>m₀=2, m₂=5</strong>: archived reference values, ASSERTED-reference —
+a placeholder, not a physical selection.</p>
+
+<h3>CAL-P1..P5</h3>
+<p><span class="tag IN">incomplete or failed computation</span>
+<strong>OPEN predictions.</strong> Dial consistency inequality, commutator-norm
+752 selection, mode-block 188 sum, sector-dimension lock 368/556/896, ε-odd
+dial nonvanishing — each an exact consequence of PROVED theorems, conditional
+on physical witnesses. None is confirmed. (CAL-P6 is CONFIRMED by proof —
+exact support algebra — and is listed for the boundary, not as a prediction.)</p>
+
+<h3>Machine-mirror coverage</h3>
+<p><span class="tag IN">incomplete or failed computation</span>
+The research status registry (<code>status_registry.json</code> / theorem
+ledgers) holds structured verdicts for Books 2–6 only (86 claims).
+<strong>Book-1 and Volume-II claims are not yet in the machine mirror at all.</strong>
+Until the coverage is extended, this appendix stays scoped to Books 2–6 plus
+the new campaign.</p>
+
+<p class="prov">Provenance: this section grounds in
+<code>research/book23_feasibility.md</code> §3 (honest gaps) and §4(c),
+<code>research/calibration.html</code> (anchors, Axiom One, CAL-P1..P6, open
+slots, dimensionless inventory), <code>research/index.html</code> §7 (the 29
+GATEs), and the Q5 gate-audit record
+(<code>q5_c1_gate_results.json</code>). Nothing here is rounded up.</p>

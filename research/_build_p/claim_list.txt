@@ -1,0 +1,87 @@
+b2: 46 rest: 40
+b6-modules-25-numpy-scipy-001 | NC | CHECKED | M2: 16 gamma matrices, each 256×256.
+b6-modules-25-numpy-scipy-002 | NC | CHECKED | M4: chirality ranks 128, 128; P orthonormality error 0.0.
+b6-modules-25-numpy-scipy-003 | NC | CHECKED | M5: ChargeConjugationOK=true.
+b6-modules-712-casimir-decomposition-001 | NC | CHECKED | M7: symmetric basis size 8256 = expected 8256.
+b6-corrected-casimir-c-m-001 | IC | INVALID | First run returned {0:1, 48:1820, 64:6307, 128:128} —
+b6-corrected-module-6-construction-001 | NC | CHECKED | Generators are anti-Hermitian: max |A + A†| = 0.0 (
+b2-book-2-algebraic-spine-001 | NC | CHECKED | srx·sxp = 1
+b2-book-2-algebraic-spine-002 | NC | CHECKED | cxp·crx = 1
+b2-book-2-algebraic-spine-003 | NC | CHECKED | urx+uxp = 4/sin(2x)
+b2-book-2-algebraic-spine-004 | NC | CHECKED | FlatWave = 1/urx+1/uxp = sgn(sin 2x)
+b2-book-2-algebraic-spine-005 | NC | CHECKED | cxp = (z+ε)/(εz−1), z=srx, ε=sgn(z−1)
+b2-book-2-algebraic-spine-006 | NC | CHECKED | Zcar = 2V+i·4H = e^{2ix}
+b2-complementary-swap-algebra-001 | NC | CHECKED | srx(π/2−x)=cxp(x), sxp(π/2−x)=crx(x) (+2 more)
+b2-complementary-swap-algebra-002 | NC | CHECKED | A=srx−sxp=2cot x, B=cxp−crx=2tan x, AB=4
+b2-complementary-swap-algebra-003 | NC | CHECKED | Σ²−Δ²=16
+b2-complementary-swap-algebra-004 | NC | CHECKED | H=1/Σ=sin2x/4, V=Δ/(2Σ)=cos2x/2
+b2-complementary-swap-algebra-005 | NC | CHECKED | Σ′=−ΣΔ/2, Δ′=−Σ²/2
+b2-complementary-swap-algebra-006 | NC | CHECKED | ΨU(Cx)=uxp+i·urx (swap closure)
+b2-complementary-swap-algebra-007 | NC | CHECKED | FlatWave deck-blind: FW(θ+2π)=FW(θ)
+b2-complementary-swap-algebra-008 | NC | CHECKED | FW(θ+π/2)=−FW(θ), FW(θ+π)=FW(θ)
+b3-book-3-mobius-reciprocal-001 | SC | PROVED | Q+(t)=(1+t)/(1−t) satisfies Q+²(t)=−1/t
+b3-book-3-mobius-reciprocal-002 | SC | PROVED | Q+⁴ = id
+b3-book-3-mobius-reciprocal-003 | SC | PROVED | orbit 0→1→∞→−1→0
+b3-book-3-mobius-reciprocal-004 | SC | PROVED | f(u)=√(1+u²)−u has inverse u=(1−s²)/(2s)
+b3-book-3-mobius-reciprocal-005 | SC | PROVED | f(u)·f(−u)=1
+b3-book-3-projective-phase-001 | ST | STANDARD | w1(T RP^n) = (n+1)·an; RP^n orientable iff n odd.
+b5-book-5-axiom-zero-001 | CP | PROVED | 2n = n(n−1)/2 ⟺ n=5 (positive integer):
+b5-book-4-5-spot-001 | SC | PROVED | Iι² = −I₁₀ for Iι(u,v)=(−ι⁻¹v,ιu)
+b4-book-4-5-spot-001 | SC | PROVED | G2⁻¹ = (1/r²)[[4/3,−2/3],[−2/3,4/3]]
+b4-book-4-5-spot-002 | SC | PROVED | G3⁻¹ = (1/r²)[[3/2,−1/2,−1/2],…]
+b4-book-4-5-spot-003 | SC | PROVED | tetrahedral volume = √(det G3) = r³/√2
+b6-book-6-local-symmetry-001 | CP | PROVED | C(n,4)=n has unique integer solution n=5 for n≥4:
+b6-book-6-local-symmetry-002 | NC | CHECKED | Regular-simplex Gram spectrum/determinant (see §5 above):
+b2-riccati-differential-integral-asymptotic-001 | SC | PROVED | T1 envelope srx′=−srx|csc x|, sxp′=+sxp|csc x|:
+b2-riccati-differential-integral-asymptotic-002 | SC | PROVED | T2/T4 autonomous Riccati pairs:
+b2-riccati-differential-integral-asymptotic-003 | CP | PROVED | C1/C2 maximal-domain monotonicity:
+b2-riccati-differential-integral-asymptotic-004 | CP | PROVED | T5 arctan linearization (slopes ∓1/2):
+b2-riccati-differential-integral-asymptotic-005 | CP | PROVED | C3 half-angle recovery:
+b2-riccati-differential-integral-asymptotic-006 | SC | PROVED | T6 logarithmic antiderivatives:
+b2-riccati-differential-integral-asymptotic-007 | NC | CHECKED | C5 half-angle log forms:
+b2-riccati-differential-integral-asymptotic-008 | CP | PROVED | T7/T8 seam asymptotics (2/h, h/2):
+b2-riccati-differential-integral-asymptotic-009 | SC | PROVED | T9/T10 opposite-seam values (1,1) and derivatives ∓1:
+b2-riccati-differential-integral-asymptotic-010 | CP | PROVED | T11 logarithmic divergence / C8:
+b2-riccati-differential-integral-asymptotic-011 | CP | PROVED | T12 Riccati solution branches cot((x−a)/2), tan((x−a)/2):
+b2-riccati-differential-integral-asymptotic-012 | CP | PROVED | T13 differential closure / C10:
+b2-mobius-reduction-one-generator-001 | SC | PROVED | L1/C1 denominator nonvanishing:
+b2-mobius-reduction-one-generator-002 | NC | CHECKED | T1: premise z+w=ε(zw−1)
+b2-mobius-reduction-one-generator-003 | SC | PROVED | T2 involution Mε(Mε(z))=z:
+b2-mobius-reduction-one-generator-004 | SC | PROVED | CL1 projective matrix witness ([[1,ε],[ε,−1]]²=2I):
+b2-mobius-reduction-one-generator-005 | SC | PROVED | T3 branch preservation + dMε/dz=−2/(εz−1)²<0:
+b2-mobius-reduction-one-generator-006 | NC | CHECKED | T4 complementary reflection as Möbius:
+b2-mobius-reduction-one-generator-007 | SC | PROVED | T5 unique positive fixed point z=√2+ε:
+b2-mobius-reduction-one-generator-008 | NC | CHECKED | C5 fixed point = quadrant-midpoint value:
+b2-mobius-reduction-one-generator-009 | NC | CHECKED | T6 ε=sgn(z−1):
+b2-mobius-reduction-one-generator-010 | NC | CHECKED | T7 full reconstruction formulas (urx, uxp, sawr, sawx):
+b2-mobius-reduction-one-generator-011 | CP | PROVED | T8/T9/T10 one-generator necessity+sufficiency:
+b2-mobius-reduction-one-generator-012 | NC | CHECKED | N1 π-periodicity (no half-turn recovery):
+b2-harmonic-carrier-extraction-001 | NC | CHECKED | T11 carrier-from-z formulas (sin 2x, cos 2x rational in z):
+b2-harmonic-carrier-extraction-002 | CP | PROVED | T1–T10, T12–T14, C13/C14:
+b2-complete-named-boundary-atlas-001 | NC | CHECKED | Lemma FlatWave=sawr+sawx (used in T7):
+b2-complete-named-boundary-atlas-002 | NC | CHECKED | T9 unified seam law ((−1)^{k−1},(−1)^k,(−1)^k/2):
+b2-complete-named-boundary-atlas-003 | NC | CHECKED | T10 split Saw endpoint exchange:
+b2-complete-named-boundary-atlas-004 | NC | CHECKED | T11 H=FlatWave·sawr·sawx: premise
+b2-complete-named-boundary-atlas-005 | NC | CHECKED | T12 smooth/cusp/jump hierarchy:
+b2-complete-named-boundary-atlas-006 | CP | PROVED | T13/T14 split-vs-glued, T15/T16 taxonomy:
+b3-projective-transition-maps-on-001 | SC | PROVED | T1 cyclic product uXY·uYZ·uZX=1:
+b3-projective-transition-maps-on-002 | CP | PROVED | T2 two signed ratios complete:
+b3-projective-transition-maps-on-003 | SC | PROVED | T5/C3 four allowed sign triples:
+b3-projective-transition-maps-on-004 | CP | PROVED | T7 reciprocal chart bijection:
+b3-projective-transition-maps-on-005 | SC | PROVED | T8–T10 pairwise transitions:
+b3-projective-transition-maps-on-006 | SC | PROVED | T11 triple-overlap consistency TZX∘TYZ∘TXY=id:
+b3-projective-transition-maps-on-007 | CP | PROVED | T12 reciprocal transition = F-conjugated projective transition:
+b3-projective-transition-maps-on-008 | CP | PROVED | T13 denominator exchange ≠ reciprocal conjugation:
+b3-projective-transition-maps-on-009 | CP | PROVED | T14/C8/T15/C9 unit-threshold regularity:
+b3-tautological-bundle-signs-and-001 | SC | PROVED | T1 frame transition scalars eY=(X/Y)eX:
+b3-tautological-bundle-signs-and-002 | CP | PROVED | T2 sign reciprocity ζJI=ζIJ:
+b3-tautological-bundle-signs-and-003 | CP | PROVED | T3 Čech cocycle ζZY·ζYX=ζZX (equivalently ζXY·ζYZ·ζZX=+1):
+b3-tautological-bundle-signs-and-004 | SC | PROVED | C2 V4 pattern = sign part of transition system:
+b3-tautological-bundle-signs-and-005 | ST | STANDARD | T4 sign cocycle represents w1(γ):
+b3-tautological-bundle-signs-and-006 | SC | PROVED | T5 ρ bijective projective phase representation:
+b3-tautological-bundle-signs-and-007 | SC | PROVED | T6 monodromy v(x+2π)=−v(x):
+b3-tautological-bundle-signs-and-008 | SC | PROVED | T7 pullback sign ρζYX=sgn(tan(x/2)):
+b3-tautological-bundle-signs-and-009 | SC | PROVED | T8 FlatWave=sgn[t(1−t²)] vs ρζYX=sgn(t):
+b3-tautological-bundle-signs-and-010 | SC | PROVED | C6 agreement iff |t|<1:
+b3-tautological-bundle-signs-and-011 | CP | PROVED | T10 monodromy obstruction (−1 vs +1):
+b3-tautological-bundle-signs-and-012 | MA | MANUSCRIPT | T9/C7/T11/N1 (FlatWave≠w1(γ) type separation):

@@ -9,11 +9,18 @@ idmap = {}
 for dirpath, _, fns in os.walk(ROOT):
     if ".git" in dirpath:
         continue
-    if "index.html" in fns:
-        p = os.path.join(dirpath, "index.html")
-        text = open(p, encoding="utf-8").read()
-        idmap[os.path.relpath(p, ROOT)] = set(
-            re.findall(r'id="([^"]+)"', text))
+    if "_build_p" in dirpath.split(os.sep):
+        # build scratch: fragments are not standalone pages; their
+        # relative links resolve only in the assembled appendix
+        continue
+    for fn in fns:
+        # index every .html page, not just directory indexes, so
+        # page.html#frag links (e.g. research/calibration.html#CAL-P6)
+        # resolve instead of reporting TARGET PAGE MISSING
+        if fn.endswith(".html"):
+            p = os.path.join(dirpath, fn)
+            idmap[os.path.relpath(p, ROOT)] = set(
+                re.findall(r'id="([^"]+)"', open(p, encoding="utf-8").read()))
 
 bad = []
 for rel in sorted(idmap):

@@ -1,0 +1,175 @@
+<h2 id="P-1">P-1. The Casimir spectrum proofs</h2>
+<p><b>Theorem.</b> Sym²(S₊) = <b>1</b> ⊕ V(ω₄) ⊕ V(2ω₈) with C-eigenvalues
+0 / 48 / 64. The spectrum {0:1, 48:1820, 64:6435} is <b>PROVED</b>; the
+numerics (R3a, R3b) are corroboration only. Status is also mirrored in the
+<a href="../ledger/">research status ledger</a>.</p>
+<p><i>Setup.</i> S₊ is the +1 eigenspace of Γ₁₇, dim 128, carrying the chiral
+spinor representation of so(16): S₊ ≅ V(ω₈) (ST; the ω₇↔ω₈ ambiguity is
+immaterial — symmetric in all that follows). M<sub>AB</sub> = ½γ<sub>A</sub>γ<sub>B</sub>
+(A&lt;B): the 120 generators on S₊, anti-Hermitian, M<sub>AB</sub>² = −¼I.
+ρ(M<sub>AB</sub>) = M<sub>AB</sub>⊗I + I⊗M<sub>AB</sub> on S₊⊗S₊, restricting to
+Sym²(S₊) (dim 128·129/2 = 8256); this is exactly R3a's <i>rho</i> (orthonormal
+Sym² basis, no ½). C = −Σ<sub>A&lt;B</sub> ρ(M<sub>AB</sub>)² (R3a's C, direct,
+no symmetrization). B₊ = B|_{S₊}: symmetric involution (C-2, C-4 of the Clifford
+foundation). G<sub>I</sub> = Uᵀγ<sub>I</sub>U, |I| = 4: the 1820 four-form
+operators on S₊.</p>
+<p><i>Imported as ST (not re-proved):</i> S₊ ≅ V(ω₈); irreducibility of
+Λ⁴(16) ≅ V(ω₄); highest-weight theory; Harish-Chandra Casimir proportionality;
+the D₈ e-basis realization.</p>
+
+<h3 id="P-1-k1">K-1: the vector-action lemma</h3>
+<p><span class="tag CP">checked proof</span></p>
+<p class="prov">2026-09-19; PROOFS_Casimir.md</p>
+<pre>[M<sub>AB</sub>, γ<sub>C</sub>] = δ<sub>BC</sub> γ<sub>A</sub> − δ<sub>AC</sub> γ<sub>B</sub></pre>
+<p><i>Proof.</i> ½[γ<sub>A</sub>γ<sub>B</sub>,γ<sub>C</sub>] =
+½(γ<sub>A</sub>{γ<sub>B</sub>,γ<sub>C</sub>} − {γ<sub>A</sub>,γ<sub>C</sub>}γ<sub>B</sub>)
+= δ<sub>BC</sub>γ<sub>A</sub> − δ<sub>AC</sub>γ<sub>B</sub>, using C-1. ∎</p>
+
+<h3 id="P-1-k2">K-2: bivectors satisfy so(16)</h3>
+<p><span class="tag CP">checked proof</span></p>
+<p class="prov">2026-09-19; PROOFS_Casimir.md</p>
+<pre>[M<sub>AB</sub>,M<sub>CD</sub>] = δ<sub>BC</sub> M<sub>AD</sub> − δ<sub>AC</sub> M<sub>BD</sub> − δ<sub>BD</sub> M<sub>AC</sub> + δ<sub>AD</sub> M<sub>BC</sub></pre>
+<p><i>Proof.</i> M<sub>AB</sub> = −M<sub>BA</sub>. Expand
+¼[γ<sub>A</sub>γ<sub>B</sub>,γ<sub>C</sub>γ<sub>D</sub>] by cases: all distinct
+→ 0 (4 sign flips); exactly one coincidence, e.g. B=C →
+¼(γ<sub>A</sub>γ<sub>D</sub> − γ<sub>B</sub>γ<sub>D</sub>γ<sub>A</sub>γ<sub>B</sub>)
+= ¼(γ<sub>A</sub>γ<sub>D</sub> + γ<sub>A</sub>γ<sub>D</sub>) = M<sub>AD</sub>, and
+symmetrically; two coincidences → 0. Routine Clifford computation. ∎</p>
+<p><i>Corollary (CP).</i> C is central: [C, ρ(M<sub>AB</sub>)] = 0 for all A&lt;B
+(standard Casimir argument from K-2).</p>
+<p><i>Corroboration (NC):</i> R2 L2 measured worst violation 0.0 over 14,400 pairs.</p>
+
+<h3 id="P-1-k3">K-3: B intertwines M<sub>AB</sub> with −M<sub>AB</sub>ᵀ</h3>
+<p><span class="tag CP">checked proof</span></p>
+<p class="prov">2026-09-19; PROOFS_Casimir.md</p>
+<pre>BM<sub>AB</sub> = −M<sub>AB</sub>ᵀ B</pre>
+<p><i>Proof.</i> B(½γ<sub>A</sub>γ<sub>B</sub>)B⁻¹ = ½(−γ<sub>A</sub>ᵀ)(−γ<sub>B</sub>ᵀ)
+= ½(γ<sub>B</sub>γ<sub>A</sub>)ᵀ = −(½γ<sub>A</sub>γ<sub>B</sub>)ᵀ by C-2. ∎</p>
+<p><i>Corollary.</i> B₊M<sub>AB</sub>B₊ = σ<sub>A</sub>σ<sub>B</sub> M<sub>AB</sub>
+with σ<sub>A</sub> = +1 (A odd), −1 (A even): B₊M<sub>AB</sub>B₊⁻¹ = −M<sub>AB</sub>ᵀ,
+and M<sub>AB</sub>ᵀ = ½γ<sub>B</sub>ᵀγ<sub>A</sub>ᵀ = −σ<sub>A</sub>σ<sub>B</sub>·½γ<sub>A</sub>γ<sub>B</sub>
+= −σ<sub>A</sub>σ<sub>B</sub>M<sub>AB</sub> (γ<sub>odd</sub>ᵀ = +γ<sub>odd</sub>,
+γ<sub>even</sub>ᵀ = −γ<sub>even</sub>).</p>
+
+<h3 id="P-1-k4">K-4: the singlet is annihilated; Cs = 0</h3>
+<p><span class="tag CP">checked proof</span></p>
+<p class="prov">2026-09-19; PROOFS_Casimir.md</p>
+<p>Let <i>s</i> = Σ<sub><i>a</i>,<i>b</i></sub>(B₊)<sub><i>ab</i></sub>|<i>a</i>⟩|<i>b</i>⟩
+∈ Sym²(S₊) (B₊ symmetric, so <i>s</i> is symmetric; this is R3a's true singlet).
+Then ρ(M<sub>AB</sub>)<i>s</i> = 0.</p>
+<p><i>Proof.</i> (ρ(M)<i>s</i>)<sub><i>cd</i></sub> ∝
+Σ<sub><i>a</i>,<i>b</i></sub>(B₊)<sub><i>ab</i></sub>(M<sub><i>ca</i></sub>δ<sub><i>bd</i></sub>
++ δ<sub><i>ca</i></sub>M<sub><i>db</i></sub>) ∝ (MB₊ + B₊Mᵀ)<sub><i>cd</i></sub> = 0
+by K-3. Hence C<i>s</i> = 0. ∎ So ℂ<i>s</i> is the trivial submodule.</p>
+<p>This closes the naive-singlet trap: (1/√128)Σ|<i>a</i>,<i>a</i>⟩ lies in the
+64-eigenspace, not the singlet.</p>
+
+<h3 id="P-1-k5">K-5: four-forms — symmetry, nonvanishing, stability</h3>
+<p><span class="tag CP">checked proof</span></p>
+<p class="prov">2026-09-19; PROOFS_Casimir.md</p>
+<p><b>(a)</b> (B₊G<sub>I</sub>)ᵀ = B₊G<sub>I</sub> for |I| = 4.
+<i>Proof.</i> Bγ<sub>I</sub> = γ<sub>I</sub>ᵀB:
+Bγ<sub>i₁</sub>⋯γ<sub>i₄</sub> = (−1)⁴γ<sub>i₁</sub>ᵀ⋯γ<sub>i₄</sub>ᵀB
+= (γ<sub>i₄</sub>⋯γ<sub>i₁</sub>)ᵀB = γ<sub>I</sub>ᵀB (4·3/2 = 6 swaps even).
+Hence (Bγ<sub>I</sub>)ᵀ = γ<sub>I</sub>ᵀBᵀ = γ<sub>I</sub>ᵀB = Bγ<sub>I</sub>.
+Restricting via U (UUᵀ = Π₊, [γ<sub>I</sub>,Π₊] = [B,Π₊] = 0 for |I| even):
+(B₊G<sub>I</sub>)ᵀ = B₊G<sub>I</sub>. ∎</p>
+<p><b>(b)</b> B₊G<sub>I</sub> ≠ 0: γ<sub>I</sub> ≠ 0 preserves S₊, and
+X ↦ UᵀXU is injective on S₊-preserving operators; B₊ invertible.</p>
+<p><b>(c)</b> [M<sub>AB</sub>, γ<sub>I</sub>] ∈ span{γ<sub>J</sub>⁽⁴⁾} — the
+2-fold terms cancel. <i>Proof.</i> Leibniz + K-1; cases on {A,B}∩I:
+A,B∉I → 0; B∈I,A∉I → 4-fold (A replaces B); A∈I,B∉I → 4-fold;
+A,B∈I (i<sub>k</sub>=A, i<sub>l</sub>=B) → terms −(−1)<sup>|l−k|−1</sup>(2-fold)
+and +(−1)<sup>|l−k|−1</sup>(2-fold) cancel → 0. In each case the result equals
+the standard Λ⁴ form action. ∎</p>
+<p><b>(d)</b> <i>F</i> := span{B₊G<sub>I</sub> : |I| = 4} ⊆ Sym²(S₊) is a
+nonzero submodule. <i>Proof.</i> By (a)(b), <i>F</i> ⊆ Sym²(S₊), <i>F</i> ≠ 0.
+Stability: ρ(M)(B₊G<sub>I</sub>) = MB₊G<sub>I</sub> + B₊G<sub>I</sub>Mᵀ
+= −B₊MᵀG<sub>I</sub> + B₊G<sub>I</sub>Mᵀ (K-3) = −B₊[Mᵀ,G<sub>I</sub>]
+= B₊[B₊MB₊,G<sub>I</sub>] (K-3: Mᵀ = −B₊MB₊)
+= σ<sub>A</sub>σ<sub>B</sub>B₊[M<sub>AB</sub>,G<sub>I</sub>] (K-3 corollary)
+∈ span{B₊G<sub>J</sub>} by (c). ∎</p>
+
+<h3 id="P-1-k6">K-6: the twisted intertwiner — <i>F</i> ≅ V(ω₄), dim 1820</h3>
+<p><span class="tag CP">checked proof</span></p>
+<p class="prov">2026-09-19; PROOFS_Casimir.md (ST imports as noted above)</p>
+<p>Let φ(M<sub>AB</sub>) = σ<sub>A</sub>σ<sub>B</sub>M<sub>AB</sub> (automorphism
+Ad<sub>D</sub>, D = diag(σ) ∈ O(16)). Φ: Λ⁴(16) → <i>F</i>, e<sub>I</sub> ↦ B₊G<sub>I</sub>,
+satisfies Φ(M<sub>AB</sub>·<i>v</i>) = (ρ∘φ)(M<sub>AB</sub>)Φ(<i>v</i>): indeed
+Φ(M<sub>AB</sub>·e<sub>I</sub>) = Σc<sub>IJ</sub>B₊G<sub>J</sub> by (c), and
+(ρ∘φ)(M<sub>AB</sub>)(B₊G<sub>I</sub>) = σ<sub>AB</sub>·σ<sub>AB</sub>Σc<sub>IJ</sub>B₊G<sub>J</sub>
+= Σc<sub>IJ</sub>B₊G<sub>J</sub>. Φ ≠ 0 by (b); Λ⁴(16) ≅ V(ω₄) is irreducible (ST).
+Hence ker Φ = 0, dim <i>F</i> = 1820, (<i>F</i>, ρ∘φ) ≅ V(ω₄). ∎</p>
+
+<h3 id="P-1-k7">K-7: V(2ω₈) ⊆ Sym²(S₊)</h3>
+<p><span class="tag CP">checked proof</span></p>
+<p class="prov">2026-09-19; PROOFS_Casimir.md (ST + exact Weyl check below)</p>
+<p><i>v</i>₊⊗<i>v</i>₊ (<i>v</i>₊ highest-weight vector of S₊) is a highest-weight
+vector of weight 2ω₈; it generates V(2ω₈). dim V(2ω₈) = 6435 (Weyl, exact —
+see <a href="#P-1-weyl">Weyl dimensions</a>).</p>
+
+<h3 id="P-1-k8">K-8: the dimension count</h3>
+<p><span class="tag CP">checked proof</span></p>
+<p class="prov">2026-09-19; PROOFS_Casimir.md</p>
+<pre>Sym²(128) = ℂs ⊕ F ⊕ V(2ω₈)</pre>
+<p>Three submodules (K-4, K-6, K-7) of dims 1 + 1820 + 6435 = 8256 = dim
+Sym²(128). A sum of submodules whose dimensions add to the ambient dimension is
+direct and exhaustive. ∎</p>
+
+<h3 id="P-1-k9">K-9: eigenvalues 0, 48, 64</h3>
+<p><span class="tag CP">checked proof</span></p>
+<p class="prov">2026-09-19; PROOFS_Casimir.md (ST: Harish-Chandra proportionality; D₈ arithmetic CP)</p>
+<p><i>Centrality + Schur</i> (K-2 corollary): C acts as a scalar on each summand.
+Singlet: 0 (K-4).</p>
+<p><i>Normalization (CP).</i> 𝒞 = −Σ<sub>A&lt;B</sub>M<sub>AB</sub>⊗M<sub>AB</sub>
+∈ U(so(16)) is central: tr<sub>S₊</sub>(M<sub>AB</sub>M<sub>CD</sub>) =
+−32δ<sub>AB,CD</sub> (exact: = ¼tr(γ<sub>A</sub>γ<sub>B</sub>γ<sub>C</sub>γ<sub>D</sub>);
+−¼·128 off-diagonal-sets, 0 otherwise since tr γ<sub>I</sub> = 0 for 0 &lt; |I| &lt; 16),
+so {M<sub>AB</sub>} is orthogonal for the invariant form −tr<sub>spin</sub>/32 and
+𝒞 is (minus) its Casimir element (ST: centrality).</p>
+<p><i>Proportionality (ST).</i> 𝒞 acts on V(λ) as κ⟨λ,λ+2ρ⟩<sub>std</sub>
+(Harish-Chandra; κ universal). <i>Pinning (CP):</i> on S₊ ≅ V(ω₈),
+−ΣM<sub>AB</sub>² = −Σ(−¼I) = 30I (M<sub>AB</sub>² = −¼I exact), while
+⟨ω₈,ω₈+2ρ⟩<sub>std</sub> = 30 (below). Hence κ = 1.</p>
+<p><i>D₈ arithmetic (CP, hand-checkable).</i> Standard realization (ST): roots
+±e<sub>i</sub>±e<sub>j</sub>, ρ = (7,6,5,4,3,2,1,0):</p>
+<pre>ω₈ = (e₁+⋯+e₈)/2:   |ω₈|² + 2⟨ω₈,ρ⟩ = 2 + 28 = 30   (pinning)
+ω₄ = e₁+e₂+e₃+e₄:   4 + 2(7+6+5+4) = 48
+2ω₈ = e₁+⋯+e₈:     8 + 2(28) = 64</pre>
+<p>Therefore C|<sub><i>F</i></sub> = 48I (via (<i>F</i>,ρ∘φ) ≅ V(ω₄):
+−Σ(ρ∘φ)(M<sub>AB</sub>)² = −Σρ(M<sub>AB</sub>)² = C|<sub><i>F</i></sub> since
+σ<sub>AB</sub>² = 1), C|<sub>V(2ω₈)</sub> = 64I. ∎</p>
+<p><i>Corroboration (NC):</i> R3a measured {0:1, 48:1820, 64:6435} exactly.</p>
+
+<h3 id="P-1-weyl">Weyl dimensions in exact arithmetic</h3>
+<p><span class="tag SC">completed symbolic check</span></p>
+<p class="prov">2026-09-24; wolfram/b6_weyl_check.py</p>
+<p>Fresh implementation in Python <code>Fractions</code> (exact rational arithmetic)
+of the Weyl dimension formula for D₈: positive roots e<sub>i</sub>±e<sub>j</sub>
+(1 ≤ i &lt; j ≤ 8), ρ = (7,6,5,4,3,2,1,0),
+dim V(λ) = ∏<sub>α&gt;0</sub> ⟨λ+ρ,α⟩/⟨ρ,α⟩, with ⟨λ,λ+2ρ⟩ evaluated alongside
+(the Casimir eigenvalue up to the κ normalization pinned in K-9):</p>
+<pre>omega_8 (spinor S_+): dim=128 (expect 128), &lt;l,l+2r&gt;=30 (expect 30) -&gt; OK
+omega_4 (Lambda^4):   dim=1820 (expect 1820), &lt;l,l+2r&gt;=48 (expect 48) -&gt; OK
+2*omega_8:            dim=6435 (expect 6435), &lt;l,l+2r&gt;=64 (expect 64) -&gt; OK
+ALL EXACT MATCH</pre>
+<p>Exit 0, exact — no floating point anywhere. (An earlier sympy check of the D₈
+inner products and Weyl dims 128/1820/6435, exit 0, 2026-09-19, is recorded in
+the proof index.)</p>
+
+<h3 id="P-1-twist">B-7: the twist lemma</h3>
+<p><span class="tag CP">checked proof</span></p>
+<p class="prov">2026-09-25; wolfram/modules7_12_replacements.md §M12′ (ST components as in K-6)</p>
+<p>{φ(M<sub>AB</sub>)} is orthonormal for the trace form (Ad preserves trace; the
+K-9 normalization tr = −32δ), so the Casimir element Σφ(M<sub>AB</sub>)² =
+ΣM<sub>AB</sub>² by basis-independence. Hence −Σ(ρ∘φ)(M<sub>AB</sub>)² = C′ as
+operators, and C′|<sub><i>F</i></sub> = 48·I<sub><i>F</i></sub> (K-9 eigenvalue
+on V(ω₄)). Thus <i>F</i> ⊆ 48-eigenspace of C′, and dim <i>F</i> = 1820 =
+tr P₁₈₂₀ forces <i>F</i> = the 48-eigenspace exactly. Every
+Φ<sub>I</sub> = sym(B₊G<sub>I</sub>) = B₊G<sub>I</sub> lies in <i>F</i>; the
+1820 B-mapped four-forms lie in and span the 48-eigenspace. ∎</p>
+<p>This closed the ρ-twist gap left open after the B-6 run (which had verified
+PROOFS_Casimir.md K-5/K-6 line by line, including the K-5(c) 2-fold cancellation
+and the K-6 intertwiner). See <a href="#P-4-m12">P-4-m12 (M12′)</a> for the module
+context. <i>Corroboration (NC):</i> R3b (exit 0; worst ‖Cv−48v‖/‖v‖ = 6.3e-15,
+rank 1820) and the independent M12b re-verification are corroboration, not proof.</p>

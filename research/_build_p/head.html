@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Appendix P — Full Derivations — R Theory Rewrite Series</title>
+<!-- SITENAV-START -->
+<!-- SITENAV-END -->
+<style>
+body{font-family:Georgia,serif;max-width:900px;margin:0 auto;padding:24px;line-height:1.65;color:#1a1a1a;background:#fdfdfb}
+h1{font-size:1.9em;border-bottom:2px solid #333;padding-bottom:8px}
+h2{font-size:1.45em;margin-top:2.4em;border-bottom:1px solid #aaa;padding-bottom:4px}
+h3{font-size:1.15em;margin-top:1.8em}
+h4{font-size:1.02em;margin-top:1.4em;margin-bottom:.3em}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.9em}
+th,td{border:1px solid #bbb;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#f0f0ec}
+.tag{display:inline-block;font-size:.78em;font-weight:bold;border:1px solid #666;border-radius:3px;padding:0 6px;margin-right:4px;background:#eee}
+.tag.CP{background:#dff0d8}.tag.SC{background:#e3f2fd}.tag.NC{background:#d7f0e8}.tag.ST{background:#e8e4f5}
+.tag.MA{background:#fcf8e3}.tag.AX{background:#fde8d8}.tag.IN{background:#e8e8e8}.tag.IC{background:#fbdcdc}
+.small{font-size:.9em;color:#444}
+.note{background:#f6f8fb;border:1px solid #dfe5ec;border-radius:8px;padding:10px 16px;margin:1em 0;font-size:.94em}
+pre{background:#f4f4f1;border:1px solid #ccc;border-radius:4px;padding:12px 14px;font-size:.85em;overflow-x:auto}
+code{font-size:.88em}
+.prov{font-size:.85em;color:#5a6a6e;border-left:3px solid #9db8c0;padding:2px 10px;margin:.8em 0}
+.gap{background:#fdf3e3;border:1px solid #ddc48f;border-radius:6px;padding:8px 14px;margin:1em 0;font-size:.94em}
+.gap::before{content:"Honest gap — ";font-weight:bold}
+.toc{background:#f4f4f0;border:1px solid #ccc;border-radius:4px;padding:8px 16px;margin:1.2em 0}
+.toc a{color:#0645ad;text-decoration:none}
+.toc a:hover{text-decoration:underline}
+footer{margin-top:3em;color:#555;font-size:.9em;border-top:1px solid #bbb;padding-top:1em}
+a{color:#0645ad}
+</style>
+</head>
+<body>
+<!-- SITENAV-NAV-START -->
+<!-- SITENAV-NAV-END -->
+<h1>Appendix P — Full Derivations</h1>
+<p class="lede"><i>R Theory Rewrite Series — the complete written-out proofs behind the
+series' established results.</i></p>
+<div class="note">
+<b>What this appendix is.</b> The series' book pages and the
+<a href="../ledger/">research status ledger</a> publish verdicts: PROVED, CHECKED,
+REFUTED, and the rest. This appendix publishes the <i>derivations</i> — the
+full proofs, the exact algebra, and the negative results worked out step by
+step — for readers who want to check the work rather than take the verdict.
+It is long on purpose: a webpage costs nothing to lengthen, and a proof costs
+everything to shorten.<br><br>
+<b>Scope discipline.</b> Every derivation carries its scope label, stated up
+front and never rounded up or down: <span class="tag CP">checked proof</span>
+<span class="tag SC">completed symbolic check</span>
+<span class="tag NC">completed numerical check</span>
+<span class="tag IC">incorrect result</span> (refutations).
+Premises are stated before the proofs that need them. Where a source document
+has a genuine gap, the gap is labeled in place — this appendix invents no
+mathematics.<br><br>
+<b>Not the audit trail.</b> The <a href="../appendix/">Computational Audit
+Appendix</a> records how the audit was run (modules, scripts, run logs). This
+appendix records what was <i>proved</i>.<br><br>
+<b>Coverage.</b> P-1–P-6 cover the 2026-09-21…28 proof burst (Casimir, the
+1820 campaign, the dials, the rebuilt modules, the refutations, two standalone
+theorems). P-7 gives a condensed derivation paragraph for each of the 86
+Books-2–6 audit claims in the ledger; where the ledger's verdict is too thin
+for a paragraph, the entry is an explicitly labeled pointer, not a proof.
+P-8 is the reproducibility index: every validation script, what it
+establishes, and its last known run result. The final section lists what is
+still <i>open</i> — honestly, and never presented as closed.
+</div>

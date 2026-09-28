@@ -1,0 +1,158 @@
+<h2 id="P-2">P-2. The 1820 conditional theorems</h2>
+<p>Ten theorems about the 12-dimensional real bilinear-odd Oprop ansatz space <i>b</i> — its collapse, its reality-forced mode structure, its cross-phase, its uniform M<i><sub>eps</sub></i> commutator law, the full M<i><sub>eps</sub></i> commutant, the m<i><sub>0</sub></i>/m<i><sub>2</sub></i> decoupling, the Saw transfer firewall, the discharged W4 conditionals, the corrected o-spectral-invisibility scope, and the complete negative selection census. Each is proved by exact algebra, but every one is conditional on the standing inputs stated once below.</p>
+<div class="premises">
+<p><b>Standing conditions.</b> All ten theorems are conditional on:</p>
+<ul>
+<li>the adopted C8 block form <i>g</i> = R(π/4)⊕⁴ ⊕ I₈, with R(θ) = [[cosθ, −sinθ], [sinθ, cosθ]];</li>
+<li>the adopted u-basis phase convention: <i>v<sub>r</sub></i> = <i>u<sub>2r</sub></i> = (<i>e<sub>2r</sub></i> − i <i>e<sub>2r+1</sub></i>)/√2, <i>w<sub>r</sub></i> = <i>u<sub>2r+1</sub></i> = (<i>e<sub>2r</sub></i> + i <i>e<sub>2r+1</sub></i>)/√2 (r = 0..3), <i>u<sub>8..15</sub></i> = <i>e<sub>8..15</sub></i>;</li>
+<li>the charge-support identification Π₀ = P₂+P₆ / Π₂ = P₄+P₀;</li>
+<li>MA1+MA2 (manuscript-literal v1:1730/1738): Oprop is an antisymmetric so(16) fermion bilinear (W6c uniqueness) and a pure grade-{0,2} flip.</li>
+</ul>
+<p><i>g</i> is not the physical C8 action (OPEN, inherited) — all ρ(<i>g</i>)-derived statements inherit this.</p>
+</div>
+
+<h3 id="P-2-collapse">Conditional collapse: Oprop lives in a proved 12-dimensional space</h3>
+<p><span class="tag CP">checked proof</span></p>
+<p><b>Statement.</b> Conditional on MA1+MA2 (manuscript-literal v1:1730/1738), the Oprop search collapses from the 204,608-dimensional ε-odd slot to 𝔟 := span{X̃<i><sub>ab</sub></i>}, with dim<sub>ℝ</sub> 𝔟 = 12 exactly. With X̃<i><sub>ab</sub></i> = Π₀<i>D<sub>ab</sub></i>Π₂ + Π₂<i>D<sub>ab</sub></i>Π₀ and <i>D<sub>ab</sub></i> = dρ(<i>X<sub>ab</sub></i>), the 12 pairing reps <i>d<sub>pq</sub></i> = X̃<i><sub>(2p,2q)</sub></i>, <i>o<sub>pq</sub></i> = X̃<i><sub>(2p,2q+1)</sub></i> (p &lt; q, six plane pairs) are pairwise orthogonal with ‖·‖²<i><sub>F</sub></i> = 188: the 12×12 Gram is 188·I₁₂. The grade-{0,2} fraction <i>f₀₂</i> := ‖X̃‖²<i><sub>F</sub></i>/‖<i>D</i>‖²<i><sub>F</sub></i> = 188/728 = 47/182 exactly, for every rot8-cross generator.</p>
+<p><b>Proof of f₀₂ = 47/182.</b> Work in the complex <i>g</i>-eigenbasis (<i>u<sup>±</sup><sub>r</sub></i> = (<i>e<sub>2r</sub></i> ∓ i <i>e<sub>2r+1</sub></i>)/√2, ω = e<i><sup>iπ/4</sup></i>; wedge charges mod 8).</p>
+<pre>
+Lemma 1 (block norm = swap count): ‖P_k D P_l‖²_F = (1/4)·Σ_{σ,τ}(N_i + N_ii),
+  disjoint across (σ,τ) since the swapped pair is recoverable from (I,J).
+Lemma 2 (case analysis, k ∈ {2,6}, l ∈ {0,4}): l−k ≡ ±2, so only
+  (σ,τ) = (−,+) and (+,−) contribute; the 8 terms enumerate 3-subsets of {+³,−³,0⁸}:
+  C3 = 1 (s ≡ ±3), C1 = 93 (s ≡ ±1); total 4(C3+C1) = 376 ⇒ ‖Π₀DΠ₂‖²_F = 94,
+  for every cross generator — all four shapes, since only |c|² = 1/4 enters.
+Lemma 3 (denominator): ‖D_ab‖²_F = −Tr(dρ(X_ab)²) = 2·C(14,3) = 728.
+⇒ ‖X̃‖²_F = 2·94 = 188; f₀₂ = 188/728 = 47/182 exactly. ∎
+</pre>
+<p><b>Proof of dim<sub>ℝ</sub> 𝔟 = 12.</b> The <i>g</i>² symmetry (h := <i>g</i>²; ρ(h) = −id on Π₀, +id on Π₂) gives the pairing relations</p>
+<pre>
+X̃_{(2p+1,2q+1)} = −X̃_{(2p,2q)}    (antipodal)
+X̃_{(2p+1,2q)}   = +X̃_{(2p,2q+1)}    (identical)
+</pre>
+<p>so per plane pair the four X̃ span at most 2 real dimensions: dim<sub>ℝ</sub> 𝔟 ≤ 12. Orthogonality: ⟨<i>d<sub>pq</sub></i>, <i>o<sub>rs</sub></i>⟩ = 0 by phase selection (<i>d</i> uses real shapes, <i>o</i> pure-imaginary shapes; Tr(P<i><sub>k</sub>D<sub>d</sub></i>P<i><sub>l</sub>D<sub>o</sub></i>P<i><sub>k</sub></i>) is pure imaginary yet basis-independent, hence 0); ⟨<i>d<sub>pq</sub></i>, <i>d<sub>rs</sub></i>⟩ = ⟨<i>o<sub>pq</sub></i>, <i>o<sub>rs</sub></i>⟩ = 0 for (p,q) ≠ (r,s) by disjoint support (no common u-vector across distinct plane sets). Hence 12 pairwise-orthogonal nonzero real reps: dim<sub>ℝ</sub> 𝔟 = 12 exactly. ∎</p>
+<p class="gap">Gap: run 12's proof itself (BILINEAR_ODD_INTERSECTION.md) was not among the assigned source documents; the 204,608 → 12 collapse statement is transcribed as recorded in F02_EXACT_PROOF.md's "Net for CP-OPROP" and the notation ledger's MA1+MA2 entry.</p>
+<p class="prov">2026-09-26, io-word sweep cron runs 15 (f₀₂/dim: <code>f02_exact_proof.py</code>, exit 0, 13/13 checks PASS, <code>f02_exact_proof_results.json</code>) and 14 (pairing: <code>pairing_proof.py</code>, exit 0, 8/8 checks PASS). Sources: <code>~/workspace/goals/r-theory-volume-i-audit/hidden_files/io_word_sweep/F02_EXACT_PROOF.md</code>, <code>PAIRING_PROOF.md</code>.</p>
+
+<h3 id="P-2-reality">Reality theorem: the 94/94 mode split is frozen on real 𝔟</h3>
+<p><span class="tag CP">checked proof</span></p>
+<p><b>Statement.</b> Every real <i>X</i> in 𝔟 has <i>w</i>₂ = <i>w</i>₆ exactly. With the run-15 Gram 188·I₁₂, every real <i>X</i> = Σ <i>c<sub>g</sub></i>X̃<i><sub>g</sub></i> has <i>w</i>₂ = <i>w</i>₆ = 94·‖<i>c</i>‖². No nonzero real mode-pure element exists: run 20's 6+6 mode-pure splitting lives only in the complexification 𝔟<sub>ℂ</sub> (the Hermitian <i>Q</i>₂−<i>Q</i>₆ has per-pair blocks [[0, 188i], [−188i, 0]] with intrinsically complex eigenvectors). Run 18's 94/94 is upgraded from a generator observation to a reality theorem.</p>
+<p><b>Proof.</b> For real <i>X</i>, the ρ(<i>g</i>)-Fourier components satisfy <i>X</i><sup>(−m)</sup> = conj(<i>X</i><sup>(m)</sup>), so <i>w</i><sub>−m</sub> = <i>w<sub>m</sub></i>. Modes are mod 8 and 6 = −2; run-18's M2 gives support ⊆ {2,6}. Therefore <i>w</i>₂ = <i>w</i>₆ identically on the real space. ∎ Spot-checked: 4 random real combinations give |<i>w</i>₂−<i>w</i>₆|/(<i>w</i>₂+<i>w</i>₆) = 0 exactly in sparse arithmetic.</p>
+<p class="prov">2026-09-27, io-word sweep continue run 21 (§1 of <code>b_meps_commutant.py</code> run, analytic). Source: <code>~/workspace/goals/r-theory-volume-i-audit/hidden_files/io_word_sweep/B_REALITY_AND_COMMUTANT.md</code> §1 (unaffected by the run-22 correction banner on §2).</p>
+
+<h3 id="P-2-crossphase">Cross-phase: o<sub>pq</sub><sup>(2)</sup> = i·d<sub>pq</sub><sup>(2)</sup></h3>
+<p><span class="tag CP">checked proof</span></p>
+<p><b>Statement.</b> For every plane pair (p,q), with <i>d<sub>pq</sub></i> = X̃<i><sub>(2p,2q)</sub></i> and <i>o<sub>pq</sub></i> = X̃<i><sub>(2p,2q+1)</sub></i>, the ρ(<i>g</i>)-mode-2 parts are complex-proportional with factor i, uniformly over all 6 pairs:</p>
+<pre>
+o_{pq}⁽²⁾ = i·d_{pq}⁽²⁾    (as operators on Λ⁴(ℂ¹⁶); entrywise max residual 0.0, all 6 pairs)
+per-pair Q₂ block:  [[94, +94i], [−94i, 94]]
+Q₂ + Q₆ = 188·I₁₂;   spec(Q₂ − Q₆) = {+188 (×6), −188 (×6)}
+</pre>
+<p><b>Proof.</b> Lemma 1 (charges): <i>g v<sub>r</sub></i> = ω <i>v<sub>r</sub></i>, <i>g w<sub>r</sub></i> = ω⁻¹ <i>w<sub>r</sub></i>, <i>g u<sub>j</sub></i> = <i>u<sub>j</sub></i> (j ≥ 8). Lemma 2 (transfer decomposition): for <i>X<sub>d</sub></i> = <i>E<sub>2p,2q</sub></i> − <i>E<sub>2q,2p</sub></i> and <i>X<sub>o</sub></i> = <i>E<sub>2p,2q+1</sub></i> − <i>E<sub>2q+1,2p</sub></i>,
+<i>X<sub>d</sub></i><sup>(+2)</sup> = (1/2)(<i>v<sub>p</sub>w<sub>q</sub></i>* − <i>v<sub>q</sub>w<sub>p</sub></i>*) and <i>X<sub>o</sub></i><sup>(+2)</sup> = (i/2)(<i>v<sub>p</sub>w<sub>q</sub></i>* − <i>v<sub>q</sub>w<sub>p</sub></i>*) = i·<i>X<sub>d</sub></i><sup>(+2)</sup>, with transfers only in {0, +2, −2}. Lemma 3 (mode lift): the mode-2 part of dρ(<i>X</i>) equals dρ(<i>X</i><sup>(+2)</sup>) (the only transfer ≡ 2 mod 8 present is +2). By linearity of dρ and of the {0,2}-block restriction R: X̃<i><sub>o</sub></i><sup>(2)</sup> = R(dρ(i·<i>X<sub>d</sub></i><sup>(+2)</sup>)) = i·X̃<i><sub>d</sub></i><sup>(2)</sup>. ∎ Corollaries: ⟨<i>d</i><sup>(2)</sup>, <i>o</i><sup>(2)</sup>⟩ = +94i and ‖<i>d</i><sup>(2)</sup>‖² = ‖<i>o</i><sup>(2)</sup>‖² = 94 (since <i>w</i>₂ = 94 on real 𝔟 by the reality theorem); this is the equality case of Cauchy–Schwarz — run 18's T8 ("why is |⟨<i>d</i><sup>(m)</sup>, <i>o</i><sup>(m)</sup>⟩| = 94?") is answered mechanistically.</p>
+<p class="prov">2026-09-27 ~05:30–06:00 PDT, io-word sweep (<code>cross_phase_proof.py</code>, 9/9 tripwires PASS, residuals ≤ 2.9e-14, several exactly 0.0). Source: <code>~/workspace/goals/r-theory-volume-i-audit/hidden_files/io_word_sweep/CROSS_PHASE_PROOF.md</code>.</p>
+
+<h3 id="P-2-752">The 752 identity: the M<i><sub>eps</sub></i> commutator doubles every pure flip</h3>
+<p><span class="tag CP">checked proof</span></p>
+<p><b>Statement.</b> ‖[<i>X̃</i>, M<i><sub>eps</sub></i>]‖<i><sub>F</sub></i> = 2‖<i>X̃</i>‖<i><sub>F</sub></i> for every pure Π₀↔Π₂ flip, hence ‖[<i>X̃<sub>ab</sub></i>, M<i><sub>eps</sub></i>]‖²<i><sub>F</sub></i> = 4·188 = 752 for all 24 generators (no d/o split). The real commutator Gram is <i>G<sub>cc′</sub></i> := Re Tr([<i>B<sub>c</sub></i>, M<i><sub>eps</sub></i>]†[<i>B<sub>c′</sub></i>, M<i><sub>eps</sub></i>]) = 752·I₁₂: the commutator norm is constant on the whole real unit sphere of 𝔟.</p>
+<pre>
+Lemma 1 (exact block algebra): for X̃ = Π₀DΠ₂ + Π₂DΠ₀ = [[0,A,0],[B,0,0],[0,0,0]]
+  (D arbitrary, real or complex),
+  [X̃, M_eps] = [[0,−2A],[2B,0]]    (rest blocks zero)
+  because [X̃,K] = 0 (X̃ on Π₀↔Π₂, K rest-supported) and
+  [X̃, Π₀−Π₂] = [[0,−2A],[2B,0]] by direct block multiplication.
+Theorem: ‖[X̃,M_eps]‖²_F = 4‖A‖²_F + 4‖B‖²_F = 4‖X̃‖²_F (disjoint blocks).
+Corollary: ker([·,M_eps]) on the whole pure Π₀↔Π₂ slot is {0}.
+Corollary: for the 12 reps (hence all 24 by the pairing relations),
+  ‖[X̃_ab, M_eps]‖²_F = 4·188 = 752.
+Bonus Gram: with X_c real antisymmetric, Tr(C_cᵀC_c′) = 4Tr(A_cᵀA_c′) + 4Tr(B_cᵀB_c′)
+  and Tr(B_cᵀB_c′) = Tr(A_cᵀA_c′) (exact index computation), so G_cc′ = 8·Tr(A_cᵀA_c′);
+  ⟨X_c,X_c′⟩ = 2Tr(A_cᵀA_c′) = 188·δ_cc′ (run 15) ⇒ G = 752·I₁₂. ∎
+</pre>
+<p><b>Premises.</b> P1 (CHECKED, D1–D4 re-verified ≤ 2.1e-15): M<i><sub>eps</sub></i> = R + iK with R = Π₀ − Π₂ real symmetric, K = Im(M<i><sub>eps</sub></i>) real antisymmetric rest-supported; in the (Π₀, Π₂, Π_rest) split M<i><sub>eps</sub></i> = diag(+I₃₆₈, −I₅₅₆, iK<i><sub>r</sub></i>). P2 (PROVED, run 15): rep norms² = 188. P3 (PROVED, run 14): pairing relations. The o-ambiguity (run 7/17) does not touch this: both DA survivors give the same ±I sector action (run 8). Entrywise u-basis reading: on the {0,2}-support M<i><sub>eps</sub></i> acts as the eps signs +1 (charges 2,6) / −1 (charges 0,4), so [<i>B</i>, M<i><sub>eps</sub></i>]<i><sub>(ri,ci)</sub></i> = ±2·<i>B<sub>(ri,ci)</sub></i> on every nonzero entry (max|ratio−2| &lt; 1e-12) — the norm quadruples entrywise.</p>
+<p class="prov">2026-09-27, io-word sweep Q1 (<code>q1_752_proof.py</code>, D1–D4 re-verified, rep-norm and commutator checks, bonus Gram, <code>q1_752_results.json</code>). Source: <code>~/workspace/goals/r-theory-volume-i-audit/hidden_files/io_word_sweep/Q1_752_PROOF.md</code>.</p>
+
+<h3 id="P-2-commutant">The full M<i><sub>eps</sub></i> commutant: M₈₁₆(ℂ)⊕M₁₀₀₄(ℂ), all real transfer slots dead</h3>
+<p><span class="tag CP">checked proof</span></p>
+<p><b>Statement.</b> ker([·, M<i><sub>eps</sub></i>]) = {0} on the pure Π₀↔Π₂ slot. In the ε-sector basis (Π<i><sub>eps±</sub></i>), M<i><sub>eps</sub></i> = diag(+I₈₁₆, −I₁₀₀₄) and the complex commutant is exactly the block-diagonal algebra M₈₁₆(ℂ)⊕M₁₀₀₄(ℂ) (dim<sub>ℂ</sub> 816² + 1004² = 1,673,872). Over ℝ the kernel is 845,968-dimensional: full real matrix algebras on Π₀→Π₀ and Π₂→Π₂, the real K-commutant on the rest block, and {0} on all four transfer slots and the Π₀↔Π₂ slot.</p>
+<table>
+<tr><th>slot</th><th>condition</th><th>kernel</th><th>dim<sub>ℂ</sub></th><th>dim<sub>ℝ</sub></th></tr>
+<tr><td>Π₀→Π₀</td><td>[<i>X</i>₀₀, I] = 0</td><td>all of M₃₆₈(ℂ)</td><td>135,424</td><td>135,424</td></tr>
+<tr><td>Π₂→Π₂</td><td>[<i>X</i>₂₂, I] = 0</td><td>all of M₅₅₆(ℂ)</td><td>309,136</td><td>309,136</td></tr>
+<tr><td>Π_rest→Π_rest</td><td>[<i>X<sub>rr</sub></i>, K] = 0</td><td>M₄₄₈(ℂ)⊕M₄₄₈(ℂ) (K-complex-linear)</td><td>401,408</td><td>401,408</td></tr>
+<tr><td>Π₀↔Π₂</td><td>−2<i>X</i>₀₂ = 0</td><td>{0} (run 22)</td><td>0</td><td>0</td></tr>
+<tr><td>Π₀→Π_rest / Π_rest→Π₀</td><td><i>X</i>(iK−I) = 0</td><td><i>X</i> = Π₀<i>Z</i>R+ / R+<i>Z</i>Π₀</td><td>164,864 ea.</td><td><b>0</b></td></tr>
+<tr><td>Π₂→Π_rest / Π_rest→Π₂</td><td><i>X</i>(iK+I) = 0</td><td><i>X</i> = Π₂<i>Z</i>R− / R−<i>Z</i>Π₂</td><td>249,088 ea.</td><td><b>0</b></td></tr>
+</table>
+<p><b>Premises</b> (CHECKED fresh, archived e-basis — no u-basis objects, so the run-21 basis-mixing bug cannot occur): P1 Re(M<i><sub>eps</sub></i>) = Π₀ − Π₂ (1.77e-15); P4 K real antisymmetric (2.7e-15), rest-supported, K² = −Π_rest; P5 M<i><sub>eps</sub></i> Hermitian (4.4e-15), M<i><sub>eps</sub></i>² = I (4.5e-15), tr(M<i><sub>eps</sub></i>) = −188 (5.2e-13); P6 tr(Π₀) = 368, tr(Π₂) = 556. Block form: M<i><sub>eps</sub></i> = diag(+I₃₆₈, −I₅₅₆, iK) with K² = −Π_rest ⇒ iK a Hermitian involution (eigenvalues ±1, multiplicity 448/448) and ε-sector projectors R± = (Π_rest ± iK)/2. <b>Real transfer slots vanish (PROVED):</b> if <i>X</i> is real and <i>X</i> = <i>X</i>R+ then conjugating gives <i>X</i> = <i>X</i>R− (R+* = R−), so <i>X</i> = <i>X</i>R+R− = 0.</p>
+<p><b>Note — run 21's 6-dim kernel was a basis-mismatch bug, diagnosed and withdrawn.</b> <code>b_meps_commutant.py</code> built the 12 rep dicts in the u-wedge basis and commuted them directly against the standard-wedge (e-basis) archived M<i><sub>eps</sub></i> with no Λ⁴(<i>U</i>) change of basis — the "commutator" mixed two bases and never evaluated the claimed operator; its 6-dim kernel was an artifact. Corrected result (PROVED by block algebra, checked in two bases): ker = {0} on the whole pure slot. Full diagnosis: <a href="#P-5-commutant-bug">P-5</a>.</p>
+<p class="prov">2026-09-27, io-word sweep omnibus wave Q2 (<code>q2_commutant_slots.py</code>, seed 20260927, premises + spot-checks + negative controls + M<i><sub>e</sub></i> tripwire, <code>q2_commutant_results.json</code>). Source: <code>~/workspace/goals/r-theory-volume-i-audit/hidden_files/io_word_sweep/Q2_COMMUTANT_SLOTS.md</code>.</p>
+
+<h3 id="P-2-decoupling">m₀/m₂ decoupling: [M<i><sub>e</sub></i>, M<i><sub>eps</sub></i>] = i·[M<i><sub>rest</sub></i>, K] for all real m₀, m₂</h3>
+<p><span class="tag CP">checked proof</span></p>
+<p><b>Statement.</b> For M<i><sub>e</sub></i> = m₀·Π₀ + m₂·Π₂ + M<i><sub>rest</sub></i> and M<i><sub>eps</sub></i> = Π₀ − Π₂ + iK, with (i) Π₀, Π₂, Π_rest pairwise orthogonal projectors, complete; (ii) K real antisymmetric, K·Π₀ = K·Π₂ = Π₀·K = Π₂·K = 0 (rest-supported); (iii) M<i><sub>rest</sub></i> = Π_rest·M<i><sub>rest</sub></i>·Π_rest real symmetric:</p>
+<pre>
+[M_e, M_eps] = [m₀Π₀+m₂Π₂, Π₀−Π₂] + i[m₀Π₀+m₂Π₂, K]
+             + [M_rest, Π₀−Π₂]    + i[M_rest, K]
+           = 0 + 0 + 0 + i[M_rest, K]
+⇒ [M_e, M_eps] = i·[M_rest, K]    for ALL real m₀, m₂. ∎
+</pre>
+<p><b>Consequence.</b> The ε-sector-preserving condition [M<i><sub>e</sub></i>, M<i><sub>eps</sub></i>] = 0 is <i>equivalent</i> to [M<i><sub>rest</sub></i>, K] = 0 and is m₀/m₂-free — the scalars are literally absent from the commutator, not merely block-diagonal in a commutant. It cannot select m₀ vs m₂ even in principle (not a ratio, not a sign, not even m₀ ≠ m₂). This explains the reference CHECKED value [M<i><sub>e</sub></i>, M<i><sub>eps</sub></i>] = 8.88e-16: it measures [M<i><sub>rest</sub></i>, K] ≈ 0, independent of the reference m₀ = 2, m₂ = 5. Wider net: the IO-word angles provably cannot select (m₀, m₂) at all — the quadrant table gives only a qualitative sector distinction (opposite FW-phase sides of Decay; eps<i><sub>k</sub></i> = −(−1)<i><sup>k</sup></i>·FW<i><sub>k</sub></i> exact; contents −368/+556/0), and the double-angle readout identities (sin(2x)/4 = 1/(urx+uxp); (srx+crx−sxp−cxp)/(uxp+urx) = cos(2x), now PROVED analytic) are x-identities with no mass coupling.</p>
+<p class="prov">2026-09-27, io-word sweep Q4 (<code>q4_m0m2.py</code>, T1/T2 exact 8-octant arithmetic, T3 analytic with archived-matrix tripwire, <code>q4_m0m2_results.json</code>). Source: <code>~/workspace/goals/r-theory-volume-i-audit/hidden_files/io_word_sweep/Q4_M0M2_IOWORDS.md</code>.</p>
+
+<h3 id="P-2-sawfirewall">Saw firewall FW-T12: complementation cannot drive transfer</h3>
+<p><span class="tag CP">checked proof</span></p>
+<p><b>Statement (Saw-L9).</b> On an open quadrant Q (seams excluded; ε = sgn(sin 2x) constant) there is no real scalar function <i>g</i> with S′ = <i>g</i>·X(S): the Saw complementary swap cannot be recast as differential propagation. Saw complementation is algebraic and generates no transfer.</p>
+<pre>
+S = (saw_r, saw_x) = (ελ, ε(1−λ)), 0 &lt; λ &lt; 1   (Book 7 transfer coordinate)
+S′ = g·X(S) ⇒ saw_r′ = g·saw_x, saw_x′ = g·saw_r (g real w.l.o.g.; no division needed)
+⇒ (saw_r² − saw_x²)′ = 2(saw_r·saw_r′ − saw_x·saw_x′) = 0, so saw_r² − saw_x² is constant on Q.
+But (saw_r² − saw_x²)² = 1 − |sin 2x| — non-constant on Q. Contradiction. ∎
+</pre>
+<p><b>Net.</b> The proof is shorter than L9's: constant vs. varying (0 = −1 style), no cubic, no λ-coordinate premise — it needs nothing outside the Saw pair itself. CHECKED: identity to 2.6e-13; max|(saw<i><sub>r</sub></i>²−saw<i><sub>x</sub></i>²)′| = 4.6 &gt;&gt; 0 on grid. Any future argument that the Saw R-operation (complementation λ ↔ 1−λ) <i>drives</i> transfer, propagation, or activation — including qSaw-intensity arguments touching FW-T10's <i>y</i>₂ gate — must clear firewall FW-T12. (Neighbor results: the L2 analog S·X(S) = 2|H| transfers; the L3/L5 analog diverges — fixed sum ε instead of fixed product, hyperbola right-hand side 4|H| varying.)</p>
+<p class="prov">2026-09-26, io-word sweep (<code>SAW_LFORM_DERIVATION.md</code>; inputs: saw<i><sub>r</sub></i> = ελ / saw<i><sub>x</sub></i> = ε(1−λ) numerically verified on four charts, H = sin 2x/4 PROVED, ε piecewise constant).</p>
+
+<h3 id="P-2-w4c2a">W4 (C2a) discharged; the skeleton word evaluates to exactly 0</h3>
+<p><span class="tag CP">checked proof</span></p>
+<p><b>Deferred substitution executed (run 11's open item).</b> W4's skeleton trace word T3, Tr(<i>E</i>₁ M<i><sub>e</sub></i> <i>E</i>₂ <i>O</i> <i>E</i>₃ M<i><sub>e</sub></i> <i>E</i>₄ <i>O</i>), with the manuscript's E/O content substituted (E₂ := Π_E = Π_rest, O := Π_O = Π₂):</p>
+<pre>
+Tr(E_1 M_e E_2 O E_3 M_e E_4 O) = 0   for ALL E_1, E_3, E_4, M_e ∈ M_1820
+because the word contains E_2·O = Π_E·Π_O = 0 as an adjacent pair (positions 3–4);
+the mass insertions are moot — the word dies upstream of M_e.
+</pre>
+<p>The v1 skeleton as written, fed the manuscript's E/B/O content, computes <b>exactly 0</b> — not 0.48958371 (S<i><sub>F</sub></i><sup>draft</sup>'s claimed value), not the 54-projected S<i><sub>F</sub></i><sup>ord</sup>. CHECKED (26/26 PASS, exit 0): projector premises re-verified (Hermitian/idempotent, traces 896/368/556, ‖Π_EΠ_O‖<i><sub>F</sub></i> = 1.51e-14, completeness 5.62e-15, M<i><sub>e</sub></i> real symmetric 1.57e-13); |Tr| = 1.76e-29 with <i>E<sub>i</sub></i> = Π_E; relative residues 1.12e-25 / 7.53e-26 on dense random instances; sector-diagonal variant (E₂ = Π_E<i>Z</i>Π_E) |Tr| = 4.26e-30. (Bug log disclosed: the first launch tripped an absolute 1e-15 threshold on |Tr| — not a refutation, just dense random factors amplifying the junction's fp residue; the exact theorem bounds |Tr| by the factor norms times ‖Π_EΠ_O‖<i><sub>F</sub></i>, so the tripwire was fixed to relative &lt; 1e-12 and reran clean.)</p>
+<p><b>W4's (C2) split — (C2a) discharged.</b> The pinned P₅₄ (run 9: multiplicity-one (54,1), PROVED) fixes the (6/5)T̃ direction — closed-form residual 0.00e+00, all three archived realizations ≤ 1.34e-15; ‖(6/5)T̃‖² = 18/5 re-verified exact (3.600000000000000). The IN-1 tag on the P₅₄ half is discharged: the asserted direction is now P₅₄-consistency-checked rather than gated on a missing P₅₄. Remaining conditionals for S<i><sub>F</sub></i><sup>ord</sup> = S<i><sub>F</sub></i><sup>alg</sup>: (C1), (C3), and (C2b) the F<i><sub>C8</sub></i> construction. Neighbor closure (same run): the (C4)/Schur route to the m₂⁻⁴ convention is <b>closed</b> — the PROVED Schur corollary (1820 ≅ V(ω₄) irreducible) makes M<i><sub>e</sub></i> with m₀ ≠ m₂ (reference: 2 ≠ 5, CHECKED 7.48e-14 / 1.60e-13) not so(16)-equivariant, so (C4)'s antecedent is false for every manuscript-faithful two-value M<i><sub>e</sub></i>; the m₂⁻⁴ reattachment stays a manuscript convention (see <a href="#P-5-w4c4">P-5</a>).</p>
+<p class="gap">Gap: the E/B/O witness identification (run 4b) is itself conditional on Kit's asserted octet position sets + the adopted position↔k convention; the zero above inherits that conditionality.</p>
+<p class="prov">2026-09-26 ~23:09 PDT, io-word sweep cron run 19 (<code>sf_w4_conditionals.py</code>, exit 0, 26/26 checks PASS, <code>sf_w4_conditionals_results.json</code>). Source: <code>~/workspace/goals/r-theory-volume-i-audit/hidden_files/io_word_sweep/SF_W4_CONDITIONALS.md</code>.</p>
+
+<h3 id="P-2-epsinvis">ε-survivor o-spectral-invisibility — corrected scope</h3>
+<p><span class="tag CP">checked proof</span></p>
+<p><b>Statement.</b> The two DA-survivor positive-ε projectors — Π<i><sub>ε₊</sub></i><sup>(a)</sup> (adopted pattern σ<sup>(a)</sup> = [−1,+1,+1,−1,−1,+1,+1,−1]) and Π<i><sub>ε₊</sub></i><sup>(b)</sup> (its C₁-multiple σ<sup>(b)</sup> = [−1,−1,+1,+1,−1,−1,+1,+1]) — are complex conjugates: M<i><sub>σb</sub></i> := C₁M<i><sub>eps</sub></i> = Π₀ − Π₂ − iK exactly, so Π<i><sub>ε₊</sub></i><sup>(b)</sup> = (I + M<i><sub>σb</sub></i>)/2 = conj(Π<i><sub>ε₊</sub></i><sup>(a)</sup>). PROVED: for real symmetric/Hermitian observables (or whenever the compressed spectrum is real), spec(Π<i><sub>ε₊</sub></i><sup>(a)</sup><i>T</i>Π<i><sub>ε₊</sub></i><sup>(a)</sup>) = spec(Π<i><sub>ε₊</sub></i><sup>(b)</sup><i>T</i>Π<i><sub>ε₊</sub></i><sup>(b)</sup>) as multisets — a Hermitian matrix and its conjugate are isospectral. No commutant hypothesis needed.</p>
+<p><b>Withdrawal, stated explicitly.</b> The earlier "every real operator" statement was too broad and is <b>withdrawn</b>: conjugation gives only conjugate spectra for arbitrary nonsymmetric real matrices, so the invisibility theorem holds only where the spectrum is real. Complex-Hermitian probes genuinely distinguish the sectors — the complex-Hermitian C₂ has different ε₊-sector spectra under (a) vs (b) (max|Δ| = 1.0) — so the "real" hypothesis is load-bearing, exactly as the proof requires. (Recorded in the notation ledger's 2026-09-27 update, sweeping runs 17–25 + omnibus Q1–Q3/Q7.) What the ambiguity <i>does</i> touch: odd-k sector membership (definitional — Tr(P₁Π<i><sub>ε₊</sub></i><sup>(a)</sup>) = 416 = tr(P₁) vs Tr(P₁Π<i><sub>ε₊</sub></i><sup>(b)</sup>) = 0) and complex-phase data (the ±i mixed-class expulsion phase, run 10 Lemma C); no established physical input accesses either.</p>
+<p><b>CHECKED tripwires</b> (archived SC matrices, tol 1e-9; 30/30 checks PASS, 1243.7 s): premises C₁ = Π₀+Π₂−Π_rest (4.97e-14), [C₁,K] = 0 (1.4e-15), M<i><sub>σb</sub></i> = C₁M<i><sub>eps</sub></i> = Π₀−Π₂−iK (1.07e-13), Π<i><sub>ε₊</sub></i><sup>(b)</sup> = conj(Π<i><sub>ε₊</sub></i><sup>(a)</sup>) (7.0e-14), tr Π<i><sub>ε₊</sub></i><sup>(b)</sup> = 816; o-blind spectra: reference M<i><sub>rest</sub></i> 1.16e-14, full reference M<i><sub>e</sub></i> 1.6e-14, three generic non-K-commuting real rest operators ≤ 2.7e-13 ([<i>T</i>,K] ≈ 897, confirming no commutant hypothesis), two full random real symmetric operators with cross-sector blocks ≤ 6.2e-13.</p>
+<p class="prov">2026-09-26 ~19:09 PDT, io-word sweep cron run 17 (<code>o_rest_invisibility.py</code>, exit 0, 30/30 checks PASS, <code>o_rest_invisibility_results.json</code>). Source: <code>~/workspace/goals/r-theory-volume-i-audit/hidden_files/io_word_sweep/O_REST_INVISIBILITY.md</code>; withdrawal recorded in the notation ledger (drive_backup/stage/NOTATION_LEDGER.md, 2026-09-27 update).</p>
+
+<h3 id="P-2-census">Selection census: no established operator selects within real 𝔟</h3>
+<p><span class="tag NC">completed numerical check</span></p>
+<p><b>Question.</b> Tabulate the action of every established operator on the 12-dim real 𝔟 — per operator report the induced structure inside 𝔟 (invariant subspace / selected vector / quadratic-form spectrum / "none"). <b>Headline result — complete negative:</b> no established operator selects a vector or proper subspace within the real 𝔟. Every established operator acts as a uniform scalar, as zero, with a frozen observable, or does not preserve 𝔟 at all. Two apparent candidates evaporated on checking (recorded as falsified avenues, not selections).</p>
+<table>
+<tr><th>#</th><th>operator</th><th>induced map on 𝔟</th><th>verdict inside 𝔟</th></tr>
+<tr><td>1</td><td>C₁ = Π₀+Π₂−Π_rest</td><td>conjugation = +id</td><td>none (uniform) — PROVED by charge arithmetic</td></tr>
+<tr><td>2</td><td>K = Im(M<i><sub>eps</sub></i>)</td><td>KX = XK = [X,K] = 0</td><td>none — annihilates 𝔟 entirely; PROVED (K rest-supported)</td></tr>
+<tr><td>3</td><td>M<i><sub>e</sub></i> = m₀Π₀+m₂Π₂+M<i><sub>rest</sub></i></td><td>conjugation = m₀m₂·id, all m₀,m₂</td><td>none (uniform scalar) — PROVED analytic, m₀,m₂ symbolic</td></tr>
+<tr><td>4a</td><td>M<i><sub>eps</sub></i> — conjugation</td><td>−id</td><td>none (uniform) — PROVED (run 6 + M<i><sub>eps</sub></i>²=I)</td></tr>
+<tr><td>4b</td><td>M<i><sub>eps</sub></i> — commutator</td><td>‖[X,M<i><sub>eps</sub></i>]‖²<i><sub>F</sub></i> = 752 uniform; ker = {0}</td><td>none — PROVED (block algebra, run 22)</td></tr>
+<tr><td>4c</td><td>M<i><sub>eps</sub></i> — anticommutator</td><td>{M<i><sub>eps</sub></i>,X} = 0 uniform</td><td>none — PROVED (run 6)</td></tr>
+<tr><td>4d</td><td>σ̃ = [·,M<i><sub>eps</sub></i>]/2</td><td>does not preserve 𝔟; image ⊥ 𝔟 exactly</td><td>none — no endomorphism (falsified avenue, CHECKED: 𝔟-components ≤ 1.77e-18)</td></tr>
+<tr><td>5a</td><td>ρ(g) mode weights</td><td><i>w</i>₂ = <i>w</i>₆ = 94‖<i>c</i>‖² frozen</td><td>none — PROVED (reality theorem, run 21)</td></tr>
+<tr><td>5b</td><td>Ad<i><sub>ρ(g)</sub></i></td><td>Ad<i><sub>g</sub></i>² = −id; Ad<i><sub>g</sub></i>+Ad<i><sub>g⁻¹</sub></i> = 0; Ad<i><sub>g²</sub></i>+Ad<i><sub>g⁻²</sub></i> = −2·id</td><td>none (uniform) — PROVED by charge arithmetic</td></tr>
+<tr><td>6</td><td>ε-parity</td><td>all of 𝔟 uniformly ε-odd</td><td>none (uniform) — PROVED (run 6)</td></tr>
+<tr><td>7</td><td>transfer-parity / E,B,O witnesses</td><td>Gram 188·I isotropic; Q₂+Q₆ = 188·I; Q₂−Q₆ ≡ 0 on real 𝔟</td><td>none — every established pairing uniform or vanishing</td></tr>
+<tr><td>8a–c</td><td>DA patterns (adopted, C₂, C₁C₂, (−1,−1) M<sup>(3)</sup>)</td><td>conjugation = −id, all four</td><td>none (uniform) — the ε-analog family is indistinguishable on 𝔟 (8c's hand arithmetic was wrong; CHECK corrected it)</td></tr>
+<tr><td>8d</td><td>M<i><sub>rest</sub></i></td><td>M<i><sub>rest</sub></i>X = XM<i><sub>rest</sub></i> = [M<i><sub>rest</sub></i>,X] = 0</td><td>none (zero) — PROVED analytic</td></tr>
+<tr><td>8e</td><td>Π₀, Π₂, Π_rest (conjugation)</td><td>Π₀XΠ₀ = 0 etc.</td><td>none (zero) — PROVED analytic</td></tr>
+<tr><td>8f</td><td>C₃ (complex Hermitian involution)</td><td>preserves grade sectors but neither 𝔟 nor 𝔟<sub>ℂ</sub></td><td>none — no induced map (CHECKED: 𝔟<sub>ℂ</sub>-projection residual 1.00)</td></tr>
+<tr><td>8g</td><td>o-ambiguity (adopted vs C₁-multiple)</td><td>invisible on all Π₀/Π₂-restricted data</td><td>none — PROVED (runs 8, 17)</td></tr>
+</table>
+<p><b>Charge-arithmetic mechanism</b> (u-basis, M<i><sub>eps</sub></i> = diag(σ) adopted): 𝔟's nonzero entries sit only on charge pairs (k,l) ∈ {2,6}×{0,4} ∪ {0,4}×{2,6}; (DXD)<i><sub>kl</sub></i> = σ<i><sub>k</sub></i>σ<i><sub>l</sub></i>X<i><sub>kl</sub></i> gives C₁: (−1)<i><sup>k+l</sup></i> = +1 → +id; C₂, C₁C₂, DA2, M<i><sub>eps</sub></i>: σ<i><sub>k</sub></i>σ<i><sub>l</sub></i> = −1 → −id; Ad<i><sub>ρ(g)</sub></i>: ω<i><sup>k−l</sup></i>, k−l ∈ {2,6} mod 8. M<i><sub>e</sub></i>XM<i><sub>e</sub></i> = m₀m₂X and KX = 0 are basis-free. Physical selection within the exact 12-dim space stays OPEN; no established mathematical structure performs it.</p>
+<p class="prov">2026-09-27 ~03:35 PDT, io-word sweep omnibus wave Q3 (<code>q3_census.py</code>, exit 0, 26/28 checks PASS — the 2 FAILs are the falsified avenues §4d/§8c diagnosed in the follow-up; <code>q3_census_followup.py</code>, exit 0). Source: <code>~/workspace/goals/r-theory-volume-i-audit/hidden_files/io_word_sweep/Q3_SELECTION_CENSUS.md</code>.</p>

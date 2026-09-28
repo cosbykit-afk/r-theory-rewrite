@@ -1,0 +1,462 @@
+[
+ {
+  "id": "b2-book-2-algebraic-spine-001",
+  "book": 2,
+  "section": "2. Book 2 algebraic spine (CHECKED numeric \u2014 numeric verification)",
+  "claim": "srx\u00b7sxp = 1",
+  "ledger_status": "CHECKED",
+  "site_code": "NC",
+  "basis": "max error 1.3e-13",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-book-2-algebraic-spine-002",
+  "book": 2,
+  "section": "2. Book 2 algebraic spine (CHECKED numeric \u2014 numeric verification)",
+  "claim": "cxp\u00b7crx = 1",
+  "ledger_status": "CHECKED",
+  "site_code": "NC",
+  "basis": "max error 1.3e-13",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-book-2-algebraic-spine-003",
+  "book": 2,
+  "section": "2. Book 2 algebraic spine (CHECKED numeric \u2014 numeric verification)",
+  "claim": "urx+uxp = 4/sin(2x)",
+  "ledger_status": "CHECKED",
+  "site_code": "NC",
+  "basis": "max error 1.1e-14",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-book-2-algebraic-spine-004",
+  "book": 2,
+  "section": "2. Book 2 algebraic spine (CHECKED numeric \u2014 numeric verification)",
+  "claim": "FlatWave = 1/urx+1/uxp = sgn(sin 2x)",
+  "ledger_status": "CHECKED",
+  "site_code": "NC",
+  "basis": "max error 3.3e-15",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-book-2-algebraic-spine-005",
+  "book": 2,
+  "section": "2. Book 2 algebraic spine (CHECKED numeric \u2014 numeric verification)",
+  "claim": "cxp = (z+\u03b5)/(\u03b5z\u22121), z=srx, \u03b5=sgn(z\u22121)",
+  "ledger_status": "CHECKED",
+  "site_code": "NC",
+  "basis": "max error 1.1e-13",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-book-2-algebraic-spine-006",
+  "book": 2,
+  "section": "2. Book 2 algebraic spine (CHECKED numeric \u2014 numeric verification)",
+  "claim": "Zcar = 2V+i\u00b74H = e^{2ix}",
+  "ledger_status": "CHECKED",
+  "site_code": "NC",
+  "basis": "max error 0.0 (exact)",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-complementary-swap-algebra-001",
+  "book": 2,
+  "section": "2.XI.L complementary-swap algebra (CHECKED numeric)",
+  "claim": "srx(\u03c0/2\u2212x)=cxp(x), sxp(\u03c0/2\u2212x)=crx(x) (+2 more)",
+  "ledger_status": "CHECKED",
+  "site_code": "NC",
+  "basis": "max error \u22642.9e-14",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-complementary-swap-algebra-002",
+  "book": 2,
+  "section": "2.XI.L complementary-swap algebra (CHECKED numeric)",
+  "claim": "A=srx\u2212sxp=2cot x, B=cxp\u2212crx=2tan x, AB=4",
+  "ledger_status": "CHECKED",
+  "site_code": "NC",
+  "basis": "max error \u22643.6e-15",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-complementary-swap-algebra-003",
+  "book": 2,
+  "section": "2.XI.L complementary-swap algebra (CHECKED numeric)",
+  "claim": "\u03a3\u00b2\u2212\u0394\u00b2=16",
+  "ledger_status": "CHECKED",
+  "site_code": "NC",
+  "basis": "max error 1.7e-13",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-complementary-swap-algebra-004",
+  "book": 2,
+  "section": "2.XI.L complementary-swap algebra (CHECKED numeric)",
+  "claim": "H=1/\u03a3=sin2x/4, V=\u0394/(2\u03a3)=cos2x/2",
+  "ledger_status": "CHECKED",
+  "site_code": "NC",
+  "basis": "max error \u22642.0e-16",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-complementary-swap-algebra-005",
+  "book": 2,
+  "section": "2.XI.L complementary-swap algebra (CHECKED numeric)",
+  "claim": "\u03a3\u2032=\u2212\u03a3\u0394/2, \u0394\u2032=\u2212\u03a3\u00b2/2",
+  "ledger_status": "CHECKED",
+  "site_code": "NC",
+  "basis": "max error exact symbolic: 0.0, 1.8e-15",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-complementary-swap-algebra-006",
+  "book": 2,
+  "section": "2.XI.L complementary-swap algebra (CHECKED numeric)",
+  "claim": "\u03a8U(Cx)=uxp+i\u00b7urx (swap closure)",
+  "ledger_status": "CHECKED",
+  "site_code": "NC",
+  "basis": "max error 2.8e-14",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-complementary-swap-algebra-007",
+  "book": 2,
+  "section": "2.XI.L complementary-swap algebra (CHECKED numeric)",
+  "claim": "FlatWave deck-blind: FW(\u03b8+2\u03c0)=FW(\u03b8)",
+  "ledger_status": "CHECKED",
+  "site_code": "NC",
+  "basis": "max error 0.0 (exact)",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-complementary-swap-algebra-008",
+  "book": 2,
+  "section": "2.XI.L complementary-swap algebra (CHECKED numeric)",
+  "claim": "FW(\u03b8+\u03c0/2)=\u2212FW(\u03b8), FW(\u03b8+\u03c0)=FW(\u03b8)",
+  "ledger_status": "CHECKED",
+  "site_code": "NC",
+  "basis": "max error 0.0 (exact)",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-riccati-differential-integral-asymptotic-001",
+  "book": 2,
+  "section": "2.IX \u2014 Riccati / differential / integral / asymptotic closure",
+  "claim": "T1 envelope srx\u2032=\u2212srx|csc x|, sxp\u2032=+sxp|csc x|:",
+  "ledger_status": "PROVED",
+  "site_code": "SC",
+  "basis": "(SymPy residual 0",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-riccati-differential-integral-asymptotic-002",
+  "book": 2,
+  "section": "2.IX \u2014 Riccati / differential / integral / asymptotic closure",
+  "claim": "T2/T4 autonomous Riccati pairs:",
+  "ledger_status": "PROVED",
+  "site_code": "SC",
+  "basis": "(exact algebra from T1 via",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-riccati-differential-integral-asymptotic-003",
+  "book": 2,
+  "section": "2.IX \u2014 Riccati / differential / integral / asymptotic closure",
+  "claim": "C1/C2 maximal-domain monotonicity:",
+  "ledger_status": "PROVED",
+  "site_code": "CP",
+  "basis": "(Riccati RHS sign-definite).",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-riccati-differential-integral-asymptotic-004",
+  "book": 2,
+  "section": "2.IX \u2014 Riccati / differential / integral / asymptotic closure",
+  "claim": "T5 arctan linearization (slopes \u22131/2):",
+  "ledger_status": "PROVED",
+  "site_code": "CP",
+  "basis": "(chain rule); numeric",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-riccati-differential-integral-asymptotic-005",
+  "book": 2,
+  "section": "2.IX \u2014 Riccati / differential / integral / asymptotic closure",
+  "claim": "C3 half-angle recovery:",
+  "ledger_status": "PROVED",
+  "site_code": "CP",
+  "basis": "(from \u03b8s=2arctan sxp,",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-riccati-differential-integral-asymptotic-006",
+  "book": 2,
+  "section": "2.IX \u2014 Riccati / differential / integral / asymptotic closure",
+  "claim": "T6 logarithmic antiderivatives:",
+  "ledger_status": "PROVED",
+  "site_code": "SC",
+  "basis": "(SymPy: substituting the Riccati",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-riccati-differential-integral-asymptotic-007",
+  "book": 2,
+  "section": "2.IX \u2014 Riccati / differential / integral / asymptotic closure",
+  "claim": "C5 half-angle log forms:",
+  "ledger_status": "CHECKED",
+  "site_code": "NC",
+  "basis": "(2.4e-13).",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-riccati-differential-integral-asymptotic-008",
+  "book": 2,
+  "section": "2.IX \u2014 Riccati / differential / integral / asymptotic closure",
+  "claim": "T7/T8 seam asymptotics (2/h, h/2):",
+  "ledger_status": "PROVED",
+  "site_code": "CP",
+  "basis": "csc h\u00b1cot h equal",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-riccati-differential-integral-asymptotic-009",
+  "book": 2,
+  "section": "2.IX \u2014 Riccati / differential / integral / asymptotic closure",
+  "claim": "T9/T10 opposite-seam values (1,1) and derivatives \u22131:",
+  "ledger_status": "PROVED",
+  "site_code": "SC",
+  "basis": "(exact",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-riccati-differential-integral-asymptotic-010",
+  "book": 2,
+  "section": "2.IX \u2014 Riccati / differential / integral / asymptotic closure",
+  "claim": "T11 logarithmic divergence / C8:",
+  "ledger_status": "PROVED",
+  "site_code": "CP",
+  "basis": "(from T6+T7).",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-riccati-differential-integral-asymptotic-011",
+  "book": 2,
+  "section": "2.IX \u2014 Riccati / differential / integral / asymptotic closure",
+  "claim": "T12 Riccati solution branches cot((x\u2212a)/2), tan((x\u2212a)/2):",
+  "ledger_status": "PROVED",
+  "site_code": "CP",
+  "basis": "",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-riccati-differential-integral-asymptotic-012",
+  "book": 2,
+  "section": "2.IX \u2014 Riccati / differential / integral / asymptotic closure",
+  "claim": "T13 differential closure / C10:",
+  "ledger_status": "PROVED",
+  "site_code": "CP",
+  "basis": "(chains 2.VII.T7 with T2).",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-mobius-reduction-one-generator-001",
+  "book": 2,
+  "section": "2.VII \u2014 M\u00f6bius reduction / one-generator theorem",
+  "claim": "L1/C1 denominator nonvanishing:",
+  "ledger_status": "PROVED",
+  "site_code": "SC",
+  "basis": "(by inspection from the",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-mobius-reduction-one-generator-002",
+  "book": 2,
+  "section": "2.VII \u2014 M\u00f6bius reduction / one-generator theorem",
+  "claim": "T1: premise z+w=\u03b5(zw\u22121)",
+  "ledger_status": "CHECKED",
+  "site_code": "NC",
+  "basis": "(7.3e-15); the reduction algebra to",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-mobius-reduction-one-generator-003",
+  "book": 2,
+  "section": "2.VII \u2014 M\u00f6bius reduction / one-generator theorem",
+  "claim": "T2 involution M\u03b5(M\u03b5(z))=z:",
+  "ledger_status": "PROVED",
+  "site_code": "SC",
+  "basis": "(exact rational algebra with \u03b5\u00b2=1).",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-mobius-reduction-one-generator-004",
+  "book": 2,
+  "section": "2.VII \u2014 M\u00f6bius reduction / one-generator theorem",
+  "claim": "CL1 projective matrix witness ([[1,\u03b5],[\u03b5,\u22121]]\u00b2=2I):",
+  "ledger_status": "PROVED",
+  "site_code": "SC",
+  "basis": "(exact).",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-mobius-reduction-one-generator-005",
+  "book": 2,
+  "section": "2.VII \u2014 M\u00f6bius reduction / one-generator theorem",
+  "claim": "T3 branch preservation + dM\u03b5/dz=\u22122/(\u03b5z\u22121)\u00b2<0:",
+  "ledger_status": "PROVED",
+  "site_code": "SC",
+  "basis": "(exact quotient",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-mobius-reduction-one-generator-006",
+  "book": 2,
+  "section": "2.VII \u2014 M\u00f6bius reduction / one-generator theorem",
+  "claim": "T4 complementary reflection as M\u00f6bius:",
+  "ledger_status": "CHECKED",
+  "site_code": "NC",
+  "basis": "(5.7e-14; chains the",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-mobius-reduction-one-generator-007",
+  "book": 2,
+  "section": "2.VII \u2014 M\u00f6bius reduction / one-generator theorem",
+  "claim": "T5 unique positive fixed point z=\u221a2+\u03b5:",
+  "ledger_status": "PROVED",
+  "site_code": "SC",
+  "basis": "(exact quadratic).",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-mobius-reduction-one-generator-008",
+  "book": 2,
+  "section": "2.VII \u2014 M\u00f6bius reduction / one-generator theorem",
+  "claim": "C5 fixed point = quadrant-midpoint value:",
+  "ledger_status": "CHECKED",
+  "site_code": "NC",
+  "basis": "(1.8e-15).",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-mobius-reduction-one-generator-009",
+  "book": 2,
+  "section": "2.VII \u2014 M\u00f6bius reduction / one-generator theorem",
+  "claim": "T6 \u03b5=sgn(z\u22121):",
+  "ledger_status": "CHECKED",
+  "site_code": "NC",
+  "basis": "(0.0).",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-mobius-reduction-one-generator-010",
+  "book": 2,
+  "section": "2.VII \u2014 M\u00f6bius reduction / one-generator theorem",
+  "claim": "T7 full reconstruction formulas (urx, uxp, sawr, sawx):",
+  "ledger_status": "CHECKED",
+  "site_code": "NC",
+  "basis": "",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-mobius-reduction-one-generator-011",
+  "book": 2,
+  "section": "2.VII \u2014 M\u00f6bius reduction / one-generator theorem",
+  "claim": "T8/T9/T10 one-generator necessity+sufficiency:",
+  "ledger_status": "PROVED",
+  "site_code": "CP",
+  "basis": "(logical chaining).",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-mobius-reduction-one-generator-012",
+  "book": 2,
+  "section": "2.VII \u2014 M\u00f6bius reduction / one-generator theorem",
+  "claim": "N1 \u03c0-periodicity (no half-turn recovery):",
+  "ledger_status": "CHECKED",
+  "site_code": "NC",
+  "basis": "(8.1e-13).",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-harmonic-carrier-extraction-001",
+  "book": 2,
+  "section": "2.VIII \u2014 harmonic carrier extraction",
+  "claim": "T11 carrier-from-z formulas (sin 2x, cos 2x rational in z):",
+  "ledger_status": "CHECKED",
+  "site_code": "NC",
+  "basis": "",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-harmonic-carrier-extraction-002",
+  "book": 2,
+  "section": "2.VIII \u2014 harmonic carrier extraction",
+  "claim": "T1\u2013T10, T12\u2013T14, C13/C14:",
+  "ledger_status": "PROVED",
+  "site_code": "CP",
+  "basis": "elementary consequences of",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-complete-named-boundary-atlas-001",
+  "book": 2,
+  "section": "2.X \u2014 complete named boundary atlas",
+  "claim": "Lemma FlatWave=sawr+sawx (used in T7):",
+  "ledger_status": "CHECKED",
+  "site_code": "NC",
+  "basis": "(3.6e-15).",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-complete-named-boundary-atlas-002",
+  "book": 2,
+  "section": "2.X \u2014 complete named boundary atlas",
+  "claim": "T9 unified seam law ((\u22121)^{k\u22121},(\u22121)^k,(\u22121)^k/2):",
+  "ledger_status": "CHECKED",
+  "site_code": "NC",
+  "basis": "(k=0..3).",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-complete-named-boundary-atlas-003",
+  "book": 2,
+  "section": "2.X \u2014 complete named boundary atlas",
+  "claim": "T10 split Saw endpoint exchange:",
+  "ledger_status": "CHECKED",
+  "site_code": "NC",
+  "basis": "(k=0..3, signs match).",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-complete-named-boundary-atlas-004",
+  "book": 2,
+  "section": "2.X \u2014 complete named boundary atlas",
+  "claim": "T11 H=FlatWave\u00b7sawr\u00b7sawx: premise",
+  "ledger_status": "CHECKED",
+  "site_code": "NC",
+  "basis": "(1.7e-16), identity",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-complete-named-boundary-atlas-005",
+  "book": 2,
+  "section": "2.X \u2014 complete named boundary atlas",
+  "claim": "T12 smooth/cusp/jump hierarchy:",
+  "ledger_status": "CHECKED",
+  "site_code": "NC",
+  "basis": "(|H| one-sided derivatives",
+  "source": "theorem_ledger.md"
+ },
+ {
+  "id": "b2-complete-named-boundary-atlas-006",
+  "book": 2,
+  "section": "2.X \u2014 complete named boundary atlas",
+  "claim": "T13/T14 split-vs-glued, T15/T16 taxonomy:",
+  "ledger_status": "PROVED",
+  "site_code": "CP",
+  "basis": "(chaining, no new",
+  "source": "theorem_ledger.md"
+ }
+]

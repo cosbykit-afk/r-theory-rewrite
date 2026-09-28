@@ -1,0 +1,2003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Appendix P — Full Derivations — R Theory Rewrite Series</title>
+<!-- SITENAV-START -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Source+Sans+3:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+body{overflow-x:clip}
+.sitebar{background:#092d32;color:#eaf5f4;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw)}
+.sitebar-inner{max-width:860px;margin:0 auto;padding:11px 24px;min-height:52px;box-sizing:border-box;
+ display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+ font-family:'Source Sans 3',system-ui,-apple-system,'Segoe UI',sans-serif}
+.site-mark{font-family:'Libre Baskerville',Georgia,serif;font-weight:700;font-size:.92rem;
+ color:#fff;text-decoration:none;white-space:nowrap}
+.site-mark:hover{text-decoration:underline}
+.site-select-wrap{position:relative;flex:none}
+.site-select-wrap::after{content:"";position:absolute;right:12px;top:50%;width:7px;height:7px;
+ border-right:2px solid #c6dcda;border-bottom:2px solid #c6dcda;
+ transform:translateY(-70%) rotate(45deg);pointer-events:none}
+.site-dest{appearance:none;-webkit-appearance:none;background:#123d43;border:1px solid #38636a;
+ border-radius:6px;color:#fff;font-family:inherit;font-weight:600;font-size:.88rem;
+ padding:7px 34px 7px 11px;min-height:36px;width:min(240px,100%);cursor:pointer}
+.site-dest:hover{background:#164a51;border-color:#5f858a}
+.site-search{display:flex;align-items:center;height:36px;min-width:280px;margin-left:auto;flex:1 1 auto;max-width:340px}
+.site-search input[type=text]{flex:1;min-width:0;height:36px;box-sizing:border-box;
+ border:1px solid #38636a;border-right:none;border-radius:6px 0 0 6px;padding:7px 10px;
+ font-family:inherit;font-weight:500;font-size:.84rem;color:#10262b;background:#fff}
+.site-search input[type=text]::placeholder{color:#66777a}
+.site-search button{height:36px;box-sizing:border-box;border:1px solid #38636a;border-radius:0 6px 6px 0;
+ background:#165159;color:#fff;font-family:inherit;font-weight:700;font-size:.84rem;
+ padding:0 12px;cursor:pointer;flex:none}
+.site-search button:hover{background:#1b626b}
+.text-toggle{display:flex;align-items:center;gap:8px;color:#eaf5f4;font-size:.84rem;
+ font-weight:600;cursor:pointer;white-space:nowrap;flex:none}
+.text-toggle input{appearance:none;-webkit-appearance:none;width:38px;height:22px;border-radius:999px;
+ background:#123d43;border:1px solid #5f858a;position:relative;cursor:pointer;margin:0;flex:none;
+ transition:background .18s,border-color .18s}
+.text-toggle input::after{content:"";position:absolute;left:2px;top:2px;width:16px;height:16px;
+ border-radius:50%;background:#c6dcda;transition:transform .18s,background .18s}
+.text-toggle input:checked{background:#b85f1d;border-color:#b85f1d}
+.text-toggle input:checked::after{transform:translateX(16px);background:#fff}
+.site-dest:focus-visible,.site-search input[type=text]:focus-visible,
+.site-search button:focus-visible,.text-toggle input:focus-visible,.site-mark:focus-visible,
+.crumbbar a:focus-visible{outline:3px solid #4fc3b8;outline-offset:2px}
+.crumbbar{background:#f5f8f8;border-bottom:1px solid #c9d6d8;
+ margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);margin-bottom:1.5em}
+.crumbbar-inner{max-width:860px;margin:0 auto;padding:8px 24px;box-sizing:border-box;
+ display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+ font-family:'Source Sans 3',system-ui,-apple-system,'Segoe UI',sans-serif;
+ font-size:.8rem;color:#52676b}
+.crumbbar a{color:#0b6866;text-decoration:none;font-weight:600}
+.crumbbar a:hover{text-decoration:underline}
+.crumb-vol{background:#0b6866;color:#fff !important;border-radius:6px;padding:3px 10px;font-weight:700}
+.crumb-vol:hover{background:#084c4b;text-decoration:none !important}
+.crumb-sep{color:#8aa0a3}
+.crumb-pill{font-size:.72rem;font-weight:700;background:#e3ecec;color:#10262b;
+ border-radius:999px;padding:2px 10px}
+.rth-toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(8px);
+ background:#092d32;color:#fff;font-family:'Source Sans 3',system-ui,sans-serif;
+ font-size:.85rem;font-weight:600;padding:10px 18px;border-radius:8px;opacity:0;
+ pointer-events:none;transition:opacity .2s,transform .2s;z-index:9999}
+.rth-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+html.rth-large-text body{font-size:21.333px;line-height:1.65}
+@media (max-width:600px){
+ .sitebar-inner{gap:8px;padding:10px 14px}
+ .site-select-wrap{order:3;width:100%}
+ .site-dest{width:100%}
+ .site-search{order:4;width:100%;min-width:0;max-width:none;margin-left:0}
+ .text-toggle{margin-left:auto}
+ .crumbbar-inner{padding:8px 14px}
+}
+</style>
+<script>
+(function(){try{if(localStorage.getItem('rth-large-text')==='1'){document.documentElement.classList.add('rth-large-text');}}catch(e){}})();
+</script>
+<!-- SITENAV-END -->
+<style>
+body{font-family:Georgia,serif;max-width:900px;margin:0 auto;padding:24px;line-height:1.65;color:#1a1a1a;background:#fdfdfb}
+h1{font-size:1.9em;border-bottom:2px solid #333;padding-bottom:8px}
+h2{font-size:1.45em;margin-top:2.4em;border-bottom:1px solid #aaa;padding-bottom:4px}
+h3{font-size:1.15em;margin-top:1.8em}
+h4{font-size:1.02em;margin-top:1.4em;margin-bottom:.3em}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.9em}
+th,td{border:1px solid #bbb;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#f0f0ec}
+.tag{display:inline-block;font-size:.78em;font-weight:bold;border:1px solid #666;border-radius:3px;padding:0 6px;margin-right:4px;background:#eee}
+.tag.CP{background:#dff0d8}.tag.SC{background:#e3f2fd}.tag.NC{background:#d7f0e8}.tag.ST{background:#e8e4f5}
+.tag.MA{background:#fcf8e3}.tag.AX{background:#fde8d8}.tag.IN{background:#e8e8e8}.tag.IC{background:#fbdcdc}
+.small{font-size:.9em;color:#444}
+.note{background:#f6f8fb;border:1px solid #dfe5ec;border-radius:8px;padding:10px 16px;margin:1em 0;font-size:.94em}
+pre{background:#f4f4f1;border:1px solid #ccc;border-radius:4px;padding:12px 14px;font-size:.85em;overflow-x:auto}
+code{font-size:.88em}
+.prov{font-size:.85em;color:#5a6a6e;border-left:3px solid #9db8c0;padding:2px 10px;margin:.8em 0}
+.gap{background:#fdf3e3;border:1px solid #ddc48f;border-radius:6px;padding:8px 14px;margin:1em 0;font-size:.94em}
+.gap::before{content:"Honest gap — ";font-weight:bold}
+.toc{background:#f4f4f0;border:1px solid #ccc;border-radius:4px;padding:8px 16px;margin:1.2em 0}
+.toc a{color:#0645ad;text-decoration:none}
+.toc a:hover{text-decoration:underline}
+footer{margin-top:3em;color:#555;font-size:.9em;border-top:1px solid #bbb;padding-top:1em}
+a{color:#0645ad}
+</style>
+<!-- TAGLINK-CSS-START -->
+<style>
+a.taglink{text-decoration:none}
+a.taglink:hover .tag{filter:brightness(.94)}
+a.taglink:focus-visible{outline:3px solid #0e7c86;outline-offset:2px;border-radius:4px}
+</style>
+<!-- TAGLINK-CSS-END -->
+</head>
+<body>
+<!-- SITENAV-NAV-START -->
+<nav class="sitebar" aria-label="Proposed global navigation">
+<div class="sitebar-inner">
+<a class="site-mark" href="../">R Theory</a>
+<span class="site-select-wrap"><select class="site-dest" id="rthSiteDest" aria-label="Go to section">
+<option value="../contents/" selected>Contents</option>
+<option value="../vol0/">Volume 0</option>
+<option value="../contents/#vol-1">Volume I</option>
+<option value="../contents/#vol-2">Volume II</option>
+<option value="../contents/#vol-3">Volume III</option>
+<option value="../vol4/">Volume IV</option>
+<option value="../index/">Index</option>
+</select></span>
+<form class="site-search" id="rthSiteSearch" action="https://www.google.com/search" method="get" target="_blank" rel="noopener" role="search">
+<input type="hidden" name="q" id="rthSearchQ" value="">
+<input type="text" id="rthSearchTerm" placeholder="Search R Theory" aria-label="Search R Theory" autocomplete="off">
+<button type="submit">Search</button>
+</form>
+<label class="text-toggle"><span>Large text</span><input type="checkbox" id="rthLargeText" role="switch" aria-label="Large text"></label>
+</div>
+</nav>
+<div class="crumbbar"><div class="crumbbar-inner">
+<a href="../">Home</a><span class="crumb-sep">/</span><span>Appendix P — Full Derivations</span>
+</div></div>
+<div class="rth-toast" id="rthToast" role="status" aria-live="polite"></div>
+<script>
+(function(){
+ var toast=document.getElementById('rthToast'),t=null;
+ function say(m){toast.textContent=m;toast.classList.add('show');clearTimeout(t);
+  t=setTimeout(function(){toast.classList.remove('show');},1500);}
+ var sel=document.getElementById('rthSiteDest');
+ sel.addEventListener('change',function(){if(sel.value)location.href=sel.value;});
+ var form=document.getElementById('rthSiteSearch'),
+     term=document.getElementById('rthSearchTerm'),
+     q=document.getElementById('rthSearchQ');
+ form.addEventListener('submit',function(e){
+  var v=term.value.trim();
+  if(!v){e.preventDefault();term.focus();say('Enter a search term');return;}
+  q.value='site:cosbykit-afk.github.io/r-theory-rewrite '+v;
+ });
+ var tg=document.getElementById('rthLargeText');
+ tg.checked=document.documentElement.classList.contains('rth-large-text');
+ tg.addEventListener('change',function(){
+  var on=tg.checked;
+  document.documentElement.classList.toggle('rth-large-text',on);
+  try{localStorage.setItem('rth-large-text',on?'1':'0');}catch(e){}
+  say(on?'Large text on':'Large text off');
+ });
+})();
+</script>
+<!-- SITENAV-NAV-END -->
+<h1>Appendix P — Full Derivations</h1>
+<p class="lede"><i>R Theory Rewrite Series — the complete written-out proofs behind the
+series' established results.</i></p>
+<div class="note">
+<b>What this appendix is.</b> The series' book pages and the
+<a href="../ledger/">research status ledger</a> publish verdicts: PROVED, CHECKED,
+REFUTED, and the rest. This appendix publishes the <i>derivations</i> — the
+full proofs, the exact algebra, and the negative results worked out step by
+step — for readers who want to check the work rather than take the verdict.
+It is long on purpose: a webpage costs nothing to lengthen, and a proof costs
+everything to shorten.<br><br>
+<b>Scope discipline.</b> Every derivation carries its scope label, stated up
+front and never rounded up or down: <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a>
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">incorrect result</span></a> (refutations).
+Premises are stated before the proofs that need them. Where a source document
+has a genuine gap, the gap is labeled in place — this appendix invents no
+mathematics.<br><br>
+<b>Not the audit trail.</b> The <a href="../appendix/">Computational Audit
+Appendix</a> records how the audit was run (modules, scripts, run logs). This
+appendix records what was <i>proved</i>.<br><br>
+<b>Coverage.</b> P-1–P-6 cover the 2026-09-21…28 proof burst (Casimir, the
+1820 campaign, the dials, the rebuilt modules, the refutations, two standalone
+theorems). P-7 gives a condensed derivation paragraph for each of the 86
+Books-2–6 audit claims in the ledger; where the ledger's verdict is too thin
+for a paragraph, the entry is an explicitly labeled pointer, not a proof.
+P-8 is the reproducibility index: every validation script, what it
+establishes, and its last known run result. The final section lists what is
+still <i>open</i> — honestly, and never presented as closed.
+</div>
+
+<div class="toc">
+<b>Contents.</b>
+<ul>
+<li><a href="#P-1">P-1. The Casimir spectrum proofs</a> —
+  <a href="#P-1-k1">K-1…K-9</a> ·
+  <a href="#P-1-weyl">Weyl dimensions</a> ·
+  <a href="#P-1-twist">B-7 twist lemma</a></li>
+<li><a href="#P-2">P-2. The 1820 conditional theorems</a> —
+  <a href="#P-2-collapse">collapse</a> ·
+  <a href="#P-2-reality">reality</a> ·
+  <a href="#P-2-crossphase">cross-phase</a> ·
+  <a href="#P-2-752">752 identity</a> ·
+  <a href="#P-2-commutant">commutant</a> ·
+  <a href="#P-2-decoupling">decoupling</a> ·
+  <a href="#P-2-sawfirewall">saw firewall</a> ·
+  <a href="#P-2-w4c2a">W4 (C2a)</a> ·
+  <a href="#P-2-epsinvis">ε-invisibility</a> ·
+  <a href="#P-2-census">selection census</a></li>
+<li><a href="#P-3">P-3. The dial theorems</a> —
+  <a href="#P-3-t1">T1</a> ·
+  <a href="#P-3-t3">T3</a> ·
+  <a href="#P-3-t4">T4</a> ·
+  <a href="#P-3-crossratio">cross-ratio</a> ·
+  <a href="#P-3-calp6">CAL-P6</a></li>
+<li><a href="#P-4">P-4. The clean-slate modules</a> —
+  <a href="#P-4-context">why rebuilt</a> ·
+  <a href="#P-4-m7">M7′</a> ·
+  <a href="#P-4-m8">M8′</a> ·
+  <a href="#P-4-m9">M9′</a> ·
+  <a href="#P-4-m10">M10′</a> ·
+  <a href="#P-4-m11">M11′</a> ·
+  <a href="#P-4-m12">M12′</a> ·
+  <a href="#P-4-naive12">naive-12 refutation</a></li>
+<li><a href="#P-5">P-5. The refutations</a> —
+  <a href="#P-5-run25">run 25 (N_1820 8-cycle)</a> ·
+  <a href="#P-5-commutant-bug">withdrawn 12→6</a> ·
+  <a href="#P-5-modepure">mode-pure</a> ·
+  <a href="#P-5-w4c4">W4 (C4)→m₂⁻⁴</a></li>
+<li><a href="#P-6">P-6. Standalone theorems</a> —
+  <a href="#P-6-secant">secant–cosecant identity</a> ·
+  <a href="#P-6-l9">Book-2 L9 nonconstancy</a></li>
+<li><a href="#P-7">P-7. Audit-claim derivations (Books 2–6)</a> —
+  <a href="#P-7-b2">Book 2</a> ·
+  <a href="#P-7-b3">Book 3</a> ·
+  <a href="#P-7-b4">Book 4</a> ·
+  <a href="#P-7-b5">Book 5</a> ·
+  <a href="#P-7-b6">Book 6</a></li>
+<li><a href="#P-8">P-8. Reproducibility index</a></li>
+<li><a href="#P-open">What remains open</a></li>
+</ul>
+</div>
+
+<h2 id="P-1">P-1. The Casimir spectrum proofs</h2>
+<p><b>Theorem.</b> Sym²(S₊) = <b>1</b> ⊕ V(ω₄) ⊕ V(2ω₈) with C-eigenvalues
+0 / 48 / 64. The spectrum {0:1, 48:1820, 64:6435} is <b>PROVED</b>; the
+numerics (R3a, R3b) are corroboration only. Status is also mirrored in the
+<a href="../ledger/">research status ledger</a>.</p>
+<p><i>Setup.</i> S₊ is the +1 eigenspace of Γ₁₇, dim 128, carrying the chiral
+spinor representation of so(16): S₊ ≅ V(ω₈) (ST; the ω₇↔ω₈ ambiguity is
+immaterial — symmetric in all that follows). M<sub>AB</sub> = ½γ<sub>A</sub>γ<sub>B</sub>
+(A&lt;B): the 120 generators on S₊, anti-Hermitian, M<sub>AB</sub>² = −¼I.
+ρ(M<sub>AB</sub>) = M<sub>AB</sub>⊗I + I⊗M<sub>AB</sub> on S₊⊗S₊, restricting to
+Sym²(S₊) (dim 128·129/2 = 8256); this is exactly R3a's <i>rho</i> (orthonormal
+Sym² basis, no ½). C = −Σ<sub>A&lt;B</sub> ρ(M<sub>AB</sub>)² (R3a's C, direct,
+no symmetrization). B₊ = B|_{S₊}: symmetric involution (C-2, C-4 of the Clifford
+foundation). G<sub>I</sub> = Uᵀγ<sub>I</sub>U, |I| = 4: the 1820 four-form
+operators on S₊.</p>
+<p><i>Imported as ST (not re-proved):</i> S₊ ≅ V(ω₈); irreducibility of
+Λ⁴(16) ≅ V(ω₄); highest-weight theory; Harish-Chandra Casimir proportionality;
+the D₈ e-basis realization.</p>
+
+<h3 id="P-1-k1">K-1: the vector-action lemma</h3>
+<p><a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></p>
+<p class="prov">2026-09-19; PROOFS_Casimir.md</p>
+<pre>[M<sub>AB</sub>, γ<sub>C</sub>] = δ<sub>BC</sub> γ<sub>A</sub> − δ<sub>AC</sub> γ<sub>B</sub></pre>
+<p><i>Proof.</i> ½[γ<sub>A</sub>γ<sub>B</sub>,γ<sub>C</sub>] =
+½(γ<sub>A</sub>{γ<sub>B</sub>,γ<sub>C</sub>} − {γ<sub>A</sub>,γ<sub>C</sub>}γ<sub>B</sub>)
+= δ<sub>BC</sub>γ<sub>A</sub> − δ<sub>AC</sub>γ<sub>B</sub>, using C-1. ∎</p>
+
+<h3 id="P-1-k2">K-2: bivectors satisfy so(16)</h3>
+<p><a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></p>
+<p class="prov">2026-09-19; PROOFS_Casimir.md</p>
+<pre>[M<sub>AB</sub>,M<sub>CD</sub>] = δ<sub>BC</sub> M<sub>AD</sub> − δ<sub>AC</sub> M<sub>BD</sub> − δ<sub>BD</sub> M<sub>AC</sub> + δ<sub>AD</sub> M<sub>BC</sub></pre>
+<p><i>Proof.</i> M<sub>AB</sub> = −M<sub>BA</sub>. Expand
+¼[γ<sub>A</sub>γ<sub>B</sub>,γ<sub>C</sub>γ<sub>D</sub>] by cases: all distinct
+→ 0 (4 sign flips); exactly one coincidence, e.g. B=C →
+¼(γ<sub>A</sub>γ<sub>D</sub> − γ<sub>B</sub>γ<sub>D</sub>γ<sub>A</sub>γ<sub>B</sub>)
+= ¼(γ<sub>A</sub>γ<sub>D</sub> + γ<sub>A</sub>γ<sub>D</sub>) = M<sub>AD</sub>, and
+symmetrically; two coincidences → 0. Routine Clifford computation. ∎</p>
+<p><i>Corollary (CP).</i> C is central: [C, ρ(M<sub>AB</sub>)] = 0 for all A&lt;B
+(standard Casimir argument from K-2).</p>
+<p><i>Corroboration (NC):</i> R2 L2 measured worst violation 0.0 over 14,400 pairs.</p>
+
+<h3 id="P-1-k3">K-3: B intertwines M<sub>AB</sub> with −M<sub>AB</sub>ᵀ</h3>
+<p><a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></p>
+<p class="prov">2026-09-19; PROOFS_Casimir.md</p>
+<pre>BM<sub>AB</sub> = −M<sub>AB</sub>ᵀ B</pre>
+<p><i>Proof.</i> B(½γ<sub>A</sub>γ<sub>B</sub>)B⁻¹ = ½(−γ<sub>A</sub>ᵀ)(−γ<sub>B</sub>ᵀ)
+= ½(γ<sub>B</sub>γ<sub>A</sub>)ᵀ = −(½γ<sub>A</sub>γ<sub>B</sub>)ᵀ by C-2. ∎</p>
+<p><i>Corollary.</i> B₊M<sub>AB</sub>B₊ = σ<sub>A</sub>σ<sub>B</sub> M<sub>AB</sub>
+with σ<sub>A</sub> = +1 (A odd), −1 (A even): B₊M<sub>AB</sub>B₊⁻¹ = −M<sub>AB</sub>ᵀ,
+and M<sub>AB</sub>ᵀ = ½γ<sub>B</sub>ᵀγ<sub>A</sub>ᵀ = −σ<sub>A</sub>σ<sub>B</sub>·½γ<sub>A</sub>γ<sub>B</sub>
+= −σ<sub>A</sub>σ<sub>B</sub>M<sub>AB</sub> (γ<sub>odd</sub>ᵀ = +γ<sub>odd</sub>,
+γ<sub>even</sub>ᵀ = −γ<sub>even</sub>).</p>
+
+<h3 id="P-1-k4">K-4: the singlet is annihilated; Cs = 0</h3>
+<p><a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></p>
+<p class="prov">2026-09-19; PROOFS_Casimir.md</p>
+<p>Let <i>s</i> = Σ<sub><i>a</i>,<i>b</i></sub>(B₊)<sub><i>ab</i></sub>|<i>a</i>⟩|<i>b</i>⟩
+∈ Sym²(S₊) (B₊ symmetric, so <i>s</i> is symmetric; this is R3a's true singlet).
+Then ρ(M<sub>AB</sub>)<i>s</i> = 0.</p>
+<p><i>Proof.</i> (ρ(M)<i>s</i>)<sub><i>cd</i></sub> ∝
+Σ<sub><i>a</i>,<i>b</i></sub>(B₊)<sub><i>ab</i></sub>(M<sub><i>ca</i></sub>δ<sub><i>bd</i></sub>
++ δ<sub><i>ca</i></sub>M<sub><i>db</i></sub>) ∝ (MB₊ + B₊Mᵀ)<sub><i>cd</i></sub> = 0
+by K-3. Hence C<i>s</i> = 0. ∎ So ℂ<i>s</i> is the trivial submodule.</p>
+<p>This closes the naive-singlet trap: (1/√128)Σ|<i>a</i>,<i>a</i>⟩ lies in the
+64-eigenspace, not the singlet.</p>
+
+<h3 id="P-1-k5">K-5: four-forms — symmetry, nonvanishing, stability</h3>
+<p><a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></p>
+<p class="prov">2026-09-19; PROOFS_Casimir.md</p>
+<p><b>(a)</b> (B₊G<sub>I</sub>)ᵀ = B₊G<sub>I</sub> for |I| = 4.
+<i>Proof.</i> Bγ<sub>I</sub> = γ<sub>I</sub>ᵀB:
+Bγ<sub>i₁</sub>⋯γ<sub>i₄</sub> = (−1)⁴γ<sub>i₁</sub>ᵀ⋯γ<sub>i₄</sub>ᵀB
+= (γ<sub>i₄</sub>⋯γ<sub>i₁</sub>)ᵀB = γ<sub>I</sub>ᵀB (4·3/2 = 6 swaps even).
+Hence (Bγ<sub>I</sub>)ᵀ = γ<sub>I</sub>ᵀBᵀ = γ<sub>I</sub>ᵀB = Bγ<sub>I</sub>.
+Restricting via U (UUᵀ = Π₊, [γ<sub>I</sub>,Π₊] = [B,Π₊] = 0 for |I| even):
+(B₊G<sub>I</sub>)ᵀ = B₊G<sub>I</sub>. ∎</p>
+<p><b>(b)</b> B₊G<sub>I</sub> ≠ 0: γ<sub>I</sub> ≠ 0 preserves S₊, and
+X ↦ UᵀXU is injective on S₊-preserving operators; B₊ invertible.</p>
+<p><b>(c)</b> [M<sub>AB</sub>, γ<sub>I</sub>] ∈ span{γ<sub>J</sub>⁽⁴⁾} — the
+2-fold terms cancel. <i>Proof.</i> Leibniz + K-1; cases on {A,B}∩I:
+A,B∉I → 0; B∈I,A∉I → 4-fold (A replaces B); A∈I,B∉I → 4-fold;
+A,B∈I (i<sub>k</sub>=A, i<sub>l</sub>=B) → terms −(−1)<sup>|l−k|−1</sup>(2-fold)
+and +(−1)<sup>|l−k|−1</sup>(2-fold) cancel → 0. In each case the result equals
+the standard Λ⁴ form action. ∎</p>
+<p><b>(d)</b> <i>F</i> := span{B₊G<sub>I</sub> : |I| = 4} ⊆ Sym²(S₊) is a
+nonzero submodule. <i>Proof.</i> By (a)(b), <i>F</i> ⊆ Sym²(S₊), <i>F</i> ≠ 0.
+Stability: ρ(M)(B₊G<sub>I</sub>) = MB₊G<sub>I</sub> + B₊G<sub>I</sub>Mᵀ
+= −B₊MᵀG<sub>I</sub> + B₊G<sub>I</sub>Mᵀ (K-3) = −B₊[Mᵀ,G<sub>I</sub>]
+= B₊[B₊MB₊,G<sub>I</sub>] (K-3: Mᵀ = −B₊MB₊)
+= σ<sub>A</sub>σ<sub>B</sub>B₊[M<sub>AB</sub>,G<sub>I</sub>] (K-3 corollary)
+∈ span{B₊G<sub>J</sub>} by (c). ∎</p>
+
+<h3 id="P-1-k6">K-6: the twisted intertwiner — <i>F</i> ≅ V(ω₄), dim 1820</h3>
+<p><a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></p>
+<p class="prov">2026-09-19; PROOFS_Casimir.md (ST imports as noted above)</p>
+<p>Let φ(M<sub>AB</sub>) = σ<sub>A</sub>σ<sub>B</sub>M<sub>AB</sub> (automorphism
+Ad<sub>D</sub>, D = diag(σ) ∈ O(16)). Φ: Λ⁴(16) → <i>F</i>, e<sub>I</sub> ↦ B₊G<sub>I</sub>,
+satisfies Φ(M<sub>AB</sub>·<i>v</i>) = (ρ∘φ)(M<sub>AB</sub>)Φ(<i>v</i>): indeed
+Φ(M<sub>AB</sub>·e<sub>I</sub>) = Σc<sub>IJ</sub>B₊G<sub>J</sub> by (c), and
+(ρ∘φ)(M<sub>AB</sub>)(B₊G<sub>I</sub>) = σ<sub>AB</sub>·σ<sub>AB</sub>Σc<sub>IJ</sub>B₊G<sub>J</sub>
+= Σc<sub>IJ</sub>B₊G<sub>J</sub>. Φ ≠ 0 by (b); Λ⁴(16) ≅ V(ω₄) is irreducible (ST).
+Hence ker Φ = 0, dim <i>F</i> = 1820, (<i>F</i>, ρ∘φ) ≅ V(ω₄). ∎</p>
+
+<h3 id="P-1-k7">K-7: V(2ω₈) ⊆ Sym²(S₊)</h3>
+<p><a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></p>
+<p class="prov">2026-09-19; PROOFS_Casimir.md (ST + exact Weyl check below)</p>
+<p><i>v</i>₊⊗<i>v</i>₊ (<i>v</i>₊ highest-weight vector of S₊) is a highest-weight
+vector of weight 2ω₈; it generates V(2ω₈). dim V(2ω₈) = 6435 (Weyl, exact —
+see <a href="#P-1-weyl">Weyl dimensions</a>).</p>
+
+<h3 id="P-1-k8">K-8: the dimension count</h3>
+<p><a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></p>
+<p class="prov">2026-09-19; PROOFS_Casimir.md</p>
+<pre>Sym²(128) = ℂs ⊕ F ⊕ V(2ω₈)</pre>
+<p>Three submodules (K-4, K-6, K-7) of dims 1 + 1820 + 6435 = 8256 = dim
+Sym²(128). A sum of submodules whose dimensions add to the ambient dimension is
+direct and exhaustive. ∎</p>
+
+<h3 id="P-1-k9">K-9: eigenvalues 0, 48, 64</h3>
+<p><a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></p>
+<p class="prov">2026-09-19; PROOFS_Casimir.md (ST: Harish-Chandra proportionality; D₈ arithmetic CP)</p>
+<p><i>Centrality + Schur</i> (K-2 corollary): C acts as a scalar on each summand.
+Singlet: 0 (K-4).</p>
+<p><i>Normalization (CP).</i> 𝒞 = −Σ<sub>A&lt;B</sub>M<sub>AB</sub>⊗M<sub>AB</sub>
+∈ U(so(16)) is central: tr<sub>S₊</sub>(M<sub>AB</sub>M<sub>CD</sub>) =
+−32δ<sub>AB,CD</sub> (exact: = ¼tr(γ<sub>A</sub>γ<sub>B</sub>γ<sub>C</sub>γ<sub>D</sub>);
+−¼·128 off-diagonal-sets, 0 otherwise since tr γ<sub>I</sub> = 0 for 0 &lt; |I| &lt; 16),
+so {M<sub>AB</sub>} is orthogonal for the invariant form −tr<sub>spin</sub>/32 and
+𝒞 is (minus) its Casimir element (ST: centrality).</p>
+<p><i>Proportionality (ST).</i> 𝒞 acts on V(λ) as κ⟨λ,λ+2ρ⟩<sub>std</sub>
+(Harish-Chandra; κ universal). <i>Pinning (CP):</i> on S₊ ≅ V(ω₈),
+−ΣM<sub>AB</sub>² = −Σ(−¼I) = 30I (M<sub>AB</sub>² = −¼I exact), while
+⟨ω₈,ω₈+2ρ⟩<sub>std</sub> = 30 (below). Hence κ = 1.</p>
+<p><i>D₈ arithmetic (CP, hand-checkable).</i> Standard realization (ST): roots
+±e<sub>i</sub>±e<sub>j</sub>, ρ = (7,6,5,4,3,2,1,0):</p>
+<pre>ω₈ = (e₁+⋯+e₈)/2:   |ω₈|² + 2⟨ω₈,ρ⟩ = 2 + 28 = 30   (pinning)
+ω₄ = e₁+e₂+e₃+e₄:   4 + 2(7+6+5+4) = 48
+2ω₈ = e₁+⋯+e₈:     8 + 2(28) = 64</pre>
+<p>Therefore C|<sub><i>F</i></sub> = 48I (via (<i>F</i>,ρ∘φ) ≅ V(ω₄):
+−Σ(ρ∘φ)(M<sub>AB</sub>)² = −Σρ(M<sub>AB</sub>)² = C|<sub><i>F</i></sub> since
+σ<sub>AB</sub>² = 1), C|<sub>V(2ω₈)</sub> = 64I. ∎</p>
+<p><i>Corroboration (NC):</i> R3a measured {0:1, 48:1820, 64:6435} exactly.</p>
+
+<h3 id="P-1-weyl">Weyl dimensions in exact arithmetic</h3>
+<p><a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a></p>
+<p class="prov">2026-09-24; wolfram/b6_weyl_check.py</p>
+<p>Fresh implementation in Python <code>Fractions</code> (exact rational arithmetic)
+of the Weyl dimension formula for D₈: positive roots e<sub>i</sub>±e<sub>j</sub>
+(1 ≤ i &lt; j ≤ 8), ρ = (7,6,5,4,3,2,1,0),
+dim V(λ) = ∏<sub>α&gt;0</sub> ⟨λ+ρ,α⟩/⟨ρ,α⟩, with ⟨λ,λ+2ρ⟩ evaluated alongside
+(the Casimir eigenvalue up to the κ normalization pinned in K-9):</p>
+<pre>omega_8 (spinor S_+): dim=128 (expect 128), &lt;l,l+2r&gt;=30 (expect 30) -&gt; OK
+omega_4 (Lambda^4):   dim=1820 (expect 1820), &lt;l,l+2r&gt;=48 (expect 48) -&gt; OK
+2*omega_8:            dim=6435 (expect 6435), &lt;l,l+2r&gt;=64 (expect 64) -&gt; OK
+ALL EXACT MATCH</pre>
+<p>Exit 0, exact — no floating point anywhere. (An earlier sympy check of the D₈
+inner products and Weyl dims 128/1820/6435, exit 0, 2026-09-19, is recorded in
+the proof index.)</p>
+
+<h3 id="P-1-twist">B-7: the twist lemma</h3>
+<p><a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></p>
+<p class="prov">2026-09-25; wolfram/modules7_12_replacements.md §M12′ (ST components as in K-6)</p>
+<p>{φ(M<sub>AB</sub>)} is orthonormal for the trace form (Ad preserves trace; the
+K-9 normalization tr = −32δ), so the Casimir element Σφ(M<sub>AB</sub>)² =
+ΣM<sub>AB</sub>² by basis-independence. Hence −Σ(ρ∘φ)(M<sub>AB</sub>)² = C′ as
+operators, and C′|<sub><i>F</i></sub> = 48·I<sub><i>F</i></sub> (K-9 eigenvalue
+on V(ω₄)). Thus <i>F</i> ⊆ 48-eigenspace of C′, and dim <i>F</i> = 1820 =
+tr P₁₈₂₀ forces <i>F</i> = the 48-eigenspace exactly. Every
+Φ<sub>I</sub> = sym(B₊G<sub>I</sub>) = B₊G<sub>I</sub> lies in <i>F</i>; the
+1820 B-mapped four-forms lie in and span the 48-eigenspace. ∎</p>
+<p>This closed the ρ-twist gap left open after the B-6 run (which had verified
+PROOFS_Casimir.md K-5/K-6 line by line, including the K-5(c) 2-fold cancellation
+and the K-6 intertwiner). See <a href="#P-4-m12">P-4-m12 (M12′)</a> for the module
+context. <i>Corroboration (NC):</i> R3b (exit 0; worst ‖Cv−48v‖/‖v‖ = 6.3e-15,
+rank 1820) and the independent M12b re-verification are corroboration, not proof.</p>
+
+<h2 id="P-2">P-2. The 1820 conditional theorems</h2>
+<p>Ten theorems about the 12-dimensional real bilinear-odd Oprop ansatz space <i>b</i> — its collapse, its reality-forced mode structure, its cross-phase, its uniform M<i><sub>eps</sub></i> commutator law, the full M<i><sub>eps</sub></i> commutant, the m<i><sub>0</sub></i>/m<i><sub>2</sub></i> decoupling, the Saw transfer firewall, the discharged W4 conditionals, the corrected o-spectral-invisibility scope, and the complete negative selection census. Each is proved by exact algebra, but every one is conditional on the standing inputs stated once below.</p>
+<div class="premises">
+<p><b>Standing conditions.</b> All ten theorems are conditional on:</p>
+<ul>
+<li>the adopted C8 block form <i>g</i> = R(π/4)⊕⁴ ⊕ I₈, with R(θ) = [[cosθ, −sinθ], [sinθ, cosθ]];</li>
+<li>the adopted u-basis phase convention: <i>v<sub>r</sub></i> = <i>u<sub>2r</sub></i> = (<i>e<sub>2r</sub></i> − i <i>e<sub>2r+1</sub></i>)/√2, <i>w<sub>r</sub></i> = <i>u<sub>2r+1</sub></i> = (<i>e<sub>2r</sub></i> + i <i>e<sub>2r+1</sub></i>)/√2 (r = 0..3), <i>u<sub>8..15</sub></i> = <i>e<sub>8..15</sub></i>;</li>
+<li>the charge-support identification Π₀ = P₂+P₆ / Π₂ = P₄+P₀;</li>
+<li>MA1+MA2 (manuscript-literal v1:1730/1738): Oprop is an antisymmetric so(16) fermion bilinear (W6c uniqueness) and a pure grade-{0,2} flip.</li>
+</ul>
+<p><i>g</i> is not the physical C8 action (OPEN, inherited) — all ρ(<i>g</i>)-derived statements inherit this.</p>
+</div>
+
+<h3 id="P-2-collapse">Conditional collapse: Oprop lives in a proved 12-dimensional space</h3>
+<p><a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></p>
+<p><b>Statement.</b> Conditional on MA1+MA2 (manuscript-literal v1:1730/1738), the Oprop search collapses from the 204,608-dimensional ε-odd slot to 𝔟 := span{X̃<i><sub>ab</sub></i>}, with dim<sub>ℝ</sub> 𝔟 = 12 exactly. With X̃<i><sub>ab</sub></i> = Π₀<i>D<sub>ab</sub></i>Π₂ + Π₂<i>D<sub>ab</sub></i>Π₀ and <i>D<sub>ab</sub></i> = dρ(<i>X<sub>ab</sub></i>), the 12 pairing reps <i>d<sub>pq</sub></i> = X̃<i><sub>(2p,2q)</sub></i>, <i>o<sub>pq</sub></i> = X̃<i><sub>(2p,2q+1)</sub></i> (p &lt; q, six plane pairs) are pairwise orthogonal with ‖·‖²<i><sub>F</sub></i> = 188: the 12×12 Gram is 188·I₁₂. The grade-{0,2} fraction <i>f₀₂</i> := ‖X̃‖²<i><sub>F</sub></i>/‖<i>D</i>‖²<i><sub>F</sub></i> = 188/728 = 47/182 exactly, for every rot8-cross generator.</p>
+<p><b>Proof of f₀₂ = 47/182.</b> Work in the complex <i>g</i>-eigenbasis (<i>u<sup>±</sup><sub>r</sub></i> = (<i>e<sub>2r</sub></i> ∓ i <i>e<sub>2r+1</sub></i>)/√2, ω = e<i><sup>iπ/4</sup></i>; wedge charges mod 8).</p>
+<pre>
+Lemma 1 (block norm = swap count): ‖P_k D P_l‖²_F = (1/4)·Σ_{σ,τ}(N_i + N_ii),
+  disjoint across (σ,τ) since the swapped pair is recoverable from (I,J).
+Lemma 2 (case analysis, k ∈ {2,6}, l ∈ {0,4}): l−k ≡ ±2, so only
+  (σ,τ) = (−,+) and (+,−) contribute; the 8 terms enumerate 3-subsets of {+³,−³,0⁸}:
+  C3 = 1 (s ≡ ±3), C1 = 93 (s ≡ ±1); total 4(C3+C1) = 376 ⇒ ‖Π₀DΠ₂‖²_F = 94,
+  for every cross generator — all four shapes, since only |c|² = 1/4 enters.
+Lemma 3 (denominator): ‖D_ab‖²_F = −Tr(dρ(X_ab)²) = 2·C(14,3) = 728.
+⇒ ‖X̃‖²_F = 2·94 = 188; f₀₂ = 188/728 = 47/182 exactly. ∎
+</pre>
+<p><b>Proof of dim<sub>ℝ</sub> 𝔟 = 12.</b> The <i>g</i>² symmetry (h := <i>g</i>²; ρ(h) = −id on Π₀, +id on Π₂) gives the pairing relations</p>
+<pre>
+X̃_{(2p+1,2q+1)} = −X̃_{(2p,2q)}    (antipodal)
+X̃_{(2p+1,2q)}   = +X̃_{(2p,2q+1)}    (identical)
+</pre>
+<p>so per plane pair the four X̃ span at most 2 real dimensions: dim<sub>ℝ</sub> 𝔟 ≤ 12. Orthogonality: ⟨<i>d<sub>pq</sub></i>, <i>o<sub>rs</sub></i>⟩ = 0 by phase selection (<i>d</i> uses real shapes, <i>o</i> pure-imaginary shapes; Tr(P<i><sub>k</sub>D<sub>d</sub></i>P<i><sub>l</sub>D<sub>o</sub></i>P<i><sub>k</sub></i>) is pure imaginary yet basis-independent, hence 0); ⟨<i>d<sub>pq</sub></i>, <i>d<sub>rs</sub></i>⟩ = ⟨<i>o<sub>pq</sub></i>, <i>o<sub>rs</sub></i>⟩ = 0 for (p,q) ≠ (r,s) by disjoint support (no common u-vector across distinct plane sets). Hence 12 pairwise-orthogonal nonzero real reps: dim<sub>ℝ</sub> 𝔟 = 12 exactly. ∎</p>
+<p class="gap">Gap: run 12's proof itself (BILINEAR_ODD_INTERSECTION.md) was not among the assigned source documents; the 204,608 → 12 collapse statement is transcribed as recorded in F02_EXACT_PROOF.md's "Net for CP-OPROP" and the notation ledger's MA1+MA2 entry.</p>
+<p class="prov">2026-09-26, io-word sweep cron runs 15 (f₀₂/dim: <code>f02_exact_proof.py</code>, exit 0, 13/13 checks PASS, <code>f02_exact_proof_results.json</code>) and 14 (pairing: <code>pairing_proof.py</code>, exit 0, 8/8 checks PASS). Sources: <code>~/workspace/goals/r-theory-volume-i-audit/hidden_files/io_word_sweep/F02_EXACT_PROOF.md</code>, <code>PAIRING_PROOF.md</code>.</p>
+
+<h3 id="P-2-reality">Reality theorem: the 94/94 mode split is frozen on real 𝔟</h3>
+<p><a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></p>
+<p><b>Statement.</b> Every real <i>X</i> in 𝔟 has <i>w</i>₂ = <i>w</i>₆ exactly. With the run-15 Gram 188·I₁₂, every real <i>X</i> = Σ <i>c<sub>g</sub></i>X̃<i><sub>g</sub></i> has <i>w</i>₂ = <i>w</i>₆ = 94·‖<i>c</i>‖². No nonzero real mode-pure element exists: run 20's 6+6 mode-pure splitting lives only in the complexification 𝔟<sub>ℂ</sub> (the Hermitian <i>Q</i>₂−<i>Q</i>₆ has per-pair blocks [[0, 188i], [−188i, 0]] with intrinsically complex eigenvectors). Run 18's 94/94 is upgraded from a generator observation to a reality theorem.</p>
+<p><b>Proof.</b> For real <i>X</i>, the ρ(<i>g</i>)-Fourier components satisfy <i>X</i><sup>(−m)</sup> = conj(<i>X</i><sup>(m)</sup>), so <i>w</i><sub>−m</sub> = <i>w<sub>m</sub></i>. Modes are mod 8 and 6 = −2; run-18's M2 gives support ⊆ {2,6}. Therefore <i>w</i>₂ = <i>w</i>₆ identically on the real space. ∎ Spot-checked: 4 random real combinations give |<i>w</i>₂−<i>w</i>₆|/(<i>w</i>₂+<i>w</i>₆) = 0 exactly in sparse arithmetic.</p>
+<p class="prov">2026-09-27, io-word sweep continue run 21 (§1 of <code>b_meps_commutant.py</code> run, analytic). Source: <code>~/workspace/goals/r-theory-volume-i-audit/hidden_files/io_word_sweep/B_REALITY_AND_COMMUTANT.md</code> §1 (unaffected by the run-22 correction banner on §2).</p>
+
+<h3 id="P-2-crossphase">Cross-phase: o<sub>pq</sub><sup>(2)</sup> = i·d<sub>pq</sub><sup>(2)</sup></h3>
+<p><a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></p>
+<p><b>Statement.</b> For every plane pair (p,q), with <i>d<sub>pq</sub></i> = X̃<i><sub>(2p,2q)</sub></i> and <i>o<sub>pq</sub></i> = X̃<i><sub>(2p,2q+1)</sub></i>, the ρ(<i>g</i>)-mode-2 parts are complex-proportional with factor i, uniformly over all 6 pairs:</p>
+<pre>
+o_{pq}⁽²⁾ = i·d_{pq}⁽²⁾    (as operators on Λ⁴(ℂ¹⁶); entrywise max residual 0.0, all 6 pairs)
+per-pair Q₂ block:  [[94, +94i], [−94i, 94]]
+Q₂ + Q₆ = 188·I₁₂;   spec(Q₂ − Q₆) = {+188 (×6), −188 (×6)}
+</pre>
+<p><b>Proof.</b> Lemma 1 (charges): <i>g v<sub>r</sub></i> = ω <i>v<sub>r</sub></i>, <i>g w<sub>r</sub></i> = ω⁻¹ <i>w<sub>r</sub></i>, <i>g u<sub>j</sub></i> = <i>u<sub>j</sub></i> (j ≥ 8). Lemma 2 (transfer decomposition): for <i>X<sub>d</sub></i> = <i>E<sub>2p,2q</sub></i> − <i>E<sub>2q,2p</sub></i> and <i>X<sub>o</sub></i> = <i>E<sub>2p,2q+1</sub></i> − <i>E<sub>2q+1,2p</sub></i>,
+<i>X<sub>d</sub></i><sup>(+2)</sup> = (1/2)(<i>v<sub>p</sub>w<sub>q</sub></i>* − <i>v<sub>q</sub>w<sub>p</sub></i>*) and <i>X<sub>o</sub></i><sup>(+2)</sup> = (i/2)(<i>v<sub>p</sub>w<sub>q</sub></i>* − <i>v<sub>q</sub>w<sub>p</sub></i>*) = i·<i>X<sub>d</sub></i><sup>(+2)</sup>, with transfers only in {0, +2, −2}. Lemma 3 (mode lift): the mode-2 part of dρ(<i>X</i>) equals dρ(<i>X</i><sup>(+2)</sup>) (the only transfer ≡ 2 mod 8 present is +2). By linearity of dρ and of the {0,2}-block restriction R: X̃<i><sub>o</sub></i><sup>(2)</sup> = R(dρ(i·<i>X<sub>d</sub></i><sup>(+2)</sup>)) = i·X̃<i><sub>d</sub></i><sup>(2)</sup>. ∎ Corollaries: ⟨<i>d</i><sup>(2)</sup>, <i>o</i><sup>(2)</sup>⟩ = +94i and ‖<i>d</i><sup>(2)</sup>‖² = ‖<i>o</i><sup>(2)</sup>‖² = 94 (since <i>w</i>₂ = 94 on real 𝔟 by the reality theorem); this is the equality case of Cauchy–Schwarz — run 18's T8 ("why is |⟨<i>d</i><sup>(m)</sup>, <i>o</i><sup>(m)</sup>⟩| = 94?") is answered mechanistically.</p>
+<p class="prov">2026-09-27 ~05:30–06:00 PDT, io-word sweep (<code>cross_phase_proof.py</code>, 9/9 tripwires PASS, residuals ≤ 2.9e-14, several exactly 0.0). Source: <code>~/workspace/goals/r-theory-volume-i-audit/hidden_files/io_word_sweep/CROSS_PHASE_PROOF.md</code>.</p>
+
+<h3 id="P-2-752">The 752 identity: the M<i><sub>eps</sub></i> commutator doubles every pure flip</h3>
+<p><a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></p>
+<p><b>Statement.</b> ‖[<i>X̃</i>, M<i><sub>eps</sub></i>]‖<i><sub>F</sub></i> = 2‖<i>X̃</i>‖<i><sub>F</sub></i> for every pure Π₀↔Π₂ flip, hence ‖[<i>X̃<sub>ab</sub></i>, M<i><sub>eps</sub></i>]‖²<i><sub>F</sub></i> = 4·188 = 752 for all 24 generators (no d/o split). The real commutator Gram is <i>G<sub>cc′</sub></i> := Re Tr([<i>B<sub>c</sub></i>, M<i><sub>eps</sub></i>]†[<i>B<sub>c′</sub></i>, M<i><sub>eps</sub></i>]) = 752·I₁₂: the commutator norm is constant on the whole real unit sphere of 𝔟.</p>
+<pre>
+Lemma 1 (exact block algebra): for X̃ = Π₀DΠ₂ + Π₂DΠ₀ = [[0,A,0],[B,0,0],[0,0,0]]
+  (D arbitrary, real or complex),
+  [X̃, M_eps] = [[0,−2A],[2B,0]]    (rest blocks zero)
+  because [X̃,K] = 0 (X̃ on Π₀↔Π₂, K rest-supported) and
+  [X̃, Π₀−Π₂] = [[0,−2A],[2B,0]] by direct block multiplication.
+Theorem: ‖[X̃,M_eps]‖²_F = 4‖A‖²_F + 4‖B‖²_F = 4‖X̃‖²_F (disjoint blocks).
+Corollary: ker([·,M_eps]) on the whole pure Π₀↔Π₂ slot is {0}.
+Corollary: for the 12 reps (hence all 24 by the pairing relations),
+  ‖[X̃_ab, M_eps]‖²_F = 4·188 = 752.
+Bonus Gram: with X_c real antisymmetric, Tr(C_cᵀC_c′) = 4Tr(A_cᵀA_c′) + 4Tr(B_cᵀB_c′)
+  and Tr(B_cᵀB_c′) = Tr(A_cᵀA_c′) (exact index computation), so G_cc′ = 8·Tr(A_cᵀA_c′);
+  ⟨X_c,X_c′⟩ = 2Tr(A_cᵀA_c′) = 188·δ_cc′ (run 15) ⇒ G = 752·I₁₂. ∎
+</pre>
+<p><b>Premises.</b> P1 (CHECKED, D1–D4 re-verified ≤ 2.1e-15): M<i><sub>eps</sub></i> = R + iK with R = Π₀ − Π₂ real symmetric, K = Im(M<i><sub>eps</sub></i>) real antisymmetric rest-supported; in the (Π₀, Π₂, Π_rest) split M<i><sub>eps</sub></i> = diag(+I₃₆₈, −I₅₅₆, iK<i><sub>r</sub></i>). P2 (PROVED, run 15): rep norms² = 188. P3 (PROVED, run 14): pairing relations. The o-ambiguity (run 7/17) does not touch this: both DA survivors give the same ±I sector action (run 8). Entrywise u-basis reading: on the {0,2}-support M<i><sub>eps</sub></i> acts as the eps signs +1 (charges 2,6) / −1 (charges 0,4), so [<i>B</i>, M<i><sub>eps</sub></i>]<i><sub>(ri,ci)</sub></i> = ±2·<i>B<sub>(ri,ci)</sub></i> on every nonzero entry (max|ratio−2| &lt; 1e-12) — the norm quadruples entrywise.</p>
+<p class="prov">2026-09-27, io-word sweep Q1 (<code>q1_752_proof.py</code>, D1–D4 re-verified, rep-norm and commutator checks, bonus Gram, <code>q1_752_results.json</code>). Source: <code>~/workspace/goals/r-theory-volume-i-audit/hidden_files/io_word_sweep/Q1_752_PROOF.md</code>.</p>
+
+<h3 id="P-2-commutant">The full M<i><sub>eps</sub></i> commutant: M₈₁₆(ℂ)⊕M₁₀₀₄(ℂ), all real transfer slots dead</h3>
+<p><a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></p>
+<p><b>Statement.</b> ker([·, M<i><sub>eps</sub></i>]) = {0} on the pure Π₀↔Π₂ slot. In the ε-sector basis (Π<i><sub>eps±</sub></i>), M<i><sub>eps</sub></i> = diag(+I₈₁₆, −I₁₀₀₄) and the complex commutant is exactly the block-diagonal algebra M₈₁₆(ℂ)⊕M₁₀₀₄(ℂ) (dim<sub>ℂ</sub> 816² + 1004² = 1,673,872). Over ℝ the kernel is 845,968-dimensional: full real matrix algebras on Π₀→Π₀ and Π₂→Π₂, the real K-commutant on the rest block, and {0} on all four transfer slots and the Π₀↔Π₂ slot.</p>
+<table>
+<tr><th>slot</th><th>condition</th><th>kernel</th><th>dim<sub>ℂ</sub></th><th>dim<sub>ℝ</sub></th></tr>
+<tr><td>Π₀→Π₀</td><td>[<i>X</i>₀₀, I] = 0</td><td>all of M₃₆₈(ℂ)</td><td>135,424</td><td>135,424</td></tr>
+<tr><td>Π₂→Π₂</td><td>[<i>X</i>₂₂, I] = 0</td><td>all of M₅₅₆(ℂ)</td><td>309,136</td><td>309,136</td></tr>
+<tr><td>Π_rest→Π_rest</td><td>[<i>X<sub>rr</sub></i>, K] = 0</td><td>M₄₄₈(ℂ)⊕M₄₄₈(ℂ) (K-complex-linear)</td><td>401,408</td><td>401,408</td></tr>
+<tr><td>Π₀↔Π₂</td><td>−2<i>X</i>₀₂ = 0</td><td>{0} (run 22)</td><td>0</td><td>0</td></tr>
+<tr><td>Π₀→Π_rest / Π_rest→Π₀</td><td><i>X</i>(iK−I) = 0</td><td><i>X</i> = Π₀<i>Z</i>R+ / R+<i>Z</i>Π₀</td><td>164,864 ea.</td><td><b>0</b></td></tr>
+<tr><td>Π₂→Π_rest / Π_rest→Π₂</td><td><i>X</i>(iK+I) = 0</td><td><i>X</i> = Π₂<i>Z</i>R− / R−<i>Z</i>Π₂</td><td>249,088 ea.</td><td><b>0</b></td></tr>
+</table>
+<p><b>Premises</b> (CHECKED fresh, archived e-basis — no u-basis objects, so the run-21 basis-mixing bug cannot occur): P1 Re(M<i><sub>eps</sub></i>) = Π₀ − Π₂ (1.77e-15); P4 K real antisymmetric (2.7e-15), rest-supported, K² = −Π_rest; P5 M<i><sub>eps</sub></i> Hermitian (4.4e-15), M<i><sub>eps</sub></i>² = I (4.5e-15), tr(M<i><sub>eps</sub></i>) = −188 (5.2e-13); P6 tr(Π₀) = 368, tr(Π₂) = 556. Block form: M<i><sub>eps</sub></i> = diag(+I₃₆₈, −I₅₅₆, iK) with K² = −Π_rest ⇒ iK a Hermitian involution (eigenvalues ±1, multiplicity 448/448) and ε-sector projectors R± = (Π_rest ± iK)/2. <b>Real transfer slots vanish (PROVED):</b> if <i>X</i> is real and <i>X</i> = <i>X</i>R+ then conjugating gives <i>X</i> = <i>X</i>R− (R+* = R−), so <i>X</i> = <i>X</i>R+R− = 0.</p>
+<p><b>Note — run 21's 6-dim kernel was a basis-mismatch bug, diagnosed and withdrawn.</b> <code>b_meps_commutant.py</code> built the 12 rep dicts in the u-wedge basis and commuted them directly against the standard-wedge (e-basis) archived M<i><sub>eps</sub></i> with no Λ⁴(<i>U</i>) change of basis — the "commutator" mixed two bases and never evaluated the claimed operator; its 6-dim kernel was an artifact. Corrected result (PROVED by block algebra, checked in two bases): ker = {0} on the whole pure slot. Full diagnosis: <a href="#P-5-commutant-bug">P-5</a>.</p>
+<p class="prov">2026-09-27, io-word sweep omnibus wave Q2 (<code>q2_commutant_slots.py</code>, seed 20260927, premises + spot-checks + negative controls + M<i><sub>e</sub></i> tripwire, <code>q2_commutant_results.json</code>). Source: <code>~/workspace/goals/r-theory-volume-i-audit/hidden_files/io_word_sweep/Q2_COMMUTANT_SLOTS.md</code>.</p>
+
+<h3 id="P-2-decoupling">m₀/m₂ decoupling: [M<i><sub>e</sub></i>, M<i><sub>eps</sub></i>] = i·[M<i><sub>rest</sub></i>, K] for all real m₀, m₂</h3>
+<p><a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></p>
+<p><b>Statement.</b> For M<i><sub>e</sub></i> = m₀·Π₀ + m₂·Π₂ + M<i><sub>rest</sub></i> and M<i><sub>eps</sub></i> = Π₀ − Π₂ + iK, with (i) Π₀, Π₂, Π_rest pairwise orthogonal projectors, complete; (ii) K real antisymmetric, K·Π₀ = K·Π₂ = Π₀·K = Π₂·K = 0 (rest-supported); (iii) M<i><sub>rest</sub></i> = Π_rest·M<i><sub>rest</sub></i>·Π_rest real symmetric:</p>
+<pre>
+[M_e, M_eps] = [m₀Π₀+m₂Π₂, Π₀−Π₂] + i[m₀Π₀+m₂Π₂, K]
+             + [M_rest, Π₀−Π₂]    + i[M_rest, K]
+           = 0 + 0 + 0 + i[M_rest, K]
+⇒ [M_e, M_eps] = i·[M_rest, K]    for ALL real m₀, m₂. ∎
+</pre>
+<p><b>Consequence.</b> The ε-sector-preserving condition [M<i><sub>e</sub></i>, M<i><sub>eps</sub></i>] = 0 is <i>equivalent</i> to [M<i><sub>rest</sub></i>, K] = 0 and is m₀/m₂-free — the scalars are literally absent from the commutator, not merely block-diagonal in a commutant. It cannot select m₀ vs m₂ even in principle (not a ratio, not a sign, not even m₀ ≠ m₂). This explains the reference CHECKED value [M<i><sub>e</sub></i>, M<i><sub>eps</sub></i>] = 8.88e-16: it measures [M<i><sub>rest</sub></i>, K] ≈ 0, independent of the reference m₀ = 2, m₂ = 5. Wider net: the IO-word angles provably cannot select (m₀, m₂) at all — the quadrant table gives only a qualitative sector distinction (opposite FW-phase sides of Decay; eps<i><sub>k</sub></i> = −(−1)<i><sup>k</sup></i>·FW<i><sub>k</sub></i> exact; contents −368/+556/0), and the double-angle readout identities (sin(2x)/4 = 1/(urx+uxp); (srx+crx−sxp−cxp)/(uxp+urx) = cos(2x), now PROVED analytic) are x-identities with no mass coupling.</p>
+<p class="prov">2026-09-27, io-word sweep Q4 (<code>q4_m0m2.py</code>, T1/T2 exact 8-octant arithmetic, T3 analytic with archived-matrix tripwire, <code>q4_m0m2_results.json</code>). Source: <code>~/workspace/goals/r-theory-volume-i-audit/hidden_files/io_word_sweep/Q4_M0M2_IOWORDS.md</code>.</p>
+
+<h3 id="P-2-sawfirewall">Saw firewall FW-T12: complementation cannot drive transfer</h3>
+<p><a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></p>
+<p><b>Statement (Saw-L9).</b> On an open quadrant Q (seams excluded; ε = sgn(sin 2x) constant) there is no real scalar function <i>g</i> with S′ = <i>g</i>·X(S): the Saw complementary swap cannot be recast as differential propagation. Saw complementation is algebraic and generates no transfer.</p>
+<pre>
+S = (saw_r, saw_x) = (ελ, ε(1−λ)), 0 &lt; λ &lt; 1   (Book 7 transfer coordinate)
+S′ = g·X(S) ⇒ saw_r′ = g·saw_x, saw_x′ = g·saw_r (g real w.l.o.g.; no division needed)
+⇒ (saw_r² − saw_x²)′ = 2(saw_r·saw_r′ − saw_x·saw_x′) = 0, so saw_r² − saw_x² is constant on Q.
+But (saw_r² − saw_x²)² = 1 − |sin 2x| — non-constant on Q. Contradiction. ∎
+</pre>
+<p><b>Net.</b> The proof is shorter than L9's: constant vs. varying (0 = −1 style), no cubic, no λ-coordinate premise — it needs nothing outside the Saw pair itself. CHECKED: identity to 2.6e-13; max|(saw<i><sub>r</sub></i>²−saw<i><sub>x</sub></i>²)′| = 4.6 &gt;&gt; 0 on grid. Any future argument that the Saw R-operation (complementation λ ↔ 1−λ) <i>drives</i> transfer, propagation, or activation — including qSaw-intensity arguments touching FW-T10's <i>y</i>₂ gate — must clear firewall FW-T12. (Neighbor results: the L2 analog S·X(S) = 2|H| transfers; the L3/L5 analog diverges — fixed sum ε instead of fixed product, hyperbola right-hand side 4|H| varying.)</p>
+<p class="prov">2026-09-26, io-word sweep (<code>SAW_LFORM_DERIVATION.md</code>; inputs: saw<i><sub>r</sub></i> = ελ / saw<i><sub>x</sub></i> = ε(1−λ) numerically verified on four charts, H = sin 2x/4 PROVED, ε piecewise constant).</p>
+
+<h3 id="P-2-w4c2a">W4 (C2a) discharged; the skeleton word evaluates to exactly 0</h3>
+<p><a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></p>
+<p><b>Deferred substitution executed (run 11's open item).</b> W4's skeleton trace word T3, Tr(<i>E</i>₁ M<i><sub>e</sub></i> <i>E</i>₂ <i>O</i> <i>E</i>₃ M<i><sub>e</sub></i> <i>E</i>₄ <i>O</i>), with the manuscript's E/O content substituted (E₂ := Π_E = Π_rest, O := Π_O = Π₂):</p>
+<pre>
+Tr(E_1 M_e E_2 O E_3 M_e E_4 O) = 0   for ALL E_1, E_3, E_4, M_e ∈ M_1820
+because the word contains E_2·O = Π_E·Π_O = 0 as an adjacent pair (positions 3–4);
+the mass insertions are moot — the word dies upstream of M_e.
+</pre>
+<p>The v1 skeleton as written, fed the manuscript's E/B/O content, computes <b>exactly 0</b> — not 0.48958371 (S<i><sub>F</sub></i><sup>draft</sup>'s claimed value), not the 54-projected S<i><sub>F</sub></i><sup>ord</sup>. CHECKED (26/26 PASS, exit 0): projector premises re-verified (Hermitian/idempotent, traces 896/368/556, ‖Π_EΠ_O‖<i><sub>F</sub></i> = 1.51e-14, completeness 5.62e-15, M<i><sub>e</sub></i> real symmetric 1.57e-13); |Tr| = 1.76e-29 with <i>E<sub>i</sub></i> = Π_E; relative residues 1.12e-25 / 7.53e-26 on dense random instances; sector-diagonal variant (E₂ = Π_E<i>Z</i>Π_E) |Tr| = 4.26e-30. (Bug log disclosed: the first launch tripped an absolute 1e-15 threshold on |Tr| — not a refutation, just dense random factors amplifying the junction's fp residue; the exact theorem bounds |Tr| by the factor norms times ‖Π_EΠ_O‖<i><sub>F</sub></i>, so the tripwire was fixed to relative &lt; 1e-12 and reran clean.)</p>
+<p><b>W4's (C2) split — (C2a) discharged.</b> The pinned P₅₄ (run 9: multiplicity-one (54,1), PROVED) fixes the (6/5)T̃ direction — closed-form residual 0.00e+00, all three archived realizations ≤ 1.34e-15; ‖(6/5)T̃‖² = 18/5 re-verified exact (3.600000000000000). The IN-1 tag on the P₅₄ half is discharged: the asserted direction is now P₅₄-consistency-checked rather than gated on a missing P₅₄. Remaining conditionals for S<i><sub>F</sub></i><sup>ord</sup> = S<i><sub>F</sub></i><sup>alg</sup>: (C1), (C3), and (C2b) the F<i><sub>C8</sub></i> construction. Neighbor closure (same run): the (C4)/Schur route to the m₂⁻⁴ convention is <b>closed</b> — the PROVED Schur corollary (1820 ≅ V(ω₄) irreducible) makes M<i><sub>e</sub></i> with m₀ ≠ m₂ (reference: 2 ≠ 5, CHECKED 7.48e-14 / 1.60e-13) not so(16)-equivariant, so (C4)'s antecedent is false for every manuscript-faithful two-value M<i><sub>e</sub></i>; the m₂⁻⁴ reattachment stays a manuscript convention (see <a href="#P-5-w4c4">P-5</a>).</p>
+<p class="gap">Gap: the E/B/O witness identification (run 4b) is itself conditional on Kit's asserted octet position sets + the adopted position↔k convention; the zero above inherits that conditionality.</p>
+<p class="prov">2026-09-26 ~23:09 PDT, io-word sweep cron run 19 (<code>sf_w4_conditionals.py</code>, exit 0, 26/26 checks PASS, <code>sf_w4_conditionals_results.json</code>). Source: <code>~/workspace/goals/r-theory-volume-i-audit/hidden_files/io_word_sweep/SF_W4_CONDITIONALS.md</code>.</p>
+
+<h3 id="P-2-epsinvis">ε-survivor o-spectral-invisibility — corrected scope</h3>
+<p><a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></p>
+<p><b>Statement.</b> The two DA-survivor positive-ε projectors — Π<i><sub>ε₊</sub></i><sup>(a)</sup> (adopted pattern σ<sup>(a)</sup> = [−1,+1,+1,−1,−1,+1,+1,−1]) and Π<i><sub>ε₊</sub></i><sup>(b)</sup> (its C₁-multiple σ<sup>(b)</sup> = [−1,−1,+1,+1,−1,−1,+1,+1]) — are complex conjugates: M<i><sub>σb</sub></i> := C₁M<i><sub>eps</sub></i> = Π₀ − Π₂ − iK exactly, so Π<i><sub>ε₊</sub></i><sup>(b)</sup> = (I + M<i><sub>σb</sub></i>)/2 = conj(Π<i><sub>ε₊</sub></i><sup>(a)</sup>). PROVED: for real symmetric/Hermitian observables (or whenever the compressed spectrum is real), spec(Π<i><sub>ε₊</sub></i><sup>(a)</sup><i>T</i>Π<i><sub>ε₊</sub></i><sup>(a)</sup>) = spec(Π<i><sub>ε₊</sub></i><sup>(b)</sup><i>T</i>Π<i><sub>ε₊</sub></i><sup>(b)</sup>) as multisets — a Hermitian matrix and its conjugate are isospectral. No commutant hypothesis needed.</p>
+<p><b>Withdrawal, stated explicitly.</b> The earlier "every real operator" statement was too broad and is <b>withdrawn</b>: conjugation gives only conjugate spectra for arbitrary nonsymmetric real matrices, so the invisibility theorem holds only where the spectrum is real. Complex-Hermitian probes genuinely distinguish the sectors — the complex-Hermitian C₂ has different ε₊-sector spectra under (a) vs (b) (max|Δ| = 1.0) — so the "real" hypothesis is load-bearing, exactly as the proof requires. (Recorded in the notation ledger's 2026-09-27 update, sweeping runs 17–25 + omnibus Q1–Q3/Q7.) What the ambiguity <i>does</i> touch: odd-k sector membership (definitional — Tr(P₁Π<i><sub>ε₊</sub></i><sup>(a)</sup>) = 416 = tr(P₁) vs Tr(P₁Π<i><sub>ε₊</sub></i><sup>(b)</sup>) = 0) and complex-phase data (the ±i mixed-class expulsion phase, run 10 Lemma C); no established physical input accesses either.</p>
+<p><b>CHECKED tripwires</b> (archived SC matrices, tol 1e-9; 30/30 checks PASS, 1243.7 s): premises C₁ = Π₀+Π₂−Π_rest (4.97e-14), [C₁,K] = 0 (1.4e-15), M<i><sub>σb</sub></i> = C₁M<i><sub>eps</sub></i> = Π₀−Π₂−iK (1.07e-13), Π<i><sub>ε₊</sub></i><sup>(b)</sup> = conj(Π<i><sub>ε₊</sub></i><sup>(a)</sup>) (7.0e-14), tr Π<i><sub>ε₊</sub></i><sup>(b)</sup> = 816; o-blind spectra: reference M<i><sub>rest</sub></i> 1.16e-14, full reference M<i><sub>e</sub></i> 1.6e-14, three generic non-K-commuting real rest operators ≤ 2.7e-13 ([<i>T</i>,K] ≈ 897, confirming no commutant hypothesis), two full random real symmetric operators with cross-sector blocks ≤ 6.2e-13.</p>
+<p class="prov">2026-09-26 ~19:09 PDT, io-word sweep cron run 17 (<code>o_rest_invisibility.py</code>, exit 0, 30/30 checks PASS, <code>o_rest_invisibility_results.json</code>). Source: <code>~/workspace/goals/r-theory-volume-i-audit/hidden_files/io_word_sweep/O_REST_INVISIBILITY.md</code>; withdrawal recorded in the notation ledger (drive_backup/stage/NOTATION_LEDGER.md, 2026-09-27 update).</p>
+
+<h3 id="P-2-census">Selection census: no established operator selects within real 𝔟</h3>
+<p><a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></p>
+<p><b>Question.</b> Tabulate the action of every established operator on the 12-dim real 𝔟 — per operator report the induced structure inside 𝔟 (invariant subspace / selected vector / quadratic-form spectrum / "none"). <b>Headline result — complete negative:</b> no established operator selects a vector or proper subspace within the real 𝔟. Every established operator acts as a uniform scalar, as zero, with a frozen observable, or does not preserve 𝔟 at all. Two apparent candidates evaporated on checking (recorded as falsified avenues, not selections).</p>
+<table>
+<tr><th>#</th><th>operator</th><th>induced map on 𝔟</th><th>verdict inside 𝔟</th></tr>
+<tr><td>1</td><td>C₁ = Π₀+Π₂−Π_rest</td><td>conjugation = +id</td><td>none (uniform) — PROVED by charge arithmetic</td></tr>
+<tr><td>2</td><td>K = Im(M<i><sub>eps</sub></i>)</td><td>KX = XK = [X,K] = 0</td><td>none — annihilates 𝔟 entirely; PROVED (K rest-supported)</td></tr>
+<tr><td>3</td><td>M<i><sub>e</sub></i> = m₀Π₀+m₂Π₂+M<i><sub>rest</sub></i></td><td>conjugation = m₀m₂·id, all m₀,m₂</td><td>none (uniform scalar) — PROVED analytic, m₀,m₂ symbolic</td></tr>
+<tr><td>4a</td><td>M<i><sub>eps</sub></i> — conjugation</td><td>−id</td><td>none (uniform) — PROVED (run 6 + M<i><sub>eps</sub></i>²=I)</td></tr>
+<tr><td>4b</td><td>M<i><sub>eps</sub></i> — commutator</td><td>‖[X,M<i><sub>eps</sub></i>]‖²<i><sub>F</sub></i> = 752 uniform; ker = {0}</td><td>none — PROVED (block algebra, run 22)</td></tr>
+<tr><td>4c</td><td>M<i><sub>eps</sub></i> — anticommutator</td><td>{M<i><sub>eps</sub></i>,X} = 0 uniform</td><td>none — PROVED (run 6)</td></tr>
+<tr><td>4d</td><td>σ̃ = [·,M<i><sub>eps</sub></i>]/2</td><td>does not preserve 𝔟; image ⊥ 𝔟 exactly</td><td>none — no endomorphism (falsified avenue, CHECKED: 𝔟-components ≤ 1.77e-18)</td></tr>
+<tr><td>5a</td><td>ρ(g) mode weights</td><td><i>w</i>₂ = <i>w</i>₆ = 94‖<i>c</i>‖² frozen</td><td>none — PROVED (reality theorem, run 21)</td></tr>
+<tr><td>5b</td><td>Ad<i><sub>ρ(g)</sub></i></td><td>Ad<i><sub>g</sub></i>² = −id; Ad<i><sub>g</sub></i>+Ad<i><sub>g⁻¹</sub></i> = 0; Ad<i><sub>g²</sub></i>+Ad<i><sub>g⁻²</sub></i> = −2·id</td><td>none (uniform) — PROVED by charge arithmetic</td></tr>
+<tr><td>6</td><td>ε-parity</td><td>all of 𝔟 uniformly ε-odd</td><td>none (uniform) — PROVED (run 6)</td></tr>
+<tr><td>7</td><td>transfer-parity / E,B,O witnesses</td><td>Gram 188·I isotropic; Q₂+Q₆ = 188·I; Q₂−Q₆ ≡ 0 on real 𝔟</td><td>none — every established pairing uniform or vanishing</td></tr>
+<tr><td>8a–c</td><td>DA patterns (adopted, C₂, C₁C₂, (−1,−1) M<sup>(3)</sup>)</td><td>conjugation = −id, all four</td><td>none (uniform) — the ε-analog family is indistinguishable on 𝔟 (8c's hand arithmetic was wrong; CHECK corrected it)</td></tr>
+<tr><td>8d</td><td>M<i><sub>rest</sub></i></td><td>M<i><sub>rest</sub></i>X = XM<i><sub>rest</sub></i> = [M<i><sub>rest</sub></i>,X] = 0</td><td>none (zero) — PROVED analytic</td></tr>
+<tr><td>8e</td><td>Π₀, Π₂, Π_rest (conjugation)</td><td>Π₀XΠ₀ = 0 etc.</td><td>none (zero) — PROVED analytic</td></tr>
+<tr><td>8f</td><td>C₃ (complex Hermitian involution)</td><td>preserves grade sectors but neither 𝔟 nor 𝔟<sub>ℂ</sub></td><td>none — no induced map (CHECKED: 𝔟<sub>ℂ</sub>-projection residual 1.00)</td></tr>
+<tr><td>8g</td><td>o-ambiguity (adopted vs C₁-multiple)</td><td>invisible on all Π₀/Π₂-restricted data</td><td>none — PROVED (runs 8, 17)</td></tr>
+</table>
+<p><b>Charge-arithmetic mechanism</b> (u-basis, M<i><sub>eps</sub></i> = diag(σ) adopted): 𝔟's nonzero entries sit only on charge pairs (k,l) ∈ {2,6}×{0,4} ∪ {0,4}×{2,6}; (DXD)<i><sub>kl</sub></i> = σ<i><sub>k</sub></i>σ<i><sub>l</sub></i>X<i><sub>kl</sub></i> gives C₁: (−1)<i><sup>k+l</sup></i> = +1 → +id; C₂, C₁C₂, DA2, M<i><sub>eps</sub></i>: σ<i><sub>k</sub></i>σ<i><sub>l</sub></i> = −1 → −id; Ad<i><sub>ρ(g)</sub></i>: ω<i><sup>k−l</sup></i>, k−l ∈ {2,6} mod 8. M<i><sub>e</sub></i>XM<i><sub>e</sub></i> = m₀m₂X and KX = 0 are basis-free. Physical selection within the exact 12-dim space stays OPEN; no established mathematical structure performs it.</p>
+<p class="prov">2026-09-27 ~03:35 PDT, io-word sweep omnibus wave Q3 (<code>q3_census.py</code>, exit 0, 26/28 checks PASS — the 2 FAILs are the falsified avenues §4d/§8c diagnosed in the follow-up; <code>q3_census_followup.py</code>, exit 0). Source: <code>~/workspace/goals/r-theory-volume-i-audit/hidden_files/io_word_sweep/Q3_SELECTION_CENSUS.md</code>.</p>
+
+<h2 id="P-3">P-3. The dial theorems</h2>
+<p>Five closed-form results from the 2026-09-28 io-word sweep (runs 30–31), each PROVED by exact block algebra and CHECKED numerically against the archived SC matrices. They are conditional on three established premises: (i) the run-4b sector witnesses Π_E (896), Π₀ (368), Π₂ (556) — pairwise orthogonal projectors with Π_E + Π₀ + Π₂ = I; (ii) the run-6 flip theorem — every pure grade-flip X = Π₀AΠ₂ + Π₂BΠ₀ is ε-odd ({M_ε, X} = 0); (iii) the run-12/15 bilinear census — the exact 12-dimensional Oprop candidate space <a href="#P-2-752">𝔟</a> (conditional on MA1+MA2). The letters <i>E_t</i> (dressed E) and <i>O_d</i>/<i>O_f</i> (dressed/flip-only O) are CANDIDATE models — the physical E_k and Oprop matrices are OPEN — so the theorems are requirement/attainability bounds, not manuscript derivations.</p>
+
+<h3 id="P-3-t1">T1 — <i>D₈</i> = ‖<i>Z</i>ᵀ<i>Z</i>‖²<sub>F</sub>, blind to γ <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></h3>
+
+<p><b>Theorem.</b> Let <i>Z</i> be any real 368×556 matrix, <i>F</i>(<i>Z</i>) = Π₀<i>Z</i>Π₂ + Π₂<i>Z</i>ᵀΠ₀ (pure B↔O flip), and <i>E_t</i> = Π_E + <i>F</i>(<i>Z</i>). With bare B/O witnesses — and equally with the O slot dressed as <i>O_d</i> = Π₂ + <i>F</i>(γ) for any real γ:</p>
+<pre>
+D₈ := Tr(E_t Π₀ E_t Π₂ E_t Π₀ E_t Π₂)
+   = Tr(E_t Π₀ E_t O_d E_t Π₀ E_t O_d) = ‖ZᵀZ‖²_F,
+</pre>
+<p>nonzero iff <i>Z</i> ≠ 0. The flip-O content γ drops out exactly: the dressed-O dial equals the bare-O dial.</p>
+
+<p><b>Proof.</b> Work in the sector-ordered block form (Π₀, Π₂, Π_rest) = (B, O, E):</p>
+<pre>
+E_t = [[0,  Z,  0], [Zᵀ, 0,  0], [0,  0, I_r]]
+Π₀  = diag(I₀, 0, 0),   Π₂ = diag(0, I₂, 0)
+</pre>
+<p>Set <i>A</i> := <i>E_t</i>Π₀<i>E_t</i>. <i>E_t</i>Π₀ keeps the B-column of <i>E_t</i>; multiplying back gives a single block:</p>
+<pre>
+A = [[0, 0,  0], [0, ZᵀZ, 0], [0, 0, 0]]     (pure (2,2) block)
+</pre>
+<p>Bare-O dial: <i>E_t</i>Π₀<i>E_t</i>Π₂<i>E_t</i>Π₀<i>E_t</i>Π₂ = (<i>A</i>Π₂)², and <i>A</i>Π₂ = <i>A</i> (<i>A</i> is already O-sector), so Tr = Tr((<i>Z</i>ᵀ<i>Z</i>)²) = ‖<i>Z</i>ᵀ<i>Z</i>‖²<sub>F</sub>.</p>
+<p>Dressed-O dial: with <i>O_d</i> = [[0, γ, 0], [γᵀ, I₂, 0], [0, 0, 0]], <i>A</i><i>O_d</i> has only the blocks (2,0) = <i>Z</i>ᵀ<i>Z</i>γᵀ and (2,2) = <i>Z</i>ᵀ<i>Z</i>. Then <i>A</i><i>O_d</i><i>A</i> has only (2,2) = (<i>Z</i>ᵀ<i>Z</i>)² (the (2,0)·(0,·) path vanishes since <i>A</i> has no (0,·) blocks), and Tr((<i>A</i><i>O_d</i><i>A</i>)<i>O_d</i>) = Tr((<i>Z</i>ᵀ<i>Z</i>)²·<i>I₂</i>) = ‖<i>Z</i>ᵀ<i>Z</i>‖²<sub>F</sub>. γ has no handle: <i>A</i> collapses to the (2,2) block, which sees only <i>O_d</i>'s (2,2) = <i>I₂</i>. ∎</p>
+<p><i>Z</i>ᵀ<i>Z</i> is PSD, so ‖<i>Z</i>ᵀ<i>Z</i>‖²<sub>F</sub> = 0 ⟺ <i>Z</i>ᵀ<i>Z</i> = 0 ⟺ <i>Z</i> = 0. <i>F</i>(<i>Z</i>) is ε-odd for every real <i>Z</i> by the run-6 theorem (re-tripwired in run 30). Flip-only O, <i>O_f</i> = <i>F</i>(γ), gives exactly 0 (run-31 T2): <i>A</i><i>F</i>(γ) has only the (2,0) block <i>Z</i>ᵀ<i>Z</i>γᵀ, whose square needs (2,0)(0,2) = 0 — the Oprop flip needs the Π₂ diagonal to register in the 8-cycle at all. Removing Π_E from <i>E_t</i> changes nothing (run-30 T6, run-31/33 T4): the dial is a pure transfer-content functional.</p>
+<p class="prov">Runs 30–31, 2026-09-28 — lab notes <code>EPSODD_8CYCLE_DIAL.md</code> (T1 theorem, 16/16 tripwires PASS) and <code>DIAL_OFLIP_VISIBILITY.md</code> (T1 γ-blindness, T2 zero, 31/31 tripwires PASS).</p>
+
+<h3 id="P-3-t3">T3 — <i>D_W</i> = 2<i>m₀m₂</i>·<i>C</i> + <i>m₀</i>²·<i>D₈</i>, sees γ <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></h3>
+
+<p><b>Theorem.</b> With <i>M_e</i> = diag(<i>m₀I₀</i>, <i>m₂I₂</i>, <i>M_rest</i>) (<i>m₀</i> = 2, <i>m₂</i> = 5 the archived reference values, not physical selections) and <i>O_d</i> as above:</p>
+<pre>
+D_W := Tr(E_t M_e E_t O_d E_t M_e E_t O_d) = 2m₀m₂·C + m₀²·D₈,
+C := Tr(ZZᵀγZᵀZγᵀ) ≥ 0.
+</pre>
+<p>The W4 skeleton word resolves the O-flip content γ in closed form.</p>
+
+<p><b>Proof.</b> <i>B_w</i> := <i>E_tM_eE_t</i>:</p>
+<pre>
+E_t M_e        = [[0, m₂Z, 0], [m₀Zᵀ, 0, 0], [0, 0, M_rest]]
+B_w = (E_t M_e) E_t = diag(m₂ZZᵀ, m₀ZᵀZ, M_rest)
+</pre>
+<p><i>M</i> := <i>B_wO_d</i> has the blocks (0,2) = <i>m₂ZZᵀγ</i> =: <i>U</i>, (2,0) = <i>m₀ZᵀZγᵀ</i> =: <i>V</i>, (2,2) = <i>m₀ZᵀZ</i> =: <i>Wm</i>:</p>
+<pre>
+M²(0,0) = UV       = m₀m₂ · ZZᵀγZᵀZγᵀ
+M²(2,2) = VU + Wm² = m₀m₂ · ZᵀZγᵀZZᵀγ + m₀² · (ZᵀZ)²
+Tr(M²) = m₀m₂[Tr(ZZᵀγZᵀZγᵀ) + Tr(ZᵀZγᵀZZᵀγ)] + m₀²Tr((ZᵀZ)²)
+       = 2m₀m₂·C + m₀²·D₈      (the two cross-traces are cyclically equal)
+</pre>
+<p><i>C</i> = Tr((<i>ZZ</i>ᵀ)(γ<i>Z</i>ᵀ<i>Z</i>γᵀ)): <i>ZZ</i>ᵀ ⪰ 0 and γ<i>Z</i>ᵀ<i>Z</i>γᵀ ⪰ 0 by congruence (<i>Z</i>ᵀ<i>Z</i> ⪰ 0); the trace of a product of two PSD matrices is ≥ 0. ∎</p>
+<p>Remark: the flip-only dials (run 33, manuscript-faithful O with no Π₂ diagonal) resolve two distinct PSD terms, Tr(<i>ZZ</i>ᵀγ<i>Z</i>ᵀ<i>Z</i>γᵀ) and Tr(<i>Z</i>ᵀ<i>Z</i>γᵀ<i>ZZ</i>ᵀγ); run 34 proved these are always equal (transpose + cyclicity), collapsing both dials to a single sign-definite functional — the same <i>C</i> above — further decomposed into C8-mode [0] and [4] channels.</p>
+<p class="prov">Run 31, 2026-09-28 — lab note <code>DIAL_OFLIP_VISIBILITY.md</code> (T3, 31/31 tripwires PASS); U′ = V collapse from run 34, <code>DIAL_MODE_PATTERN.md</code> (27/27 PASS).</p>
+
+<h3 id="P-3-t4">T4 — <i>D_B</i> = 2(<i>m₀m₂</i>)⁻¹·<i>C</i> + <i>m₀</i>⁻²·<i>D₈</i>, sees γ <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></h3>
+
+<p><b>Theorem.</b> The manuscript-B 8-cycle (manuscript's B is the grade-preserving <i>M_e</i>⁻¹):</p>
+<pre>
+D_B := Tr(E_t M_e⁻¹ E_t O_d E_t M_e⁻¹ E_t O_d) = 2(m₀m₂)⁻¹·C + m₀⁻²·D₈.
+</pre>
+
+<p><b>Proof.</b> <i>A′</i> := <i>E_tM_e</i>⁻¹<i>E_t</i> = diag(<i>m₂</i>⁻¹<i>ZZ</i>ᵀ, <i>m₀</i>⁻¹<i>Z</i>ᵀ<i>Z</i>, <i>M_rest</i>⁻¹) — the same block shape as T3 with <i>m_i</i> → <i>m_i</i>⁻¹; the T3 derivation applies verbatim. ∎</p>
+<p>The B-slot's (0,0) block <i>ZZ</i>ᵀ/<i>m₂</i> is the handle γ needs — consistent with the run-27 Tier M verdict (flip-only O + <i>M_e</i>⁻¹ nonzero), now in closed form.</p>
+<p class="prov">Run 31, 2026-09-28 — lab note <code>DIAL_OFLIP_VISIBILITY.md</code> (T4, tripwires PASS); flip-only manuscript-B dial from run 33, <code>DIAL_FLIPONLY_O.md</code> (T1).</p>
+
+<h3 id="P-3-crossratio">Cross-ratio identity <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></h3>
+
+<p>From the T3/T4 closed forms, the γ-carrying parts sit in fixed proportion:</p>
+<pre>
+D_W − m₀²D₈  = 2m₀m₂·C
+D_B − m₀⁻²D₈ = 2(m₀m₂)⁻¹·C
+(D_W − m₀²D₈)/(D_B − m₀⁻²D₈) = (m₀m₂)²       (C ≠ 0)
+</pre>
+<p>Bare (<i>R</i> = 0, i.e. γ = 0, no O-flip content): <i>C</i> = 0, so <i>D_W</i> = <i>m₀</i>²<i>D₈</i> and <i>D_B</i> = <i>m₀</i>⁻²<i>D₈</i>, hence</p>
+<pre>
+D_W·D_B = D₈²      exactly.
+</pre>
+<p>Dressed (γ ≠ 0, <i>C</i> ≥ 0):</p>
+<pre>
+D_W·D_B = 4C² + 2(m₂/m₀ + m₀/m₂)·C·D₈ + D₈² ≥ D₈²,
+</pre>
+<p>since <i>m₂</i>/<i>m₀</i> + <i>m₀</i>/<i>m₂</i> ≥ 2 and every term is nonnegative. The inequality <i>D_W</i>·<i>D_B</i> ≥ <i>D₈</i>² is the dial test for O-flip content once the dials are measured: equality on bare witnesses, strictness signals dressed-O content (cf. the calibration's bare-vs-dressed open slot, <a href="../research/calibration.html#open-slots">open slot 3</a>).</p>
+<p class="prov">Elementary algebra on the run-31 T3/T4 closed forms (<code>DIAL_OFLIP_VISIBILITY.md</code>); cross-check derivation from <code>DIAL_FLIPONLY_O.md</code> + <code>DIAL_MODE_PATTERN.md</code> runs 33–34.</p>
+
+<h3 id="P-3-calp6">CAL-P6 — Manuscript Oprop-word vanishes on 𝔟 (bare E), any <i>M_e</i> <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></h3>
+
+<p><b>Theorem.</b> Under the established witnesses (<i>E</i> = Π_rest) and MA1+MA2 (Oprop ∈ 𝔟, pure 0↔2 flip), the manuscript's word</p>
+<pre>
+Tr[E M_e E Oprop E M_e E Oprop] = 0
+</pre>
+<p>identically, for <b>every</b> Oprop ∈ 𝔟 and for <b>any</b> <i>M_e</i>.</p>
+
+<p><b>Proof.</b> Exact support algebra: <i>E M_e E</i> = Π_rest <i>M_e</i> Π_rest, and Π_rest·Oprop = 0 (block purity by construction, run 12), so (<i>E M_e E</i>)·Oprop = 0 and the word vanishes. No numerics needed. The <i>E</i> = Π_rest/896 normalization only scales the word — still zero. ∎</p>
+<p>Standing form: any claimed nonzero evaluation of the manuscript's word on a 𝔟 candidate with bare E refutes the claim's premises. The 𝔟 candidates are visible only through dressed E (consistent with the run-27 R1 verdict that revival requires transfer content).</p>
+<p class="prov">Added 2026-09-28 by exact proof — entry <a href="../research/calibration.html#CAL-P6">CAL-P6</a> on <a href="../research/calibration.html">../research/calibration.html</a> (status CONFIRMED; conditional on established witnesses and MA1+MA2).</p>
+
+<h2 id="P-4">P-4. The clean-slate modules</h2>
+
+<h3 id="P-4-context">P-4-context. Why these replacements exist</h3>
+<p class="prov">2026-09-25; modules7_12_replacements.md</p>
+<p>The manuscript's Modules 7&ndash;12 as encoded did <i>not</i> establish their claims.
+As recorded in the audit ledger (&sect;1), the original encodings of M8&ndash;M12 are
+invalid and M7 as encoded is merely infrastructure. The modules below (M7&prime;&ndash;M12&prime;)
+are the clean-slate rebuild of 2026-09-24/25: corrected replacements for each module,
+with the diagnosis of what the original encoding got wrong and the status each corrected
+module carries. The build rests on three cited, established results: the corrected
+congruence-action Casimir C&prime; (PROVED, ledger &sect;1 B-4 addendum), the analytic
+spectrum {0:1, 48:1820, 64:6435} (PROVED, B-6, PROOFS_Casimir.md), and the corrected
+Module 6 generators (120 anti-Hermitian 128&times;128 matrices; so(16) relations CHECKED
+on all 7140 pairs with max violation 0.0).</p>
+<p class="gap">Gap: the manuscript's own reasoning for M12 (why it expected naive
+projection+symmetrization to land in the 48-eigenspace) is not recoverable from the
+record &mdash; Wolfram.pdf is not on disk; only the code behavior is documented. The
+replacements below supply a corrected construction, not a recovery of the manuscript's
+reasoning.</p>
+
+<h3 id="P-4-m7">P-4-m7. M7&prime; &mdash; symmetric-square orthonormal basis</h3>
+<p><a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></p>
+<p class="prov">2026-09-25; modules7_12_replacements.md &sect;M7&prime;</p>
+<p><i>Definition.</i> For the standard basis {<i>e</i><sub>a</sub>}<sub>a=1</sub><sup>128</sup>
+of &#x2102;<sup>128</sup>, and 1 &le; <i>a</i> &le; <i>b</i> &le; 128:
+<i>E</i><sub><i>aa</i></sub> = <i>e</i><sub>a</sub><i>e</i><sub>a</sub><sup>T</sup>,
+<i>E</i><sub><i>ab</i></sub> = (<i>e</i><sub>a</sub><i>e</i><sub>b</sub><sup>T</sup> +
+<i>e</i><sub>b</sub><i>e</i><sub>a</sub><sup>T</sup>)/&radic;2 for <i>a</i> &lt; <i>b</i>.</p>
+<p><i>Claim.</i> {<i>E</i><sub><i>ab</i></sub>} is an orthonormal basis of Sym&sup2;(&#x2102;<sup>128</sup>)
+under the Frobenius inner product; dim = 128&middot;129/2 = 8256.
+<b>PROVED</b> (exact combinatorics for the count; Tr(<i>E</i><sub><i>ab</i></sub><i>E</i><sub><i>cd</i></sub>)
+= &delta;<sub>(<i>a</i>,<i>b</i>),(<i>c</i>,<i>d</i>)</sub> by direct computation).</p>
+<p>The original M7 encoding needed no repair: the 1/&radic;2 off-diagonal normalization is the
+standard orthonormal basis under &lang;<i>A</i>,<i>B</i>&rang; = Tr(<i>AB</i>), and all
+downstream failures were in M8's operator, not M7's basis. The code convention (coordinate
+map <i>c</i><sub><i>ab</i></sub> = Tr(<i>ME</i><sub><i>ab</i></sub>), i.e. <i>c</i><sub><i>aa</i></sub> =
+<i>M</i><sub><i>aa</i></sub>, <i>c</i><sub><i>ab</i></sub> = &radic;2&middot;<i>M</i><sub><i>ab</i></sub>
+for <i>a</i> &lt; <i>b</i>) is CHECKED implicitly by the verify_independent.py &sect;5
+cross-check, which exercises every basis vector.</p>
+<p>Status of M7&prime;: <b>PROVED</b> (math) / <b>CHECKED</b> (code convention).</p>
+
+<h3 id="P-4-m8">P-4-m8. M8&prime; &mdash; corrected congruence-action Casimir C&prime;</h3>
+<p><a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></p>
+<p class="prov">2026-09-25; modules7_12_replacements.md &sect;M8&prime;</p>
+<p><i>Primary definition.</i></p>
+<pre>C&prime;(M) = &minus;&Sigma;<sub>a</sub> (A<sub>a</sub>&sup2;M + 2A<sub>a</sub>MA<sub>a</sub><sup>T</sup> + M(A<sub>a</sub><sup>T</sup>)&sup2;)</pre>
+<p><i>Claim 1.</i> C&prime; is the Casimir operator of the congruence action
+<i>g</i>&middot;<i>M</i> = <i>gMg</i><sup>T</sup> on Sym&sup2;(128).
+<b>PROVED (independent)</b>: the infinitesimal action is &rho;(<i>A</i>)<i>M</i> =
+<i>AM</i> + <i>MA</i><sup>T</sup>, and
+&rho;(<i>A</i>)&sup2;<i>M</i> = <i>A</i>(<i>AM</i>+<i>MA</i><sup>T</sup>) +
+(<i>AM</i>+<i>MA</i><sup>T</sup>)<i>A</i><sup>T</sup> = <i>A</i>&sup2;<i>M</i> +
+2<i>AMA</i><sup>T</sup> + <i>M</i>(<i>A</i><sup>T</sup>)&sup2; by exact matrix algebra
+(ledger B-4 addendum).</p>
+<p><i>Claim 2 (B-5 rehabilitation).</i> In the exhibited real basis
+(Frobenius&ndash;Schur +1; real structure <i>J</i> with <i>J</i>&sup2;=+1,
+[<i>J</i>,<i>A</i><sub>a</sub>]=0; 120 generators real antisymmetric to &sim;1e-15),
+the manuscript's encoded formula satisfies <i>R</i><sub>manuscript</sub>(<i>M</i>) =
+&minus;C&prime;(<i>M</i>). <b>CHECKED</b> (numeric): worst relative
+&#x2016;<i>R</i>+C&prime;&#x2016;/&#x2016;C&prime;&#x2016; = 5.4e-16 over 6 trials
+(b5_reality_check.py, CLOSED 2026-09-23). The manuscript's formula is thus rehabilitated
+up to the overall sign, in the real basis; in the manuscript's (complex) basis it remains
+the wrong operator.</p>
+<p><i>Claim 3.</i> C&prime; is central: [C&prime;, &rho;(<i>A</i>)] = 0 for all generators.
+Standard Lie theory (a representation's Casimir commutes with the representation) +
+<b>CHECKED</b> numeric: max |[C&prime;,&rho;]| &asymp; 2.8&ndash;2.9e-14 on random
+symmetric matrices (diag_casimir.py &sect;3).</p>
+<p><i>Diagnosis of the original.</i> The encoded <i>R</i>(<i>M</i>) = &Sigma;<sub>a</sub>[<i>A</i><sub>a</sub>,[<i>A</i><sub>a</sub>,<i>M</i>]]
+is &rho;(<i>A</i>)&sup2; for &rho;(<i>A</i>)<i>M</i> = [<i>A</i>,<i>M</i>] &mdash; the Casimir of the
+<b>conjugation</b> action <i>g</i>&middot;<i>M</i> = <i>gMg</i><sup>&minus;1</sup>. That identification
+is valid only for real antisymmetric generators (<i>A</i><sup>T</sup> = &minus;<i>A</i>), but the
+actual generators are complex anti-Hermitian with |<i>A</i>+<i>A</i><sup>T</sup>| error 1.0
+(CHECKED). The original M8 therefore computed the Casimir of the wrong action and produced the
+garbage spectrum [&minus;128,&minus;120,&minus;96,&minus;64,&minus;60,&minus;56,&minus;48,&minus;28,0] with
+zero multiplicity at 48 and 64 (ledger &sect;1): two independent errors &mdash; wrong
+action/basis and, as B-5 shows, an overall sign.</p>
+<p>Status of M8&prime;: <b>PROVED</b> (Claim 1) / <b>CHECKED</b> (Claims 2, 3).</p>
+
+<h3 id="P-4-m9">P-4-m9. M9&prime; &mdash; Casimir matrix assembly</h3>
+<p><a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></p>
+<p class="prov">2026-09-25; modules7_12_replacements.md &sect;M9&prime;</p>
+<p><i>Definition.</i> Matrix elements <i>C</i><sub><i>mn</i></sub> = Tr(<i>E</i><sub><i>m</i></sub>
+&middot; C&prime;(<i>E</i><sub><i>n</i></sub>)) (Frobenius inner product), <i>m</i>,<i>n</i> over
+the 8256 M7&prime; basis elements. Computationally: precompute <i>S</i><sub>2</sub> =
+&Sigma;<sub>a</sub> <i>A</i><sub>a</sub>&sup2; once; the &minus;2&Sigma;<sub>a</sub>
+<i>A</i><sub>a</sub><i>E</i><sub><i>n</i></sub><i>A</i><sub>a</sub><sup>T</sup> cross term via batched
+einsum; diagonal inputs <i>E</i><sub><i>pp</i></sub> applied singly &mdash; <b>PROVED</b> correct
+by the basis definition, since <i>E</i><sub><i>pp</i></sub> occurs once.</p>
+<p><i>Diagnosis of the original.</i> The first corrected M9 run double-counted diagonal
+(<i>p</i>=<i>q</i>) basis inputs, yielding spectrum {0:1, 48:1820, 64:6307, 128:128} &mdash;
+INVALID (ledger &sect;1). Root cause: for <i>p</i>=<i>q</i> the basis matrix is
+<i>E</i><sub><i>pp</i></sub> (single, not doubled), so each of the <i>S</i><sub>2</sub>,
+<i>S</i><sub>2</sub><sup>T</sup>, and cross terms must be applied once. The patched rerun
+gave the correct spectrum.</p>
+<p><i>Claim.</i> The assembled <i>C</i> is real symmetric (symmetry err 0.0, CHECKED),
+max|imag| = 0.0 (CHECKED), and matches the literal operator: max over random symmetric
+<i>M</i> of |<i>C</i>&middot;row(<i>M</i>) &minus; row(C&prime;(<i>M</i>))| = 3.7e-13
+(<b>CHECKED</b>, verify_independent.py &sect;5, fresh implementation + entry-by-entry
+cross-check; exit 0).</p>
+<p>Tripwires for any rerun: symmetry err &lt; 1e-12; max|imag| &lt; 1e-12; literal-operator
+cross-check &lt; 1e-8 on &ge;4 random symmetric matrices.</p>
+<p>Status of M9&prime;: <b>CHECKED</b> (assembly) / <b>PROVED</b> (p=q single-count rule).</p>
+
+<h3 id="P-4-m10">P-4-m10. M10&prime; &mdash; analytic spectrum</h3>
+<p><a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></p>
+<p class="prov">2026-09-25; modules7_12_replacements.md &sect;M10&prime;; PROOFS_Casimir.md
+(~/workspace/icloud_pyto/rebuilt/ copy)</p>
+<p><i>Claim.</i> eigvalsh of the corrected symmetric <i>C</i> gives exactly three distinct
+eigenvalues {0, 48, 64} with multiplicities (1, 1820, 6435).
+<b>PROVED (analytic)</b> &mdash; B-6, CLOSED 2026-09-24 (PROOFS_Casimir.md K-1..K-9):
+Sym&sup2;(128) = &#x2102;<i>s</i> &oplus; <i>F</i> &oplus; <i>V</i>(2&omega;<sub>8</sub>) with
+dims 1+1820+6435 (K-4, K-6, K-7, K-8); <i>C</i> acts as 0/48/64 via Harish&ndash;Chandra
+proportionality with &kappa;=1 pinned on <i>S</i><sub>+</sub> (&minus;&Sigma;<i>M</i><sub><i>AB</i></sub>&sup2; = 30<i>I</i>)
+and <i>D</i><sub>8</sub> arithmetic &omega;<sub>8</sub>&rarr;30, &omega;<sub>4</sub>&rarr;48,
+2&omega;<sub>8</sub>&rarr;64 (K-9); Weyl dimensions independently re-derived in exact
+rational arithmetic (b6_weyl_check.py, exit 0).</p>
+<p>The numeric diagonalization is now <b>corroboration, not establishment</b> (per Kit's
+rule, no sampling after proof). Corroborating runs (casimir2b.log, verify_independent.py
+&sect;6, both CHECKED): exactly 3 distinct rounded eigenvalues; mults (1, 1820, 6435);
+eig min &ge; &minus;1e-9, max &le; 64+1e-9; polynomial identity
+<i>C</i>(<i>C</i>&minus;48<i>I</i>)(<i>C</i>&minus;64<i>I</i>) = 0 on all 8256 basis vectors
+(also verified in the tables <i>C</i>.npz build).</p>
+<p>Status of M10&prime;: <b>PROVED</b> (spectrum) / <b>CHECKED</b> (numeric corroboration).</p>
+
+<h3 id="P-4-m11">P-4-m11. M11&prime; &mdash; Lagrange projectors</h3>
+<p><a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a></p>
+<p class="prov">2026-09-25; modules7_12_replacements.md &sect;M11&prime;</p>
+<p>On the corrected C&prime; with spectrum {0, 48, 64}:</p>
+<pre>p<sub>0</sub>(x) = (x&minus;48)(x&minus;64)/3072
+p<sub>48</sub>(x) = x(64&minus;x)/768
+p<sub>64</sub>(x) = x(x&minus;48)/1024</pre>
+<p><i>Claim.</i> <i>P</i><sub><i>i</i></sub> = <i>p</i><sub><i>i</i></sub>(C&prime;) are
+idempotent, pairwise orthogonal, complete (<i>P</i><sub>0</sub>+<i>P</i><sub>48</sub>+
+<i>P</i><sub>64</sub> = <i>I</i>), with ranks (tr <i>P</i><sub><i>i</i></sub>) = (1, 1820, 6435).</p>
+<p><i>Analytic note.</i> Given the B-6 spectrum, idempotence/orthogonality/completeness of
+the Lagrange projectors follow <b>PROVED</b> by polynomial algebra on the spectrum
+(<i>p</i><sub><i>i</i></sub>(&lambda;<sub><i>j</i></sub>) = &delta;<sub><i>ij</i></sub>);
+the numeric check confirms the operator application, not the algebra.</p>
+<p><i>Numeric implementation.</i> <b>CLOSED</b> (B-2, 2026-09-22), <b>CHECKED</b>: matrix-free
+application via the batched-BLAS C&prime; to 10 random symmetric 128&times;128 matrices
+(5 real, 5 complex; b2_projector_check.py) &mdash; worst relative (Frobenius) residuals:
+idempotence 3.6e-16, pairwise orthogonality 3.3e-16, completeness 2.2e-16, all at machine
+precision. Caution recorded in the breakage log: b2_projector_check.py's own aggregate
+"ALL RESIDUALS" verdict printed False because the check accidentally included the
+&#x2016;<i>M</i>&#x2016; scale row (129.0, not a residual) &mdash; the per-test rows are the
+real evidence and all pass; any rerun must exclude non-residual rows from the aggregate.</p>
+<p><i>Diagnosis of the original.</i> The original M11 applied the Lagrange polynomials to the
+wrong spectrum, reporting invalid ranks 36722/&minus;82471/54005 (including a negative rank
+&mdash; impossible for a projector) and failed idempotence (breakage log B-2). The formulas
+were never the problem; the spectrum they were fed was.</p>
+<p>Status of M11&prime;: <b>CHECKED</b> (B-2) / <b>PROVED</b> (polynomial algebra given B-6).</p>
+
+<h3 id="P-4-m12">P-4-m12. M12&prime; &mdash; B-mapped four-form theorem</h3>
+<p><a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></p>
+<p class="prov">2026-09-25; modules7_12_replacements.md &sect;M12&prime;</p>
+<p><i>Definitions.</i> Let <i>B</i><sub>+</sub> be the invariant symmetric bilinear form on
+<i>S</i><sub>+</sub> (exists by B-5, Frobenius&ndash;Schur +1; R3b verifies: <i>B</i><sub>+</sub>
+preserves <i>S</i><sub>+</sub>, <i>B</i><sub>+</sub> symmetric involution, all to fp 0.0).
+For each 4-combination <i>I</i>=(<i>i</i>,<i>j</i>,<i>k</i>,<i>l</i>) let
+<i>G</i><sub><i>I</i></sub> = &Gamma;<sub><i>ijkl</i></sub>|<sub><i>S</i><sub>+</sub></sub> and
+define the B-mapped form &Phi;<sub><i>I</i></sub> = sym(<i>B</i><sub>+</sub><i>G</i><sub><i>I</i></sub>)
+= (<i>B</i><sub>+</sub><i>G</i><sub><i>I</i></sub> + (<i>B</i><sub>+</sub><i>G</i><sub><i>I</i></sub>)<sup>T</sup>)/2,
+expressed in Sym&sup2;(128) orthonormal coords.</p>
+<p><i>Claim (M12&prime;).</i> All 1820 &Phi;<sub><i>I</i></sub> lie in the 48-eigenspace of C&prime;,
+and they span it (rank 1820 = tr <i>P</i><sub>1820</sub>).</p>
+<p><i>Analytic proof</i> (<b>PROVED</b> 2026-09-25; the computation existed as PROOFS_Casimir.md
+K-5/K-6, proved 2026-09-19 and verified line-by-line in the B-6 run; the rebuild reconciled it
+with the skeleton and closed the one gap, the &rho;-twist). K-5(a): (<i>B</i><sub>+</sub><i>G</i><sub><i>I</i></sub>)<sup>T</sup>
+= <i>B</i><sub>+</sub><i>G</i><sub><i>I</i></sub> exactly, so sym is a no-op (explaining the measured
+0.0); K-5(b): <i>B</i><sub>+</sub><i>G</i><sub><i>I</i></sub> &ne; 0; K-5(c):
+[<i>M</i><sub><i>AB</i></sub>, &gamma;<sub><i>I</i></sub>] &isin; span{&gamma;<sub><i>J</i></sub><sup>(4)</sup>}
+with the 2-fold terms cancelling &mdash; the infinitesimal Clifford equivariance; K-5(d):
+<i>F</i> := span{<i>B</i><sub>+</sub><i>G</i><sub><i>I</i></sub>} is a nonzero &rho;-submodule of
+Sym&sup2;(<i>S</i><sub>+</sub>). K-6: &Phi;: &Lambda;<sup>4</sup>(16) &rarr; <i>F</i>,
+<i>e</i><sub><i>I</i></sub> &#x21a6; <i>B</i><sub>+</sub><i>G</i><sub><i>I</i></sub>, is (&rho;&circ;&phi;)-equivariant
+for the automorphism &phi; = Ad<sub><i>D</i></sub>, <i>D</i> = diag(&sigma;) &isin; SO(16) (K-3);
+&Phi; &ne; 0 and &Lambda;<sup>4</sup>(16) &cong; <i>V</i>(&omega;<sub>4</sub>) irreducible give
+ker &Phi; = 0 by Schur, dim <i>F</i> = 1820, (<i>F</i>, &rho;&circ;&phi;) &cong;
+<i>V</i>(&omega;<sub>4</sub>).</p>
+<p><i>Twist lemma</i> (this run, PROVED): {&phi;(<i>M</i><sub><i>AB</i></sub>)} is orthonormal for the
+trace form (Ad preserves trace; K-9 normalization tr = &minus;32&delta;), so the Casimir element
+&Sigma;&phi;(<i>M</i><sub><i>AB</i></sub>)&sup2; = &Sigma;<i>M</i><sub><i>AB</i></sub>&sup2; by
+basis-independence; hence &minus;&Sigma;(&rho;&circ;&phi;)(<i>M</i><sub><i>AB</i></sub>)&sup2; = C&prime;
+as operators, and C&prime;|<sub><i>F</i></sub> = 48&middot;<i>I</i><sub><i>F</i></sub> (K-9 eigenvalue
+on <i>V</i>(&omega;<sub>4</sub>)). See the <a href="#P-1-twist">P-1 twist lemma</a>. Thus
+<i>F</i> &sube; 48-eigenspace of C&prime;, and dim <i>F</i> = 1820 = tr <i>P</i><sub>1820</sub>
+forces <i>F</i> = the 48-eigenspace exactly. Every &Phi;<sub><i>I</i></sub> =
+sym(<i>B</i><sub>+</sub><i>G</i><sub><i>I</i></sub>) = <i>B</i><sub>+</sub><i>G</i><sub><i>I</i></sub>
+lies in <i>F</i>; the 1820 B-mapped four-forms lie in and span the 48-eigenspace. Scope: CP
+with the same ST components as B-6.</p>
+<p><i>Numeric corroboration</i> (<b>CHECKED</b>, two independent runs in agreement).
+R3b_fourform_membership.py (2026-09-19, EXIT:0, 384.8s): 0 vanishing forms; worst
+&#x2016;<i>Cv</i>&minus;48<i>v</i>&#x2016;/&#x2016;<i>v</i>&#x2016; = 6.3e-15; worst
+&#x2016;<i>P</i><sub>1820</sub><i>v</i>&minus;<i>v</i>&#x2016;/&#x2016;<i>v</i>&#x2016; = 0.0
+(at %.3e print precision); rank 1820. Decisive structural contrast with the naive map:
+max<sub><i>I</i></sub> |<i>B</i><sub>+</sub><i>G</i><sub><i>I</i></sub> &minus;
+(<i>B</i><sub>+</sub><i>G</i><sub><i>I</i></sub>)<sup>T</sup>| = 0.0 &mdash; the B-mapped forms
+are EXACTLY symmetric (now PROVED by K-5(a)), zero symmetrization loss (vs tripwire 2.0 for
+the naive map). Re-verified independently in this rebuild (M12b, /tmp/m12_bmapped_verify.py,
+exit 0, 129.5s), loading fourform_Bmapped.npy + C.npz + P1820.npz fresh from
+~/workspace/tables/: vanishing forms 0/1820; worst &#x2016;<i>Cv</i>&minus;48<i>v</i>&#x2016;/&#x2016;<i>v</i>&#x2016;
+= 0.0 (below print precision); worst &#x2016;<i>P</i><sub>1820</sub><i>v</i>&minus;<i>v</i>&#x2016;/&#x2016;<i>v</i>&#x2016;
+= 0.0; rank 1820 == tr <i>P</i><sub>1820</sub> = 1820.0; C Hermitian err 0.0.
+The R3b claim is confirmed by an independent reload-and-recompute.</p>
+
+<h3 id="P-4-naive12">P-4-naive12. REFUTED &mdash; the naive Module-12 image claim</h3>
+<p><a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">incorrect result</span></a></p>
+<p class="prov">2026-09-25; modules7_12_replacements.md &sect;M12&prime;(b), M12a; m12a_classify.json</p>
+<p>The manuscript's claim &mdash; that the naive projected+symmetrized 4-forms
+<i>P</i>&Gamma;<sub><i>ijkl</i></sub><i>P</i><sup>&dagger;</sup> (symmetrized as
+(<i>M</i>+<i>M</i><sup>T</sup>)/2) land in and span the 1820-dimensional 48-eigenspace &mdash;
+is <b>FALSE</b> on the corrected operator (B-1, CLOSED 2026-09-22). The original M12
+encoding tested membership in the 48-eigenspace of the WRONG Casimir (ImageInP1820=false,
+max_sampleVerify=21.0); on the CORRECTED operator the claim itself fails.</p>
+<p><i>The trichotomy (CHECKED).</i> Over the 1820 naive projected+symmetrized forms, with
+residuals exactly 0 vs exactly 16&radic;128 &asymp; 181.019 (top-5 worst spot-checked:
+C&prime;<i>v</i> = 64<i>v</i> to machine precision, b1_spotcheck.py):</p>
+<pre>pure-48 :  140   (nonzero forms in the 48-eigenspace)
+sym-zero:  896   (collapse to zero under symmetrization)
+pure-64 :  784   (lie ENTIRELY in the 64-eigenspace)
+mixed   :    0   (no form straddles eigenspaces)</pre>
+<p>Per-quad classification (M12a, 2026-09-24, exit 0; m12a_classify.json): class counts
+pure-64: 784, sym-zero: 896, pure-48: 140 &mdash; exact ledger match. Slot-type &times; class
+(slot-type = tensor-slot occupancy of the quad): (1,1,1,1), <i>n</i>=1120: pure-48: 140,
+sym-zero: 560, pure-64: 420; (2,1,1), <i>n</i>=672: sym-zero: 336, pure-64: 336;
+(2,2), <i>n</i>=28: pure-64: 28.</p>
+<p><i>Mechanism of the 896 "collapses".</i> <b>None</b> are projection-zero
+(<i>pr</i> itself never vanishes; proj-zero count = 0). All 896 are <b>exactly
+antisymmetric</b>: &#x2016;sym(<i>pr</i>)&#x2016;/&#x2016;<i>pr</i>&#x2016; = 0.0 and
+&#x2016;asym(<i>pr</i>)&#x2016;/&#x2016;<i>pr</i>&#x2016; = 1.0 for every one of them. The
+manuscript's transpose-symmetrization step annihilates them algebraically: the naive
+symmetrization (<i>M</i>+<i>M</i><sup>T</sup>)/2 is not so(16)-equivariant &mdash; transpose does
+not commute with the complex representation (B-1 tripwire max|<i>pr</i>&minus;<i>pr</i><sup>T</sup>|
+= 2.0 over the projected forms) &mdash; so the projected forms need not, and do not, respect
+the Casimir decomposition.</p>
+<p>The nonzero naive forms span only 924 dims. The 140 pure-48 naive forms are precisely
+2 per four-distinct-slot set, with uniform index parity (all-odd `0000` or all-even `1111`
+choice words); the 784 pure-64 are 6 per such set, 2 per (2,1,1) set, all of (2,2). The full
+1820-form classification is an exact, slot-set-independent function of (slot-type, parity word)
+&mdash; no mixed forms, no exceptions.</p>
+<p>Status: the naive Module-12 image claim is <b>REFUTED</b> (CHECKED trichotomy); replaced by
+the B-mapped construction of P-4-m12.</p>
+
+<h2 id="P-5">P-5. The refutations</h2>
+<p>Negative results are results: a derivation route closed by an exact zero, a withdrawn computation, and a hypothesis ruled out by theorem each record real mathematical content. This section transcribes four refutations as full negative derivations — what was claimed, what killed it, and what stays open.</p>
+
+<h3 id="P-5-run25">Run 25: the manuscript's N&#8321;&#8328;&#8322;&#8320; 8-cycle is dead <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">incorrect result</span></a></h3>
+
+<p><b>Claim under test.</b> Manuscript &#167;19.4 ("Multiplicity N&#8321;&#8328;&#8322;&#8320;", v1 &#167;19.4, lines 3528–3540): N&#8321;&#8328;&#8322;&#8320; "counts residual tensor factor combinations from the 8-cycle" — positions 1,3,5,7 &#8594; E contacts (decay nodes), 2,6 &#8594; B grade-preserving propagators (growth-A, +1), 4,8 &#8594; O odd fermion bilinears (growth-B, &#8722;1); "multiplying and dividing by the absorbed witness norm isolates N&#8321;&#8328;&#8322;&#8320; as an exact discrete graph invariant."</p>
+
+<p><b>The probe.</b> Substitute the established IO-word witnesses (run 4b: <i>E</i> = &#928;<i><sub>rest</sub></i>, <i>B</i> = &#928;<i><sub>0</sub></i>, <i>O</i> = &#928;<i><sub>2</sub></i> — pairwise orthogonal projectors with traces 896/368/556) into the 8-cycle word <i>EBEOEBEO</i> (the &#167;19.6 "unique cyclic word", v1:3552), read as an operator product on the 1820, and evaluate the "isolates an exact discrete graph invariant" claim. Extended to the full cyclic-word algebra over {<i>E</i>, <i>B</i>, <i>O</i>, <i>M<sub>e</sub></i>} (<i>M<sub>e</sub></i> = archived reference).</p>
+
+<p><b>FALSIFIED (clean): the 8-cycle operator is exactly zero.</b> The product</p>
+<pre>
+EBEOEBEO = &#928;_rest &#183; &#928;_0 &#183; &#928;_rest &#183; &#928;_2 &#183; &#928;_rest &#183; &#928;_0 &#183; &#928;_rest &#183; &#928;_2
+</pre>
+<p>contains the factor &#928;<i><sub>rest</sub></i>&#183;&#928;<i><sub>0</sub></i> = 0, so the operator vanishes identically — not just its trace. Checked on archived matrices: &#8214;<i>EBEOEBEO</i>&#8214;<i><sub>F</sub></i> = 1.99e-61, |Tr| = 6.10e-61, all 8 cyclic adjacent-pair junctions &#8804; 2.085e-14. Stronger form (exact combinatorics): the 8-cycle has pairwise-distinct letters at every adjacent pair, so this holds for <b>any</b> bijection of {<i>E</i>,<i>B</i>,<i>O</i>} onto {&#928;<i><sub>0</sub></i>,&#928;<i><sub>2</sub></i>,&#928;<i><sub>rest</sub></i>} — it does not depend on the run-4b letter map at all.</p>
+
+<p>With the charitable formula <i>N</i> = <i>c</i><i><sub>contact</sub></i>&#8308;&#183;<i>&#946;</i>&#178;&#183;<i>&#969;</i>&#178;&#183;Tr(<i>EBEOEBEO</i>)/<i>W</i><i><sub>norm</sub></i>, the result is 0 for <b>every</b> choice of the unspecified B/O per-factors <i>&#946;</i>, <i>&#969;</i> and every nonzero witness norm <i>W</i> — the undefined inputs are moot; the zero is exact and independent of them.</p>
+
+<p><b>PROVED (exact algebra) + CHECKED: full cyclic-word classification.</b> Premises re-verified on archived matrices (all &#8804; 1.6e-13): the &#928;<i><sub>I</sub></i> symmetric idempotents, pairwise orthogonal, complete, traces 368/556/896; [<i>M<sub>e</sub></i>, &#928;<i><sub>I</sub></i>] = 0; &#928;<i><sub>0</sub></i><i>M<sub>e</sub></i>&#928;<i><sub>0</sub></i> = 2&#928;<i><sub>0</sub></i>; &#928;<i><sub>2</sub></i><i>M<sub>e</sub></i>&#928;<i><sub>2</sub></i> = 5&#928;<i><sub>2</sub></i>. Since every letter is block-diagonal in the grade-sector basis, every cyclic word over {<i>E</i>,<i>B</i>,<i>O</i>,<i>M<sub>e</sub></i>} reduces to scalar sector arithmetic:</p>
+<pre>
+Tr(w) = 368 &#183; 2^k &#183; [w &#8712; {B,M}*] + 556 &#183; 5^k &#183; [w &#8712; {O,M}*] + T_k &#183; [w &#8712; {E,M}*],
+</pre>
+<p>with <i>k</i> = #(M in <i>w</i>) and <i>T<sub>k</sub></i> = Tr(&#928;<i><sub>rest</sub></i>&#183;<i>M<sub>e</sub></i><i><sup>k</sup></i>). A word is nonzero iff its non-M letters are all the same witness (or absent). Checked: exhaustive enumeration of all 87,380 words of length 1–8 — 85,866 exactly zero, 1,514 nonzero in 32 classes, zero intra-class mismatches; 22 dense spot-checks agree with the formula to 3.3e-13. The rest-sector moments <i>T</i>&#8321; = 2239.068024, <i>T</i>&#8322; = 5786.440011, <i>T</i>&#8323; = 15458.569612, <i>T</i>&#8324; = 42632.467854, <i>T</i>&#8325; = 121109.824873, <i>T</i>&#8326; = 353438.365779, <i>T</i>&#8327; = 1056494.405460, <i>T</i>&#8328; = 3225251.320284 — <i>T</i>&#8321; is non-integer, so the rest-sector word content is a computed spectral distribution, not a discrete invariant. The entire cyclic-word trace algebra is the sector census {368, 556, 896} plus {<i>T<sub>k</sub></i>}: <b>no graph invariant can be isolated from cyclic words over established inputs.</b> Even the nonzero constant words (Tr <i>E</i>&#8312; = 896, <i>B</i>&#8312; = 368, <i>O</i>&#8312; = 556 — the sector dims themselves) cannot be normalized to a discrete graph invariant without the norm the manuscript leaves undefined.</p>
+
+<p><b>Net.</b> The &#167;19.4 "8-cycle isolates N&#8321;&#8328;&#8322;&#8320; as an exact discrete graph invariant" route is closed by falsification on established inputs — the first matrix-level test of that passage. <b>N&#8321;&#8328;&#8322;&#8320; itself stays OPEN:</b> the probe gives a proved reason the 8-cycle cannot supply it (the operator is 0; the word algebra is sector-spectral data only), not a value for it.</p>
+
+<p class="gap">Gap: the B/O per-factors <i>&#946;</i>, <i>&#969;</i> and the "absorbed witness norm" remain manuscript-undefined (MA); the probe shows they cannot rescue the construction, not what their values are. The non-operator ("counting") reading of &#167;19.4 has no evaluable content on established inputs — noted, not tested further.</p>
+
+<p class="prov">2026-09-27, io-word sweep cron run 25. Source: <code>~/workspace/goals/r-theory-volume-i-audit/hidden_files/io_word_sweep/N1820_CYCLE_PROBE.md</code> (script <code>n1820_cycle_probe.py</code>, exit 0, 24/24 checks PASS, <code>n1820_cycle_probe_results.json</code>).</p>
+
+<h3 id="P-5-commutant-bug">The withdrawn 12 &#8594; 6 reduction: a basis-mismatch bug <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">incorrect result</span></a></h3>
+
+<p><b>What run 21 claimed (2026-09-27 ~01:25 PDT).</b> <code>b_meps_commutant.py</code> reported: all six <i>o</i>-reps commute with <i>M<sub>eps</sub></i> to 4.58e-16; all six <i>d</i>-reps have &#8214;[<i>d</i>,<i>M<sub>eps</sub></i>]&#8214;&#178;<i><sub>F</sub></i> = 752.0000000000 = 4&#183;188 uniformly; commutator Gram spectrum {0 &#215;6, 752 &#215;6}; hence ker([&#183;,<i>M<sub>eps</sub></i>]) inside the real 12-dim bilinear-odd space <i>b</i> is the 6-dim <i>o</i>-half — a conditional 12 &#8594; 6 selection principle for the Oprop search.</p>
+
+<p><b>The bug.</b> The script built the 12 rep dicts in the <b>u-wedge basis</b> (<i>X<sub>u</sub></i> = <i>U</i>&#8224;<i>X</i>&#8321;&#8326;<i>U</i>, then the wedge differential — basis = &#923;&#8308; of the u-basis, charges {0..7}), then loaded the archived <i>M<sub>eps</sub></i><sub>1820</sub>.npy, which is expressed in the <b>standard-wedge (e) basis</b> (lexicographic <i>e</i><sub><i>i</i>&#8321;</sub>&#8743;<i>e</i><sub><i>i</i>&#8322;</sub>&#8743;<i>e</i><sub><i>i</i>&#8323;</sub>&#8743;<i>e</i><sub><i>i</i>&#8324;</sub>; verified monomial), and commuted the two <b>without any basis change</b>. The two bases differ by &#923;&#8308;(<i>U</i>). The sparse "commutator" run 21 computed is not the commutator of the two operators — it mixes bases.</p>
+
+<p><b>How it was caught.</b> Run 22 (<code>diag_rerun21.py</code>) reran run 21's exact pipeline and reproduced its numbers verbatim (6 &#215; 4.58e-16, 6 &#215; 752.0000000000) — confirming the old output is reproducible but basis-inconsistent. Independent code reading (<i>Q1_752_PROOF.md</i>) confirmed: <code>build_D</code> constructs rep dicts in the u-wedge basis, then <code>sp_comm</code> multiplies them directly against the e-basis archived <i>M<sub>eps</sub></i> with no &#923;&#8308;(<i>U</i>) transform.</p>
+
+<p><b>Corrected result — PROVED (block algebra, basis-free).</b> <i>M<sub>eps</sub></i> = diag(+<i>I</i>&#8323;&#8326;&#8328;, &#8722;<i>I</i>&#8325;&#8325;&#8326;, <i>iK<sub>r</sub></i>) in the (&#928;<i><sub>0</sub></i>,&#928;<i><sub>2</sub></i>,&#928;<i><sub>rest</sub></i>) split (premises checked &#8804; 2.05e-15). For any pure &#928;<i><sub>0</sub></i>&#8596;&#928;<i><sub>2</sub></i> flip <i>X&#771;</i> = &#928;<i><sub>0</sub></i><i>D</i>&#928;<i><sub>2</sub></i> + &#928;<i><sub>2</sub></i><i>D</i>&#928;<i><sub>0</sub></i> (real or complex),</p>
+<pre>
+[X&#771;, M_eps] = [[0, -2A], [2B, 0]]   (rest blocks zero),
+||[X&#771;, M_eps]||_F = 2 ||X&#771;||_F,
+</pre>
+<p>so [<i>X&#771;</i>,<i>M<sub>eps</sub></i>] = 0 implies <i>A</i> = <i>B</i> = 0, i.e. <i>X&#771;</i> = 0. <b>ker([&#183;,<i>M<sub>eps</sub></i>]) on the entire pure &#928;<i><sub>0</sub></i>&#8596;&#928;<i><sub>2</sub></i> slot is {0}</b> — its intersection with the 12-dim space <i>b</i> has dimension 0, not 6. Checked in two bases: all 12 u-basis reps give &#8214;[<i>B</i>,<i>M<sub>eps</sub></i>]&#8214;&#178;<i><sub>F</sub></i> = 752 = 4&#183;188 exactly, no <i>d</i>/<i>o</i> split; on 6 archived real flips &#8214;[<i>X&#771;</i>,<i>M<sub>eps</sub></i>]&#8214; = 2&#8214;<i>X&#771;</i>&#8214; to rel 2.59e-16 — never zero.</p>
+
+<p><b>Net.</b> Run 21's K2 is falsified and superseded; the "6-dim <i>o</i>-half commutant" and the conditional 12 &#8594; 6 <i>M<sub>eps</sub></i>-commutant selection principle are withdrawn. The bug was a basis mismatch, not a near-miss: the computation never evaluated the claimed commutator. Run 21's K1 (reality theorem, below) is unaffected — it used only u-basis quantities. The corrected law is stronger and simpler than run 21's: a uniform exact identity (norm exactly doubles) replacing a spurious 6/6 split. A commutator-based (firewall-preserving) selection inside the pure (0,2)-slot selects nothing.</p>
+
+<p class="gap">Gap: the commutator Gram spectrum argument is withdrawn with K2; the analytic proof of the uniform 752 = 4&#183;188 d-norms now follows from the block identity, but the original "combinatorial proof via the wedge-permutation action" remains future work if desired.</p>
+
+<p class="prov">2026-09-27, io-word sweep run 22 (correction) of run 21's <code>b_meps_commutant.py</code> (2026-09-27 ~01:25 PDT). Sources: <code>~/workspace/goals/r-theory-volume-i-audit/hidden_files/io_word_sweep/B_MEPS_COMMUTANT_CORRECTION.md</code>, <code>B_REALITY_AND_COMMUTANT.md</code> (correction banner), <code>diag_rerun21.py</code> + <code>diag_rerun21.log</code> (bug demonstration), <code>diag_direct.py</code>, <code>diag_comm3.py</code>.</p>
+
+<h3 id="P-5-modepure">Mode-pure real Oprop construction refuted <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">incorrect result</span></a></h3>
+
+<p><b>What was claimed.</b> Run 20's headline: run 18's 94/94 is a generator property, not a space property; the mode split is fully free over <i>w</i>&#8322;+<i>w</i>&#8326; = 188; "future Oprop can be built mode-pure" — with "6+6 mode-pure splitting" and "mode-pure witnesses".</p>
+
+<p><b>The refutation.</b> The reality theorem (see <a href="#P-2-reality">P-2 reality theorem</a>): every real <i>X</i> in the 12-dim bilinear-odd space <i>b</i> has <i>w</i>&#8322; = <i>w</i>&#8326; exactly. Proof: for real <i>X</i>, the &#961;(<i>g</i>)-Fourier components satisfy <i>X</i><sup>(&#8722;<i>m</i>)</sup> = conj(<i>X</i><sup>(<i>m</i>)</sup>), so <i>w</i><sub>&#8722;<i>m</i></sub> = <i>w<sub>m</sub></i>; modes are mod 8 and 6 = &#8722;2; run-18 M2 gives support &#8838; {2,6}; therefore <i>w</i>&#8322; = <i>w</i>&#8326; identically on the real space. With run-15's Gram = 188&#183;<i>I</i>&#8321;&#8322;, every real <i>X</i> = &#8721; <i>c<sub>g</sub>X&#771;<sub>g</sub></i> has <i>w</i>&#8322; = <i>w</i>&#8326; = 94&#183;&#8214;<i>c</i>&#8214;&#178;. The 94/94 split is frozen on the whole real space.</p>
+
+<p><b>Consequence.</b> Run 20's headline holds only on the <b>complexification</b> &#8450;&#185;&#178;: its M5/M7 "6+6 mode-pure splitting" and "mode-pure witnesses" are statements about &#8450;&#185;&#178; — the Hermitian <i>Q</i>&#8322;&#8722;<i>Q</i>&#8326; has per-pair blocks [[0,188<i>i</i>],[&#8722;188<i>i</i>,0]] whose eigenvectors are intrinsically complex. <b>No nonzero real mode-pure element exists.</b> A mode-pure real Oprop is impossible; mode purity is available only over &#8450;&#185;&#178;, which is not the physical operator space. Spot-checked: 4 random real combinations give |<i>w</i>&#8322;&#8722;<i>w</i>&#8326;|/(<i>w</i>&#8322;+<i>w</i>&#8326;) = 0 exactly in sparse arithmetic. Run 18's 94/94 is upgraded from a generator observation to a reality theorem; run 20's checked numerics (M1–M6) stand — only its "Net"/"Constructive" interpretation is corrected.</p>
+
+<p class="gap">Gap: none on the theorem itself (proved); the open question is which complexification-compatible selection, if any, replaces the mode-pure program.</p>
+
+<p class="prov">2026-09-27, io-word sweep continue run (correction to run 20's interpretation). Source: <code>~/workspace/goals/r-theory-volume-i-audit/hidden_files/io_word_sweep/B_REALITY_AND_COMMUTANT.md</code> &#167;1.</p>
+
+<h3 id="P-5-w4c4">The W4 (C4)/Schur route to m&#8322;&#8315;&#8308; is closed <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">incorrect result</span></a></h3>
+
+<p><b>What was claimed.</b> W4's conditional (C4): "[W2, in flight] If <i>M<sub>e</sub></i> is SO(16)-equivariant, Schur &#8658; <i>M<sub>e</sub></i> = <i>m</i>&#183;<i>I</i>&#8321;&#8328;&#8322;&#8320;." Item 3: under (C4), Tr(<i>E</i>&#8321;<i>M<sub>e</sub>E</i>&#8322;<i>OE</i>&#8323;<i>M<sub>e</sub>E</i>&#8324;<i>O</i>) = <i>m</i>&#178;&#183;Tr(<i>E</i>&#8321;<i>E</i>&#8322;<i>OE</i>&#8323;<i>E</i>&#8324;<i>O</i>) (T3 verified numerically) — the two mass insertions factorize, "consistent with (not derived from)" the manuscript's stripped m&#8322;&#8315;&#8308; convention (v1:1853).</p>
+
+<p><b>The refutation.</b> The Schur corollary is proved (S-0, CP): the 1820 &#8776; <i>V</i>(&#969;&#8324;) is irreducible, so every so(16)-equivariant endomorphism is scalar; hence if <i>M<sub>e</sub></i> = <i>m</i>&#8320;&#928;<i><sub>0</sub></i> + <i>m</i>&#8322;&#928;<i><sub>2</sub></i> (+ <i>M<sub>rest</sub></i>) with <i>m</i>&#8320; &#8800; <i>m</i>&#8322;, then <i>M<sub>e</sub></i> is <b>not</b> so(16)-equivariant (proved conditional on the ansatz + <i>m</i>&#8320; &#8800; <i>m</i>&#8322;). Checked (tripwire): the archived reference <i>M<sub>e</sub></i> satisfies &#928;<i><sub>0</sub></i><i>M<sub>e</sub></i>&#928;<i><sub>0</sub></i> = 2&#928;<i><sub>0</sub></i> (residual 7.48e-14) and &#928;<i><sub>2</sub></i><i>M<sub>e</sub></i>&#928;<i><sub>2</sub></i> = 5&#928;<i><sub>2</sub></i> (residual 1.60e-13) — i.e. <i>m</i>&#8320; = 2 &#8800; 5 = <i>m</i>&#8322;, realizing the manuscript's two-value propagator.</p>
+
+<p><b>FALSIFIED (clean):</b> the avenue "derive the manuscript's stripped m&#8322;&#8315;&#8308; convention (v1:1853) via the (C4)/Schur route." (C4)'s antecedent ("<i>M<sub>e</sub></i> is SO(16)-equivariant") is false for every manuscript-faithful <i>M<sub>e</sub></i> with <i>m</i>&#8320; &#8800; <i>m</i>&#8322; — which the two-value propagator asserts. W4's item 3 stands only as a conditional on a known-false antecedent (for <i>m</i>&#8320; &#8800; <i>m</i>&#8322;). The m&#8322;&#8315;&#8308; reattachment in <i>n&#770;</i>&#8325;&#8324; = &#8722;(&#8730;10/1536)&#183;<i>S<sub>F</sub></i>&#183;m&#8322;&#8315;&#8308; remains a manuscript <b>convention</b>, not a derived factorization. Scope note: if <i>m</i>&#8320; = <i>m</i>&#8322;, (C4) is not ruled out by Schur — but then the two-value propagator assertion fails, and <i>m</i>&#8320;/<i>m</i>&#8322; remain unselected in any case; (C4) additionally requires <i>M<sub>e</sub></i> = <i>m</i>&#183;<i>I</i> exactly (rest scalar too), which the non-scalar reference <i>M<sub>e</sub></i> does not satisfy.</p>
+
+<p><b>Contrast.</b> The neighboring conditional was discharged, not refuted: W4's (C2) split — (C2a) "P&#8325;&#8324; exists and fixes the (6/5)<i>T&#771;</i> direction" is now established (pinned multiplicity-one (54,1), proved; projection fixes <i>T&#771;</i> to rel residual 1.34e-15; &#8214;(6/5)<i>T&#771;</i>&#8214;&#178; = 18/5 exact, 3.600000000000000) — see <a href="#P-2-w4c2a">P-2</a>. Only (C2b) the <i>F<sub>C8</sub></i> construction remains IN-1. So S&#8334;<i><sup>ord</sup></i> = S&#8334;<i><sup>alg</sup></i>'s conditional narrows to (C1), (C3), (C2b) — while the (C4)&#8594;m&#8322;&#8315;&#8308; derivation is closed outright.</p>
+
+<p class="gap">Gap: still open (unchanged): numerical <i>S<sub>F</sub></i> in all four senses, <i>F<sub>C8</sub></i>, the physical contraction, <i>m</i>&#8320;/<i>m</i>&#8322; selection, N&#8321;&#8328;&#8322;&#8320;.</p>
+
+<p class="prov">2026-09-26/27, io-word sweep cron run 19 (<code>sf_w4_conditionals.py</code>, exit 0, 26/26 checks PASS). Source: <code>~/workspace/goals/r-theory-volume-i-audit/hidden_files/io_word_sweep/SF_W4_CONDITIONALS.md</code> (Part 2 for the (C4)/Schur falsification; Part 3 for the (C2a)/(C2b) split).</p>
+
+<h2 id="P-6">P-6. Standalone theorems</h2>
+<p>Two results whose proofs stand on their own outside the book sequence: Kit's secant–cosecant identity (analytic proof plus numerical corroboration) and the Book 2 L9 nonconstancy firewall (analytic proof).</p>
+
+<h3 id="P-6-secant">Kit's secant–cosecant identity <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a> <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></h3>
+
+<p><b>Theorem.</b> For all real <i>x</i> with sin <i>x</i> ≠ 0 and cos <i>x</i> ≠ 0 (the condition sin 2<i>x</i> ≠ 0 is redundant):</p>
+<pre>
+4/sin(2x) = (tan(x) + |sec(x)| − 1/(cot(x) + |csc(x)|))
+          + (cot(x) + |csc(x)| − 1/(tan(x) + |sec(x)|))
+</pre>
+
+<p><b>Proof.</b> Set <i>A</i> = tan <i>x</i> + |sec <i>x</i>| and <i>B</i> = cot <i>x</i> + |csc <i>x</i>|.</p>
+
+<p>Both are strictly positive on the domain: |sec <i>x</i>| − |tan <i>x</i>| = (1 − |sin <i>x</i>|)/|cos <i>x</i>| &gt; 0 since |sin <i>x</i>| &lt; 1 when cos <i>x</i> ≠ 0, so <i>A</i> ≥ |sec <i>x</i>| − |tan <i>x</i>| &gt; 0; likewise <i>B</i> &gt; 0. Hence 1/<i>A</i> and 1/<i>B</i> are defined.</p>
+
+<p><b>Lemma.</b> <i>A</i> − 1/<i>A</i> = 2·tan <i>x</i>, and <i>B</i> − 1/<i>B</i> = 2·cot <i>x</i>.</p>
+
+<p><i>Proof of lemma.</i> <i>A</i>² = tan² <i>x</i> + 2·tan <i>x</i>·|sec <i>x</i>| + |sec <i>x</i>|². Since |sec <i>x</i>|² = sec² <i>x</i> = 1 + tan² <i>x</i>,</p>
+<pre>
+A² − 1 = 2·tan²(x) + 2·tan(x)·|sec(x)| = 2·tan(x)·A.
+</pre>
+<p>Dividing by <i>A</i> &gt; 0 gives (<i>A</i>² − 1)/<i>A</i> = <i>A</i> − 1/<i>A</i> = 2·tan <i>x</i>. ∎ The <i>B</i> case is identical with cot/csc.</p>
+
+<p>Now regroup the right-hand side (addition commutes):</p>
+<pre>
+(A − 1/B) + (B − 1/A) = (A − 1/A) + (B − 1/B)
+                      = 2·tan(x) + 2·cot(x)          (lemma)
+                      = 2·(sin(x)/cos(x) + cos(x)/sin(x))
+                      = 2/(sin(x)·cos(x))
+                      = 4/sin(2x). ∎
+</pre>
+
+<p>No quadrant case split is needed: the absolute values are absorbed by |sec <i>x</i>|² = sec² <i>x</i>, so Kit's "Flatwave" Q1–Q4 argument is unnecessary for this identity (it may still be of independent interest).</p>
+
+<p>Numerical corroboration: 500,000 random samples with poles excluded agree to worst |LHS − RHS| = 7.8e−07 (float rounding); near-pole residuals are pure floating-point cancellation noise, not mathematical failures.</p>
+
+<p class="prov">Source: <code>~/workspace/kit_theorems/secant-cosecant-identity/PROOF.md</code> (Kit Cosby, 2026-09-21).</p>
+
+<h3 id="P-6-l9">Book 2 L9 nonconstancy (firewall) <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></h3>
+
+<p>See <a href="../book2/">Book 2</a>. Notation: <i>urx</i> = srx − crx, <i>uxp</i> = cxp − sxp (canonical sign lock); Ψ<i>U</i> = <i>urx</i> + <i>i</i>·<i>uxp</i>; the complementary-swap antilinear involution <i>T</i>(<i>z</i>) = <i>i</i>·<i>z̄</i>, <i>T</i>² = id, with exact closure Ψ<i>U</i>(<i>Cx</i>) = <i>T</i>(Ψ<i>U</i>(<i>x</i>)) = <i>uxp</i> + <i>i</i>·<i>urx</i> (L1).</p>
+
+<p><b>Theorem (L9).</b> Symmetry closure is not differential propagation — no real scalar rate <i>f</i>(<i>x</i>) on an open primitive chart satisfies Ψ<i>U</i>′ = <i>f</i>·<i>T</i>(Ψ<i>U</i>).</p>
+
+<p><b>Proof.</b> From Ψ<i>U</i>′ = <i>f</i>·<i>T</i>(Ψ<i>U</i>) the components give <i>urx</i>′ = <i>f</i>·<i>uxp</i>, <i>uxp</i>′ = <i>f</i>·<i>urx</i> (<i>urx</i>, <i>uxp</i> nonvanishing), whence (<i>urx</i>² − <i>uxp</i>²)′ = 0.</p>
+
+<p>But on any open quadrant, with σ₁ = sgn(sin <i>x</i>), σ₂ = sgn(cos <i>x</i>) chart-constant, the definitions give</p>
+<pre>
+srx = (σ₁+cos x)/sin x,   sxp = (σ₁−cos x)/sin x,
+cxp = (σ₂+sin x)/cos x,   crx = (σ₂−sin x)/cos x,
+</pre>
+<p>whence <i>urx</i> − <i>uxp</i> = 2σ₁/sin <i>x</i> − 2σ₂/cos <i>x</i> and, with <i>urx</i> + <i>uxp</i> = 4/sin 2<i>x</i> (L6),</p>
+<pre>
+urx² − uxp² = 4(σ₁cos x − σ₂sin x)/(sin²x cos²x),
+</pre>
+<p>zero on each quadrant's diagonal (π/4, 3π/4, 5π/4, 7π/4, all interior) and nonzero off it (e.g. 32(√3−1)/3 at the adjacent π/6-type points). Hence <i>urx</i>² − <i>uxp</i>² is non-constant on every open primitive chart — contradiction. The <i>T</i>² = 1 involutive exchange and the <i>Z</i>₂′ = 2<i>i</i><i>Z</i>₂ rotation are separate structures. ∎</p>
+
+<p>No λ was used; the closed form was verified at all 8 octant midpoints to ~1e-14. Tripwire for any Saw→transfer argument.</p>
+
+<p class="prov">Source: <code>~/workspace/r-theory-rewrite/book2/index.html</code>, L-series complementary-swap audit, firewall L9 — analytic nonconstancy proof synced 2026-09-27.</p>
+
+<h2 id="P-7">P-7. Audit-claim derivations (Books 2–6)</h2>
+<div class="note"><b>How to read this section.</b> One condensed derivation
+paragraph per audit claim in the <a href="../ledger/">research status
+ledger</a> (86 claims, Books 2–6). The scope pill on each entry matches the
+ledger exactly. Where the ledger's verdict is too thin for a real derivation,
+the entry says so and points at the ledger row and the validation script
+instead of inventing mathematics.</div>
+
+<h3 id="P-7-b2">Book 2 — Canonical R-Operator Calculus</h3>
+<h4 id="P-7-b2-book-2-algebraic-spine-001">Reciprocal identity: srx·sxp = 1</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p>The reciprocal identity srx·sxp = 1 was verified numerically on 1000 random points x ∈ (0.05, π/2−0.05) on 2026-09-19, with max error 1.3e-13. It is therefore CHECKED as a completed numerical check: the identity rests on an independent numerical verification, not only on the manuscript's text.</p>
+<h4 id="P-7-b2-book-2-algebraic-spine-002">Reciprocal identity: cxp·crx = 1</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p>The reciprocal identity cxp·crx = 1 was verified numerically on 1000 random points x ∈ (0.05, π/2−0.05) on 2026-09-19, with max error 1.3e-13. It is therefore CHECKED as a completed numerical check: the identity rests on an independent numerical verification, not only on the manuscript's text.</p>
+<h4 id="P-7-b2-book-2-algebraic-spine-003">UNA sum: urx+uxp = 4/sin(2x)</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p>The UNA sum identity urx+uxp = 4/sin(2x) was verified numerically on 1000 random points x ∈ (0.05, π/2−0.05) on 2026-09-19, with max error 1.1e-14. It is therefore CHECKED as a completed numerical check: the identity rests on an independent numerical verification, not only on the manuscript's text.</p>
+<h4 id="P-7-b2-book-2-algebraic-spine-004">FlatWave identity: FlatWave = 1/urx+1/uxp = sgn(sin 2x)</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p>The FlatWave identity FlatWave = 1/urx+1/uxp = sgn(sin 2x) was verified numerically on 1000 random points x ∈ (0.05, π/2−0.05) on 2026-09-19, with max error 3.3e-15. It is therefore CHECKED as a completed numerical check: the identity rests on an independent numerical verification, not only on the manuscript's text.</p>
+<h4 id="P-7-b2-book-2-algebraic-spine-005">Möbius reduction form of cxp</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p>The Möbius reduction cxp = (z+ε)/(εz−1) with z = srx and ε = sgn(z−1) was verified numerically on 1000 random points x ∈ (0.05, π/2−0.05) on 2026-09-19, with max error 1.1e-13. It is therefore CHECKED as a completed numerical check: the identity rests on an independent numerical verification, not only on the manuscript's text.</p>
+<h4 id="P-7-b2-book-2-algebraic-spine-006">Complex carrier: Z_car = e^{2ix}</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p>The complex carrier identity Z_car = 2V+i·4H = e^{2ix} was verified numerically on 1000 random points x ∈ (0.05, π/2−0.05) on 2026-09-19, with max error 0.0 (exact). It is therefore CHECKED as a completed numerical check: the identity holds exactly on the sample and rests on an independent numerical verification, not only on the manuscript's text.</p>
+<h4 id="P-7-b2-complementary-swap-algebra-001">Complementary-swap identities</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p>The complementary-swap identities srx(π/2−x)=cxp(x) and sxp(π/2−x)=crx(x) (plus two more) were verified numerically on 2026-09-19 over 2000 random points, with max error ≤2.9e-14. They are therefore CHECKED as a completed numerical check.</p>
+<h4 id="P-7-b2-complementary-swap-algebra-002">Difference identities: A = 2cot x, B = 2tan x, AB = 4</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p>The difference identities A = srx−sxp = 2cot x, B = cxp−crx = 2tan x, and the product AB = 4 were verified numerically on 2026-09-19 over 2000 random points, with max error ≤3.6e-15. They are therefore CHECKED as a completed numerical check.</p>
+<h4 id="P-7-b2-complementary-swap-algebra-003">Quadratic invariant: Σ²−Δ² = 16</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p>The quadratic invariant Σ²−Δ² = 16 was verified numerically on 2026-09-19 over 2000 random points, with max error 1.7e-13. It is therefore CHECKED as a completed numerical check.</p>
+<h4 id="P-7-b2-complementary-swap-algebra-004">H and V formulas</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p>The identities H = 1/Σ = sin 2x/4 and V = Δ/(2Σ) = cos 2x/2 were verified numerically on 2026-09-19 over 2000 random points, with max error ≤2.0e-16. They are therefore CHECKED as a completed numerical check.</p>
+<h4 id="P-7-b2-complementary-swap-algebra-005">Σ′ and Δ′ derivative identities</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p>The derivative identities Σ′ = −ΣΔ/2 and Δ′ = −Σ²/2 were verified numerically on 2026-09-19: the Σ′ check gave an exact symbolic residual of 0.0 and the Δ′ check a max error of 1.8e-15. They are therefore CHECKED as a completed numerical check.</p>
+<h4 id="P-7-b2-complementary-swap-algebra-006">Swap closure: Ψ_U(Cx) = uxp+i·urx</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p>The swap-closure identity Ψ_U(Cx) = uxp+i·urx was verified numerically on 2026-09-19 over 2000 random points, with max error 2.8e-14. It is therefore CHECKED as a completed numerical check.</p>
+<h4 id="P-7-b2-complementary-swap-algebra-007">FlatWave deck blindness: FW(θ+2π) = FW(θ)</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p>FlatWave deck blindness, FW(θ+2π) = FW(θ), was verified numerically on 2026-09-19 with max error 0.0 (exact). Together with the other FlatWave transformation laws it is independently established, which grounds the manuscript's Book 3 separation claims that depend on them (e.g. that FlatWave is not the Spin(3) lift character).</p>
+<h4 id="P-7-b2-complementary-swap-algebra-008">FlatWave cophase reversal and half-turn invariance</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p>The FlatWave transformation laws FW(θ+π/2) = −FW(θ) and FW(θ+π) = FW(θ) were verified numerically on 2026-09-19 with max error 0.0 (exact). Cophase reversal, half-turn invariance, and deck blindness are therefore independently established, which grounds the manuscript's Book 3 separation claims that depend on them (e.g. that FlatWave is not the Spin(3) lift character).</p>
+<h4 id="P-7-b2-riccati-differential-integral-asymptotic-001">T1: envelope derivatives</h4>
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a>
+<p>The envelope identities srx′ = −srx|csc x| and sxp′ = +sxp|csc x| are PROVED: SymPy verified them with residual 0 with α²=1, and the manuscript's differentiation steps reproduce exactly. The validation script <code>verify_book2_open.py</code> (exit 0) establishes them using the manuscript's own definitions (srx = |csc x|+cot x, sxp = |csc x|−cot x, etc.).</p>
+<h4 id="P-7-b2-riccati-differential-integral-asymptotic-002">T2/T4: autonomous Riccati pairs</h4>
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a>
+<p>The T2/T4 autonomous Riccati pairs are PROVED by exact algebra from T1 via the identity |csc x| = (srx+sxp)/2. The script also ran a numeric confirmation with max error ~1e-6, the error being finite-difference truncation near the seams. The proof is the exact algebra; the numeric run is corroboration only.</p>
+<h4 id="P-7-b2-riccati-differential-integral-asymptotic-003">C1/C2: maximal-domain monotonicity</h4>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a>
+<p class="gap">Thin verdict: ledger records "PROVED (Riccati RHS sign-definite)" without a derivation; see the <a href="../ledger/#claim-b2-riccati-differential-integral-asymptotic-003">ledger claim row</a> and the validation script listed in <a href="#P-8">P-8</a>.</p>
+<h4 id="P-7-b2-riccati-differential-integral-asymptotic-004">T5: arctan linearization (slopes ∓1/2)</h4>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a>
+<p>T5's arctan linearization with slopes ∓1/2 is PROVED by the chain rule. A numeric confirmation recorded max error 2.8e-8; the proof is the chain-rule argument, with the numeric run as corroboration only.</p>
+<h4 id="P-7-b2-riccati-differential-integral-asymptotic-005">C3: half-angle recovery</h4>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a>
+<p>C3's half-angle recovery is PROVED from the definitions θ_s = 2arctan sxp and θ_c = 2arctan cxp−π/2. A numeric confirmation recorded max error ≤4.4e-15. The proof is the definitional derivation; the numeric run is corroboration only.</p>
+<h4 id="P-7-b2-riccati-differential-integral-asymptotic-006">T6: logarithmic antiderivatives</h4>
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a>
+<p>T6's logarithmic antiderivatives are PROVED by SymPy: substituting the Riccati right-hand side into d/dx[−ln(1+y²)] yields exactly y. The validation script establishes them with the manuscript's own definitions; the SymPy residual is the establishment, not an approximation.</p>
+<h4 id="P-7-b2-riccati-differential-integral-asymptotic-007">C5: half-angle log forms</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p class="gap">Thin verdict: ledger records "CHECKED (2.4e-13)" without a derivation; see the <a href="../ledger/#claim-b2-riccati-differential-integral-asymptotic-007">ledger claim row</a> and the validation script listed in <a href="#P-8">P-8</a>.</p>
+<h4 id="P-7-b2-riccati-differential-integral-asymptotic-008">T7/T8: seam asymptotics (2/h, h/2)</h4>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a>
+<p>T7/T8's seam asymptotics are PROVED: csc h±cot h equal cot(h/2) and tan(h/2) exactly (SymPy residual 0), and the standard limits tan(h/2)/(h/2)→1 and cot(h/2)/(2/h)→1 give the 2/h and h/2 asymptotics. Disclosure: direct floating-point evaluation of csc−cot at h=1e-8 suffers catastrophic cancellation (relative error ~1.0); the identity itself is exact.</p>
+<h4 id="P-7-b2-riccati-differential-integral-asymptotic-009">T9/T10: opposite-seam values (1,1) and derivatives ∓1</h4>
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a>
+<p>T9/T10's opposite-seam values (1,1) and derivatives ∓1 are PROVED by exact evaluation together with Riccati substitution. The validation script establishes them from the manuscript's own definitions; the exact symbolic evaluation is the establishment, not a numeric approximation.</p>
+<h4 id="P-7-b2-riccati-differential-integral-asymptotic-010">T11: logarithmic divergence / C8</h4>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a>
+<p class="gap">Thin verdict: ledger records "PROVED (from T6+T7)" without a derivation; see the <a href="../ledger/#claim-b2-riccati-differential-integral-asymptotic-010">ledger claim row</a> and the validation script listed in <a href="#P-8">P-8</a>.</p>
+<h4 id="P-7-b2-riccati-differential-integral-asymptotic-011">T12: Riccati solution branches</h4>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a>
+<p class="gap">Thin verdict: ledger records "PROVED (SymPy residual 0)" without a derivation; see the <a href="../ledger/#claim-b2-riccati-differential-integral-asymptotic-011">ledger claim row</a> and the validation script listed in <a href="#P-8">P-8</a>.</p>
+<h4 id="P-7-b2-riccati-differential-integral-asymptotic-012">T13: differential closure / C10</h4>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a>
+<p class="gap">Thin verdict: ledger records "PROVED (chains 2.VII.T7 with T2)" without a derivation; see the <a href="../ledger/#claim-b2-riccati-differential-integral-asymptotic-012">ledger claim row</a> and the validation script listed in <a href="#P-8">P-8</a>.</p>
+<h4 id="P-7-b2-mobius-reduction-one-generator-001">L1/C1: denominator nonvanishing</h4>
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a>
+<p>L1/C1's denominator nonvanishing is PROVED by inspection from the ε↔z-range equivalence, with min|z+ε| &gt; 0 on the grid. The validation script establishes it from the manuscript's own definitions; the by-inspection argument is the establishment.</p>
+<h4 id="P-7-b2-mobius-reduction-one-generator-002">T1: Möbius premise z+w = ε(zw−1) and solved form</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p>T1's premise z+w = ε(zw−1) is CHECKED numerically with max error 7.3e-15. The reduction algebra from the premise to the solved form w = (z+ε)/(εz−1) is exact by inspection; the solved form itself is CHECKED numerically with max error 1.6e-13. The exact-by-inspection reduction plus the two numeric checks close the claim.</p>
+<h4 id="P-7-b2-mobius-reduction-one-generator-003">T2: involution M_ε(M_ε(z)) = z</h4>
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a>
+<p>T2's involution M_ε(M_ε(z)) = z is PROVED by exact rational algebra using ε² = 1. The validation script establishes it; the exact rational-algebra computation is the establishment, not a numeric approximation.</p>
+<h4 id="P-7-b2-mobius-reduction-one-generator-004">CL1: projective matrix witness</h4>
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a>
+<p>CL1's projective matrix witness [[1,ε],[ε,−1]]² = 2I is PROVED by exact matrix multiplication. The validation script establishes it; the exact computation is the establishment, not a numeric approximation.</p>
+<h4 id="P-7-b2-mobius-reduction-one-generator-005">T3: branch preservation and derivative sign</h4>
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a>
+<p>T3 is PROVED by the exact quotient rule: dM_ε/dz = −2/(εz−1)² &lt; 0, giving branch preservation. Range preservation on both branches was separately CHECKED numerically. The exact quotient-rule computation establishes the derivative sign; the numeric check covers range preservation.</p>
+<h4 id="P-7-b2-mobius-reduction-one-generator-006">T4: complementary reflection as Möbius map</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p>T4, the complementary reflection expressed as a Möbius map, is CHECKED numerically with max error 5.7e-14. The check chains the 2.III reflection identities already independently CHECKED, so the claim's derivation rests on the verified reflection plus the new numeric check.</p>
+<h4 id="P-7-b2-mobius-reduction-one-generator-007">T5: unique positive fixed point z* = √2+ε</h4>
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a>
+<p>T5's unique positive fixed point z* = √2+ε is PROVED by solving the exact quadratic equation for the fixed point. The validation script establishes it; the exact quadratic solution is the establishment, not a numeric approximation.</p>
+<h4 id="P-7-b2-mobius-reduction-one-generator-008">C5: fixed point = quadrant-midpoint value</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p class="gap">Thin verdict: ledger records "CHECKED (1.8e-15)" without a derivation; see the <a href="../ledger/#claim-b2-mobius-reduction-one-generator-008">ledger claim row</a> and the validation script listed in <a href="#P-8">P-8</a>.</p>
+<h4 id="P-7-b2-mobius-reduction-one-generator-009">T6: ε = sgn(z−1)</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p class="gap">Thin verdict: ledger records "CHECKED (0.0)" without a derivation; see the <a href="../ledger/#claim-b2-mobius-reduction-one-generator-009">ledger claim row</a> and the validation script listed in <a href="#P-8">P-8</a>.</p>
+<h4 id="P-7-b2-mobius-reduction-one-generator-010">T7: full reconstruction formulas</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p>T7's full reconstruction formulas (urx, uxp, saw_r, saw_x) are CHECKED numerically with max error ≤4.5e-12. The underlying algebra is exact by inspection; the numeric check verifies the formulas against the manuscript's own definitions on the validation grid.</p>
+<h4 id="P-7-b2-mobius-reduction-one-generator-011">T8/T9/T10: one-generator necessity and sufficiency</h4>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a>
+<p>T8/T9/T10, the one-generator necessity-and-sufficiency result, is PROVED by logical chaining of the preceding 2.VII results (the premise, involution, branch preservation, reflection, and fixed-point theorems). The proof adds no new numerical content; it is the logical closure of the already-established claims.</p>
+<h4 id="P-7-b2-mobius-reduction-one-generator-012">N1: π-periodicity, no half-turn recovery</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p class="gap">Thin verdict: ledger records "CHECKED (8.1e-13)" without a derivation; see the <a href="../ledger/#claim-b2-mobius-reduction-one-generator-012">ledger claim row</a> and the validation script listed in <a href="#P-8">P-8</a>.</p>
+<h4 id="P-7-b2-harmonic-carrier-extraction-001">T11: carrier-from-z formulas</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p class="gap">Thin verdict: ledger records "CHECKED (≤1.5e-14)" without a derivation; see the <a href="../ledger/#claim-b2-harmonic-carrier-extraction-001">ledger claim row</a> and the validation script listed in <a href="#P-8">P-8</a>.</p>
+<h4 id="P-7-b2-harmonic-carrier-extraction-002">T1–T10, T12–T14, C13/C14: harmonic carrier consequences</h4>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a>
+<p>T1–T10, T12–T14, C13/C14 are PROVED as elementary consequences of H = sin 2x/4 and V = cos 2x/2, given the 2.V identity urx+uxp = 4/sin 2x (CHECKED in §2). The T2/T3 extension uniqueness is standard analysis, with the dense set D dense in ℝ. The proof is definitional deduction from the independently checked carrier and UNA identities.</p>
+<h4 id="P-7-b2-complete-named-boundary-atlas-001">Lemma: FlatWave = saw_r + saw_x</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p class="gap">Thin verdict: ledger records "CHECKED (3.6e-15)" without a derivation; see the <a href="../ledger/#claim-b2-complete-named-boundary-atlas-001">ledger claim row</a> and the validation script listed in <a href="#P-8">P-8</a>.</p>
+<h4 id="P-7-b2-complete-named-boundary-atlas-002">T9: unified seam law</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p class="gap">Thin verdict: ledger records "CHECKED (k=0..3)" without a derivation; see the <a href="../ledger/#claim-b2-complete-named-boundary-atlas-002">ledger claim row</a> and the validation script listed in <a href="#P-8">P-8</a>.</p>
+<h4 id="P-7-b2-complete-named-boundary-atlas-003">T10: split Saw endpoint exchange</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p class="gap">Thin verdict: ledger records "CHECKED (k=0..3, signs match)" without a derivation; see the <a href="../ledger/#claim-b2-complete-named-boundary-atlas-003">ledger claim row</a> and the validation script listed in <a href="#P-8">P-8</a>.</p>
+<h4 id="P-7-b2-complete-named-boundary-atlas-004">T11: H = FlatWave·saw_r·saw_x</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p class="gap">Thin verdict: ledger records "CHECKED (1.7e-16)" for both the premise and the identity, without a derivation; see the <a href="../ledger/#claim-b2-complete-named-boundary-atlas-004">ledger claim row</a> and the validation script listed in <a href="#P-8">P-8</a>.</p>
+<h4 id="P-7-b2-complete-named-boundary-atlas-005">T12: smooth/cusp/jump hierarchy</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p class="gap">Thin verdict: ledger records "CHECKED (|H| one-sided derivatives −1/2/+1/2 at seam)" without a derivation; see the <a href="../ledger/#claim-b2-complete-named-boundary-atlas-005">ledger claim row</a> and the validation script listed in <a href="#P-8">P-8</a>.</p>
+<h4 id="P-7-b2-complete-named-boundary-atlas-006">T13/T14, T15/T16: split-vs-glued and taxonomy</h4>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a>
+<p class="gap">Thin verdict: ledger records "PROVED (chaining, no new content)" without a derivation; see the <a href="../ledger/#claim-b2-complete-named-boundary-atlas-006">ledger claim row</a> and the validation script listed in <a href="#P-8">P-8</a>.</p>
+<h3 id="P-7-b3">Book 3 — Projective Phase, Orientation, and Lift Structure</h3>
+<h4 id="P-7-b3-book-3-mobius-reciprocal-001">Q₊²(t) = −1/t</h4>
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a>
+<p>SymPy (2026-09-19) composed Q₊(t)=(1+t)/(1−t) with itself exactly and obtained Q₊²(t)=−1/t. Exact symbolic verdict. <a href="../ledger/#claim-b3-book-3-mobius-reciprocal-001">ledger row</a></p>
+
+<h4 id="P-7-b3-book-3-mobius-reciprocal-002">Q₊⁴ = id</h4>
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a>
+<p>Iterating the exact composition twice more gives Q₊⁴ = id. Exact ✓. <a href="../ledger/#claim-b3-book-3-mobius-reciprocal-002">ledger row</a></p>
+
+<h4 id="P-7-b3-book-3-mobius-reciprocal-003">Orbit 0→1→∞→−1→0</h4>
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a>
+<p>Exact iteration of Q₊ traces the cycle 0→1→∞→−1→0, closing the 4-orbit. Exact ✓. <a href="../ledger/#claim-b3-book-3-mobius-reciprocal-003">ledger row</a></p>
+
+<h4 id="P-7-b3-book-3-mobius-reciprocal-004">Inverse of f(u)=√(1+u²)−u</h4>
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a>
+<p>Exact symbolic inversion: f(u)=√(1+u²)−u inverts to u=(1−s²)/(2s). Exact ✓. <a href="../ledger/#claim-b3-book-3-mobius-reciprocal-004">ledger row</a></p>
+
+<h4 id="P-7-b3-book-3-mobius-reciprocal-005">f(u)·f(−u) = 1</h4>
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a>
+<p>The exact product identity f(u)·f(−u)=1 holds symbolically, consistent with the involutive structure of f. Exact ✓. <a href="../ledger/#claim-b3-book-3-mobius-reciprocal-005">ledger row</a></p>
+
+<h4 id="P-7-b3-book-3-projective-phase-001">w1(TRPⁿ) and orientability of RPⁿ</h4>
+<a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">standard imported theorem</span></a>
+<p>w1(TRPⁿ)=(n+1)·aₙ with RPⁿ orientable iff n odd is classical differential topology. The manuscript re-derives it via the stable relation TRPⁿ⊕1 ≅ (n+1)γₙ and the Whitney product law; the import is correctly marked Standard. <a href="../ledger/#claim-b3-book-3-projective-phase-001">ledger row</a></p>
+
+<h4 id="P-7-b3-projective-transition-maps-on-001">3.VI.T1 — cyclic product of chart ratios</h4>
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a>
+<p>Script verify_book3_cocycle.py (exit 0; 22 checks: 20 PROVED, 1 STANDARD, 1 MANUSCRIPT, 0 failed; a second independent 47-check pass confirmed all findings): the cyclic product u_XY·u_YZ·u_ZX=1 holds exactly as (Y/X)(Z/Y)(X/Z)=1. <strong>PROVED</strong> (exact). <a href="../ledger/#claim-b3-projective-transition-maps-on-001">ledger row</a></p>
+
+<h4 id="P-7-b3-projective-transition-maps-on-002">3.VI.T2 — two signed ratios complete</h4>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a>
+<p>The two signed ratios are complete because the pair (Y/X,Z/X) is the affine chart itself. <strong>PROVED</strong>. <a href="../ledger/#claim-b3-projective-transition-maps-on-002">ledger row</a></p>
+
+<h4 id="P-7-b3-projective-transition-maps-on-003">3.VI.T5/C3 — four allowed sign triples</h4>
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a>
+<p>Exact enumeration: the constraint that the triple's product be +1 forces 0 or 2 negative signs, yielding exactly the four triples {(+,+,+),(+,−,−),(−,+,−),(−,−,+)}. <strong>PROVED</strong> (exact). <a href="../ledger/#claim-b3-projective-transition-maps-on-003">ledger row</a></p>
+
+<h4 id="P-7-b3-projective-transition-maps-on-004">3.VI.T7 — reciprocal chart bijection</h4>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a>
+<p>The reciprocal chart bijection follows from f:ℝ→(0,∞) being bijective per 3.IV, applied coordinatewise. <strong>PROVED</strong>; the ledger records the associated notation flag as resolved. <a href="../ledger/#claim-b3-projective-transition-maps-on-004">ledger row</a></p>
+
+<h4 id="P-7-b3-projective-transition-maps-on-005">3.VI.T8–T10 — pairwise chart transitions</h4>
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a>
+<p>The pairwise transitions T8–T10 are proved by exact one-line rational algebra on each transition map. <strong>PROVED</strong> (exact). <a href="../ledger/#claim-b3-projective-transition-maps-on-005">ledger row</a></p>
+
+<h4 id="P-7-b3-projective-transition-maps-on-006">3.VI.T11 — triple-overlap consistency</h4>
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a>
+<p>T_ZX∘T_YZ∘T_XY=id: SymPy composes the three transition maps and simplifies the composition exactly to (u,v). <strong>PROVED</strong>. <a href="../ledger/#claim-b3-projective-transition-maps-on-006">ledger row</a></p>
+
+<h4 id="P-7-b3-projective-transition-maps-on-007">3.VI.T12 — reciprocal transition as F-conjugated projective transition</h4>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a>
+<p>The reciprocal transition equals the F-conjugated projective transition, exact by definition of Φ_I=F∘(affine chart). <strong>PROVED</strong>. <a href="../ledger/#claim-b3-projective-transition-maps-on-007">ledger row</a></p>
+
+<h4 id="P-7-b3-projective-transition-maps-on-008">3.VI.T13 — denominator exchange ≠ reciprocal conjugation</h4>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a>
+<p>Denominator exchange differs from reciprocal conjugation; the distinguishing evaluation is f(1)=√2−1≠1. <strong>PROVED</strong>. <a href="../ledger/#claim-b3-projective-transition-maps-on-008">ledger row</a></p>
+
+<h4 id="P-7-b3-projective-transition-maps-on-009">3.VI.T14/C8/T15/C9 — unit-threshold regularity</h4>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a>
+<p>σ_IJ=1⟺u_IJ=0 holds by definition, so the regular hyperplane is regular by inspection. <strong>PROVED</strong>. <a href="../ledger/#claim-b3-projective-transition-maps-on-009">ledger row</a></p>
+
+<h4 id="P-7-b3-tautological-bundle-signs-and-001">3.VII.T1 — frame transition scalars</h4>
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a>
+<p>Frame transition scalars e_Y=(X/Y)e_X: exact. <strong>PROVED</strong>. <a href="../ledger/#claim-b3-tautological-bundle-signs-and-001">ledger row</a></p>
+
+<h4 id="P-7-b3-tautological-bundle-signs-and-002">3.VII.T2 — sign reciprocity</h4>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a>
+<p>Sign reciprocity ζ_JI=ζ_IJ holds because g and 1/g share sign. <strong>PROVED</strong>. <a href="../ledger/#claim-b3-tautological-bundle-signs-and-002">ledger row</a></p>
+
+<h4 id="P-7-b3-tautological-bundle-signs-and-003">3.VII.T3 — Čech sign cocycle</h4>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a>
+<p>The Čech cocycle ζ_ZY·ζ_YX=ζ_ZX — equivalently ζ_XY·ζ_YZ·ζ_ZX=+1 — holds exactly as (Y/Z)(X/Y)=X/Z. <strong>PROVED</strong>. <a href="../ledger/#claim-b3-tautological-bundle-signs-and-003">ledger row</a></p>
+
+<h4 id="P-7-b3-tautological-bundle-signs-and-004">3.VII.C2 — V4 pattern as sign part of the transition system</h4>
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a>
+<p>The C2 V4 sign pattern is exactly the sign part of the transition system. <strong>PROVED</strong> (exact). <a href="../ledger/#claim-b3-tautological-bundle-signs-and-004">ledger row</a></p>
+
+<h4 id="P-7-b3-tautological-bundle-signs-and-005">3.VII.T4 — sign cocycle represents w1(γ)</h4>
+<a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">standard imported theorem</span></a>
+<p>That the sign cocycle represents w1(γ) is explicitly marked Standard Import SI1 in the manuscript — classical line-bundle theory. Verdict <strong>STANDARD</strong>. <a href="../ledger/#claim-b3-tautological-bundle-signs-and-005">ledger row</a></p>
+
+<h4 id="P-7-b3-tautological-bundle-signs-and-006">3.VII.T5 — ρ bijective projective phase representation</h4>
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a>
+<p>ρ is a bijective projective phase representation: exact. <strong>PROVED</strong>. <a href="../ledger/#claim-b3-tautological-bundle-signs-and-006">ledger row</a></p>
+
+<h4 id="P-7-b3-tautological-bundle-signs-and-007">3.VII.T6 — monodromy v(x+2π)=−v(x)</h4>
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a>
+<p>The monodromy v(x+2π)=−v(x) is exact; the nontriviality conclusion is the classical Möbius argument (STANDARD). <strong>PROVED</strong>. <a href="../ledger/#claim-b3-tautological-bundle-signs-and-007">ledger row</a></p>
+
+<h4 id="P-7-b3-tautological-bundle-signs-and-008">3.VII.T7 — pullback sign ρ*ζ_YX=sgn(tan(x/2))</h4>
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a>
+<p>The pullback sign ρ*ζ_YX=sgn(tan(x/2)) follows by exact substitution. <strong>PROVED</strong>. <a href="../ledger/#claim-b3-tautological-bundle-signs-and-008">ledger row</a></p>
+
+<h4 id="P-7-b3-tautological-bundle-signs-and-009">3.VII.T8 — FlatWave vs pullback sign comparison</h4>
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a>
+<p>The comparison FlatWave=sgn[t(1−t²)] vs ρ*ζ_YX=sgn(t) goes through 3.V.T8's exact identity sin 2x=4t(1−t²)/(1+t²)² with positive denominator. <strong>PROVED</strong>. <a href="../ledger/#claim-b3-tautological-bundle-signs-and-009">ledger row</a></p>
+
+<h4 id="P-7-b3-tautological-bundle-signs-and-010">3.VII.C6 — agreement iff |t|&lt;1</h4>
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a>
+<p>The two signs agree exactly when |t|&lt;1: they differ by precisely the factor sgn(1−t²). <strong>PROVED</strong> (exact). <a href="../ledger/#claim-b3-tautological-bundle-signs-and-010">ledger row</a></p>
+
+<h4 id="P-7-b3-tautological-bundle-signs-and-011">3.VII.T10 — monodromy obstruction (−1 vs +1)</h4>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a>
+<p>The tautological lift carries sign −1 by T6, while FlatWave's quadrant values (+1,−1,+1,−1) multiply to +1, so the monodromy obstruction blocks any identification. <strong>PROVED</strong>. <a href="../ledger/#claim-b3-tautological-bundle-signs-and-011">ledger row</a></p>
+
+<h4 id="P-7-b3-tautological-bundle-signs-and-012">3.VII.T9/C7/T11/N1 — FlatWave≠w1(γ) type separation</h4>
+<a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">manuscript assertion</span></a>
+<p>T9/C7/T11/N1 are the manuscript's own non-identification theorems (FlatWave≠w1(γ) type separation), argued in the text with explicit transformation-law comparisons — e.g. FlatWave is 2π-periodic, hence deck-blind — and correctly not presented as standard results. They are not independently machine-checked; verdict <strong>MANUSCRIPT</strong>. <a href="../ledger/#claim-b3-tautological-bundle-signs-and-012">ledger row</a></p>
+<h3 id="P-7-b4">Book 4 — Geometric Rank, Coframes, and Connection</h3>
+<h4 id="P-7-b4-book-4-5-spot-001">G2⁻¹ = (1/r²)[[4/3,−2/3],[−2/3,4/3]]</h4>
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a>
+<p>Exact check that the displayed 2×2 matrix inverts the Book 4 Gram G2: (1/r²)[[4/3,−2/3],[−2/3,4/3]]. Result exact ✓. <a href="../ledger/#claim-b4-book-4-5-spot-001">ledger row</a></p>
+
+<h4 id="P-7-b4-book-4-5-spot-002">G3⁻¹ = (1/r²)[[3/2,−1/2,−1/2],…]</h4>
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a>
+<p>Exact check that the displayed matrix (1/r²)[[3/2,−1/2,−1/2],…] inverts the tetrahedral Gram G3. Result exact ✓. (A separate §5 numeric spot-check confirmed G3's eigenvalues {2,1/2,1/2} and det=r⁶/2.) <a href="../ledger/#claim-b4-book-4-5-spot-002">ledger row</a></p>
+
+<h4 id="P-7-b4-book-4-5-spot-003">Tetrahedral volume = √(det G3) = r³/√2</h4>
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a>
+<p>Exact check: the tetrahedral volume √(det G3) equals r³/√2, consistent with det G3=r⁶/2. Result exact ✓. <a href="../ledger/#claim-b4-book-4-5-spot-003">ledger row</a></p>
+
+<h3 id="P-7-b5">Book 5 — Axiom Zero and the Decadic Carrier</h3>
+<h4 id="P-7-b5-book-5-axiom-zero-001">2n = n(n−1)/2 ⟺ n = 5</h4>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a>
+<p>2n=n(n−1)/2 ⟺ n=5 among positive integers: proved independently by exhaustive check over n=1..49. The quadratic reduces to n(n−5)=0, and the scan confirms no other positive-integer solution. <a href="../ledger/#claim-b5-book-5-axiom-zero-001">ledger row</a></p>
+
+<h4 id="P-7-b5-book-4-5-spot-001">I_ι² = −I₁₀</h4>
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a>
+<p>Direct exact check (2026-09-19) of I_ι(u,v)=(−ι⁻¹v,ιu): squaring the map yields −I₁₀ exactly. Result exact ✓. <a href="../ledger/#claim-b5-book-4-5-spot-001">ledger row</a></p>
+
+<h3 id="P-7-b6">Book 6 — Local Symmetry and Carrier Mathematics</h3>
+<h4 id="P-7-b6-modules-25-numpy-scipy-001">M2 — gamma-matrix dimensions</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p>The independent NumPy/SciPy run (exit 0, ~523 s) reconstructed the Module 2 gamma-matrix set: 16 matrices, each 256×256. The dimensions check out exactly as encoded; verdict <strong>CHECKED</strong> (numeric). <a href="../ledger/#claim-b6-modules-25-numpy-scipy-001">ledger row</a></p>
+
+<h4 id="P-7-b6-modules-25-numpy-scipy-002">M4 — chirality ranks and projector orthonormality</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p>Same run: the two chirality projectors have ranks 128 and 128, splitting the 256-dimensional carrier evenly, and the projector P has orthonormality error 0.0. Verdict <strong>CHECKED</strong> (numeric). <a href="../ledger/#claim-b6-modules-25-numpy-scipy-002">ledger row</a></p>
+
+<h4 id="P-7-b6-modules-25-numpy-scipy-003">M5 — charge conjugation</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p>Same run: the charge-conjugation check returned ChargeConjugationOK=true. Verdict <strong>CHECKED</strong> (numeric). <a href="../ledger/#claim-b6-modules-25-numpy-scipy-003">ledger row</a></p>
+
+<h4 id="P-7-b6-modules-712-casimir-decomposition-001">M7 — symmetric basis size</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p>The Module 7 encoding builds a symmetric basis of 8256 matrices, equal to the expected count 128·129/2 = 8256 for Sym²(128). The count matches exactly; verdict <strong>CHECKED</strong> (numeric). This count does not rescue Modules 8–12, which remain INVALID as encoded. <a href="../ledger/#claim-b6-modules-712-casimir-decomposition-001">ledger row</a></p>
+
+<h4 id="P-7-b6-corrected-casimir-c-m-001">First corrected-Casimir run — invalid spectrum</h4>
+<a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">incorrect result</span></a>
+<p>The first corrected-Casimir run returned the spectrum {0:1, 48:1820, 64:6307, 128:128} — verdict <strong>INVALID</strong>, because the matrix assembly double-counted the diagonal (p=q) symmetric-basis inputs, splitting the 64-eigenspace. The code was patched (p=q handled once), and the patched rerun completed 2026-09-19 with {0:1, 48:1820, 64:6435}. <a href="../ledger/#claim-b6-corrected-casimir-c-m-001">ledger row</a></p>
+
+<h4 id="P-7-b6-corrected-module-6-construction-001">Corrected generators — anti-Hermitian, not real antisymmetric</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p>On the corrected Module 6 construction (120 generators A_ij = Π₊ΓᵢΓⱼ/2 Π₊, i&lt;j, 128×128 on the odd-chirality subspace), verify_independent.py — a fresh implementation from the definitions, exit 0 — found max |A + A†| = 0.0: the generators are anti-Hermitian. They are NOT real antisymmetric: |A + Aᵀ| error 1.0. Both verdicts <strong>CHECKED</strong> (numeric); the anti-Hermitian character is exactly what makes the manuscript's Module 8 Casimir formula inapplicable. <a href="../ledger/#claim-b6-corrected-module-6-construction-001">ledger row</a></p>
+
+<h4 id="P-7-b6-book-6-local-symmetry-001">C(n,4) = n ⟺ n = 5</h4>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a>
+<p>C(n,4)=n has the unique integer solution n=5 for n≥4: proved independently (ledger §7). This combinatorial identity selects the decadic carrier in Book 6. <a href="../ledger/#claim-b6-book-6-local-symmetry-001">ledger row</a></p>
+
+<h4 id="P-7-b6-book-6-local-symmetry-002">Regular-simplex Gram spectrum and determinant</h4>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a>
+<p>For the regular-simplex Gram G_d=(1/2)(I_d+J_d), the spectrum {(d+1)/2, 1/2×(d−1)} and determinant (d+1)/2^d were verified numerically for d=3 and d=10 (ledger §5). Verdict <strong>CHECKED</strong> (numeric). <a href="../ledger/#claim-b6-book-6-local-symmetry-002">ledger row</a></p>
+
+
+<h2 id="P-8">P-8. Reproducibility index</h2>
+<p>Every CHECKED claim in this appendix is an executable claim: the script below is the derivation,
+and the run log (or result artifact) next to it is the record of its last completed run.
+Only scripts actually present on disk are listed. "Log not found" means no adjacent run record was
+found — never that the script passed.</p>
+
+<h3>P-8.1 The Casimir modules (Wolfram port)</h3>
+<table>
+<tr><th>Script</th><th>What it establishes</th><th>Claim coverage</th><th>Last known run result</th></tr>
+<tr><td><code>wolfram/b6_weyl_check.py</code></td>
+<td>Exact rational-arithmetic re-derivation of the D8 Weyl dimensions
+dim V(ω₈)=128, V(ω₄)=1820, V(2ω₈)=6435 and Casimir values 30/48/64
+(grounds PROOFS_Casimir.md K-7/K-9)</td>
+<td>P-1 (Weyl dims, K-7/K-9)</td>
+<td>Log not found. theorem_ledger.md records a completed exit-0 run.</td></tr>
+<tr><td><code>wolfram/verify_independent.py</code></td>
+<td>From-definitions verification of the corrected Casimir pipeline:
+Clifford violation 0.0 on all 120 generators; so(16) relations on all
+7,140 pairs; original Module-6 break (10 diagonal cases, violation exactly
+1.0); corrected C′ entry-by-entry cross-check against the literal operator;
+full 8,256-dim spectrum {0:1, 48:1820, 64:6435} (max dev 3.7e-13)</td>
+<td>P-1 (Casimir spectrum, Module-6 break)</td>
+<td>Log not found. theorem_ledger.md records a completed exit-0 run.</td></tr>
+<tr><td><code>wolfram/diag_casimir.py</code></td>
+<td>Diagnostics for the Casimir anomaly: S₊ invariance under all
+ΓᵢΓⱼ, so(16) commutators on all generator pairs, exhibit of the
+unguarded-diagonal break (violation 1.0 on the 10 diagonal cases)</td>
+<td>P-1 / P-4 (background diagnostics)</td>
+<td>Log not found.</td></tr>
+<tr><td><code>wolfram/b2_projector_check.py</code></td>
+<td>B-2: Lagrange projector identities on the corrected Casimir C′ —
+idempotence, orthogonality, completeness on ≥8 random symmetric matrices
+(accept &lt; 1e-6 relative)</td>
+<td>P-4 (M11′ Lagrange projectors)</td>
+<td>Log exists (<code>b2_projector_check.log</code>): all residuals ≤ 3.6e-16 —
+but the script's own verdict line reads False because it wrongly includes the
+||M|| row in the &lt;1e-6 comparison (verdict-line bug, not a math failure).</td></tr>
+<tr><td><code>wolfram/b5_reality_check.py</code></td>
+<td>B-5: reality of the 128 half-spin — Frobenius–Schur indicator via the
+invariant bilinear form; explicit real orthonormal basis and real
+antisymmetric generators; Module-8 consequence check (manuscript R(M)
+vs corrected C′)</td>
+<td>P-4 (M8′ consequence; reality of the 128)</td>
+<td><code>b5_reality_check.log</code> empty (0 bytes); run-2 log shows a
+superseded dimension-mismatch crash; run-3 log (<code>b5_reality_check_run3.log</code>):
+"REAL (symmetric invariant bilinear form)", indicator +1, "B-5 COMPLETE".</td></tr>
+<tr><td><code>wolfram/b1_module12_image_check.py</code></td>
+<td>B-1: per-form C′(v) = 48v residuals over all 1820 four-forms under the
+corrected Casimir (tests the naive Module-12 image claim)</td>
+<td>P-4 (naive Module-12 image claim)</td>
+<td><code>b1_module12_run.log</code> is a partial, superseded run (checkpoint
+128/1820 forms). Final merged records: <code>b1_module12_result.json</code>
+(max entrywise residual 16.0) and <code>m12a_classify.json</code>
+(896 sym-zero / 140 pure-48 / 784 pure-64 / 0 mixed) — the naive claim REFUTED.</td></tr>
+<tr><td><code>wolfram/b1_spotcheck.py</code></td>
+<td>B-1 spot-check: attributes the worst forms' eigenspace content
+(pure-64 vs mixed); cross-checks the parallel workers' residual numbers
+by independent recomputation</td>
+<td>P-4 (naive Module-12 classification)</td>
+<td>Log not found (the parallel campaign's slice logs sit next to
+<code>b1_cprime_worker.py</code>).</td></tr>
+<tr><td><code>wolfram/test_casimir2.py</code></td>
+<td>Corrected congruence Casimir C′(M) = −Σₐ(Aₐ²M + 2AₐMAₐᵀ + M(Aₐᵀ)²):
+eigenvalue check for {0:1, 48:1820, 64:6435}</td>
+<td>P-1 (corrected Casimir spectrum, numeric)</td>
+<td><code>casimir2b.log</code>: {0.0: 1, 48.0: 1820, 64.0: 6435}
+(eig max 64.00000000000173). Older <code>casimir2.log</code> shows a
+superseded iteration {0:1, 48:1820, 64:6307, 128:128}.</td></tr>
+<tr><td><code>wolfram/run_modules.py</code></td>
+<td>Faithful NumPy port of the manuscript's 12 Wolfram modules (Module 1
+with the s3→I fix); records which as-encoded claims fail</td>
+<td>P-4 (background: why the original encodings failed)</td>
+<td><code>run_fixed.log</code>: "ALL MODULES DONE" — M1 CliffordOK=true;
+M12 ImageInP1820=false, max_sampleVerify=21.0 (original Module 12 not
+established). <code>run.log</code> is a truncated earlier run.</td></tr>
+<tr><td><code>wolfram/b1_cprime_worker.py</code></td>
+<td>B-1 parallel worker: applies corrected C′ to a slice of the 1820
+forms; writes per-form entrywise-max and Frobenius residuals of C′(v)−48v</td>
+<td>P-4 (naive Module-12 residual campaign)</td>
+<td>Campaign slice logs: <code>b1_slice0.log</code> shows a worker completing
+("worker done: max residual = 1.600e+01"); merged results in
+<code>b1_module12_result.json</code> / <code>m12a_classify.json</code>.</td></tr>
+</table>
+
+<h3>P-8.2 Book verification scripts (one numbered check per checkable claim)</h3>
+<table>
+<tr><th>Script</th><th>What it establishes</th><th>Claim coverage</th><th>Last known run result</th></tr>
+<tr><td><code>r-theory-rewrite/validation/book0/verify_book0.py</code></td>
+<td>Every checkable claim on book0/index.html (CP checked-proof, NC
+numerical, ST standard-imported scope tags); exits 0 only if all pass</td>
+<td>P-7 (Book 0 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book1/verify_book1.py</code></td>
+<td>Every checkable claim on book1/index.html; CP/NC/ST tags; exit 0 only
+if all pass</td>
+<td>P-7 (Book 1 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book2/verify_book2.py</code></td>
+<td>Every checkable claim on book2/index.html; CP/NC/ST tags; exit 0 only
+if all pass (page: 116/12/1 + V1–V40)</td>
+<td>P-7 (Book 2 audit-claim checks; L9 nonconstancy in P-6)</td>
+<td>Scanner log (2026-09-21): scope labels in the script match the page's
+116/12/1 + V1–V40 counts. No adjacent .log.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book3/verify_book3.py</code></td>
+<td>Every checkable claim on book3/index.html; CP/NC tags; exit 0 only
+if all pass</td>
+<td>P-7 (Book 3 audit-claim checks)</td>
+<td>Scanner log (2026-09-22): 67 checks pass (22 CP + 45 NC). No adjacent .log.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book4/verify_book4.py</code></td>
+<td>Every checkable claim on book4/index.html; CP/SC/NC/ST tags; exit 0
+only if all pass</td>
+<td>P-7 (Book 4 audit-claim checks)</td>
+<td>Scanner log (2026-09-23): 29/29 pass (18 CP / 6 CS / 5 NC), worst
+measured error 2.84e-14. No adjacent .log.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book5/verify_book5.py</code></td>
+<td>Every checkable claim on book5/index.html; CP/NC/ST tags (Axiom Zero
+stays AX, manuscript assertions are not checked); exit 0 only if all pass</td>
+<td>P-7 (Book 5 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book6/verify_book6.py</code></td>
+<td>Every checkable claim on book6/index.html; CP/NC/ST tags; exit 0 only
+if all pass</td>
+<td>P-7 (Book 6 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book7/verify_book7.py</code></td>
+<td>Every checkable claim on book7/index.html (V1..V88, V4 split:
+89 assertions); CP/SC/NC/ST tags; exit 0 only if all pass; full run ~4 s</td>
+<td>P-7 (Book 7 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book8/verify_book8.py</code></td>
+<td>Every checkable claim on book8/index.html; CP/SC/NC tags; exit 0 only
+if all pass</td>
+<td>P-7 (Book 8 audit-claim checks)</td>
+<td>Fresh exit-0 run verified 2026-09-28: 42 check() executions,
+scope counts CP=45 SC=5 NC=22 (=72), worst NC error 5.315e-08. No adjacent .log.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book9/verify_book9.py</code></td>
+<td>Every checkable claim on book9/index.html; CP/NC/SC/ST tags (the
+§9.6 Poisson-recovery claims stay manuscript assertions); exit 0 only if
+all pass</td>
+<td>P-7 (Book 9 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book10/verify_book10.py</code></td>
+<td>Every checkable claim on book10/index.html; CP/SC/NC/ST/MA tags
+(dependency verdicts rest on the Volume I ledger, citation accuracy
+machine-checked); exit 0 only if all pass</td>
+<td>P-7 (Book 10 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book11/verify_book11.py</code></td>
+<td>Every checkable claim on book11/index.html; CP/SC/NC/ST/MA tags;
+exit 0 only if all pass</td>
+<td>P-7 (Book 11 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book12/verify_book12.py</code></td>
+<td>Every checkable claim on book12/index.html; CP/SC/NC tags (page
+ST/MA/AX/IC/IN verdicts not re-checked); exit 0 only if all pass</td>
+<td>P-7 (Book 12 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book13/verify_book13.py</code></td>
+<td>Every checkable claim on book13/index.html; CP/SC/NC/ST tags; exit 0
+only if all pass</td>
+<td>P-7 (Book 13 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book14/verify_book14.py</code></td>
+<td>Every checkable claim on book14/index.html; CP/NC/ST tags; exit 0 only
+if all pass</td>
+<td>P-7 (Book 14 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book15/verify_book15.py</code></td>
+<td>Every checkable claim on book15/index.html; CP/SC/NC/ST/MA tags; exit
+0 only if all pass</td>
+<td>P-7 (Book 15 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book16/verify_book16.py</code></td>
+<td>Every checkable claim on book16/index.html; CP/SC/NC/ST tags (MA/IC
+items re-verified where a self-contained model exists: V17, V35, V36,
+V40); exit 0 only if all pass</td>
+<td>P-7 (Book 16 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book17/verify_book17.py</code></td>
+<td>Every checkable claim on book17/index.html; CP/SC/NC tags; exit 0 only
+if all pass</td>
+<td>P-7 (Book 17 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book18/verify_book18.py</code></td>
+<td>Every checkable claim on book18/index.html; CP/NC/ST tags (the IC
+exhibits re-verify the key arithmetic behind the chunk-4 findings); exit
+0 only if all pass</td>
+<td>P-7 (Book 18 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/book19/verify_book19.py</code></td>
+<td>Every checkable claim on book19/index.html; CP/SC/NC/ST tags (exact
+text match against the v1 source file for the text exhibits); exit 0 only
+if all pass</td>
+<td>P-7 (Book 19 audit-claim checks)</td><td>Log not found.</td></tr>
+<tr><td><code>r-theory-rewrite/validation/vol4/verify_vol4.py</code></td>
+<td>Structural/data assertions for the Volume IV overview page: referenced
+pages exist, links resolve, chunk totals add to 407, IC-1..IC-18 all
+appear, v1 authority stated, open-issue chain complete</td>
+<td>vol4 overview page (structural; not an appendix P-section)</td>
+<td>Log not found.</td></tr>
+</table>
+
+<h3>P-8.3 The 1820 campaign, dial, and gate scripts</h3>
+<table>
+<tr><th>Script</th><th>What it establishes</th><th>Claim coverage</th><th>Last known run result</th></tr>
+<tr><td><code>goals/r-theory-volume-i-audit/hidden_files/io_word_sweep/bilinear_odd_intersection.py</code></td>
+<td>Constructs the real bilinear-odd space 𝔟 (runs 6/12/15): T-epsodd
+{M_ε,X̃}=0, X̃ᵀ=−X̃; saves <code>bilinear_odd_B_cross.npy</code> (24×368×556)</td>
+<td>P-2 (conditional collapse, 𝔟 construction)</td>
+<td><code>bilinear_odd_intersection_run.log</code>: 19/19 PASS (371 s).</td></tr>
+<tr><td><code>…/io_word_sweep/f02_exact_proof.py</code></td>
+<td>f₀₂ = 47/182 exactly; Gram diag = 188, off-diag = 0; phase selection
+⟨d_pq, o_rs⟩ = 0</td>
+<td>P-2 (f₀₂ exact proof)</td>
+<td><code>f02_exact_proof_run.log</code>: 13/13 PASS (max rel dev 4.54e-16).</td></tr>
+<tr><td><code>…/io_word_sweep/pairing_proof.py</code></td>
+<td>ρ(g) pairing structure T1a–T4 (T1a h=g² block-diag, T3
+ρ(g)²=∓I on Range(Π₀)/Range(Π₂)); dim_R(𝔟) ≤ 12 proved as an upper
+bound — run-12 SVD CHECKED = 12, so the bound is tight</td>
+<td>P-2 (conditional collapse)</td>
+<td><code>pairing_proof_run.log</code>: all PASS, all_pass=True (28.7 s).</td></tr>
+<tr><td><code>…/io_word_sweep/cross_phase_proof.py</code></td>
+<td>Closes the last CHECKED-not-proved gap in the 𝔟 mode structure:
+the uniform +94i cross-phase of the per-plane-pair Q2 blocks
+(Q₂+Q₆ = 188·I₁₂)</td>
+<td>P-2 (cross-phase)</td><td>Log not found.</td></tr>
+<tr><td><code>…/io_word_sweep/q1_752_proof.py</code></td>
+<td>Omnibus Q1: ‖[B,M_ε]‖²_F = 752 = 4·188 on all 12 𝔟 reps; commutator
+Gram 752·I₁₂; spectrum {752×12}</td>
+<td>P-2 (752 identity)</td>
+<td><code>q1_752_run.log</code>: 17/17 PASS, EXIT=0;
+wrote <code>q1_752_results.json</code>.</td></tr>
+<tr><td><code>…/io_word_sweep/q2_commutant_slots.py</code></td>
+<td>Omnibus Q2: M_ε commutant — the (0,2)/(2,0) pure Π₀↔Π₂ flip slot is
+{0}; full commutant M₈₁₆(ℂ)⊕M₁₀₀₄(ℂ); all four real transfer slots {0};
+tripwire ‖[M_e,M_ε]‖_F ≈ 0</td>
+<td>P-2 (M_ε commutant)</td>
+<td><code>q2_run.log</code>: all PASS; wrote
+<code>q2_commutant_results.json</code> (4.4 s).</td></tr>
+<tr><td><code>…/io_word_sweep/q3_census.py</code></td>
+<td>Omnibus Q3: selection census — every established operator tabulated
+against 𝔟; complete negative (none selects a vector or proper subspace
+of the real 12-dim space)</td>
+<td>P-2 (selection census)</td>
+<td>Log not found; <code>q3_census_results.json</code> exists.</td></tr>
+<tr><td><code>…/io_word_sweep/q3_census_followup.py</code></td>
+<td>Resolves the two FAILs from q3_census.py (F1: σ̃=[·,M_ε]/2 not
+preserving 𝔟 — image transverse to 𝔟; F2: Re(C3XC3) not in 𝔟)</td>
+<td>P-2 (selection census, follow-up)</td><td>Log not found.</td></tr>
+<tr><td><code>…/io_word_sweep/q4_m0m2.py</code></td>
+<td>Omnibus Q4: m₀/m₂ decoupling — [M_e,M_ε] = i·[M_rest,K] for ALL real
+m₀,m₂ (masses absent from the commutator), validated by exact-algebra
+proof-mechanism toys</td>
+<td>P-2 (m₀/m₂ decoupling)</td>
+<td><code>q4_m0m2_run.log</code>: 11/11 PASS.</td></tr>
+<tr><td><code>…/io_word_sweep/n1820_cycle_probe.py</code></td>
+<td>Run 25: falsification of manuscript §19.4's N_1820 8-cycle —
+EBEOEBEO = 0 exactly (‖·‖_F = 1.99e-61), 24/24 checks, robust under any
+letter↔projector bijection; full 87,380-word cyclic classification
+(85,866 exactly zero, 32 nonzero classes with only sector-dimension /
+rest-spectrum content)</td>
+<td>P-5 (run-25 refutation)</td>
+<td>Log not found; <code>n1820_cycle_probe_results.json</code> exists
+(+ write-up <code>N1820_CYCLE_PROBE.md</code>).</td></tr>
+<tr><td><code>…/io_word_sweep/epsodd_8cycle_dial.py</code></td>
+<td>Runs 30–31 dial block-algebra CHECKED: T7 eps-odd-E + M_e⁻¹ + flip-O
+8-cycle ≠ 0 (3 draws); T8 W4 skeleton with eps-odd E ≠ 0 (3 draws);
+16/16 tripwires</td>
+<td>P-3 (dial theorems)</td>
+<td><code>epsodd_8cycle_dial_run.log</code>: 16/16 PASS (1351.8 s).</td></tr>
+<tr><td><code>…/io_word_sweep/diag_direct.py</code></td>
+<td>Dict-level diagnostics: commutator vs diagonal M_ε in the u-basis
+(M_ε = diag(σ_wch) exactly — no sparse matrix needed)</td>
+<td>P-2 (run-21 commutant diagnostics)</td><td>Log not found.</td></tr>
+<tr><td><code>…/io_word_sweep/diag_comm2.py</code></td>
+<td>Commutant diagnostics for run 21</td>
+<td>P-2 (run-21 commutant diagnostics)</td>
+<td><code>diag_comm2.log</code> exists but is empty (0 lines).</td></tr>
+<tr><td><code>…/io_word_sweep/diag_comm3.py</code></td>
+<td>Block-structured diagnostic of the run-21 K2 claim on the archived
+real basis: [X̃,M_ε] = −2X̃ EXACTLY for real pure flips — kernel inside
+real 𝔟 is {0}</td>
+<td>P-2 (run-21 kernel withdrawal)</td><td>Log not found.</td></tr>
+<tr><td><code>…/io_word_sweep/diag_reality.py</code></td>
+<td>Reality diagnostics: w₂/w₆ weight structure, σ-pattern checks</td>
+<td>P-2 (reality theorem diagnostics)</td><td>Log not found.</td></tr>
+<tr><td><code>…/io_word_sweep/diag_rerun21.py</code></td>
+<td>Run-21 rerun diagnostics: d/o rep sizes and norm²=752 entries</td>
+<td>P-2 (run-21 diagnostics)</td>
+<td><code>diag_rerun21.log</code>: EXIT=0; d_norm2 all 752.0000.</td></tr>
+<tr><td><code>…/io_word_sweep/diag_sigma.py</code></td>
+<td>Dict-level check: max |σ_ri−σ_ci|·|v| for o01/d01 u-basis reps;
+whether o01's entries sit on σ-constant positions</td>
+<td>P-2 (σ-pattern diagnostics)</td><td>Log not found.</td></tr>
+<tr><td><code>…/io_word_sweep/sf_w4_conditionals.py</code></td>
+<td>W4 (C2a) discharged: deferred skeleton substitution = 0 on
+established witnesses (|Tr| = 4.26e-30); ΠB M_e ΠB = 2ΠB, ΠO M_e ΠO = 5ΠO;
+archived 16×16 P_54 basis fixes T̃ and (6/5)T̃; ‖(6/5)T̃‖² = 18/5</td>
+<td>P-2 (W4 (C2a) discharged)</td>
+<td><code>sf_w4_conditionals_run.log</code>: 26/26 PASS, EXIT=0 (179 s).</td></tr>
+<tr><td><code>…/io_word_sweep/saw_transfer_c1.py</code></td>
+<td>Saw-transfer C1 sanity/attainability checks (background to the
+saw firewall FW-T12)</td>
+<td>P-2 (saw firewall)</td>
+<td><code>saw_transfer_c1_run2.log</code>: T1 120/120 generator
+conjugations match the analytic sign prediction; T2/T3/F1 tripwires all
+~1e-16; DONE in 1269 s.</td></tr>
+<tr><td><code>…/io_word_sweep/q5_c1_gate.py</code></td>
+<td>Q5 gate audit for the W4 condition (C1) "E, M_e, Oprop exist as
+1820×1820 matrices": does NOT execute (C1) — audits whether its required
+inputs exist (PRESENT / ABSENT / PARTIAL per input)</td>
+<td>P-open (S_F gate C1 missing-input inventory)</td>
+<td>Log not found; <code>q5_c1_gate_results.json</code>: E_k ABSENT,
+Oprop 1820×1820 matrix ABSENT (only the 12-dim candidate-space basis),
+M_e reference PARTIAL.</td></tr>
+<tr><td><code>…/io_word_sweep/q6_120_probe.py</code></td>
+<td>Q6: Tier-1 "120" Z₂-sector location probe — which indices/subspace of
+the 1820 constitute the "120" block of M_e</td>
+<td>P-2 (Z₂-sector anatomy)</td><td>Log not found.</td></tr>
+<tr><td><code>…/io_word_sweep/meps_120_channel.py</code></td>
+<td>M_ε 120-channel probes: H-orbit constancy spot checks (rot8/mixed
+channel pairs), annihilation patterns</td>
+<td>P-2 (M_ε channel probes)</td>
+<td><code>meps_120_channel_run.log</code>: DONE, EXIT=0.</td></tr>
+<tr><td><code>…/io_word_sweep/run28_cos_utility_sweep.py</code></td>
+<td>Run 28: cos-utility sweep (sign-content lifts A2e–A2g; operator avenue
+word-matrix rank; angle-2 no-go re-examination)</td>
+<td>P-3 (dial-adjacent sweep)</td>
+<td><code>run28_stdout.log</code>: 11/11 PASS, EXIT:0 (37.3 s);
+"angle-2 no-go stands".</td></tr>
+</table>
+
+<p class="prov">Provenance: scripts enumerated by direct disk listing of
+<code>~/workspace/wolfram/</code>, <code>~/workspace/r-theory-rewrite/validation/</code>,
+and <code>~/workspace/goals/r-theory-volume-i-audit/hidden_files/io_word_sweep/</code>
+(2026-09-28); run results from adjacent <code>.log</code> files and result JSONs
+as cited per row; scanner confirmations from
+<code>~/workspace/r-theory-rewrite/scanner/scan.log</code>; analytic-proof
+references from <code>~/workspace/wolfram/theorem_ledger.md</code> and
+<code>~/workspace/r-theory-rewrite/research/book23_feasibility.md</code> §1, §4(a).
+Per-book figure/HTML check scripts (<code>make_graphs.py</code>,
+<code>test_embeds.py</code>) are out of scope for this table; exploratory
+sweep scripts without direct claim coverage were also omitted.</p>
+
+<h2 id="P-open">What remains open</h2>
+<p><strong>This section is explicitly open. Nothing below is a chapter; no item
+is presented as closed.</strong></p>
+
+<h3>Physical witnesses</h3>
+<p><a class="taglink" href="../ledger/#tag-IN" title="Status key: incomplete or failed computation"><span class="tag IN">incomplete or failed computation</span></a>
+<strong>Physical Oprop / E_k witnesses: OPEN.</strong> Every conditional theorem
+of the 1820 campaign and every calibration prediction (CAL-P1..P5) is conditional
+on physical E_k and Oprop matrices with the established block shapes. They have
+not been identified; the instrument is calibrated, the target is absent.</p>
+
+<h3>The 29 GATEs (GATE-8..GATE-36)</h3>
+<p><a class="taglink" href="../ledger/#tag-IN" title="Status key: incomplete or failed computation"><span class="tag IN">incomplete or failed computation</span></a>
+The full list of 29 open gates, each with a precise crossing criterion, is kept
+at <code>research/index.html</code> §7 ("Open gates — the research to-do
+ledger"). In brief: GATE-8/9 (biquadratic components, urx–uxp rational
+parametrization); GATE-10–16 (ℓs/ℓc faithfulness, phase circle, eighth-turn
+realization, D₄ Lorentz lift, chart-transition group, antipode, seam limits);
+GATE-17–25 (periodic-point census, 2-adic completion, centralizer,
+transfer-chart iteration, spinor lift, seam/doubling/Möbius polar laws,
+S1-polar classification); GATE-26–32 (spinor-polar formulas, seam-polar lift,
+radial-flow time, total-scale dynamics, Riccati–radial equivalence,
+relative-scale sectors, p-branch section); GATE-33 (explicit Dirac-type
+operator — or a no-go theorem, which also crosses); GATE-34 (the missing
+channel-spinor definiens for S = −iγ¹ as a falsifiable conjecture);
+GATE-35/36 (E₈ centralizer, A₇ branching of the 30380). These belong to the
+S1/doubling/polar domain of Books 1–2. The proving-ground gates —
+Λ²(16)↪1820 branching (CP-EBO) and S_F — stay in research/ as open gates too.</p>
+
+<h3>N_1820</h3>
+<p><a class="taglink" href="../ledger/#tag-IN" title="Status key: incomplete or failed computation"><span class="tag IN">incomplete or failed computation</span></a>
+<strong>N_1820: OPEN.</strong> Its 8-cycle is dead (<a href="#P-5-run25">P-5</a>:
+EBEOEBEO = 0 exactly, ‖·‖_F = 1.99e-61, 24/24 checks; full 87,380-word cyclic
+classification: 85,866 exactly zero, 32 nonzero classes with only
+sector-dimension / rest-spectrum content). N_1820 itself is unresolved.</p>
+
+<h3>m₀/m₂ selection</h3>
+<p><a class="taglink" href="../ledger/#tag-IN" title="Status key: incomplete or failed computation"><span class="tag IN">incomplete or failed computation</span></a>
+<strong>OPEN.</strong> The decoupling theorem PROVES [M_e,M_ε] = i·[M_rest,K]
+for ALL real m₀,m₂ — no commutator measurement can ever select them.
+Dial identification (the D₈/D_W/D_B ratios) is the path, and it is
+unidentified.</p>
+
+<h3>S_F gate (C1)</h3>
+<p><a class="taglink" href="../ledger/#tag-IN" title="Status key: incomplete or failed computation"><span class="tag IN">incomplete or failed computation</span></a>
+<strong>INCOMPLETE.</strong> The (C1) condition "E, M_e, Oprop exist as
+1820×1820 matrices" cannot execute: the Q5 audit found E_k ABSENT,
+Oprop 1820×1820 matrix ABSENT (only the 12-dim candidate-space basis
+<code>bilinear_odd_B_cross.npy</code> exists), the M_e reference only PARTIAL;
+the 128-dim gammas and C^t_2222 / F_C8 are absent.</p>
+
+<h3>Axiom One, sector occupancy, m₀=2, m₂=5</h3>
+<p><a class="taglink" href="../ledger/#tag-AX" title="Status key: assumption or axiom"><span class="tag AX">assumption or axiom</span></a>
+ASSERTED or reference, labeled, never chapters. <strong>Axiom One</strong>
+(Kit, 2026-09-28): the rest-energy / minimum-volume reference — mc² as the
+unit of the srx/sxp/cxp/crx system, V_min as the conjugate unit; the numerical
+mc² / V_min are undeclared (system scope is the physicist's call).
+<strong>CHIRAL-ANCHOR-02</strong> sector occupancy (Re·Im &lt; 0 is ours):
+ASSERTED physical content, forbidden to derive by 0.III.T1.
+<strong>m₀=2, m₂=5</strong>: archived reference values, ASSERTED-reference —
+a placeholder, not a physical selection.</p>
+
+<h3>CAL-P1..P5</h3>
+<p><a class="taglink" href="../ledger/#tag-IN" title="Status key: incomplete or failed computation"><span class="tag IN">incomplete or failed computation</span></a>
+<strong>OPEN predictions.</strong> Dial consistency inequality, commutator-norm
+752 selection, mode-block 188 sum, sector-dimension lock 368/556/896, ε-odd
+dial nonvanishing — each an exact consequence of PROVED theorems, conditional
+on physical witnesses. None is confirmed. (CAL-P6 is CONFIRMED by proof —
+exact support algebra — and is listed for the boundary, not as a prediction.)</p>
+
+<h3>Machine-mirror coverage</h3>
+<p><a class="taglink" href="../ledger/#tag-IN" title="Status key: incomplete or failed computation"><span class="tag IN">incomplete or failed computation</span></a>
+The research status registry (<code>status_registry.json</code> / theorem
+ledgers) holds structured verdicts for Books 2–6 only (86 claims).
+<strong>Book-1 and Volume-II claims are not yet in the machine mirror at all.</strong>
+Until the coverage is extended, this appendix stays scoped to Books 2–6 plus
+the new campaign.</p>
+
+<p class="prov">Provenance: this section grounds in
+<code>research/book23_feasibility.md</code> §3 (honest gaps) and §4(c),
+<code>research/calibration.html</code> (anchors, Axiom One, CAL-P1..P6, open
+slots, dimensionless inventory), <code>research/index.html</code> §7 (the 29
+GATEs), and the Q5 gate-audit record
+(<code>q5_c1_gate_results.json</code>). Nothing here is rounded up.</p>
+
+<footer>
+<p>Appendix P — Full Derivations. Part of the R Theory Rewrite Series.
+Status labels follow the <a href="../ledger/#key">research status key</a>.
+The manuscript (Google Doc) stays read-only; nothing here edits it.</p>
+</footer>
+<!-- COMMENTS-START -->
+<style>
+.rth-comments{font-family:Georgia,serif;max-width:860px;margin:2.5em auto 1em;
+ padding:1.2em 1.4em;background:linear-gradient(180deg,#fbfbf9,#f0f0eb);
+ border:1px solid #0f4c5c;border-radius:8px;box-shadow:0 2px 8px rgba(13,59,108,.15);
+ line-height:1.6;color:#1a1a1a}
+.rth-comments h2{margin:0 0 .2em;font-size:1.25em;color:#0d3b6c;
+ border-bottom:2px solid #1b5faa;padding-bottom:.3em}
+.rth-comments-on{font-size:.9em;color:#555;margin:.4em 0 1em}
+.rth-comments-on span{font-weight:bold;color:#1a1a1a}
+.rth-comments-list{margin:0 0 1em}
+.rth-comments-loading,.rth-comments-empty,.rth-comments-note{color:#777;font-style:italic}
+.rth-comment{border-top:1px dotted #ccc;padding:.6em 0}
+.rth-comment-head{font-size:.9em;color:#444}
+.rth-comment-date{color:#888}
+.rth-comment-body{white-space:pre-wrap;margin:.3em 0 .6em;overflow-wrap:break-word}
+.rth-comment-form{display:flex;flex-direction:column;gap:.6em;margin-top:1em}
+.rth-comment-name,.rth-comment-body-input{font-family:Georgia,serif;font-size:1em;
+ padding:.5em .7em;border:1px solid #999;border-radius:4px;background:#fff;
+ color:#1a1a1a;width:100%;box-sizing:border-box}
+.rth-comment-form button{align-self:flex-start;font-family:Georgia,serif;font-size:1em;
+ padding:.5em 1.4em;color:#fff;background:linear-gradient(180deg,#2a7ab8,#0d3b6c);
+ border:1px solid #0d3b6c;border-radius:5px;cursor:pointer}
+.rth-comment-form button:hover{filter:brightness(1.12)}
+.rth-comment-status{min-height:1.2em;font-size:.9em;color:#0d3b6c;margin:0}
+.rth-comment-error{color:#a00}
+.rth-comments-forum{margin:1em 0 0;font-size:.95em}
+.rth-comments-forum a{color:#1b5faa;text-decoration:none}
+.rth-comments-forum a:hover{text-decoration:underline}
+.rth-comments-login{font-size:.95em}
+.rth-comments-login a{color:#1b5faa}
+</style>
+<section class="rth-comments" id="comments" aria-label="Comments">
+<h2>Comments</h2>
+<p class="rth-comments-on">Commenting on: <span id="comment-page-title"></span></p>
+<div class="rth-comments-list" id="comments-list"><p class="rth-comments-loading">Loading&#8230;</p></div>
+<form class="rth-comment-form" id="rth-comment-form">
+<input id="comment-name" class="rth-comment-name" placeholder="Display name (optional)" maxlength="60" autocomplete="nickname">
+<textarea id="comment-body" class="rth-comment-body-input" rows="4" placeholder="Write a comment&#8230;" required maxlength="5000"></textarea>
+<button type="submit">Post comment</button>
+<p class="rth-comment-status" role="status"></p>
+</form>
+<p class="rth-comments-forum" hidden><a id="comments-forum-link" href="#">Continue the discussion in the forum &#8594;</a></p>
+</section>
+<script>
+(function(){
+"use strict";
+var section=document.getElementById("comments");
+if(!section)return;
+/* Page slug, mount-agnostic: last path segment, "index" for site roots. */
+var segs=location.pathname.replace(/\/+$/,"").split("/").filter(function(s){return s.length;});
+var slug=segs.length?segs[segs.length-1]:"index";
+if(slug==="r-theory"||slug==="r-theory-rewrite")slug="index";
+var mode="login",csrfToken="";
+var listEl=document.getElementById("comments-list");
+var formEl=document.getElementById("rth-comment-form");
+var nameEl=document.getElementById("comment-name");
+var bodyEl=document.getElementById("comment-body");
+var statusEl=section.querySelector(".rth-comment-status");
+var forumLink=document.getElementById("comments-forum-link");
+var titleEl=document.getElementById("comment-page-title");
+if(titleEl)titleEl.textContent=document.title;
+function setStatus(msg,isError){
+  if(!statusEl)return;
+  statusEl.textContent=msg||"";
+  statusEl.className="rth-comment-status"+(isError?" rth-comment-error":"");
+}
+function fmtDate(iso){
+  try{return new Date(iso).toLocaleString();}
+  catch(e){return iso||"";}
+}
+function renderPost(p){
+  var wrap=document.createElement("article");
+  wrap.className="rth-comment";
+  var head=document.createElement("div");
+  head.className="rth-comment-head";
+  var who=document.createElement("strong");
+  who.textContent=p.guest_name?(p.guest_name+" (guest)"):(p.author||"Anonymous");
+  head.appendChild(who);
+  var when=document.createElement("span");
+  when.className="rth-comment-date";
+  when.textContent=" — "+fmtDate(p.created_at);
+  head.appendChild(when);
+  var body=document.createElement("div");
+  body.className="rth-comment-body";
+  body.textContent=p.body||"";
+  wrap.appendChild(head);
+  wrap.appendChild(body);
+  return wrap;
+}
+function renderPosts(posts){
+  listEl.textContent="";
+  if(!posts||!posts.length){
+    var none=document.createElement("p");
+    none.className="rth-comments-empty";
+    none.textContent="No comments yet — start the discussion.";
+    listEl.appendChild(none);
+    return;
+  }
+  posts.forEach(function(p){listEl.appendChild(renderPost(p));});
+}
+function setForumLink(thread){
+  if(!forumLink||!thread)return;
+  forumLink.href=thread.url||("/app/thread/"+thread.id);
+  var p=forumLink.parentElement;
+  if(p&&p.hasAttribute("hidden"))p.removeAttribute("hidden");
+}
+function showLoginPrompt(){
+  formEl.style.display="none";
+  if(section.querySelector(".rth-comments-login"))return;
+  var p=document.createElement("p");
+  p.className="rth-comments-login";
+  var a=document.createElement("a");
+  /* Return here after login: the forum honors ?next= for relative paths. */
+  a.href="/app/login?next="+encodeURIComponent(
+    location.pathname+location.search+location.hash);
+  a.textContent="Log in to the forum";
+  p.appendChild(a);
+  p.appendChild(document.createTextNode(" to comment — you will be brought back here."));
+  formEl.parentNode.insertBefore(p,formEl);
+}
+/* Graceful degradation: no /app on this host (e.g. GitHub Pages copy). */
+function degrade(){
+  listEl.textContent="";
+  var note=document.createElement("p");
+  note.className="rth-comments-note";
+  note.textContent="Comments are available on the Lampy-hosted copy of this site.";
+  listEl.appendChild(note);
+  formEl.style.display="none";
+  var fp=forumLink?forumLink.parentElement:null;
+  if(fp)fp.style.display="none";
+}
+fetch("/app/api/comments?page="+encodeURIComponent(slug),{credentials:"same-origin"})
+.then(function(resp){if(!resp.ok)throw new Error("http "+resp.status);return resp.json();})
+.then(function(data){
+  mode=data.mode||"login";
+  csrfToken=data.csrf_token||"";
+  if(mode==="guest"){nameEl.style.display="";}
+  else{nameEl.style.display="none";if(!data.logged_in)showLoginPrompt();}
+  renderPosts(data.posts);
+  if(data.thread)setForumLink(data.thread);
+})
+.catch(function(){degrade();});
+formEl.addEventListener("submit",function(ev){
+  ev.preventDefault();
+  var body=bodyEl.value.trim();
+  if(!body){setStatus("Please write a comment first.",true);return;}
+  var payload={page:slug,page_title:document.title,body:body};
+  if(mode==="guest"){var nm=nameEl.value.trim();if(nm)payload.name=nm;}
+  setStatus("Posting…");
+  fetch("/app/api/comments",{
+    method:"POST",
+    headers:{"Content-Type":"application/json","X-CSRF-Token":csrfToken},
+    body:JSON.stringify(payload),
+    credentials:"same-origin"
+  }).then(function(resp){
+    if(resp.status===401){showLoginPrompt();setStatus("Please log in to comment.",true);return null;}
+    if(resp.status===429){setStatus("Too many comments — please wait a bit and try again.",true);return null;}
+    if(resp.status===400){return resp.json().then(function(d){
+      setStatus((d&&d.error)||"Could not post the comment.",true);return null;},
+      function(){setStatus("Could not post the comment.",true);return null;});}
+    if(!resp.ok){setStatus("Could not post the comment. Please try again.",true);return null;}
+    return resp.json();
+  }).then(function(data){
+    if(!data)return;
+    var empty=listEl.querySelector(".rth-comments-empty");
+    if(empty)empty.remove();
+    var post=data.post||data;
+    listEl.insertBefore(renderPost(post),listEl.firstChild);
+    bodyEl.value="";
+    if(nameEl)nameEl.value="";
+    setStatus("Comment posted.");
+    if(data.thread)setForumLink(data.thread);
+  }).catch(function(){setStatus("Could not post the comment. Please try again.",true);});
+});
+})();
+</script>
+<!-- COMMENTS-END -->
+<!-- FOOTER-START -->
+<footer class="rth-footer" id="rth-footer">
+<style>
+.rth-footer{max-width:860px;margin:2.5em auto 1.5em;padding:1em 1.2em 0;
+ border-top:1px solid #ddd;text-align:center;font-family:Georgia,serif;
+ font-size:.92em;color:#555}
+.rth-footer a{color:#1b5faa;text-decoration:none;margin:0 .8em}
+.rth-footer a:hover{text-decoration:underline}
+.rth-footer .rth-footer-sep{color:#aaa}
+</style>
+<a href="https://www.facebook.com/profile.php?id=61594635330402" target="_blank" rel="noopener">Contact us</a><span class="rth-footer-sep" id="rth-footer-sep">&middot;</span><a href="/app/register" id="rth-forum-signup">Sign up for the forum</a>
+<script>
+(function(){
+  // Hide the forum sign-up link where the forum isn't reachable
+  // (e.g. the GitHub Pages copy); the Contact-us link always stays.
+  var link=document.getElementById('rth-forum-signup');
+  var sep=document.getElementById('rth-footer-sep');
+  if(!link) return;
+  try{
+    var ctl=new AbortController();
+    var t=setTimeout(function(){ctl.abort();},6000);
+    fetch('/app/api/comments?page=index',{signal:ctl.signal}).then(function(r){
+      clearTimeout(t);
+      if(!r.ok) throw 0;
+    }).catch(function(){
+      link.style.display='none';
+      if(sep) sep.style.display='none';
+    });
+  }catch(e){
+    link.style.display='none';
+    if(sep) sep.style.display='none';
+  }
+})();
+</script>
+</footer>
+<!-- FOOTER-END -->
+</body>
+</html>

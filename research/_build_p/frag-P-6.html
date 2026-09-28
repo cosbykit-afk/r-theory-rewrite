@@ -1,0 +1,60 @@
+<h2 id="P-6">P-6. Standalone theorems</h2>
+<p>Two results whose proofs stand on their own outside the book sequence: Kit's secant–cosecant identity (analytic proof plus numerical corroboration) and the Book 2 L9 nonconstancy firewall (analytic proof).</p>
+
+<h3 id="P-6-secant">Kit's secant–cosecant identity <span class="tag CP">checked proof</span> <span class="tag NC">completed numerical check</span></h3>
+
+<p><b>Theorem.</b> For all real <i>x</i> with sin <i>x</i> ≠ 0 and cos <i>x</i> ≠ 0 (the condition sin 2<i>x</i> ≠ 0 is redundant):</p>
+<pre>
+4/sin(2x) = (tan(x) + |sec(x)| − 1/(cot(x) + |csc(x)|))
+          + (cot(x) + |csc(x)| − 1/(tan(x) + |sec(x)|))
+</pre>
+
+<p><b>Proof.</b> Set <i>A</i> = tan <i>x</i> + |sec <i>x</i>| and <i>B</i> = cot <i>x</i> + |csc <i>x</i>|.</p>
+
+<p>Both are strictly positive on the domain: |sec <i>x</i>| − |tan <i>x</i>| = (1 − |sin <i>x</i>|)/|cos <i>x</i>| &gt; 0 since |sin <i>x</i>| &lt; 1 when cos <i>x</i> ≠ 0, so <i>A</i> ≥ |sec <i>x</i>| − |tan <i>x</i>| &gt; 0; likewise <i>B</i> &gt; 0. Hence 1/<i>A</i> and 1/<i>B</i> are defined.</p>
+
+<p><b>Lemma.</b> <i>A</i> − 1/<i>A</i> = 2·tan <i>x</i>, and <i>B</i> − 1/<i>B</i> = 2·cot <i>x</i>.</p>
+
+<p><i>Proof of lemma.</i> <i>A</i>² = tan² <i>x</i> + 2·tan <i>x</i>·|sec <i>x</i>| + |sec <i>x</i>|². Since |sec <i>x</i>|² = sec² <i>x</i> = 1 + tan² <i>x</i>,</p>
+<pre>
+A² − 1 = 2·tan²(x) + 2·tan(x)·|sec(x)| = 2·tan(x)·A.
+</pre>
+<p>Dividing by <i>A</i> &gt; 0 gives (<i>A</i>² − 1)/<i>A</i> = <i>A</i> − 1/<i>A</i> = 2·tan <i>x</i>. ∎ The <i>B</i> case is identical with cot/csc.</p>
+
+<p>Now regroup the right-hand side (addition commutes):</p>
+<pre>
+(A − 1/B) + (B − 1/A) = (A − 1/A) + (B − 1/B)
+                      = 2·tan(x) + 2·cot(x)          (lemma)
+                      = 2·(sin(x)/cos(x) + cos(x)/sin(x))
+                      = 2/(sin(x)·cos(x))
+                      = 4/sin(2x). ∎
+</pre>
+
+<p>No quadrant case split is needed: the absolute values are absorbed by |sec <i>x</i>|² = sec² <i>x</i>, so Kit's "Flatwave" Q1–Q4 argument is unnecessary for this identity (it may still be of independent interest).</p>
+
+<p>Numerical corroboration: 500,000 random samples with poles excluded agree to worst |LHS − RHS| = 7.8e−07 (float rounding); near-pole residuals are pure floating-point cancellation noise, not mathematical failures.</p>
+
+<p class="prov">Source: <code>~/workspace/kit_theorems/secant-cosecant-identity/PROOF.md</code> (Kit Cosby, 2026-09-21).</p>
+
+<h3 id="P-6-l9">Book 2 L9 nonconstancy (firewall) <span class="tag CP">checked proof</span></h3>
+
+<p>See <a href="../book2/">Book 2</a>. Notation: <i>urx</i> = srx − crx, <i>uxp</i> = cxp − sxp (canonical sign lock); Ψ<i>U</i> = <i>urx</i> + <i>i</i>·<i>uxp</i>; the complementary-swap antilinear involution <i>T</i>(<i>z</i>) = <i>i</i>·<i>z̄</i>, <i>T</i>² = id, with exact closure Ψ<i>U</i>(<i>Cx</i>) = <i>T</i>(Ψ<i>U</i>(<i>x</i>)) = <i>uxp</i> + <i>i</i>·<i>urx</i> (L1).</p>
+
+<p><b>Theorem (L9).</b> Symmetry closure is not differential propagation — no real scalar rate <i>f</i>(<i>x</i>) on an open primitive chart satisfies Ψ<i>U</i>′ = <i>f</i>·<i>T</i>(Ψ<i>U</i>).</p>
+
+<p><b>Proof.</b> From Ψ<i>U</i>′ = <i>f</i>·<i>T</i>(Ψ<i>U</i>) the components give <i>urx</i>′ = <i>f</i>·<i>uxp</i>, <i>uxp</i>′ = <i>f</i>·<i>urx</i> (<i>urx</i>, <i>uxp</i> nonvanishing), whence (<i>urx</i>² − <i>uxp</i>²)′ = 0.</p>
+
+<p>But on any open quadrant, with σ₁ = sgn(sin <i>x</i>), σ₂ = sgn(cos <i>x</i>) chart-constant, the definitions give</p>
+<pre>
+srx = (σ₁+cos x)/sin x,   sxp = (σ₁−cos x)/sin x,
+cxp = (σ₂+sin x)/cos x,   crx = (σ₂−sin x)/cos x,
+</pre>
+<p>whence <i>urx</i> − <i>uxp</i> = 2σ₁/sin <i>x</i> − 2σ₂/cos <i>x</i> and, with <i>urx</i> + <i>uxp</i> = 4/sin 2<i>x</i> (L6),</p>
+<pre>
+urx² − uxp² = 4(σ₁cos x − σ₂sin x)/(sin²x cos²x),
+</pre>
+<p>zero on each quadrant's diagonal (π/4, 3π/4, 5π/4, 7π/4, all interior) and nonzero off it (e.g. 32(√3−1)/3 at the adjacent π/6-type points). Hence <i>urx</i>² − <i>uxp</i>² is non-constant on every open primitive chart — contradiction. The <i>T</i>² = 1 involutive exchange and the <i>Z</i>₂′ = 2<i>i</i><i>Z</i>₂ rotation are separate structures. ∎</p>
+
+<p>No λ was used; the closed form was verified at all 8 octant midpoints to ~1e-14. Tripwire for any Saw→transfer argument.</p>
+
+<p class="prov">Source: <code>~/workspace/r-theory-rewrite/book2/index.html</code>, L-series complementary-swap audit, firewall L9 — analytic nonconstancy proof synced 2026-09-27.</p>
