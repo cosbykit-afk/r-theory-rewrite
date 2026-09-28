@@ -1,74 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>R Theory — Title Page</title>
-<style>
-  :root { --ink:#1a1a1a; --muted:#5a5a5a; --accent:#1b5faa; --paper:#fff; --wash:#f6f8fb; --line:#dfe5ec; }
-  body { font-family: -apple-system, "Segoe UI", Georgia, serif; color:var(--ink); background:var(--paper);
-         max-width: 860px; margin:0 auto; padding: 24px 20px 80px; line-height:1.65; }
-  h1 { font-size:2.2em; line-height:1.25; margin-bottom:.2em; }
-  h2 { margin-top:2em; }
-  .kicker { color:var(--muted); font-size:1.05em; margin-bottom:0; letter-spacing:.02em; }
-  .sub { color:var(--muted); font-size:1.05em; margin-top:.4em; }
-  .author { font-size:1.25em; margin-top:2em; }
-  .author a { color:var(--accent); text-decoration:none; }
-  .author a:hover { text-decoration:underline; }
-  .credit { background:var(--wash); border:1px solid var(--line); border-radius:8px; padding:14px 18px; margin:1.5em 0; }
-  .credit p { margin:.6em 0; }
-  footer { margin-top:3em; color:var(--muted); font-size:.88em; border-top:1px solid var(--line); padding-top:1em; }
-  footer a { color:var(--accent); text-decoration:none; }
-</style>
-<!-- SITENAV-START -->
-<style>
-.sitenav{font-family:Georgia,serif;font-size:.88em;background:#f4f4f0;border:1px solid #bbb;
- border-radius:4px;padding:8px 14px;margin:0 0 1.5em;display:flex;flex-wrap:wrap;
- align-items:center;gap:8px 16px;line-height:1.4}
-.sitenav a{color:#0645ad;text-decoration:none;white-space:nowrap}
-.sitenav a:hover{text-decoration:underline}
-.sitenav .sitenav-brand{font-weight:bold;color:#1a1a1a}
-.sitenav .sitenav-links{display:flex;flex-wrap:wrap;gap:8px 14px}
-.sitenav-search{margin-left:auto;display:flex;gap:6px;align-items:center}
-.sitenav-search input{font-family:Georgia,serif;font-size:.95em;padding:4px 8px;
- border:1px solid #999;border-radius:3px;width:170px;background:#fff;color:#1a1a1a}
-.sitenav-search button{font-family:Georgia,serif;font-size:.95em;padding:4px 12px;
- border:1px solid #666;border-radius:3px;background:#eee;cursor:pointer;color:#1a1a1a}
-</style>
-<!-- SITENAV-END -->
-</head>
-<body>
-<!-- SITENAV-NAV-START -->
-<nav class="sitenav" aria-label="Site navigation">
-<a class="sitenav-brand" href="../">R Theory — Rewrite</a>
-<span class="sitenav-links">
-<a href="../contents/">Contents</a><a href="../index/">Index</a><a href="../contents/#vol-0">Vol&nbsp;0</a><a href="../contents/#vol-1">Vol&nbsp;I</a><a href="../contents/#vol-2">Vol&nbsp;II</a><a href="../contents/#vol-3">Vol&nbsp;III</a><a href="../contents/#vol-4">Vol&nbsp;IV</a><a href="../tables/">Tables</a><a href="../research/">Research</a>
-</span>
-<form class="sitenav-search" action="https://www.google.com/search" method="get" target="_blank" role="search"
- onsubmit="if(!this.q.value.trim())return false;this.q.value='site:cosbykit-afk.github.io/r-theory-rewrite '+this.q.value">
-<input type="text" name="q" placeholder="Search this site&#8230;" aria-label="Search this site">
-<button type="submit">Search</button>
-</form>
-</nav>
-<!-- SITENAV-NAV-END -->
+#!/usr/bin/env python3
+"""Inject a forum-backed comment section at the bottom of every page of the
+r-theory-rewrite site.
 
-<p class="kicker">R Theory — A Visual Rewrite</p>
-<h1>R Theory</h1>
-<p class="sub">A public, intuition-first rewrite of the R Theory manuscripts. Every result scope-labeled: proved, checked, or asserted.</p>
+Idempotent: the block is delimited by <!-- COMMENTS-START --> /
+<!-- COMMENTS-END --> and inserted before </body>. Re-running replaces the
+block in place.
 
-<p class="author"><b>Christopher (Kit) Michael Cosby</b><br>
-<a href="https://orcid.org/0009-0003-5392-2359">ORCID 0009-0003-5392-2359</a></p>
+The block is self-contained (scoped CSS + HTML + inline JS, no external
+files). The JS talks to the Lampy forum on the same host:
 
-<h2 id="research-assistance">Research assistance</h2>
-<div class="credit">
-<p>For Volumes 0 through 3, research assistance was provided by ChatGPT.</p>
-<p>All other work on this R Theory project was done by Muse, Meta&rsquo;s AI assistant, working directly with the author: independent verification of the manuscript&rsquo;s mathematical claims, with every result scope-labeled proved, checked, asserted, or incomplete; exact computations, including the full E8 30380 weight table and the so(16) Casimir spectra; and the production of this public rewrite series &mdash; the webpages, tables, and appendices.</p>
-</div>
+    GET  /app/api/comments?page=<slug>   -> {mode, logged_in, username,
+                                             csrf_token, thread, posts}
+    POST /app/api/comments               -> {post, thread}
 
-<footer>
-<p>By <a href="https://orcid.org/0009-0003-5392-2359">Christopher (Kit) Michael Cosby</a> &middot; ORCID <a href="https://orcid.org/0009-0003-5392-2359">0009-0003-5392-2359</a></p>
-</footer>
-<!-- COMMENTS-START -->
+`mode` is "login" or "guest" (an admin toggle on the forum side); the panel
+adapts: guest mode shows a display-name field, login mode requires a forum
+session. One forum thread per page slug is the single source of truth, so
+forum replies mirror onto the site and site comments mirror into the forum.
+
+On hosts without /app (e.g. the GitHub Pages copy) the panel degrades to a
+muted note instead of a broken form.
+"""
+
+import os
+import re
+
+ROOT = os.path.dirname(os.path.abspath(__file__))
+
+COMMENTS_BLOCK = '''<!-- COMMENTS-START -->
 <style>
 .rth-comments{font-family:Georgia,serif;max-width:860px;margin:2.5em auto 1em;
  padding:1.2em 1.4em;background:linear-gradient(180deg,#fbfbf9,#f0f0eb);
@@ -118,7 +77,7 @@
 var section=document.getElementById("comments");
 if(!section)return;
 /* Page slug, mount-agnostic: last path segment, "index" for site roots. */
-var segs=location.pathname.replace(/\/+$/,"").split("/").filter(function(s){return s.length;});
+var segs=location.pathname.replace(/\\/+$/,"").split("/").filter(function(s){return s.length;});
 var slug=segs.length?segs[segs.length-1]:"index";
 if(slug==="r-theory"||slug==="r-theory-rewrite")slug="index";
 var mode="login",csrfToken="";
@@ -149,7 +108,7 @@ function renderPost(p){
   head.appendChild(who);
   var when=document.createElement("span");
   when.className="rth-comment-date";
-  when.textContent=" — "+fmtDate(p.created_at);
+  when.textContent=" \u2014 "+fmtDate(p.created_at);
   head.appendChild(when);
   var body=document.createElement("div");
   body.className="rth-comment-body";
@@ -163,7 +122,7 @@ function renderPosts(posts){
   if(!posts||!posts.length){
     var none=document.createElement("p");
     none.className="rth-comments-empty";
-    none.textContent="No comments yet — start the discussion.";
+    none.textContent="No comments yet \u2014 start the discussion.";
     listEl.appendChild(none);
     return;
   }
@@ -215,7 +174,7 @@ formEl.addEventListener("submit",function(ev){
   if(!body){setStatus("Please write a comment first.",true);return;}
   var payload={page:slug,page_title:document.title,body:body};
   if(mode==="guest"){var nm=nameEl.value.trim();if(nm)payload.name=nm;}
-  setStatus("Posting…");
+  setStatus("Posting\u2026");
   fetch("/app/api/comments",{
     method:"POST",
     headers:{"Content-Type":"application/json","X-CSRF-Token":csrfToken},
@@ -223,7 +182,7 @@ formEl.addEventListener("submit",function(ev){
     credentials:"same-origin"
   }).then(function(resp){
     if(resp.status===401){showLoginPrompt();setStatus("Please log in to comment.",true);return null;}
-    if(resp.status===429){setStatus("Too many comments — please wait a bit and try again.",true);return null;}
+    if(resp.status===429){setStatus("Too many comments \u2014 please wait a bit and try again.",true);return null;}
     if(resp.status===400){return resp.json().then(function(d){
       setStatus((d&&d.error)||"Could not post the comment.",true);return null;},
       function(){setStatus("Could not post the comment.",true);return null;});}
@@ -243,6 +202,40 @@ formEl.addEventListener("submit",function(ev){
 });
 })();
 </script>
-<!-- COMMENTS-END -->
-</body>
-</html>
+<!-- COMMENTS-END -->'''
+
+
+def replace_block(text, start, end, new):
+    if start in text:
+        pat = re.compile(re.escape(start) + r".*?" + re.escape(end), re.DOTALL)
+        return pat.sub(lambda _: new, text, count=1), True
+    return text, False
+
+
+def main():
+    pages = []
+    for dirpath, _, filenames in os.walk(ROOT):
+        if ".git" in dirpath:
+            continue
+        if "index.html" in filenames:
+            pages.append(os.path.join(dirpath, "index.html"))
+    pages.sort()
+    print(f"{len(pages)} pages")
+    for page in pages:
+        rel = os.path.relpath(page, ROOT)
+        with open(page) as fh:
+            text = fh.read()
+
+        text, had = replace_block(text, "<!-- COMMENTS-START -->",
+                                  "<!-- COMMENTS-END -->", COMMENTS_BLOCK)
+        if not had:
+            assert "</body>" in text, page
+            text = text.replace("</body>", COMMENTS_BLOCK + "\n</body>", 1)
+
+        with open(page, "w") as fh:
+            fh.write(text)
+        print("injected", rel)
+
+
+if __name__ == "__main__":
+    main()
