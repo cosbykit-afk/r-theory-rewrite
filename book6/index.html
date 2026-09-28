@@ -853,10 +853,12 @@ function showLoginPrompt(){
   var p=document.createElement("p");
   p.className="rth-comments-login";
   var a=document.createElement("a");
-  a.href="/app/login";
+  /* Return here after login: the forum honors ?next= for relative paths. */
+  a.href="/app/login?next="+encodeURIComponent(
+    location.pathname+location.search+location.hash);
   a.textContent="Log in to the forum";
   p.appendChild(a);
-  p.appendChild(document.createTextNode(" to comment."));
+  p.appendChild(document.createTextNode(" to comment — you will be brought back here."));
   formEl.parentNode.insertBefore(p,formEl);
 }
 /* Graceful degradation: no /app on this host (e.g. GitHub Pages copy). */
