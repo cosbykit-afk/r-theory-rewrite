@@ -103,7 +103,7 @@
 </div>
 
 <h2 id="ledger">Prediction ledger</h2>
-<p>Five entries, all <span class="tag open">OPEN</span>. Each is an exact consequence of a proved theorem, conditional on candidate witness models.</p>
+<p>Five entries, all <span class="tag open">OPEN</span> except CAL-P6 (<span class="tag checked">CONFIRMED</span> by proof). Each is an exact consequence of a proved theorem, conditional on candidate witness models. The witness-candidate slate (E_k / Oprop) is kept at <code>vol4/physics_interface/WITNESS_CANDIDATES.md</code>.</p>
 
 <div class="pred" id="CAL-P1">
 <h3>CAL-P1 — Dial consistency inequality <span class="tag open">OPEN</span></h3>
@@ -197,8 +197,26 @@ The Z-scale cancels in every ratio — m₀ and m₀m₂ calibrate independently
 </dl>
 </div>
 
-<h2 id="inventory">Dimensionless inventory of the model</h2>
-<div class="about">
+<div class="pred" id="CAL-P6">
+<h3>CAL-P6 — Manuscript Oprop-word vanishes on 𝔟 (bare E) <span class="tag checked">CONFIRMED</span></h3>
+<p><em>Added 2026-09-28 — by exact proof.</em></p>
+<dl>
+<dt>Prediction</dt>
+<dd>Under the established witnesses (E = Π_rest) and MA1+MA2 (Oprop ∈ 𝔟, pure 0↔2 flip), the manuscript's word <code>Tr[E M_e E Oprop E M_e E Oprop] = 0</code> identically for every Oprop ∈ 𝔟, for <strong>any</strong> M_e.</dd>
+<dt>Derivation</dt>
+<dd><span class="tag proved">PROVED</span> by exact support algebra: E M_e E = Π_rest M_e Π_rest and Π_rest·Oprop = 0 (block purity by construction, run 12) ⇒ (E M_e E)·Oprop = 0 ⇒ word = 0. No numerics needed.</dd>
+<dt>Constrains</dt>
+<dd>Interpretation of the manuscript's S_F word; couples the Oprop and E_k problems — 𝔟 candidates are visible only through dressed E (consistent with run-27 R1).</dd>
+<dt>Needs</dt>
+<dd>Nothing further — premises established. Standing form: any claimed nonzero evaluation of the manuscript's word on a 𝔟 candidate with bare E refutes the claim's premises.</dd>
+<dt>Falsification</dt>
+<dd>A verified nonzero value with E = Π_rest and Oprop ∈ 𝔟 would refute the support argument (i.e. its premises).</dd>
+<dt>Scope notes</dt>
+<dd>Conditional on established witnesses (<span class="tag checked">CHECKED</span>) and MA1+MA2 (manuscript <span class="tag asserted">ASSERTED</span>); the E = Π_rest/896 normalization only scales the word, still zero.</dd>
+</dl>
+</div>
+
+<h2 id="inventory">Dimensionless inventory of the model</h2><div class="about">
 <p>Exact pure numbers the mathematics produces — no physical identification made here. Each becomes a calibration target or selection test once identifications exist.</p>
 <table>
 <tr><th>#</th><th>Quantity</th><th>Value</th><th>Status</th><th>Calibration role</th></tr>
