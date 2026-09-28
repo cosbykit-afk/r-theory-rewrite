@@ -1,0 +1,92 @@
+<h2 id="P-3">P-3. The dial theorems</h2>
+<p>Five closed-form results from the 2026-09-28 io-word sweep (runs 30–31), each PROVED by exact block algebra and CHECKED numerically against the archived SC matrices. They are conditional on three established premises: (i) the run-4b sector witnesses Π_E (896), Π₀ (368), Π₂ (556) — pairwise orthogonal projectors with Π_E + Π₀ + Π₂ = I; (ii) the run-6 flip theorem — every pure grade-flip X = Π₀AΠ₂ + Π₂BΠ₀ is ε-odd ({M_ε, X} = 0); (iii) the run-12/15 bilinear census — the exact 12-dimensional Oprop candidate space <a href="#P-2-752">𝔟</a> (conditional on MA1+MA2). The letters <i>E_t</i> (dressed E) and <i>O_d</i>/<i>O_f</i> (dressed/flip-only O) are CANDIDATE models — the physical E_k and Oprop matrices are OPEN — so the theorems are requirement/attainability bounds, not manuscript derivations.</p>
+
+<h3 id="P-3-t1">T1 — <i>D₈</i> = ‖<i>Z</i>ᵀ<i>Z</i>‖²<sub>F</sub>, blind to γ <span class="tag CP">checked proof</span></h3>
+
+<p><b>Theorem.</b> Let <i>Z</i> be any real 368×556 matrix, <i>F</i>(<i>Z</i>) = Π₀<i>Z</i>Π₂ + Π₂<i>Z</i>ᵀΠ₀ (pure B↔O flip), and <i>E_t</i> = Π_E + <i>F</i>(<i>Z</i>). With bare B/O witnesses — and equally with the O slot dressed as <i>O_d</i> = Π₂ + <i>F</i>(γ) for any real γ:</p>
+<pre>
+D₈ := Tr(E_t Π₀ E_t Π₂ E_t Π₀ E_t Π₂)
+   = Tr(E_t Π₀ E_t O_d E_t Π₀ E_t O_d) = ‖ZᵀZ‖²_F,
+</pre>
+<p>nonzero iff <i>Z</i> ≠ 0. The flip-O content γ drops out exactly: the dressed-O dial equals the bare-O dial.</p>
+
+<p><b>Proof.</b> Work in the sector-ordered block form (Π₀, Π₂, Π_rest) = (B, O, E):</p>
+<pre>
+E_t = [[0,  Z,  0], [Zᵀ, 0,  0], [0,  0, I_r]]
+Π₀  = diag(I₀, 0, 0),   Π₂ = diag(0, I₂, 0)
+</pre>
+<p>Set <i>A</i> := <i>E_t</i>Π₀<i>E_t</i>. <i>E_t</i>Π₀ keeps the B-column of <i>E_t</i>; multiplying back gives a single block:</p>
+<pre>
+A = [[0, 0,  0], [0, ZᵀZ, 0], [0, 0, 0]]     (pure (2,2) block)
+</pre>
+<p>Bare-O dial: <i>E_t</i>Π₀<i>E_t</i>Π₂<i>E_t</i>Π₀<i>E_t</i>Π₂ = (<i>A</i>Π₂)², and <i>A</i>Π₂ = <i>A</i> (<i>A</i> is already O-sector), so Tr = Tr((<i>Z</i>ᵀ<i>Z</i>)²) = ‖<i>Z</i>ᵀ<i>Z</i>‖²<sub>F</sub>.</p>
+<p>Dressed-O dial: with <i>O_d</i> = [[0, γ, 0], [γᵀ, I₂, 0], [0, 0, 0]], <i>A</i><i>O_d</i> has only the blocks (2,0) = <i>Z</i>ᵀ<i>Z</i>γᵀ and (2,2) = <i>Z</i>ᵀ<i>Z</i>. Then <i>A</i><i>O_d</i><i>A</i> has only (2,2) = (<i>Z</i>ᵀ<i>Z</i>)² (the (2,0)·(0,·) path vanishes since <i>A</i> has no (0,·) blocks), and Tr((<i>A</i><i>O_d</i><i>A</i>)<i>O_d</i>) = Tr((<i>Z</i>ᵀ<i>Z</i>)²·<i>I₂</i>) = ‖<i>Z</i>ᵀ<i>Z</i>‖²<sub>F</sub>. γ has no handle: <i>A</i> collapses to the (2,2) block, which sees only <i>O_d</i>'s (2,2) = <i>I₂</i>. ∎</p>
+<p><i>Z</i>ᵀ<i>Z</i> is PSD, so ‖<i>Z</i>ᵀ<i>Z</i>‖²<sub>F</sub> = 0 ⟺ <i>Z</i>ᵀ<i>Z</i> = 0 ⟺ <i>Z</i> = 0. <i>F</i>(<i>Z</i>) is ε-odd for every real <i>Z</i> by the run-6 theorem (re-tripwired in run 30). Flip-only O, <i>O_f</i> = <i>F</i>(γ), gives exactly 0 (run-31 T2): <i>A</i><i>F</i>(γ) has only the (2,0) block <i>Z</i>ᵀ<i>Z</i>γᵀ, whose square needs (2,0)(0,2) = 0 — the Oprop flip needs the Π₂ diagonal to register in the 8-cycle at all. Removing Π_E from <i>E_t</i> changes nothing (run-30 T6, run-31/33 T4): the dial is a pure transfer-content functional.</p>
+<p class="prov">Runs 30–31, 2026-09-28 — lab notes <code>EPSODD_8CYCLE_DIAL.md</code> (T1 theorem, 16/16 tripwires PASS) and <code>DIAL_OFLIP_VISIBILITY.md</code> (T1 γ-blindness, T2 zero, 31/31 tripwires PASS).</p>
+
+<h3 id="P-3-t3">T3 — <i>D_W</i> = 2<i>m₀m₂</i>·<i>C</i> + <i>m₀</i>²·<i>D₈</i>, sees γ <span class="tag CP">checked proof</span></h3>
+
+<p><b>Theorem.</b> With <i>M_e</i> = diag(<i>m₀I₀</i>, <i>m₂I₂</i>, <i>M_rest</i>) (<i>m₀</i> = 2, <i>m₂</i> = 5 the archived reference values, not physical selections) and <i>O_d</i> as above:</p>
+<pre>
+D_W := Tr(E_t M_e E_t O_d E_t M_e E_t O_d) = 2m₀m₂·C + m₀²·D₈,
+C := Tr(ZZᵀγZᵀZγᵀ) ≥ 0.
+</pre>
+<p>The W4 skeleton word resolves the O-flip content γ in closed form.</p>
+
+<p><b>Proof.</b> <i>B_w</i> := <i>E_tM_eE_t</i>:</p>
+<pre>
+E_t M_e        = [[0, m₂Z, 0], [m₀Zᵀ, 0, 0], [0, 0, M_rest]]
+B_w = (E_t M_e) E_t = diag(m₂ZZᵀ, m₀ZᵀZ, M_rest)
+</pre>
+<p><i>M</i> := <i>B_wO_d</i> has the blocks (0,2) = <i>m₂ZZᵀγ</i> =: <i>U</i>, (2,0) = <i>m₀ZᵀZγᵀ</i> =: <i>V</i>, (2,2) = <i>m₀ZᵀZ</i> =: <i>Wm</i>:</p>
+<pre>
+M²(0,0) = UV       = m₀m₂ · ZZᵀγZᵀZγᵀ
+M²(2,2) = VU + Wm² = m₀m₂ · ZᵀZγᵀZZᵀγ + m₀² · (ZᵀZ)²
+Tr(M²) = m₀m₂[Tr(ZZᵀγZᵀZγᵀ) + Tr(ZᵀZγᵀZZᵀγ)] + m₀²Tr((ZᵀZ)²)
+       = 2m₀m₂·C + m₀²·D₈      (the two cross-traces are cyclically equal)
+</pre>
+<p><i>C</i> = Tr((<i>ZZ</i>ᵀ)(γ<i>Z</i>ᵀ<i>Z</i>γᵀ)): <i>ZZ</i>ᵀ ⪰ 0 and γ<i>Z</i>ᵀ<i>Z</i>γᵀ ⪰ 0 by congruence (<i>Z</i>ᵀ<i>Z</i> ⪰ 0); the trace of a product of two PSD matrices is ≥ 0. ∎</p>
+<p>Remark: the flip-only dials (run 33, manuscript-faithful O with no Π₂ diagonal) resolve two distinct PSD terms, Tr(<i>ZZ</i>ᵀγ<i>Z</i>ᵀ<i>Z</i>γᵀ) and Tr(<i>Z</i>ᵀ<i>Z</i>γᵀ<i>ZZ</i>ᵀγ); run 34 proved these are always equal (transpose + cyclicity), collapsing both dials to a single sign-definite functional — the same <i>C</i> above — further decomposed into C8-mode [0] and [4] channels.</p>
+<p class="prov">Run 31, 2026-09-28 — lab note <code>DIAL_OFLIP_VISIBILITY.md</code> (T3, 31/31 tripwires PASS); U′ = V collapse from run 34, <code>DIAL_MODE_PATTERN.md</code> (27/27 PASS).</p>
+
+<h3 id="P-3-t4">T4 — <i>D_B</i> = 2(<i>m₀m₂</i>)⁻¹·<i>C</i> + <i>m₀</i>⁻²·<i>D₈</i>, sees γ <span class="tag CP">checked proof</span></h3>
+
+<p><b>Theorem.</b> The manuscript-B 8-cycle (manuscript's B is the grade-preserving <i>M_e</i>⁻¹):</p>
+<pre>
+D_B := Tr(E_t M_e⁻¹ E_t O_d E_t M_e⁻¹ E_t O_d) = 2(m₀m₂)⁻¹·C + m₀⁻²·D₈.
+</pre>
+
+<p><b>Proof.</b> <i>A′</i> := <i>E_tM_e</i>⁻¹<i>E_t</i> = diag(<i>m₂</i>⁻¹<i>ZZ</i>ᵀ, <i>m₀</i>⁻¹<i>Z</i>ᵀ<i>Z</i>, <i>M_rest</i>⁻¹) — the same block shape as T3 with <i>m_i</i> → <i>m_i</i>⁻¹; the T3 derivation applies verbatim. ∎</p>
+<p>The B-slot's (0,0) block <i>ZZ</i>ᵀ/<i>m₂</i> is the handle γ needs — consistent with the run-27 Tier M verdict (flip-only O + <i>M_e</i>⁻¹ nonzero), now in closed form.</p>
+<p class="prov">Run 31, 2026-09-28 — lab note <code>DIAL_OFLIP_VISIBILITY.md</code> (T4, tripwires PASS); flip-only manuscript-B dial from run 33, <code>DIAL_FLIPONLY_O.md</code> (T1).</p>
+
+<h3 id="P-3-crossratio">Cross-ratio identity <span class="tag CP">checked proof</span></h3>
+
+<p>From the T3/T4 closed forms, the γ-carrying parts sit in fixed proportion:</p>
+<pre>
+D_W − m₀²D₈  = 2m₀m₂·C
+D_B − m₀⁻²D₈ = 2(m₀m₂)⁻¹·C
+(D_W − m₀²D₈)/(D_B − m₀⁻²D₈) = (m₀m₂)²       (C ≠ 0)
+</pre>
+<p>Bare (<i>R</i> = 0, i.e. γ = 0, no O-flip content): <i>C</i> = 0, so <i>D_W</i> = <i>m₀</i>²<i>D₈</i> and <i>D_B</i> = <i>m₀</i>⁻²<i>D₈</i>, hence</p>
+<pre>
+D_W·D_B = D₈²      exactly.
+</pre>
+<p>Dressed (γ ≠ 0, <i>C</i> ≥ 0):</p>
+<pre>
+D_W·D_B = 4C² + 2(m₂/m₀ + m₀/m₂)·C·D₈ + D₈² ≥ D₈²,
+</pre>
+<p>since <i>m₂</i>/<i>m₀</i> + <i>m₀</i>/<i>m₂</i> ≥ 2 and every term is nonnegative. The inequality <i>D_W</i>·<i>D_B</i> ≥ <i>D₈</i>² is the dial test for O-flip content once the dials are measured: equality on bare witnesses, strictness signals dressed-O content (cf. the calibration's bare-vs-dressed open slot, <a href="../research/calibration.html#open-slots">open slot 3</a>).</p>
+<p class="prov">Elementary algebra on the run-31 T3/T4 closed forms (<code>DIAL_OFLIP_VISIBILITY.md</code>); cross-check derivation from <code>DIAL_FLIPONLY_O.md</code> + <code>DIAL_MODE_PATTERN.md</code> runs 33–34.</p>
+
+<h3 id="P-3-calp6">CAL-P6 — Manuscript Oprop-word vanishes on 𝔟 (bare E), any <i>M_e</i> <span class="tag CP">checked proof</span></h3>
+
+<p><b>Theorem.</b> Under the established witnesses (<i>E</i> = Π_rest) and MA1+MA2 (Oprop ∈ 𝔟, pure 0↔2 flip), the manuscript's word</p>
+<pre>
+Tr[E M_e E Oprop E M_e E Oprop] = 0
+</pre>
+<p>identically, for <b>every</b> Oprop ∈ 𝔟 and for <b>any</b> <i>M_e</i>.</p>
+
+<p><b>Proof.</b> Exact support algebra: <i>E M_e E</i> = Π_rest <i>M_e</i> Π_rest, and Π_rest·Oprop = 0 (block purity by construction, run 12), so (<i>E M_e E</i>)·Oprop = 0 and the word vanishes. No numerics needed. The <i>E</i> = Π_rest/896 normalization only scales the word — still zero. ∎</p>
+<p>Standing form: any claimed nonzero evaluation of the manuscript's word on a 𝔟 candidate with bare E refutes the claim's premises. The 𝔟 candidates are visible only through dressed E (consistent with the run-27 R1 verdict that revival requires transfer content).</p>
+<p class="prov">Added 2026-09-28 by exact proof — entry <a href="../research/calibration.html#CAL-P6">CAL-P6</a> on <a href="../research/calibration.html">../research/calibration.html</a> (status CONFIRMED; conditional on established witnesses and MA1+MA2).</p>

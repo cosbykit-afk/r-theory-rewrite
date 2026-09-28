@@ -1,0 +1,242 @@
+<h2 id="P-4">P-4. The clean-slate modules</h2>
+
+<h3 id="P-4-context">P-4-context. Why these replacements exist</h3>
+<p class="prov">2026-09-25; modules7_12_replacements.md</p>
+<p>The manuscript's Modules 7&ndash;12 as encoded did <i>not</i> establish their claims.
+As recorded in the audit ledger (&sect;1), the original encodings of M8&ndash;M12 are
+invalid and M7 as encoded is merely infrastructure. The modules below (M7&prime;&ndash;M12&prime;)
+are the clean-slate rebuild of 2026-09-24/25: corrected replacements for each module,
+with the diagnosis of what the original encoding got wrong and the status each corrected
+module carries. The build rests on three cited, established results: the corrected
+congruence-action Casimir C&prime; (PROVED, ledger &sect;1 B-4 addendum), the analytic
+spectrum {0:1, 48:1820, 64:6435} (PROVED, B-6, PROOFS_Casimir.md), and the corrected
+Module 6 generators (120 anti-Hermitian 128&times;128 matrices; so(16) relations CHECKED
+on all 7140 pairs with max violation 0.0).</p>
+<p class="gap">Gap: the manuscript's own reasoning for M12 (why it expected naive
+projection+symmetrization to land in the 48-eigenspace) is not recoverable from the
+record &mdash; Wolfram.pdf is not on disk; only the code behavior is documented. The
+replacements below supply a corrected construction, not a recovery of the manuscript's
+reasoning.</p>
+
+<h3 id="P-4-m7">P-4-m7. M7&prime; &mdash; symmetric-square orthonormal basis</h3>
+<p><span class="tag CP">checked proof</span></p>
+<p class="prov">2026-09-25; modules7_12_replacements.md &sect;M7&prime;</p>
+<p><i>Definition.</i> For the standard basis {<i>e</i><sub>a</sub>}<sub>a=1</sub><sup>128</sup>
+of &#x2102;<sup>128</sup>, and 1 &le; <i>a</i> &le; <i>b</i> &le; 128:
+<i>E</i><sub><i>aa</i></sub> = <i>e</i><sub>a</sub><i>e</i><sub>a</sub><sup>T</sup>,
+<i>E</i><sub><i>ab</i></sub> = (<i>e</i><sub>a</sub><i>e</i><sub>b</sub><sup>T</sup> +
+<i>e</i><sub>b</sub><i>e</i><sub>a</sub><sup>T</sup>)/&radic;2 for <i>a</i> &lt; <i>b</i>.</p>
+<p><i>Claim.</i> {<i>E</i><sub><i>ab</i></sub>} is an orthonormal basis of Sym&sup2;(&#x2102;<sup>128</sup>)
+under the Frobenius inner product; dim = 128&middot;129/2 = 8256.
+<b>PROVED</b> (exact combinatorics for the count; Tr(<i>E</i><sub><i>ab</i></sub><i>E</i><sub><i>cd</i></sub>)
+= &delta;<sub>(<i>a</i>,<i>b</i>),(<i>c</i>,<i>d</i>)</sub> by direct computation).</p>
+<p>The original M7 encoding needed no repair: the 1/&radic;2 off-diagonal normalization is the
+standard orthonormal basis under &lang;<i>A</i>,<i>B</i>&rang; = Tr(<i>AB</i>), and all
+downstream failures were in M8's operator, not M7's basis. The code convention (coordinate
+map <i>c</i><sub><i>ab</i></sub> = Tr(<i>ME</i><sub><i>ab</i></sub>), i.e. <i>c</i><sub><i>aa</i></sub> =
+<i>M</i><sub><i>aa</i></sub>, <i>c</i><sub><i>ab</i></sub> = &radic;2&middot;<i>M</i><sub><i>ab</i></sub>
+for <i>a</i> &lt; <i>b</i>) is CHECKED implicitly by the verify_independent.py &sect;5
+cross-check, which exercises every basis vector.</p>
+<p>Status of M7&prime;: <b>PROVED</b> (math) / <b>CHECKED</b> (code convention).</p>
+
+<h3 id="P-4-m8">P-4-m8. M8&prime; &mdash; corrected congruence-action Casimir C&prime;</h3>
+<p><span class="tag CP">checked proof</span></p>
+<p class="prov">2026-09-25; modules7_12_replacements.md &sect;M8&prime;</p>
+<p><i>Primary definition.</i></p>
+<pre>C&prime;(M) = &minus;&Sigma;<sub>a</sub> (A<sub>a</sub>&sup2;M + 2A<sub>a</sub>MA<sub>a</sub><sup>T</sup> + M(A<sub>a</sub><sup>T</sup>)&sup2;)</pre>
+<p><i>Claim 1.</i> C&prime; is the Casimir operator of the congruence action
+<i>g</i>&middot;<i>M</i> = <i>gMg</i><sup>T</sup> on Sym&sup2;(128).
+<b>PROVED (independent)</b>: the infinitesimal action is &rho;(<i>A</i>)<i>M</i> =
+<i>AM</i> + <i>MA</i><sup>T</sup>, and
+&rho;(<i>A</i>)&sup2;<i>M</i> = <i>A</i>(<i>AM</i>+<i>MA</i><sup>T</sup>) +
+(<i>AM</i>+<i>MA</i><sup>T</sup>)<i>A</i><sup>T</sup> = <i>A</i>&sup2;<i>M</i> +
+2<i>AMA</i><sup>T</sup> + <i>M</i>(<i>A</i><sup>T</sup>)&sup2; by exact matrix algebra
+(ledger B-4 addendum).</p>
+<p><i>Claim 2 (B-5 rehabilitation).</i> In the exhibited real basis
+(Frobenius&ndash;Schur +1; real structure <i>J</i> with <i>J</i>&sup2;=+1,
+[<i>J</i>,<i>A</i><sub>a</sub>]=0; 120 generators real antisymmetric to &sim;1e-15),
+the manuscript's encoded formula satisfies <i>R</i><sub>manuscript</sub>(<i>M</i>) =
+&minus;C&prime;(<i>M</i>). <b>CHECKED</b> (numeric): worst relative
+&#x2016;<i>R</i>+C&prime;&#x2016;/&#x2016;C&prime;&#x2016; = 5.4e-16 over 6 trials
+(b5_reality_check.py, CLOSED 2026-09-23). The manuscript's formula is thus rehabilitated
+up to the overall sign, in the real basis; in the manuscript's (complex) basis it remains
+the wrong operator.</p>
+<p><i>Claim 3.</i> C&prime; is central: [C&prime;, &rho;(<i>A</i>)] = 0 for all generators.
+Standard Lie theory (a representation's Casimir commutes with the representation) +
+<b>CHECKED</b> numeric: max |[C&prime;,&rho;]| &asymp; 2.8&ndash;2.9e-14 on random
+symmetric matrices (diag_casimir.py &sect;3).</p>
+<p><i>Diagnosis of the original.</i> The encoded <i>R</i>(<i>M</i>) = &Sigma;<sub>a</sub>[<i>A</i><sub>a</sub>,[<i>A</i><sub>a</sub>,<i>M</i>]]
+is &rho;(<i>A</i>)&sup2; for &rho;(<i>A</i>)<i>M</i> = [<i>A</i>,<i>M</i>] &mdash; the Casimir of the
+<b>conjugation</b> action <i>g</i>&middot;<i>M</i> = <i>gMg</i><sup>&minus;1</sup>. That identification
+is valid only for real antisymmetric generators (<i>A</i><sup>T</sup> = &minus;<i>A</i>), but the
+actual generators are complex anti-Hermitian with |<i>A</i>+<i>A</i><sup>T</sup>| error 1.0
+(CHECKED). The original M8 therefore computed the Casimir of the wrong action and produced the
+garbage spectrum [&minus;128,&minus;120,&minus;96,&minus;64,&minus;60,&minus;56,&minus;48,&minus;28,0] with
+zero multiplicity at 48 and 64 (ledger &sect;1): two independent errors &mdash; wrong
+action/basis and, as B-5 shows, an overall sign.</p>
+<p>Status of M8&prime;: <b>PROVED</b> (Claim 1) / <b>CHECKED</b> (Claims 2, 3).</p>
+
+<h3 id="P-4-m9">P-4-m9. M9&prime; &mdash; Casimir matrix assembly</h3>
+<p><span class="tag NC">completed numerical check</span></p>
+<p class="prov">2026-09-25; modules7_12_replacements.md &sect;M9&prime;</p>
+<p><i>Definition.</i> Matrix elements <i>C</i><sub><i>mn</i></sub> = Tr(<i>E</i><sub><i>m</i></sub>
+&middot; C&prime;(<i>E</i><sub><i>n</i></sub>)) (Frobenius inner product), <i>m</i>,<i>n</i> over
+the 8256 M7&prime; basis elements. Computationally: precompute <i>S</i><sub>2</sub> =
+&Sigma;<sub>a</sub> <i>A</i><sub>a</sub>&sup2; once; the &minus;2&Sigma;<sub>a</sub>
+<i>A</i><sub>a</sub><i>E</i><sub><i>n</i></sub><i>A</i><sub>a</sub><sup>T</sup> cross term via batched
+einsum; diagonal inputs <i>E</i><sub><i>pp</i></sub> applied singly &mdash; <b>PROVED</b> correct
+by the basis definition, since <i>E</i><sub><i>pp</i></sub> occurs once.</p>
+<p><i>Diagnosis of the original.</i> The first corrected M9 run double-counted diagonal
+(<i>p</i>=<i>q</i>) basis inputs, yielding spectrum {0:1, 48:1820, 64:6307, 128:128} &mdash;
+INVALID (ledger &sect;1). Root cause: for <i>p</i>=<i>q</i> the basis matrix is
+<i>E</i><sub><i>pp</i></sub> (single, not doubled), so each of the <i>S</i><sub>2</sub>,
+<i>S</i><sub>2</sub><sup>T</sup>, and cross terms must be applied once. The patched rerun
+gave the correct spectrum.</p>
+<p><i>Claim.</i> The assembled <i>C</i> is real symmetric (symmetry err 0.0, CHECKED),
+max|imag| = 0.0 (CHECKED), and matches the literal operator: max over random symmetric
+<i>M</i> of |<i>C</i>&middot;row(<i>M</i>) &minus; row(C&prime;(<i>M</i>))| = 3.7e-13
+(<b>CHECKED</b>, verify_independent.py &sect;5, fresh implementation + entry-by-entry
+cross-check; exit 0).</p>
+<p>Tripwires for any rerun: symmetry err &lt; 1e-12; max|imag| &lt; 1e-12; literal-operator
+cross-check &lt; 1e-8 on &ge;4 random symmetric matrices.</p>
+<p>Status of M9&prime;: <b>CHECKED</b> (assembly) / <b>PROVED</b> (p=q single-count rule).</p>
+
+<h3 id="P-4-m10">P-4-m10. M10&prime; &mdash; analytic spectrum</h3>
+<p><span class="tag CP">checked proof</span></p>
+<p class="prov">2026-09-25; modules7_12_replacements.md &sect;M10&prime;; PROOFS_Casimir.md
+(~/workspace/icloud_pyto/rebuilt/ copy)</p>
+<p><i>Claim.</i> eigvalsh of the corrected symmetric <i>C</i> gives exactly three distinct
+eigenvalues {0, 48, 64} with multiplicities (1, 1820, 6435).
+<b>PROVED (analytic)</b> &mdash; B-6, CLOSED 2026-09-24 (PROOFS_Casimir.md K-1..K-9):
+Sym&sup2;(128) = &#x2102;<i>s</i> &oplus; <i>F</i> &oplus; <i>V</i>(2&omega;<sub>8</sub>) with
+dims 1+1820+6435 (K-4, K-6, K-7, K-8); <i>C</i> acts as 0/48/64 via Harish&ndash;Chandra
+proportionality with &kappa;=1 pinned on <i>S</i><sub>+</sub> (&minus;&Sigma;<i>M</i><sub><i>AB</i></sub>&sup2; = 30<i>I</i>)
+and <i>D</i><sub>8</sub> arithmetic &omega;<sub>8</sub>&rarr;30, &omega;<sub>4</sub>&rarr;48,
+2&omega;<sub>8</sub>&rarr;64 (K-9); Weyl dimensions independently re-derived in exact
+rational arithmetic (b6_weyl_check.py, exit 0).</p>
+<p>The numeric diagonalization is now <b>corroboration, not establishment</b> (per Kit's
+rule, no sampling after proof). Corroborating runs (casimir2b.log, verify_independent.py
+&sect;6, both CHECKED): exactly 3 distinct rounded eigenvalues; mults (1, 1820, 6435);
+eig min &ge; &minus;1e-9, max &le; 64+1e-9; polynomial identity
+<i>C</i>(<i>C</i>&minus;48<i>I</i>)(<i>C</i>&minus;64<i>I</i>) = 0 on all 8256 basis vectors
+(also verified in the tables <i>C</i>.npz build).</p>
+<p>Status of M10&prime;: <b>PROVED</b> (spectrum) / <b>CHECKED</b> (numeric corroboration).</p>
+
+<h3 id="P-4-m11">P-4-m11. M11&prime; &mdash; Lagrange projectors</h3>
+<p><span class="tag SC">completed symbolic check</span></p>
+<p class="prov">2026-09-25; modules7_12_replacements.md &sect;M11&prime;</p>
+<p>On the corrected C&prime; with spectrum {0, 48, 64}:</p>
+<pre>p<sub>0</sub>(x) = (x&minus;48)(x&minus;64)/3072
+p<sub>48</sub>(x) = x(64&minus;x)/768
+p<sub>64</sub>(x) = x(x&minus;48)/1024</pre>
+<p><i>Claim.</i> <i>P</i><sub><i>i</i></sub> = <i>p</i><sub><i>i</i></sub>(C&prime;) are
+idempotent, pairwise orthogonal, complete (<i>P</i><sub>0</sub>+<i>P</i><sub>48</sub>+
+<i>P</i><sub>64</sub> = <i>I</i>), with ranks (tr <i>P</i><sub><i>i</i></sub>) = (1, 1820, 6435).</p>
+<p><i>Analytic note.</i> Given the B-6 spectrum, idempotence/orthogonality/completeness of
+the Lagrange projectors follow <b>PROVED</b> by polynomial algebra on the spectrum
+(<i>p</i><sub><i>i</i></sub>(&lambda;<sub><i>j</i></sub>) = &delta;<sub><i>ij</i></sub>);
+the numeric check confirms the operator application, not the algebra.</p>
+<p><i>Numeric implementation.</i> <b>CLOSED</b> (B-2, 2026-09-22), <b>CHECKED</b>: matrix-free
+application via the batched-BLAS C&prime; to 10 random symmetric 128&times;128 matrices
+(5 real, 5 complex; b2_projector_check.py) &mdash; worst relative (Frobenius) residuals:
+idempotence 3.6e-16, pairwise orthogonality 3.3e-16, completeness 2.2e-16, all at machine
+precision. Caution recorded in the breakage log: b2_projector_check.py's own aggregate
+"ALL RESIDUALS" verdict printed False because the check accidentally included the
+&#x2016;<i>M</i>&#x2016; scale row (129.0, not a residual) &mdash; the per-test rows are the
+real evidence and all pass; any rerun must exclude non-residual rows from the aggregate.</p>
+<p><i>Diagnosis of the original.</i> The original M11 applied the Lagrange polynomials to the
+wrong spectrum, reporting invalid ranks 36722/&minus;82471/54005 (including a negative rank
+&mdash; impossible for a projector) and failed idempotence (breakage log B-2). The formulas
+were never the problem; the spectrum they were fed was.</p>
+<p>Status of M11&prime;: <b>CHECKED</b> (B-2) / <b>PROVED</b> (polynomial algebra given B-6).</p>
+
+<h3 id="P-4-m12">P-4-m12. M12&prime; &mdash; B-mapped four-form theorem</h3>
+<p><span class="tag CP">checked proof</span></p>
+<p class="prov">2026-09-25; modules7_12_replacements.md &sect;M12&prime;</p>
+<p><i>Definitions.</i> Let <i>B</i><sub>+</sub> be the invariant symmetric bilinear form on
+<i>S</i><sub>+</sub> (exists by B-5, Frobenius&ndash;Schur +1; R3b verifies: <i>B</i><sub>+</sub>
+preserves <i>S</i><sub>+</sub>, <i>B</i><sub>+</sub> symmetric involution, all to fp 0.0).
+For each 4-combination <i>I</i>=(<i>i</i>,<i>j</i>,<i>k</i>,<i>l</i>) let
+<i>G</i><sub><i>I</i></sub> = &Gamma;<sub><i>ijkl</i></sub>|<sub><i>S</i><sub>+</sub></sub> and
+define the B-mapped form &Phi;<sub><i>I</i></sub> = sym(<i>B</i><sub>+</sub><i>G</i><sub><i>I</i></sub>)
+= (<i>B</i><sub>+</sub><i>G</i><sub><i>I</i></sub> + (<i>B</i><sub>+</sub><i>G</i><sub><i>I</i></sub>)<sup>T</sup>)/2,
+expressed in Sym&sup2;(128) orthonormal coords.</p>
+<p><i>Claim (M12&prime;).</i> All 1820 &Phi;<sub><i>I</i></sub> lie in the 48-eigenspace of C&prime;,
+and they span it (rank 1820 = tr <i>P</i><sub>1820</sub>).</p>
+<p><i>Analytic proof</i> (<b>PROVED</b> 2026-09-25; the computation existed as PROOFS_Casimir.md
+K-5/K-6, proved 2026-09-19 and verified line-by-line in the B-6 run; the rebuild reconciled it
+with the skeleton and closed the one gap, the &rho;-twist). K-5(a): (<i>B</i><sub>+</sub><i>G</i><sub><i>I</i></sub>)<sup>T</sup>
+= <i>B</i><sub>+</sub><i>G</i><sub><i>I</i></sub> exactly, so sym is a no-op (explaining the measured
+0.0); K-5(b): <i>B</i><sub>+</sub><i>G</i><sub><i>I</i></sub> &ne; 0; K-5(c):
+[<i>M</i><sub><i>AB</i></sub>, &gamma;<sub><i>I</i></sub>] &isin; span{&gamma;<sub><i>J</i></sub><sup>(4)</sup>}
+with the 2-fold terms cancelling &mdash; the infinitesimal Clifford equivariance; K-5(d):
+<i>F</i> := span{<i>B</i><sub>+</sub><i>G</i><sub><i>I</i></sub>} is a nonzero &rho;-submodule of
+Sym&sup2;(<i>S</i><sub>+</sub>). K-6: &Phi;: &Lambda;<sup>4</sup>(16) &rarr; <i>F</i>,
+<i>e</i><sub><i>I</i></sub> &#x21a6; <i>B</i><sub>+</sub><i>G</i><sub><i>I</i></sub>, is (&rho;&circ;&phi;)-equivariant
+for the automorphism &phi; = Ad<sub><i>D</i></sub>, <i>D</i> = diag(&sigma;) &isin; SO(16) (K-3);
+&Phi; &ne; 0 and &Lambda;<sup>4</sup>(16) &cong; <i>V</i>(&omega;<sub>4</sub>) irreducible give
+ker &Phi; = 0 by Schur, dim <i>F</i> = 1820, (<i>F</i>, &rho;&circ;&phi;) &cong;
+<i>V</i>(&omega;<sub>4</sub>).</p>
+<p><i>Twist lemma</i> (this run, PROVED): {&phi;(<i>M</i><sub><i>AB</i></sub>)} is orthonormal for the
+trace form (Ad preserves trace; K-9 normalization tr = &minus;32&delta;), so the Casimir element
+&Sigma;&phi;(<i>M</i><sub><i>AB</i></sub>)&sup2; = &Sigma;<i>M</i><sub><i>AB</i></sub>&sup2; by
+basis-independence; hence &minus;&Sigma;(&rho;&circ;&phi;)(<i>M</i><sub><i>AB</i></sub>)&sup2; = C&prime;
+as operators, and C&prime;|<sub><i>F</i></sub> = 48&middot;<i>I</i><sub><i>F</i></sub> (K-9 eigenvalue
+on <i>V</i>(&omega;<sub>4</sub>)). See the <a href="#P-1-twist">P-1 twist lemma</a>. Thus
+<i>F</i> &sube; 48-eigenspace of C&prime;, and dim <i>F</i> = 1820 = tr <i>P</i><sub>1820</sub>
+forces <i>F</i> = the 48-eigenspace exactly. Every &Phi;<sub><i>I</i></sub> =
+sym(<i>B</i><sub>+</sub><i>G</i><sub><i>I</i></sub>) = <i>B</i><sub>+</sub><i>G</i><sub><i>I</i></sub>
+lies in <i>F</i>; the 1820 B-mapped four-forms lie in and span the 48-eigenspace. Scope: CP
+with the same ST components as B-6.</p>
+<p><i>Numeric corroboration</i> (<b>CHECKED</b>, two independent runs in agreement).
+R3b_fourform_membership.py (2026-09-19, EXIT:0, 384.8s): 0 vanishing forms; worst
+&#x2016;<i>Cv</i>&minus;48<i>v</i>&#x2016;/&#x2016;<i>v</i>&#x2016; = 6.3e-15; worst
+&#x2016;<i>P</i><sub>1820</sub><i>v</i>&minus;<i>v</i>&#x2016;/&#x2016;<i>v</i>&#x2016; = 0.0
+(at %.3e print precision); rank 1820. Decisive structural contrast with the naive map:
+max<sub><i>I</i></sub> |<i>B</i><sub>+</sub><i>G</i><sub><i>I</i></sub> &minus;
+(<i>B</i><sub>+</sub><i>G</i><sub><i>I</i></sub>)<sup>T</sup>| = 0.0 &mdash; the B-mapped forms
+are EXACTLY symmetric (now PROVED by K-5(a)), zero symmetrization loss (vs tripwire 2.0 for
+the naive map). Re-verified independently in this rebuild (M12b, /tmp/m12_bmapped_verify.py,
+exit 0, 129.5s), loading fourform_Bmapped.npy + C.npz + P1820.npz fresh from
+~/workspace/tables/: vanishing forms 0/1820; worst &#x2016;<i>Cv</i>&minus;48<i>v</i>&#x2016;/&#x2016;<i>v</i>&#x2016;
+= 0.0 (below print precision); worst &#x2016;<i>P</i><sub>1820</sub><i>v</i>&minus;<i>v</i>&#x2016;/&#x2016;<i>v</i>&#x2016;
+= 0.0; rank 1820 == tr <i>P</i><sub>1820</sub> = 1820.0; C Hermitian err 0.0.
+The R3b claim is confirmed by an independent reload-and-recompute.</p>
+
+<h3 id="P-4-naive12">P-4-naive12. REFUTED &mdash; the naive Module-12 image claim</h3>
+<p><span class="tag IC">incorrect result</span></p>
+<p class="prov">2026-09-25; modules7_12_replacements.md &sect;M12&prime;(b), M12a; m12a_classify.json</p>
+<p>The manuscript's claim &mdash; that the naive projected+symmetrized 4-forms
+<i>P</i>&Gamma;<sub><i>ijkl</i></sub><i>P</i><sup>&dagger;</sup> (symmetrized as
+(<i>M</i>+<i>M</i><sup>T</sup>)/2) land in and span the 1820-dimensional 48-eigenspace &mdash;
+is <b>FALSE</b> on the corrected operator (B-1, CLOSED 2026-09-22). The original M12
+encoding tested membership in the 48-eigenspace of the WRONG Casimir (ImageInP1820=false,
+max_sampleVerify=21.0); on the CORRECTED operator the claim itself fails.</p>
+<p><i>The trichotomy (CHECKED).</i> Over the 1820 naive projected+symmetrized forms, with
+residuals exactly 0 vs exactly 16&radic;128 &asymp; 181.019 (top-5 worst spot-checked:
+C&prime;<i>v</i> = 64<i>v</i> to machine precision, b1_spotcheck.py):</p>
+<pre>pure-48 :  140   (nonzero forms in the 48-eigenspace)
+sym-zero:  896   (collapse to zero under symmetrization)
+pure-64 :  784   (lie ENTIRELY in the 64-eigenspace)
+mixed   :    0   (no form straddles eigenspaces)</pre>
+<p>Per-quad classification (M12a, 2026-09-24, exit 0; m12a_classify.json): class counts
+pure-64: 784, sym-zero: 896, pure-48: 140 &mdash; exact ledger match. Slot-type &times; class
+(slot-type = tensor-slot occupancy of the quad): (1,1,1,1), <i>n</i>=1120: pure-48: 140,
+sym-zero: 560, pure-64: 420; (2,1,1), <i>n</i>=672: sym-zero: 336, pure-64: 336;
+(2,2), <i>n</i>=28: pure-64: 28.</p>
+<p><i>Mechanism of the 896 "collapses".</i> <b>None</b> are projection-zero
+(<i>pr</i> itself never vanishes; proj-zero count = 0). All 896 are <b>exactly
+antisymmetric</b>: &#x2016;sym(<i>pr</i>)&#x2016;/&#x2016;<i>pr</i>&#x2016; = 0.0 and
+&#x2016;asym(<i>pr</i>)&#x2016;/&#x2016;<i>pr</i>&#x2016; = 1.0 for every one of them. The
+manuscript's transpose-symmetrization step annihilates them algebraically: the naive
+symmetrization (<i>M</i>+<i>M</i><sup>T</sup>)/2 is not so(16)-equivariant &mdash; transpose does
+not commute with the complex representation (B-1 tripwire max|<i>pr</i>&minus;<i>pr</i><sup>T</sup>|
+= 2.0 over the projected forms) &mdash; so the projected forms need not, and do not, respect
+the Casimir decomposition.</p>
+<p>The nonzero naive forms span only 924 dims. The 140 pure-48 naive forms are precisely
+2 per four-distinct-slot set, with uniform index parity (all-odd `0000` or all-even `1111`
+choice words); the 784 pure-64 are 6 per such set, 2 per (2,1,1) set, all of (2,2). The full
+1820-form classification is an exact, slot-set-independent function of (slot-type, parity word)
+&mdash; no mixed forms, no exceptions.</p>
+<p>Status: the naive Module-12 image claim is <b>REFUTED</b> (CHECKED trichotomy); replaced by
+the B-mapped construction of P-4-m12.</p>

@@ -44,6 +44,7 @@ for _name, _books, _dest in VOLUMES:
 
 LABELS = {
     "appendix": "Appendix",
+    "appendix-proofs": "Appendix P — Full Derivations",
     "contents": "Contents",
     "guide": "Guide",
     "index": "Index",

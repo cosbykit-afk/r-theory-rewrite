@@ -1,0 +1,162 @@
+<!-- P-7b: Books 3–6 audit appendix — condensed proof paragraphs. -->
+<!-- 40 claims; pills follow site_code mapping exactly. No MathJax; Unicode math only. -->
+
+<h4 id="P-7-b6-modules-25-numpy-scipy-001">M2 — gamma-matrix dimensions</h4>
+<span class="tag NC">completed numerical check</span>
+<p>The independent NumPy/SciPy run (exit 0, ~523 s) reconstructed the Module 2 gamma-matrix set: 16 matrices, each 256×256. The dimensions check out exactly as encoded; verdict <strong>CHECKED</strong> (numeric). <a href="../ledger/#claim-b6-modules-25-numpy-scipy-001">ledger row</a></p>
+
+<h4 id="P-7-b6-modules-25-numpy-scipy-002">M4 — chirality ranks and projector orthonormality</h4>
+<span class="tag NC">completed numerical check</span>
+<p>Same run: the two chirality projectors have ranks 128 and 128, splitting the 256-dimensional carrier evenly, and the projector P has orthonormality error 0.0. Verdict <strong>CHECKED</strong> (numeric). <a href="../ledger/#claim-b6-modules-25-numpy-scipy-002">ledger row</a></p>
+
+<h4 id="P-7-b6-modules-25-numpy-scipy-003">M5 — charge conjugation</h4>
+<span class="tag NC">completed numerical check</span>
+<p>Same run: the charge-conjugation check returned ChargeConjugationOK=true. Verdict <strong>CHECKED</strong> (numeric). <a href="../ledger/#claim-b6-modules-25-numpy-scipy-003">ledger row</a></p>
+
+<h4 id="P-7-b6-modules-712-casimir-decomposition-001">M7 — symmetric basis size</h4>
+<span class="tag NC">completed numerical check</span>
+<p>The Module 7 encoding builds a symmetric basis of 8256 matrices, equal to the expected count 128·129/2 = 8256 for Sym²(128). The count matches exactly; verdict <strong>CHECKED</strong> (numeric). This count does not rescue Modules 8–12, which remain INVALID as encoded. <a href="../ledger/#claim-b6-modules-712-casimir-decomposition-001">ledger row</a></p>
+
+<h4 id="P-7-b6-corrected-casimir-c-m-001">First corrected-Casimir run — invalid spectrum</h4>
+<span class="tag IC">incorrect result</span>
+<p>The first corrected-Casimir run returned the spectrum {0:1, 48:1820, 64:6307, 128:128} — verdict <strong>INVALID</strong>, because the matrix assembly double-counted the diagonal (p=q) symmetric-basis inputs, splitting the 64-eigenspace. The code was patched (p=q handled once), and the patched rerun completed 2026-09-19 with {0:1, 48:1820, 64:6435}. <a href="../ledger/#claim-b6-corrected-casimir-c-m-001">ledger row</a></p>
+
+<h4 id="P-7-b6-corrected-module-6-construction-001">Corrected generators — anti-Hermitian, not real antisymmetric</h4>
+<span class="tag NC">completed numerical check</span>
+<p>On the corrected Module 6 construction (120 generators A_ij = Π₊ΓᵢΓⱼ/2 Π₊, i&lt;j, 128×128 on the odd-chirality subspace), verify_independent.py — a fresh implementation from the definitions, exit 0 — found max |A + A†| = 0.0: the generators are anti-Hermitian. They are NOT real antisymmetric: |A + Aᵀ| error 1.0. Both verdicts <strong>CHECKED</strong> (numeric); the anti-Hermitian character is exactly what makes the manuscript's Module 8 Casimir formula inapplicable. <a href="../ledger/#claim-b6-corrected-module-6-construction-001">ledger row</a></p>
+
+<h4 id="P-7-b3-book-3-mobius-reciprocal-001">Q₊²(t) = −1/t</h4>
+<span class="tag SC">completed symbolic check</span>
+<p>SymPy (2026-09-19) composed Q₊(t)=(1+t)/(1−t) with itself exactly and obtained Q₊²(t)=−1/t. Exact symbolic verdict. <a href="../ledger/#claim-b3-book-3-mobius-reciprocal-001">ledger row</a></p>
+
+<h4 id="P-7-b3-book-3-mobius-reciprocal-002">Q₊⁴ = id</h4>
+<span class="tag SC">completed symbolic check</span>
+<p>Iterating the exact composition twice more gives Q₊⁴ = id. Exact ✓. <a href="../ledger/#claim-b3-book-3-mobius-reciprocal-002">ledger row</a></p>
+
+<h4 id="P-7-b3-book-3-mobius-reciprocal-003">Orbit 0→1→∞→−1→0</h4>
+<span class="tag SC">completed symbolic check</span>
+<p>Exact iteration of Q₊ traces the cycle 0→1→∞→−1→0, closing the 4-orbit. Exact ✓. <a href="../ledger/#claim-b3-book-3-mobius-reciprocal-003">ledger row</a></p>
+
+<h4 id="P-7-b3-book-3-mobius-reciprocal-004">Inverse of f(u)=√(1+u²)−u</h4>
+<span class="tag SC">completed symbolic check</span>
+<p>Exact symbolic inversion: f(u)=√(1+u²)−u inverts to u=(1−s²)/(2s). Exact ✓. <a href="../ledger/#claim-b3-book-3-mobius-reciprocal-004">ledger row</a></p>
+
+<h4 id="P-7-b3-book-3-mobius-reciprocal-005">f(u)·f(−u) = 1</h4>
+<span class="tag SC">completed symbolic check</span>
+<p>The exact product identity f(u)·f(−u)=1 holds symbolically, consistent with the involutive structure of f. Exact ✓. <a href="../ledger/#claim-b3-book-3-mobius-reciprocal-005">ledger row</a></p>
+
+<h4 id="P-7-b3-book-3-projective-phase-001">w1(TRPⁿ) and orientability of RPⁿ</h4>
+<span class="tag ST">standard imported theorem</span>
+<p>w1(TRPⁿ)=(n+1)·aₙ with RPⁿ orientable iff n odd is classical differential topology. The manuscript re-derives it via the stable relation TRPⁿ⊕1 ≅ (n+1)γₙ and the Whitney product law; the import is correctly marked Standard. <a href="../ledger/#claim-b3-book-3-projective-phase-001">ledger row</a></p>
+
+<h4 id="P-7-b5-book-5-axiom-zero-001">2n = n(n−1)/2 ⟺ n = 5</h4>
+<span class="tag CP">checked proof</span>
+<p>2n=n(n−1)/2 ⟺ n=5 among positive integers: proved independently by exhaustive check over n=1..49. The quadratic reduces to n(n−5)=0, and the scan confirms no other positive-integer solution. <a href="../ledger/#claim-b5-book-5-axiom-zero-001">ledger row</a></p>
+
+<h4 id="P-7-b5-book-4-5-spot-001">I_ι² = −I₁₀</h4>
+<span class="tag SC">completed symbolic check</span>
+<p>Direct exact check (2026-09-19) of I_ι(u,v)=(−ι⁻¹v,ιu): squaring the map yields −I₁₀ exactly. Result exact ✓. <a href="../ledger/#claim-b5-book-4-5-spot-001">ledger row</a></p>
+
+<h4 id="P-7-b4-book-4-5-spot-001">G2⁻¹ = (1/r²)[[4/3,−2/3],[−2/3,4/3]]</h4>
+<span class="tag SC">completed symbolic check</span>
+<p>Exact check that the displayed 2×2 matrix inverts the Book 4 Gram G2: (1/r²)[[4/3,−2/3],[−2/3,4/3]]. Result exact ✓. <a href="../ledger/#claim-b4-book-4-5-spot-001">ledger row</a></p>
+
+<h4 id="P-7-b4-book-4-5-spot-002">G3⁻¹ = (1/r²)[[3/2,−1/2,−1/2],…]</h4>
+<span class="tag SC">completed symbolic check</span>
+<p>Exact check that the displayed matrix (1/r²)[[3/2,−1/2,−1/2],…] inverts the tetrahedral Gram G3. Result exact ✓. (A separate §5 numeric spot-check confirmed G3's eigenvalues {2,1/2,1/2} and det=r⁶/2.) <a href="../ledger/#claim-b4-book-4-5-spot-002">ledger row</a></p>
+
+<h4 id="P-7-b4-book-4-5-spot-003">Tetrahedral volume = √(det G3) = r³/√2</h4>
+<span class="tag SC">completed symbolic check</span>
+<p>Exact check: the tetrahedral volume √(det G3) equals r³/√2, consistent with det G3=r⁶/2. Result exact ✓. <a href="../ledger/#claim-b4-book-4-5-spot-003">ledger row</a></p>
+
+<h4 id="P-7-b6-book-6-local-symmetry-001">C(n,4) = n ⟺ n = 5</h4>
+<span class="tag CP">checked proof</span>
+<p>C(n,4)=n has the unique integer solution n=5 for n≥4: proved independently (ledger §7). This combinatorial identity selects the decadic carrier in Book 6. <a href="../ledger/#claim-b6-book-6-local-symmetry-001">ledger row</a></p>
+
+<h4 id="P-7-b6-book-6-local-symmetry-002">Regular-simplex Gram spectrum and determinant</h4>
+<span class="tag NC">completed numerical check</span>
+<p>For the regular-simplex Gram G_d=(1/2)(I_d+J_d), the spectrum {(d+1)/2, 1/2×(d−1)} and determinant (d+1)/2^d were verified numerically for d=3 and d=10 (ledger §5). Verdict <strong>CHECKED</strong> (numeric). <a href="../ledger/#claim-b6-book-6-local-symmetry-002">ledger row</a></p>
+
+<h4 id="P-7-b3-projective-transition-maps-on-001">3.VI.T1 — cyclic product of chart ratios</h4>
+<span class="tag SC">completed symbolic check</span>
+<p>Script verify_book3_cocycle.py (exit 0; 22 checks: 20 PROVED, 1 STANDARD, 1 MANUSCRIPT, 0 failed; a second independent 47-check pass confirmed all findings): the cyclic product u_XY·u_YZ·u_ZX=1 holds exactly as (Y/X)(Z/Y)(X/Z)=1. <strong>PROVED</strong> (exact). <a href="../ledger/#claim-b3-projective-transition-maps-on-001">ledger row</a></p>
+
+<h4 id="P-7-b3-projective-transition-maps-on-002">3.VI.T2 — two signed ratios complete</h4>
+<span class="tag CP">checked proof</span>
+<p>The two signed ratios are complete because the pair (Y/X,Z/X) is the affine chart itself. <strong>PROVED</strong>. <a href="../ledger/#claim-b3-projective-transition-maps-on-002">ledger row</a></p>
+
+<h4 id="P-7-b3-projective-transition-maps-on-003">3.VI.T5/C3 — four allowed sign triples</h4>
+<span class="tag SC">completed symbolic check</span>
+<p>Exact enumeration: the constraint that the triple's product be +1 forces 0 or 2 negative signs, yielding exactly the four triples {(+,+,+),(+,−,−),(−,+,−),(−,−,+)}. <strong>PROVED</strong> (exact). <a href="../ledger/#claim-b3-projective-transition-maps-on-003">ledger row</a></p>
+
+<h4 id="P-7-b3-projective-transition-maps-on-004">3.VI.T7 — reciprocal chart bijection</h4>
+<span class="tag CP">checked proof</span>
+<p>The reciprocal chart bijection follows from f:ℝ→(0,∞) being bijective per 3.IV, applied coordinatewise. <strong>PROVED</strong>; the ledger records the associated notation flag as resolved. <a href="../ledger/#claim-b3-projective-transition-maps-on-004">ledger row</a></p>
+
+<h4 id="P-7-b3-projective-transition-maps-on-005">3.VI.T8–T10 — pairwise chart transitions</h4>
+<span class="tag SC">completed symbolic check</span>
+<p>The pairwise transitions T8–T10 are proved by exact one-line rational algebra on each transition map. <strong>PROVED</strong> (exact). <a href="../ledger/#claim-b3-projective-transition-maps-on-005">ledger row</a></p>
+
+<h4 id="P-7-b3-projective-transition-maps-on-006">3.VI.T11 — triple-overlap consistency</h4>
+<span class="tag SC">completed symbolic check</span>
+<p>T_ZX∘T_YZ∘T_XY=id: SymPy composes the three transition maps and simplifies the composition exactly to (u,v). <strong>PROVED</strong>. <a href="../ledger/#claim-b3-projective-transition-maps-on-006">ledger row</a></p>
+
+<h4 id="P-7-b3-projective-transition-maps-on-007">3.VI.T12 — reciprocal transition as F-conjugated projective transition</h4>
+<span class="tag CP">checked proof</span>
+<p>The reciprocal transition equals the F-conjugated projective transition, exact by definition of Φ_I=F∘(affine chart). <strong>PROVED</strong>. <a href="../ledger/#claim-b3-projective-transition-maps-on-007">ledger row</a></p>
+
+<h4 id="P-7-b3-projective-transition-maps-on-008">3.VI.T13 — denominator exchange ≠ reciprocal conjugation</h4>
+<span class="tag CP">checked proof</span>
+<p>Denominator exchange differs from reciprocal conjugation; the distinguishing evaluation is f(1)=√2−1≠1. <strong>PROVED</strong>. <a href="../ledger/#claim-b3-projective-transition-maps-on-008">ledger row</a></p>
+
+<h4 id="P-7-b3-projective-transition-maps-on-009">3.VI.T14/C8/T15/C9 — unit-threshold regularity</h4>
+<span class="tag CP">checked proof</span>
+<p>σ_IJ=1⟺u_IJ=0 holds by definition, so the regular hyperplane is regular by inspection. <strong>PROVED</strong>. <a href="../ledger/#claim-b3-projective-transition-maps-on-009">ledger row</a></p>
+
+<h4 id="P-7-b3-tautological-bundle-signs-and-001">3.VII.T1 — frame transition scalars</h4>
+<span class="tag SC">completed symbolic check</span>
+<p>Frame transition scalars e_Y=(X/Y)e_X: exact. <strong>PROVED</strong>. <a href="../ledger/#claim-b3-tautological-bundle-signs-and-001">ledger row</a></p>
+
+<h4 id="P-7-b3-tautological-bundle-signs-and-002">3.VII.T2 — sign reciprocity</h4>
+<span class="tag CP">checked proof</span>
+<p>Sign reciprocity ζ_JI=ζ_IJ holds because g and 1/g share sign. <strong>PROVED</strong>. <a href="../ledger/#claim-b3-tautological-bundle-signs-and-002">ledger row</a></p>
+
+<h4 id="P-7-b3-tautological-bundle-signs-and-003">3.VII.T3 — Čech sign cocycle</h4>
+<span class="tag CP">checked proof</span>
+<p>The Čech cocycle ζ_ZY·ζ_YX=ζ_ZX — equivalently ζ_XY·ζ_YZ·ζ_ZX=+1 — holds exactly as (Y/Z)(X/Y)=X/Z. <strong>PROVED</strong>. <a href="../ledger/#claim-b3-tautological-bundle-signs-and-003">ledger row</a></p>
+
+<h4 id="P-7-b3-tautological-bundle-signs-and-004">3.VII.C2 — V4 pattern as sign part of the transition system</h4>
+<span class="tag SC">completed symbolic check</span>
+<p>The C2 V4 sign pattern is exactly the sign part of the transition system. <strong>PROVED</strong> (exact). <a href="../ledger/#claim-b3-tautological-bundle-signs-and-004">ledger row</a></p>
+
+<h4 id="P-7-b3-tautological-bundle-signs-and-005">3.VII.T4 — sign cocycle represents w1(γ)</h4>
+<span class="tag ST">standard imported theorem</span>
+<p>That the sign cocycle represents w1(γ) is explicitly marked Standard Import SI1 in the manuscript — classical line-bundle theory. Verdict <strong>STANDARD</strong>. <a href="../ledger/#claim-b3-tautological-bundle-signs-and-005">ledger row</a></p>
+
+<h4 id="P-7-b3-tautological-bundle-signs-and-006">3.VII.T5 — ρ bijective projective phase representation</h4>
+<span class="tag SC">completed symbolic check</span>
+<p>ρ is a bijective projective phase representation: exact. <strong>PROVED</strong>. <a href="../ledger/#claim-b3-tautological-bundle-signs-and-006">ledger row</a></p>
+
+<h4 id="P-7-b3-tautological-bundle-signs-and-007">3.VII.T6 — monodromy v(x+2π)=−v(x)</h4>
+<span class="tag SC">completed symbolic check</span>
+<p>The monodromy v(x+2π)=−v(x) is exact; the nontriviality conclusion is the classical Möbius argument (STANDARD). <strong>PROVED</strong>. <a href="../ledger/#claim-b3-tautological-bundle-signs-and-007">ledger row</a></p>
+
+<h4 id="P-7-b3-tautological-bundle-signs-and-008">3.VII.T7 — pullback sign ρ*ζ_YX=sgn(tan(x/2))</h4>
+<span class="tag SC">completed symbolic check</span>
+<p>The pullback sign ρ*ζ_YX=sgn(tan(x/2)) follows by exact substitution. <strong>PROVED</strong>. <a href="../ledger/#claim-b3-tautological-bundle-signs-and-008">ledger row</a></p>
+
+<h4 id="P-7-b3-tautological-bundle-signs-and-009">3.VII.T8 — FlatWave vs pullback sign comparison</h4>
+<span class="tag SC">completed symbolic check</span>
+<p>The comparison FlatWave=sgn[t(1−t²)] vs ρ*ζ_YX=sgn(t) goes through 3.V.T8's exact identity sin 2x=4t(1−t²)/(1+t²)² with positive denominator. <strong>PROVED</strong>. <a href="../ledger/#claim-b3-tautological-bundle-signs-and-009">ledger row</a></p>
+
+<h4 id="P-7-b3-tautological-bundle-signs-and-010">3.VII.C6 — agreement iff |t|&lt;1</h4>
+<span class="tag SC">completed symbolic check</span>
+<p>The two signs agree exactly when |t|&lt;1: they differ by precisely the factor sgn(1−t²). <strong>PROVED</strong> (exact). <a href="../ledger/#claim-b3-tautological-bundle-signs-and-010">ledger row</a></p>
+
+<h4 id="P-7-b3-tautological-bundle-signs-and-011">3.VII.T10 — monodromy obstruction (−1 vs +1)</h4>
+<span class="tag CP">checked proof</span>
+<p>The tautological lift carries sign −1 by T6, while FlatWave's quadrant values (+1,−1,+1,−1) multiply to +1, so the monodromy obstruction blocks any identification. <strong>PROVED</strong>. <a href="../ledger/#claim-b3-tautological-bundle-signs-and-011">ledger row</a></p>
+
+<h4 id="P-7-b3-tautological-bundle-signs-and-012">3.VII.T9/C7/T11/N1 — FlatWave≠w1(γ) type separation</h4>
+<span class="tag MA">manuscript assertion</span>
+<p>T9/C7/T11/N1 are the manuscript's own non-identification theorems (FlatWave≠w1(γ) type separation), argued in the text with explicit transformation-law comparisons — e.g. FlatWave is 2π-periodic, hence deck-blind — and correctly not presented as standard results. They are not independently machine-checked; verdict <strong>MANUSCRIPT</strong>. <a href="../ledger/#claim-b3-tautological-bundle-signs-and-012">ledger row</a></p>
