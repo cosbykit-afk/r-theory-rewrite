@@ -35,13 +35,15 @@ def main():
         with open(page, encoding="utf-8") as fh:
             text = fh.read()
 
-        # 1. handoff CSS into the BOOKNAV-CSS block (all book pages)
-        if "booknav-handoff" not in text:
-            pat = re.compile(r"(<!-- BOOKNAV-CSS-START -->.*?</style>)",
-                             re.DOTALL)
-            text, n = pat.subn(lambda m: m.group(1) + HANDOFF_CSS + "\n",
-                               text, count=1)
-            assert n == 1, page
+        # 1. handoff CSS into the BOOKNAV-CSS block (all book pages).
+        # First strip any earlier copy (the first version landed after
+        # </style>, where it was dead text), then insert before </style>.
+        text = text.replace(HANDOFF_CSS + "\n", "")
+        text = text.replace(HANDOFF_CSS, "")
+        pat = re.compile(r"</style>\s*<!-- BOOKNAV-CSS-END -->")
+        text, n = pat.subn(HANDOFF_CSS + "\n</style>\n<!-- BOOKNAV-CSS-END -->",
+                           text, count=1)
+        assert n == 1, page
 
         # 2. handoff class on the Next card (boundary books only)
         if key in BOUNDARY_BOOKS and "booknav-next booknav-handoff" not in text:
