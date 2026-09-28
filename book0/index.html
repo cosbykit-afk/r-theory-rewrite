@@ -1073,5 +1073,41 @@ formEl.addEventListener("submit",function(ev){
 })();
 </script>
 <!-- COMMENTS-END -->
+<!-- FOOTER-START -->
+<footer class="rth-footer" id="rth-footer">
+<style>
+.rth-footer{max-width:860px;margin:2.5em auto 1.5em;padding:1em 1.2em 0;
+ border-top:1px solid #ddd;text-align:center;font-family:Georgia,serif;
+ font-size:.92em;color:#555}
+.rth-footer a{color:#1b5faa;text-decoration:none;margin:0 .8em}
+.rth-footer a:hover{text-decoration:underline}
+.rth-footer .rth-footer-sep{color:#aaa}
+</style>
+<a href="https://www.facebook.com/profile.php?id=61594635330402" target="_blank" rel="noopener">Contact us</a><span class="rth-footer-sep" id="rth-footer-sep">&middot;</span><a href="/app/register" id="rth-forum-signup">Sign up for the forum</a>
+<script>
+(function(){
+  // Hide the forum sign-up link where the forum isn't reachable
+  // (e.g. the GitHub Pages copy); the Contact-us link always stays.
+  var link=document.getElementById('rth-forum-signup');
+  var sep=document.getElementById('rth-footer-sep');
+  if(!link) return;
+  try{
+    var ctl=new AbortController();
+    var t=setTimeout(function(){ctl.abort();},6000);
+    fetch('/app/api/comments?page=index',{signal:ctl.signal}).then(function(r){
+      clearTimeout(t);
+      if(!r.ok) throw 0;
+    }).catch(function(){
+      link.style.display='none';
+      if(sep) sep.style.display='none';
+    });
+  }catch(e){
+    link.style.display='none';
+    if(sep) sep.style.display='none';
+  }
+})();
+</script>
+</footer>
+<!-- FOOTER-END -->
 </body>
 </html>
