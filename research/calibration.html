@@ -72,7 +72,7 @@
 
 <h1>R Theory — Calibration Predictions</h1>
 <p class="sub">Falsifiable predictions from the three-anchor calibration program: what the proved dial theorems say must hold, once the missing inputs are supplied.</p>
-<span class="date">Ledger opened: 2026-09-28</span>
+<span class="date">Ledger opened: 2026-09-28 · extended the same day (CAL-P2–P5, dimensionless inventory, comparison theory)</span>
 
 <div class="boundary">
 <p><strong>Scope boundary.</strong> The predictions below are exact consequences of <span class="tag proved">PROVED</span> block-algebra theorems (the 8-cycle dial theorems, runs 30–31), conditional on candidate E/O witness models. <strong>No prediction is confirmed until the missing inputs — physical E_k / Oprop matrices and the dial↔observable identifications — are supplied.</strong> A prediction's falsification kills the candidate framework it was derived in, not established R Theory results.</p>
@@ -103,6 +103,7 @@
 </div>
 
 <h2 id="ledger">Prediction ledger</h2>
+<p>Five entries, all <span class="tag open">OPEN</span>. Each is an exact consequence of a proved theorem, conditional on candidate witness models.</p>
 
 <div class="pred" id="CAL-P1">
 <h3>CAL-P1 — Dial consistency inequality <span class="tag open">OPEN</span></h3>
@@ -126,6 +127,101 @@ The Z-scale cancels in every ratio — m₀ and m₀m₂ calibrate independently
 <dt>Scope notes</dt>
 <dd>Conditional on the E<sub>t</sub>/O<sub>d</sub> candidate models; m₀=2, m₂=5 are archived reference values, not physical selections; g, position↔k, ε-pattern adopted/<span class="tag asserted">ASSERTED</span>.</dd>
 </dl>
+</div>
+
+<div class="pred" id="CAL-P2">
+<h3>CAL-P2 — Commutator-norm selection (752) <span class="tag open">OPEN</span></h3>
+<p><em>Added 2026-09-28.</em></p>
+<dl>
+<dt>Prediction</dt>
+<dd>Any real pure Π₀↔Π₂ flip X̃ ∈ 𝔟 (Oprop candidate satisfying MA1+MA2) satisfies <code>‖[X̃,M_ε]‖_F = 2‖X̃‖_F</code> exactly; the commutator Gram on the 𝔟 basis is <code>752·I₁₂</code>.</dd>
+<dt>Derivation</dt>
+<dd><span class="tag proved">PROVED</span> 752 identity (omnibus Q1, exact block algebra); basis-correct real Gram <span class="tag checked">CHECKED</span>.</dd>
+<dt>Constrains</dt>
+<dd>Oprop candidacy — a proposed physical Oprop with ‖[X̃,M_ε]‖_F/‖X̃‖_F ≠ 2 is not a pure grade-{0,2} bilinear flip.</dd>
+<dt>Needs</dt>
+<dd>Oprop candidate matrix; M_ε (<span class="tag checked">CHECKED</span> construction exists).</dd>
+<dt>Falsification</dt>
+<dd>A candidate claimed as pure bilinear flip violating the factor 2 kills the claim (not the theorem).</dd>
+</dl>
+</div>
+
+<div class="pred" id="CAL-P3">
+<h3>CAL-P3 — Mode-block scalar sum (188) <span class="tag open">OPEN</span></h3>
+<p><em>Added 2026-09-28.</em></p>
+<dl>
+<dt>Prediction</dt>
+<dd>For any real X̃ ∈ 𝔟, the ρ(g)-Fourier mode blocks satisfy <code>Q₂+Q₆ = 188·I₁₂</code>; per plane pair <code>[[94,+94i],[−94i,94]]</code>; equivalently the w₂/w₆ weights are equal.</dd>
+<dt>Derivation</dt>
+<dd><span class="tag proved">PROVED</span> cross-phase (run 24, exact v/w algebra); <span class="tag proved">PROVED</span> reality theorem (run 21, w₂=w₆).</dd>
+<dt>Constrains</dt>
+<dd>Oprop candidate mode structure.</dd>
+<dt>Needs</dt>
+<dd>Oprop candidate + its ρ(g)-Fourier decomposition.</dd>
+<dt>Falsification</dt>
+<dd>Q₂+Q₆ ≠ scalar·I kills the pure-𝔟-membership claim.</dd>
+</dl>
+</div>
+
+<div class="pred" id="CAL-P4">
+<h3>CAL-P4 — Sector-dimension lock <span class="tag open">OPEN</span></h3>
+<p><em>Added 2026-09-28.</em></p>
+<dl>
+<dt>Prediction</dt>
+<dd>Any E/B/O witness identification must place B-content in a <strong>368</strong>-dimensional sector and O-content in a <strong>556</strong>-dimensional sector (rest 896); the 368/556/896 split is not tunable.</dd>
+<dt>Derivation</dt>
+<dd><span class="tag checked">CHECKED</span> spectral projector traces (run-4b); run-27 matrix-level confirmation Re(P₂+P₆)=Π₀, Re(P₄+P₀)=Π₂.</dd>
+<dt>Constrains</dt>
+<dd>E/B/O witness constructions (CP-EBO, CP-OPROP).</dd>
+<dt>Needs</dt>
+<dd>Explicit E_k, Oprop matrices.</dd>
+<dt>Falsification</dt>
+<dd>A claimed B-witness of rank ≠ 368 (O-witness ≠ 556) is not the Π₀ (Π₂) sector.</dd>
+</dl>
+</div>
+
+<div class="pred" id="CAL-P5">
+<h3>CAL-P5 — ε-odd dial nonvanishing <span class="tag open">OPEN</span></h3>
+<p><em>Added 2026-09-28.</em></p>
+<dl>
+<dt>Prediction</dt>
+<dd><code>Tr(E_tΠ₀E_tΠ₂E_tΠ₀E_tΠ₂) = ‖ZᵀZ‖²_F</code>, nonzero iff Z ≠ 0 — the ε-odd 8-cycle dial vanishes iff E carries no B↔O transfer.</dd>
+<dt>Derivation</dt>
+<dd><span class="tag proved">PROVED</span> run 30 (exact block algebra); 16/16 tripwires.</dd>
+<dt>Constrains</dt>
+<dd>E_k candidacy — a proposed E_k with zero dial but claimed transfer content (or nonzero dial with claimed none) is dead.</dd>
+<dt>Needs</dt>
+<dd>E_k candidate matrix.</dd>
+<dt>Falsification</dt>
+<dd>As stated; delimits the run-25 falsification (bare-E zero vs transfer-carrying-E nonzero).</dd>
+</dl>
+</div>
+
+<h2 id="inventory">Dimensionless inventory of the model</h2>
+<div class="about">
+<p>Exact pure numbers the mathematics produces — no physical identification made here. Each becomes a calibration target or selection test once identifications exist.</p>
+<table>
+<tr><th>#</th><th>Quantity</th><th>Value</th><th>Status</th><th>Calibration role</th></tr>
+<tr><td>1</td><td>dim Π₀ / Π₂ / rest</td><td>368 / 556 / 896</td><td><span class="tag checked">CHECKED</span></td><td>dimension lock on E/B/O witnesses (CAL-P4)</td></tr>
+<tr><td>2</td><td>M_ε sector traces</td><td>816 / 1004</td><td><span class="tag checked">CHECKED</span></td><td>consistency of any Z₂-lift construction</td></tr>
+<tr><td>3</td><td>dim 𝔟</td><td>12</td><td><span class="tag proved">PROVED</span></td><td>size of the Oprop candidate space</td></tr>
+<tr><td>4</td><td>𝔟 Gram</td><td>188·I₁₂</td><td><span class="tag proved">PROVED</span></td><td>normalization of Oprop candidates</td></tr>
+<tr><td>5</td><td>commutator Gram</td><td>752·I₁₂ = 4·188</td><td><span class="tag proved">PROVED</span></td><td>CAL-P2 selection test</td></tr>
+<tr><td>6</td><td>commutator factor</td><td>2</td><td><span class="tag proved">PROVED</span></td><td>CAL-P2</td></tr>
+<tr><td>7</td><td>cross weight</td><td>94 = 188/2</td><td><span class="tag proved">PROVED</span></td><td>CAL-P3</td></tr>
+<tr><td>8</td><td>f₀₂</td><td>47/182</td><td><span class="tag proved">PROVED</span></td><td>grade-flip normalization</td></tr>
+<tr><td>9</td><td>bilinear census</td><td>24 cross / 64 mixed / 120 total</td><td><span class="tag proved">PROVED</span></td><td>transfer-class selection</td></tr>
+<tr><td>10</td><td>sector ratios</td><td>368/556 ≈ 0.6619, 556/368 ≈ 1.5109, 816/1004 ≈ 0.8127</td><td>derived</td><td>candidate comparison targets (unidentified)</td></tr>
+<tr><td>11</td><td>m₀/m₂</td><td>2/5 = 0.4</td><td><span class="tag asserted">ASSERTED</span>-reference</td><td>placeholder until dial-identified — <strong>not</strong> physical</td></tr>
+</table>
+</div>
+
+<h2 id="comparison">Known-physics comparison theory</h2>
+<div class="about">
+<p>The import-contract template requires a comparison theory: what the model's numbers are compared against. These are established physics, listed as <strong>candidate comparison targets — no identification with any model number is made</strong>.</p>
+<p><strong>Exact SI relationships (SI-2019; defining constants exact):</strong> Δν_Cs = 9192631770 Hz, c = 299792458 m/s, h, e, k_B, N_A, K_cd exact. ν₂₁/Δν_Cs = 1420405751.768/9192631770 ≈ 0.15452 — exact up to the ν₂₁ measurement. E₂₁ = h·ν₂₁, exact given h.</p>
+<p><strong>21 cm quantitative relationships (standard radio astronomy):</strong> spin temperature n₁/n₀ = 3·exp(−68 mK/T_S), connecting the anchor's statistical weights to the observable spin temperature. Zeeman structure: the σ⁺/σ⁻ components are circularly polarized with opposite handedness, and the handedness assignment reverses with the sign of the line-of-sight B-field — the quantitative form of the chirality readout.</p>
+<p><strong>Dimensionless constants (comparison targets):</strong> α⁻¹ ≈ 137.036 (fine-structure constant, CODATA); m_p/m_e ≈ 1836.15, m_μ/m_e ≈ 206.77 (mass ratios, CODATA); sin²θ_W ≈ 0.231 (weak mixing angle). When a model ratio is identified with a physical quantity, these are the numbers it must be compared against — with uncertainties on both sides, never by bare numerology.</p>
 </div>
 
 <h2 id="open-slots">Open slots (physical content required)</h2>
