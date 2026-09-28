@@ -126,6 +126,13 @@ a.booknav-panel.booknav-handoff:hover{border-color:#b85f1d;
  box-shadow:inset 0 1px 0 #ffffff,0 4px 12px rgba(184,95,29,.22)}
 </style>
 <!-- BOOKNAV-CSS-END -->
+<!-- TAGLINK-CSS-START -->
+<style>
+a.taglink{text-decoration:none}
+a.taglink:hover .tag{filter:brightness(.94)}
+a.taglink:focus-visible{outline:3px solid #0e7c86;outline-offset:2px;border-radius:4px}
+</style>
+<!-- TAGLINK-CSS-END -->
 </head>
 <body>
 <!-- SITENAV-NAV-START -->
@@ -182,10 +189,10 @@ a.booknav-panel.booknav-handoff:hover{border-color:#b85f1d;
 <h1>Book 19 — The UV Boundary</h1>
 <p><i>A restructured rewrite of Book 19 and Appendices A–C of R Theory — Volume IV (v1, the audit
 authority). Pictures and intuition first; the formal audit second. Every claim carries exactly one status:
-<span class="tag CP">CP</span> checked proof, <span class="tag SC">SC</span> completed symbolic check,
-<span class="tag NC">NC</span> completed numerical check, <span class="tag ST">ST</span> standard imported theorem,
-<span class="tag MA">MA</span> manuscript assertion, <span class="tag AX">AX</span> assumption or axiom,
-<span class="tag IN">IN</span> incomplete or failed computation, <span class="tag IC">IC</span> incorrect result.
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> checked proof, <a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">SC</span></a> completed symbolic check,
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> completed numerical check, <a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">ST</span></a> standard imported theorem,
+<a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> manuscript assertion, <a class="taglink" href="../ledger/#tag-AX" title="Status key: assumption or axiom"><span class="tag AX">AX</span></a> assumption or axiom,
+<a class="taglink" href="../ledger/#tag-IN" title="Status key: incomplete or failed computation"><span class="tag IN">IN</span></a> incomplete or failed computation, <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a> incorrect result.
 A sampled numerical agreement (~1e-10) is a completed numerical check, never a proof.</i></p>
 <p class="small"><b>Reading this page.</b> The manuscript's own words EXACT / CONDITIONAL / OPEN are its
 self-labels, never the audit's verdicts. Figures are live Desmos calculators; if Desmos cannot load, a
@@ -222,13 +229,13 @@ drawn.</p>
 <div class="caption"><b>What you see.</b> <span class="formula">y = x⁴</span> with the three numbers from
 Addendum 4.A line 3542 placed where they belong. Green:
 <span class="formula">(√2)⁴ = 4</span>, the established propagator rapidity product
-<span class="tag CP">CP</span>. Red: <span class="formula">(√2)⁸ = 16</span>, the <i>all-eight</i> product —
-this is the line's "propagator rapidity product is 16", which is <span class="tag IC">IC</span> as stated
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>. Red: <span class="formula">(√2)⁸ = 16</span>, the <i>all-eight</i> product —
+this is the line's "propagator rapidity product is 16", which is <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a> as stated
 (IC-18): v1's own terminology distinguishes the propagator product (4) from the total product (16).
 Blue: <span class="formula">V_E⁴ = 638.7823</span> — the line's "product over the four decay octants is
-638.78" is <span class="tag NC">NC</span> ✓ (value right; the printed "638.7" is a truncation, not a
+638.78" is <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> ✓ (value right; the printed "638.7" is a truncation, not a
 rounding). <b>What it doesn't show.</b> The line's "this factors out of S_F" — that is
-<span class="tag MA">MA</span>, unsupported, and it conflicts with §17.3.5's honest "its role in the
+<a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>, unsupported, and it conflicts with §17.3.5's honest "its role in the
 Clifford contraction remains to be determined."</div>
 
 <h3 id="figure-2-the-uv-boundary-op">Figure 2 — The UV boundary: Δ_op = ∅</h3>
@@ -240,7 +247,7 @@ gates: <span class="formula">S_F</span>, <span class="formula">N_{1820}</span>,
 <span class="formula">ζ_{parent}</span>, <span class="formula">η_{-4}</span>,
 <span class="formula">c_{ord}/K_{parent}</span> — each OPEN, none with a numerical address. This is a
 schematic, not a measurement: the honest content is that the line is empty, and the manuscript itself
-says so. <span class="tag MA">MA</span> (the manuscript's own admissions, confirmed).</div>
+says so. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> (the manuscript's own admissions, confirmed).</div>
 
 <h2 id="p2">Part II — Then earn it</h2>
 <h3 id="19-1-19-6-the-boundary-sections">§§19.1–19.6 — The boundary sections</h3>
@@ -248,7 +255,7 @@ says so. <span class="tag MA">MA</span> (the manuscript's own admissions, confir
 — <span class="formula">Δ_{op}(\text{Volume IV}) = ∅</span> — and this is also what the manuscript itself
 says. The sections' gate admissions (§19.2 uniform-action premise OPEN, §19.3 Distler–Garibaldi not
 evaded, §19.4 Airy transition not established with only J₀ unconditional) are consistent with Appendix B's
-no-go ledger. <span class="tag MA">MA</span> (confirmed admissions) / <span class="tag CP">CP</span> (the
+no-go ledger. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> (confirmed admissions) / <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> (the
 empty-promotion accounting).</p>
 <h3 id="the-line-3542-tension-resolved-as-ic-18">The line-3542 tension — resolved as IC-18</h3>
 <p>Exact text (Addendum 4.A item 5, "Dominant Function and Rapidity"):</p>
@@ -257,16 +264,16 @@ Its product over the four decay octants is 638.78. This factors out of S_F, pres
 field-redefinition invariance. The propagator rapidity product is 16, assigned to ζ_parent."</blockquote>
 <p>Sub-claim verdicts:</p>
 <ul class="tight">
-<li>"Its product over the four decay octants is 638.78" — <span class="tag NC">NC</span> ✓.
+<li>"Its product over the four decay octants is 638.78" — <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> ✓.
 <span class="formula">V_E⁴ = 638.7823</span> recomputed; the fourth power of the E-contact dominant value,
 consistent with chunks 1–2.</li>
-<li>"This factors out of S_F, preserving field-redefinition invariance" — <span class="tag MA">MA</span>
+<li>"This factors out of S_F, preserving field-redefinition invariance" — <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>
 (unsupported), with explicit conflicts: no derivation exists in v1; it contradicts §17.3.5's honest "its
 role in the Clifford contraction remains to be determined"; the §17.18.6.4 stripped list contains no
 V_E / dominant-function term; "field-redefinition invariance" appears exactly once in v1 and is never
-defined or proved. Not <span class="tag IC">IC</span>: <span class="formula">S_F</span> is uncomputed, so
+defined or proved. Not <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a>: <span class="formula">S_F</span> is uncomputed, so
 no established result is contradicted.</li>
-<li>"The propagator rapidity product is 16" — <span class="tag IC">IC</span> (<b>IC-18</b>, incorrect as
+<li>"The propagator rapidity product is 16" — <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a> (<b>IC-18</b>, incorrect as
 stated). The established propagator cosh product is <span class="formula">(√2)⁴ = 4</span> (§17.3.4,
 §17.7.2, §17.18.9.3); 16 matches the all-eight product <span class="formula">(√2)⁸</span>, and Book 17's
 own terminology forecloses the charitable all-eight reading.</li>
@@ -277,14 +284,14 @@ own terminology forecloses the charitable all-eight reading.</li>
 (<b>FLAG-A6…A8</b>):</p>
 <ul class="tight">
 <li><b>FLAG-A1</b> — Four-contact magnitude (EXACT): overstates. The per-contact 1/4 is archive-sourced
-<span class="tag MA">MA</span>; its relation to the certified 1/2 projection coefficient is OPEN per Tier
-3.1's own warning. Arithmetic <span class="tag CP">CP</span>; input not established; qualifier missing.</li>
+<a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>; its relation to the certified 1/2 projection coefficient is OPEN per Tier
+3.1's own warning. Arithmetic <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>; input not established; qualifier missing.</li>
 <li><b>FLAG-A2</b> — Wick sign (EXACT): overstates. <span class="formula">σ_{Wick}^{(t)} = −1</span> is not
 derived anywhere in v1; the "(from archive)" qualifier was dropped. Not independently verified.</li>
 <li><b>FLAG-A3</b> — Graded-connection rigidity theorem λ = ±1 (EXACT): unverifiable by this audit —
 bridge-essay §3.2 content, logged unaudited; Volume I–III coverage not established.</li>
 <li><b>FLAG-A4</b> — Reduced-matrix-element firewall (EXACT): category error. A firewall is a
-methodological principle <span class="tag AX">AX</span>, not a proved result; the audit treats it as sound,
+methodological principle <a class="taglink" href="../ledger/#tag-AX" title="Status key: assumption or axiom"><span class="tag AX">AX</span></a>, not a proved result; the audit treats it as sound,
 not as a theorem.</li>
 <li><b>FLAG-A5</b> — Ancestry criterion (EXACT): overstates — contradicts the manuscript's own labels
 (§17.5.1 CONDITIONAL, §17.5.2 CONDITIONAL on the uniform-action premise, §19.2 premise OPEN).</li>
@@ -298,18 +305,18 @@ import, unaudited — unverified; CONDITIONAL is a fair soft label.</li>
 <h3 id="appendix-b-no-go-ledger-verified-accurate">Appendix B — no-go ledger: verified accurate</h3>
 <ul class="tight">
 <li><b>B1</b> — "C8 ↔ octant correspondence is not a theorem. The C3/C4 forcing question remains OPEN":
-accurate. <span class="tag CP">CP</span></li>
+accurate. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></li>
 <li><b>B2</b> — "The Distler–Garibaldi theorem is not evaded… candidate, not a resolution": accurate —
-matches §19.3. <span class="tag CP">CP</span></li>
+matches §19.3. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></li>
 <li><b>B3</b> — "The uniform-action premise is not established": accurate — matches §19.2.
-<span class="tag CP">CP</span></li>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></li>
 <li><b>B4</b> — "The Airy transition is not established. Only J₀ is unconditional": accurate — matches
-§19.4. <span class="tag CP">CP</span></li>
+§19.4. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></li>
 </ul>
 <h3 id="appendix-c-codebase-skeleton-defects-carry-over-by-reference">Appendix C — codebase skeleton: defects carry over by reference</h3>
 <p>Appendix C duplicates the §17.18.8.2 skeleton and thereby carries IC-13…IC-16 by reference
 (the NullSpace/8255 defect, the Kronecker/sandwich mismatch, the −(1/256) double count, the unassigned
-<span class="formula">wickSign</span>). <span class="tag IC">IC</span></p>
+<span class="formula">wickSign</span>). <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></p>
 <h3 id="addendum-4-a-two-internal-contradictions">Addendum 4.A — two internal contradictions</h3>
 <ul class="tight">
 <li><b>CONTR-1</b> (item 6, C8↔octant "Theorem"): states as a theorem with "Proof sketch. ∎" that
@@ -321,7 +328,7 @@ nodes" and propagation "must alternate B and O" — neither forced in v1.</li>
 using: E8(−24) ⊃ A1 + G2 + C3 … Minimal left ideals of Cl(8) yield three chiral generations without
 mirror fermions" states the DG bypass as fact — contradicting §19.3 ("not a proven evasion") and NO-GO
 B2 ("not evaded… candidate, not a resolution"). The mechanism is at best a proposal
-<span class="tag MA">MA</span>; the E8(−24) host itself is <span class="tag MA">MA</span> per the Volume III
+<a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>; the E8(−24) host itself is <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> per the Volume III
 ledger.</li>
 </ul>
 <p><b>2026-09-27 (run 25) — the 8-cycle itself falsified against established witnesses.</b>
@@ -335,7 +342,7 @@ identification). N_1820 itself stays <b>OPEN</b>.</p>
 
 <h2 id="p3">Part III — Open gates and unresolved items</h2>
 <h3 id="open-gates">Open gates</h3>
-<p class="small"><span class="tag MA">MA</span> per the manuscript's own admissions, confirmed:
+<p class="small"><a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> per the manuscript's own admissions, confirmed:
 <span class="formula">S_F</span>, <span class="formula">N_{1820}</span>,
 <span class="formula">ζ_{parent}</span> (k₀ power), <span class="formula">η_{-4}</span> (UV selection),
 <span class="formula">c_{ord}/K_{parent}</span> values, <span class="formula">P_{54}</span> location (135 vs

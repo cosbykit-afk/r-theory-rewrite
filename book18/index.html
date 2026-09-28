@@ -125,6 +125,13 @@ a.booknav-panel.booknav-handoff:hover{border-color:#b85f1d;
  box-shadow:inset 0 1px 0 #ffffff,0 4px 12px rgba(184,95,29,.22)}
 </style>
 <!-- BOOKNAV-CSS-END -->
+<!-- TAGLINK-CSS-START -->
+<style>
+a.taglink{text-decoration:none}
+a.taglink:hover .tag{filter:brightness(.94)}
+a.taglink:focus-visible{outline:3px solid #0e7c86;outline-offset:2px;border-radius:4px}
+</style>
+<!-- TAGLINK-CSS-END -->
 </head>
 <body>
 <!-- SITENAV-NAV-START -->
@@ -181,10 +188,10 @@ a.booknav-panel.booknav-handoff:hover{border-color:#b85f1d;
 <h1>Book 18 — The Contraction Module</h1>
 <p><i>A restructured rewrite of Book 18 of R Theory — Volume IV (v1, the audit authority).
 Pictures and intuition first; the formal audit second. Every claim carries exactly one status:
-<span class="tag CP">CP</span> checked proof, <span class="tag SC">SC</span> completed symbolic check,
-<span class="tag NC">NC</span> completed numerical check, <span class="tag ST">ST</span> standard imported theorem,
-<span class="tag MA">MA</span> manuscript assertion, <span class="tag AX">AX</span> assumption or axiom,
-<span class="tag IN">IN</span> incomplete or failed computation, <span class="tag IC">IC</span> incorrect result.
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> checked proof, <a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">SC</span></a> completed symbolic check,
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> completed numerical check, <a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">ST</span></a> standard imported theorem,
+<a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> manuscript assertion, <a class="taglink" href="../ledger/#tag-AX" title="Status key: assumption or axiom"><span class="tag AX">AX</span></a> assumption or axiom,
+<a class="taglink" href="../ledger/#tag-IN" title="Status key: incomplete or failed computation"><span class="tag IN">IN</span></a> incomplete or failed computation, <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a> incorrect result.
 A sampled numerical agreement (~1e-10) is a completed numerical check, never a proof.</i></p>
 <p class="small"><b>Reading this page.</b> The manuscript's own words EXACT / CONDITIONAL / OPEN are its
 self-labels, never the audit's verdicts. Figures are live Desmos calculators; if Desmos cannot load, a
@@ -218,9 +225,9 @@ below is exact integer or rational arithmetic.</p>
 <img class="fallback" id="f1" src="graphs/b18_comb.png" alt="C(n,4) curve with the point (16,1820)">
 <div class="caption"><b>What you see.</b> <span class="formula">C(n,4) = n(n−1)(n−2)(n−3)/24</span>
 with the green dot at <span class="formula">(16, 1820)</span>: the 1820 is the 4-form on 16
-dimensions, exactly. <span class="tag CP">CP</span> <b>What it doesn't show.</b> The number 1820 is
+dimensions, exactly. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> <b>What it doesn't show.</b> The number 1820 is
 combinatorics; the <i>explicit 1820 projector</i> the contraction needs is a different object, and it
-is open (blocked at <span class="formula">P_{6435}</span>). <span class="tag MA">MA</span></div>
+is open (blocked at <span class="formula">P_{6435}</span>). <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></div>
 
 <p><b>Proved 2026-09-20 — the 1820's invariant pairing is symmetric.</b>
 The Frobenius–Schur indicator of the 1820 is <span class="formula">+1</span>:
@@ -229,10 +236,10 @@ on <span class="formula">W = Λ⁴(ℂ¹⁶)</span> the determinant-of-Gram-matr
 is well-defined, SO(16)-invariant, nondegenerate, and symmetric — and by Schur's
 lemma on <span class="formula">Hom_G(W,W*)</span> it is the unique invariant bilinear
 form up to scale. So every SO(16)-invariant pairing on the 1820 is symmetric; no
-alternating one exists. <span class="tag CP">CP</span>
+alternating one exists. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 <b>Scope.</b> This constrains pairings, not operators: whether the manuscript's
 <span class="formula">M_e</span>/<span class="formula">Oprop</span> are SO(16)-equivariant
-at all is still a manuscript-reading question. <span class="tag MA">MA</span></p>
+at all is still a manuscript-reading question. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></p>
 
 <h3 id="figure-2-sym-128-vs-128-the-120-is-not-in-sym-ic-12">Figure 2 — Sym²(128) vs Λ²(128): the 120 is not in Sym² (IC-12)</h3>
 <div class="graph" id="d2"></div>
@@ -242,9 +249,9 @@ at all is still a manuscript-reading question. <span class="tag MA">MA</span></p
 <span class="formula">Sym²(128) = 8256 = 1 ⊕ 1820 ⊕ 6435</span> (blue dot; gray dashed parts in the
 static fallback) and
 <span class="formula">Λ²(128) = 8128 = 120 ⊕ 8008</span> (orange dot). The 120 lives on the orange curve
-(red dashed) — it is <b>not</b> among the Sym² parts. <span class="tag CP">CP</span>
+(red dashed) — it is <b>not</b> among the Sym² parts. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 This figure is the IC-12 exhibit: §18.4's "the 120 = Λ²(16) sits inside Sym²(128)" is
-<span class="tag IC">IC</span>, repeating the §17.18 error (IC-6).</div>
+<a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a>, repeating the §17.18 error (IC-6).</div>
 
 <h3 id="figure-3-branching-135-54-1-1-20-10-6-1-1">Figure 3 — Branching: 135 → (54,1) ⊕ (1,20′) ⊕ (10,6) ⊕ (1,1)</h3>
 <div class="graph" id="d3"></div>
@@ -253,12 +260,12 @@ This figure is the IC-12 exhibit: §18.4's "the 120 = Λ²(16) sits inside Sym²
 <span class="formula">54 → 74 → 134 → 135</span>:
 <span class="formula">135|_{SO(10)×SU(4)} = (54,1) ⊕ (1,20′) ⊕ (10,6) ⊕ (1,1)</span>,
 i.e. <span class="formula">54 + 20 + 60 + 1 = 135</span>, dimensionally exact.
-<span class="tag CP">CP</span> The SO(10)/SU(4) representation content itself is standard imported
-representation theory, not derived here. <span class="tag ST">ST</span>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> The SO(10)/SU(4) representation content itself is standard imported
+representation theory, not derived here. <a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">ST</span></a>
 Also exact: <span class="formula">135 = 16·17/2 − 1 = Sym²₀(16)</span> and
-<span class="formula">54 = 55 − 1 = Sym²₀(10)</span>. <span class="tag CP">CP</span>
+<span class="formula">54 = 55 − 1 = Sym²₀(10)</span>. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 <b>What it doesn't show.</b> Where the <span class="formula">P_{54}</span> projector lives — 135 vs
-1820 is unreconciled in v1. <span class="tag MA">MA</span></div>
+1820 is unreconciled in v1. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></div>
 
 <h3 id="figure-4-the-conversion-chain-algebraic-form-only">Figure 4 — The conversion chain: algebraic form only</h3>
 <div class="graph" id="d4"></div>
@@ -268,10 +275,10 @@ Also exact: <span class="formula">135 = 16·17/2 − 1 = Sym²₀(16)</span> and
 <span class="formula">a = (6/5)c</span>, <span class="formula">c_{ord} = 5S_F/18</span> as the two lines
 <span class="formula">a = S_F/3</span>, <span class="formula">c = 5S_F/18</span> — they close
 algebraically, and <span class="formula">−(1/256)(√10/6) = −√10/1536</span> exactly.
-<span class="tag CP">CP</span> There is <b>no dot on these lines</b>: the numerical value of
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> There is <b>no dot on these lines</b>: the numerical value of
 <span class="formula">S_F</span> is OPEN, so the chain has no established point. The figure is honest
 about that. <b>What it doesn't show.</b> The physical content of the
-<span class="formula">−(√10/1536)</span> prefactor — a manuscript assertion. <span class="tag MA">MA</span></div>
+<span class="formula">−(√10/1536)</span> prefactor — a manuscript assertion. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></div>
 
 <h3 id="figure-5-conditional-projector-idempotency">Figure 5 — Conditional projector idempotency</h3>
 <div class="graph" id="d5"></div>
@@ -279,79 +286,79 @@ about that. <b>What it doesn't show.</b> The physical content of the
 <div class="caption"><b>What you see.</b> <span class="formula">Π_± = (1 ± γ_{17})/2</span>:
 at the eigenvalues <span class="formula">γ_{17} = ±1</span> (black dots) the projectors take values
 <span class="formula">{0, 1}</span> and are idempotent, <span class="formula">Π_±² = Π_±</span>.
-<span class="tag CP">CP</span> <b>as a conditional inference</b> — conditional on the Clifford relations
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> <b>as a conditional inference</b> — conditional on the Clifford relations
 <span class="formula">γ_{17}² = +1</span> (sign <span class="formula">(−1)^{120} = +1</span>).
 <b>What it doesn't show.</b> The <span class="formula">γᵢ</span> relations themselves: they are OPEN
-in v1, and §18.2's printed template cannot produce them (IC-17). <span class="tag MA">MA</span></div>
+in v1, and §18.2's printed template cannot produce them (IC-17). <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></div>
 
 <h3 id="figure-6-the-ordered-contraction-e-b-e-o-2-54">Figure 6 — The ordered contraction: (E,B,E,O)×2 → 54</h3>
 <div class="graph" id="d6"></div>
 <img class="fallback" id="f6" src="graphs/b18_contraction.png" alt="C8 word on a circle with the 54 target">
 <div class="caption"><b>What you see.</b> The C8 cyclic word in contact order around the circle —
 E (green) on decay octants 1, 3, 5, 7; B (blue) on growth octants 2, 6; O (orange) on growth
-octants 4, 8 — with the manuscript's target, the 54, at the center. <span class="tag CP">CP</span>
+octants 4, 8 — with the manuscript's target, the 54, at the center. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 (word structure; the audit's exact check). <b>What it doesn't show.</b> The contraction itself: the
 skeleton that would execute it has four concrete defects (IC-13…IC-16), the 1820 projector is
 blocked, and the 54's location (135 vs 1820) is unreconciled. The center label says NOT established
-because it is not. <span class="tag MA">MA</span></div>
+because it is not. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></div>
 
 <h2 id="p2">Part II — Then earn it</h2>
 <h3 id="dimensions-combinatorics-18-2-18-5">Dimensions / combinatorics (§§18.2–18.5)</h3>
 <p><span class="formula">C(16,4) = 1820</span>, <span class="formula">128·129/2 = 8256 = dim Sym²(128)</span>,
 <span class="formula">1 + 1820 + 6435 = 8256</span>, <span class="formula">2⁷ = 128</span>.
-<span class="tag CP">CP</span> Branching arithmetic:
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> Branching arithmetic:
 <span class="formula">54 + 20 + 10·6 + 1 = 135</span>;
 <span class="formula">Sym²₀(10)</span>: <span class="formula">55 − 1 = 54</span>;
 §18.5's <span class="formula">135|_{SO(10)×SU(4)} = (54,1)⊕(1,20')⊕(10,6)⊕(1,1)</span> is
-dimensionally exact <span class="tag CP">CP</span>, with the SO(10)/SU(4) content standard representation
-theory <span class="tag ST">ST</span>.</p>
+dimensionally exact <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>, with the SO(10)/SU(4) content standard representation
+theory <a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">ST</span></a>.</p>
 <h3 id="conversion-chain-18-6">Conversion chain (§18.6)</h3>
 <p><span class="formula">S_F = 3a_{2222}</span> from <span class="formula">(6/5)(5/2) = 3</span>;
 <span class="formula">a = (6/5)c</span> inverts to <span class="formula">c_{ord} = 5S_F/18</span>;
-<span class="formula">−(1/256)(√10/6) = −√10/1536</span> exactly. <span class="tag CP">CP</span>
+<span class="formula">−(1/256)(√10/6) = −√10/1536</span> exactly. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 <span class="formula">γ_{17}² = +1</span> under the Clifford relations (sign
 <span class="formula">(−1)^{120} = +1</span>), so <span class="formula">Π_± = (1±γ_{17})/2</span> is
-idempotent — <span class="tag CP">CP</span> as a conditional inference; the <span class="formula">γᵢ</span>
+idempotent — <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> as a conditional inference; the <span class="formula">γᵢ</span>
 relations themselves are OPEN in v1. The missing-input lines ("explicit 1820×1820 E, B, O matrices")
-are present and honest. <span class="tag CP">CP</span></p>
+are present and honest. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></p>
 <h3 id="tension-arithmetic-recorded-for-book-19">Tension arithmetic (recorded for Book 19)</h3>
 <p><span class="formula">(√2)⁴ = 4</span> (established propagator cosh product),
-<span class="formula">(√2)⁸ = 16</span> (all-eight product) <span class="tag CP">CP</span> — the value 16
+<span class="formula">(√2)⁸ = 16</span> (all-eight product) <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> — the value 16
 at line 3542 matches the all-eight product, not the propagator product.
 <span class="formula">V_E⁴ ≈ 638.78</span>: <span class="formula">5.0273⁴ = 638.76</span>, within 0.05.
-<span class="tag NC">NC</span></p>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a></p>
 <h3 id="18-8-the-skeleton-duplicated">§18.8 — the skeleton, duplicated</h3>
 <p>§18.8 repeats the §17.18.8.2 Wolfram skeleton with the Step-5 sum ranges further abbreviated away —
 and with the same four defects (IC-13…IC-16). Two more errors recur as IC-12 (the 120 in Sym²(128),
-= IC-6) and IC-17 (new: the §18.2 gamma template). <span class="tag IC">IC</span></p>
+= IC-6) and IC-17 (new: the §18.2 gamma template). <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></p>
 
 <h2 id="p3">Part III — Incorrect and open</h2>
 <h3 id="incorrect-as-stated-ic-12-ic-17">Incorrect as stated (IC-12…IC-17)</h3>
 <ul class="tight">
 <li><b>IC-12</b> (§18.4): "The 120 = Λ²(16) sits inside Sym²(128)" — false; repeats IC-6.
 <span class="formula">Sym²(128) = 1 ⊕ 1820 ⊕ 6435</span> has no 120. Figure 2 is the exhibit.
-<span class="tag IC">IC</span></li>
+<a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
 <li><b>IC-13</b> (§18.8 Step 1, recurs IC-8): the 1820-basis construction — as written yields
 <span class="formula">{}</span>; the intended reading yields 8255 dimensions, not 1820; needs
-<span class="formula">P_{6435}</span>, unfixable within v1. <span class="tag IC">IC</span></li>
+<span class="formula">P_{6435}</span>, unfixable within v1. <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
 <li><b>IC-14</b> (§18.8 Steps 2–3, recurs IC-9): <span class="formula">128⁴×128⁴</span> Kronecker product
-vs <span class="formula">1820×8256</span> sandwich — dimensionally incompatible. <span class="tag IC">IC</span></li>
+vs <span class="formula">1820×8256</span> sandwich — dimensionally incompatible. <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
 <li><b>IC-15</b> (§18.8 Steps 6–7, recurs IC-10): <span class="formula">−(1/256)</span> double-counted.
-<span class="tag IC">IC</span></li>
+<a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
 <li><b>IC-16</b> (§18.8 Step 5, recurs IC-11): <span class="formula">wickSign</span> never assigned;
-the Step-5 sum ranges are further abbreviated away in the duplicate. <span class="tag IC">IC</span></li>
+the Step-5 sum ranges are further abbreviated away in the duplicate. <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
 <li><b>IC-17</b> (§18.2, new): the "standard construction"
 <span class="formula">γᵢ = σ_x^{⊗(i−1)} ⊗ σ_a ⊗ I^{⊗(8−i)}</span> has 8 qubit factors, hence
 <span class="formula">256×256</span> matrices — but the section requires "the explicit
 <span class="formula">128×128</span> matrices" acting on the 128-dimensional chiral spinor.
 Additionally <span class="formula">σ_a</span> is never defined, only <span class="formula">i = 1…8</span>
 are shown for 16 matrices, and the "appropriate extensions for i = 9…16" are undefined. The printed
-template cannot produce what the section asks for. <span class="tag IC">IC</span></li>
+template cannot produce what the section asks for. <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
 </ul>
 <h3 id="open-the-manuscript-s-own-admissions-confirmed">Open (the manuscript's own admissions, confirmed)</h3>
 <p class="small">Explicit 1820×1820 E, B, O matrices; the explicit 1820 projector; the 120 embedding; the
 54 projector (135 vs 1820 unreconciled); the <span class="formula">S_F</span> numerical value;
-<span class="formula">N_{1820}</span>. <span class="tag MA">MA</span></p>
+<span class="formula">N_{1820}</span>. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></p>
 <h3 id="unresolved">Unresolved</h3>
 <p class="small">§17.18 and Book 18 share the same title (duplication flag — the two sections cover
 overlapping contraction material with the skeleton defects recurring). The dangling "§17.11" reference

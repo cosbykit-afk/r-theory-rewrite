@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research status ledger — R Theory</title>
+<!-- SITENAV-START -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Source+Sans+3:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+body{overflow-x:clip}
+.sitebar{background:#092d32;color:#eaf5f4;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw)}
+.sitebar-inner{max-width:860px;margin:0 auto;padding:11px 24px;min-height:52px;box-sizing:border-box;
+ display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+ font-family:'Source Sans 3',system-ui,-apple-system,'Segoe UI',sans-serif}
+.site-mark{font-family:'Libre Baskerville',Georgia,serif;font-weight:700;font-size:.92rem;
+ color:#fff;text-decoration:none;white-space:nowrap}
+.site-mark:hover{text-decoration:underline}
+.site-select-wrap{position:relative;flex:none}
+.site-select-wrap::after{content:"";position:absolute;right:12px;top:50%;width:7px;height:7px;
+ border-right:2px solid #c6dcda;border-bottom:2px solid #c6dcda;
+ transform:translateY(-70%) rotate(45deg);pointer-events:none}
+.site-dest{appearance:none;-webkit-appearance:none;background:#123d43;border:1px solid #38636a;
+ border-radius:6px;color:#fff;font-family:inherit;font-weight:600;font-size:.88rem;
+ padding:7px 34px 7px 11px;min-height:36px;width:min(240px,100%);cursor:pointer}
+.site-dest:hover{background:#164a51;border-color:#5f858a}
+.site-search{display:flex;align-items:center;height:36px;min-width:280px;margin-left:auto;flex:1 1 auto;max-width:340px}
+.site-search input[type=text]{flex:1;min-width:0;height:36px;box-sizing:border-box;
+ border:1px solid #38636a;border-right:none;border-radius:6px 0 0 6px;padding:7px 10px;
+ font-family:inherit;font-weight:500;font-size:.84rem;color:#10262b;background:#fff}
+.site-search input[type=text]::placeholder{color:#66777a}
+.site-search button{height:36px;box-sizing:border-box;border:1px solid #38636a;border-radius:0 6px 6px 0;
+ background:#165159;color:#fff;font-family:inherit;font-weight:700;font-size:.84rem;
+ padding:0 12px;cursor:pointer;flex:none}
+.site-search button:hover{background:#1b626b}
+.text-toggle{display:flex;align-items:center;gap:8px;color:#eaf5f4;font-size:.84rem;
+ font-weight:600;cursor:pointer;white-space:nowrap;flex:none}
+.text-toggle input{appearance:none;-webkit-appearance:none;width:38px;height:22px;border-radius:999px;
+ background:#123d43;border:1px solid #5f858a;position:relative;cursor:pointer;margin:0;flex:none;
+ transition:background .18s,border-color .18s}
+.text-toggle input::after{content:"";position:absolute;left:2px;top:2px;width:16px;height:16px;
+ border-radius:50%;background:#c6dcda;transition:transform .18s,background .18s}
+.text-toggle input:checked{background:#b85f1d;border-color:#b85f1d}
+.text-toggle input:checked::after{transform:translateX(16px);background:#fff}
+.site-dest:focus-visible,.site-search input[type=text]:focus-visible,
+.site-search button:focus-visible,.text-toggle input:focus-visible,.site-mark:focus-visible,
+.crumbbar a:focus-visible{outline:3px solid #4fc3b8;outline-offset:2px}
+.crumbbar{background:#f5f8f8;border-bottom:1px solid #c9d6d8;
+ margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);margin-bottom:1.5em}
+.crumbbar-inner{max-width:860px;margin:0 auto;padding:8px 24px;box-sizing:border-box;
+ display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+ font-family:'Source Sans 3',system-ui,-apple-system,'Segoe UI',sans-serif;
+ font-size:.8rem;color:#52676b}
+.crumbbar a{color:#0b6866;text-decoration:none;font-weight:600}
+.crumbbar a:hover{text-decoration:underline}
+.crumb-vol{background:#0b6866;color:#fff !important;border-radius:6px;padding:3px 10px;font-weight:700}
+.crumb-vol:hover{background:#084c4b;text-decoration:none !important}
+.crumb-sep{color:#8aa0a3}
+.crumb-pill{font-size:.72rem;font-weight:700;background:#e3ecec;color:#10262b;
+ border-radius:999px;padding:2px 10px}
+.rth-toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(8px);
+ background:#092d32;color:#fff;font-family:'Source Sans 3',system-ui,sans-serif;
+ font-size:.85rem;font-weight:600;padding:10px 18px;border-radius:8px;opacity:0;
+ pointer-events:none;transition:opacity .2s,transform .2s;z-index:9999}
+.rth-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+html.rth-large-text body{font-size:21.333px;line-height:1.65}
+@media (max-width:600px){
+ .sitebar-inner{gap:8px;padding:10px 14px}
+ .site-select-wrap{order:3;width:100%}
+ .site-dest{width:100%}
+ .site-search{order:4;width:100%;min-width:0;max-width:none;margin-left:0}
+ .text-toggle{margin-left:auto}
+ .crumbbar-inner{padding:8px 14px}
+}
+</style>
+<script>
+(function(){try{if(localStorage.getItem('rth-large-text')==='1'){document.documentElement.classList.add('rth-large-text');}}catch(e){}})();
+</script>
+<!-- SITENAV-END -->
+<style>
+body{font-family:Georgia,'Times New Roman',serif;max-width:860px;margin:0 auto;
+ padding:0 24px;color:#1c2b2e;line-height:1.6}
+
+.tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.04em;
+ text-transform:uppercase;border-radius:4px;padding:1px 7px;margin:0 2px;vertical-align:baseline;
+ border:1px solid transparent;white-space:nowrap}
+.tag.CP,.tag.SC{background:#e7f4ec;border-color:#9cc8ab;color:#1d5c33}
+.tag.NC{background:#e8f0fb;border-color:#9db8e0;color:#1f3f7a}
+.tag.ST{background:#f0eefb;border-color:#b7aee6;color:#46357e}
+.tag.MA{background:#faf3e3;border-color:#ddc48f;color:#7a5a17}
+.tag.AX{background:#f3f3f3;border-color:#c2c2c2;color:#4d4d4d}
+.tag.IN{background:#fdeeee;border-color:#e5a3a3;color:#8f2b2b}
+.tag.IC{background:#fbe4e4;border-color:#d97f7f;color:#7c1f1f}
+a.taglink{text-decoration:none}
+a.taglink:hover .tag{filter:brightness(.94)}
+a.taglink:focus-visible{outline:3px solid #0e7c86;outline-offset:2px;border-radius:4px}
+table.ledger{border-collapse:collapse;width:100%;margin:1em 0;font-size:.92rem}
+table.ledger th,table.ledger td{border:1px solid #d5dfe0;padding:6px 9px;text-align:left;vertical-align:top}
+table.ledger th{background:#eef4f4}
+table.key td:first-child{white-space:nowrap}
+
+h1,h2,h3{font-family:'Source Sans 3',system-ui,sans-serif;color:#0b3f45}
+.lede{color:#41565a}
+.updated{font-size:.85rem;color:#6b7f83}
+</style>
+</head>
+<body>
+<!-- SITENAV-NAV-START -->
+<nav class="sitebar" aria-label="Proposed global navigation">
+<div class="sitebar-inner">
+<a class="site-mark" href="../">R Theory</a>
+<span class="site-select-wrap"><select class="site-dest" id="rthSiteDest" aria-label="Go to section">
+<option value="../contents/" selected>Contents</option>
+<option value="../vol0/">Volume 0</option>
+<option value="../contents/#vol-1">Volume I</option>
+<option value="../contents/#vol-2">Volume II</option>
+<option value="../contents/#vol-3">Volume III</option>
+<option value="../vol4/">Volume IV</option>
+<option value="../index/">Index</option>
+</select></span>
+<form class="site-search" id="rthSiteSearch" action="https://www.google.com/search" method="get" target="_blank" rel="noopener" role="search">
+<input type="hidden" name="q" id="rthSearchQ" value="">
+<input type="text" id="rthSearchTerm" placeholder="Search R Theory" aria-label="Search R Theory" autocomplete="off">
+<button type="submit">Search</button>
+</form>
+<label class="text-toggle"><span>Large text</span><input type="checkbox" id="rthLargeText" role="switch" aria-label="Large text"></label>
+</div>
+</nav>
+<div class="crumbbar"><div class="crumbbar-inner">
+<a href="../">Home</a><span class="crumb-sep">/</span><span>Research ledger</span>
+</div></div>
+<div class="rth-toast" id="rthToast" role="status" aria-live="polite"></div>
+<script>
+(function(){
+ var toast=document.getElementById('rthToast'),t=null;
+ function say(m){toast.textContent=m;toast.classList.add('show');clearTimeout(t);
+  t=setTimeout(function(){toast.classList.remove('show');},1500);}
+ var sel=document.getElementById('rthSiteDest');
+ sel.addEventListener('change',function(){if(sel.value)location.href=sel.value;});
+ var form=document.getElementById('rthSiteSearch'),
+     term=document.getElementById('rthSearchTerm'),
+     q=document.getElementById('rthSearchQ');
+ form.addEventListener('submit',function(e){
+  var v=term.value.trim();
+  if(!v){e.preventDefault();term.focus();say('Enter a search term');return;}
+  q.value='site:cosbykit-afk.github.io/r-theory-rewrite '+v;
+ });
+ var tg=document.getElementById('rthLargeText');
+ tg.checked=document.documentElement.classList.contains('rth-large-text');
+ tg.addEventListener('change',function(){
+  var on=tg.checked;
+  document.documentElement.classList.toggle('rth-large-text',on);
+  try{localStorage.setItem('rth-large-text',on?'1':'0');}catch(e){}
+  say(on?'Large text on':'Large text off');
+ });
+})();
+</script>
+<!-- SITENAV-NAV-END -->
+<h1>Research status ledger</h1>
+<p class="lede">The single record of what the R Theory audit has established, per claim.
+Every status tag on this site links here for its meaning, and tags carrying a
+claim reference update from this ledger automatically. The human record is the
+prose audit ledger (<code>theorem_ledger.md</code>); the original R Theory
+manuscript (a Google Doc) stays read-only and is never edited by this process.
+The tables below are the ledger's machine mirror, regenerated by
+<code>sync_status.py</code>.</p>
+<p class="lede"><b>Coverage.</b> The tables currently mirror the ledger's
+structured verdicts for Books 2–6 (86 claims). Book 1's line-by-line source
+audit and the Volume II audit (Books 7–13, in progress) are not yet in the
+machine mirror — their verdicts join these tables as their ledgers land.</p>
+<p class="updated">Last synced: 2026-09-28T18:42:44+00:00. 86 claims across 5 books.</p>
+
+<h2 id="key">Status key</h2>
+<p>Each claim carries exactly one status. Historic per-book shorthands
+(aliases) keep their meaning; the canonical codes are below.</p>
+<table class="ledger key">
+<tr><th>Code</th><th>Label</th><th>Meaning</th><th>Ledger status</th><th>Aliases</th></tr>
+<tr id="tag-CP"><td><span class="tag CP">CP</span></td><td>checked proof</td><td>Proof read and following from stated antecedents.</td><td>PROVED</td><td>P</td></tr>
+<tr id="tag-SC"><td><span class="tag SC">SC</span></td><td>completed symbolic check</td><td>Verified by an exact symbolic or integer-exact computation.</td><td>PROVED</td><td>CS</td></tr>
+<tr id="tag-NC"><td><span class="tag NC">NC</span></td><td>completed numerical check</td><td>Verified numerically to a stated tolerance; not a symbolic proof.</td><td>CHECKED</td><td>N, CN</td></tr>
+<tr id="tag-ST"><td><span class="tag ST">ST</span></td><td>standard imported theorem</td><td>Independently established standard mathematics; the manuscript re-derives it.</td><td>STANDARD</td><td>S, SI</td></tr>
+<tr id="tag-MA"><td><span class="tag MA">MA</span></td><td>manuscript assertion</td><td>Claim or proof exists only inside the manuscript; not yet independently checked.</td><td>MANUSCRIPT</td><td>M</td></tr>
+<tr id="tag-AX"><td><span class="tag AX">AX</span></td><td>assumption or axiom</td><td>Granted starting point: axiom, definition, or constitutional rule. Not proved.</td><td>—</td><td>A, AA, D</td></tr>
+<tr id="tag-IN"><td><span class="tag IN">IN</span></td><td>incomplete or failed computation</td><td>Computation timed out, failed, or is still running.</td><td>INCOMPLETE</td><td>IF</td></tr>
+<tr id="tag-IC"><td><span class="tag IC">IC</span></td><td>incorrect result</td><td>The claim as stated fails; the ledger records how.</td><td>INVALID</td><td>IR, ER</td></tr>
+</table>
+
+<h2 id="claims">Claims by book</h2>
+<h3>Book 2</h3>
+<table class="ledger">
+<tr><th>Claim</th><th>Status</th><th>Basis</th><th>ID</th></tr>
+<tr id="claim-b2-book-2-algebraic-spine-001"><td>srx·sxp = 1</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td>max error 1.3e-13</td><td><code>b2-book-2-algebraic-spine-001</code></td></tr>
+<tr id="claim-b2-book-2-algebraic-spine-002"><td>cxp·crx = 1</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td>max error 1.3e-13</td><td><code>b2-book-2-algebraic-spine-002</code></td></tr>
+<tr id="claim-b2-book-2-algebraic-spine-003"><td>urx+uxp = 4/sin(2x)</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td>max error 1.1e-14</td><td><code>b2-book-2-algebraic-spine-003</code></td></tr>
+<tr id="claim-b2-book-2-algebraic-spine-004"><td>FlatWave = 1/urx+1/uxp = sgn(sin 2x)</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td>max error 3.3e-15</td><td><code>b2-book-2-algebraic-spine-004</code></td></tr>
+<tr id="claim-b2-book-2-algebraic-spine-005"><td>cxp = (z+ε)/(εz−1), z=srx, ε=sgn(z−1)</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td>max error 1.1e-13</td><td><code>b2-book-2-algebraic-spine-005</code></td></tr>
+<tr id="claim-b2-book-2-algebraic-spine-006"><td>Zcar = 2V+i·4H = e^{2ix}</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td>max error 0.0 (exact)</td><td><code>b2-book-2-algebraic-spine-006</code></td></tr>
+<tr id="claim-b2-complementary-swap-algebra-001"><td>srx(π/2−x)=cxp(x), sxp(π/2−x)=crx(x) (+2 more)</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td>max error ≤2.9e-14</td><td><code>b2-complementary-swap-algebra-001</code></td></tr>
+<tr id="claim-b2-complementary-swap-algebra-002"><td>A=srx−sxp=2cot x, B=cxp−crx=2tan x, AB=4</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td>max error ≤3.6e-15</td><td><code>b2-complementary-swap-algebra-002</code></td></tr>
+<tr id="claim-b2-complementary-swap-algebra-003"><td>Σ²−Δ²=16</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td>max error 1.7e-13</td><td><code>b2-complementary-swap-algebra-003</code></td></tr>
+<tr id="claim-b2-complementary-swap-algebra-004"><td>H=1/Σ=sin2x/4, V=Δ/(2Σ)=cos2x/2</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td>max error ≤2.0e-16</td><td><code>b2-complementary-swap-algebra-004</code></td></tr>
+<tr id="claim-b2-complementary-swap-algebra-005"><td>Σ′=−ΣΔ/2, Δ′=−Σ²/2</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td>max error exact symbolic: 0.0, 1.8e-15</td><td><code>b2-complementary-swap-algebra-005</code></td></tr>
+<tr id="claim-b2-complementary-swap-algebra-006"><td>ΨU(Cx)=uxp+i·urx (swap closure)</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td>max error 2.8e-14</td><td><code>b2-complementary-swap-algebra-006</code></td></tr>
+<tr id="claim-b2-complementary-swap-algebra-007"><td>FlatWave deck-blind: FW(θ+2π)=FW(θ)</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td>max error 0.0 (exact)</td><td><code>b2-complementary-swap-algebra-007</code></td></tr>
+<tr id="claim-b2-complementary-swap-algebra-008"><td>FW(θ+π/2)=−FW(θ), FW(θ+π)=FW(θ)</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td>max error 0.0 (exact)</td><td><code>b2-complementary-swap-algebra-008</code></td></tr>
+<tr id="claim-b2-riccati-differential-integral-asymptotic-001"><td>T1 envelope srx′=−srx|csc x|, sxp′=+sxp|csc x|:</td><td><a class="taglink" href="#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a></td><td>(SymPy residual 0</td><td><code>b2-riccati-differential-integral-asymptotic-001</code></td></tr>
+<tr id="claim-b2-riccati-differential-integral-asymptotic-002"><td>T2/T4 autonomous Riccati pairs:</td><td><a class="taglink" href="#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a></td><td>(exact algebra from T1 via</td><td><code>b2-riccati-differential-integral-asymptotic-002</code></td></tr>
+<tr id="claim-b2-riccati-differential-integral-asymptotic-003"><td>C1/C2 maximal-domain monotonicity:</td><td><a class="taglink" href="#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></td><td>(Riccati RHS sign-definite).</td><td><code>b2-riccati-differential-integral-asymptotic-003</code></td></tr>
+<tr id="claim-b2-riccati-differential-integral-asymptotic-004"><td>T5 arctan linearization (slopes ∓1/2):</td><td><a class="taglink" href="#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></td><td>(chain rule); numeric</td><td><code>b2-riccati-differential-integral-asymptotic-004</code></td></tr>
+<tr id="claim-b2-riccati-differential-integral-asymptotic-005"><td>C3 half-angle recovery:</td><td><a class="taglink" href="#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></td><td>(from θs=2arctan sxp,</td><td><code>b2-riccati-differential-integral-asymptotic-005</code></td></tr>
+<tr id="claim-b2-riccati-differential-integral-asymptotic-006"><td>T6 logarithmic antiderivatives:</td><td><a class="taglink" href="#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a></td><td>(SymPy: substituting the Riccati</td><td><code>b2-riccati-differential-integral-asymptotic-006</code></td></tr>
+<tr id="claim-b2-riccati-differential-integral-asymptotic-007"><td>C5 half-angle log forms:</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td>(2.4e-13).</td><td><code>b2-riccati-differential-integral-asymptotic-007</code></td></tr>
+<tr id="claim-b2-riccati-differential-integral-asymptotic-008"><td>T7/T8 seam asymptotics (2/h, h/2):</td><td><a class="taglink" href="#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></td><td>csc h±cot h equal</td><td><code>b2-riccati-differential-integral-asymptotic-008</code></td></tr>
+<tr id="claim-b2-riccati-differential-integral-asymptotic-009"><td>T9/T10 opposite-seam values (1,1) and derivatives ∓1:</td><td><a class="taglink" href="#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a></td><td>(exact</td><td><code>b2-riccati-differential-integral-asymptotic-009</code></td></tr>
+<tr id="claim-b2-riccati-differential-integral-asymptotic-010"><td>T11 logarithmic divergence / C8:</td><td><a class="taglink" href="#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></td><td>(from T6+T7).</td><td><code>b2-riccati-differential-integral-asymptotic-010</code></td></tr>
+<tr id="claim-b2-riccati-differential-integral-asymptotic-011"><td>T12 Riccati solution branches cot((x−a)/2), tan((x−a)/2):</td><td><a class="taglink" href="#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></td><td></td><td><code>b2-riccati-differential-integral-asymptotic-011</code></td></tr>
+<tr id="claim-b2-riccati-differential-integral-asymptotic-012"><td>T13 differential closure / C10:</td><td><a class="taglink" href="#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></td><td>(chains 2.VII.T7 with T2).</td><td><code>b2-riccati-differential-integral-asymptotic-012</code></td></tr>
+<tr id="claim-b2-mobius-reduction-one-generator-001"><td>L1/C1 denominator nonvanishing:</td><td><a class="taglink" href="#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a></td><td>(by inspection from the</td><td><code>b2-mobius-reduction-one-generator-001</code></td></tr>
+<tr id="claim-b2-mobius-reduction-one-generator-002"><td>T1: premise z+w=ε(zw−1)</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td>(7.3e-15); the reduction algebra to</td><td><code>b2-mobius-reduction-one-generator-002</code></td></tr>
+<tr id="claim-b2-mobius-reduction-one-generator-003"><td>T2 involution Mε(Mε(z))=z:</td><td><a class="taglink" href="#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a></td><td>(exact rational algebra with ε²=1).</td><td><code>b2-mobius-reduction-one-generator-003</code></td></tr>
+<tr id="claim-b2-mobius-reduction-one-generator-004"><td>CL1 projective matrix witness ([[1,ε],[ε,−1]]²=2I):</td><td><a class="taglink" href="#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a></td><td>(exact).</td><td><code>b2-mobius-reduction-one-generator-004</code></td></tr>
+<tr id="claim-b2-mobius-reduction-one-generator-005"><td>T3 branch preservation + dMε/dz=−2/(εz−1)²&lt;0:</td><td><a class="taglink" href="#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a></td><td>(exact quotient</td><td><code>b2-mobius-reduction-one-generator-005</code></td></tr>
+<tr id="claim-b2-mobius-reduction-one-generator-006"><td>T4 complementary reflection as Möbius:</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td>(5.7e-14; chains the</td><td><code>b2-mobius-reduction-one-generator-006</code></td></tr>
+<tr id="claim-b2-mobius-reduction-one-generator-007"><td>T5 unique positive fixed point z=√2+ε:</td><td><a class="taglink" href="#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a></td><td>(exact quadratic).</td><td><code>b2-mobius-reduction-one-generator-007</code></td></tr>
+<tr id="claim-b2-mobius-reduction-one-generator-008"><td>C5 fixed point = quadrant-midpoint value:</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td>(1.8e-15).</td><td><code>b2-mobius-reduction-one-generator-008</code></td></tr>
+<tr id="claim-b2-mobius-reduction-one-generator-009"><td>T6 ε=sgn(z−1):</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td>(0.0).</td><td><code>b2-mobius-reduction-one-generator-009</code></td></tr>
+<tr id="claim-b2-mobius-reduction-one-generator-010"><td>T7 full reconstruction formulas (urx, uxp, sawr, sawx):</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td></td><td><code>b2-mobius-reduction-one-generator-010</code></td></tr>
+<tr id="claim-b2-mobius-reduction-one-generator-011"><td>T8/T9/T10 one-generator necessity+sufficiency:</td><td><a class="taglink" href="#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></td><td>(logical chaining).</td><td><code>b2-mobius-reduction-one-generator-011</code></td></tr>
+<tr id="claim-b2-mobius-reduction-one-generator-012"><td>N1 π-periodicity (no half-turn recovery):</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td>(8.1e-13).</td><td><code>b2-mobius-reduction-one-generator-012</code></td></tr>
+<tr id="claim-b2-harmonic-carrier-extraction-001"><td>T11 carrier-from-z formulas (sin 2x, cos 2x rational in z):</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td></td><td><code>b2-harmonic-carrier-extraction-001</code></td></tr>
+<tr id="claim-b2-harmonic-carrier-extraction-002"><td>T1–T10, T12–T14, C13/C14:</td><td><a class="taglink" href="#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></td><td>elementary consequences of</td><td><code>b2-harmonic-carrier-extraction-002</code></td></tr>
+<tr id="claim-b2-complete-named-boundary-atlas-001"><td>Lemma FlatWave=sawr+sawx (used in T7):</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td>(3.6e-15).</td><td><code>b2-complete-named-boundary-atlas-001</code></td></tr>
+<tr id="claim-b2-complete-named-boundary-atlas-002"><td>T9 unified seam law ((−1)^{k−1},(−1)^k,(−1)^k/2):</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td>(k=0..3).</td><td><code>b2-complete-named-boundary-atlas-002</code></td></tr>
+<tr id="claim-b2-complete-named-boundary-atlas-003"><td>T10 split Saw endpoint exchange:</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td>(k=0..3, signs match).</td><td><code>b2-complete-named-boundary-atlas-003</code></td></tr>
+<tr id="claim-b2-complete-named-boundary-atlas-004"><td>T11 H=FlatWave·sawr·sawx: premise</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td>(1.7e-16), identity</td><td><code>b2-complete-named-boundary-atlas-004</code></td></tr>
+<tr id="claim-b2-complete-named-boundary-atlas-005"><td>T12 smooth/cusp/jump hierarchy:</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td>(|H| one-sided derivatives</td><td><code>b2-complete-named-boundary-atlas-005</code></td></tr>
+<tr id="claim-b2-complete-named-boundary-atlas-006"><td>T13/T14 split-vs-glued, T15/T16 taxonomy:</td><td><a class="taglink" href="#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></td><td>(chaining, no new</td><td><code>b2-complete-named-boundary-atlas-006</code></td></tr>
+</table>
+<h3>Book 3</h3>
+<table class="ledger">
+<tr><th>Claim</th><th>Status</th><th>Basis</th><th>ID</th></tr>
+<tr id="claim-b3-book-3-mobius-reciprocal-001"><td>Q+(t)=(1+t)/(1−t) satisfies Q+²(t)=−1/t</td><td><a class="taglink" href="#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a></td><td>exact ✓</td><td><code>b3-book-3-mobius-reciprocal-001</code></td></tr>
+<tr id="claim-b3-book-3-mobius-reciprocal-002"><td>Q+⁴ = id</td><td><a class="taglink" href="#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a></td><td>exact ✓</td><td><code>b3-book-3-mobius-reciprocal-002</code></td></tr>
+<tr id="claim-b3-book-3-mobius-reciprocal-003"><td>orbit 0→1→∞→−1→0</td><td><a class="taglink" href="#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a></td><td>exact ✓</td><td><code>b3-book-3-mobius-reciprocal-003</code></td></tr>
+<tr id="claim-b3-book-3-mobius-reciprocal-004"><td>f(u)=√(1+u²)−u has inverse u=(1−s²)/(2s)</td><td><a class="taglink" href="#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a></td><td>exact ✓</td><td><code>b3-book-3-mobius-reciprocal-004</code></td></tr>
+<tr id="claim-b3-book-3-mobius-reciprocal-005"><td>f(u)·f(−u)=1</td><td><a class="taglink" href="#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a></td><td>exact ✓</td><td><code>b3-book-3-mobius-reciprocal-005</code></td></tr>
+<tr id="claim-b3-book-3-projective-phase-001"><td>w1(T RP^n) = (n+1)·an; RP^n orientable iff n odd.</td><td><a class="taglink" href="#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">standard imported theorem</span></a></td><td></td><td><code>b3-book-3-projective-phase-001</code></td></tr>
+<tr id="claim-b3-projective-transition-maps-on-001"><td>T1 cyclic product uXY·uYZ·uZX=1:</td><td><a class="taglink" href="#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a></td><td>(exact: (Y/X)(Z/Y)(X/Z)=1).</td><td><code>b3-projective-transition-maps-on-001</code></td></tr>
+<tr id="claim-b3-projective-transition-maps-on-002"><td>T2 two signed ratios complete:</td><td><a class="taglink" href="#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></td><td>(the pair (Y/X,Z/X) is the affine</td><td><code>b3-projective-transition-maps-on-002</code></td></tr>
+<tr id="claim-b3-projective-transition-maps-on-003"><td>T5/C3 four allowed sign triples:</td><td><a class="taglink" href="#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a></td><td>(exact enumeration: product +1</td><td><code>b3-projective-transition-maps-on-003</code></td></tr>
+<tr id="claim-b3-projective-transition-maps-on-004"><td>T7 reciprocal chart bijection:</td><td><a class="taglink" href="#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></td><td>(f:ℝ→(0,∞) bijective per 3.IV,</td><td><code>b3-projective-transition-maps-on-004</code></td></tr>
+<tr id="claim-b3-projective-transition-maps-on-005"><td>T8–T10 pairwise transitions:</td><td><a class="taglink" href="#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a></td><td>(exact one-line rational algebra).</td><td><code>b3-projective-transition-maps-on-005</code></td></tr>
+<tr id="claim-b3-projective-transition-maps-on-006"><td>T11 triple-overlap consistency TZX∘TYZ∘TXY=id:</td><td><a class="taglink" href="#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a></td><td>(SymPy:</td><td><code>b3-projective-transition-maps-on-006</code></td></tr>
+<tr id="claim-b3-projective-transition-maps-on-007"><td>T12 reciprocal transition = F-conjugated projective transition:</td><td><a class="taglink" href="#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></td><td></td><td><code>b3-projective-transition-maps-on-007</code></td></tr>
+<tr id="claim-b3-projective-transition-maps-on-008"><td>T13 denominator exchange ≠ reciprocal conjugation:</td><td><a class="taglink" href="#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></td><td></td><td><code>b3-projective-transition-maps-on-008</code></td></tr>
+<tr id="claim-b3-projective-transition-maps-on-009"><td>T14/C8/T15/C9 unit-threshold regularity:</td><td><a class="taglink" href="#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></td><td>(σIJ=1⟺uIJ=0 by</td><td><code>b3-projective-transition-maps-on-009</code></td></tr>
+<tr id="claim-b3-tautological-bundle-signs-and-001"><td>T1 frame transition scalars eY=(X/Y)eX:</td><td><a class="taglink" href="#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a></td><td>(exact).</td><td><code>b3-tautological-bundle-signs-and-001</code></td></tr>
+<tr id="claim-b3-tautological-bundle-signs-and-002"><td>T2 sign reciprocity ζJI=ζIJ:</td><td><a class="taglink" href="#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></td><td>(g and 1/g share sign).</td><td><code>b3-tautological-bundle-signs-and-002</code></td></tr>
+<tr id="claim-b3-tautological-bundle-signs-and-003"><td>T3 Čech cocycle ζZY·ζYX=ζZX (equivalently ζXY·ζYZ·ζZX=+1):</td><td><a class="taglink" href="#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></td><td></td><td><code>b3-tautological-bundle-signs-and-003</code></td></tr>
+<tr id="claim-b3-tautological-bundle-signs-and-004"><td>C2 V4 pattern = sign part of transition system:</td><td><a class="taglink" href="#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a></td><td>(exact).</td><td><code>b3-tautological-bundle-signs-and-004</code></td></tr>
+<tr id="claim-b3-tautological-bundle-signs-and-005"><td>T4 sign cocycle represents w1(γ):</td><td><a class="taglink" href="#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">standard imported theorem</span></a></td><td>(explicitly marked Standard</td><td><code>b3-tautological-bundle-signs-and-005</code></td></tr>
+<tr id="claim-b3-tautological-bundle-signs-and-006"><td>T5 ρ bijective projective phase representation:</td><td><a class="taglink" href="#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a></td><td>(exact).</td><td><code>b3-tautological-bundle-signs-and-006</code></td></tr>
+<tr id="claim-b3-tautological-bundle-signs-and-007"><td>T6 monodromy v(x+2π)=−v(x):</td><td><a class="taglink" href="#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a></td><td>(exact); the nontriviality</td><td><code>b3-tautological-bundle-signs-and-007</code></td></tr>
+<tr id="claim-b3-tautological-bundle-signs-and-008"><td>T7 pullback sign ρζYX=sgn(tan(x/2)):</td><td><a class="taglink" href="#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a></td><td>(exact substitution).</td><td><code>b3-tautological-bundle-signs-and-008</code></td></tr>
+<tr id="claim-b3-tautological-bundle-signs-and-009"><td>T8 FlatWave=sgn[t(1−t²)] vs ρζYX=sgn(t):</td><td><a class="taglink" href="#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a></td><td>(via 3.V.T8&#x27;s exact</td><td><code>b3-tautological-bundle-signs-and-009</code></td></tr>
+<tr id="claim-b3-tautological-bundle-signs-and-010"><td>C6 agreement iff |t|&lt;1:</td><td><a class="taglink" href="#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a></td><td>(exact: differ by the factor</td><td><code>b3-tautological-bundle-signs-and-010</code></td></tr>
+<tr id="claim-b3-tautological-bundle-signs-and-011"><td>T10 monodromy obstruction (−1 vs +1):</td><td><a class="taglink" href="#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></td><td>(tautological lift sign</td><td><code>b3-tautological-bundle-signs-and-011</code></td></tr>
+<tr id="claim-b3-tautological-bundle-signs-and-012"><td>T9/C7/T11/N1 (FlatWave≠w1(γ) type separation):</td><td><a class="taglink" href="#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">manuscript assertion</span></a></td><td>the</td><td><code>b3-tautological-bundle-signs-and-012</code></td></tr>
+</table>
+<h3>Book 4</h3>
+<table class="ledger">
+<tr><th>Claim</th><th>Status</th><th>Basis</th><th>ID</th></tr>
+<tr id="claim-b4-book-4-5-spot-001"><td>G2⁻¹ = (1/r²)[[4/3,−2/3],[−2/3,4/3]]</td><td><a class="taglink" href="#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a></td><td>exact ✓</td><td><code>b4-book-4-5-spot-001</code></td></tr>
+<tr id="claim-b4-book-4-5-spot-002"><td>G3⁻¹ = (1/r²)[[3/2,−1/2,−1/2],…]</td><td><a class="taglink" href="#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a></td><td>exact ✓</td><td><code>b4-book-4-5-spot-002</code></td></tr>
+<tr id="claim-b4-book-4-5-spot-003"><td>tetrahedral volume = √(det G3) = r³/√2</td><td><a class="taglink" href="#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a></td><td>exact ✓</td><td><code>b4-book-4-5-spot-003</code></td></tr>
+</table>
+<h3>Book 5</h3>
+<table class="ledger">
+<tr><th>Claim</th><th>Status</th><th>Basis</th><th>ID</th></tr>
+<tr id="claim-b5-book-5-axiom-zero-001"><td>2n = n(n−1)/2 ⟺ n=5 (positive integer):</td><td><a class="taglink" href="#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></td><td>(independent) by</td><td><code>b5-book-5-axiom-zero-001</code></td></tr>
+<tr id="claim-b5-book-4-5-spot-001"><td>Iι² = −I₁₀ for Iι(u,v)=(−ι⁻¹v,ιu)</td><td><a class="taglink" href="#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">completed symbolic check</span></a></td><td>exact ✓</td><td><code>b5-book-4-5-spot-001</code></td></tr>
+</table>
+<h3>Book 6</h3>
+<table class="ledger">
+<tr><th>Claim</th><th>Status</th><th>Basis</th><th>ID</th></tr>
+<tr id="claim-b6-modules-25-numpy-scipy-001"><td>M2: 16 gamma matrices, each 256×256.</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td></td><td><code>b6-modules-25-numpy-scipy-001</code></td></tr>
+<tr id="claim-b6-modules-25-numpy-scipy-002"><td>M4: chirality ranks 128, 128; P orthonormality error 0.0.</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td></td><td><code>b6-modules-25-numpy-scipy-002</code></td></tr>
+<tr id="claim-b6-modules-25-numpy-scipy-003"><td>M5: ChargeConjugationOK=true.</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td></td><td><code>b6-modules-25-numpy-scipy-003</code></td></tr>
+<tr id="claim-b6-modules-712-casimir-decomposition-001"><td>M7: symmetric basis size 8256 = expected 8256.</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td></td><td><code>b6-modules-712-casimir-decomposition-001</code></td></tr>
+<tr id="claim-b6-corrected-casimir-c-m-001"><td>First run returned {0:1, 48:1820, 64:6307, 128:128} —</td><td><a class="taglink" href="#tag-IC" title="Status key: incorrect result"><span class="tag IC">incorrect result</span></a></td><td>because</td><td><code>b6-corrected-casimir-c-m-001</code></td></tr>
+<tr id="claim-b6-corrected-module-6-construction-001"><td>Generators are anti-Hermitian: max |A + A†| = 0.0 (</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td>); they are</td><td><code>b6-corrected-module-6-construction-001</code></td></tr>
+<tr id="claim-b6-book-6-local-symmetry-001"><td>C(n,4)=n has unique integer solution n=5 for n≥4:</td><td><a class="taglink" href="#tag-CP" title="Status key: checked proof"><span class="tag CP">checked proof</span></a></td><td>(independent) .</td><td><code>b6-book-6-local-symmetry-001</code></td></tr>
+<tr id="claim-b6-book-6-local-symmetry-002"><td>Regular-simplex Gram spectrum/determinant (see §5 above):</td><td><a class="taglink" href="#tag-NC" title="Status key: completed numerical check"><span class="tag NC">completed numerical check</span></a></td><td>(numeric) .</td><td><code>b6-book-6-local-symmetry-002</code></td></tr>
+</table>
+
+<hr>
+<!-- STATUSREG-START -->
+<p class="updated">Registry: <code>status_registry.json</code> in the site repo.
+Proof workflow: update the audit ledger, run <code>python3 sync_status.py all</code>,
+rebuild <code>site-dist</code>, deploy.</p>
+<!-- STATUSREG-END -->
+<!-- COMMENTS-START -->
+<style>
+.rth-comments{font-family:Georgia,serif;max-width:860px;margin:2.5em auto 1em;
+ padding:1.2em 1.4em;background:linear-gradient(180deg,#fbfbf9,#f0f0eb);
+ border:1px solid #0f4c5c;border-radius:8px;box-shadow:0 2px 8px rgba(13,59,108,.15);
+ line-height:1.6;color:#1a1a1a}
+.rth-comments h2{margin:0 0 .2em;font-size:1.25em;color:#0d3b6c;
+ border-bottom:2px solid #1b5faa;padding-bottom:.3em}
+.rth-comments-on{font-size:.9em;color:#555;margin:.4em 0 1em}
+.rth-comments-on span{font-weight:bold;color:#1a1a1a}
+.rth-comments-list{margin:0 0 1em}
+.rth-comments-loading,.rth-comments-empty,.rth-comments-note{color:#777;font-style:italic}
+.rth-comment{border-top:1px dotted #ccc;padding:.6em 0}
+.rth-comment-head{font-size:.9em;color:#444}
+.rth-comment-date{color:#888}
+.rth-comment-body{white-space:pre-wrap;margin:.3em 0 .6em;overflow-wrap:break-word}
+.rth-comment-form{display:flex;flex-direction:column;gap:.6em;margin-top:1em}
+.rth-comment-name,.rth-comment-body-input{font-family:Georgia,serif;font-size:1em;
+ padding:.5em .7em;border:1px solid #999;border-radius:4px;background:#fff;
+ color:#1a1a1a;width:100%;box-sizing:border-box}
+.rth-comment-form button{align-self:flex-start;font-family:Georgia,serif;font-size:1em;
+ padding:.5em 1.4em;color:#fff;background:linear-gradient(180deg,#2a7ab8,#0d3b6c);
+ border:1px solid #0d3b6c;border-radius:5px;cursor:pointer}
+.rth-comment-form button:hover{filter:brightness(1.12)}
+.rth-comment-status{min-height:1.2em;font-size:.9em;color:#0d3b6c;margin:0}
+.rth-comment-error{color:#a00}
+.rth-comments-forum{margin:1em 0 0;font-size:.95em}
+.rth-comments-forum a{color:#1b5faa;text-decoration:none}
+.rth-comments-forum a:hover{text-decoration:underline}
+.rth-comments-login{font-size:.95em}
+.rth-comments-login a{color:#1b5faa}
+</style>
+<section class="rth-comments" id="comments" aria-label="Comments">
+<h2>Comments</h2>
+<p class="rth-comments-on">Commenting on: <span id="comment-page-title"></span></p>
+<div class="rth-comments-list" id="comments-list"><p class="rth-comments-loading">Loading&#8230;</p></div>
+<form class="rth-comment-form" id="rth-comment-form">
+<input id="comment-name" class="rth-comment-name" placeholder="Display name (optional)" maxlength="60" autocomplete="nickname">
+<textarea id="comment-body" class="rth-comment-body-input" rows="4" placeholder="Write a comment&#8230;" required maxlength="5000"></textarea>
+<button type="submit">Post comment</button>
+<p class="rth-comment-status" role="status"></p>
+</form>
+<p class="rth-comments-forum" hidden><a id="comments-forum-link" href="#">Continue the discussion in the forum &#8594;</a></p>
+</section>
+<script>
+(function(){
+"use strict";
+var section=document.getElementById("comments");
+if(!section)return;
+/* Page slug, mount-agnostic: last path segment, "index" for site roots. */
+var segs=location.pathname.replace(/\/+$/,"").split("/").filter(function(s){return s.length;});
+var slug=segs.length?segs[segs.length-1]:"index";
+if(slug==="r-theory"||slug==="r-theory-rewrite")slug="index";
+var mode="login",csrfToken="";
+var listEl=document.getElementById("comments-list");
+var formEl=document.getElementById("rth-comment-form");
+var nameEl=document.getElementById("comment-name");
+var bodyEl=document.getElementById("comment-body");
+var statusEl=section.querySelector(".rth-comment-status");
+var forumLink=document.getElementById("comments-forum-link");
+var titleEl=document.getElementById("comment-page-title");
+if(titleEl)titleEl.textContent=document.title;
+function setStatus(msg,isError){
+  if(!statusEl)return;
+  statusEl.textContent=msg||"";
+  statusEl.className="rth-comment-status"+(isError?" rth-comment-error":"");
+}
+function fmtDate(iso){
+  try{return new Date(iso).toLocaleString();}
+  catch(e){return iso||"";}
+}
+function renderPost(p){
+  var wrap=document.createElement("article");
+  wrap.className="rth-comment";
+  var head=document.createElement("div");
+  head.className="rth-comment-head";
+  var who=document.createElement("strong");
+  who.textContent=p.guest_name?(p.guest_name+" (guest)"):(p.author||"Anonymous");
+  head.appendChild(who);
+  var when=document.createElement("span");
+  when.className="rth-comment-date";
+  when.textContent=" — "+fmtDate(p.created_at);
+  head.appendChild(when);
+  var body=document.createElement("div");
+  body.className="rth-comment-body";
+  body.textContent=p.body||"";
+  wrap.appendChild(head);
+  wrap.appendChild(body);
+  return wrap;
+}
+function renderPosts(posts){
+  listEl.textContent="";
+  if(!posts||!posts.length){
+    var none=document.createElement("p");
+    none.className="rth-comments-empty";
+    none.textContent="No comments yet — start the discussion.";
+    listEl.appendChild(none);
+    return;
+  }
+  posts.forEach(function(p){listEl.appendChild(renderPost(p));});
+}
+function setForumLink(thread){
+  if(!forumLink||!thread)return;
+  forumLink.href=thread.url||("/app/thread/"+thread.id);
+  var p=forumLink.parentElement;
+  if(p&&p.hasAttribute("hidden"))p.removeAttribute("hidden");
+}
+function showLoginPrompt(){
+  formEl.style.display="none";
+  if(section.querySelector(".rth-comments-login"))return;
+  var p=document.createElement("p");
+  p.className="rth-comments-login";
+  var a=document.createElement("a");
+  a.href="/app/login";
+  a.textContent="Log in to the forum";
+  p.appendChild(a);
+  p.appendChild(document.createTextNode(" to comment."));
+  formEl.parentNode.insertBefore(p,formEl);
+}
+/* Graceful degradation: no /app on this host (e.g. GitHub Pages copy). */
+function degrade(){
+  listEl.textContent="";
+  var note=document.createElement("p");
+  note.className="rth-comments-note";
+  note.textContent="Comments are available on the Lampy-hosted copy of this site.";
+  listEl.appendChild(note);
+  formEl.style.display="none";
+  var fp=forumLink?forumLink.parentElement:null;
+  if(fp)fp.style.display="none";
+}
+fetch("/app/api/comments?page="+encodeURIComponent(slug),{credentials:"same-origin"})
+.then(function(resp){if(!resp.ok)throw new Error("http "+resp.status);return resp.json();})
+.then(function(data){
+  mode=data.mode||"login";
+  csrfToken=data.csrf_token||"";
+  if(mode==="guest"){nameEl.style.display="";}
+  else{nameEl.style.display="none";if(!data.logged_in)showLoginPrompt();}
+  renderPosts(data.posts);
+  if(data.thread)setForumLink(data.thread);
+})
+.catch(function(){degrade();});
+formEl.addEventListener("submit",function(ev){
+  ev.preventDefault();
+  var body=bodyEl.value.trim();
+  if(!body){setStatus("Please write a comment first.",true);return;}
+  var payload={page:slug,page_title:document.title,body:body};
+  if(mode==="guest"){var nm=nameEl.value.trim();if(nm)payload.name=nm;}
+  setStatus("Posting…");
+  fetch("/app/api/comments",{
+    method:"POST",
+    headers:{"Content-Type":"application/json","X-CSRF-Token":csrfToken},
+    body:JSON.stringify(payload),
+    credentials:"same-origin"
+  }).then(function(resp){
+    if(resp.status===401){showLoginPrompt();setStatus("Please log in to comment.",true);return null;}
+    if(resp.status===429){setStatus("Too many comments — please wait a bit and try again.",true);return null;}
+    if(resp.status===400){return resp.json().then(function(d){
+      setStatus((d&&d.error)||"Could not post the comment.",true);return null;},
+      function(){setStatus("Could not post the comment.",true);return null;});}
+    if(!resp.ok){setStatus("Could not post the comment. Please try again.",true);return null;}
+    return resp.json();
+  }).then(function(data){
+    if(!data)return;
+    var empty=listEl.querySelector(".rth-comments-empty");
+    if(empty)empty.remove();
+    var post=data.post||data;
+    listEl.insertBefore(renderPost(post),listEl.firstChild);
+    bodyEl.value="";
+    if(nameEl)nameEl.value="";
+    setStatus("Comment posted.");
+    if(data.thread)setForumLink(data.thread);
+  }).catch(function(){setStatus("Could not post the comment. Please try again.",true);});
+});
+})();
+</script>
+<!-- COMMENTS-END -->
+<!-- FOOTER-START -->
+<footer class="rth-footer" id="rth-footer">
+<style>
+.rth-footer{max-width:860px;margin:2.5em auto 1.5em;padding:1em 1.2em 0;
+ border-top:1px solid #ddd;text-align:center;font-family:Georgia,serif;
+ font-size:.92em;color:#555}
+.rth-footer a{color:#1b5faa;text-decoration:none;margin:0 .8em}
+.rth-footer a:hover{text-decoration:underline}
+.rth-footer .rth-footer-sep{color:#aaa}
+</style>
+<a href="https://www.facebook.com/profile.php?id=61594635330402" target="_blank" rel="noopener">Contact us</a><span class="rth-footer-sep" id="rth-footer-sep">&middot;</span><a href="/app/register" id="rth-forum-signup">Sign up for the forum</a>
+<script>
+(function(){
+  // Hide the forum sign-up link where the forum isn't reachable
+  // (e.g. the GitHub Pages copy); the Contact-us link always stays.
+  var link=document.getElementById('rth-forum-signup');
+  var sep=document.getElementById('rth-footer-sep');
+  if(!link) return;
+  try{
+    var ctl=new AbortController();
+    var t=setTimeout(function(){ctl.abort();},6000);
+    fetch('/app/api/comments?page=index',{signal:ctl.signal}).then(function(r){
+      clearTimeout(t);
+      if(!r.ok) throw 0;
+    }).catch(function(){
+      link.style.display='none';
+      if(sep) sep.style.display='none';
+    });
+  }catch(e){
+    link.style.display='none';
+    if(sep) sep.style.display='none';
+  }
+})();
+</script>
+</footer>
+<!-- FOOTER-END -->
+</body>
+</html>

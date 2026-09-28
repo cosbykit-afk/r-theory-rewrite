@@ -125,6 +125,13 @@ a.booknav-panel.booknav-handoff:hover{border-color:#b85f1d;
  box-shadow:inset 0 1px 0 #ffffff,0 4px 12px rgba(184,95,29,.22)}
 </style>
 <!-- BOOKNAV-CSS-END -->
+<!-- TAGLINK-CSS-START -->
+<style>
+a.taglink{text-decoration:none}
+a.taglink:hover .tag{filter:brightness(.94)}
+a.taglink:focus-visible{outline:3px solid #0e7c86;outline-offset:2px;border-radius:4px}
+</style>
+<!-- TAGLINK-CSS-END -->
 </head>
 <body>
 <!-- SITENAV-NAV-START -->
@@ -181,10 +188,10 @@ a.booknav-panel.booknav-handoff:hover{border-color:#b85f1d;
 <h1>Book 13 — Thermodynamics, Information, and the Arrow of Time</h1>
 <p><i>A restructured rewrite of Book 13 of R Theory — Volume II, plus the Volume II closure.
 Pictures and intuition first; the formal audit second. Every claim carries exactly one status:
-<span class="tag CP">CP</span> checked proof, <span class="tag SC">SC</span> completed symbolic check,
-<span class="tag NC">NC</span> completed numerical check, <span class="tag ST">ST</span> standard imported theorem,
-<span class="tag MA">MA</span> <span class="tag niv">not independently verified</span> manuscript assertion, <span class="tag AX">AX</span> assumption or axiom,
-<span class="tag IN">IN</span> incomplete or failed computation, <span class="tag IC">IC</span> incorrect result.
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> checked proof, <a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">SC</span></a> completed symbolic check,
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> completed numerical check, <a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">ST</span></a> standard imported theorem,
+<a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> <span class="tag niv">not independently verified</span> manuscript assertion, <a class="taglink" href="../ledger/#tag-AX" title="Status key: assumption or axiom"><span class="tag AX">AX</span></a> assumption or axiom,
+<a class="taglink" href="../ledger/#tag-IN" title="Status key: incomplete or failed computation"><span class="tag IN">IN</span></a> incomplete or failed computation, <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a> incorrect result.
 A sampled numerical agreement (~1e-10) is a completed numerical check, never a proof.</i></p>
 <div class="toc">
 <p><b>Contents.</b> <a href="#p1">I. See it first</a> · <a href="#p2">II. Then earn it</a> ·
@@ -209,19 +216,19 @@ a static rendering appears instead, generated from the same formulas.</p>
 runs monotonically from 0 to 1, crossing 1/2 exactly at <span class="formula">x = π/4</span>; the second curve is
 <span class="formula">1−λ</span>. This is the only chart on which the Bernoulli statistical contract
 (<span class="formula">0&lt;λ&lt;1</span>) can be declared — off this quadrant λ leaves (0,1).
-<span class="tag NC">NC</span> <b>What it doesn't show.</b> Nothing here is yet a probability; λ becomes a
-Bernoulli parameter only after the statistical contract of §13.II is supplied. <span class="tag MA">MA</span> <span class="tag niv">not independently verified</span></div>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> <b>What it doesn't show.</b> Nothing here is yet a probability; λ becomes a
+Bernoulli parameter only after the statistical contract of §13.II is supplied. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> <span class="tag niv">not independently verified</span></div>
 
 <h3 id="figure-2-reciprocal-access">Figure 2 — Reciprocal access</h3>
 <div class="graph" id="d2"></div>
 <img class="fallback" id="f2" src="graphs/g2_reciprocal.png" alt="urx=1/lambda and uxp=1/(1-lambda)">
 <div class="caption"><b>What you see.</b> On the admissible quadrant (ε = sgn(sin 2x) = +1)
 <span class="formula">urx = 1/λ</span> and <span class="formula">uxp = 1/(1−λ)</span>: the two reciprocal
-channels are the two reciprocal probability coordinates. <span class="tag NC">NC</span> (verified against the
+channels are the two reciprocal probability coordinates. <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> (verified against the
 certified Book 2 sum/product identities at 2×10⁴ points, max error &lt; 1e-10).
 <b>What it doesn't show.</b> Off admissible charts the book's formulas need the constructible ratio
 ε/urx, which is quarter-turn invariant while canonical λ is not — a notational ambiguity flagged in the audit.
-<span class="tag IC">IC</span> (for the book's "λ is quarter-turn invariant" as stated under canonical notation).</div>
+<a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a> (for the book's "λ is quarter-turn invariant" as stated under canonical notation).</div>
 
 <h3 id="figure-3-binary-entropy-and-the-response-kernel-h">Figure 3 — Binary entropy and the response kernel |H|</h3>
 <div class="graph" id="d3"></div>
@@ -229,8 +236,8 @@ certified Book 2 sum/product identities at 2×10⁴ points, max error &lt; 1e-10
 <div class="caption"><b>What you see.</b> The Bernoulli entropy <span class="formula">S<sub>sys</sub>/k<sub>B</sub> = −[λ ln λ + (1−λ) ln(1−λ)]</span>
 (blue, peak ln 2 at λ=1/2) and the response kernel <span class="formula">|H| = λ(1−λ)</span> (green, peak 1/4).
 |H| fixes the entropy level; the sign of H records orientation and the entropy is blind to it.
-<span class="tag NC">NC</span> <b>What it doesn't show.</b> That |H| later controls energy variance and heat capacity
-needs the Gibbs contract (§13.III) — the curve alone proves no thermodynamics. <span class="tag MA">MA</span> <span class="tag niv">not independently verified</span></div>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> <b>What it doesn't show.</b> That |H| later controls energy variance and heat capacity
+needs the Gibbs contract (§13.III) — the curve alone proves no thermodynamics. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> <span class="tag niv">not independently verified</span></div>
 
 <h3 id="figure-4-the-convex-generator-a-v">Figure 4 — The convex generator A(v)</h3>
 <div class="graph" id="d4"></div>
@@ -239,18 +246,18 @@ needs the Gibbs contract (§13.III) — the curve alone proves no thermodynamics
 its derivative <span class="formula">λ(v) = e<sup>v</sup>/(1+e<sup>v</sup>)</span>, and
 <span class="formula">A′′(v) = λ(1−λ) = |H|</span>: one convex function generates the whole Bernoulli
 exponential family — log-odds, KL divergence (its Bregman divergence), Fisher information, Legendre duality.
-<span class="tag NC">NC</span> <b>What it doesn't show.</b> The identification of these objects with
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> <b>What it doesn't show.</b> The identification of these objects with
 "the" information geometry of Projection is the content of Theorem 13.II.T1, proved in Part II.
-<span class="tag CP">CP</span></div>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></div>
 
 <h3 id="figure-5-fisher-angle-compactification">Figure 5 — Fisher-angle compactification</h3>
 <div class="graph" id="d5"></div>
 <img class="fallback" id="f5" src="graphs/g5_fisherangle.png" alt="Fisher angle versus v">
 <div class="caption"><b>What you see.</b> <span class="formula">φ<sub>F</sub>(v) = 2 arctan(e<sup>v/2</sup>) = 2 arcsin(√λ)</span>
 compresses the whole real log-odds line into the finite interval (0, π); its speed satisfies
-<span class="formula">|H|·v̇² = φ̇<sub>F</sub>²</span>. <span class="tag NC">NC</span>
+<span class="formula">|H|·v̇² = φ̇<sub>F</sub>²</span>. <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a>
 <b>What it doesn't show.</b> Constant Fisher speed minimizing slow-driving dissipation is a standard
-thermodynamic-geometry result imported in §13.IV, not derived here. <span class="tag ST">ST</span></div>
+thermodynamic-geometry result imported in §13.IV, not derived here. <a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">ST</span></a></div>
 
 <h3 id="figure-6-the-canonical-bridge-schottky-heat-capacity">Figure 6 — The canonical bridge: Schottky heat capacity</h3>
 <div class="graph" id="d6"></div>
@@ -258,9 +265,9 @@ thermodynamic-geometry result imported in §13.IV, not derived here. <span class
 <div class="caption"><b>What you see.</b> After the two-level Gibbs contract (equal multiplicities),
 <span class="formula">λ(T)</span> (dashed) and the heat capacity <span class="formula">C/k<sub>B</sub> = (βΔ)²|H|</span>
 (red, Schottky peak near kT/Δ ≈ 0.42) — the same |H| now measures thermal response.
-<span class="tag NC">NC</span> <b>What it doesn't show.</b> Temperature enters only through the imported energy
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> <b>What it doesn't show.</b> Temperature enters only through the imported energy
 gap Δ and bath; λ alone fixes βΔ, never T and Δ separately (the identifiability obstruction, Thm 13.III.T1).
-<span class="tag CP">CP</span></div>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></div>
 
 <h3 id="figure-7-two-ended-entropy-no-endpoint-is-picked-out">Figure 7 — Two-ended entropy: no endpoint is picked out</h3>
 <div class="graph" id="d7"></div>
@@ -268,10 +275,10 @@ gap Δ and bath; λ alone fixes βΔ, never T and Δ separately (the identifiabi
 <div class="caption"><b>What you see.</b> <span class="formula">S<sub>sys</sub>(x)</span> on the principal quadrant:
 zero at both ends, maximal at the midpoint, exactly symmetric about π/4. Neither end can be identified as
 "the past" from the entropy function. This is the entire mathematical content behind the retirement of a
-universal Time=ΔEntropy identity. <span class="tag CP">CP</span> (Thm 13.VII.T1).
+universal Time=ΔEntropy identity. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> (Thm 13.VII.T1).
 <b>What it doesn't show.</b> A genuine thermodynamic arrow needs histories, not states — §13.VII moves to
 path space, where irreversibility is defined by forward/reversed trajectory ensembles under an explicit
-reversal contract. <span class="tag ST">ST</span></div>
+reversal contract. <a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">ST</span></a></div>
 
 <hr>
 <h2 id="p2">Part II — Then earn it</h2>
@@ -284,22 +291,22 @@ checks ≤ 4e-9 absolute on values up to ~1e3; no timeouts.</p>
 <h3 id="13-i-reciprocal-access-and-the-bernoulli-statistical-state">13.I — Reciprocal access and the Bernoulli statistical state</h3>
 <p>On admissible charts (ε=+1) the reciprocal-access relations <span class="formula">urx = ε/λ, uxp = ε/(1−λ)</span>
 hold with canonical λ, verified against the certified Book 2 sum/product identities (which-is-which pinned:
-urx = 1/λ, not the swap). <span class="tag NC">NC</span> The identity
-<span class="formula">λ(1−λ) = sin(2x)/4 = H</span> holds signed, exactly. <span class="tag CP">CP</span>
+urx = 1/λ, not the swap). <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> The identity
+<span class="formula">λ(1−λ) = sin(2x)/4 = H</span> holds signed, exactly. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 The positive square-root state <span class="formula">Ψ<sub>stat</sub> = (√λ, √(1−λ))</span> is the canonical
 square-root embedding of a Bernoulli distribution <i>after</i> the statistical contract — it adds no quantum
-phase or coherence. <span class="tag MA">MA</span> <span class="tag niv">not independently verified</span> (status declaration, correctly labeled as contract-dependent).</p>
+phase or coherence. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> <span class="tag niv">not independently verified</span> (status declaration, correctly labeled as contract-dependent).</p>
 <p><b>Textual defect (source).</b> The sentence "with 00 as h-&gt;0 and S<sub>sys</sub>=k<sub>B</sub> ln 2 at h=1/4"
 is garbled as printed: the variable <span class="formula">h</span> is undefined (canonical notation uses
 <span class="formula">H</span>) and "00" is not a constraint. Recovered intent —
 <span class="formula">S<sub>sys</sub> → 0</span> as <span class="formula">|H| → 0</span>,
 <span class="formula">S<sub>sys</sub> = k<sub>B</sub> ln 2</span> at <span class="formula">|H| = 1/4</span> — is true.
-<span class="tag NC">NC</span> (for the recovered mathematics; the printed sentence itself is defective).</p>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> (for the recovered mathematics; the printed sentence itself is defective).</p>
 <p><b>Dependency note.</b> "The book begins from the already-certified reciprocal state": the reciprocal
 identities (urx+uxp, urx·uxp, FlatWave) are ledger-PROVED (Book 2 spine). But the Volume I audit found the
 "certified transfer coordinate λ" label defective in 2.XI.L9 (λ is constructible as ε/urx, but "certified" was
 never earned). Book 13 uses λ as a <i>defined</i> coordinate (saw_r) on admissible charts, which is legitimate;
-any reading that leans on λ's upstream <i>certification</i> inherits that defect. <span class="tag MA">MA</span> <span class="tag niv">not independently verified</span></p>
+any reading that leans on λ's upstream <i>certification</i> inherits that defect. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> <span class="tag niv">not independently verified</span></p>
 <h3 id="13-ii-statistical-closure-conditional-theorem-13-ii-t1">13.II — Statistical closure (Conditional Theorem 13.II.T1)</h3>
 <p>Every step of the proof was verified: <span class="formula">A′(v) = λ</span>,
 <span class="formula">A′′(v) = λ(1−λ) = |H|</span> (on admissible charts),
@@ -307,10 +314,10 @@ any reading that leans on λ's upstream <i>certification</i> inherits that defec
 <span class="formula">λv − A(v) = λ ln λ + (1−λ)ln(1−λ) = −S<sub>sys</sub>/k<sub>B</sub></span>,
 KL = Bregman divergence of A, Fisher metric = A′′, and
 <span class="formula">φ<sub>F</sub>(v) = 2 arctan(e<sup>v/2</sup>)</span> with
-<span class="formula">dφ<sub>F</sub>/dv = √A′′</span>, range (0, π). <span class="tag NC">NC</span>
+<span class="formula">dφ<sub>F</sub>/dv = √A′′</span>, range (0, π). <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a>
 The framing — that these are all one Bernoulli exponential family — is standard exponential-family
-mathematics. <span class="tag ST">ST</span> Theorem as stated (conditional on the Bernoulli contract):
-<span class="tag CP">CP</span></p>
+mathematics. <a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">ST</span></a> Theorem as stated (conditional on the Bernoulli contract):
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></p>
 
 <h3 id="13-iii-canonical-thermodynamic-bridge">13.III — Canonical thermodynamic bridge</h3>
 <p>The Gibbs contract is an explicit physics import: two levels with energies, multiplicities, gap Δ, canonical
@@ -324,20 +331,20 @@ maximal at λ<sub>∞</sub> with value <span class="formula">k<sub>B</sub> ln(g<
 in the E<sub>r</sub>=0 gauge, <span class="formula">Var(E) = Δ²|H|</span>,
 <span class="formula">C = k<sub>B</sub>(βΔ)²|H|</span>, <span class="formula">dλ/dv = |H| = I<sub>v</sub></span>,
 and the 21-cm spin-temperature re-expression <span class="formula">T<sub>s</sub> = T<sub>*</sub>/(v + ln 3)</span>.
-<span class="tag NC">NC</span> The Boltzmann/Gibbs relations themselves are standard. <span class="tag ST">ST</span></p>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> The Boltzmann/Gibbs relations themselves are standard. <a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">ST</span></a></p>
 <p><b>Conditional Theorem 13.III.T1</b> (temperature identifiability obstruction): one scalar equation
 <span class="formula">βΔ = v − ln(g<sub>r</sub>/g<sub>x</sub>)</span> in two unknowns fixes only the product;
 absolute temperature needs an independent gap or calibration. Complete elementary argument.
-<span class="tag CP">CP</span></p>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></p>
 <p><b>Conditional Theorem 13.III.T2</b> (response kernel): |H| is the common dimensionless kernel of probability
 susceptibility, energy variance, entropy response, Fisher information, and heat capacity — the dimensional
 meaning enters only through the imported scale, temperature, and ensemble. Proof steps verified.
-<span class="tag CP">CP</span></p>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></p>
 <p><b>Imprecision (source).</b> "For equal multiplicity, |urx| is therefore exactly the canonical partition
 function in this energy gauge." The book's own derivation gives <span class="formula">Z = g<sub>r</sub>|urx|</span>,
 hence <span class="formula">|urx| = Z/g<sub>r</sub></span>. With equal multiplicities g<sub>r</sub>=g<sub>x</sub>=2,
 |urx| = Z/2 ≠ Z (verified). "Exactly the partition function" requires the <i>nondegenerate</i> lower level
-g<sub>r</sub>=1, not merely equal multiplicities. As stated: <span class="tag IC">IC</span></p>
+g<sub>r</sub>=1, not merely equal multiplicities. As stated: <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></p>
 
 <h3 id="13-iv-detailed-balance-free-energy-slow-driving">13.IV — Detailed balance, free energy, slow driving</h3>
 <p>The two-state continuous-time Markov contract (rates k<sub>±</sub>) is an explicit import. Verified:
@@ -347,95 +354,95 @@ detailed balance at <span class="formula">Λ = k<sub>+</sub>/(k<sub>+</sub>+k<su
 <span class="formula">∂D/∂λ = v − a</span>, <span class="formula">σ̇ = −k<sub>B</sub> dD/dt</span>,
 <span class="formula">F<sub>noneq</sub> − F<sub>eq</sub> = k<sub>B</sub>T·D(λ‖Λ)</span>,
 <span class="formula">dF<sub>noneq</sub>/dt = −Tσ̇</span>, and the chain-rule identity
-<span class="formula">|H|·v̇² = φ̇<sub>F</sub>²</span>. <span class="tag NC">NC</span>
-These are standard stochastic-thermodynamics identities. <span class="tag ST">ST</span></p>
+<span class="formula">|H|·v̇² = φ̇<sub>F</sub>²</span>. <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a>
+These are standard stochastic-thermodynamics identities. <a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">ST</span></a></p>
 <p><b>Conditional Theorem 13.IV.T1</b> (KL/free-energy relaxation): relative entropy to equilibrium is the
 dimensionless nonequilibrium free-energy excess and decays monotonically exactly when entropy production is
-nonnegative. Proof verified end to end. <span class="tag CP">CP</span></p>
+nonnegative. Proof verified end to end. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></p>
 <p>Slow-driving Fisher form <span class="formula">σ̇ ≈ (k<sub>B</sub>/γ)|H|·v̇²</span>, constant-Fisher-speed
 minimality, and reversal-invariance of the metric cost are standard linear-response/thermodynamic-geometry
 results, stated as approximations and correctly labeled as measuring dissipation cost without choosing a
-temporal direction. <span class="tag ST">ST</span></p>
+temporal direction. <a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">ST</span></a></p>
 <p><b>Incomplete statement (source).</b> "for protocol duration τ, Sigma_prod &gt;= ^2." — the right-hand side's
 numerator is missing as printed (the intended Cauchy–Schwarz bound, e.g. k<sub>B</sub>(Δφ<sub>F</sub>)²/(γτ),
-is not stated). Cannot be verified as printed. <span class="tag IN">IN</span></p>
+is not stated). Cannot be verified as printed. <a class="taglink" href="../ledger/#tag-IN" title="Status key: incomplete or failed computation"><span class="tag IN">IN</span></a></p>
 
 <h3 id="13-v-cycle-affinity-seams-hidden-state-identifiability">13.V — Cycle affinity, seams, hidden-state identifiability</h3>
-<p>Exact-potential affinities telescope to zero around closed cycles: elementary. <span class="tag CP">CP</span>
+<p>Exact-potential affinities telescope to zero around closed cycles: elementary. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 The four-state ring (clockwise p, counterclockwise q) was verified: uniform stationary distribution, visible
 coarse-grained chain exactly detailed-balanced at λ=1/2 with equal both-way rates, nonzero hidden current and
-positive hidden entropy production for p≠q. <span class="tag NC">NC</span>
+positive hidden entropy production for p≠q. <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a>
 <b>Conditional Theorem 13.V.T1</b> (visible equilibrium need not be microscopic equilibrium): correct for the
-declared model. <span class="tag CP">CP</span></p>
+declared model. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></p>
 <p><b>Negative Result 13.V.N1</b> (seam-affinity obstruction): the telescoping half is proved; the second half —
 that seam data "does not determine a unique crossing rule or stochastic transition law" — is argued <i>by the
 source boundary theorem</i>, which appears nowhere else in Volume II (single occurrence, inside Book 13 itself)
 and is not in the Volume I audit ledger as earned. The proof as given leans on an uncertified premise.
-<span class="tag MA">MA</span> <span class="tag niv">not independently verified</span> (with dependency flag; the telescoping lemma alone is <span class="tag CP">CP</span>).</p>
+<a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> <span class="tag niv">not independently verified</span> (with dependency flag; the telescoping lemma alone is <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>).</p>
 
 <h3 id="13-vi-cophase-topology-and-kinetic-nonselection">13.VI — Cophase topology and kinetic nonselection</h3>
 <p>Verified: the lifted quarter-turn has exact order four; its action on the primitive quartet is the pair of
 2-cycles <span class="formula">(srx crx)(sxp cxp)</span>; ε, H, urx, uxp, FlatWave reverse after one cophase step
 and restore after two; all are π-periodic, hence cannot distinguish x from x+π; and
-<span class="formula">λ(π/2−x) = 1−λ(x)</span>. <span class="tag NC">NC</span>
+<span class="formula">λ(π/2−x) = 1−λ(x)</span>. <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a>
 No faithful affine C4 action on one real coordinate exists (a=±1 exhaustion, verified symbolically); R² rotations give a faithful one.
-<span class="tag CP">CP</span></p>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></p>
 <p><b>Incorrect as stated (source).</b> "The transfer coordinate lambda is quarter-turn invariant." Under the
 volume's canonical notation <span class="formula">λ = (1+sin x−cos x)/2</span> this is false:
 <span class="formula">λ(0) = 0</span> but <span class="formula">λ(π/2) = 1</span> (verified). What <i>is</i>
 quarter-turn invariant is the constructible ratio <span class="formula">λ<sub>b</sub> = ε/urx</span> (verified),
 which agrees with canonical λ on admissible charts but differs off-chart (at 3π/4: 0.5 vs (1+√2)/2 ≈ 1.207,
 verified). The book never distinguishes the two λ's. Not load-bearing for Theorem 13.VI.T1.
-<span class="tag IC">IC</span></p>
+<a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></p>
 <p><b>Theorem 13.VI.T1</b> (cophase kinetic nonselection): the proof is a conceptual symmetry argument — a
 canonically selected real cycle bias must be both reflection-invariant and sign-reversing, hence zero. The
 "canonical selection" premise does the work; this is not a formal derivation. The conclusion (no certified
 result selects unequal cophase rates) is correctly scoped as a nonselection result, and the book explicitly
 refuses to conflate orientation signs with temporal direction ("Orientation signs can record which orientation
-has been chosen. They do not choose it."). <span class="tag MA">MA</span> <span class="tag niv">not independently verified</span></p>
+has been chosen. They do not choose it."). <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> <span class="tag niv">not independently verified</span></p>
 <p>The rank claims — a single continuous branch-bias coordinate captures only the C2 parity quotient; a
 faithful stochastic cophase refinement needs at least two branch-bias directions (rank ≥ 3 with λ); the
 correction of the earlier factorized (λ,η) ansatz — use modeling language ("locally complete convex
-probability family") not given a precise definition in the book. <span class="tag MA">MA</span> <span class="tag niv">not independently verified</span></p>
+probability family") not given a precise definition in the book. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> <span class="tag niv">not independently verified</span></p>
 
 <h3 id="13-vii-path-space-irreversibility-boundary-conditions-time">13.VII — Path-space irreversibility, boundary conditions, time</h3>
 <p>Verified: <span class="formula">S<sub>sys</sub>(λ) = S<sub>sys</sub>(1−λ)</span>; on the principal quadrant the
 entropy is zero at both ends and maximal (ln 2) at the midpoint, exactly symmetric about π/4.
 <b>Conditional Theorem 13.VII.T1</b> (two-ended entropy): the Bernoulli entropy cannot select one quadrant
-endpoint as the unique past. Complete elementary proof. <span class="tag CP">CP</span></p>
+endpoint as the unique past. Complete elementary proof. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></p>
 <p>The path-space material — entropy production as a trajectory log-probability ratio, its mean a KL divergence,
 hence nonnegative; reversible microdynamics with low-entropy preparation giving macroscopic increase; a
 mid-time low-entropy condition giving two-sided increase; the arrow requiring asymmetric boundary/preparation
 data — is standard imported statistical-mechanical reasoning, correctly stated and correctly separated from
-Projection's internal mathematics. <span class="tag ST">ST</span> The retirement of a universal Time=ΔEntropy
+Projection's internal mathematics. <a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">ST</span></a> The retirement of a universal Time=ΔEntropy
 identity is a status declaration following from 13.VII.T1, correctly scoped ("at most" a process-dependent
-progress coordinate). <span class="tag MA">MA</span> <span class="tag niv">not independently verified</span></p>
+progress coordinate). <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> <span class="tag niv">not independently verified</span></p>
 
 <h3 id="13-viii-thermodynamic-state-rank-and-lawful-extensions">13.VIII — Thermodynamic state rank and lawful extensions</h3>
 <p><b>Theorem 13.VIII.T1</b> (state-rank obstruction): every certified scalar readout is a function of one real
 parameter; a smooth one-parameter family has differential rank at most one (verified symbolically); independent
 thermodynamic directions need rank ≥ 2, so temperature, pressure, chemical potential, or a generic equation of
 state require added coordinates or an explicitly one-dimensional process contract. Complete elementary argument.
-<span class="tag CP">CP</span> The Jacobian criterion <span class="formula">J<sub>UV</sub> ≠ 0</span>, the
-two-outcomes/one-coordinate and three-outcomes/full-rank simplex counts are elementary. <span class="tag CP">CP</span></p>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> The Jacobian criterion <span class="formula">J<sub>UV</sub> ≠ 0</span>, the
+two-outcomes/one-coordinate and three-outcomes/full-rank simplex counts are elementary. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></p>
 <h3 id="13-viii-a-extensivity-volume-pressure">13.VIII.A — Extensivity, volume, pressure</h3>
 <p><span class="formula">S<sub>N</sub> = N·S<sub>sys</sub></span>, <span class="formula">C<sub>N</sub> = N·C</span> for
-independent copies: standard. <span class="tag ST">ST</span>
+independent copies: standard. <a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">ST</span></a>
 <b>Negative Result 13.VIII.N1</b>: if F is V-independent then <span class="formula">P = −(∂F/∂V)<sub>T</sub> = 0</span>;
 a geometric carrier variable becomes thermodynamic volume only after a subsystem boundary and V-dependent
-spectrum/interaction/counting are supplied. Two-line complete proof. <span class="tag CP">CP</span></p>
+spectrum/interaction/counting are supplied. Two-line complete proof. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></p>
 
 <h3 id="13-ix-phase-transitions-and-the-bec-promotion-gate">13.IX — Phase transitions and the BEC promotion gate</h3>
 <p>Verified: <span class="formula">S<sub>sys</sub>′′(λ) = −k<sub>B</sub>/[λ(1−λ)] = −k<sub>B</sub>/|H|</span>,
 equal to −4k<sub>B</sub> (finite) at λ=1/2 — the midpoint is a smooth maximum, not a critical singularity;
 <span class="formula">λ:(0,π/2) → (0,1)</span> is a strictly monotone bijection; any interior λ<sub>0</sub> maps to
 zero of a monotone control coordinate <span class="formula">τ = a[logit(λ) − logit(λ<sub>0</sub>)]</span>.
-<span class="tag CP">CP</span>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 <b>Negative Result 13.IX.N1</b> (BEC promotion no-go): coordinate matching alone cannot identify any Projection
 midpoint/seam/FlatWave reversal/entropy extremum with Bose–Einstein condensation; the many-body and
 thermodynamic contracts must be supplied, and any Projection-specific claim must predict a restriction beyond
-the imported model. Proof complete given the checked lemmas. <span class="tag CP">CP</span> The complex
-condensate phase is correctly classified as a genuine extension under 13.VIII.T1. <span class="tag CP">CP</span></p>
+the imported model. Proof complete given the checked lemmas. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> The complex
+condensate phase is correctly classified as a genuine extension under 13.VIII.T1. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></p>
 
 <h3 id="13-x-final-obstruction-and-book-13-closure">13.X — Final obstruction and Book 13 closure</h3>
 <p><b>Theorem 13.X.T1</b> (candidate-bounded autonomous-arrow no-go): honestly scoped as an exhaustiveness result
@@ -443,16 +450,16 @@ condensate phase is correctly classified as a genuine extension under 13.VIII.T1
 The cited reasons (time-neutral state functions, telescoping affinities, no visible circulation, unselected
 cophase rates, zero detailed-balance production, even Fisher/free-energy geometry) are established; but
 "the preceding sections exhaust the admitted candidate mechanisms" is asserted, not proved — exhaustiveness
-over a candidate list cannot be derived from the list. <span class="tag MA">MA</span> <span class="tag niv">not independently verified</span></p>
+over a candidate list cannot be derived from the list. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> <span class="tag niv">not independently verified</span></p>
 <p><b>Terminal Theorem 13.X.T2</b> (Book 13 closure): three-level closure bookkeeping (statistical closure /
 conditional thermodynamic closure / arrow obstruction). Proof is a section-pointer summary; no circular
-dependence is introduced, and no unresolved premise is promoted. <span class="tag MA">MA</span> <span class="tag niv">not independently verified</span></p>
+dependence is introduced, and no unresolved premise is promoted. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> <span class="tag niv">not independently verified</span></p>
 <p><b>Arrow-of-time discipline verdict.</b> The book keeps three things distinct throughout:
-(a) <i>exact mathematical asymmetries</i> — the two-ended entropy <span class="tag CP">CP</span>, cophase
-sign-flip laws <span class="tag NC">NC</span>; (b) <i>thermodynamic imports</i> — the Bernoulli, Gibbs, Markov,
-path/reversal, and many-body contracts, each explicitly declared <span class="tag ST">ST</span>/
-<span class="tag AX">AX</span>; (c) <i>philosophical interpretation</i> — retirement of Time=ΔEntropy,
-"a thermometer is not a clock" <span class="tag MA">MA</span> <span class="tag niv">not independently verified</span>. The nonnegativity
+(a) <i>exact mathematical asymmetries</i> — the two-ended entropy <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>, cophase
+sign-flip laws <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a>; (b) <i>thermodynamic imports</i> — the Bernoulli, Gibbs, Markov,
+path/reversal, and many-body contracts, each explicitly declared <a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">ST</span></a>/
+<a class="taglink" href="../ledger/#tag-AX" title="Status key: assumption or axiom"><span class="tag AX">AX</span></a>; (c) <i>philosophical interpretation</i> — retirement of Time=ΔEntropy,
+"a thermometer is not a clock" <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> <span class="tag niv">not independently verified</span>. The nonnegativity
 <span class="formula">(J<sub>+</sub>−J<sub>−</sub>)ln(J<sub>+</sub>/J<sub>−</sub>) ≥ 0</span> is mathematics
 <i>inside</i> the Markov contract, not an imported second law; the import is the contract itself. FlatWave's
 orientation sign is never conflated with temporal direction — the book explicitly forbids it.
@@ -462,26 +469,26 @@ No imported second law is presented as a derived result.</p>
 <p>The book's own closing ledger (§13.X), with audit tags attached:</p>
 <h3 id="established-internally-or-under-the-bernoulli-statistical-contract">Established internally or under the Bernoulli statistical contract</h3>
 <ul>
-<li>Reciprocal probability coordinates from |urx| and |uxp|. <span class="tag NC">NC</span></li>
-<li>Surprisal and Bernoulli entropy. <span class="tag NC">NC</span></li>
-<li>Log-odds and the convex generator <span class="formula">A(v) = ln(1+e<sup>v</sup>)</span>. <span class="tag NC">NC</span></li>
-<li>Legendre duality, KL/Bregman geometry, Fisher information. <span class="tag NC">NC</span>/<span class="tag ST">ST</span></li>
-<li>The Fisher-angle compactification and the positive square-root statistical state. <span class="tag NC">NC</span></li>
-<li>|H| as the Bernoulli response kernel and entropy-magnitude carrier. <span class="tag NC">NC</span></li>
+<li>Reciprocal probability coordinates from |urx| and |uxp|. <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a></li>
+<li>Surprisal and Bernoulli entropy. <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a></li>
+<li>Log-odds and the convex generator <span class="formula">A(v) = ln(1+e<sup>v</sup>)</span>. <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a></li>
+<li>Legendre duality, KL/Bregman geometry, Fisher information. <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a>/<a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">ST</span></a></li>
+<li>The Fisher-angle compactification and the positive square-root statistical state. <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a></li>
+<li>|H| as the Bernoulli response kernel and entropy-magnitude carrier. <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a></li>
 <li>The seam, symmetry, rank, and critical-location obstruction results (13.V telescoping, 13.VII.T1, 13.VIII.T1,
-13.VIII.N1, 13.IX.N1). <span class="tag CP">CP</span> — except 13.V.N1's seam half, which leans on the uncertified
-"source boundary theorem". <span class="tag MA">MA</span> <span class="tag niv">not independently verified</span></li>
+13.VIII.N1, 13.IX.N1). <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> — except 13.V.N1's seam half, which leans on the uncertified
+"source boundary theorem". <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> <span class="tag niv">not independently verified</span></li>
 </ul>
 <h3 id="true-only-under-additional-physical-contracts">True only under additional physical contracts</h3>
 <ul>
-<li>Temperature from a calibrated energy gap and Gibbs ensemble. <span class="tag ST">ST</span> (imported)</li>
-<li>Multiplicity-corrected thermal equilibrium. <span class="tag NC">NC</span> (conditional)</li>
+<li>Temperature from a calibrated energy gap and Gibbs ensemble. <a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">ST</span></a> (imported)</li>
+<li>Multiplicity-corrected thermal equilibrium. <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> (conditional)</li>
 <li>Canonical free-energy offsets and partition-function relations — with the correction that |urx| = Z/g<sub>r</sub>,
-not Z, unless g<sub>r</sub>=1. <span class="tag IC">IC</span> (as stated)</li>
-<li>Energy variance, heat capacity, and the 21-cm spin-temperature witness. <span class="tag NC">NC</span> (conditional)</li>
-<li>Entropy production from explicit Markov rates. <span class="tag NC">NC</span> (conditional)</li>
-<li>Path-space irreversibility from specified forward/reversed ensembles. <span class="tag ST">ST</span> (imported)</li>
-<li>BEC or other phase-transition semantics from a many-body thermodynamic model. <span class="tag AX">AX</span> (contract)</li>
+not Z, unless g<sub>r</sub>=1. <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a> (as stated)</li>
+<li>Energy variance, heat capacity, and the 21-cm spin-temperature witness. <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> (conditional)</li>
+<li>Entropy production from explicit Markov rates. <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> (conditional)</li>
+<li>Path-space irreversibility from specified forward/reversed ensembles. <a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">ST</span></a> (imported)</li>
+<li>BEC or other phase-transition semantics from a many-body thermodynamic model. <a class="taglink" href="../ledger/#tag-AX" title="Status key: assumption or axiom"><span class="tag AX">AX</span></a> (contract)</li>
 </ul>
 <h3 id="remains-un-derived">Remains un-derived</h3>
 <ul>
@@ -493,7 +500,7 @@ thermodynamic arrow; a Projection-derived BEC critical point or complex condensa
 <p>Any future nonzero thermodynamic arrow must enter through an explicit history-sensitive extension: asymmetric
 rates or cycle affinity, multiple reservoirs, nonconservative forcing, external driving, asymmetric
 preparation/boundary data, hidden memory or environmental correlations, or a separately imported
-microscopic time-asymmetric law with its path/reversal contract. <span class="tag MA">MA</span> <span class="tag niv">not independently verified</span> (extension ledger)</p>
+microscopic time-asymmetric law with its path/reversal contract. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> <span class="tag niv">not independently verified</span> (extension ledger)</p>
 
 <hr>
 <h2 id="p4">Part IV — Close the book</h2>
@@ -506,7 +513,7 @@ dynamics, fields, relativity, quantum representation, particle architecture, har
 thermodynamics. At every stage physical equations enter only under explicit import; later representation
 successes do not retroactively justify earlier axioms. Through Book 13 the operational-difference set remains
 empty. Subsequent work may inherit only the certified mathematical identities and explicitly labeled
-conditional physics established here. <span class="tag MA">MA</span> <span class="tag niv">not independently verified</span> (status declaration; the "certified"
+conditional physics established here. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> <span class="tag niv">not independently verified</span> (status declaration; the "certified"
 wording carries the §13.I dependency note above)</p>
 
 <hr>
@@ -529,21 +536,21 @@ meaning of H, and the unique N=3 Relative-Center Casimir Closure within the stat
 <li><b>Book 13</b> establishes the exact information-theoretic identities available after the Bernoulli contract
 and the conditional thermodynamic bridges available after their named imports; it does not derive a universal
 microscopic arrow of time, seam dynamics, hidden-state multiplicity, or thermodynamic clock from the carrier
-alone. <span class="tag CP">CP</span>/<span class="tag NC">NC</span> (audited above; the two flagged defects apply)</li>
+alone. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>/<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> (audited above; the two flagged defects apply)</li>
 </ul>
 <p class="small">The Book 13 entry is audited in Parts I–IV above. The Books 7–12 entries summarize books outside
-this worker's span and are <span class="tag MA">MA</span> from this audit's position — not independently verified here.</p>
+this worker's span and are <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> from this audit's position — not independently verified here.</p>
 <h3 id="operational-closure">Operational closure</h3>
 <p>No book in Volume II has established a nonempty Projection-specific operational difference set relative to its
 named reference theory. Therefore <span class="formula">Δ<sub>op</sub>(Volume II) = ∅</span>. The null hypothesis
 — Projection Craft may change representation without changing operational physics — survives the closure of
-Volume II. <span class="tag MA">MA</span> <span class="tag niv">not independently verified</span> (from this worker's position: Book 13 contributes no counterexample;
+Volume II. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> <span class="tag niv">not independently verified</span> (from this worker's position: Book 13 contributes no counterexample;
 Books 7–12 were not audited here)</p>
 <h3 id="two-volume-boundary">Two-Volume Boundary</h3>
 <p>Volume II depends <b>only</b> on Volume I, ordinary background mathematics, and explicitly declared external
 imports. No access to the former consolidated master manuscript is required for the logical reading of Books
 7–13. Future extensions may cite these two volumes, but they must not silently alter their theorem status,
-numbering, or dependency order. <span class="tag MA">MA</span> <span class="tag niv">not independently verified</span> — with two Book 13 dependency flags recorded
+numbering, or dependency order. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> <span class="tag niv">not independently verified</span> — with two Book 13 dependency flags recorded
 above: the inherited "certified λ" labeling defect (Volume I ledger, 2.XI.L9) and the uncertified "source
 boundary theorem" invoked in 13.V.N1.</p>
 <h3 id="master-retirement-condition">Master-Retirement Condition</h3>
@@ -554,7 +561,7 @@ This is a conditional permission, not an authorization: the antecedent is not sa
 ledger still lists open/incomplete items (Book 1–3 sections read but not
 independently machine-checked; Wolfram Engine unlicensed). The corrected-Casimir rerun and exhaustive Casimir
 diagnostics have since completed (corrected-operator spectrum {0:1, 48:1820, 64:6435}; odd-subspace invariance 0.0;
-so(16) commutator violation 0.0; see ledger §1, §8), but that does not satisfy the antecedent. <span class="tag MA">MA</span> <span class="tag niv">not independently verified</span> (procedural condition;
+so(16) commutator violation 0.0; see ledger §1, §8), but that does not satisfy the antecedent. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> <span class="tag niv">not independently verified</span> (procedural condition;
 antecedent currently unmet)</p>
 
 <!-- BOOKNAV-NAV-START -->

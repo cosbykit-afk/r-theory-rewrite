@@ -95,6 +95,13 @@ html.rth-large-text body{font-size:21.333px;line-height:1.65}
 (function(){try{if(localStorage.getItem('rth-large-text')==='1'){document.documentElement.classList.add('rth-large-text');}}catch(e){}})();
 </script>
 <!-- SITENAV-END -->
+<!-- TAGLINK-CSS-START -->
+<style>
+a.taglink{text-decoration:none}
+a.taglink:hover .tag{filter:brightness(.94)}
+a.taglink:focus-visible{outline:3px solid #0e7c86;outline-offset:2px;border-radius:4px}
+</style>
+<!-- TAGLINK-CSS-END -->
 </head>
 <body>
 <!-- SITENAV-NAV-START -->
@@ -166,13 +173,13 @@ in the daily Drive backup <code>r-theory-audit-work.zip</code> (refreshed
 
 <h2 id="status-vocabulary">Status vocabulary</h2>
 <p>This appendix uses the audit's own scope labels, mapped to the series tags:
-<span class="tag CP">CP</span> checked proof = <b>PROVED</b> ·
-<span class="tag SC">SC</span> completed symbolic check and
-<span class="tag NC">NC</span> completed numerical check = <b>CHECKED</b> ·
-<span class="tag MA">MA</span> manuscript assertion = <b>ASSERTED</b> ·
-<span class="tag IC">IC</span> incorrect result = <b>INVALID</b> ·
-<span class="tag IN">IN</span> incomplete or failed computation = <b>INCOMPLETE</b>.
-<span class="tag ST">ST</span> marks standard imported theorems.
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> checked proof = <b>PROVED</b> ·
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">SC</span></a> completed symbolic check and
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> completed numerical check = <b>CHECKED</b> ·
+<a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> manuscript assertion = <b>ASSERTED</b> ·
+<a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a> incorrect result = <b>INVALID</b> ·
+<a class="taglink" href="../ledger/#tag-IN" title="Status key: incomplete or failed computation"><span class="tag IN">IN</span></a> incomplete or failed computation = <b>INCOMPLETE</b>.
+<a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">ST</span></a> marks standard imported theorems.
 Nothing is promoted beyond what the mathematics supports: in particular, a
 numerical check of a <i>corrected</i> construction does not repair the
 <i>original</i> encoding it replaces.</p>
@@ -180,13 +187,13 @@ numerical check of a <i>corrected</i> construction does not repair the
 <h2 id="method">Method</h2>
 <p>Two separate computations, written and run independently:</p>
 <ol>
-<li><b>Exact-script audit</b> (<span class="tag NC">NC</span>):
+<li><b>Exact-script audit</b> (<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a>):
 <code>run_modules.py</code>, a faithful NumPy/SciPy port of the manuscript's
 12 Wolfram modules, run 2026-09-18/19 (~523&nbsp;s, completed with
 <code>ALL MODULES DONE</code>; full transcript in <code>run_fixed.log</code>,
 machine-readable results in <code>results.json</code>). Its purpose was to
 evaluate the exact script — to find where it breaks, not to confirm it.</li>
-<li><b>Independent re-verification</b> (<span class="tag NC">NC</span>):
+<li><b>Independent re-verification</b> (<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a>):
 <code>verify_independent.py</code>, written fresh from the definitions (not a
 re-run of the audit port), completed 2026-09-21 (~603&nbsp;s, exit 0). It
 rebuilds the gamma matrices, the guarded so(16) generators, and the corrected
@@ -205,16 +212,16 @@ tensor slots <i>after</i> the active Pauli slot, where
 <code>IdentityMatrix[2]</code> is required. Original worst Clifford violation
 <b>2.0</b> (at pair (1,3)); repaired construction (one-sided σ₃ string,
 Kit-approved): worst violation <b>0</b>.</td>
-<td><span class="tag IC">IC</span> original as encoded · <span class="tag NC">NC</span> repaired</td></tr>
+<td><a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a> original as encoded · <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> repaired</td></tr>
 <tr><td>M2 — gamma assembly</td><td>16 gamma matrices, each 256×256.</td>
-<td><span class="tag NC">NC</span></td></tr>
+<td><a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a></td></tr>
 <tr><td>M3 — Clifford / Γ₁₇</td><td><code>CliffordOK=true</code>,
 <code>Gamma17Squared=true</code>, <code>Gamma17Anticommutes=true</code>,
-Γ₁₇ Hermiticity error 0.0.</td><td><span class="tag NC">NC</span></td></tr>
+Γ₁₇ Hermiticity error 0.0.</td><td><a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a></td></tr>
 <tr><td>M4 — chirality</td><td>Ranks 128 / 128, dim S₊ = 128, projector
-orthonormality error 0.0.</td><td><span class="tag NC">NC</span></td></tr>
+orthonormality error 0.0.</td><td><a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a></td></tr>
 <tr><td>M5 — charge conjugation</td><td><code>ChargeConjugationOK=true</code>,
-B 256×256.</td><td><span class="tag NC">NC</span></td></tr>
+B 256×256.</td><td><a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a></td></tr>
 <tr><td>M6 — so(16) commutation</td><td><code>CommutationOK=false</code>,
 <code>SigmaAntisymmetric=false</code> (120 generators). Two defects:
 (1)&nbsp;Σ(i,j) was built with no i==j guard, giving Σ(i,i)=I/2 where the
@@ -223,27 +230,27 @@ antisymmetric convention requires 0 — exactly the 10 identical-generator
 (2)&nbsp;the script tested S<sub>ij</sub>+S<sub>ij</sub><sup>T</sup> on
 <i>complex anti-Hermitian</i> generators (error 1.0) — the correct test is
 S<sub>ij</sub>+S<sub>ij</sub><sup>†</sup>, residual <b>0.0</b>.</td>
-<td><span class="tag IC">IC</span> as encoded</td></tr>
+<td><a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a> as encoded</td></tr>
 <tr><td>M7 — Sym² basis</td><td>Basis size 8256 = expected 8256.</td>
-<td><span class="tag NC">NC</span></td></tr>
+<td><a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a></td></tr>
 <tr><td>M8 — Casimir action</td><td>Defined on all 120 generators
 (<code>max_imag_allGens=0.5</code> recorded in the raw output).</td>
-<td><span class="tag IC">IC</span> (with M9–M12 below)</td></tr>
+<td><a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a> (with M9–M12 below)</td></tr>
 <tr><td>M9 — Casimir matrix</td><td>8256×8256 assembled; symmetry error 0.0 —
 but it is the matrix of the <i>wrong operator</i> (see below).</td>
-<td><span class="tag IC">IC</span></td></tr>
+<td><a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></td></tr>
 <tr><td>M10 — spectrum</td><td>Distinct eigenvalues
 [−128,−120,−96,−64,−60,−56,−48,−28,0]; multiplicities at +48 and +64 are
 <b>0</b> (mult₀=1). The claimed decomposition {0:1,&nbsp;48:1820,&nbsp;64:6435}
-is not produced.</td><td><span class="tag IC">IC</span> as encoded</td></tr>
+is not produced.</td><td><a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a> as encoded</td></tr>
 <tr><td>M11 — projectors</td><td>Lagrange-projector ranks 36722 / −82471 /
 54005 (nonsense — negative rank is impossible); idempotence false;
 orthogonality false; completeness formally true.</td>
-<td><span class="tag IC">IC</span> as encoded</td></tr>
+<td><a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a> as encoded</td></tr>
 <tr><td>M12 — four-form image</td><td>1820 quadruples built
 (Γ₄ symmetric: true; Λ² image dim 120, Λ⁴ image dim 1820), but
 <code>ImageInP1820=false</code>, worst sample violation <b>21.0</b>.</td>
-<td><span class="tag IC">IC</span> as encoded</td></tr>
+<td><a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a> as encoded</td></tr>
 </table>
 <div class="note">
 <p><b>Why Modules 8–12 fail.</b> The encoded double-commutator
@@ -256,26 +263,26 @@ operator. This is a basis/encoding defect, not numerical noise.</p>
 
 <h2 id="the-corrected-operator">The corrected operator</h2>
 <p>Expanding ρ(A)² with ρ(A)M = AM + MA<sup>T</sup> gives the exact algebra
-(<span class="tag CP">CP</span> by inspection):</p>
+(<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> by inspection):</p>
 <p style="text-align:center">C′(M) = −Σ<sub>a</sub>(A<sub>a</sub>²M +
 2A<sub>a</sub>MA<sub>a</sub><sup>T</sup> + M(A<sub>a</sub><sup>T</sup>)²)</p>
 <ul>
 <li>First assembly: spectrum {0:1,&nbsp;48:1820,&nbsp;64:<b>6307</b>,&nbsp;128:<b>128</b>}
-— <span class="tag IC">IC</span>: the assembly double-counted diagonal
+— <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a>: the assembly double-counted diagonal
 (p=q) Sym² basis inputs, producing a spurious 128-eigenspace. Disclosed and
 patched (p=q handled once).</li>
 <li>Patched rerun (2026-09-19): distinct eigenvalues {0.0:&nbsp;1,&nbsp;48.0:&nbsp;1820,&nbsp;64.0:&nbsp;6435};
 eigenvalue range 1.15e-13…64.00000000000173; max|imag| = 0.0; matrix symmetry
-error 0.0. <span class="tag NC">NC</span></li>
+error 0.0. <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a></li>
 <li>Exhaustive diagnostics (<code>diag_casimir.py</code>): the 128-dim odd
 subspace is exactly invariant under every even product ΓᵢΓⱼ (max 0.0); all
 so(16) commutators hold (max violation 0.0); the corrected Casimir is central
 to machine precision (≈2.8–2.9e-14 against scales ~129–171).
-<span class="tag NC">NC</span></li>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a></li>
 </ul>
 <p class="small"><b>Scope.</b> This validates the spectrum of the
 <i>corrected</i> operator. It does not validate the manuscript's original
-Modules 8–12 encoding, which remains <span class="tag IC">IC</span> as
+Modules 8–12 encoding, which remains <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a> as
 written.</p>
 
 <h2 id="independent-verification-2026-09-21">Independent verification (2026-09-21)</h2>
@@ -292,13 +299,13 @@ with violation exactly <b>1.0</b> under the unguarded Σ(i,i)=I/2.</li>
 matrices: max deviation <b>3.694822225952521e-13</b>, max imaginary part <b>0.0</b>.</li>
 <li>Full spectrum confirmed: <b>{0:1,&nbsp;48:1820,&nbsp;64:6435}</b>.</li>
 </ul>
-<p>Status of the corrected spectrum: <span class="tag NC">NC</span> (two
+<p>Status of the corrected spectrum: <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> (two
 independent numerical implementations agree). The corrected numerics are kept
 as cross-confirmation — the spectrum itself is a theorem (next section).</p>
 
 <h2 id="analytic-status-the-spectrum-is-a-theorem">Analytic status: the spectrum is a theorem</h2>
-<p>The decomposition is <span class="tag CP">CP</span>
-(<span class="tag ST">ST</span>/<span class="tag SC">SC</span> components
+<p>The decomposition is <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
+(<a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">ST</span></a>/<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">SC</span></a> components
 cited), proved 2026-09-19 (K-1…K-9):</p>
 <ul>
 <li>S₊ (dim 128) carries the chiral spinor representation V(ω₈) of so(16);
@@ -309,7 +316,7 @@ singlet is annihilated, Cs = 0 (K-3, K-4).</li>
 <li>The 1820 B-mapped four-forms span a nonzero submodule F ≅ V(ω₄),
 dim 1820 (K-5, K-6; the 2-fold terms cancel in [M<sub>AB</sub>,γ<sub>I</sub>]).</li>
 <li>V(2ω₈) ⊆ Sym²(S₊), dim 6435 by the Weyl formula — exact symbolic
-computation (K-7, <span class="tag SC">SC</span>).</li>
+computation (K-7, <a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">SC</span></a>).</li>
 <li>Sym²(128) = ℂs ⊕ F ⊕ V(2ω₈): 1 + 1820 + 6435 = 8256, direct and
 exhaustive (K-8).</li>
 <li>Eigenvalues by Harish-Chandra proportionality with κ pinned on S₊
@@ -338,7 +345,7 @@ equivariance proof, below) — the only open item in the queue.</p>
 <h2 id="open-follow-up-items-as-of-2026-09-25">Open follow-up items (as of 2026-09-25)</h2>
 <p>The breakage follow-up worker (every ~6h) works these in priority order,
 logging terse per-run entries to the dedicated log channel; status changes
-sync to the notation ledger. All are <span class="tag IN">IN</span> the sense
+sync to the notation ledger. All are <a class="taglink" href="../ledger/#tag-IN" title="Status key: incomplete or failed computation"><span class="tag IN">IN</span></a> the sense
 of "not yet done" — none is claimed complete.</p>
 <table>
 <tr><th>Item</th><th>What is open</th><th>Status</th></tr>
@@ -347,7 +354,7 @@ re-run on the <i>corrected</i> C′ — <b>completed 2026-09-22</b>:
 max|C′(v) − 48v| = <b>16.0</b> over all 1820 forms (1036 in the
 48-eigenspace: 896 zero + 140 nonzero; 784 pure 64-eigenvectors; 0 mixed).
 The manuscript's projected forms do <b>not</b> lie in the 48-eigenspace.</td>
-<td>CLOSED — <span class="tag IC">IC</span> (manuscript claim), <span class="tag NC">NC</span>
+<td>CLOSED — <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a> (manuscript claim), <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a>
 (CHECKED numeric counterexample)</td></tr>
 <tr><td>B-2</td><td>Lagrange projectors
 p₁(x)=(x−48)(x−64)/3072, p₁₈₂₀(x)=x(64−x)/768,
@@ -355,7 +362,7 @@ p₆₄₃₅(x)=x(x−48)/1024 — <b>verified 2026-09-22</b>: applied matrix-f
 random symmetric 128×128 matrices (5 real, 5 complex); idempotence, pairwise
 orthogonality, and completeness residuals all ≤ 3.6e-16 (machine precision;
 bar was 1e-6).</td>
-<td>CLOSED — <span class="tag NC">NC</span> (CONFIRMED, CHECKED numeric)</td></tr>
+<td>CLOSED — <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> (CONFIRMED, CHECKED numeric)</td></tr>
 <tr><td>B-3</td><td>Rewrite-series status hygiene: swept 2026-09-23 for
 citations of the original (invalid) Modules 6/8–12 encodings and unscoped
 decomposition claims — this table's B-1/B-2 rows refreshed (they were stale
@@ -369,14 +376,14 @@ overclaims.</td>
 ρ(A)M=AM+MA<sup>T</sup> ⇒ ρ(A)²M=A²M+2AMA<sup>T</sup>+M(A<sup>T</sup>)² into
 the theorem ledger — <b>done 2026-09-23</b>: addendum appended to the theorem
 ledger §1 (guarded construction; Casimir algebra PROVED by inspection).</td>
-<td>CLOSED — <span class="tag NC">NC</span> (addendum recorded, scoped)</td></tr>
+<td>CLOSED — <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> (addendum recorded, scoped)</td></tr>
 <tr><td>B-5</td><td>Reality question: does the 128 representation admit a real
 basis (Frobenius–Schur indicator)? — <b>answered 2026-09-23</b>: indicator
 +1 (CHECKED numeric); an explicit real orthonormal basis exhibits all 120
 generators real antisymmetric, so the manuscript's Module 8
 double-commutator formula is rehabilitable in that basis up to the overall
 sign; the corrected C′ remains the basis-independent statement.</td>
-<td>CLOSED — <span class="tag NC">NC</span> (CONFIRMED real, CHECKED numeric)</td></tr>
+<td>CLOSED — <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> (CONFIRMED real, CHECKED numeric)</td></tr>
 <tr><td>B-7</td><td>Analytic proof that the corrected M12′ embedding
 Φ: Λ⁴(16) → Sym²(S₊), Φ<sub>I</sub> = sym(B₊Γ<sub>I</sub>), is
 so(16)-equivariant — the half-page intertwining calculation. Opened
@@ -384,7 +391,7 @@ so(16)-equivariant — the half-page intertwining calculation. Opened
 drafted and verified; the naive Module-12 image claim refuted with an exact
 per-quad classification). Representation-theoretic skeleton proposed; the
 line-by-line proof is not yet written.</td>
-<td><span class="tag IN">IN</span> — OPEN</td></tr>
+<td><a class="taglink" href="../ledger/#tag-IN" title="Status key: incomplete or failed computation"><span class="tag IN">IN</span></a> — OPEN</td></tr>
 </table>
 
 <h2 id="what-this-audit-does-not-establish">What this audit does not establish</h2>

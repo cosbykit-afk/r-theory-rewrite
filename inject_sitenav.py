@@ -47,6 +47,7 @@ LABELS = {
     "contents": "Contents",
     "guide": "Guide",
     "index": "Index",
+    "ledger": "Research ledger",
     "research": "Research",
     "sitemap": "Site map",
     "tables": "Tables",

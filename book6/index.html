@@ -124,6 +124,13 @@ a.booknav-panel.booknav-handoff:hover{border-color:#b85f1d;
  box-shadow:inset 0 1px 0 #ffffff,0 4px 12px rgba(184,95,29,.22)}
 </style>
 <!-- BOOKNAV-CSS-END -->
+<!-- TAGLINK-CSS-START -->
+<style>
+a.taglink{text-decoration:none}
+a.taglink:hover .tag{filter:brightness(.94)}
+a.taglink:focus-visible{outline:3px solid #0e7c86;outline-offset:2px;border-radius:4px}
+</style>
+<!-- TAGLINK-CSS-END -->
 </head>
 <body>
 <!-- SITENAV-NAV-START -->
@@ -180,10 +187,10 @@ a.booknav-panel.booknav-handoff:hover{border-color:#b85f1d;
 <h1>Book 6 — Local Symmetry and Carrier Mathematics</h1>
 <p><i>A restructured rewrite of Book 6 of R Theory — Volume I, plus the Volume I closure.
 Pictures and intuition first; the formal audit second. Every claim carries exactly one status:
-<span class="tag CP">CP</span> checked proof, <span class="tag SC">SC</span> completed symbolic check,
-<span class="tag NC">NC</span> completed numerical check, <span class="tag ST">ST</span> standard imported theorem,
-<span class="tag MA">MA</span> manuscript assertion, <span class="tag AX">AX</span> assumption or axiom,
-<span class="tag IN">IN</span> incomplete or failed computation, <span class="tag IC">IC</span> incorrect result.
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> checked proof, <a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">SC</span></a> completed symbolic check,
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> completed numerical check, <a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">ST</span></a> standard imported theorem,
+<a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> manuscript assertion, <a class="taglink" href="../ledger/#tag-AX" title="Status key: assumption or axiom"><span class="tag AX">AX</span></a> assumption or axiom,
+<a class="taglink" href="../ledger/#tag-IN" title="Status key: incomplete or failed computation"><span class="tag IN">IN</span></a> incomplete or failed computation, <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a> incorrect result.
 A sampled numerical agreement (worst measured sampled error 9.1e-11 across the
 book's 148 numerical checks) is a completed numerical check, never a proof.</i></p>
 <div class="toc">
@@ -205,9 +212,9 @@ a static rendering appears instead, generated from the same formulas.</p>
 and the V-block (O(3), upper right). The off-diagonal rectangles are empty — no primitive
 E↔V maps. The inherited block-preserving isometry group is
 <span class="formula">Aut<sub>blk</sub>(U,g;E,V) = O(2) × O(3),&nbsp;&nbsp; Lie algebra so(2)⊕so(3), dim 1+3 = 4</span>
-<span class="tag CP">CP</span> <b>What it doesn't show.</b> "No larger mixing group is primitive"
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> <b>What it doesn't show.</b> "No larger mixing group is primitive"
 is a boundary declaration resting on the inherited M3/M4 seam and Axiom Zero — not something
-this picture computes. <span class="tag MA">MA</span></div>
+this picture computes. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></div>
 
 <h3 id="figure-2-bivector-sectors-1-6-3-10">Figure 2 — Bivector sectors: 1 + 6 + 3 = 10</h3>
 <div class="graph" id="d2"></div>
@@ -218,9 +225,9 @@ The outer sectors reproduce the inherited block Lie algebra; the middle sector i
 cross-block extension. Adjoining one nonzero simple cross generator to the block algebra
 closes under Lie brackets to so(5): verified by iterated-commutator rank computation —
 the four block generators close at rank 4, and with one cross generator the closure
-reaches rank 10. <span class="tag NC">NC</span> <b>The framing.</b> This is an extension
+reaches rank 10. <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> <b>The framing.</b> This is an extension
 theorem, not inherited structure: the cross-block datum is not promoted to a primitive
-axiom. <span class="tag MA">MA</span></div>
+axiom. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></div>
 
 <h3 id="figure-3-the-chi-orbit-norm-redistributed-never-created">Figure 3 — The CHI orbit: norm redistributed, never created</h3>
 <div class="graph" id="d3"></div>
@@ -233,9 +240,9 @@ amplitude. The exponential identity exp(χJ<sub>CHI</sub>) = cos χ·1 + sin χ�
 was checked against an independent Taylor-series matrix exponential (worst disagreement
 2.3e-16 over 6 χ values),
 and the weight identities (sum 1, difference cos 2χ, 2√(w<sub>U</sub>w<sub>U♯</sub>) =
-|sin 2χ|) hold on 2001 samples. <span class="tag NC">NC</span> <b>What it doesn't show.</b>
+|sin 2χ|) hold on 2001 samples. <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> <b>What it doesn't show.</b>
 Whether χ evolves, transfers anything physical, or is observable — the section's firewalls
-forbid asserting any of that here. <span class="tag MA">MA</span></div>
+forbid asserting any of that here. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></div>
 
 <h3 id="figure-4-the-traceless-line-2a-3b-0">Figure 4 — The traceless line: 2a + 3b = 0</h3>
 <div class="graph" id="d4"></div>
@@ -244,21 +251,21 @@ forbid asserting any of that here. <span class="tag MA">MA</span></div>
 mathematical datum reduces the U(2)×U(3) envelope to S(U(2)×U(3)), with Lie algebra
 su(2)⊕su(3)⊕u(1) of dimension 3+8+1 = 12. The traceless block-scalar direction is unique
 up to normalization — 2a+3b = 0 — with the convenient normalization (1/2, −1/3), marked.
-<span class="tag CP">CP</span> <b>The datum.</b> The volume form is an explicitly declared
-additional mathematical datum, not derived structure. <span class="tag AX">AX</span>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> <b>The datum.</b> The volume form is an explicitly declared
+additional mathematical datum, not derived structure. <a class="taglink" href="../ledger/#tag-AX" title="Status key: assumption or axiom"><span class="tag AX">AX</span></a>
 <b>The warning.</b> This notation is not permission to identify these factors with weak
-isospin, color, hypercharge, or any physical force. <span class="tag MA">MA</span></div>
+isospin, color, hypercharge, or any physical force. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></div>
 
 <h3 id="figure-5-balance-2n-n-n-1-2-only-at-n-5">Figure 5 — Balance: 2n = n(n−1)/2 only at n = 5</h3>
 <div class="graph" id="d5"></div>
 <img class="fallback" id="f5" src="graphs/b6_balance.png" alt="Complexification-bivector balance">
 <div class="caption"><b>What you see.</b> dim<sub>ℝ</sub>(U⊗<sub>ℝ</sub>ℂ) = 2n (blue) versus
 dim<sub>ℝ</sub> Λ²U = n(n−1)/2 (orange): the curves meet at integer n &gt; 0 only at n = 5, with
-common dimension 10 — verified by exact integer scan. <span class="tag CP">CP</span>
+common dimension 10 — verified by exact integer scan. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 <b>The nonselection warning.</b> Equal dimensions do not imply a natural or equivariant
 identification: U<sub>ℂ</sub> and Λ²U are different SO(5) representations.
-<span class="tag ST">ST</span> The balance is an exact fingerprint of the already-earned
-rank five, not a selector for it. <span class="tag MA">MA</span></div>
+<a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">ST</span></a> The balance is an exact fingerprint of the already-earned
+rank five, not a selector for it. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></div>
 
 <h3 id="figure-6-the-exterior-pattern-at-n-5">Figure 6 — The exterior pattern at n = 5</h3>
 <div class="graph" id="d6"></div>
@@ -266,10 +273,10 @@ rank five, not a selector for it. <span class="tag MA">MA</span></div>
 <div class="caption"><b>What you see.</b> The exterior dimensions at n = 5: 1, 5, 10, 10, 5, 1.
 Even grades (blue) sum to 1+10+5 = 16; odd grades (gray) sum to 5+10+1 = 16. The grade
 pattern 0:1, 2:10, 4:5 closes the scalar-plus-bivector sector with exactly five grade-four
-elements, and Λ⁴U is canonically Hodge-dual to U. <span class="tag CP">CP</span>
+elements, and Λ⁴U is canonically Hodge-dual to U. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 <b>The premise.</b> The Hodge-return criterion that forces n = 5 (C(n,4) = n has the unique
 integer solution n = 5) is an additional selector premise, declared — not derived from
-M0–M4. <span class="tag AX">AX</span></div>
+M0–M4. <a class="taglink" href="../ledger/#tag-AX" title="Status key: assumption or axiom"><span class="tag AX">AX</span></a></div>
 
 <h3 id="figure-7-the-regular-simplex-universal-in-n">Figure 7 — The regular simplex: universal in N</h3>
 <div class="graph" id="d7"></div>
@@ -278,11 +285,11 @@ M0–M4. <span class="tag AX">AX</span></div>
 v<sub>A</sub> = e<sub>A</sub> − ⅓·1 with |v<sub>A</sub>|² = 2/3, pairwise dot −1/3, squared
 side 2. Verified for N = 2…8 (max error ~1e-15), including the Gram spectrum
 {(d+1)/2, ½ repeated d−1} and det G<sub>d</sub> = (d+1)/2<sup>d</sup>.
-<span class="tag NC">NC</span> <b>The point.</b> This theorem is universal in N — d = 3 and
-d = 10 are examples only; it does not select ten. <span class="tag MA">MA</span> Under the
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> <b>The point.</b> This theorem is universal in N — d = 3 and
+d = 10 are examples only; it does not select ten. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> Under the
 S<sub>N</sub> action, odd permutations exchange the two orientation classes: symmetric
 simplex data contain both orientations but canonically select neither.
-<span class="tag CP">CP</span></div>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></div>
 
 <hr>
 <h2 id="p2">Part II — Then earn it</h2>
@@ -291,224 +298,224 @@ dim<sub>ℝ</sub>V = 3, dim<sub>ℝ</sub>U = 5; W = U⊕U<sup>♯</sup>, dim<sub
 ι: U → U<sup>♯</sup> the Axiom-Zero pairing; Π: U → U<sup>♯</sup> an isometric identification
 (§6.3A datum).</p>
 
-<h3 id="6-0-status-rule-and-inherited-boundary-ma">6.0 — Status rule and inherited boundary <span class="tag MA">MA</span></h3>
+<h3 id="6-0-status-rule-and-inherited-boundary-ma">6.0 — Status rule and inherited boundary <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></h3>
 <p>M0–M4 stay frozen; M3 supplies the real oriented Euclidean rank-2 carrier E, M4 the
 independent Euclidean rank-3 carrier V, Book 5 the split U = E⊕V and the doubled
 W = U⊕U<sup>♯</sup> under primitive diagonal noncoupling. Two distinct non-mixings must not
 be conflated: the absence of primitive E↔V maps is inherited from the independent M3/M4
-seam <span class="tag MA">MA</span>, while Axiom Zero separately forbids primitive
-U↔U<sup>♯</sup> mixing <span class="tag AX">AX</span>. Book 6 statements are classified
+seam <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>, while Axiom Zero separately forbids primitive
+U↔U<sup>♯</sup> mixing <a class="taglink" href="../ledger/#tag-AX" title="Status key: assumption or axiom"><span class="tag AX">AX</span></a>. Book 6 statements are classified
 (A) direct consequences of adopted M5 structure, (B) maximal mathematical automorphism
 envelopes of earned structures, (C) conditional extensions needing an explicitly declared
 additional datum, (D) obstruction/nonselection theorems — a declared grammar, not a
-derived one <span class="tag MA">MA</span>. "Local" means pointwise or frame symmetry only;
-it does not yet mean gauge symmetry localized over spacetime <span class="tag MA">MA</span>.</p>
+derived one <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>. "Local" means pointwise or frame symmetry only;
+it does not yet mean gauge symmetry localized over spacetime <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>.</p>
 
-<h3 id="6-1-inherited-block-symmetry-cp">6.1 — Inherited block symmetry <span class="tag CP">CP</span></h3>
+<h3 id="6-1-inherited-block-symmetry-cp">6.1 — Inherited block symmetry <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></h3>
 <p>For the Euclidean split U = E⊕V, the inherited block-preserving isometry group is
 Aut<sub>blk</sub>(U,g;E,V) = O(E)×O(V) ≅ O(2)×O(3), with identity-component Lie algebra
-so(2)⊕so(3) of dimension 1+3 = 4 <span class="tag CP">CP</span> (dim O(n) = n(n−1)/2 is
-standard <span class="tag ST">ST</span>). No larger mixing group is primitive at this stage —
-a boundary declaration, not a computation <span class="tag MA">MA</span>.</p>
+so(2)⊕so(3) of dimension 1+3 = 4 <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> (dim O(n) = n(n−1)/2 is
+standard <a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">ST</span></a>). No larger mixing group is primitive at this stage —
+a boundary declaration, not a computation <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>.</p>
 
-<h3 id="6-2-bivector-decomposition-and-the-cross-block-extension-nc-ma">6.2 — Bivector decomposition and the cross-block extension <span class="tag NC">NC</span> / <span class="tag MA">MA</span></h3>
-<p>Λ²U = Λ²E ⊕ (E⊗V) ⊕ Λ²V with dimensions 1+6+3 = 10 <span class="tag CP">CP</span>. The outer
+<h3 id="6-2-bivector-decomposition-and-the-cross-block-extension-nc-ma">6.2 — Bivector decomposition and the cross-block extension <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> / <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></h3>
+<p>Λ²U = Λ²E ⊕ (E⊗V) ⊕ Λ²V with dimensions 1+6+3 = 10 <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>. The outer
 pieces reproduce the inherited block Lie algebra; the six-dimensional E⊗V term is the
 cross-block extension sector. With the full block algebra present, adjoining one nonzero
 simple cross generator closes under Lie brackets to so(5), taking the closure dimension
-from 4 to 10 <span class="tag NC">NC</span> (iterated-commutator rank check). This is an
+from 4 to 10 <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> (iterated-commutator rank check). This is an
 extension theorem, not inherited structure: SO(5)-type mixing becomes available once a
 cross-block datum is added, and Book 6 does not promote that datum to a primitive axiom
-<span class="tag MA">MA</span>.</p>
+<a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>.</p>
 
-<h3 id="6-3-central-complexity-of-the-doubled-carrier-cp">6.3 — Central complexity of the doubled carrier <span class="tag CP">CP</span></h3>
+<h3 id="6-3-central-complexity-of-the-doubled-carrier-cp">6.3 — Central complexity of the doubled carrier <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></h3>
 <p>With the Axiom-Zero pairing ι, the paired-copy complex structure
 I<sub>ι</sub>(u,v) = (−ι<sup>−1</sup>v, ιu) satisfies I<sub>ι</sub>² = −1; every primitive
 paired lift A⊕ιAι<sup>−1</sup> commutes with I<sub>ι</sub>; the M5 primitive representation
 is complex-linear relative to the declared pairing, and W has complex rank five
-<span class="tag CP">CP</span>. This external I<sub>ι</sub> is not the internal M3 operator
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>. This external I<sub>ι</sub> is not the internal M3 operator
 J — conflating the two would erase the independence Axiom Zero introduced — and the
 ι-dependent construction is not canonical from an unpaired abstract isomorphism class
-alone <span class="tag MA">MA</span>.</p>
+alone <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>.</p>
 
-<h3 id="6-3a-conditional-chi-parity-adapted-orbit-extension-cp-ax-ma">6.3A — Conditional χ<sub>CHI</sub> parity-adapted orbit extension <span class="tag CP">CP</span> / <span class="tag AX">AX</span> / <span class="tag MA">MA</span></h3>
+<h3 id="6-3a-conditional-chi-parity-adapted-orbit-extension-cp-ax-ma">6.3A — Conditional χ<sub>CHI</sub> parity-adapted orbit extension <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> / <a class="taglink" href="../ledger/#tag-AX" title="Status key: assumption or axiom"><span class="tag AX">AX</span></a> / <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></h3>
 <p>Introduce, as additional datum rather than axiom, an isometric identification
-Π: U → U<sup>♯</sup> <span class="tag AX">AX</span>. The CHI generator
+Π: U → U<sup>♯</sup> <a class="taglink" href="../ledger/#tag-AX" title="Status key: assumption or axiom"><span class="tag AX">AX</span></a>. The CHI generator
 J<sub>CHI</sub>(u,v) = (−Π<sup>−1</sup>v, Πu) satisfies J<sub>CHI</sub>² = −1 and is
 conjugate to I<sub>ι</sub> relative to Π — no second primitive complex structure, no new
-ambient dimension <span class="tag CP">CP</span>. For dimensionless χ<sub>CHI</sub>:
+ambient dimension <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>. For dimensionless χ<sub>CHI</sub>:
 exp(χ<sub>CHI</sub>J<sub>CHI</sub>) = cos(χ<sub>CHI</sub>)·1 + sin(χ<sub>CHI</sub>)·J<sub>CHI</sub>
-<span class="tag CP">CP</span> <span class="tag NC">NC</span>; the orbit of (u,0) is
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a>; the orbit of (u,0) is
 cos(χ<sub>CHI</sub>)u ⊕ sin(χ<sub>CHI</sub>)Πu with ‖Ψ‖² = ‖u‖² when Π is isometric
-<span class="tag CP">CP</span>. Weights w<sub>U</sub> = cos²χ<sub>CHI</sub>,
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>. Weights w<sub>U</sub> = cos²χ<sub>CHI</sub>,
 w<sub>U♯</sub> = sin²χ<sub>CHI</sub>: sum 1, difference cos(2χ<sub>CHI</sub>),
-2√(w<sub>U</sub>w<sub>U♯</sub>) = |sin(2χ<sub>CHI</sub>)| <span class="tag CP">CP</span>;
+2√(w<sub>U</sub>w<sub>U♯</sub>) = |sin(2χ<sub>CHI</sub>)| <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>;
 χ<sub>CHI</sub> = 0, π/4, π/2 give one-copy occupancy, equal weight, complete transfer.
 The orbit leaves U∩U<sup>♯</sup> = {0}, W = U⊕U<sup>♯</sup>, dim<sub>ℝ</sub>W = 10 untouched
-<span class="tag CP">CP</span>. Firewalls: J<sub>CHI</sub> is off-diagonal mathematics, not
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>. Firewalls: J<sub>CHI</sub> is off-diagonal mathematics, not
 a primitive active coupling (A0.2) — Book 6 does not assert that χ<sub>CHI</sub> evolves,
 transfers physical energy or matter, or is observable; no physical mirror universe, parity,
-time, spacetime, or phase interpretation is derived <span class="tag MA">MA</span>.</p>
+time, spacetime, or phase interpretation is derived <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>.</p>
 
-<h3 id="6-4-primitive-central-imaginary-no-go-st">6.4 — Primitive central-imaginary no-go <span class="tag ST">ST</span></h3>
+<h3 id="6-4-primitive-central-imaginary-no-go-st">6.4 — Primitive central-imaginary no-go <a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">ST</span></a></h3>
 <p>A single M3 real-type module has no independent scalar complex structure in its commutant;
 multiplicity two is minimal; the same holds for the standard SO(3) module
-<span class="tag ST">ST</span> (real representation theory). The Axiom-Zero doubling therefore
+<a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">ST</span></a> (real representation theory). The Axiom-Zero doubling therefore
 supplies exactly the multiplicity needed for a global central complex structure on W
-<span class="tag MA">MA</span> (application framing).</p>
+<a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> (application framing).</p>
 
-<h3 id="6-5-hermitian-carrier-theorem-cp">6.5 — Hermitian carrier theorem <span class="tag CP">CP</span></h3>
+<h3 id="6-5-hermitian-carrier-theorem-cp">6.5 — Hermitian carrier theorem <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></h3>
 <p>Transporting the Euclidean metric of U to U<sup>♯</sup> through ι gives a direct-sum metric
 on W compatible with I<sub>ι</sub>, hence a Hermitian form canonical relative to the declared
 pairing; primitive orthogonal block transformations act unitarily once the complex pairing
-is installed <span class="tag CP">CP</span>.</p>
+is installed <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>.</p>
 
-<h3 id="6-6-maximal-complex-linear-block-envelope-cp">6.6 — Maximal complex-linear block envelope <span class="tag CP">CP</span></h3>
+<h3 id="6-6-maximal-complex-linear-block-envelope-cp">6.6 — Maximal complex-linear block envelope <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></h3>
 <p>Preserving only the Hermitian metric plus the inherited complex 2+3 block decomposition,
 the maximal complex-linear isometry group is U(2)×U(3); the real-form-preserving subgroup
-is O(2)×O(3) <span class="tag CP">CP</span>. The enlargement is a mathematical automorphism
-envelope — not yet a physical gauge postulate <span class="tag MA">MA</span>.</p>
+is O(2)×O(3) <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>. The enlargement is a mathematical automorphism
+envelope — not yet a physical gauge postulate <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>.</p>
 
-<h3 id="6-7-center-theorem-cp">6.7 — Center theorem <span class="tag CP">CP</span></h3>
-<p>Z(U(2)×U(3)) = U(1)<sub>E</sub> × U(1)<sub>V</sub> <span class="tag CP">CP</span>. The
+<h3 id="6-7-center-theorem-cp">6.7 — Center theorem <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></h3>
+<p>Z(U(2)×U(3)) = U(1)<sub>E</sub> × U(1)<sub>V</sub> <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>. The
 diagonal U(1) is the common scalar phase generated by I; the relative phase is
 block-dependent and exists because the 2+3 decomposition is preserved. At this stage
-neither U(1) is identified with electromagnetism or hypercharge <span class="tag MA">MA</span>.</p>
+neither U(1) is identified with electromagnetism or hypercharge <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>.</p>
 
-<h3 id="6-8-conditional-complex-volume-reduction-cp-ax">6.8 — Conditional complex-volume reduction <span class="tag CP">CP</span> / <span class="tag AX">AX</span></h3>
+<h3 id="6-8-conditional-complex-volume-reduction-cp-ax">6.8 — Conditional complex-volume reduction <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> / <a class="taglink" href="../ledger/#tag-AX" title="Status key: assumption or axiom"><span class="tag AX">AX</span></a></h3>
 <p>Adding a fixed complex volume form as further datum and requiring its preservation reduces
 the envelope to S(U(2)×U(3)) with Lie algebra su(2)⊕su(3)⊕u(1)
-<span class="tag AX">AX</span> <span class="tag CP">CP</span>. The traceless block-scalar
+<a class="taglink" href="../ledger/#tag-AX" title="Status key: assumption or axiom"><span class="tag AX">AX</span></a> <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>. The traceless block-scalar
 direction is unique up to normalization: 2a+3b = 0, conveniently a = 1/2, b = −1/3
-<span class="tag CP">CP</span>. A conditional carrier theorem only; the notation is not
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>. A conditional carrier theorem only; the notation is not
 permission to identify these factors with weak isospin, color, hypercharge, or any physical
-force <span class="tag MA">MA</span>.</p>
+force <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>.</p>
 
-<h3 id="6-9-five-dimensional-hodge-return-and-even-clifford-closure-cp-ax">6.9 — Five-dimensional Hodge-return and even-Clifford closure <span class="tag CP">CP</span> / <span class="tag AX">AX</span></h3>
+<h3 id="6-9-five-dimensional-hodge-return-and-even-clifford-closure-cp-ax">6.9 — Five-dimensional Hodge-return and even-Clifford closure <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> / <a class="taglink" href="../ledger/#tag-AX" title="Status key: assumption or axiom"><span class="tag AX">AX</span></a></h3>
 <p>Imposing the Hodge-return criterion — the first genuinely new grade generated by composing
 orientation bivectors returns to coframe/vector type — forces Λ<sup>(n−4)</sup>U* = Λ¹U*,
 i.e. n = 5; equivalently C(n,4) = n has the unique integer solution n = 5 for n ≥ 4
-<span class="tag AX">AX</span> <span class="tag CP">CP</span>. At n = 5: ten bivectors; 15
+<a class="taglink" href="../ledger/#tag-AX" title="Status key: assumption or axiom"><span class="tag AX">AX</span></a> <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>. At n = 5: ten bivectors; 15
 disjoint bivector pairs generate grade-four forms whose Hodge duals span all five carrier
 directions; 1+10+5 = 16; grade pattern 0:1, 2:10, 4:5 with Λ⁴U Hodge-dual to U
-<span class="tag CP">CP</span>. An independent rank-five structural certificate — not a
-derivation of Axiom Zero <span class="tag MA">MA</span>.</p>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>. An independent rank-five structural certificate — not a
+derivation of Axiom Zero <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>.</p>
 
-<h3 id="6-10-universal-complexification-and-the-no-compression-result-cp">6.10 — Universal complexification and the no-compression result <span class="tag CP">CP</span></h3>
+<h3 id="6-10-universal-complexification-and-the-no-compression-result-cp">6.10 — Universal complexification and the no-compression result <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></h3>
 <p>U<sub>ℂ</sub> = U⊗<sub>ℝ</sub>ℂ has complex dimension five, real dimension ten; every
 real-linear f: U → Z extends uniquely to complex-linear f<sub>ℂ</sub>
-<span class="tag CP">CP</span>. For real-injective f with S = f(U), m = dim<sub>ℂ</sub>span<sub>ℂ</sub>S,
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>. For real-injective f with S = f(U), m = dim<sub>ℂ</sub>span<sub>ℂ</sub>S,
 k = dim<sub>ℝ</sub>(S∩iS): 2m = 10−k, m ∈ {3,4,5}, dim<sub>ℂ</sub>ker f<sub>ℂ</sub> = 5−m,
-k = 2 dim<sub>ℂ</sub>ker f<sub>ℂ</sub> <span class="tag CP">CP</span>. Faithful
+k = 2 dim<sub>ℂ</sub>ker f<sub>ℂ</sub> <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>. Faithful
 complexification ⟺ k = 0, but real injectivity alone doesn't force it: explicit
 real-rank-five embeddings into ℂ³ and ℂ⁴ give k = 4 and k = 2 — the ℂ³ case verified by
-SVD intersection-rank computation <span class="tag NC">NC</span> (the ℂ⁴ case is asserted,
-not recomputed <span class="tag MA">MA</span>). Nonselection: the M2 rank firewall doesn't
-forbid lower-dimensional complex completions <span class="tag CP">CP</span>. The stronger
+SVD intersection-rank computation <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> (the ℂ⁴ case is asserted,
+not recomputed <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>). Nonselection: the M2 rank firewall doesn't
+forbid lower-dimensional complex completions <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>. The stronger
 conditional theorem — the unique faithful symmetry-equivariant complex completion is the
 full ℂ⁵, since the complexified blocks are inequivalent irreducibles —
-<span class="tag CP">CP</span> (irrep inequivalence <span class="tag ST">ST</span>); it does
-not prove M0–M4 require complex completion in the first place <span class="tag MA">MA</span>.</p>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> (irrep inequivalence <a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">ST</span></a>); it does
+not prove M0–M4 require complex completion in the first place <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>.</p>
 
-<h3 id="6-11-hermitian-totally-real-and-lagrangian-conditions-cp">6.11 — Hermitian, totally real, and Lagrangian conditions <span class="tag CP">CP</span></h3>
+<h3 id="6-11-hermitian-totally-real-and-lagrangian-conditions-cp">6.11 — Hermitian, totally real, and Lagrangian conditions <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></h3>
 <p>For half-dimensional real U: ω|<sub>U</sub> = 0 ⟺ U⊥IU ⟺ IU = U<sup>⊥</sup>, and any of
 these implies U∩IU = {0}, W = U⊕IU — Lagrangianity is sufficient for an independent
-completion <span class="tag CP">CP</span>. It is not necessary: total reality is strictly
+completion <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>. It is not necessary: total reality is strictly
 weaker. For U<sub>A</sub> = graph(A) in standard ℂ⁵,
 ω((x,Ax),(z,Az)) = x<sup>T</sup>(A−A<sup>T</sup>)z, so Lagrangian ⟺ A symmetric while
 totally real ⟺ I+A² invertible; a nonsymmetric nilpotent A is totally real without being
-Lagrangian <span class="tag CP">CP</span> <span class="tag NC">NC</span>. Positive-overlap
+Lagrangian <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a>. Positive-overlap
 Hermitian examples with k = 2, 4 exist — asserted, not recomputed
-<span class="tag MA">MA</span>. Hence Hermitian compatibility alone does not select k = 0;
+<a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>. Hence Hermitian compatibility alone does not select k = 0;
 Lagrangianity would be a sufficient additional axiom, not a discharge of Axiom Zero
-<span class="tag MA">MA</span>.</p>
+<a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>.</p>
 
-<h3 id="6-12-minimal-common-complex-carrier-theorem-cp-st-ax">6.12 — Minimal common complex-carrier theorem <span class="tag CP">CP</span> / <span class="tag ST">ST</span> / <span class="tag AX">AX</span></h3>
+<h3 id="6-12-minimal-common-complex-carrier-theorem-cp-st-ax">6.12 — Minimal common complex-carrier theorem <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> / <a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">ST</span></a> / <a class="taglink" href="../ledger/#tag-AX" title="Status key: assumption or axiom"><span class="tag AX">AX</span></a></h3>
 <p>Assume a common complex space must carry faithful commuting complex-linear actions of
 internal O(2) and geometric SO(3) with no preferred plane identification
-<span class="tag AX">AX</span>. O(2) cannot act faithfully in complex dimension one —
+<a class="taglink" href="../ledger/#tag-AX" title="Status key: assumption or axiom"><span class="tag AX">AX</span></a>. O(2) cannot act faithfully in complex dimension one —
 GL(1,ℂ) is abelian while reflections reverse the orientation generator — and has a faithful
-complex two-dimensional realization <span class="tag CP">CP</span>. The smallest faithful
-complex SO(3) representation is three-dimensional <span class="tag ST">ST</span>. Complex
+complex two-dimensional realization <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>. The smallest faithful
+complex SO(3) representation is three-dimensional <a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">ST</span></a>. Complex
 dimension four is impossible: any faithful SO(3) representation there is 3⊕1 with abelian
 commutant, which cannot contain a commuting faithful O(2); in dimension five, 3⊕2 has
 commutant containing M<sub>2</sub>(ℂ), and the required O(2) block exists
-<span class="tag CP">CP</span>. Hence dim<sub>ℂ</sub>W ≥ 5 with equality at
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>. Hence dim<sub>ℂ</sub>W ≥ 5 with equality at
 W ≅ ℂ³<sub>geom</sub> ⊕ ℂ²<sub>orient</sub> (real dimension ten). Exact minimality inside
-the stated class; not a pre-Axiom selector <span class="tag MA">MA</span>.</p>
+the stated class; not a pre-Axiom selector <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>.</p>
 
-<h3 id="6-13-complexification-bivector-balance-theorem-cp-nc">6.13 — Complexification–bivector balance theorem <span class="tag CP">CP</span> / <span class="tag NC">NC</span></h3>
+<h3 id="6-13-complexification-bivector-balance-theorem-cp-nc">6.13 — Complexification–bivector balance theorem <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> / <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a></h3>
 <p>dim<sub>ℝ</sub>(U⊗<sub>ℝ</sub>ℂ) = 2n, dim<sub>ℝ</sub>Λ²U = n(n−1)/2; equality requires
 2n = n(n−1)/2, uniquely n = 5 for n &gt; 0, common dimension ten
-<span class="tag CP">CP</span> <span class="tag NC">NC</span>. Among 2 ≤ r ≤ n−2,
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a>. Among 2 ≤ r ≤ n−2,
 C(n,r) = 2n occurs only for (n,r) = (5,2), (5,3) — the Hodge-dual middle pair
-<span class="tag NC">NC</span> (exact integer scan). At n = 5 the exterior dimensions are
-1, 5, 10, 10, 5, 1; even and odd sectors each 16 <span class="tag CP">CP</span>.
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> (exact integer scan). At n = 5 the exterior dimensions are
+1, 5, 10, 10, 5, 1; even and odd sectors each 16 <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>.
 Nonselection: equality of dimensions does not imply a natural or equivariant
 identification — U<sub>ℂ</sub> and Λ²U have different SO(5) characters
-<span class="tag ST">ST</span>. No inherited principle requires these ranks to match; the
+<a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">ST</span></a>. No inherited principle requires these ranks to match; the
 balance is an exact fingerprint of the already-earned rank five, not a selector for it
-<span class="tag MA">MA</span>.</p>
+<a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>.</p>
 
-<h3 id="6-14-flatwave-cotangent-symplectic-completion-cp-ma">6.14 — FlatWave cotangent/symplectic completion <span class="tag CP">CP</span> / <span class="tag MA">MA</span></h3>
+<h3 id="6-14-flatwave-cotangent-symplectic-completion-cp-ma">6.14 — FlatWave cotangent/symplectic completion <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> / <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></h3>
 <p>For the Möbius map u′ = (au+b)/(cu+d), ad−bc = 1: du′/du = (cu+d)<sup>−2</sup>; preserving
-p du gives p′ = p(cu+d)², so p′du′ = pdu and dp′∧du′ = dp∧du <span class="tag CP">CP</span>
-<span class="tag NC">NC</span> (finite-difference spot checks). Under the reciprocal
+p du gives p′ = p(cu+d)², so p′du′ = pdu and dp′∧du′ = dp∧du <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> (finite-difference spot checks). Under the reciprocal
 coordinate s = √(1+u²)−u with inverse u = (1−s²)/(2s): p<sub>s</sub> = −(1+s²)p<sub>u</sub>/(2s²)
-<span class="tag CP">CP</span> <span class="tag NC">NC</span>. For n-dimensional Euclidean
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a>. For n-dimensional Euclidean
 (U,G): T*U ≅ U⊕U* has real dimension 2n; J<sub>G</sub>(q,p) = (−G<sup>−1</sup>p, Gq)
 satisfies J<sub>G</sub>² = −1 compatibly with the canonical symplectic form — at n = 5 a
-ten-real-dimensional cotangent completion <span class="tag CP">CP</span>. The no-go is load-bearing:
+ten-real-dimensional cotangent completion <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>. The no-go is load-bearing:
 the functorial cotangent lift exists for every smooth carrier and does not make cotangent
 covectors primitive state variables; identifying U<sup>♯</sup> with U* needs an explicit
 metric/duality choice; nothing here is physical momentum before a later action or dynamics
-is supplied <span class="tag MA">MA</span>. This route corroborates the M5 doubling but does
-not derive it <span class="tag MA">MA</span>.</p>
+is supplied <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>. This route corroborates the M5 doubling but does
+not derive it <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>.</p>
 
-<h3 id="6-15-regular-simplex-common-mode-theorems-nc-cp">6.15 — Regular-simplex common-mode theorems <span class="tag NC">NC</span> / <span class="tag CP">CP</span></h3>
+<h3 id="6-15-regular-simplex-common-mode-theorems-nc-cp">6.15 — Regular-simplex common-mode theorems <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> / <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></h3>
 <p>Universal in N ≥ 2 (d = N−1): the centered vertices v<sub>A</sub> = e<sub>A</sub>−(1/N)1
 form a regular d-simplex with |v<sub>A</sub>|² = (N−1)/N, v<sub>A</sub>·v<sub>B</sub> = −1/N
 (A≠B), |v<sub>A</sub>−v<sub>B</sub>|² = 2; normalized edge Gram
 G<sub>d</sub> = (1/2)(I<sub>d</sub>+J<sub>d</sub>) with spectrum {(d+1)/2, ½ repeated d−1}
-and det G<sub>d</sub> = (d+1)/2<sup>d</sup> <span class="tag NC">NC</span> (N = 2…8 sampled,
-max error ~1e-15) <span class="tag CP">CP</span>. The cases d = 3 and d = 10 are examples
-only; the simplex theorem does not select ten <span class="tag MA">MA</span>. Under the
+and det G<sub>d</sub> = (d+1)/2<sup>d</sup> <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> (N = 2…8 sampled,
+max error ~1e-15) <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>. The cases d = 3 and d = 10 are examples
+only; the simplex theorem does not select ten <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>. Under the
 S<sub>N</sub> action, det(T|<sub>V(N−1)</sub>) = sgn(T): A<sub>N</sub> preserves orientation
 while every odd permutation exchanges the two orientation classes — symmetric simplex data
-contain both orientations but canonically select neither <span class="tag CP">CP</span>.
+contain both orientations but canonically select neither <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>.
 This holds for every N ≥ 2 and therefore cannot select N = 11 or d = 10
-<span class="tag MA">MA</span>.</p>
+<a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>.</p>
 
-<h3 id="6-16-terminal-firewall-ma">6.16 — Terminal firewall <span class="tag MA">MA</span></h3>
+<h3 id="6-16-terminal-firewall-ma">6.16 — Terminal firewall <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></h3>
 <p>No passage from a pointwise carrier automorphism group to a spacetime-dependent gauge
 group is permitted without additional structure: a base space or bundle, local sections,
 a connection, curvature, and ultimately a dynamics or action principle
-<span class="tag MA">MA</span> (declared boundary, not a derived theorem). Accordingly Book 6
+<a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> (declared boundary, not a derived theorem). Accordingly Book 6
 stops before physical gauge fields, spacetime localization, action principles, dynamics,
 quantum probability, particle ontology, physical chirality choice, hypercharge assignment,
 coupling constants, masses, mixing matrices, anomaly cancellation, generation counting, or
-physical force names <span class="tag MA">MA</span>.</p>
+physical force names <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>.</p>
 
 <hr>
 <h2 id="p3">Part III — What Book 6 establishes, and what it doesn't</h2>
 <h3 id="established-abridged">Established (abridged)</h3>
 <p class="small">Inherited block symmetry O(2)×O(3) with so(2)⊕so(3), dim 4
-<span class="tag CP">CP</span>; bivector decomposition 1+6+3 = 10 with bracket-closure to
-so(5) on adding one cross generator <span class="tag NC">NC</span>; paired-copy complex
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>; bivector decomposition 1+6+3 = 10 with bracket-closure to
+so(5) on adding one cross generator <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a>; paired-copy complex
 structure I<sub>ι</sub>² = −1 commuting with primitive diagonal lifts, complex rank five
-<span class="tag CP">CP</span>; the conditional χ<sub>CHI</sub> orbit with exact weight
-identities and norm preservation <span class="tag CP">CP</span> <span class="tag NC">NC</span>;
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>; the conditional χ<sub>CHI</sub> orbit with exact weight
+identities and norm preservation <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a>;
 maximal complex-linear envelope U(2)×U(3) with center U(1)<sub>E</sub>×U(1)<sub>V</sub>
-<span class="tag CP">CP</span>; conditional volume reduction to S(U(2)×U(3)),
-su(2)⊕su(3)⊕u(1), 2a+3b = 0 at (1/2,−1/3) <span class="tag CP">CP</span>; Hodge-return and
-bivector-balance integer certificates for n = 5 <span class="tag CP">CP</span>
-<span class="tag NC">NC</span>; complexification dimension relations 2m = 10−k with the
-k = 4 non-faithful example <span class="tag CP">CP</span> <span class="tag NC">NC</span>;
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>; conditional volume reduction to S(U(2)×U(3)),
+su(2)⊕su(3)⊕u(1), 2a+3b = 0 at (1/2,−1/3) <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>; Hodge-return and
+bivector-balance integer certificates for n = 5 <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a>; complexification dimension relations 2m = 10−k with the
+k = 4 non-faithful example <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a>;
 Lagrangian-vs-totally-real analysis with nonsymmetric nilpotent witness
-<span class="tag CP">CP</span> <span class="tag NC">NC</span>; minimal common complex-carrier
-bound dim<sub>ℂ</sub>W ≥ 5 <span class="tag CP">CP</span>; universal simplex theorems with
-Gram spectrum and orientation obstruction <span class="tag NC">NC</span> <span class="tag CP">CP</span>;
-Möbius/cotangent identities with the cotangent no-go <span class="tag CP">CP</span>.</p>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a>; minimal common complex-carrier
+bound dim<sub>ℂ</sub>W ≥ 5 <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>; universal simplex theorems with
+Gram spectrum and orientation obstruction <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>;
+Möbius/cotangent identities with the cotangent no-go <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>.</p>
 <h3 id="not-derived-abridged">Not derived (abridged)</h3>
 <p class="small">No new primitive axiom (all extensions declare their additional data:
 Π, volume form, Hodge-return criterion, common-completion premise, metric/duality choice).
@@ -521,6 +528,24 @@ fingerprints of rank five, not selectors; the CHI orbit is conditional carrier g
 not a physical process. That is the certification, not a gap.</p>
 
 <hr>
+<!-- AUDITSTATUS-START -->
+<h3>Independent audit verdicts</h3>
+<p>Claim-by-claim results from the <a href="../ledger/">research status ledger</a>
+(Volume I audit). Each status links directly to its claim row on the ledger.
+This table is generated by <code>sync_status.py</code> from the ledger and updates
+automatically as the audit advances.</p>
+<table class="diag">
+<tr><th>Claim</th><th>Status</th><th>Basis</th></tr>
+<tr id="audit-b6-modules-25-numpy-scipy-001" data-claim="b6-modules-25-numpy-scipy-001"><td>M2: 16 gamma matrices, each 256×256.</td><td><a class="taglink" href="../ledger/#claim-b6-modules-25-numpy-scipy-001" title="completed numerical check — ledger claim b6-modules-25-numpy-scipy-001"><span class="tag NC" data-claim="b6-modules-25-numpy-scipy-001">completed numerical check</span></a></td><td></td></tr>
+<tr id="audit-b6-modules-25-numpy-scipy-002" data-claim="b6-modules-25-numpy-scipy-002"><td>M4: chirality ranks 128, 128; P orthonormality error 0.0.</td><td><a class="taglink" href="../ledger/#claim-b6-modules-25-numpy-scipy-002" title="completed numerical check — ledger claim b6-modules-25-numpy-scipy-002"><span class="tag NC" data-claim="b6-modules-25-numpy-scipy-002">completed numerical check</span></a></td><td></td></tr>
+<tr id="audit-b6-modules-25-numpy-scipy-003" data-claim="b6-modules-25-numpy-scipy-003"><td>M5: ChargeConjugationOK=true.</td><td><a class="taglink" href="../ledger/#claim-b6-modules-25-numpy-scipy-003" title="completed numerical check — ledger claim b6-modules-25-numpy-scipy-003"><span class="tag NC" data-claim="b6-modules-25-numpy-scipy-003">completed numerical check</span></a></td><td></td></tr>
+<tr id="audit-b6-modules-712-casimir-decomposition-001" data-claim="b6-modules-712-casimir-decomposition-001"><td>M7: symmetric basis size 8256 = expected 8256.</td><td><a class="taglink" href="../ledger/#claim-b6-modules-712-casimir-decomposition-001" title="completed numerical check — ledger claim b6-modules-712-casimir-decomposition-001"><span class="tag NC" data-claim="b6-modules-712-casimir-decomposition-001">completed numerical check</span></a></td><td></td></tr>
+<tr id="audit-b6-corrected-casimir-c-m-001" data-claim="b6-corrected-casimir-c-m-001"><td>First run returned {0:1, 48:1820, 64:6307, 128:128} —</td><td><a class="taglink" href="../ledger/#claim-b6-corrected-casimir-c-m-001" title="incorrect result — ledger claim b6-corrected-casimir-c-m-001"><span class="tag IC" data-claim="b6-corrected-casimir-c-m-001">incorrect result</span></a></td><td>because</td></tr>
+<tr id="audit-b6-corrected-module-6-construction-001" data-claim="b6-corrected-module-6-construction-001"><td>Generators are anti-Hermitian: max |A + A†| = 0.0 (</td><td><a class="taglink" href="../ledger/#claim-b6-corrected-module-6-construction-001" title="completed numerical check — ledger claim b6-corrected-module-6-construction-001"><span class="tag NC" data-claim="b6-corrected-module-6-construction-001">completed numerical check</span></a></td><td>); they are</td></tr>
+<tr id="audit-b6-book-6-local-symmetry-001" data-claim="b6-book-6-local-symmetry-001"><td>C(n,4)=n has unique integer solution n=5 for n≥4:</td><td><a class="taglink" href="../ledger/#claim-b6-book-6-local-symmetry-001" title="checked proof — ledger claim b6-book-6-local-symmetry-001"><span class="tag CP" data-claim="b6-book-6-local-symmetry-001">checked proof</span></a></td><td>(independent) .</td></tr>
+<tr id="audit-b6-book-6-local-symmetry-002" data-claim="b6-book-6-local-symmetry-002"><td>Regular-simplex Gram spectrum/determinant (see §5 above):</td><td><a class="taglink" href="../ledger/#claim-b6-book-6-local-symmetry-002" title="completed numerical check — ledger claim b6-book-6-local-symmetry-002"><span class="tag NC" data-claim="b6-book-6-local-symmetry-002">completed numerical check</span></a></td><td>(numeric) .</td></tr>
+</table>
+<!-- AUDITSTATUS-END -->
 <h2 id="p4">Part IV — Close the book</h2>
 <p><b>Zero counts.</b> New primitive axioms: 0. Physics imports: 0. Projection contracts: 0.
 Physical claims: 0. Explicitly declared additional mathematical data (conditional, never
@@ -530,7 +555,7 @@ promoted): the isometric copy-identification Π (§6.3A), the fixed complex volu
 <p><b>Terminal firewall.</b> §6.16 blocks the passage from pointwise carrier automorphism
 groups to spacetime-dependent gauge groups: that passage needs a base space or bundle,
 local sections, a connection, curvature, and ultimately a dynamics or action principle —
-none of which Book 6 supplies. <span class="tag MA">MA</span></p>
+none of which Book 6 supplies. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></p>
 <p><b>Airlock to Volume II.</b> Volume II may inherit only the mathematical structures and
 explicit assumptions certified in Books 0–6. Everything on the §6.16 stop-list must enter
 downstream through stated extensions or physics imports. The mathematics is closed; the
@@ -552,18 +577,18 @@ check, never a proof. Pictures illustrate proved or checked statements; they are
 Books 0–6 establish the source boundary, mathematical constitution, canonical R-operator
 calculus, projective phase and orientation structure, geometric rank and
 coframe/connection boundary, Axiom Zero, and the pointwise local-symmetry/carrier
-mathematics. <span class="tag MA">MA</span></p>
+mathematics. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></p>
 <h3 id="dependency-boundary-to-volume-ii">Dependency boundary to Volume II</h3>
 <p>Volume II may inherit <b>only</b> the mathematical structures and explicit assumptions
 certified here. Book 6 does not itself supply physical gauge fields, spacetime
 localization, action principles, dynamics, quantum probability, particle ontology, physical
 chirality, hypercharge, coupling constants, masses, mixing matrices, anomaly cancellation,
 generation counting, or force identification. Those structures must enter downstream
-through their stated extensions or physics imports. <span class="tag MA">MA</span></p>
+through their stated extensions or physics imports. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></p>
 <h3 id="master-retirement-note">Master-retirement note</h3>
 <p>This volume is extracted from the latest consolidated master through the terminal firewall
 of Book 6. The obsolete editorial line "HANDOFF TO BOOK 5" present in the earlier split
-copy is not retained. <span class="tag MA">MA</span> (provenance/editorial claim; the
+copy is not retained. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> (provenance/editorial claim; the
 earlier split copy was not inspected in this audit.)</p>
 
 <!-- BOOKNAV-NAV-START -->
