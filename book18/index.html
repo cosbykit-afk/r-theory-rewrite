@@ -40,13 +40,34 @@ footer{margin-top:3em;color:#555;font-size:.9em;border-top:1px solid #bbb;paddin
  border:1px solid #666;border-radius:3px;background:#eee;cursor:pointer;color:#1a1a1a}
 </style>
 <!-- SITENAV-END -->
+<!-- BOOKNAV-CSS-START -->
+<style>
+.booknav{font-family:Georgia,serif;display:grid;grid-template-columns:1.35fr .85fr .85fr 1.35fr;gap:10px;margin:2.5em 0 0}
+.booknav-panel{display:flex;flex-direction:column;justify-content:center;text-decoration:none;color:#1a1a1a;
+ background:linear-gradient(180deg,#ffffff 0%,#f4f7fb 60%,#e7edf4 100%);
+ border:1px solid #c7d2de;border-radius:8px;padding:12px 16px;
+ box-shadow:inset 0 1px 0 #ffffff,0 2px 6px rgba(27,95,170,.10);
+ transition:border-color .15s ease,box-shadow .15s ease,transform .15s ease}
+a.booknav-panel:hover{border-color:#1b5faa;transform:translateY(-1px);
+ box-shadow:inset 0 1px 0 #ffffff,0 4px 12px rgba(27,95,170,.18)}
+a.booknav-panel:focus-visible{outline:2px solid #1b5faa;outline-offset:2px}
+.booknav-eyebrow{font-size:.7em;letter-spacing:.09em;text-transform:uppercase;color:#5a5a5a}
+.booknav-title{font-weight:bold;color:#1b5faa;margin-top:3px;line-height:1.35}
+.booknav-vol{font-size:.78em;color:#5a5a5a;margin-top:2px}
+.booknav-next{text-align:right}
+.booknav-center{text-align:center}
+.booknav-panel.is-disabled{opacity:.45;cursor:default}
+.booknav-panel.is-disabled .booknav-title{color:#5a5a5a}
+@media (max-width:640px){.booknav{grid-template-columns:1fr 1fr}.booknav-next{text-align:left}}
+</style>
+<!-- BOOKNAV-CSS-END -->
 </head>
 <body>
 <!-- SITENAV-NAV-START -->
 <nav class="sitenav" aria-label="Site navigation">
 <a class="sitenav-brand" href="../">R Theory — Rewrite</a>
 <span class="sitenav-links">
-<a href="../#hard">Hard&nbsp;science</a><a href="../#theoretical">Theoretical</a><a href="../vol0/">Vol&nbsp;0</a><a href="../vol4/">Vol&nbsp;IV</a><a href="../tables/">Tables</a>
+<a href="../contents/">Contents</a><a href="../index/">Index</a><a href="../contents/#vol-0">Vol&nbsp;0</a><a href="../contents/#vol-1">Vol&nbsp;I</a><a href="../contents/#vol-2">Vol&nbsp;II</a><a href="../contents/#vol-3">Vol&nbsp;III</a><a href="../contents/#vol-4">Vol&nbsp;IV</a><a href="../tables/">Tables</a><a href="../research/">Research</a>
 </span>
 <form class="sitenav-search" action="https://www.google.com/search" method="get" target="_blank" role="search"
  onsubmit="if(!this.q.value.trim())return false;this.q.value='site:cosbykit-afk.github.io/r-theory-rewrite '+this.q.value">
@@ -90,7 +111,7 @@ fallbacks carry the verified numbers.</p>
 <p>Six figures: the algebra the book establishes, drawn before the defects are listed. Every number
 below is exact integer or rational arithmetic.</p>
 
-<h3>Figure 1 — The 1820 as C(16,4)</h3>
+<h3 id="figure-1-the-1820-as-c-16-4">Figure 1 — The 1820 as C(16,4)</h3>
 <div class="graph" id="d1"></div>
 <img class="fallback" id="f1" src="graphs/b18_comb.png" alt="C(n,4) curve with the point (16,1820)">
 <div class="caption"><b>What you see.</b> <span class="formula">C(n,4) = n(n−1)(n−2)(n−3)/24</span>
@@ -111,7 +132,7 @@ alternating one exists. <span class="tag CP">CP</span>
 <span class="formula">M_e</span>/<span class="formula">Oprop</span> are SO(16)-equivariant
 at all is still a manuscript-reading question. <span class="tag MA">MA</span></p>
 
-<h3>Figure 2 — Sym²(128) vs Λ²(128): the 120 is not in Sym² (IC-12)</h3>
+<h3 id="figure-2-sym-128-vs-128-the-120-is-not-in-sym-ic-12">Figure 2 — Sym²(128) vs Λ²(128): the 120 is not in Sym² (IC-12)</h3>
 <div class="graph" id="d2"></div>
 <img class="fallback" id="f2" src="graphs/b18_sym_alt.png" alt="Sym2 and Alt2 dimension curves with the 120 marked in Alt2">
 <div class="caption"><b>What you see.</b> <span class="formula">dim Sym²(n) = n(n+1)/2</span> (blue) and
@@ -123,7 +144,7 @@ static fallback) and
 This figure is the IC-12 exhibit: §18.4's "the 120 = Λ²(16) sits inside Sym²(128)" is
 <span class="tag IC">IC</span>, repeating the §17.18 error (IC-6).</div>
 
-<h3>Figure 3 — Branching: 135 → (54,1) ⊕ (1,20′) ⊕ (10,6) ⊕ (1,1)</h3>
+<h3 id="figure-3-branching-135-54-1-1-20-10-6-1-1">Figure 3 — Branching: 135 → (54,1) ⊕ (1,20′) ⊕ (10,6) ⊕ (1,1)</h3>
 <div class="graph" id="d3"></div>
 <img class="fallback" id="f3" src="graphs/b18_branch.png" alt="Branching staircase summing to 135">
 <div class="caption"><b>What you see.</b> The staircase of partial sums
@@ -137,7 +158,7 @@ Also exact: <span class="formula">135 = 16·17/2 − 1 = Sym²₀(16)</span> and
 <b>What it doesn't show.</b> Where the <span class="formula">P_{54}</span> projector lives — 135 vs
 1820 is unreconciled in v1. <span class="tag MA">MA</span></div>
 
-<h3>Figure 4 — The conversion chain: algebraic form only</h3>
+<h3 id="figure-4-the-conversion-chain-algebraic-form-only">Figure 4 — The conversion chain: algebraic form only</h3>
 <div class="graph" id="d4"></div>
 <img class="fallback" id="f4" src="graphs/b18_chain.png" alt="Conversion chain lines with no established point">
 <div class="caption"><b>What you see.</b> The chain
@@ -150,7 +171,7 @@ algebraically, and <span class="formula">−(1/256)(√10/6) = −√10/1536</sp
 about that. <b>What it doesn't show.</b> The physical content of the
 <span class="formula">−(√10/1536)</span> prefactor — a manuscript assertion. <span class="tag MA">MA</span></div>
 
-<h3>Figure 5 — Conditional projector idempotency</h3>
+<h3 id="figure-5-conditional-projector-idempotency">Figure 5 — Conditional projector idempotency</h3>
 <div class="graph" id="d5"></div>
 <img class="fallback" id="f5" src="graphs/b18_projector.png" alt="Projector lines with values 0 and 1 at eigenvalues">
 <div class="caption"><b>What you see.</b> <span class="formula">Π_± = (1 ± γ_{17})/2</span>:
@@ -161,7 +182,7 @@ at the eigenvalues <span class="formula">γ_{17} = ±1</span> (black dots) the p
 <b>What it doesn't show.</b> The <span class="formula">γᵢ</span> relations themselves: they are OPEN
 in v1, and §18.2's printed template cannot produce them (IC-17). <span class="tag MA">MA</span></div>
 
-<h3>Figure 6 — The ordered contraction: (E,B,E,O)×2 → 54</h3>
+<h3 id="figure-6-the-ordered-contraction-e-b-e-o-2-54">Figure 6 — The ordered contraction: (E,B,E,O)×2 → 54</h3>
 <div class="graph" id="d6"></div>
 <img class="fallback" id="f6" src="graphs/b18_contraction.png" alt="C8 word on a circle with the 54 target">
 <div class="caption"><b>What you see.</b> The C8 cyclic word in contact order around the circle —
@@ -173,7 +194,7 @@ blocked, and the 54's location (135 vs 1820) is unreconciled. The center label s
 because it is not. <span class="tag MA">MA</span></div>
 
 <h2 id="p2">Part II — Then earn it</h2>
-<h3>Dimensions / combinatorics (§§18.2–18.5)</h3>
+<h3 id="dimensions-combinatorics-18-2-18-5">Dimensions / combinatorics (§§18.2–18.5)</h3>
 <p><span class="formula">C(16,4) = 1820</span>, <span class="formula">128·129/2 = 8256 = dim Sym²(128)</span>,
 <span class="formula">1 + 1820 + 6435 = 8256</span>, <span class="formula">2⁷ = 128</span>.
 <span class="tag CP">CP</span> Branching arithmetic:
@@ -182,7 +203,7 @@ because it is not. <span class="tag MA">MA</span></div>
 §18.5's <span class="formula">135|_{SO(10)×SU(4)} = (54,1)⊕(1,20')⊕(10,6)⊕(1,1)</span> is
 dimensionally exact <span class="tag CP">CP</span>, with the SO(10)/SU(4) content standard representation
 theory <span class="tag ST">ST</span>.</p>
-<h3>Conversion chain (§18.6)</h3>
+<h3 id="conversion-chain-18-6">Conversion chain (§18.6)</h3>
 <p><span class="formula">S_F = 3a_{2222}</span> from <span class="formula">(6/5)(5/2) = 3</span>;
 <span class="formula">a = (6/5)c</span> inverts to <span class="formula">c_{ord} = 5S_F/18</span>;
 <span class="formula">−(1/256)(√10/6) = −√10/1536</span> exactly. <span class="tag CP">CP</span>
@@ -191,19 +212,19 @@ theory <span class="tag ST">ST</span>.</p>
 idempotent — <span class="tag CP">CP</span> as a conditional inference; the <span class="formula">γᵢ</span>
 relations themselves are OPEN in v1. The missing-input lines ("explicit 1820×1820 E, B, O matrices")
 are present and honest. <span class="tag CP">CP</span></p>
-<h3>Tension arithmetic (recorded for Book 19)</h3>
+<h3 id="tension-arithmetic-recorded-for-book-19">Tension arithmetic (recorded for Book 19)</h3>
 <p><span class="formula">(√2)⁴ = 4</span> (established propagator cosh product),
 <span class="formula">(√2)⁸ = 16</span> (all-eight product) <span class="tag CP">CP</span> — the value 16
 at line 3542 matches the all-eight product, not the propagator product.
 <span class="formula">V_E⁴ ≈ 638.78</span>: <span class="formula">5.0273⁴ = 638.76</span>, within 0.05.
 <span class="tag NC">NC</span></p>
-<h3>§18.8 — the skeleton, duplicated</h3>
+<h3 id="18-8-the-skeleton-duplicated">§18.8 — the skeleton, duplicated</h3>
 <p>§18.8 repeats the §17.18.8.2 Wolfram skeleton with the Step-5 sum ranges further abbreviated away —
 and with the same four defects (IC-13…IC-16). Two more errors recur as IC-12 (the 120 in Sym²(128),
 = IC-6) and IC-17 (new: the §18.2 gamma template). <span class="tag IC">IC</span></p>
 
 <h2 id="p3">Part III — Incorrect and open</h2>
-<h3>Incorrect as stated (IC-12…IC-17)</h3>
+<h3 id="incorrect-as-stated-ic-12-ic-17">Incorrect as stated (IC-12…IC-17)</h3>
 <ul class="tight">
 <li><b>IC-12</b> (§18.4): "The 120 = Λ²(16) sits inside Sym²(128)" — false; repeats IC-6.
 <span class="formula">Sym²(128) = 1 ⊕ 1820 ⊕ 6435</span> has no 120. Figure 2 is the exhibit.
@@ -225,11 +246,11 @@ Additionally <span class="formula">σ_a</span> is never defined, only <span clas
 are shown for 16 matrices, and the "appropriate extensions for i = 9…16" are undefined. The printed
 template cannot produce what the section asks for. <span class="tag IC">IC</span></li>
 </ul>
-<h3>Open (the manuscript's own admissions, confirmed)</h3>
+<h3 id="open-the-manuscript-s-own-admissions-confirmed">Open (the manuscript's own admissions, confirmed)</h3>
 <p class="small">Explicit 1820×1820 E, B, O matrices; the explicit 1820 projector; the 120 embedding; the
 54 projector (135 vs 1820 unreconciled); the <span class="formula">S_F</span> numerical value;
 <span class="formula">N_{1820}</span>. <span class="tag MA">MA</span></p>
-<h3>Unresolved</h3>
+<h3 id="unresolved">Unresolved</h3>
 <p class="small">§17.18 and Book 18 share the same title (duplication flag — the two sections cover
 overlapping contraction material with the skeleton defects recurring). The dangling "§17.11" reference
 and the Flatwave naming question are carried on the <a href="../vol4/">Volume IV overview</a> page.</p>
@@ -245,6 +266,28 @@ it is defective in both of its printings. Book 18 is a roadmap with the algebra 
 construction open. The UV boundary — what, if anything, this contracts to — is
 <a href="../book19/">Book 19</a>.</p>
 
+<!-- BOOKNAV-NAV-START -->
+<nav class="booknav" aria-label="Book navigation">
+<a class="booknav-panel booknav-prev" rel="prev" href="../book17/">
+<span class="booknav-eyebrow">← Previous</span>
+<span class="booknav-title">Book 17 — The Discrete Octant</span>
+<span class="booknav-vol">Volume IV</span>
+</a>
+<a class="booknav-panel booknav-center" href="../">
+<span class="booknav-eyebrow">Series</span>
+<span class="booknav-title">Index</span>
+</a>
+<a class="booknav-panel booknav-center" href="../contents/">
+<span class="booknav-eyebrow">Series</span>
+<span class="booknav-title">Contents</span>
+</a>
+<a class="booknav-panel booknav-next" rel="next" href="../book19/">
+<span class="booknav-eyebrow">Next →</span>
+<span class="booknav-title">Book 19 — The UV Boundary</span>
+<span class="booknav-vol">Volume IV</span>
+</a>
+</nav>
+<!-- BOOKNAV-NAV-END -->
 <footer>
 <p>Book 18 of the R Theory Volume IV rewrite. Chunk 4 (audit_18.py) — 40 assertions, 0 failed.
 v1 is the sole audit authority. Figure validation:

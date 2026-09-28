@@ -43,7 +43,7 @@ a{color:#0645ad}
 <nav class="sitenav" aria-label="Site navigation">
 <a class="sitenav-brand" href="../">R Theory — Rewrite</a>
 <span class="sitenav-links">
-<a href="../#hard">Hard&nbsp;science</a><a href="../#theoretical">Theoretical</a><a href="../vol0/">Vol&nbsp;0</a><a href="../vol4/">Vol&nbsp;IV</a><a href="../tables/">Tables</a>
+<a href="../contents/">Contents</a><a href="../index/">Index</a><a href="../contents/#vol-0">Vol&nbsp;0</a><a href="../contents/#vol-1">Vol&nbsp;I</a><a href="../contents/#vol-2">Vol&nbsp;II</a><a href="../contents/#vol-3">Vol&nbsp;III</a><a href="../contents/#vol-4">Vol&nbsp;IV</a><a href="../tables/">Tables</a><a href="../research/">Research</a>
 </span>
 <form class="sitenav-search" action="https://www.google.com/search" method="get" target="_blank" role="search"
  onsubmit="if(!this.q.value.trim())return false;this.q.value='site:cosbykit-afk.github.io/r-theory-rewrite '+this.q.value">
@@ -68,7 +68,7 @@ in the daily Drive backup <code>r-theory-audit-work.zip</code> (refreshed
 <p class="small">First published 2026-09-22.</p>
 </div>
 
-<h2>Status vocabulary</h2>
+<h2 id="status-vocabulary">Status vocabulary</h2>
 <p>This appendix uses the audit's own scope labels, mapped to the series tags:
 <span class="tag CP">CP</span> checked proof = <b>PROVED</b> ·
 <span class="tag SC">SC</span> completed symbolic check and
@@ -81,7 +81,7 @@ Nothing is promoted beyond what the mathematics supports: in particular, a
 numerical check of a <i>corrected</i> construction does not repair the
 <i>original</i> encoding it replaces.</p>
 
-<h2>Method</h2>
+<h2 id="method">Method</h2>
 <p>Two separate computations, written and run independently:</p>
 <ol>
 <li><b>Exact-script audit</b> (<span class="tag NC">NC</span>):
@@ -101,7 +101,7 @@ against the literal operator definition on random symmetric matrices.</li>
 ran exhaustive diagnostics on the corrected construction: odd-subspace
 invariance, all so(16) commutators, and Casimir centrality.</p>
 
-<h2>Module-by-module findings</h2>
+<h2 id="module-by-module-findings">Module-by-module findings</h2>
 <table>
 <tr><th>Module</th><th>What the exact script produced</th><th>Status</th></tr>
 <tr><td>M1 — gamma matrices</td><td>Original encoding used <code>s3</code> in the
@@ -158,7 +158,7 @@ anti-Hermitian and act on symmetric matrices by <i>congruence</i>,
 operator. This is a basis/encoding defect, not numerical noise.</p>
 </div>
 
-<h2>The corrected operator</h2>
+<h2 id="the-corrected-operator">The corrected operator</h2>
 <p>Expanding ρ(A)² with ρ(A)M = AM + MA<sup>T</sup> gives the exact algebra
 (<span class="tag CP">CP</span> by inspection):</p>
 <p style="text-align:center">C′(M) = −Σ<sub>a</sub>(A<sub>a</sub>²M +
@@ -182,7 +182,7 @@ to machine precision (≈2.8–2.9e-14 against scales ~129–171).
 Modules 8–12 encoding, which remains <span class="tag IC">IC</span> as
 written.</p>
 
-<h2>Independent verification (2026-09-21)</h2>
+<h2 id="independent-verification-2026-09-21">Independent verification (2026-09-21)</h2>
 <p><code>verify_independent.py</code> — fresh implementation from the
 definitions, ~603&nbsp;s, exit 0:</p>
 <ul>
@@ -200,7 +200,7 @@ matrices: max deviation <b>3.694822225952521e-13</b>, max imaginary part <b>0.0<
 independent numerical implementations agree). The corrected numerics are kept
 as cross-confirmation — the spectrum itself is a theorem (next section).</p>
 
-<h2>Analytic status: the spectrum is a theorem</h2>
+<h2 id="analytic-status-the-spectrum-is-a-theorem">Analytic status: the spectrum is a theorem</h2>
 <p>The decomposition is <span class="tag CP">CP</span>
 (<span class="tag ST">ST</span>/<span class="tag SC">SC</span> components
 cited), proved 2026-09-19 (K-1…K-9):</p>
@@ -226,14 +226,20 @@ exhaustive (K-8).</li>
 the corrected operator's spectrum. The numerics are corroboration, not the
 establishment.</p>
 <div class="note">
-<p><b>B-6 reconciled.</b> The breakage follow-up log's item B-6 asked for an
-analytic proof of the {0:1,&nbsp;48:1820,&nbsp;64:6435} spectrum — but that
-proof already existed (K-1…K-9, 2026-09-19). The analytic result is
-<b>not</b> open. What remains open under the B-items is the ledger
-documentation of the corrected derivations (B-4).</p>
+<p><b>B-6 closed 2026-09-24.</b> The breakage follow-up log's item B-6 asked for an
+analytic proof of the {0:1,&nbsp;48:1820,&nbsp;64:6435} spectrum — that proof
+already existed (K-1…K-9, 2026-09-19) and was verified step-by-step in the
+closing run (D₈ arithmetic, κ-pinning, the 2-fold cancellation, and the
+intertwiner identity hand-checked; the Weyl dimensions 128/1820/6435
+independently re-derived with exact rational arithmetic; the proof's operator
+confirmed to be exactly the corrected C′). The spectrum is <b>PROVED</b>
+(analytic, CP with ST/SC components) — the numerics are now corroboration,
+not the establishment. B-1…B-6 are CLOSED. <b>Update 2026-09-25:</b> the
+Modules 7–12 clean-slate rebuild opened one new item, <b>B-7</b> (the M12′
+equivariance proof, below) — the only open item in the queue.</p>
 </div>
 
-<h2>Open follow-up items (as of 2026-09-22)</h2>
+<h2 id="open-follow-up-items-as-of-2026-09-25">Open follow-up items (as of 2026-09-25)</h2>
 <p>The breakage follow-up worker (every ~6h) works these in priority order,
 logging terse per-run entries to the dedicated log channel; status changes
 sync to the notation ledger. All are <span class="tag IN">IN</span> the sense
@@ -241,26 +247,51 @@ of "not yet done" — none is claimed complete.</p>
 <table>
 <tr><th>Item</th><th>What is open</th><th>Status</th></tr>
 <tr><td>B-1</td><td>Module 12's 1820 projected Clifford four-form image check,
-re-run on the <i>corrected</i> C′: is max|C′(v) − 48v| &lt; 1e-6 over all
-1820 forms?</td><td>OPEN</td></tr>
-<tr><td>B-2</td><td>Corrected Lagrange projectors
+re-run on the <i>corrected</i> C′ — <b>completed 2026-09-22</b>:
+max|C′(v) − 48v| = <b>16.0</b> over all 1820 forms (1036 in the
+48-eigenspace: 896 zero + 140 nonzero; 784 pure 64-eigenvectors; 0 mixed).
+The manuscript's projected forms do <b>not</b> lie in the 48-eigenspace.</td>
+<td>CLOSED — <span class="tag IC">IC</span> (manuscript claim), <span class="tag NC">NC</span>
+(CHECKED numeric counterexample)</td></tr>
+<tr><td>B-2</td><td>Lagrange projectors
 p₁(x)=(x−48)(x−64)/3072, p₁₈₂₀(x)=x(64−x)/768,
-p₆₄₃₅(x)=x(x−48)/1024: idempotence, pairwise orthogonality, completeness on
-the corrected C′.</td><td>OPEN</td></tr>
-<tr><td>B-3</td><td>Rewrite-series status hygiene: sweep the series pages for
-citations of the original (invalid) Modules 6/8–12 encodings and fix any
-overclaims (book13/book16 already carry the corrected wording).</td><td>OPEN</td></tr>
+p₆₄₃₅(x)=x(x−48)/1024 — <b>verified 2026-09-22</b>: applied matrix-free to 10
+random symmetric 128×128 matrices (5 real, 5 complex); idempotence, pairwise
+orthogonality, and completeness residuals all ≤ 3.6e-16 (machine precision;
+bar was 1e-6).</td>
+<td>CLOSED — <span class="tag NC">NC</span> (CONFIRMED, CHECKED numeric)</td></tr>
+<tr><td>B-3</td><td>Rewrite-series status hygiene: swept 2026-09-23 for
+citations of the original (invalid) Modules 6/8–12 encodings and unscoped
+decomposition claims — this table's B-1/B-2 rows refreshed (they were stale
+OPEN); the tables page's fourform row clarified as the corrected-convention
+construction (not the manuscript's Module 12 projection); book13/book16/book18
+wording verified already scoped to the corrected operator. No remaining
+overclaims.</td>
+<td>CLOSED — sweep completed 2026-09-23, fixes committed locally</td></tr>
 <tr><td>B-4</td><td>Ledger documentation: the corrected Module 6 construction
 (guarded Σ, S+S<sup>†</sup>=0) and the exact derivation
 ρ(A)M=AM+MA<sup>T</sup> ⇒ ρ(A)²M=A²M+2AMA<sup>T</sup>+M(A<sup>T</sup>)² into
-the theorem ledger.</td><td>OPEN</td></tr>
+the theorem ledger — <b>done 2026-09-23</b>: addendum appended to the theorem
+ledger §1 (guarded construction; Casimir algebra PROVED by inspection).</td>
+<td>CLOSED — <span class="tag NC">NC</span> (addendum recorded, scoped)</td></tr>
 <tr><td>B-5</td><td>Reality question: does the 128 representation admit a real
-basis (Frobenius–Schur indicator)? If yes, the manuscript's Module 8
-double-commutator formula is rehabilitable in that basis; if no, the
-corrected C′ stands as the replacement.</td><td>OPEN</td></tr>
+basis (Frobenius–Schur indicator)? — <b>answered 2026-09-23</b>: indicator
++1 (CHECKED numeric); an explicit real orthonormal basis exhibits all 120
+generators real antisymmetric, so the manuscript's Module 8
+double-commutator formula is rehabilitable in that basis up to the overall
+sign; the corrected C′ remains the basis-independent statement.</td>
+<td>CLOSED — <span class="tag NC">NC</span> (CONFIRMED real, CHECKED numeric)</td></tr>
+<tr><td>B-7</td><td>Analytic proof that the corrected M12′ embedding
+Φ: Λ⁴(16) → Sym²(S₊), Φ<sub>I</sub> = sym(B₊Γ<sub>I</sub>), is
+so(16)-equivariant — the half-page intertwining calculation. Opened
+2026-09-25 by the Modules 7–12 clean-slate rebuild (M7′–M12′ replacements
+drafted and verified; the naive Module-12 image claim refuted with an exact
+per-quad classification). Representation-theoretic skeleton proposed; the
+line-by-line proof is not yet written.</td>
+<td><span class="tag IN">IN</span> — OPEN</td></tr>
 </table>
 
-<h2>What this audit does not establish</h2>
+<h2 id="what-this-audit-does-not-establish">What this audit does not establish</h2>
 <ul>
 <li>The manuscript's original Modules 6 and 8–12 as encoded do
 <b>not</b> establish their claims. The decomposition {0:1,&nbsp;48:1820,&nbsp;64:6435}
@@ -270,9 +301,13 @@ analytic theorem — never by the original encoding.</li>
 or a physical spacetime — consistent with the manuscript's own nonselection
 theorems.</li>
 <li>The audit covers only the 12-module computation. The Layer-0/Layer-1
-bottleneck is unaffected: M<sub>e</sub>, O<sub>prop</sub>, P₅₄, the C8
-contraction, and S_F remain absent or mocked, and the dependency chain
-records them as missing inputs, not missing computation.</li>
+bottleneck is largely unaffected: O<sub>prop</sub>, the C8 contraction, and
+S_F remain absent or mocked, and the dependency chain records them as missing
+inputs, not missing computation. <b>Update 2026-09-24/25:</b> P₅₄ is now
+constructed — the (54,1) ⊂ 135 projector (the physical embedding choice stays
+open) — and M<sub>e</sub> has an explicit reference construction (the physical
+m₀, m₂ are still not supplied by theory); both are on the
+<a href="../tables/">tables page</a>.</li>
 <li>The E8 30380 weight table and the other pre-computed objects are
 documented separately on the <a href="../tables/">tables page</a>.</li>
 </ul>

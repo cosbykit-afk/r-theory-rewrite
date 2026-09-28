@@ -37,6 +37,9 @@
   .nav a { text-decoration:none; border:1px solid var(--line); border-radius:20px; padding:.3em 1em;
            font-size:.9em; color:var(--accent); background:var(--wash); }
   footer { margin-top:3em; color:var(--muted); font-size:.9em; border-top:1px solid var(--line); padding-top:1em; }
+.toc{background:#f4f4f0;border:1px solid #ccc;border-radius:4px;padding:8px 14px;margin:1.2em 0}
+.toc a{color:#0645ad;text-decoration:none}
+.toc a:hover{text-decoration:underline}
 </style>
 <!-- SITENAV-START -->
 <style>
@@ -54,13 +57,34 @@
  border:1px solid #666;border-radius:3px;background:#eee;cursor:pointer;color:#1a1a1a}
 </style>
 <!-- SITENAV-END -->
+<!-- BOOKNAV-CSS-START -->
+<style>
+.booknav{font-family:Georgia,serif;display:grid;grid-template-columns:1.35fr .85fr .85fr 1.35fr;gap:10px;margin:2.5em 0 0}
+.booknav-panel{display:flex;flex-direction:column;justify-content:center;text-decoration:none;color:#1a1a1a;
+ background:linear-gradient(180deg,#ffffff 0%,#f4f7fb 60%,#e7edf4 100%);
+ border:1px solid #c7d2de;border-radius:8px;padding:12px 16px;
+ box-shadow:inset 0 1px 0 #ffffff,0 2px 6px rgba(27,95,170,.10);
+ transition:border-color .15s ease,box-shadow .15s ease,transform .15s ease}
+a.booknav-panel:hover{border-color:#1b5faa;transform:translateY(-1px);
+ box-shadow:inset 0 1px 0 #ffffff,0 4px 12px rgba(27,95,170,.18)}
+a.booknav-panel:focus-visible{outline:2px solid #1b5faa;outline-offset:2px}
+.booknav-eyebrow{font-size:.7em;letter-spacing:.09em;text-transform:uppercase;color:#5a5a5a}
+.booknav-title{font-weight:bold;color:#1b5faa;margin-top:3px;line-height:1.35}
+.booknav-vol{font-size:.78em;color:#5a5a5a;margin-top:2px}
+.booknav-next{text-align:right}
+.booknav-center{text-align:center}
+.booknav-panel.is-disabled{opacity:.45;cursor:default}
+.booknav-panel.is-disabled .booknav-title{color:#5a5a5a}
+@media (max-width:640px){.booknav{grid-template-columns:1fr 1fr}.booknav-next{text-align:left}}
+</style>
+<!-- BOOKNAV-CSS-END -->
 </head>
 <body>
 <!-- SITENAV-NAV-START -->
 <nav class="sitenav" aria-label="Site navigation">
 <a class="sitenav-brand" href="../">R Theory — Rewrite</a>
 <span class="sitenav-links">
-<a href="../#hard">Hard&nbsp;science</a><a href="../#theoretical">Theoretical</a><a href="../vol0/">Vol&nbsp;0</a><a href="../vol4/">Vol&nbsp;IV</a><a href="../tables/">Tables</a>
+<a href="../contents/">Contents</a><a href="../index/">Index</a><a href="../contents/#vol-0">Vol&nbsp;0</a><a href="../contents/#vol-1">Vol&nbsp;I</a><a href="../contents/#vol-2">Vol&nbsp;II</a><a href="../contents/#vol-3">Vol&nbsp;III</a><a href="../contents/#vol-4">Vol&nbsp;IV</a><a href="../tables/">Tables</a><a href="../research/">Research</a>
 </span>
 <form class="sitenav-search" action="https://www.google.com/search" method="get" target="_blank" role="search"
  onsubmit="if(!this.q.value.trim())return false;this.q.value='site:cosbykit-afk.github.io/r-theory-rewrite '+this.q.value">
@@ -87,6 +111,10 @@ to the section that proves it.<br>
 <p>Each graph below is a <b>live Desmos calculator</b> — drag, zoom, and trace it. If Desmos
 can't load, a static image is shown instead, generated from the same formulas.</p>
 </div>
+<div class="toc">
+<p><b>Contents.</b> <a href="#part1">I. See it first</a> · <a href="#part2">II. Then earn it: the audit</a> · <a href="#part3">III. The two theorems</a> · <a href="#part4">IV. Close the book</a></p>
+</div>
+
 
 <div class="nav">
 <a href="#part1">I. See it first</a><a href="#part2">II. Then earn it</a>
@@ -95,7 +123,7 @@ can't load, a static image is shown instead, generated from the same formulas.</
 
 <h2 id="part1">Part I — See it first</h2>
 
-<h3>§1. Four curves that started everything</h3>
+<h3 id="1-four-curves-that-started-everything">§1. Four curves that started everything</h3>
 
 <figure class="graph">
 <div class="calc" id="d1"></div>
@@ -124,7 +152,7 @@ quarter-turn exchanges the sine-family with the cosine-family; (3) the picture i
 smoothness, and reflection/quarter-turn laws are consequences of ordinary trigonometry —
 no R-specific axiom, no physics import.</div>
 
-<h3>§2. One curve is enough</h3>
+<h3 id="2-one-curve-is-enough">§2. One curve is enough</h3>
 <div class="intuition">
 <p>Four names, but how many independent generators? Fix one open quadrant and set
 <span class="math">z = srx</span>. From the single number <span class="math">z</span> you recover
@@ -144,7 +172,7 @@ Recovering the half-turn needs additional discrete or historical information.</p
 <span class="math">z′ = −(1+z²)/2</span>, so the rational function field it generates is closed
 under differentiation — item C.</div>
 
-<h3>§3. The UNA pair and its conspiring sum</h3>
+<h3 id="3-the-una-pair-and-its-conspiring-sum">§3. The UNA pair and its conspiring sum</h3>
 
 <figure class="graph">
 <div class="calc" id="d2"></div>
@@ -173,7 +201,7 @@ Trig2 workbook was a <b>transcription error</b>, not an alternative convention; 
 The expansion <span class="math">|sec x| + tan x − 1/(|csc x| + cot x)</span> fixes the sign
 directly. No normalization quarantine is required on account of it.</div>
 
-<h3>§4. The sign that survives</h3>
+<h3 id="4-the-sign-that-survives">§4. The sign that survives</h3>
 
 <figure class="graph">
 <div class="calc" id="d3"></div>
@@ -198,7 +226,7 @@ character, not a spin-lift sign, not a physical chirality.</p>
 (§15–16 use them). The deck-blindness, cophase reversal, and half-turn invariance are exact
 identities of <span class="math">sgn(sin 2x)</span>.</div>
 
-<h3>§5. A smooth ellipse through the seams</h3>
+<h3 id="5-a-smooth-ellipse-through-the-seams">§5. A smooth ellipse through the seams</h3>
 
 <figure class="graph">
 <div class="calc" id="d4"></div>
@@ -226,7 +254,7 @@ freedom is created — just the honest bookkeeping a loop demands.</p>
 extension, and the scalar topological obstruction (no continuous injective
 <span class="math">S¹ → ℝ</span>) are ordinary mathematics.</div>
 
-<h3>§6. One parameter is not two</h3>
+<h3 id="6-one-parameter-is-not-two">§6. One parameter is not two</h3>
 
 <figure class="graph">
 <div class="calc" id="d5"></div>
@@ -255,7 +283,7 @@ structure with its provenance recorded, or leave the gap open. There is no fifth
 <span class="math">rank(dŷ) ≤ min(rank dΦ, rank dE, rank dΓ)</span>), H (complex-state rank
 obstruction), I (extension certificates).</div>
 
-<h3>§7. <i>J</i> versus −<i>J</i>: orientation you can point at</h3>
+<h3 id="7-j-versus-j-orientation-you-can-point-at">§7. <i>J</i> versus −<i>J</i>: orientation you can point at</h3>
 
 <figure class="graph">
 <div class="calc" id="d6"></div>
@@ -289,7 +317,7 @@ conjugacy classification, orientation-relative uniqueness of the orthogonal comp
 structure. The <span class="math">J</span>/phase distinction is item A; the representation
 result is item B.</div>
 
-<h3>§8. The orientation question in one picture</h3>
+<h3 id="8-the-orientation-question-in-one-picture">§8. The orientation question in one picture</h3>
 
 <figure class="graph">
 <div class="calc" id="d7"></div>
@@ -327,7 +355,7 @@ from where, and with what status. The governing rule admits the historical T0–
 <b>claim by claim, only with the status actually earned</b> — never by title, chronology, or
 prior use. Standard background mathematics stays available as inherited mathematics.</p>
 
-<h3>§9. What we're allowed to use</h3>
+<h3 id="9-what-we-re-allowed-to-use">§9. What we're allowed to use</h3>
 <div class="formal"><span class="tag cert">GOVERNING SOURCE RULE</span>
 <p>Book 0 admits T0–T3 as the sole inherited Projection Craft source corpus. Physical
 frameworks used <i>inside</i> T2 or T3 do not enter the revised core merely because the
@@ -336,7 +364,7 @@ the S essays, loose papers, spreadsheets, or prior exploratory discussion is a p
 Book 0. The inherited mathematical background (M0) is ordinary real analysis, trigonometry,
 and elementary topology: no R-specific axiom.</p></div>
 
-<h3>§10. Audit A — the scalar kernel (T0 → M1)</h3>
+<h3 id="10-audit-a-the-scalar-kernel-t0-m1">§10. Audit A — the scalar kernel (T0 → M1)</h3>
 <p>What survives, item by item:</p>
 <ul class="tight">
 <li><b>A. Primitive reciprocal kernel.</b> The four definitions of §1, positivity,
@@ -418,7 +446,7 @@ UNA SIGN DISPOSITION: reversed uxp = sxp − cxp retired as transcription error.
 PHYSICS IMPORT COUNT FOR T0: 0.  R-SPECIFIC MATHEMATICAL AXIOM COUNT FOR T0: 0.
 UNRESOLVED NORMALIZATION CONFLICTS: 0.</div>
 
-<h3>§11. Audit B — the Projection firewall (T1 → M2)</h3>
+<h3 id="11-audit-b-the-projection-firewall-t1-m2">§11. Audit B — the Projection firewall (T1 → M2)</h3>
 <p>T1 adds no physical layer. It formalizes the boundary between the structural calculus and
 any external interpretation:</p>
 <ul class="tight">
@@ -479,7 +507,7 @@ firewall — not the place where physical orientation is obtained. No Orientatio
 warranted at the T1 stage; T1 alone proves no global no-preference theorem for physical
 chirality. The question passes to T2: does the internal algebra select a handedness?</p>
 
-<h3>§12. Audit C — orientation representation (T2 → M3)</h3>
+<h3 id="12-audit-c-orientation-representation-t2-m3">§12. Audit C — orientation representation (T2 → M3)</h3>
 <ul class="tight">
 <li><b>A. Real lift, rank intact.</b> The Riccati flow lifts to a homogeneous two-component
 real linear system; quotiented by scale it lives in <span class="math">ℝP¹</span> — one real
@@ -527,7 +555,7 @@ needed to <i>represent</i> handedness and the opposite overclaim that <span clas
 a Clifford presentation, or a Pin candidate <i>selects</i> nature's handedness. Surviving
 statement: <i>representation without selection</i>.</p>
 
-<h3>§13. Audit D — the geometric carrier (T3 → M4)</h3>
+<h3 id="13-audit-d-the-geometric-carrier-t3-m4">§13. Audit D — the geometric carrier (T3 → M4)</h3>
 <ul class="tight">
 <li><b>A. Tetrahedral carrier and spatial rank.</b> From Euclidean affine 3-space, three
 mutually adjacent tetrahedral edge directions give
@@ -572,7 +600,7 @@ PREFERRED PHYSICAL HANDEDNESS SELECTION: absent.</div>
 orientation question survives the complete T0–T3 audit only in the narrowed form of
 <i>preference</i> rather than <i>representation</i>.</p>
 
-<h3>§14. Symmetry inventory</h3>
+<h3 id="14-symmetry-inventory">§14. Symmetry inventory</h3>
 <p>The inherited corpus contains distinct transformations that must not be conflated:
 scalar sign reversal, reciprocal exchange, phase reflection, quarter-turn and half-turn
 maps, projective sign loss, <span class="math">J ↔ −J</span> under orientation reversal,
@@ -589,7 +617,7 @@ law/source/calibration record make the two alternatives operationally distinguis
 
 <h2 id="part3">Part III — The two theorems</h2>
 
-<h3>§15. Representation–Preference Separation</h3>
+<h3 id="15-representation-preference-separation">§15. Representation–Preference Separation</h3>
 <div class="thm">
 <p class="tname">Theorem 0.III.T1 — Representation–Preference Separation</p>
 <p><i>Candidate universe.</i> The mathematical structures admitted by revised M0–M4, with
@@ -630,7 +658,7 @@ audited and without hidden later premises, does not.</li>
 <div class="formal"><b>Checkpoint.</b> MATHEMATICAL ORIENTATION REPRESENTATION: solved.
 PREFERRED PHYSICAL CHIRALITY SELECTION: not derived. ADDED ORIENTATION AXIOM: none.</div>
 
-<h3>§16. Automorphism Obstruction to Canonical Orientation</h3>
+<h3 id="16-automorphism-obstruction-to-canonical-orientation">§16. Automorphism Obstruction to Canonical Orientation</h3>
 <div class="thm">
 <p class="tname">Theorem 0.IV.T1 — Automorphism Obstruction to Canonical Orientation</p>
 <p>Let <span class="math">U</span> be an unoriented mathematical structure admitted by
@@ -679,7 +707,7 @@ PHYSICAL PARITY-VIOLATION QUESTION: deferred to the physics interface.</div>
 
 <h2 id="part4">Part IV — Close the book</h2>
 
-<h3>§17. Minimal extension, only if necessary</h3>
+<h3 id="17-minimal-extension-only-if-necessary">§17. Minimal extension, only if necessary</h3>
 <p><b>No new mathematical axiom is required at Book 0 closure.</b></p>
 <p>For purely mathematical work needing a definite orientation, the minimal addition is a
 declared orientation convention <span class="math">o ∈ {+1,−1}</span> plus an explicit
@@ -705,7 +733,7 @@ law.</p>
 none. MATHEMATICAL ORIENTATION DATUM WHEN NEEDED: ordinary convention/structure, not a new
 law. PHYSICAL CHIRALITY IMPORT: deferred; none selected in Book 0.</div>
 
-<h3>§18. Extension ledger and closure</h3>
+<h3 id="18-extension-ledger-and-closure">§18. Extension ledger and closure</h3>
 <p><b>Frozen formal spine.</b></p>
 <ul class="tight">
 <li><b>M0</b> — ordinary inherited mathematics.</li>
@@ -780,6 +808,28 @@ PREFERRED PHYSICAL CHIRALITY: unresolved and deferred to physics.
 ADDED MATHEMATICAL AXIOMS: 0.
 PHYSICS IMPORTS INTO FORMAL CORE: 0.</div>
 
+<!-- BOOKNAV-NAV-START -->
+<nav class="booknav" aria-label="Book navigation">
+<a class="booknav-panel booknav-prev" rel="prev" href="../book22/">
+<span class="booknav-eyebrow">← Previous</span>
+<span class="booknav-title">Canonical Spin–Geometry and the Primitive Symplectic Atlas — Volume 0</span>
+<span class="booknav-vol">Volume 0</span>
+</a>
+<a class="booknav-panel booknav-center" href="../">
+<span class="booknav-eyebrow">Series</span>
+<span class="booknav-title">Index</span>
+</a>
+<a class="booknav-panel booknav-center" href="../contents/">
+<span class="booknav-eyebrow">Series</span>
+<span class="booknav-title">Contents</span>
+</a>
+<a class="booknav-panel booknav-next" rel="next" href="../book1/">
+<span class="booknav-eyebrow">Next →</span>
+<span class="booknav-title">Book 1 — Mathematical Constitution</span>
+<span class="booknav-vol">Volume I</span>
+</a>
+</nav>
+<!-- BOOKNAV-NAV-END -->
 <footer>
 <p>Rewrite of Book 0 of <i>R Theory — Volume I</i> (working manuscript). Restructured:
 pictures and intuition first (Part I), formal audit second (Part II). All theorems,

@@ -34,6 +34,9 @@
            font-size:.9em; color:var(--accent); background:var(--wash); }
   footer { margin-top:3em; color:var(--muted); font-size:.9em; border-top:1px solid var(--line); padding-top:1em; }
   footer a { color:var(--accent); }
+.toc{background:#f4f4f0;border:1px solid #ccc;border-radius:4px;padding:8px 14px;margin:1.2em 0}
+.toc a{color:#0645ad;text-decoration:none}
+.toc a:hover{text-decoration:underline}
 </style>
 <!-- SITENAV-START -->
 <style>
@@ -51,13 +54,34 @@
  border:1px solid #666;border-radius:3px;background:#eee;cursor:pointer;color:#1a1a1a}
 </style>
 <!-- SITENAV-END -->
+<!-- BOOKNAV-CSS-START -->
+<style>
+.booknav{font-family:Georgia,serif;display:grid;grid-template-columns:1.35fr .85fr .85fr 1.35fr;gap:10px;margin:2.5em 0 0}
+.booknav-panel{display:flex;flex-direction:column;justify-content:center;text-decoration:none;color:#1a1a1a;
+ background:linear-gradient(180deg,#ffffff 0%,#f4f7fb 60%,#e7edf4 100%);
+ border:1px solid #c7d2de;border-radius:8px;padding:12px 16px;
+ box-shadow:inset 0 1px 0 #ffffff,0 2px 6px rgba(27,95,170,.10);
+ transition:border-color .15s ease,box-shadow .15s ease,transform .15s ease}
+a.booknav-panel:hover{border-color:#1b5faa;transform:translateY(-1px);
+ box-shadow:inset 0 1px 0 #ffffff,0 4px 12px rgba(27,95,170,.18)}
+a.booknav-panel:focus-visible{outline:2px solid #1b5faa;outline-offset:2px}
+.booknav-eyebrow{font-size:.7em;letter-spacing:.09em;text-transform:uppercase;color:#5a5a5a}
+.booknav-title{font-weight:bold;color:#1b5faa;margin-top:3px;line-height:1.35}
+.booknav-vol{font-size:.78em;color:#5a5a5a;margin-top:2px}
+.booknav-next{text-align:right}
+.booknav-center{text-align:center}
+.booknav-panel.is-disabled{opacity:.45;cursor:default}
+.booknav-panel.is-disabled .booknav-title{color:#5a5a5a}
+@media (max-width:640px){.booknav{grid-template-columns:1fr 1fr}.booknav-next{text-align:left}}
+</style>
+<!-- BOOKNAV-CSS-END -->
 </head>
 <body>
 <!-- SITENAV-NAV-START -->
 <nav class="sitenav" aria-label="Site navigation">
 <a class="sitenav-brand" href="../">R Theory — Rewrite</a>
 <span class="sitenav-links">
-<a href="../#hard">Hard&nbsp;science</a><a href="../#theoretical">Theoretical</a><a href="../vol0/">Vol&nbsp;0</a><a href="../vol4/">Vol&nbsp;IV</a><a href="../tables/">Tables</a>
+<a href="../contents/">Contents</a><a href="../index/">Index</a><a href="../contents/#vol-0">Vol&nbsp;0</a><a href="../contents/#vol-1">Vol&nbsp;I</a><a href="../contents/#vol-2">Vol&nbsp;II</a><a href="../contents/#vol-3">Vol&nbsp;III</a><a href="../contents/#vol-4">Vol&nbsp;IV</a><a href="../tables/">Tables</a><a href="../research/">Research</a>
 </span>
 <form class="sitenav-search" action="https://www.google.com/search" method="get" target="_blank" role="search"
  onsubmit="if(!this.q.value.trim())return false;this.q.value='site:cosbykit-afk.github.io/r-theory-rewrite '+this.q.value">
@@ -90,6 +114,10 @@ proofs</i> — never a status upgrade and never new evidence.</p>
 <p><b>Depends on:</b> <a href="../book0/">Book 0</a>; <a href="../book20/">Book 20</a>
 (§4's two-angle structure); the internal radial Dirac–Coulomb paper.</p>
 </div>
+<div class="toc">
+<p><b>Contents.</b> <a href="#s1">§1 — Radial coframe and spin transport (imported machinery, labeled)</a> · <a href="#s2">§2 — The Prüfer canonical pair (exact conditional)</a> · <a href="#s3">§3 — The primitive symplectic atlas (the volume&#x27;s strongest exact result)</a> · <a href="#s4">§4 — The first-order spherical defect action (conditional reconstruction)</a> · <a href="#s5">§5 — Gauge, rotation, and spin: conditional channels</a> · <a href="#s6">§6 — Kerr/Kerr–Newman half-angle identities (with guards)</a> · <a href="#s7">§7 — The spherical-spin obstruction</a> · <a href="#s8">§8 — The does-not-establish ledger and book closure</a></p>
+</div>
+
 
 <div class="nav">
 <a href="#s1">§1 Spin transport</a><a href="#s2">§2 Prüfer pair</a><a href="#s3">§3 Symplectic atlas</a>
@@ -278,9 +306,29 @@ a new invariant observable that survives the redundancies this volume catalogued
 The spherical-spin obstruction marks where any spin program must start: outside
 spherical symmetry.</div>
 
+<!-- BOOKNAV-NAV-START -->
+<nav class="booknav" aria-label="Book navigation">
+<a class="booknav-panel booknav-prev" rel="prev" href="../book21/">
+<span class="booknav-eyebrow">← Previous</span>
+<span class="booknav-title">Fermion Composition, Color Closure, and Bound-State Geometry — Volume 0</span>
+<span class="booknav-vol">Volume 0</span>
+</a>
+<a class="booknav-panel booknav-center" href="../">
+<span class="booknav-eyebrow">Series</span>
+<span class="booknav-title">Index</span>
+</a>
+<a class="booknav-panel booknav-center" href="../contents/">
+<span class="booknav-eyebrow">Series</span>
+<span class="booknav-title">Contents</span>
+</a>
+<a class="booknav-panel booknav-next" rel="next" href="../book0/">
+<span class="booknav-eyebrow">Next →</span>
+<span class="booknav-title">Book 0 — Source Boundary and the Orientation Question (Restructured)</span>
+<span class="booknav-vol">Volume I</span>
+</a>
+</nav>
+<!-- BOOKNAV-NAV-END -->
 <footer>
-<p><a href="../">← Series index</a> · <a href="../vol0/">Volume 0 overview</a> ·
-<a href="../book21/">← Fermion Composition</a></p>
 <p>A Volume 0 book of the R Theory rewrite. Source: the former T6 essay-book, rebuilt standalone.
 Status discipline: exact / conditional / import / obstruction — nothing promoted beyond
 its support. Δ_op = ∅ throughout.</p>

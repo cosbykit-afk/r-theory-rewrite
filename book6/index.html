@@ -39,13 +39,34 @@ footer{margin-top:3em;color:#555;font-size:.9em;border-top:1px solid #bbb;paddin
  border:1px solid #666;border-radius:3px;background:#eee;cursor:pointer;color:#1a1a1a}
 </style>
 <!-- SITENAV-END -->
+<!-- BOOKNAV-CSS-START -->
+<style>
+.booknav{font-family:Georgia,serif;display:grid;grid-template-columns:1.35fr .85fr .85fr 1.35fr;gap:10px;margin:2.5em 0 0}
+.booknav-panel{display:flex;flex-direction:column;justify-content:center;text-decoration:none;color:#1a1a1a;
+ background:linear-gradient(180deg,#ffffff 0%,#f4f7fb 60%,#e7edf4 100%);
+ border:1px solid #c7d2de;border-radius:8px;padding:12px 16px;
+ box-shadow:inset 0 1px 0 #ffffff,0 2px 6px rgba(27,95,170,.10);
+ transition:border-color .15s ease,box-shadow .15s ease,transform .15s ease}
+a.booknav-panel:hover{border-color:#1b5faa;transform:translateY(-1px);
+ box-shadow:inset 0 1px 0 #ffffff,0 4px 12px rgba(27,95,170,.18)}
+a.booknav-panel:focus-visible{outline:2px solid #1b5faa;outline-offset:2px}
+.booknav-eyebrow{font-size:.7em;letter-spacing:.09em;text-transform:uppercase;color:#5a5a5a}
+.booknav-title{font-weight:bold;color:#1b5faa;margin-top:3px;line-height:1.35}
+.booknav-vol{font-size:.78em;color:#5a5a5a;margin-top:2px}
+.booknav-next{text-align:right}
+.booknav-center{text-align:center}
+.booknav-panel.is-disabled{opacity:.45;cursor:default}
+.booknav-panel.is-disabled .booknav-title{color:#5a5a5a}
+@media (max-width:640px){.booknav{grid-template-columns:1fr 1fr}.booknav-next{text-align:left}}
+</style>
+<!-- BOOKNAV-CSS-END -->
 </head>
 <body>
 <!-- SITENAV-NAV-START -->
 <nav class="sitenav" aria-label="Site navigation">
 <a class="sitenav-brand" href="../">R Theory — Rewrite</a>
 <span class="sitenav-links">
-<a href="../#hard">Hard&nbsp;science</a><a href="../#theoretical">Theoretical</a><a href="../vol0/">Vol&nbsp;0</a><a href="../vol4/">Vol&nbsp;IV</a><a href="../tables/">Tables</a>
+<a href="../contents/">Contents</a><a href="../index/">Index</a><a href="../contents/#vol-0">Vol&nbsp;0</a><a href="../contents/#vol-1">Vol&nbsp;I</a><a href="../contents/#vol-2">Vol&nbsp;II</a><a href="../contents/#vol-3">Vol&nbsp;III</a><a href="../contents/#vol-4">Vol&nbsp;IV</a><a href="../tables/">Tables</a><a href="../research/">Research</a>
 </span>
 <form class="sitenav-search" action="https://www.google.com/search" method="get" target="_blank" role="search"
  onsubmit="if(!this.q.value.trim())return false;this.q.value='site:cosbykit-afk.github.io/r-theory-rewrite '+this.q.value">
@@ -75,9 +96,9 @@ book's 148 numerical checks) is a completed numerical check, never a proof.</i><
 The graphs below are live Desmos calculators (drag to pan, scroll to zoom); if Desmos cannot load,
 a static rendering appears instead, generated from the same formulas.</p>
 
-<h3>Figure 1 — The block split: O(2)×O(3)</h3>
+<h3 id="figure-1-the-block-split-o-2-o-3">Figure 1 — The block split: O(2)×O(3)</h3>
 <div class="graph" id="d1"></div>
-<img class="fallback" id="f1" src="graphs/b6_block.png" alt="Block structure O(2) x O(3)">
+<img class="fallback" id="f1" src="graphs/b6_block.png" alt="Block structure O(2) × O(3)">
 <div class="caption"><b>What you see.</b> The 5×5 carrier split: the E-block (O(2), lower left)
 and the V-block (O(3), upper right). The off-diagonal rectangles are empty — no primitive
 E↔V maps. The inherited block-preserving isometry group is
@@ -86,7 +107,7 @@ E↔V maps. The inherited block-preserving isometry group is
 is a boundary declaration resting on the inherited M3/M4 seam and Axiom Zero — not something
 this picture computes. <span class="tag MA">MA</span></div>
 
-<h3>Figure 2 — Bivector sectors: 1 + 6 + 3 = 10</h3>
+<h3 id="figure-2-bivector-sectors-1-6-3-10">Figure 2 — Bivector sectors: 1 + 6 + 3 = 10</h3>
 <div class="graph" id="d2"></div>
 <img class="fallback" id="f2" src="graphs/b6_bivector.png" alt="Bivector decomposition sectors">
 <div class="caption"><b>What you see.</b> The three bivector sectors of Λ²U: Λ²E (dimension 1),
@@ -99,7 +120,7 @@ reaches rank 10. <span class="tag NC">NC</span> <b>The framing.</b> This is an e
 theorem, not inherited structure: the cross-block datum is not promoted to a primitive
 axiom. <span class="tag MA">MA</span></div>
 
-<h3>Figure 3 — The CHI orbit: norm redistributed, never created</h3>
+<h3 id="figure-3-the-chi-orbit-norm-redistributed-never-created">Figure 3 — The CHI orbit: norm redistributed, never created</h3>
 <div class="graph" id="d3"></div>
 <img class="fallback" id="f3" src="graphs/b6_chi.png" alt="CHI copy weights">
 <div class="caption"><b>What you see.</b> The copy weights w<sub>U</sub> = cos²χ (blue) and
@@ -114,7 +135,7 @@ and the weight identities (sum 1, difference cos 2χ, 2√(w<sub>U</sub>w<sub>U�
 Whether χ evolves, transfers anything physical, or is observable — the section's firewalls
 forbid asserting any of that here. <span class="tag MA">MA</span></div>
 
-<h3>Figure 4 — The traceless line: 2a + 3b = 0</h3>
+<h3 id="figure-4-the-traceless-line-2a-3b-0">Figure 4 — The traceless line: 2a + 3b = 0</h3>
 <div class="graph" id="d4"></div>
 <img class="fallback" id="f4" src="graphs/b6_traceless.png" alt="Traceless block-scalar line">
 <div class="caption"><b>What you see.</b> Adding a fixed complex volume form as further
@@ -126,7 +147,7 @@ additional mathematical datum, not derived structure. <span class="tag AX">AX</s
 <b>The warning.</b> This notation is not permission to identify these factors with weak
 isospin, color, hypercharge, or any physical force. <span class="tag MA">MA</span></div>
 
-<h3>Figure 5 — Balance: 2n = n(n−1)/2 only at n = 5</h3>
+<h3 id="figure-5-balance-2n-n-n-1-2-only-at-n-5">Figure 5 — Balance: 2n = n(n−1)/2 only at n = 5</h3>
 <div class="graph" id="d5"></div>
 <img class="fallback" id="f5" src="graphs/b6_balance.png" alt="Complexification-bivector balance">
 <div class="caption"><b>What you see.</b> dim<sub>ℝ</sub>(U⊗<sub>ℝ</sub>ℂ) = 2n (blue) versus
@@ -137,7 +158,7 @@ identification: U<sub>ℂ</sub> and Λ²U are different SO(5) representations.
 <span class="tag ST">ST</span> The balance is an exact fingerprint of the already-earned
 rank five, not a selector for it. <span class="tag MA">MA</span></div>
 
-<h3>Figure 6 — The exterior pattern at n = 5</h3>
+<h3 id="figure-6-the-exterior-pattern-at-n-5">Figure 6 — The exterior pattern at n = 5</h3>
 <div class="graph" id="d6"></div>
 <img class="fallback" id="f6" src="graphs/b6_exterior.png" alt="Exterior dimension pattern">
 <div class="caption"><b>What you see.</b> The exterior dimensions at n = 5: 1, 5, 10, 10, 5, 1.
@@ -148,7 +169,7 @@ elements, and Λ⁴U is canonically Hodge-dual to U. <span class="tag CP">CP</sp
 integer solution n = 5) is an additional selector premise, declared — not derived from
 M0–M4. <span class="tag AX">AX</span></div>
 
-<h3>Figure 7 — The regular simplex: universal in N</h3>
+<h3 id="figure-7-the-regular-simplex-universal-in-n">Figure 7 — The regular simplex: universal in N</h3>
 <div class="graph" id="d7"></div>
 <img class="fallback" id="f7" src="graphs/b6_simplex.png" alt="Regular 2-simplex">
 <div class="caption"><b>What you see.</b> The regular 2-simplex (N = 3): centered vertices
@@ -168,7 +189,7 @@ dim<sub>ℝ</sub>V = 3, dim<sub>ℝ</sub>U = 5; W = U⊕U<sup>♯</sup>, dim<sub
 ι: U → U<sup>♯</sup> the Axiom-Zero pairing; Π: U → U<sup>♯</sup> an isometric identification
 (§6.3A datum).</p>
 
-<h3>6.0 — Status rule and inherited boundary <span class="tag MA">MA</span></h3>
+<h3 id="6-0-status-rule-and-inherited-boundary-ma">6.0 — Status rule and inherited boundary <span class="tag MA">MA</span></h3>
 <p>M0–M4 stay frozen; M3 supplies the real oriented Euclidean rank-2 carrier E, M4 the
 independent Euclidean rank-3 carrier V, Book 5 the split U = E⊕V and the doubled
 W = U⊕U<sup>♯</sup> under primitive diagonal noncoupling. Two distinct non-mixings must not
@@ -181,14 +202,14 @@ additional datum, (D) obstruction/nonselection theorems — a declared grammar, 
 derived one <span class="tag MA">MA</span>. "Local" means pointwise or frame symmetry only;
 it does not yet mean gauge symmetry localized over spacetime <span class="tag MA">MA</span>.</p>
 
-<h3>6.1 — Inherited block symmetry <span class="tag CP">CP</span></h3>
+<h3 id="6-1-inherited-block-symmetry-cp">6.1 — Inherited block symmetry <span class="tag CP">CP</span></h3>
 <p>For the Euclidean split U = E⊕V, the inherited block-preserving isometry group is
 Aut<sub>blk</sub>(U,g;E,V) = O(E)×O(V) ≅ O(2)×O(3), with identity-component Lie algebra
 so(2)⊕so(3) of dimension 1+3 = 4 <span class="tag CP">CP</span> (dim O(n) = n(n−1)/2 is
 standard <span class="tag ST">ST</span>). No larger mixing group is primitive at this stage —
 a boundary declaration, not a computation <span class="tag MA">MA</span>.</p>
 
-<h3>6.2 — Bivector decomposition and the cross-block extension <span class="tag NC">NC</span> / <span class="tag MA">MA</span></h3>
+<h3 id="6-2-bivector-decomposition-and-the-cross-block-extension-nc-ma">6.2 — Bivector decomposition and the cross-block extension <span class="tag NC">NC</span> / <span class="tag MA">MA</span></h3>
 <p>Λ²U = Λ²E ⊕ (E⊗V) ⊕ Λ²V with dimensions 1+6+3 = 10 <span class="tag CP">CP</span>. The outer
 pieces reproduce the inherited block Lie algebra; the six-dimensional E⊗V term is the
 cross-block extension sector. With the full block algebra present, adjoining one nonzero
@@ -198,7 +219,7 @@ extension theorem, not inherited structure: SO(5)-type mixing becomes available 
 cross-block datum is added, and Book 6 does not promote that datum to a primitive axiom
 <span class="tag MA">MA</span>.</p>
 
-<h3>6.3 — Central complexity of the doubled carrier <span class="tag CP">CP</span></h3>
+<h3 id="6-3-central-complexity-of-the-doubled-carrier-cp">6.3 — Central complexity of the doubled carrier <span class="tag CP">CP</span></h3>
 <p>With the Axiom-Zero pairing ι, the paired-copy complex structure
 I<sub>ι</sub>(u,v) = (−ι<sup>−1</sup>v, ιu) satisfies I<sub>ι</sub>² = −1; every primitive
 paired lift A⊕ιAι<sup>−1</sup> commutes with I<sub>ι</sub>; the M5 primitive representation
@@ -208,7 +229,7 @@ J — conflating the two would erase the independence Axiom Zero introduced — 
 ι-dependent construction is not canonical from an unpaired abstract isomorphism class
 alone <span class="tag MA">MA</span>.</p>
 
-<h3>6.3A — Conditional χ<sub>CHI</sub> parity-adapted orbit extension <span class="tag CP">CP</span> / <span class="tag AX">AX</span> / <span class="tag MA">MA</span></h3>
+<h3 id="6-3a-conditional-chi-parity-adapted-orbit-extension-cp-ax-ma">6.3A — Conditional χ<sub>CHI</sub> parity-adapted orbit extension <span class="tag CP">CP</span> / <span class="tag AX">AX</span> / <span class="tag MA">MA</span></h3>
 <p>Introduce, as additional datum rather than axiom, an isometric identification
 Π: U → U<sup>♯</sup> <span class="tag AX">AX</span>. The CHI generator
 J<sub>CHI</sub>(u,v) = (−Π<sup>−1</sup>v, Πu) satisfies J<sub>CHI</sub>² = −1 and is
@@ -227,32 +248,32 @@ a primitive active coupling (A0.2) — Book 6 does not assert that χ<sub>CHI</s
 transfers physical energy or matter, or is observable; no physical mirror universe, parity,
 time, spacetime, or phase interpretation is derived <span class="tag MA">MA</span>.</p>
 
-<h3>6.4 — Primitive central-imaginary no-go <span class="tag ST">ST</span></h3>
+<h3 id="6-4-primitive-central-imaginary-no-go-st">6.4 — Primitive central-imaginary no-go <span class="tag ST">ST</span></h3>
 <p>A single M3 real-type module has no independent scalar complex structure in its commutant;
 multiplicity two is minimal; the same holds for the standard SO(3) module
 <span class="tag ST">ST</span> (real representation theory). The Axiom-Zero doubling therefore
 supplies exactly the multiplicity needed for a global central complex structure on W
 <span class="tag MA">MA</span> (application framing).</p>
 
-<h3>6.5 — Hermitian carrier theorem <span class="tag CP">CP</span></h3>
+<h3 id="6-5-hermitian-carrier-theorem-cp">6.5 — Hermitian carrier theorem <span class="tag CP">CP</span></h3>
 <p>Transporting the Euclidean metric of U to U<sup>♯</sup> through ι gives a direct-sum metric
 on W compatible with I<sub>ι</sub>, hence a Hermitian form canonical relative to the declared
 pairing; primitive orthogonal block transformations act unitarily once the complex pairing
 is installed <span class="tag CP">CP</span>.</p>
 
-<h3>6.6 — Maximal complex-linear block envelope <span class="tag CP">CP</span></h3>
+<h3 id="6-6-maximal-complex-linear-block-envelope-cp">6.6 — Maximal complex-linear block envelope <span class="tag CP">CP</span></h3>
 <p>Preserving only the Hermitian metric plus the inherited complex 2+3 block decomposition,
 the maximal complex-linear isometry group is U(2)×U(3); the real-form-preserving subgroup
 is O(2)×O(3) <span class="tag CP">CP</span>. The enlargement is a mathematical automorphism
 envelope — not yet a physical gauge postulate <span class="tag MA">MA</span>.</p>
 
-<h3>6.7 — Center theorem <span class="tag CP">CP</span></h3>
+<h3 id="6-7-center-theorem-cp">6.7 — Center theorem <span class="tag CP">CP</span></h3>
 <p>Z(U(2)×U(3)) = U(1)<sub>E</sub> × U(1)<sub>V</sub> <span class="tag CP">CP</span>. The
 diagonal U(1) is the common scalar phase generated by I; the relative phase is
 block-dependent and exists because the 2+3 decomposition is preserved. At this stage
 neither U(1) is identified with electromagnetism or hypercharge <span class="tag MA">MA</span>.</p>
 
-<h3>6.8 — Conditional complex-volume reduction <span class="tag CP">CP</span> / <span class="tag AX">AX</span></h3>
+<h3 id="6-8-conditional-complex-volume-reduction-cp-ax">6.8 — Conditional complex-volume reduction <span class="tag CP">CP</span> / <span class="tag AX">AX</span></h3>
 <p>Adding a fixed complex volume form as further datum and requiring its preservation reduces
 the envelope to S(U(2)×U(3)) with Lie algebra su(2)⊕su(3)⊕u(1)
 <span class="tag AX">AX</span> <span class="tag CP">CP</span>. The traceless block-scalar
@@ -261,7 +282,7 @@ direction is unique up to normalization: 2a+3b = 0, conveniently a = 1/2, b = �
 permission to identify these factors with weak isospin, color, hypercharge, or any physical
 force <span class="tag MA">MA</span>.</p>
 
-<h3>6.9 — Five-dimensional Hodge-return and even-Clifford closure <span class="tag CP">CP</span> / <span class="tag AX">AX</span></h3>
+<h3 id="6-9-five-dimensional-hodge-return-and-even-clifford-closure-cp-ax">6.9 — Five-dimensional Hodge-return and even-Clifford closure <span class="tag CP">CP</span> / <span class="tag AX">AX</span></h3>
 <p>Imposing the Hodge-return criterion — the first genuinely new grade generated by composing
 orientation bivectors returns to coframe/vector type — forces Λ<sup>(n−4)</sup>U* = Λ¹U*,
 i.e. n = 5; equivalently C(n,4) = n has the unique integer solution n = 5 for n ≥ 4
@@ -271,7 +292,7 @@ directions; 1+10+5 = 16; grade pattern 0:1, 2:10, 4:5 with Λ⁴U Hodge-dual to 
 <span class="tag CP">CP</span>. An independent rank-five structural certificate — not a
 derivation of Axiom Zero <span class="tag MA">MA</span>.</p>
 
-<h3>6.10 — Universal complexification and the no-compression result <span class="tag CP">CP</span></h3>
+<h3 id="6-10-universal-complexification-and-the-no-compression-result-cp">6.10 — Universal complexification and the no-compression result <span class="tag CP">CP</span></h3>
 <p>U<sub>ℂ</sub> = U⊗<sub>ℝ</sub>ℂ has complex dimension five, real dimension ten; every
 real-linear f: U → Z extends uniquely to complex-linear f<sub>ℂ</sub>
 <span class="tag CP">CP</span>. For real-injective f with S = f(U), m = dim<sub>ℂ</sub>span<sub>ℂ</sub>S,
@@ -287,7 +308,7 @@ full ℂ⁵, since the complexified blocks are inequivalent irreducibles —
 <span class="tag CP">CP</span> (irrep inequivalence <span class="tag ST">ST</span>); it does
 not prove M0–M4 require complex completion in the first place <span class="tag MA">MA</span>.</p>
 
-<h3>6.11 — Hermitian, totally real, and Lagrangian conditions <span class="tag CP">CP</span></h3>
+<h3 id="6-11-hermitian-totally-real-and-lagrangian-conditions-cp">6.11 — Hermitian, totally real, and Lagrangian conditions <span class="tag CP">CP</span></h3>
 <p>For half-dimensional real U: ω|<sub>U</sub> = 0 ⟺ U⊥IU ⟺ IU = U<sup>⊥</sup>, and any of
 these implies U∩IU = {0}, W = U⊕IU — Lagrangianity is sufficient for an independent
 completion <span class="tag CP">CP</span>. It is not necessary: total reality is strictly
@@ -300,7 +321,7 @@ Hermitian examples with k = 2, 4 exist — asserted, not recomputed
 Lagrangianity would be a sufficient additional axiom, not a discharge of Axiom Zero
 <span class="tag MA">MA</span>.</p>
 
-<h3>6.12 — Minimal common complex-carrier theorem <span class="tag CP">CP</span> / <span class="tag ST">ST</span> / <span class="tag AX">AX</span></h3>
+<h3 id="6-12-minimal-common-complex-carrier-theorem-cp-st-ax">6.12 — Minimal common complex-carrier theorem <span class="tag CP">CP</span> / <span class="tag ST">ST</span> / <span class="tag AX">AX</span></h3>
 <p>Assume a common complex space must carry faithful commuting complex-linear actions of
 internal O(2) and geometric SO(3) with no preferred plane identification
 <span class="tag AX">AX</span>. O(2) cannot act faithfully in complex dimension one —
@@ -314,7 +335,7 @@ commutant containing M<sub>2</sub>(ℂ), and the required O(2) block exists
 W ≅ ℂ³<sub>geom</sub> ⊕ ℂ²<sub>orient</sub> (real dimension ten). Exact minimality inside
 the stated class; not a pre-Axiom selector <span class="tag MA">MA</span>.</p>
 
-<h3>6.13 — Complexification–bivector balance theorem <span class="tag CP">CP</span> / <span class="tag NC">NC</span></h3>
+<h3 id="6-13-complexification-bivector-balance-theorem-cp-nc">6.13 — Complexification–bivector balance theorem <span class="tag CP">CP</span> / <span class="tag NC">NC</span></h3>
 <p>dim<sub>ℝ</sub>(U⊗<sub>ℝ</sub>ℂ) = 2n, dim<sub>ℝ</sub>Λ²U = n(n−1)/2; equality requires
 2n = n(n−1)/2, uniquely n = 5 for n &gt; 0, common dimension ten
 <span class="tag CP">CP</span> <span class="tag NC">NC</span>. Among 2 ≤ r ≤ n−2,
@@ -327,7 +348,7 @@ identification — U<sub>ℂ</sub> and Λ²U have different SO(5) characters
 balance is an exact fingerprint of the already-earned rank five, not a selector for it
 <span class="tag MA">MA</span>.</p>
 
-<h3>6.14 — FlatWave cotangent/symplectic completion <span class="tag CP">CP</span> / <span class="tag MA">MA</span></h3>
+<h3 id="6-14-flatwave-cotangent-symplectic-completion-cp-ma">6.14 — FlatWave cotangent/symplectic completion <span class="tag CP">CP</span> / <span class="tag MA">MA</span></h3>
 <p>For the Möbius map u′ = (au+b)/(cu+d), ad−bc = 1: du′/du = (cu+d)<sup>−2</sup>; preserving
 p du gives p′ = p(cu+d)², so p′du′ = pdu and dp′∧du′ = dp∧du <span class="tag CP">CP</span>
 <span class="tag NC">NC</span> (finite-difference spot checks). Under the reciprocal
@@ -342,7 +363,7 @@ metric/duality choice; nothing here is physical momentum before a later action o
 is supplied <span class="tag MA">MA</span>. This route corroborates the M5 doubling but does
 not derive it <span class="tag MA">MA</span>.</p>
 
-<h3>6.15 — Regular-simplex common-mode theorems <span class="tag NC">NC</span> / <span class="tag CP">CP</span></h3>
+<h3 id="6-15-regular-simplex-common-mode-theorems-nc-cp">6.15 — Regular-simplex common-mode theorems <span class="tag NC">NC</span> / <span class="tag CP">CP</span></h3>
 <p>Universal in N ≥ 2 (d = N−1): the centered vertices v<sub>A</sub> = e<sub>A</sub>−(1/N)1
 form a regular d-simplex with |v<sub>A</sub>|² = (N−1)/N, v<sub>A</sub>·v<sub>B</sub> = −1/N
 (A≠B), |v<sub>A</sub>−v<sub>B</sub>|² = 2; normalized edge Gram
@@ -356,7 +377,7 @@ contain both orientations but canonically select neither <span class="tag CP">CP
 This holds for every N ≥ 2 and therefore cannot select N = 11 or d = 10
 <span class="tag MA">MA</span>.</p>
 
-<h3>6.16 — Terminal firewall <span class="tag MA">MA</span></h3>
+<h3 id="6-16-terminal-firewall-ma">6.16 — Terminal firewall <span class="tag MA">MA</span></h3>
 <p>No passage from a pointwise carrier automorphism group to a spacetime-dependent gauge
 group is permitted without additional structure: a base space or bundle, local sections,
 a connection, curvature, and ultimately a dynamics or action principle
@@ -368,7 +389,7 @@ physical force names <span class="tag MA">MA</span>.</p>
 
 <hr>
 <h2 id="p3">Part III — What Book 6 establishes, and what it doesn't</h2>
-<h3>Established (abridged)</h3>
+<h3 id="established-abridged">Established (abridged)</h3>
 <p class="small">Inherited block symmetry O(2)×O(3) with so(2)⊕so(3), dim 4
 <span class="tag CP">CP</span>; bivector decomposition 1+6+3 = 10 with bracket-closure to
 so(5) on adding one cross generator <span class="tag NC">NC</span>; paired-copy complex
@@ -386,7 +407,7 @@ Lagrangian-vs-totally-real analysis with nonsymmetric nilpotent witness
 bound dim<sub>ℂ</sub>W ≥ 5 <span class="tag CP">CP</span>; universal simplex theorems with
 Gram spectrum and orientation obstruction <span class="tag NC">NC</span> <span class="tag CP">CP</span>;
 Möbius/cotangent identities with the cotangent no-go <span class="tag CP">CP</span>.</p>
-<h3>Not derived (abridged)</h3>
+<h3 id="not-derived-abridged">Not derived (abridged)</h3>
 <p class="small">No new primitive axiom (all extensions declare their additional data:
 Π, volume form, Hodge-return criterion, common-completion premise, metric/duality choice).
 No physical gauge group, no spacetime localization, no base/bundle/connection/curvature,
@@ -430,19 +451,41 @@ Books 0–6 establish the source boundary, mathematical constitution, canonical 
 calculus, projective phase and orientation structure, geometric rank and
 coframe/connection boundary, Axiom Zero, and the pointwise local-symmetry/carrier
 mathematics. <span class="tag MA">MA</span></p>
-<h3>Dependency boundary to Volume II</h3>
+<h3 id="dependency-boundary-to-volume-ii">Dependency boundary to Volume II</h3>
 <p>Volume II may inherit <b>only</b> the mathematical structures and explicit assumptions
 certified here. Book 6 does not itself supply physical gauge fields, spacetime
 localization, action principles, dynamics, quantum probability, particle ontology, physical
 chirality, hypercharge, coupling constants, masses, mixing matrices, anomaly cancellation,
 generation counting, or force identification. Those structures must enter downstream
 through their stated extensions or physics imports. <span class="tag MA">MA</span></p>
-<h3>Master-retirement note</h3>
+<h3 id="master-retirement-note">Master-retirement note</h3>
 <p>This volume is extracted from the latest consolidated master through the terminal firewall
 of Book 6. The obsolete editorial line "HANDOFF TO BOOK 5" present in the earlier split
 copy is not retained. <span class="tag MA">MA</span> (provenance/editorial claim; the
 earlier split copy was not inspected in this audit.)</p>
 
+<!-- BOOKNAV-NAV-START -->
+<nav class="booknav" aria-label="Book navigation">
+<a class="booknav-panel booknav-prev" rel="prev" href="../book5/">
+<span class="booknav-eyebrow">← Previous</span>
+<span class="booknav-title">Book 5 — Axiom Zero and the Decadic Carrier</span>
+<span class="booknav-vol">Volume I</span>
+</a>
+<a class="booknav-panel booknav-center" href="../">
+<span class="booknav-eyebrow">Series</span>
+<span class="booknav-title">Index</span>
+</a>
+<a class="booknav-panel booknav-center" href="../contents/">
+<span class="booknav-eyebrow">Series</span>
+<span class="booknav-title">Contents</span>
+</a>
+<a class="booknav-panel booknav-next" rel="next" href="../book7/">
+<span class="booknav-eyebrow">Next →</span>
+<span class="booknav-title">Book 7 — Classical Dynamics from the Certified Carrier (Restructured)</span>
+<span class="booknav-vol">Volume II</span>
+</a>
+</nav>
+<!-- BOOKNAV-NAV-END -->
 <footer>
 <p>Rewrite of Book 6 of <i>R Theory — Volume I</i> (working manuscript), with the Volume I
 closure. Restructured: pictures and intuition first (Part I), formal audit second

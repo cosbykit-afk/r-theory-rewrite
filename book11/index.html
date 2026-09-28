@@ -39,6 +39,9 @@
            font-size:.9em; color:var(--accent); background:var(--wash); }
   footer { margin-top:3em; color:var(--muted); font-size:.9em; border-top:1px solid var(--line); padding-top:1em; }
   .status { font-size:.85em; color:#555; }
+.toc{background:#f4f4f0;border:1px solid #ccc;border-radius:4px;padding:8px 14px;margin:1.2em 0}
+.toc a{color:#0645ad;text-decoration:none}
+.toc a:hover{text-decoration:underline}
 </style>
 <!-- SITENAV-START -->
 <style>
@@ -56,13 +59,34 @@
  border:1px solid #666;border-radius:3px;background:#eee;cursor:pointer;color:#1a1a1a}
 </style>
 <!-- SITENAV-END -->
+<!-- BOOKNAV-CSS-START -->
+<style>
+.booknav{font-family:Georgia,serif;display:grid;grid-template-columns:1.35fr .85fr .85fr 1.35fr;gap:10px;margin:2.5em 0 0}
+.booknav-panel{display:flex;flex-direction:column;justify-content:center;text-decoration:none;color:#1a1a1a;
+ background:linear-gradient(180deg,#ffffff 0%,#f4f7fb 60%,#e7edf4 100%);
+ border:1px solid #c7d2de;border-radius:8px;padding:12px 16px;
+ box-shadow:inset 0 1px 0 #ffffff,0 2px 6px rgba(27,95,170,.10);
+ transition:border-color .15s ease,box-shadow .15s ease,transform .15s ease}
+a.booknav-panel:hover{border-color:#1b5faa;transform:translateY(-1px);
+ box-shadow:inset 0 1px 0 #ffffff,0 4px 12px rgba(27,95,170,.18)}
+a.booknav-panel:focus-visible{outline:2px solid #1b5faa;outline-offset:2px}
+.booknav-eyebrow{font-size:.7em;letter-spacing:.09em;text-transform:uppercase;color:#5a5a5a}
+.booknav-title{font-weight:bold;color:#1b5faa;margin-top:3px;line-height:1.35}
+.booknav-vol{font-size:.78em;color:#5a5a5a;margin-top:2px}
+.booknav-next{text-align:right}
+.booknav-center{text-align:center}
+.booknav-panel.is-disabled{opacity:.45;cursor:default}
+.booknav-panel.is-disabled .booknav-title{color:#5a5a5a}
+@media (max-width:640px){.booknav{grid-template-columns:1fr 1fr}.booknav-next{text-align:left}}
+</style>
+<!-- BOOKNAV-CSS-END -->
 </head>
 <body>
 <!-- SITENAV-NAV-START -->
 <nav class="sitenav" aria-label="Site navigation">
 <a class="sitenav-brand" href="../">R Theory — Rewrite</a>
 <span class="sitenav-links">
-<a href="../#hard">Hard&nbsp;science</a><a href="../#theoretical">Theoretical</a><a href="../vol0/">Vol&nbsp;0</a><a href="../vol4/">Vol&nbsp;IV</a><a href="../tables/">Tables</a>
+<a href="../contents/">Contents</a><a href="../index/">Index</a><a href="../contents/#vol-0">Vol&nbsp;0</a><a href="../contents/#vol-1">Vol&nbsp;I</a><a href="../contents/#vol-2">Vol&nbsp;II</a><a href="../contents/#vol-3">Vol&nbsp;III</a><a href="../contents/#vol-4">Vol&nbsp;IV</a><a href="../tables/">Tables</a><a href="../research/">Research</a>
 </span>
 <form class="sitenav-search" action="https://www.google.com/search" method="get" target="_blank" role="search"
  onsubmit="if(!this.q.value.trim())return false;this.q.value='site:cosbykit-afk.github.io/r-theory-rewrite '+this.q.value">
@@ -101,6 +125,10 @@ the live Desmos rendering was <i>not</i> verified in a live browser from this ma
 available); the static PNGs are the verified artifacts, and every number plotted in them passed an
 independent numerical check.</p>
 </div>
+<div class="toc">
+<p><b>Contents.</b> <a href="#part1">I. See it first</a> · <a href="#part2">II. Then earn it</a> · <a href="#part3">III. Dependencies and locks</a></p>
+</div>
+
 
 <div class="nav">
 <a href="#part1">I. See it first</a><a href="#part2">II. Then earn it</a>
@@ -109,7 +137,7 @@ independent numerical check.</p>
 
 <h2 id="part1">Part I — See it first</h2>
 
-<h3>§1. Helicity odds live on one reciprocal line</h3>
+<h3 id="1-helicity-odds-live-on-one-reciprocal-line">§1. Helicity odds live on one reciprocal line</h3>
 
 <figure class="graph">
 <div class="calc" id="d1"></div>
@@ -134,7 +162,7 @@ the <span class="math">cxp = e^η</span> identity is a <b>completed numerical ch
 <span class="math">P_L</span> by <span class="math">P_R</span> exchanges favored and suppressed while leaving
 the same reciprocal magnitude — the correspondence selects no handedness.</div>
 
-<h3>§2. One generator, six forced weights</h3>
+<h3 id="2-one-generator-six-forced-weights">§2. One generator, six forced weights</h3>
 
 <figure class="graph">
 <div class="calc" id="d2"></div>
@@ -158,7 +186,7 @@ physical hypercharge.</p>
 <b>Formal home:</b> §11.IV.D, Theorem 11.IV.T2. Verified by exact fraction arithmetic (independent check).
 The overall normalization and sign remain conventional until a physical U(1) contract is supplied.</div>
 
-<h3>§3. The charge pattern, all sixteen components</h3>
+<h3 id="3-the-charge-pattern-all-sixteen-components">§3. The charge pattern, all sixteen components</h3>
 
 <figure class="graph">
 <div class="calc" id="d3"></div>
@@ -180,7 +208,7 @@ conditional match — and it is still conditional.</p>
 Conditional on the comparison contract of §11.V and the scalar-vacuum contract of §11.IX.P1.
 Physical identification remains conditional.</div>
 
-<h3>§4. Integers underneath the fractions</h3>
+<h3 id="4-integers-underneath-the-fractions">§4. Integers underneath the fractions</h3>
 
 <figure class="graph">
 <div class="calc" id="d4"></div>
@@ -201,7 +229,7 @@ sign, this lattice is forced.</p>
 <b>Formal home:</b> §11.IX.A–C, Theorem 11.IX.T1 and Corollary 11.IX.C1. Primitivity follows from
 gcd(3,2) = 1; weights <span class="math">x(p,q) = 3p − 2q</span> verified exactly.</div>
 
-<h3>§5. The anomaly cancellation walks to zero</h3>
+<h3 id="5-the-anomaly-cancellation-walks-to-zero">§5. The anomaly cancellation walks to zero</h3>
 
 <figure class="graph">
 <div class="calc" id="d5"></div>
@@ -223,7 +251,7 @@ the mirror module's zeros are the same zeros.</p>
 arithmetic. Conditional on the imported standard chiral-QFT anomaly rules (§11.VI.P1) and the
 left-handed-Weyl interpretation contract.</div>
 
-<h3>§6. The Z₆ kernel</h3>
+<h3 id="6-the-z-kernel">§6. The Z₆ kernel</h3>
 
 <figure class="graph">
 <div class="calc" id="d6"></div>
@@ -243,7 +271,7 @@ with. Here it falls out of the 2+3 special block envelope — no fitting.</p>
 <b>Formal home:</b> §11.III.B. Determinant condition and kernel verified numerically (200 random group
 elements; all six roots checked as preimages).</div>
 
-<h3>§7. The mirror that won't break</h3>
+<h3 id="7-the-mirror-that-won-t-break">§7. The mirror that won't break</h3>
 
 <figure class="graph">
 <div class="calc" id="d7"></div>
@@ -267,7 +295,7 @@ The proofs are elementary symmetry arguments; their premises include manuscript-
 
 <h2 id="part2">Part II — Then earn it</h2>
 
-<h3>11.PG — Two-state internal gauge structure before chiral selection</h3>
+<h3 id="11-pg-two-state-internal-gauge-structure-before-chiral-selection">11.PG — Two-state internal gauge structure before chiral selection</h3>
 <div class="thm"><span class="tname">11.PG.T1.</span> <span class="math">UᵀJU = (det U)J</span> for
 <span class="math">U ∈ GL(2,ℂ)</span>; hence the <span class="math">J</span>-preserving group is
 <span class="math">SL(2,ℂ)</span>, and with the Hermitian form also preserved it is
@@ -308,7 +336,7 @@ No rule from left-right exchange-symmetric data can select the nontrivial SU(2) 
 under mirror-invariant premises, every left-chiral assignment has an equally admissible right-chiral
 mirror. Depends on a <i>later</i> Lorentz-spinor completion (Book 9's conditional reconstruction).</div>
 
-<h3>11.I — Chirality selector theorems</h3>
+<h3 id="11-i-chirality-selector-theorems">11.I — Chirality selector theorems</h3>
 <div class="formal">
 <span class="tag cert">CHECKED PROOF</span> <b>11.I.A</b> mirror exchange lemma;
 <b>11.I.B</b> naturality no-go for intrinsic chirality selectors;
@@ -321,7 +349,7 @@ conditional on the imported T6 slow-rotation geometry;
 <b>11.I.G</b> the necessary chirality-selector certificate (a list of what a future derivation must
 supply — a requirement, not a derivation).</div>
 
-<h3>11.II — The three-state internal block</h3>
+<h3 id="11-ii-the-three-state-internal-block">11.II — The three-state internal block</h3>
 <div class="formal">
 <span class="tag note">MANUSCRIPT ASSERTION</span> <span class="tag niv">not independently verified</span> <b>11.II.A</b> supersession theorem: the earned
 <span class="math">W_V ≅ ℂ³</span> replaces the historical "declare <span class="math">V₃ ≅ ℂ³</span>".
@@ -336,7 +364,7 @@ the explicit color projection contract.
 <span class="tag cert">CHECKED PROOF</span> <b>Negative Theorem 11.II.F1:</b> singlet algebra does not
 derive confinement — a logical firewall, proved by separation of the claims.</div>
 
-<h3>11.III — The common 2+3 internal skeleton</h3>
+<h3 id="11-iii-the-common-2-3-internal-skeleton">11.III — The common 2+3 internal skeleton</h3>
 <div class="formal">
 <span class="tag cert">CHECKED PROOF</span> <b>11.III.B</b> global ℤ₆ quotient theorem (verified);
 <span class="tag cert">CHECKED PROOF</span> <b>11.III.C</b> unique traceless block phase
@@ -346,7 +374,7 @@ The full chain rank-five → doubled carrier → <span class="math">ℂ²⊕ℂ�
 <span class="tag note">MANUSCRIPT ASSERTION</span> <span class="tag niv">not independently verified</span> insofar as its first links are Book 6's
 not-independently-rechecked theorems (Part III).</div>
 
-<h3>11.IV — The decadic half-spin matter module</h3>
+<h3 id="11-iv-the-decadic-half-spin-matter-module">11.IV — The decadic half-spin matter module</h3>
 <div class="thm"><span class="tname">11.IV.T1 — Decadic 2+3 branching.</span>
 <span class="math">S₊ = Λ^even W</span> decomposes into six blocks of dimensions
 <span class="math">1⊕1⊕6⊕3⊕3⊕2 = 16</span>. <span class="tag cert">CHECKED PROOF</span>
@@ -362,7 +390,7 @@ select physical chirality.
 <span class="tag note">MANUSCRIPT ASSERTION</span> <span class="tag niv">not independently verified</span> <b>11.IV.G</b> fermionic-ontology firewall: the
 exterior/Fock realization does not establish fields, statistics, or dynamics.</div>
 
-<h3>11.V — Conditional Standard-Model representation comparison</h3>
+<h3 id="11-v-conditional-standard-model-representation-comparison">11.V — Conditional Standard-Model representation comparison</h3>
 <div class="formal">
 <span class="tag note">ASSUMPTION OR AXIOM</span> <b>11.V.A</b> physical comparison contract: SU(3) block ↔
 color, SU(2) block ↔ weak isospin, <span class="math">Y₀</span> weight ↔ hypercharge — explicitly a
@@ -374,7 +402,7 @@ was fitted independently.
 <span class="tag note">MANUSCRIPT ASSERTION</span> <span class="tag niv">not independently verified</span> <b>11.V.E</b> decadic economy: a genuine reduction in
 independent mathematical premises, not yet a reduction in physical input.</div>
 
-<h3>11.VI — Quantum-consistency test</h3>
+<h3 id="11-vi-quantum-consistency-test">11.VI — Quantum-consistency test</h3>
 <div class="formal">
 <span class="tag cert">CHECKED PROOF</span> <b>11.VI.T1</b> quotient compatibility (automatic ℤ₆ descent).
 <span class="tag cert">STANDARD IMPORTED THEOREM</span> <b>11.VI.P1</b> the four-dimensional left-handed
@@ -387,7 +415,7 @@ Weyl anomaly rules (imported QFT).
 <span class="tag note">MANUSCRIPT ASSERTION</span> <span class="tag niv">not independently verified</span> <b>11.VI.H</b> Dai–Freed/bordism witness — an external QFT
 certificate, honestly labeled with restricted background assumptions.</div>
 
-<h3>11.VII — Generation multiplicity</h3>
+<h3 id="11-vii-generation-multiplicity">11.VII — Generation multiplicity</h3>
 <div class="formal">
 <span class="tag cert">CHECKED PROOF</span> <b>11.VII.T1</b> internal-rank / family-rank separation;
 <b>11.VII.C1:</b> three colors are not three generations.
@@ -396,7 +424,7 @@ certificate, honestly labeled with restricted background assumptions.</div>
 <span class="math">g = 1, 2, 3, 4, …</span>. <b>11.VII.F–H:</b> mixing requirements and the certificate for a
 future three-generation theorem — requirements, not derivations.</div>
 
-<h3>11.VIII — Higgs witness and Yukawa admissibility</h3>
+<h3 id="11-viii-higgs-witness-and-yukawa-admissibility">11.VIII — Higgs witness and Yukawa admissibility</h3>
 <div class="formal">
 <span class="tag cert">CHECKED PROOF</span> <b>11.VIII.T1:</b>
 <span class="math">10_ℂ ≅ (2,1)_{+1/2} ⊕ (1,3)_{−1/3} ⊕ (2,1)_{−1/2} ⊕ (1,3̄)_{+1/3}</span>.
@@ -411,7 +439,7 @@ the colored triplet cannot be silently discarded from the same five.
 Physical debts (scalar ontology, potential, VEV, masses, splitting) explicitly unresolved —
 <span class="tag note">MANUSCRIPT ASSERTION</span> <span class="tag niv">not independently verified</span> ledger, kept as such.</div>
 
-<h3>11.IX — Central U(1) and conditional electromagnetic remnant</h3>
+<h3 id="11-ix-central-u-1-and-conditional-electromagnetic-remnant">11.IX — Central U(1) and conditional electromagnetic remnant</h3>
 <div class="formal">
 <span class="tag cert">CHECKED PROOF</span> <b>11.IX.T1:</b> primitive integral cocharacter
 <span class="math">X = i(3I₂ ⊕ −2I₃)</span>, <span class="math">Y₀ = X/6</span>.
@@ -426,7 +454,7 @@ a physics/field extension.
 charge-sign reversal is convention, not the missing parity law.
 Couplings <span class="math">g, g′, e</span>, the weak mixing angle, and the electroweak scale: not derived.</div>
 
-<h3>11.X — Closure</h3>
+<h3 id="11-x-closure">11.X — Closure</h3>
 <div class="formal">
 <span class="tag note">MANUSCRIPT ASSERTION</span> <span class="tag niv">not independently verified</span> <b>11.X.T1</b> Decadic Particle-Architecture Closure
 Theorem: a summary of items 1–11 with their individual scope labels — an exact conditional
@@ -437,7 +465,7 @@ architecture match plus the combined obstruction ledger, not a derivation of the
 
 <h2 id="part3">Part III — Dependencies and locks</h2>
 
-<h3>Upstream dependency verdicts</h3>
+<h3 id="upstream-dependency-verdicts">Upstream dependency verdicts</h3>
 <ul class="tight">
 <li><b>Book 6 carrier <span class="math">W = W_E ⊕ W_V ≅ ℂ² ⊕ ℂ³</span>.</b>
 <span class="tag note">MANUSCRIPT ASSERTION</span> <span class="tag niv">not independently verified</span> as an inheritance: the Volume I audit ledger records
@@ -461,7 +489,7 @@ them are <b>conditional reconstructions</b>, never derivations of the Standard M
 repeatedly and correctly.</li>
 </ul>
 
-<h3>Forward book map — Books 12–19</h3>
+<h3 id="forward-book-map-books-12-19">Forward book map — Books 12–19</h3>
 <div class="formal">
 The section titled <b>CANONICAL FORWARD BOOK MAP — BOOKS 12–19</b> (source lines 2302–2307 of this book's
 span) contains <b>no per-book entries</b>. It consists solely of a status paragraph: the entries "extend the
@@ -470,7 +498,7 @@ numbering remains provenance only; renumbering changes editorial addresses, not 
 or theorem status." Recorded without endorsement: there is nothing here to endorse or refute beyond the
 status paragraph itself.</div>
 
-<h3>Volume II dependency lock — Book 11 → Book 12</h3>
+<h3 id="volume-ii-dependency-lock-book-11-book-12">Volume II dependency lock — Book 11 → Book 12</h3>
 <div class="formal">
 Recorded verbatim in substance: Book 12 inherits <span class="math">W = ℂ² ⊕ ℂ³</span> as mathematical
 carrier structure. The three-state block acquires a QCD interpretation only after the explicit color
@@ -494,6 +522,28 @@ isospin, hypercharge, anomaly criteria, Yang-Mills dynamics, confinement, Higgs 
 Yukawa dynamics, replication, masses, mixings, couplings, RG flow.
 OPERATIONAL PROMOTION: Delta_op(Book 11) = empty set. No new prediction-difference claimed.</div>
 
+<!-- BOOKNAV-NAV-START -->
+<nav class="booknav" aria-label="Book navigation">
+<a class="booknav-panel booknav-prev" rel="prev" href="../book10/">
+<span class="booknav-eyebrow">← Previous</span>
+<span class="booknav-title">Book 10 — Quantum Kinematics and the Measurement Boundary (Restructured)</span>
+<span class="booknav-vol">Volume II</span>
+</a>
+<a class="booknav-panel booknav-center" href="../">
+<span class="booknav-eyebrow">Series</span>
+<span class="booknav-title">Index</span>
+</a>
+<a class="booknav-panel booknav-center" href="../contents/">
+<span class="booknav-eyebrow">Series</span>
+<span class="booknav-title">Contents</span>
+</a>
+<a class="booknav-panel booknav-next" rel="next" href="../book12/">
+<span class="booknav-eyebrow">Next →</span>
+<span class="booknav-title">Book 12 — Mass, Frequency, and Harmonic Calibration (Restructured)</span>
+<span class="booknav-vol">Volume II</span>
+</a>
+</nav>
+<!-- BOOKNAV-NAV-END -->
 <footer>
 <p>Rewrite of Book 11 of <i>Our Revised R Theory — Volume II</i> (working manuscript, source lines
 2497–4810). Restructured: pictures and intuition first (Part I), formal audit second (Part II),

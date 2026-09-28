@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>R Theory — Calibration Predictions</title>
+<style>
+  :root { --ink:#1a1a1a; --muted:#5a5a5a; --accent:#1b5faa; --paper:#fff; --wash:#f6f8fb; --line:#dfe5ec;
+          --ok:#1c7a3d; --chk:#8a6d00; --ass:#7a4d00; --ref:#a02020; --inc:#555; --open:#1b5faa; }
+  body { font-family: -apple-system, "Segoe UI", Georgia, serif; color:var(--ink); background:var(--paper);
+         max-width: 900px; margin:0 auto; padding: 24px 20px 80px; line-height:1.65; }
+  h1 { font-size:1.9em; line-height:1.25; margin-bottom:.2em; }
+  h2 { margin-top:2em; border-bottom:1px solid var(--line); padding-bottom:.3em; }
+  h3 { margin-top:1.4em; }
+  .sub { color:var(--muted); font-size:1.05em; margin-top:0; }
+  .about { background:var(--wash); border:1px solid var(--line); border-radius:8px; padding:14px 18px; margin:1.5em 0; }
+  .about p { margin:.5em 0; }
+  .boundary { background:#fff8e6; border:2px solid #d8a900; border-radius:8px; padding:14px 18px; margin:1.5em 0; }
+  .boundary p { margin:.5em 0; }
+  .tag { display:inline-block; font-size:.72em; font-weight:700; border:1px solid var(--line); border-radius:3px;
+         padding:1px 7px; margin-right:5px; background:var(--wash); color:var(--muted); vertical-align:middle; }
+  .tag.proved { color:var(--ok); border-color:var(--ok); }
+  .tag.checked { color:var(--chk); border-color:var(--chk); }
+  .tag.asserted { color:var(--ass); border-color:var(--ass); }
+  .tag.refuted { color:var(--ref); border-color:var(--ref); }
+  .tag.incomplete { color:var(--inc); border-color:var(--inc); }
+  .tag.open { color:var(--open); border-color:var(--open); }
+  table { border-collapse:collapse; width:100%; margin:1em 0; font-size:.93em; }
+  th, td { border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top; }
+  th { background:var(--wash); }
+  code { background:var(--wash); padding:1px 5px; border-radius:3px; font-size:.92em; }
+  a { color:var(--accent); }
+  footer { margin-top:3em; color:var(--muted); font-size:.88em; border-top:1px solid var(--line); padding-top:1em; }
+  .date { display:block; font-size:.8em; color:var(--muted); margin-top:.6em; }
+  .pred { border:1px solid var(--line); border-radius:8px; padding:14px 18px; margin:1.5em 0; }
+  .pred h3 { margin-top:.2em; }
+  .pred dl { margin:.8em 0; }
+  .pred dt { font-weight:700; margin-top:.6em; }
+  .pred dd { margin:.2em 0 .4em 0; }
+</style>
+<!-- SITENAV-START -->
+<style>
+.sitenav{font-family:Georgia,serif;font-size:.88em;background:#f4f4f0;border:1px solid #bbb;
+ border-radius:4px;padding:8px 14px;margin:0 0 1.5em;display:flex;flex-wrap:wrap;
+ align-items:center;gap:8px 16px;line-height:1.4}
+.sitenav a{color:#0645ad;text-decoration:none;white-space:nowrap}
+.sitenav a:hover{text-decoration:underline}
+.sitenav .sitenav-brand{font-weight:bold;color:#1a1a1a}
+.sitenav .sitenav-links{display:flex;flex-wrap:wrap;gap:8px 14px}
+.sitenav-search{margin-left:auto;display:flex;gap:6px;align-items:center}
+.sitenav-search input{font-family:Georgia,serif;font-size:.95em;padding:4px 8px;
+ border:1px solid #999;border-radius:3px;width:170px;background:#fff;color:#1a1a1a}
+.sitenav-search button{font-family:Georgia,serif;font-size:.95em;padding:4px 12px;
+ border:1px solid #666;border-radius:3px;background:#eee;cursor:pointer;color:#1a1a1a}
+</style>
+<!-- SITENAV-END -->
+</head>
+<body>
+<!-- SITENAV-NAV-START -->
+<nav class="sitenav" aria-label="Site navigation">
+<a class="sitenav-brand" href="../">R Theory — Rewrite</a>
+<span class="sitenav-links">
+<a href="../contents/">Contents</a><a href="../index/">Index</a><a href="../contents/#vol-0">Vol&nbsp;0</a><a href="../contents/#vol-1">Vol&nbsp;I</a><a href="../contents/#vol-2">Vol&nbsp;II</a><a href="../contents/#vol-3">Vol&nbsp;III</a><a href="../contents/#vol-4">Vol&nbsp;IV</a><a href="../tables/">Tables</a><a href="../research/">Research</a>
+</span>
+<form class="sitenav-search" action="https://www.google.com/search" method="get" target="_blank" role="search"
+ onsubmit="if(!this.q.value.trim())return false;this.q.value='site:cosbykit-afk.github.io/r-theory-rewrite '+this.q.value">
+<input type="text" name="q" placeholder="Search this site&#8230;" aria-label="Search this site">
+<button type="submit">Search</button>
+</form>
+</nav>
+<!-- SITENAV-NAV-END -->
+
+<h1>R Theory — Calibration Predictions</h1>
+<p class="sub">Falsifiable predictions from the three-anchor calibration program: what the proved dial theorems say must hold, once the missing inputs are supplied.</p>
+<span class="date">Ledger opened: 2026-09-28 · extended the same day (CAL-P2–P5, dimensionless inventory, comparison theory)</span>
+
+<div class="boundary">
+<p><strong>Scope boundary.</strong> The predictions below are exact consequences of <span class="tag proved">PROVED</span> block-algebra theorems (the 8-cycle dial theorems, runs 30–31), conditional on candidate E/O witness models. <strong>No prediction is confirmed until the missing inputs — physical E_k / Oprop matrices and the dial↔observable identifications — are supplied.</strong> A prediction's falsification kills the candidate framework it was derived in, not established R Theory results.</p>
+<p>Every claim carries a scope label: <span class="tag proved">PROVED</span> <span class="tag checked">CHECKED</span> <span class="tag asserted">ASSERTED</span> <span class="tag refuted">REFUTED</span> <span class="tag incomplete">INCOMPLETE</span>, and every prediction carries a ledger status: <span class="tag open">OPEN</span> <span class="tag checked">CONFIRMED</span> <span class="tag refuted">FALSIFIED</span>.</p>
+</div>
+
+<h2 id="anchors">The anchors and Axiom One</h2>
+<div class="about">
+<p>Calibration needs four things: a rule for how numbers cross from mathematics to physics, a scale, a sign, and a unit. The anchors supply the first three; <strong>Axiom One</strong> (Kit, 2026-09-28) supplies the unit:</p>
+<table>
+<tr><th>Anchor</th><th>Supplies</th><th>Does not supply</th></tr>
+<tr><td><strong>SI-DIMLESS-01</strong> — the SI 2019 dimensionless calibration (7 anchors, ratio rules)</td><td>The dimensionless discipline: every bridge quantity is a declared ratio Q/Q<sub>ref</sub> with a unit vector. Forces unit declarations for m₀, m₂ before any physical number can be read off.</td><td>No numbers by itself.</td></tr>
+<tr><td><strong>CHIRAL-ANCHOR-01</strong> — the 21&nbsp;cm H&nbsp;I hyperfine line (ν = 1420.405751768(2)&nbsp;MHz) <span class="tag asserted">SOLE NUMERICAL ROOT</span></td><td>The scale — and, per Kit (2026-09-28), the root of <em>all</em> numerical values: ν₂₁ measured to 1.4×10⁻¹²; λ₂₁ = c/ν₂₁ and E₂₁ = hν₂₁ inherit this exactly (c, h exact in SI 2019). Chain: E = (E/mc²)·ρ<sub>E</sub>·E₂₁, V = (V/V<sub>min</sub>)·ρ<sub>V</sub>·λ₂₁³, with the two dimensionless ratios ρ<sub>E</sub> := mc²/E₂₁, ρ<sub>V</sub> := V<sub>min</sub>/λ₂₁³ as the only remaining numerical inputs.</td><td>Handedness — a frequency standard is a scalar. A₁₀ is theoretical and less precise than ν₂₁.</td></tr>
+<tr><td><strong>CHIRAL-ANCHOR-02</strong> — sector occupancy (Re·Im &lt; 0 is ours)</td><td>The sign branch: the dials determine m₀², (m₀m₂)² — magnitudes. Occupancy (+ ε-pattern) selects which of ±√ is physical.</td><td>A derivation of the occupancy (forbidden by 0.III.T1); it is asserted physical content.</td></tr>
+<tr><td><strong>AXIOM-ONE</strong> — rest-energy / minimum-volume reference <span class="tag asserted">ASSERTED</span></td><td>The unit: y = 1 of the srx/sxp/cxp/crx system is mc², the rest energy of the entire system; the conjugate unit is V<sub>min</sub>, the discrete scaler of volume. Fixes the m₀/m₂ reference — μᵢ&nbsp;:=&nbsp;mᵢ/m, so (D<sub>W</sub>/D₈)/m² = μ₀² + 2μ₀μ₂R is fully dimensionless.</td><td>Numerical mc² / V<sub>min</sub> (system scope undeclared); the dial↔observable identifications.</td></tr>
+</table>
+<p>This makes the ledger's standing point operational: <em>magnitude-only anchors leave ±α degenerate</em> — the 21&nbsp;cm anchor gives |·|, the sector occupancy gives σ.</p>
+</div>
+
+<h2 id="dials">The dials (proved closed forms)</h2>
+<div class="about">
+<p>Setup: E<sub>t</sub> = Π<sub>E</sub> + F(Z), Z real 368×556 pure B↔O flip, ε-odd; O<sub>d</sub> = Π₂ + F(γ), γ any real 368×556; M<sub>e</sub> = diag(m₀I₃₆₈, m₂I₅₅₆, M<sub>rest</sub>). All three closed forms are <span class="tag proved">PROVED</span> by exact block algebra (runs 30–31), conditional on the established witnesses/flip theorem/𝔟 content:</p>
+<ul>
+<li><strong>D₈</strong> := Tr(E<sub>t</sub>Π₀E<sub>t</sub>O<sub>d</sub>E<sub>t</sub>Π₀E<sub>t</sub>O<sub>d</sub>) = ‖Z<sup>T</sup>Z‖<sup>2</sup><sub>F</sub> — <strong>blind to γ</strong> (T1).</li>
+<li><strong>D<sub>W</sub></strong> := Tr(E<sub>t</sub>M<sub>e</sub>E<sub>t</sub>O<sub>d</sub>E<sub>t</sub>M<sub>e</sub>E<sub>t</sub>O<sub>d</sub>) = 2m₀m₂·C + m₀²·D₈ — <strong>sees γ</strong> (T3), C := Tr(ZZ<sup>T</sup>γZ<sup>T</sup>Zγ<sup>T</sup>) ≥ 0.</li>
+<li><strong>D<sub>B</sub></strong> := Tr(E<sub>t</sub>M<sub>e</sub><sup>−1</sup>E<sub>t</sub>O<sub>d</sub>E<sub>t</sub>M<sub>e</sub><sup>−1</sup>E<sub>t</sub>O<sub>d</sub>) = 2(m₀m₂)<sup>−1</sup>·C + m₀<sup>−2</sup>·D₈ — <strong>sees γ</strong> (T4).</li>
+</ul>
+<p><strong>Why this calibrates a missing input:</strong> the m₀/m₂ decoupling theorem (omnibus Q4) <span class="tag proved">PROVES</span> the [M<sub>e</sub>,M<sub>ε</sub>] commutator is independent of m₀,m₂ for all real m₀,m₂ — so no commutator measurement can ever select them. The dials <em>do</em> see m₀,m₂. The dial ratios are therefore the selecting observables: "m₀/m₂ unselected" becomes a measurement problem, not a free choice.</p>
+</div>
+
+<h2 id="ledger">Prediction ledger</h2>
+<p>Five entries, all <span class="tag open">OPEN</span> except CAL-P6 (<span class="tag checked">CONFIRMED</span> by proof). Each is an exact consequence of a proved theorem, conditional on candidate witness models. The witness-candidate slate (E_k / Oprop) is kept at <code>vol4/physics_interface/WITNESS_CANDIDATES.md</code>.</p>
+
+<div class="pred" id="CAL-P1">
+<h3>CAL-P1 — Dial consistency inequality <span class="tag open">OPEN</span></h3>
+<p><em>Added 2026-09-28.</em></p>
+<dl>
+<dt>Prediction</dt>
+<dd>With r<sub>W</sub> := D<sub>W</sub>/D₈, r<sub>B</sub> := D<sub>B</sub>/D₈, R := C/D₈ ≥ 0:<br>
+<code>r_W = m₀² + 2m₀m₂·R ≥ m₀²</code>, <code>r_B = m₀⁻² + 2(m₀m₂)⁻¹·R ≥ m₀⁻²</code>.<br>
+<strong>Bare (R = 0):</strong> <code>m₀² = D_W/D₈</code> exactly, and <code>D_W·D_B = D₈²</code> exactly.<br>
+<strong>Dressed:</strong> <code>D_W·D_B ≥ D₈²</code>, equality iff R = 0.<br>
+<strong>Cross-ratio (exact, dressed):</strong> <code>(D_W − m₀²D₈)/(D_B − m₀⁻²D₈) = (m₀m₂)²</code>.<br>
+The Z-scale cancels in every ratio — m₀ and m₀m₂ calibrate independently of Z.</dd>
+<dt>Derivation</dt>
+<dd><span class="tag proved">PROVED</span> T1/T3/T4 (exact block algebra, runs 30–31). Verified on run-31 <span class="tag checked">CHECKED</span> numbers (m₀=2, m₂=5): dressed draw gives D<sub>W</sub>·D<sub>B</sub> = 3523 ≥ 2401 = D₈²; cross-ratio = 100.0 = (m₀m₂)²; bare draw gives D<sub>W</sub>·D<sub>B</sub> = 2401 = D₈² exactly, D<sub>W</sub>/D₈ = 4.0 = m₀², D<sub>B</sub>/D₈ = 0.25 = m₀⁻².</dd>
+<dt>Constrains</dt>
+<dd>Whether the E<sub>t</sub>/O<sub>d</sub> candidate block model can describe physical dials at all; secondarily whether physical γ-content (R &gt; 0) is present (strict inequality) or absent (equality).</dd>
+<dt>Needs</dt>
+<dd>Physical E<sub>k</sub> and Oprop witnesses with the established block shapes (both <span class="tag incomplete">OPEN</span>), plus the dial↔observable identifications (open slots below).</dd>
+<dt>Falsification</dt>
+<dd>Measured dials violating <code>D_W·D_B ≥ D₈²</code> kill the candidate block framework itself — not just parameter values. A strict, stable inequality confirms γ-content; stable equality confirms the bare reading.</dd>
+<dt>Scope notes</dt>
+<dd>Conditional on the E<sub>t</sub>/O<sub>d</sub> candidate models; m₀=2, m₂=5 are archived reference values, not physical selections; g, position↔k, ε-pattern adopted/<span class="tag asserted">ASSERTED</span>.</dd>
+</dl>
+</div>
+
+<div class="pred" id="CAL-P2">
+<h3>CAL-P2 — Commutator-norm selection (752) <span class="tag open">OPEN</span></h3>
+<p><em>Added 2026-09-28.</em></p>
+<dl>
+<dt>Prediction</dt>
+<dd>Any real pure Π₀↔Π₂ flip X̃ ∈ 𝔟 (Oprop candidate satisfying MA1+MA2) satisfies <code>‖[X̃,M_ε]‖_F = 2‖X̃‖_F</code> exactly; the commutator Gram on the 𝔟 basis is <code>752·I₁₂</code>.</dd>
+<dt>Derivation</dt>
+<dd><span class="tag proved">PROVED</span> 752 identity (omnibus Q1, exact block algebra); basis-correct real Gram <span class="tag checked">CHECKED</span>.</dd>
+<dt>Constrains</dt>
+<dd>Oprop candidacy — a proposed physical Oprop with ‖[X̃,M_ε]‖_F/‖X̃‖_F ≠ 2 is not a pure grade-{0,2} bilinear flip.</dd>
+<dt>Needs</dt>
+<dd>Oprop candidate matrix; M_ε (<span class="tag checked">CHECKED</span> construction exists).</dd>
+<dt>Falsification</dt>
+<dd>A candidate claimed as pure bilinear flip violating the factor 2 kills the claim (not the theorem).</dd>
+</dl>
+</div>
+
+<div class="pred" id="CAL-P3">
+<h3>CAL-P3 — Mode-block scalar sum (188) <span class="tag open">OPEN</span></h3>
+<p><em>Added 2026-09-28.</em></p>
+<dl>
+<dt>Prediction</dt>
+<dd>For any real X̃ ∈ 𝔟, the ρ(g)-Fourier mode blocks satisfy <code>Q₂+Q₆ = 188·I₁₂</code>; per plane pair <code>[[94,+94i],[−94i,94]]</code>; equivalently the w₂/w₆ weights are equal.</dd>
+<dt>Derivation</dt>
+<dd><span class="tag proved">PROVED</span> cross-phase (run 24, exact v/w algebra); <span class="tag proved">PROVED</span> reality theorem (run 21, w₂=w₆).</dd>
+<dt>Constrains</dt>
+<dd>Oprop candidate mode structure.</dd>
+<dt>Needs</dt>
+<dd>Oprop candidate + its ρ(g)-Fourier decomposition.</dd>
+<dt>Falsification</dt>
+<dd>Q₂+Q₆ ≠ scalar·I kills the pure-𝔟-membership claim.</dd>
+</dl>
+</div>
+
+<div class="pred" id="CAL-P4">
+<h3>CAL-P4 — Sector-dimension lock <span class="tag open">OPEN</span></h3>
+<p><em>Added 2026-09-28.</em></p>
+<dl>
+<dt>Prediction</dt>
+<dd>Any E/B/O witness identification must place B-content in a <strong>368</strong>-dimensional sector and O-content in a <strong>556</strong>-dimensional sector (rest 896); the 368/556/896 split is not tunable.</dd>
+<dt>Derivation</dt>
+<dd><span class="tag checked">CHECKED</span> spectral projector traces (run-4b); run-27 matrix-level confirmation Re(P₂+P₆)=Π₀, Re(P₄+P₀)=Π₂.</dd>
+<dt>Constrains</dt>
+<dd>E/B/O witness constructions (CP-EBO, CP-OPROP).</dd>
+<dt>Needs</dt>
+<dd>Explicit E_k, Oprop matrices.</dd>
+<dt>Falsification</dt>
+<dd>A claimed B-witness of rank ≠ 368 (O-witness ≠ 556) is not the Π₀ (Π₂) sector.</dd>
+</dl>
+</div>
+
+<div class="pred" id="CAL-P5">
+<h3>CAL-P5 — ε-odd dial nonvanishing <span class="tag open">OPEN</span></h3>
+<p><em>Added 2026-09-28.</em></p>
+<dl>
+<dt>Prediction</dt>
+<dd><code>Tr(E_tΠ₀E_tΠ₂E_tΠ₀E_tΠ₂) = ‖ZᵀZ‖²_F</code>, nonzero iff Z ≠ 0 — the ε-odd 8-cycle dial vanishes iff E carries no B↔O transfer.</dd>
+<dt>Derivation</dt>
+<dd><span class="tag proved">PROVED</span> run 30 (exact block algebra); 16/16 tripwires.</dd>
+<dt>Constrains</dt>
+<dd>E_k candidacy — a proposed E_k with zero dial but claimed transfer content (or nonzero dial with claimed none) is dead.</dd>
+<dt>Needs</dt>
+<dd>E_k candidate matrix.</dd>
+<dt>Falsification</dt>
+<dd>As stated; delimits the run-25 falsification (bare-E zero vs transfer-carrying-E nonzero).</dd>
+</dl>
+</div>
+
+<div class="pred" id="CAL-P6">
+<h3>CAL-P6 — Manuscript Oprop-word vanishes on 𝔟 (bare E) <span class="tag checked">CONFIRMED</span></h3>
+<p><em>Added 2026-09-28 — by exact proof.</em></p>
+<dl>
+<dt>Prediction</dt>
+<dd>Under the established witnesses (E = Π_rest) and MA1+MA2 (Oprop ∈ 𝔟, pure 0↔2 flip), the manuscript's word <code>Tr[E M_e E Oprop E M_e E Oprop] = 0</code> identically for every Oprop ∈ 𝔟, for <strong>any</strong> M_e.</dd>
+<dt>Derivation</dt>
+<dd><span class="tag proved">PROVED</span> by exact support algebra: E M_e E = Π_rest M_e Π_rest and Π_rest·Oprop = 0 (block purity by construction, run 12) ⇒ (E M_e E)·Oprop = 0 ⇒ word = 0. No numerics needed.</dd>
+<dt>Constrains</dt>
+<dd>Interpretation of the manuscript's S_F word; couples the Oprop and E_k problems — 𝔟 candidates are visible only through dressed E (consistent with run-27 R1).</dd>
+<dt>Needs</dt>
+<dd>Nothing further — premises established. Standing form: any claimed nonzero evaluation of the manuscript's word on a 𝔟 candidate with bare E refutes the claim's premises.</dd>
+<dt>Falsification</dt>
+<dd>A verified nonzero value with E = Π_rest and Oprop ∈ 𝔟 would refute the support argument (i.e. its premises).</dd>
+<dt>Scope notes</dt>
+<dd>Conditional on established witnesses (<span class="tag checked">CHECKED</span>) and MA1+MA2 (manuscript <span class="tag asserted">ASSERTED</span>); the E = Π_rest/896 normalization only scales the word, still zero.</dd>
+</dl>
+</div>
+
+<h2 id="inventory">Dimensionless inventory of the model</h2><div class="about">
+<p>Exact pure numbers the mathematics produces — no physical identification made here. Each becomes a calibration target or selection test once identifications exist.</p>
+<table>
+<tr><th>#</th><th>Quantity</th><th>Value</th><th>Status</th><th>Calibration role</th></tr>
+<tr><td>1</td><td>dim Π₀ / Π₂ / rest</td><td>368 / 556 / 896</td><td><span class="tag checked">CHECKED</span></td><td>dimension lock on E/B/O witnesses (CAL-P4)</td></tr>
+<tr><td>2</td><td>M_ε sector traces</td><td>816 / 1004</td><td><span class="tag checked">CHECKED</span></td><td>consistency of any Z₂-lift construction</td></tr>
+<tr><td>3</td><td>dim 𝔟</td><td>12</td><td><span class="tag proved">PROVED</span></td><td>size of the Oprop candidate space</td></tr>
+<tr><td>4</td><td>𝔟 Gram</td><td>188·I₁₂</td><td><span class="tag proved">PROVED</span></td><td>normalization of Oprop candidates</td></tr>
+<tr><td>5</td><td>commutator Gram</td><td>752·I₁₂ = 4·188</td><td><span class="tag proved">PROVED</span></td><td>CAL-P2 selection test</td></tr>
+<tr><td>6</td><td>commutator factor</td><td>2</td><td><span class="tag proved">PROVED</span></td><td>CAL-P2</td></tr>
+<tr><td>7</td><td>cross weight</td><td>94 = 188/2</td><td><span class="tag proved">PROVED</span></td><td>CAL-P3</td></tr>
+<tr><td>8</td><td>f₀₂</td><td>47/182</td><td><span class="tag proved">PROVED</span></td><td>grade-flip normalization</td></tr>
+<tr><td>9</td><td>bilinear census</td><td>24 cross / 64 mixed / 120 total</td><td><span class="tag proved">PROVED</span></td><td>transfer-class selection</td></tr>
+<tr><td>10</td><td>sector ratios</td><td>368/556 ≈ 0.6619, 556/368 ≈ 1.5109, 816/1004 ≈ 0.8127</td><td>derived</td><td>candidate comparison targets (unidentified)</td></tr>
+<tr><td>11</td><td>m₀/m₂</td><td>2/5 = 0.4</td><td><span class="tag asserted">ASSERTED</span>-reference</td><td>placeholder until dial-identified — <strong>not</strong> physical</td></tr>
+</table>
+</div>
+
+<h2 id="comparison">Known-physics comparison theory</h2>
+<div class="about">
+<p>The import-contract template requires a comparison theory: what the model's numbers are compared against. These are established physics, listed as <strong>candidate comparison targets — no identification with any model number is made</strong>.</p>
+<p><strong>Exact SI relationships (SI-2019; defining constants exact):</strong> Δν_Cs = 9192631770 Hz, c = 299792458 m/s, h, e, k_B, N_A, K_cd exact. ν₂₁/Δν_Cs = 1420405751.768/9192631770 ≈ 0.15452 — exact up to the ν₂₁ measurement. E₂₁ = h·ν₂₁, exact given h.</p>
+<p><strong>21 cm quantitative relationships (standard radio astronomy):</strong> spin temperature n₁/n₀ = 3·exp(−68 mK/T_S), connecting the anchor's statistical weights to the observable spin temperature. Zeeman structure: the σ⁺/σ⁻ components are circularly polarized with opposite handedness, and the handedness assignment reverses with the sign of the line-of-sight B-field — the quantitative form of the chirality readout.</p>
+<p><strong>Dimensionless constants (comparison targets):</strong> α⁻¹ ≈ 137.036 (fine-structure constant, CODATA); m_p/m_e ≈ 1836.15, m_μ/m_e ≈ 206.77 (mass ratios, CODATA); sin²θ_W ≈ 0.231 (weak mixing angle). When a model ratio is identified with a physical quantity, these are the numbers it must be compared against — with uncertainties on both sides, never by bare numerology.</p>
+</div>
+
+<h2 id="open-slots">Open slots (physical content required)</h2>
+<div class="about">
+<p>Per the Anti-Fabrication Rule these are not filled by derivation — they are choices/inputs for the physicist:</p>
+<ol>
+<li><strong>Dial↔observable identifications</strong> for D₈, D<sub>W</sub>, D<sub>B</sub> — which measured quantities each dial corresponds to.</li>
+<li><strong>Unit declarations</strong> for m₀, m₂ — reference <span class="tag asserted">FIXED</span> by Axiom One: the system rest energy mc² (μᵢ&nbsp;:=&nbsp;mᵢ/m per SI-DIMLESS-01). Numerical values: <span class="tag incomplete">OPEN</span>.</li>
+<li><strong>Bare vs dressed:</strong> is physical γ-content (R &gt; 0) present? The inequality D<sub>W</sub>·D<sub>B</sub> ≥ D₈² tests this once dials are measured.</li>
+<li><strong>Falsification conditions</strong> for the calibration as a whole.</li>
+<li><strong>ρ<sub>E</sub> := mc²/E₂₁</strong> — system rest energy in anchor units. Reference fixed by Axiom One; the dimensionless ratio itself: <span class="tag incomplete">OPEN</span> (Kit's call).</li>
+<li><strong>ρ<sub>V</sub> := V<sub>min</sub>/λ₂₁³</strong> — minimum volume in anchor units (discrete scaler). The dimensionless ratio itself: <span class="tag incomplete">OPEN</span> (Kit's call; conditional reading E/V = mc²/V<sub>min</sub> also his call).</li>
+</ol>
+<p>Honest caveat: the calibration is a loaded instrument with no target yet — physical E<sub>k</sub> and Oprop matrices remain <span class="tag incomplete">OPEN</span>, so every prediction above is conditional on witnesses with the established block shapes.</p>
+</div>
+
+<p>← <a href="./">Back to Active Research</a></p>
+
+<footer>
+<p>R Theory — Calibration Predictions. Status discipline: proved / checked / asserted / incomplete / refuted for claims; open / confirmed / falsified for predictions — nothing rounded up or down.</p>
+<p>Christopher Cosby · <a href="https://orcid.org/0009-0003-5392-2359">ORCID 0009-0003-5392-2359</a></p>
+</footer>
+</body>
+</html>

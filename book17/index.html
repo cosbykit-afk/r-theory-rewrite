@@ -40,13 +40,34 @@ footer{margin-top:3em;color:#555;font-size:.9em;border-top:1px solid #bbb;paddin
  border:1px solid #666;border-radius:3px;background:#eee;cursor:pointer;color:#1a1a1a}
 </style>
 <!-- SITENAV-END -->
+<!-- BOOKNAV-CSS-START -->
+<style>
+.booknav{font-family:Georgia,serif;display:grid;grid-template-columns:1.35fr .85fr .85fr 1.35fr;gap:10px;margin:2.5em 0 0}
+.booknav-panel{display:flex;flex-direction:column;justify-content:center;text-decoration:none;color:#1a1a1a;
+ background:linear-gradient(180deg,#ffffff 0%,#f4f7fb 60%,#e7edf4 100%);
+ border:1px solid #c7d2de;border-radius:8px;padding:12px 16px;
+ box-shadow:inset 0 1px 0 #ffffff,0 2px 6px rgba(27,95,170,.10);
+ transition:border-color .15s ease,box-shadow .15s ease,transform .15s ease}
+a.booknav-panel:hover{border-color:#1b5faa;transform:translateY(-1px);
+ box-shadow:inset 0 1px 0 #ffffff,0 4px 12px rgba(27,95,170,.18)}
+a.booknav-panel:focus-visible{outline:2px solid #1b5faa;outline-offset:2px}
+.booknav-eyebrow{font-size:.7em;letter-spacing:.09em;text-transform:uppercase;color:#5a5a5a}
+.booknav-title{font-weight:bold;color:#1b5faa;margin-top:3px;line-height:1.35}
+.booknav-vol{font-size:.78em;color:#5a5a5a;margin-top:2px}
+.booknav-next{text-align:right}
+.booknav-center{text-align:center}
+.booknav-panel.is-disabled{opacity:.45;cursor:default}
+.booknav-panel.is-disabled .booknav-title{color:#5a5a5a}
+@media (max-width:640px){.booknav{grid-template-columns:1fr 1fr}.booknav-next{text-align:left}}
+</style>
+<!-- BOOKNAV-CSS-END -->
 </head>
 <body>
 <!-- SITENAV-NAV-START -->
 <nav class="sitenav" aria-label="Site navigation">
 <a class="sitenav-brand" href="../">R Theory — Rewrite</a>
 <span class="sitenav-links">
-<a href="../#hard">Hard&nbsp;science</a><a href="../#theoretical">Theoretical</a><a href="../vol0/">Vol&nbsp;0</a><a href="../vol4/">Vol&nbsp;IV</a><a href="../tables/">Tables</a>
+<a href="../contents/">Contents</a><a href="../index/">Index</a><a href="../contents/#vol-0">Vol&nbsp;0</a><a href="../contents/#vol-1">Vol&nbsp;I</a><a href="../contents/#vol-2">Vol&nbsp;II</a><a href="../contents/#vol-3">Vol&nbsp;III</a><a href="../contents/#vol-4">Vol&nbsp;IV</a><a href="../tables/">Tables</a><a href="../research/">Research</a>
 </span>
 <form class="sitenav-search" action="https://www.google.com/search" method="get" target="_blank" role="search"
  onsubmit="if(!this.q.value.trim())return false;this.q.value='site:cosbykit-afk.github.io/r-theory-rewrite '+this.q.value">
@@ -85,7 +106,7 @@ No timeouts in any chunk. The IC/IN findings below are conclusions drawn from pa
 <h2 id="p1">Part I — See it first</h2>
 <p>Five figures, in source order. Each caption carries the status of what the figure shows.</p>
 
-<h3>Figure 1 — The canonical primitives with octant bands</h3>
+<h3 id="figure-1-the-canonical-primitives-with-octant-bands">Figure 1 — The canonical primitives with octant bands</h3>
 <div class="graph" id="d1"></div>
 <img class="fallback" id="f1" src="graphs/b17_primitives.png" alt="srx and cxp over x with octant bands and E-contact values">
 <div class="caption"><b>What you see.</b> The two dominant primitives
@@ -103,7 +124,7 @@ primitives exceed 1 — the active pair, alternating every two octants: (srx, cx
 feed (Figure 2) are trigonometry, and the Clifford contraction that would use them is open.
 <span class="tag MA">MA</span></div>
 
-<h3>Figure 2 — The elliptic carrier and its 2:1 map</h3>
+<h3 id="figure-2-the-elliptic-carrier-and-its-2-1-map">Figure 2 — The elliptic carrier and its 2:1 map</h3>
 <div class="graph" id="d2"></div>
 <img class="fallback" id="f2" src="graphs/b17_ellipse.png" alt="Carrier ellipse with E-contact points">
 <div class="caption"><b>What you see.</b> The carrier
@@ -119,7 +140,7 @@ coincide, as do 112.5° and 292.5° — that is the 2:1 sheet structure, drawn.
 <span class="formula">sin(2(x+π)) = sin(2x)</span>; it records ellipse halves. <span class="tag IC">IC</span>
 (see IC-1).</div>
 
-<h3>Figure 3 — Flatwave: +1 on quadrants 1 and 3, −1 on 2 and 4</h3>
+<h3 id="figure-3-flatwave-1-on-quadrants-1-and-3-1-on-2-and-4">Figure 3 — Flatwave: +1 on quadrants 1 and 3, −1 on 2 and 4</h3>
 <div class="graph" id="d3"></div>
 <img class="fallback" id="f3" src="graphs/b17_flatwave.png" alt="Flatwave step function across quadrants">
 <div class="caption"><b>What you see.</b> The §17.1.4 Flatwave
@@ -137,7 +158,7 @@ The flagged "Flatwave name collision" is therefore an identity, not a collision:
 two definitions. <b>What it doesn't show.</b> This is algebra, not physics; it establishes nothing
 about any contraction. <span class="tag MA">MA</span></div>
 
-<h3>Figure 4 — The paired footprint: zeros at midpoints, not boundaries (IC-4)</h3>
+<h3 id="figure-4-the-paired-footprint-zeros-at-midpoints-not-boundaries-ic-4">Figure 4 — The paired footprint: zeros at midpoints, not boundaries (IC-4)</h3>
 <div class="graph" id="d4"></div>
 <img class="fallback" id="f4" src="graphs/b17_footprint.png" alt="cos(4x) with zeros at octant midpoints">
 <div class="caption"><b>What you see.</b> The paired footprint <span class="formula">cos(4x)</span>, even under
@@ -151,7 +172,7 @@ of them. At the octant <b>boundaries</b> (red) it takes <span class="formula">±
 the code group" is unverifiable as stated — the code group is never defined as an x-map.
 <span class="tag MA">MA</span></div>
 
-<h3>Figure 5 — The rapidity ladder at E-contacts</h3>
+<h3 id="figure-5-the-rapidity-ladder-at-e-contacts">Figure 5 — The rapidity ladder at E-contacts</h3>
 <div class="graph" id="d5"></div>
 <img class="fallback" id="f5" src="graphs/b17_rapidity.png" alt="Rapidity ladder w(x)=ln|cot x| with E-contact values">
 <div class="caption"><b>What you see.</b> <span class="formula">w(x) = ln|cot x|</span>, with
@@ -171,7 +192,7 @@ and the dominant value's fourth power <span class="formula">V_E⁴ = 638.7823</s
 116 passed; chunk 2 (audit_17_6.py) 58 passed; chunk 3 (audit_17_18.py) 85 passed —
 259 total, 0 failed, no timeouts.</p>
 
-<h3>§17.1 — Primitive octant decomposition (chunk 1)</h3>
+<h3 id="17-1-primitive-octant-decomposition-chunk-1">§17.1 — Primitive octant decomposition (chunk 1)</h3>
 <p><b>17.1.1 harmonic carrier.</b> On every quadrant,
 <span class="formula">srx − 1/srx = 2cos x/sin x</span>,
 <span class="formula">cxp − 1/cxp = 2sin x/cos x</span>, hence
@@ -195,7 +216,7 @@ octant 1: <span class="formula">srx − 1 = (1−t)/t &gt; 0</span>,
 <span class="formula">ℤ₂³</span>; each octant decodes from (half-quadrant, sgn cos 2x, sgn cos x).
 <span class="tag CP">CP</span></p>
 
-<h3>§17.2 — The 2:1 elliptic map (chunk 1)</h3>
+<h3 id="17-2-the-2-1-elliptic-map-chunk-1">§17.2 — The 2:1 elliptic map (chunk 1)</h3>
 <p><span class="formula">V_R(x+π) = V_R(x)</span>, <span class="formula">H(x+π) = H(x)</span>.
 The eight octant midpoints land on four ellipse points
 <span class="formula">(±√2/4, ±√2/8)</span>, concyclic at distance
@@ -205,7 +226,7 @@ The eight octant midpoints land on four ellipse points
 The deck map <span class="formula">x → x+π</span> fixes
 <span class="formula">ε = sgn(sin 2x)</span> — the IC-1 exhibit. <span class="tag CP">CP</span></p>
 
-<h3>§17.3 — Rapidity values (chunk 1)</h3>
+<h3 id="17-3-rapidity-values-chunk-1">§17.3 — Rapidity values (chunk 1)</h3>
 <p><span class="formula">w₀ = ln(1+√2)</span>: <span class="formula">sinh w₀ = 1</span>,
 <span class="formula">cosh w₀ = √2</span> exactly; <span class="formula">cot(22.5°) = 1+√2</span>,
 <span class="formula">cot(67.5°) = √2−1</span>; E-contact rapidities <span class="formula">±w₀</span> in the
@@ -219,19 +240,19 @@ The deck map <span class="formula">x → x+π</span> fixes
 The printed §17.3.5 radical for crx(112.5°) evaluates ≈ 0.6682, not ≈ 5.027 — <span class="tag IC">IC</span>
 (IC-2); the correct value is <span class="formula">1/cxp(112.5°) = V_E</span>.</p>
 
-<h3>§17.4 — C8 ↔ octant correspondence (chunk 1)</h3>
+<h3 id="17-4-c8-octant-correspondence-chunk-1">§17.4 — C8 ↔ octant correspondence (chunk 1)</h3>
 <p>The cyclic word is exactly <span class="formula">(E,B,E,O)×2</span>; E sits on the decay octants
 1, 3, 5, 7, B on growth octants 2, 6 (<span class="formula">ε = +1</span>), O on growth octants 4, 8
 (<span class="formula">ε = −1</span>). <span class="tag CP">CP</span>
 (The word's internal consistency is checked; whether the correspondence is a <i>theorem</i> is
 disputed inside the manuscript itself — see CONTR-1 on the <a href="../book19/">Book 19</a> page.)</p>
 
-<h3>§17.5 — Open gates (chunk 1)</h3>
+<h3 id="17-5-open-gates-chunk-1">§17.5 — Open gates (chunk 1)</h3>
 <p>The section's gate admissions are consistent with the rest of the audit: the numerical value of
 <span class="formula">S_F</span>, the 1820 projector, and the downstream contraction inputs are all
 declared open, honestly. <span class="tag MA">MA</span> (the manuscript's own admissions, confirmed).</p>
 
-<h3>Stub §17.1.4 — Flatwave / carrier duality (chunk 1)</h3>
+<h3 id="stub-17-1-4-flatwave-carrier-duality-chunk-1">Stub §17.1.4 — Flatwave / carrier duality (chunk 1)</h3>
 <p>Algebra: <span class="formula">1/urx + 1/uxp = (srx+cxp)/(srx·cxp − 1)</span> and
 <span class="formula">Flatwave·H = 1/(urx·uxp)</span> exactly. <span class="tag CP">CP</span>
 Wording: <span class="formula">1/(urx·uxp)</span> is the reciprocal of the <i>product</i>, not of the
@@ -239,7 +260,7 @@ geometric mean — <span class="tag IC">IC</span> (IC-3). Flatwave ≡ 1 exactly
 <span class="tag CP">CP</span>, not on Q2/Q4 — <span class="tag NC">NC</span> counterexamples; the exact
 Q2/Q4 value is −1 (Figure 3, <span class="tag SC">SC</span>).</p>
 
-<h3>§17.6 — UV footprint classification (chunk 2)</h3>
+<h3 id="17-6-uv-footprint-classification-chunk-2">§17.6 — UV footprint classification (chunk 2)</h3>
 <p><b>17.6.1 five types.</b> The E/B/O contact sets are each invariant under the 2:1 kernel
 <span class="formula">x → x+π</span>; the balanced footprint <span class="formula">1</span> is trivially
 invariant; the C8 shift by 4 octants <i>is</i> the kernel map. <span class="tag CP">CP</span>
@@ -254,7 +275,7 @@ x-map. <span class="tag MA">MA</span>
 <b>17.6.3 E-localized.</b> E contacts are exactly the decay-octant midpoints, strictly inside their
 octants. <span class="tag CP">CP</span></p>
 
-<h3>§17.7 — The open Clifford contraction (chunk 2)</h3>
+<h3 id="17-7-the-open-clifford-contraction-chunk-2">§17.7 — The open Clifford contraction (chunk 2)</h3>
 <p><b>17.7.1 what remains.</b> <span class="formula">S_F = ⟨Q_F, a·T + R_⊥⟩ = 3a</span> given
 <span class="formula">Q_F = (6/5)T</span>, <span class="formula">‖T‖² = 5/2</span>,
 <span class="formula">⟨T, R_⊥⟩ = 0</span>; <span class="formula">⟨Q_F, R_⊥⟩ = 0</span> follows.
@@ -276,12 +297,12 @@ assertion. <span class="tag MA">MA</span>
 <b>17.7.4 bounds.</b> <span class="formula">(1/256)(18/5)(4) = 0.05625 = 9/160</span> exactly.
 <span class="tag CP">CP</span> The bound's <i>form</i> is heuristic — open. <span class="tag MA">MA</span></p>
 
-<h3>§17.8 — Summary cross-check (chunk 2)</h3>
+<h3 id="17-8-summary-cross-check-chunk-2">§17.8 — Summary cross-check (chunk 2)</h3>
 <p>The 8-row octant-to-ellipse table, the <span class="formula">√10/8</span> concyclicity, and the
 boundary points all check against the proved carrier formulas. <span class="tag CP">CP</span>
 §17.9 is handoff prose with no new mathematical claims.</p>
 
-<h3>§17.18 — The contraction module (chunk 3)</h3>
+<h3 id="17-18-the-contraction-module-chunk-3">§17.18 — The contraction module (chunk 3)</h3>
 <p>85 assertions, 0 failed — <span class="tag CP">CP</span> 83 · <span class="tag NC">NC</span> 2.
 Established: the formal projector algebra, the conversion chain, and the stripped-response
 definition <span class="formula">S_F := ⟨Q_F, R̃⟩</span> (stripped of the <span class="formula">−1</span>
@@ -291,7 +312,7 @@ boundaries (IN-1…IN-3, below). <b>The honest finding: the numerical value of
 <span class="formula">S_F</span> remains OPEN.</b></p>
 
 <h2 id="p3">Part III — Incorrect, incomplete, and open</h2>
-<h3>Incorrect as stated (this book: IC-1…IC-11)</h3>
+<h3 id="incorrect-as-stated-this-book-ic-1-ic-11">Incorrect as stated (this book: IC-1…IC-11)</h3>
 <ul class="tight">
 <li><b>IC-1</b> (§17.2): <span class="formula">ε = sgn(sin 2x)</span> does <b>not</b> record the 2:1
 sheet — it is invariant under the deck map <span class="formula">x → x+π</span>. It records ellipse
@@ -325,7 +346,7 @@ dresses the stripped <span class="formula">S_F</span>, and Step 7's
 <li><b>IC-11</b> (skeleton Step 5): <span class="formula">wickSign</span> is never assigned anywhere in
 the skeleton. <span class="tag IC">IC</span></li>
 </ul>
-<h3>Incomplete — exact boundaries (IN-1…IN-3)</h3>
+<h3 id="incomplete-exact-boundaries-in-1-in-3">Incomplete — exact boundaries (IN-1…IN-3)</h3>
 <ul class="tight">
 <li><b>IN-1:</b> the Frobenius norms <span class="formula">⟨Γ,Γ⟩_F = 128</span>,
 <span class="formula">⟨Γ,PKPK⟩_F = 64</span> cannot be recomputed in v1 — the
@@ -335,7 +356,7 @@ ordering and chirality conventions are OPEN in v1. <span class="tag IN">IN</span
 <span class="tag IN">IN</span></li>
 <li><b>IN-3:</b> the numerical value of <span class="formula">S_F</span> — OPEN. <span class="tag IN">IN</span></li>
 </ul>
-<h3>Open gates carried forward</h3>
+<h3 id="open-gates-carried-forward">Open gates carried forward</h3>
 <p class="small"><span class="tag MA">MA</span> per the manuscript's own admissions, confirmed by the audit:
 <span class="formula">S_F</span>, <span class="formula">N_{1820}</span>, <span class="formula">ζ_{parent}</span>,
 <span class="formula">η_{-4}</span>, the <span class="formula">c_{ord}/K_{parent}</span> values, the
@@ -366,6 +387,28 @@ as the Desmos embeds. Embed consistency (Desmos id ↔ fallback PNG ↔ LaTeX �
 is checked by validation/book17/test_embeds.py. Pictures illustrate proved statements;
 they are not the proofs. The audit-chunk figures (259 assertions, 0 failed) are the
 independent audit's; the V-checks above are this page's own re-verification.</p>
+<!-- BOOKNAV-NAV-START -->
+<nav class="booknav" aria-label="Book navigation">
+<a class="booknav-panel booknav-prev" rel="prev" href="../book16/">
+<span class="booknav-eyebrow">← Previous</span>
+<span class="booknav-title">Book 16 — The Microscopic</span>
+<span class="booknav-vol">Volume III</span>
+</a>
+<a class="booknav-panel booknav-center" href="../">
+<span class="booknav-eyebrow">Series</span>
+<span class="booknav-title">Index</span>
+</a>
+<a class="booknav-panel booknav-center" href="../contents/">
+<span class="booknav-eyebrow">Series</span>
+<span class="booknav-title">Contents</span>
+</a>
+<a class="booknav-panel booknav-next" rel="next" href="../book18/">
+<span class="booknav-eyebrow">Next →</span>
+<span class="booknav-title">Book 18 — The Contraction Module</span>
+<span class="booknav-vol">Volume IV</span>
+</a>
+</nav>
+<!-- BOOKNAV-NAV-END -->
 <footer>
 <p>Book 17 of the R Theory Volume IV rewrite. Audit chunks 1–3 (audit_17_1.py, audit_17_6.py,
 audit_17_18.py) — 259 assertions, 0 failed. v1 is the sole audit authority. Figure validation:

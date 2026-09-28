@@ -48,6 +48,9 @@
   table.scope th { background:var(--wash); }
   footer { margin-top:3em; color:var(--muted); font-size:.9em; border-top:1px solid var(--line); padding-top:1em; }
   .status { font-size:.85em; color:#555; }
+.toc{background:#f4f4f0;border:1px solid #ccc;border-radius:4px;padding:8px 14px;margin:1.2em 0}
+.toc a{color:#0645ad;text-decoration:none}
+.toc a:hover{text-decoration:underline}
 </style>
 <!-- SITENAV-START -->
 <style>
@@ -65,13 +68,34 @@
  border:1px solid #666;border-radius:3px;background:#eee;cursor:pointer;color:#1a1a1a}
 </style>
 <!-- SITENAV-END -->
+<!-- BOOKNAV-CSS-START -->
+<style>
+.booknav{font-family:Georgia,serif;display:grid;grid-template-columns:1.35fr .85fr .85fr 1.35fr;gap:10px;margin:2.5em 0 0}
+.booknav-panel{display:flex;flex-direction:column;justify-content:center;text-decoration:none;color:#1a1a1a;
+ background:linear-gradient(180deg,#ffffff 0%,#f4f7fb 60%,#e7edf4 100%);
+ border:1px solid #c7d2de;border-radius:8px;padding:12px 16px;
+ box-shadow:inset 0 1px 0 #ffffff,0 2px 6px rgba(27,95,170,.10);
+ transition:border-color .15s ease,box-shadow .15s ease,transform .15s ease}
+a.booknav-panel:hover{border-color:#1b5faa;transform:translateY(-1px);
+ box-shadow:inset 0 1px 0 #ffffff,0 4px 12px rgba(27,95,170,.18)}
+a.booknav-panel:focus-visible{outline:2px solid #1b5faa;outline-offset:2px}
+.booknav-eyebrow{font-size:.7em;letter-spacing:.09em;text-transform:uppercase;color:#5a5a5a}
+.booknav-title{font-weight:bold;color:#1b5faa;margin-top:3px;line-height:1.35}
+.booknav-vol{font-size:.78em;color:#5a5a5a;margin-top:2px}
+.booknav-next{text-align:right}
+.booknav-center{text-align:center}
+.booknav-panel.is-disabled{opacity:.45;cursor:default}
+.booknav-panel.is-disabled .booknav-title{color:#5a5a5a}
+@media (max-width:640px){.booknav{grid-template-columns:1fr 1fr}.booknav-next{text-align:left}}
+</style>
+<!-- BOOKNAV-CSS-END -->
 </head>
 <body>
 <!-- SITENAV-NAV-START -->
 <nav class="sitenav" aria-label="Site navigation">
 <a class="sitenav-brand" href="../">R Theory — Rewrite</a>
 <span class="sitenav-links">
-<a href="../#hard">Hard&nbsp;science</a><a href="../#theoretical">Theoretical</a><a href="../vol0/">Vol&nbsp;0</a><a href="../vol4/">Vol&nbsp;IV</a><a href="../tables/">Tables</a>
+<a href="../contents/">Contents</a><a href="../index/">Index</a><a href="../contents/#vol-0">Vol&nbsp;0</a><a href="../contents/#vol-1">Vol&nbsp;I</a><a href="../contents/#vol-2">Vol&nbsp;II</a><a href="../contents/#vol-3">Vol&nbsp;III</a><a href="../contents/#vol-4">Vol&nbsp;IV</a><a href="../tables/">Tables</a><a href="../research/">Research</a>
 </span>
 <form class="sitenav-search" action="https://www.google.com/search" method="get" target="_blank" role="search"
  onsubmit="if(!this.q.value.trim())return false;this.q.value='site:cosbykit-afk.github.io/r-theory-rewrite '+this.q.value">
@@ -101,6 +125,10 @@ asserted. <b>Honesty note:</b> live Desmos rendering could not be browser-verifi
 workstation (no live browser available); the PNG fallbacks are provided and every plotted
 identity was executed and checked with real assertions.</p>
 </div>
+<div class="toc">
+<p><b>Contents.</b> <a href="#part1">I. See it first</a> · <a href="#part2">II. Then earn it: the dependency audit</a> · <a href="#part3">III. Every claim, one scope label</a> · <a href="#part4">IV. Close the book</a></p>
+</div>
+
 
 <div class="nav">
 <a href="#part1">I. See it first</a><a href="#part2">II. Then earn it</a>
@@ -116,7 +144,7 @@ continuous local U(1) cannot be squeezed out of FlatWave's discrete signs; and M
 equations become essentially unique only inside an explicitly declared candidate class.
 Eight pictures, one per section.</p>
 
-<h3>§1. Different potentials, same field</h3>
+<h3 id="1-different-potentials-same-field">§1. Different potentials, same field</h3>
 
 <figure class="graph">
 <div class="calc" id="d1"></div>
@@ -146,7 +174,7 @@ vector calculus. Calling <span class="math">A</span> a vector potential or
 <span class="math">dB = 0</span> a no-monopole law requires a separate electromagnetic
 projection contract — the manuscript states this firewall explicitly, and the audit keeps it.</div>
 
-<h3>§2. A quarter-turn that must be declared</h3>
+<h3 id="2-a-quarter-turn-that-must-be-declared">§2. A quarter-turn that must be declared</h3>
 
 <figure class="graph">
 <div class="calc" id="d2"></div>
@@ -177,7 +205,7 @@ direct matrix computation in the audit).
 calculus. Conditional Corollary 8.2.C1 (<span class="math">dJ = 0</span> from
 <span class="math">dG = J</span>) is a <span class="tag proved">CHECKED PROOF</span>.</div>
 
-<h3>§3. Two dots are not a circle</h3>
+<h3 id="3-two-dots-are-not-a-circle">§3. Two dots are not a circle</h3>
 
 <figure class="graph">
 <div class="calc" id="d3"></div>
@@ -206,7 +234,7 @@ not enlarge the inherited Čech transition data. Likewise the carrier phasor
 independent local redundancy is supplied — packaging a phase into
 <span class="math">S¹</span> is not the same as gauging it.</div>
 
-<h3>§4. A phase gradient carries no curvature</h3>
+<h3 id="4-a-phase-gradient-carries-no-curvature">§4. A phase gradient carries no curvature</h3>
 
 <figure class="graph">
 <div class="calc" id="d4"></div>
@@ -240,7 +268,7 @@ covariance forces <span class="math">A′ = A + dχ</span>,
 <span class="math">ψ ↦ e^{iqχ(x)}ψ</span> itself (8.4.E1) is declared, not derived —
 the book's status firewall says so explicitly.</div>
 
-<h3>§5. The theta term sees only the boundary</h3>
+<h3 id="5-the-theta-term-sees-only-the-boundary">§5. The theta term sees only the boundary</h3>
 
 <figure class="graph">
 <div class="calc" id="d5"></div>
@@ -278,7 +306,7 @@ theorems whose proof ingredients are standard, but whose candidate-class boundar
 manuscript declaration. The projection status is explicit — this does not promote
 Maxwell theory into a theorem of the carrier calculus.</div>
 
-<h3>§6. The symmetry that refuses to choose</h3>
+<h3 id="6-the-symmetry-that-refuses-to-choose">§6. The symmetry that refuses to choose</h3>
 
 <figure class="graph">
 <div class="calc" id="d6"></div>
@@ -327,7 +355,7 @@ field theory after the declared premises; the wave identity
 <span class="tag symbolic">COMPLETED SYMBOLIC CHECK</span>, and each of the five null-carrier
 items (8.7.T4) is a <span class="tag proved">CHECKED PROOF</span>.</div>
 
-<h3>§7. A sphere capped by the carrier</h3>
+<h3 id="7-a-sphere-capped-by-the-carrier">§7. A sphere capped by the carrier</h3>
 
 <figure class="graph">
 <div class="calc" id="d7"></div>
@@ -371,7 +399,7 @@ does not make <span class="math">H</span> an electromagnetic coherence.
 <span class="math">⟨dψ|dψ⟩</span> term; the proof text ("subtract the vertical phase
 component") and the resulting metric are correct.</div>
 
-<h3>§8. The witness that passes — and the guess that fails</h3>
+<h3 id="8-the-witness-that-passes-and-the-guess-that-fails">§8. The witness that passes — and the guess that fails</h3>
 
 <figure class="graph">
 <div class="calc" id="d8"></div>
@@ -420,7 +448,7 @@ orientation, mirror, projective sign, and charge sign remain distinct.</div>
 ordinary background mathematics and explicitly named physics imports. Here is what Book 8
 actually leans on, and the status of each support.</p>
 
-<h3>From Volume I (checked against the audit ledger)</h3>
+<h3 id="from-volume-i-checked-against-the-audit-ledger">From Volume I (checked against the audit ledger)</h3>
 <ul class="tight">
 <li><span class="tag proved">CHECKED PROOF</span> <b>Book 2 algebraic spine</b> —
 <span class="math">H = 1/(urx+uxp) = sin(2x)/4</span>,
@@ -452,7 +480,7 @@ independently checked. The no-go argument built on them (§8.3.N1) is complete a
 given.</li>
 </ul>
 
-<h3>From Book 7 (Volume II — outside the Volume I ledger)</h3>
+<h3 id="from-book-7-volume-ii-outside-the-volume-i-ledger">From Book 7 (Volume II — outside the Volume I ledger)</h3>
 <ul class="tight">
 <li><span class="tag numeric">COMPLETED NUMERICAL CHECK</span> <b>Balance-product,
 cosine companion, transfer–carrier map, carrier phasor</b> — Book 8's §8.7C and §8.7A
@@ -470,7 +498,7 @@ companion fails (e.g. at <span class="math">x = 9π/8</span>). The manuscript is
 consistent on this point — the dependency bridge names Book 7 §7.1 explicitly.</li>
 </ul>
 
-<h3>Declared, not derived</h3>
+<h3 id="declared-not-derived">Declared, not derived</h3>
 <ul class="tight">
 <li><span class="tag assumption">ASSUMPTION / DECLARED EXTENSION</span> The independent
 fourth direction <span class="math">τ</span> (8.2.E1), the oriented Lorentzian metric
@@ -563,6 +591,28 @@ equations are not supplied by Book 8 and enter Book 9 through explicit imports s
 there. The audit confirms this lock is consistent with the book's actual dependency
 posture — nothing in Book 8 derives a physical spacetime.</div>
 
+<!-- BOOKNAV-NAV-START -->
+<nav class="booknav" aria-label="Book navigation">
+<a class="booknav-panel booknav-prev" rel="prev" href="../book7/">
+<span class="booknav-eyebrow">← Previous</span>
+<span class="booknav-title">Book 7 — Classical Dynamics from the Certified Carrier (Restructured)</span>
+<span class="booknav-vol">Volume II</span>
+</a>
+<a class="booknav-panel booknav-center" href="../">
+<span class="booknav-eyebrow">Series</span>
+<span class="booknav-title">Index</span>
+</a>
+<a class="booknav-panel booknav-center" href="../contents/">
+<span class="booknav-eyebrow">Series</span>
+<span class="booknav-title">Contents</span>
+</a>
+<a class="booknav-panel booknav-next" rel="next" href="../book9/">
+<span class="booknav-eyebrow">Next →</span>
+<span class="booknav-title">Book 9 — Relativity and Gravitation: Conditional Reconstruction</span>
+<span class="booknav-vol">Volume II</span>
+</a>
+</nav>
+<!-- BOOKNAV-NAV-END -->
 <footer>
 <p>Rewrite of Book 8 of <i>R Theory — Volume II</i> (working manuscript; source span
 lines 1284–2093 of volume2_full.txt, 810 lines / 3631 words). Restructured: pictures

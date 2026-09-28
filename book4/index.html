@@ -38,13 +38,34 @@ hr{margin:2.5em 0;border:none;border-top:1px solid #bbb}
  border:1px solid #666;border-radius:3px;background:#eee;cursor:pointer;color:#1a1a1a}
 </style>
 <!-- SITENAV-END -->
+<!-- BOOKNAV-CSS-START -->
+<style>
+.booknav{font-family:Georgia,serif;display:grid;grid-template-columns:1.35fr .85fr .85fr 1.35fr;gap:10px;margin:2.5em 0 0}
+.booknav-panel{display:flex;flex-direction:column;justify-content:center;text-decoration:none;color:#1a1a1a;
+ background:linear-gradient(180deg,#ffffff 0%,#f4f7fb 60%,#e7edf4 100%);
+ border:1px solid #c7d2de;border-radius:8px;padding:12px 16px;
+ box-shadow:inset 0 1px 0 #ffffff,0 2px 6px rgba(27,95,170,.10);
+ transition:border-color .15s ease,box-shadow .15s ease,transform .15s ease}
+a.booknav-panel:hover{border-color:#1b5faa;transform:translateY(-1px);
+ box-shadow:inset 0 1px 0 #ffffff,0 4px 12px rgba(27,95,170,.18)}
+a.booknav-panel:focus-visible{outline:2px solid #1b5faa;outline-offset:2px}
+.booknav-eyebrow{font-size:.7em;letter-spacing:.09em;text-transform:uppercase;color:#5a5a5a}
+.booknav-title{font-weight:bold;color:#1b5faa;margin-top:3px;line-height:1.35}
+.booknav-vol{font-size:.78em;color:#5a5a5a;margin-top:2px}
+.booknav-next{text-align:right}
+.booknav-center{text-align:center}
+.booknav-panel.is-disabled{opacity:.45;cursor:default}
+.booknav-panel.is-disabled .booknav-title{color:#5a5a5a}
+@media (max-width:640px){.booknav{grid-template-columns:1fr 1fr}.booknav-next{text-align:left}}
+</style>
+<!-- BOOKNAV-CSS-END -->
 </head>
 <body>
 <!-- SITENAV-NAV-START -->
 <nav class="sitenav" aria-label="Site navigation">
 <a class="sitenav-brand" href="../">R Theory — Rewrite</a>
 <span class="sitenav-links">
-<a href="../#hard">Hard&nbsp;science</a><a href="../#theoretical">Theoretical</a><a href="../vol0/">Vol&nbsp;0</a><a href="../vol4/">Vol&nbsp;IV</a><a href="../tables/">Tables</a>
+<a href="../contents/">Contents</a><a href="../index/">Index</a><a href="../contents/#vol-0">Vol&nbsp;0</a><a href="../contents/#vol-1">Vol&nbsp;I</a><a href="../contents/#vol-2">Vol&nbsp;II</a><a href="../contents/#vol-3">Vol&nbsp;III</a><a href="../contents/#vol-4">Vol&nbsp;IV</a><a href="../tables/">Tables</a><a href="../research/">Research</a>
 </span>
 <form class="sitenav-search" action="https://www.google.com/search" method="get" target="_blank" role="search"
  onsubmit="if(!this.q.value.trim())return false;this.q.value='site:cosbykit-afk.github.io/r-theory-rewrite '+this.q.value">
@@ -63,39 +84,39 @@ hr{margin:2.5em 0;border:none;border-top:1px solid #bbb}
 <h2 id="p1">Part I — See it first</h2>
 <p>Seven pictures. Each one draws something Book 4 actually constructs or proves. The graphs below are live Desmos calculators (drag to pan, scroll to zoom); if Desmos cannot load, a static rendering appears instead. A sampled-point agreement ~1e-10 between a plotted curve and its formula is a <span class="tag CN">completed numerical check</span>, never a proof — it is labeled as such.</p>
 
-<h3>Figure 1 — Six native sectors and the synthetic right angle</h3>
+<h3 id="figure-1-six-native-sectors-and-the-synthetic-right-angle">Figure 1 — Six native sectors and the synthetic right angle</h3>
 <div class="graph" id="g1"></div>
 <img class="fallback" id="fb1" src="graphs/b4_flower.png" alt="Flower plane six sectors and right angle">
 <div class="caption"><b>What you see.</b> An interior Flower center O with its six native directions at 60° apart (bounding the six equilateral native triangles), and the synthetic right-angle construction of Proposition 4.IV.P0: OA points north, OB and OC sit at ±30°, the equal circles through B and C meet again at D = (√3, 0), and OD is exactly perpendicular to OA — verified here by dot(OA,OD) = 0 <span class="tag CN">completed numerical check</span>. No dot product, Cartesian norm, or angle function was used to earn this perpendicular; the right angle is a synthetic Flower result. <b>The trap.</b> Reading this as "space is made of equilateral triangles" mistakes the constructive witness for a physical substrate — the Flower-role lock forbids it <span class="tag MA">manuscript assertion</span>.</div>
 
-<h3>Figure 2 — Flower coordinates are just Cartesian coordinates, relabeled</h3>
+<h3 id="figure-2-flower-coordinates-are-just-cartesian-coordinates-relabeled">Figure 2 — Flower coordinates are just Cartesian coordinates, relabeled</h3>
 <div class="graph" id="g2"></div>
 <img class="fallback" id="fb2" src="graphs/b4_coords.png" alt="Flower coordinate grid versus Cartesian">
 <div class="caption"><b>What you see.</b> The oblique Flower coordinate grid (u = const, v = const) against ordinary Cartesian axes. The identity
 <span class="formula">X = u + v/2, &nbsp; Y = (√3/2)v &nbsp; ⇒ &nbsp; X² + Y² = u² + uv + v²</span>
 re-verified numerically (max error 1.42e-14 over 20,000 samples) <span class="tag CN">completed numerical check</span>, so the Flower quadratic form's unit locus is exactly the ordinary unit circle: the coordinate change is an invertible linear change of basis. Gate H's no-novelty firewall is this picture. <b>The point.</b> Nothing empirical can come from renaming coordinates — any distinctive later prediction must arise from defects, gluing, metric deformation, connection, or boundary data instead <span class="tag MA">manuscript assertion</span>.</div>
 
-<h3>Figure 3 — The tetrahedral witness: rank three made independent</h3>
+<h3 id="figure-3-the-tetrahedral-witness-rank-three-made-independent">Figure 3 — The tetrahedral witness: rank three made independent</h3>
 <div class="graph" id="g3"></div>
 <img class="fallback" id="fb3" src="graphs/b4_tetra.png" alt="Regular tetrahedron with altitude">
 <div class="caption"><b>What you see.</b> The regular tetrahedron OABC built by the equal-sphere construction (Proposition 4.V.P0), in oblique projection, with the altitude OG dashed. All six edges equal r, and the altitude is exactly r√(2/3) — both follow exactly from the tetrahedral Gram matrix, whose dimensionless spectrum {2, 1/2, 1/2} (of G₃/r²), determinant r⁶/2 &gt; 0, six equal edges, altitude r√(2/3), and volume r³/(6√2) were all checked exactly from the Gram form <span class="tag CP">checked proof</span>. The third direction enters through the separately admitted noncoplanar extension S1 — plane geometry alone never implies it. <b>Scope.</b> This certifies linear independence of the three edge directions, not a "tetrahedral ontology of space."</div>
 
-<h3>Figure 4 — Nondegeneracy: θ¹∧θ² ≠ 0</h3>
+<h3 id="figure-4-nondegeneracy-0">Figure 4 — Nondegeneracy: θ¹∧θ² ≠ 0</h3>
 <div class="graph" id="g4"></div>
 <img class="fallback" id="fb4" src="graphs/b4_coframe.png" alt="Polar orthonormal coframe">
 <div class="caption"><b>What you see.</b> The orthonormal polar coframe θ¹ = dr, θ² = r dφ on the plane: radial spokes and concentric circles, with the dual frame vectors e<sub>r</sub> = ∂<sub>r</sub>, e<sub>φ</sub> = (1/r)∂<sub>φ</sub> at one point and the red parallelogram = the area element θ¹∧θ² ≠ 0. Relative to the reference coframe (dr, dφ) the frame matrix is E = diag(1, r) with det E = r ≠ 0 for r &gt; 0 — verified <span class="tag CN">completed numerical check</span> — which is exactly Theorem 4.II.1's nondegeneracy criterion in action. <b>The point.</b> This wedge test is the gate: two functions of one phase can never pass it by being numerically different (Corollary 4.II.1).</div>
 
-<h3>Figure 5 — Flat but anholonomic: dθ² ≠ 0 with T = 0, R = 0</h3>
+<h3 id="figure-5-flat-but-anholonomic-d-0-with-t-0-r-0">Figure 5 — Flat but anholonomic: dθ² ≠ 0 with T = 0, R = 0</h3>
 <div class="graph" id="g5"></div>
 <img class="fallback" id="fb5" src="graphs/b4_transport.png" alt="Parallel transport on the circle">
 <div class="caption"><b>What you see.</b> On the unit circle: the rotating frame spokes e<sub>φ</sub> (orange — the coframe visibly "twists") against a vector parallel-transported around the loop (blue), which keeps one absolute direction and returns to itself unchanged. The computation behind the picture: dθ² = (1/r)θ¹∧θ² ≠ 0, yet the metric-compatible connection ω¹₂ = −dφ makes Tᵃ = dθᵃ + ωᵃ<sub>b</sub>∧θᵇ = 0 and Rᵃ<sub>b</sub> = dωᵃ<sub>b</sub> + ωᵃ<sub>c</sub>∧ωᶜ<sub>b</sub> = 0 — each identity re-verified symbolically <span class="tag CS">completed symbolic check</span>. <b>The rule this earns.</b> A varying/rotating coframe does not imply curvature (Theorem 4.VIII.P5); anholonomy, torsion, curvature, and vector curl are four typed objects, and this picture keeps them apart.</div>
 
-<h3>Figure 6 — Genuinely curved: the flower metric h<sub>H</sub></h3>
+<h3 id="figure-6-genuinely-curved-the-flower-metric-hh">Figure 6 — Genuinely curved: the flower metric h<sub>H</sub></h3>
 <div class="graph" id="g6"></div>
 <img class="fallback" id="fb6" src="graphs/b4_curved.png" alt="Curved flower metric unit circles">
-<div class="caption"><b>What you see.</b> Circles of equal <i>proper</i> radius ρ = 0.5 (in the metric h<sub>H</sub> = (L²/z²)(dx²+dy²+dz²), L = 1) at heights z₀ = 0.6, 1.2, 2.2: Euclidean radius ρz₀/L shrinks toward the z = 0 boundary. The torsion-free equation dθᵃ + ωᵃ<sub>b</sub>∧θᵇ = 0 for the manuscript's connection and the curvature law Rᵃ<sub>b</sub> = −(1/L²)θᵃ∧θᵇ (sectional K = −1/L², scalar −6/L²) were re-verified symbolically <span class="tag CS">completed symbolic check</span>. <b>The point.</b> The same rank-three carrier that hosts the flat Flower reference metric hosts a genuinely curved spatial metric — curvature needs no time coordinate — and curvature is still not gravity (Theorem 4.XIII.P9) <span class="tag MA">manuscript assertion</span>.</div>
+<div class="caption"><b>What you see.</b> Circles of equal <i>proper</i> radius ρ = 0.5 (in the metric h<sub>H</sub> = (L²/z²)(dx²+dy²+dz²), L = 1) at heights z₀ = 0.6, 1.2, 2.2: Euclidean radius is quasi-linear in height (≈ ρz₀/L), shrinking toward the z = 0 boundary. The torsion-free equation dθᵃ + ωᵃ<sub>b</sub>∧θᵇ = 0 for the manuscript's connection and the curvature law Rᵃ<sub>b</sub> = −(1/L²)θᵃ∧θᵇ (sectional K = −1/L², scalar −6/L²) were re-verified symbolically <span class="tag CS">completed symbolic check</span>. <b>The point.</b> The same rank-three carrier that hosts the flat Flower reference metric hosts a genuinely curved spatial metric — curvature needs no time coordinate — and curvature is still not gravity (Theorem 4.XIII.P9) <span class="tag MA">manuscript assertion</span>.</div>
 
-<h3>Figure 7 — Two orientation classes; reversal flips the volume form</h3>
+<h3 id="figure-7-two-orientation-classes-reversal-flips-the-volume-form">Figure 7 — Two orientation classes; reversal flips the volume form</h3>
 <div class="graph" id="g7"></div>
 <img class="fallback" id="fb7" src="graphs/b4_orientation.png" alt="Positive versus mirror frame">
 <div class="caption"><b>What you see.</b> Two ordered frames that share the same e₁, e₂ but have e₃ reflected: same lengths, same angles, opposite volume sign. The transformation law vol′ = (det A)·vol — verified over 1,999 random matrices (2,000 drawn, 1 near-singular skip) <span class="tag CN">completed numerical check</span> — makes "mirror" a relational claim about determinant sign, not a minus sign on a coordinate. The symmetric Flower data (the b↔c swap is an orientation-reversing isometry of G₃) represent handed frames but select none: orientation nonselection <span class="tag CP">checked proof</span>. <b>The trap.</b> FlatWave sign, cophase, π half-turn, and q↦−q are none of them a mirror.</div>
@@ -104,53 +125,53 @@ re-verified numerically (max error 1.42e-14 over 20,000 samples) <span class="ta
 <h2 id="p2">Part II — Then earn it</h2>
 <p>The formal audit, section by section, condensed. Status scopes: <span class="tag CP">checked proof</span> = proof surveyed from the text's stated antecedents; <span class="tag CS">completed symbolic check</span> / <span class="tag CN">completed numerical check</span> = independently re-verified for the rewrite; <span class="tag ST">standard imported theorem</span>; <span class="tag MA">manuscript assertion</span> = text's claim, surveyed but not independently re-derived; <span class="tag AA">assumption or axiom</span> = admitted premise.</p>
 
-<h3>Preparation constitution <span class="tag AA">AA</span></h3>
+<h3 id="preparation-constitution-aa">Preparation constitution <span class="tag AA">AA</span></h3>
 <p>Source boundary = certified revised Books 0–3 + standard mathematics declared at point of use. Historical T0–T3 admissible claim-by-claim only if re-established here; T4+, Spacetime paper, unification papers, S essays, notebooks are candidate sources only <span class="tag AA">AA</span>. Canonical Flower-role lock: the Flower stays in the forward spine only as a constructive witness for a continuous plane, copied length standard, synthetic right angle, and metric representation — never as a preferred coordinate system, tetrahedral lattice, physical substrate, or source of rank three <span class="tag AA">AA</span>. Import P4.1 (pre-metric construction substrate: points, straight continuation, copied congruence unit r, equal-circle operation, continuous triangular filling) <span class="tag AA">AA</span>; SSS admitted as a congruence principle (P4.1-C) <span class="tag AA">AA</span>; Gates A–H (rank before dimension language; Flower before metric, metric after right angle; continuous carrier before discrete lattice; coframe before connection; connection before curvature; orientation before handedness; geometry before physics; coordinate-novelty firewall) <span class="tag AA">AA</span>.</p>
 
-<h3>4.I — From angle to coframe: the rank obstruction <span class="tag CP">CP</span></h3>
+<h3 id="4-i-from-angle-to-coframe-the-rank-obstruction-cp">4.I — From angle to coframe: the rank obstruction <span class="tag CP">CP</span></h3>
 <p>Books 0–3 supply scalar readouts, reciprocal pairs, folds, signs, projective representatives, finite covers — all locally generated by one continuous phase. Theorem (negative): representation multiplicity is not geometric rank. The one-generator calculus cannot manufacture a plane or a three-dimensional carrier by relabeling.</p>
 
-<h3>4.II — The minimal coframe problem <span class="tag CP">CP</span></h3>
+<h3 id="4-ii-the-minimal-coframe-problem-cp">4.II — The minimal coframe problem <span class="tag CP">CP</span></h3>
 <p>Local frame e<sub>a</sub>, local coframe θᵃ with θᵃ(e<sub>b</sub>) = δᵃ<sub>b</sub> — no metric required <span class="tag CP">CP</span>. Theorem 4.II.1: θ¹∧⋯∧θⁿ ≠ 0 iff nondegenerate; θᵃ = Eᵃ<sub>i</sub>ηⁱ gives θ¹∧⋯∧θⁿ = det(E) η¹∧⋯∧ηⁿ <span class="tag CP">CP</span>. Planar corollary θ¹∧θ² ≠ 0; rank-three corollary θ¹∧θ²∧θ³ ≠ 0 with a genuinely independent third direction <span class="tag CP">CP</span>. Negative theorem 4.II.1: Books 0–3 select no canonical coframe; names like srx, FlatWave, V cannot become basis directions by notation <span class="tag CP">CP</span>. A phase-dependent candidate θᵃ = Eᵃ<sub>i</sub>(φ,q)ηⁱ may have full rank whenever det E ≠ 0 — no conflict with the obstruction, because the carrier supplied the ηⁱ <span class="tag CP">CP</span>.</p>
 
-<h3>4.III — Folded-state reconstruction and state/base separation <span class="tag CP">CP</span></h3>
+<h3 id="4-iii-folded-state-reconstruction-and-state-base-separation-cp">4.III — Folded-state reconstruction and state/base separation <span class="tag CP">CP</span></h3>
 <p>Finite enrichment (4.III.1): S × D with finite D is locally one-dimensional <span class="tag CP">CP</span>. Cover preservation of dimension (4.III.2); projective-lift separation (4.III.3): (u,v)ᵀ/[X] separates representation dimension from state dimension <span class="tag CP">CP</span>. Cophase audit: dx<sub>A</sub> ∧ dx<sub>B</sub> = 0 <span class="tag CP">CP</span>. State/base separation theorem: d(F∘φ) = F′(φ)dφ, so every Book 0–3 scalar's one-form span has rank ≤ 1 <span class="tag CP">CP</span>. Seven negative conclusions frozen: two channels ≠ two axes; four primitives ≠ four directions; homogeneous lift ≠ base rank; cophase multiplicity ≠ coordinates; q, −q ≠ mirror directions; sheet count ≠ dimension; RP¹ completion ≠ added line <span class="tag CP">CP</span>.</p>
 
-<h3>4.IV — The Flower plane: equal circles, right angle, metric witness <span class="tag CP">CP</span></h3>
+<h3 id="4-iv-the-flower-plane-equal-circles-right-angle-metric-witness-cp">4.IV — The Flower plane: equal circles, right angle, metric witness <span class="tag CP">CP</span></h3>
 <p>Historical Flower Plane Books I–II proofs re-presented and re-certified inside the corpus (included, not merely cited), with local synthetic / metric-completion / global Euclidean layers separated <span class="tag MA">manuscript assertion</span> on the re-presentation claim. Lemma 4.IV.L1: six native sectors are equal and complete one turn <span class="tag CP">CP</span>. Proposition 4.IV.P0: synthetic right-angle construction (60° sector + bisected 30° half-sector = 90°) <span class="tag CP">CP</span> — the perpendicularity was additionally re-verified numerically for the rewrite <span class="tag CN">CN</span>. Corollary: degree measure 360°/4 = 90°, native sector 60°, half-sector 30° <span class="tag CP">CP</span>. Propositions P1–P3 (equilateral triangle, angle bisection, perpendicular) <span class="tag CP">CP</span>. Planar Gram form G₂ = r²[[1,1/2],[1/2,1]] <span class="tag CP">CP</span>. Metric introduced only after the synthetic right angle (Gate B) <span class="tag AA">AA</span>.</p>
 
-<h3>4.V — Independent rank-three extension and tetrahedral witness <span class="tag CP">CP</span></h3>
+<h3 id="4-v-independent-rank-three-extension-and-tetrahedral-witness-cp">4.V — Independent rank-three extension and tetrahedral witness <span class="tag CP">CP</span></h3>
 <p>Solid postulates S1–S6 (noncoplanar extension, plane determination, perpendicular to a plane, sphere construction, equal-sphere intersection, rigid solid congruence) admitted explicitly — the third direction is not a planar consequence <span class="tag AA">AA</span>. Proposition 4.V.P0: regular tetrahedron from equal spheres on an equilateral face <span class="tag CP">CP</span>; P1: two intersections give congruent tetrahedra on opposite sides; P2: DE perpendicularly bisected by the base plane <span class="tag CP">CP</span>. Theorem 4.V.M1: G₃ = r²[[1,1/2,1/2],[1/2,1,1/2],[1/2,1/2,1]] — the dimensionless Gram matrix G₃/r² has eigenvalues 2, 1/2, 1/2 — det G₃ = r⁶/2 &gt; 0, inverse certified <span class="tag CP">CP</span> — independently re-verified exactly for the rewrite (V12: (4I−J)(2G₃) = 4I) — spectrum, determinant, edges, altitude, and volume additionally re-verified exactly for the rewrite <span class="tag CP">CP</span>. P3: Gram metric verifies all six edges = r; P4: altitude OG = r√(2/3); DE = 2r√(2/3); V<sub>tet</sub> = r³/(6√2) <span class="tag CP">CP</span> (+<span class="tag CP">CP</span> re-verified). P5: six specified flower-lattice points form a regular octahedron <span class="tag CP">CP</span>.</p>
 
-<h3>4.VI — Supplementary coordinate witnesses, reciprocal bases, lattice <span class="tag MA">MA</span></h3>
+<h3 id="4-vi-supplementary-coordinate-witnesses-reciprocal-bases-lattice-ma">4.VI — Supplementary coordinate witnesses, reciprocal bases, lattice <span class="tag MA">MA</span></h3>
 <p>Supplementary diagnostics only — no downstream theorem may use them as foundational premises (Flower-role lock) <span class="tag AA">AA</span>. Planar and tetrahedral Flower coordinates; reciprocal bases; center lattice Λ₃ = ℤa+ℤb+ℤc with |n₁a+n₂b+n₃c|² = r²Q(n), Q = n₁²+n₂²+n₃²+n₁n₂+n₁n₃+n₂n₃; exactly twelve minimal nonzero lattice vectors; FCC/D₃ orthonormal realization; contact-sphere packing corollary; nonuniqueness of octahedral tetrahedral refinement; closure ledger <span class="tag MA">manuscript assertion</span>. Flower-coordinate isometry X = u+v/2, Y = (√3/2)v, X²+Y² = u²+uv+v² additionally re-verified numerically <span class="tag CN">CN</span>.</p>
 
-<h3>4.VII — Supplementary vector-equilibrium and finite-lattice diagnostics <span class="tag MA">MA</span></h3>
+<h3 id="4-vii-supplementary-vector-equilibrium-and-finite-lattice-diagnostics-ma">4.VII — Supplementary vector-equilibrium and finite-lattice diagnostics <span class="tag MA">MA</span></h3>
 <p>Nearest-neighbor graph; cuboctahedral 12-neighbor shell; zero first moment; isotropic second moment Σu<sub>A</sub>u<sub>A</sub>ᵀ = 4I₃; cell incidence; finite Flower clusters; discrete loop closure — a closed static lattice loop has zero positional displacement regardless of frame holonomy (the connection obstruction for lattices); diagnostic closure <span class="tag MA">manuscript assertion</span>. Finite counts are boundary/refinement models, not canonical structure (4.XIII.P6).</p>
 
-<h3>4.VIII — Anholonomy, connection, angular gradient, curl <span class="tag CP">CP</span></h3>
+<h3 id="4-viii-anholonomy-connection-angular-gradient-curl-cp">4.VIII — Anholonomy, connection, angular gradient, curl <span class="tag CP">CP</span></h3>
 <p>dθᵃ = −(1/2)Cᵃ<sub>bc</sub>θᵇ∧θᶜ; Theorem 4.VIII.P1: Cᵃ<sub>bc</sub> = dual-frame commutator coefficients <span class="tag CP">CP</span>; nonconstant coefficients do not imply anholonomy <span class="tag CP">CP</span>. Connection ωᵃ<sub>b</sub>, torsion Tᵃ = dθᵃ+ωᵃ<sub>b</sub>∧θᵇ, curvature Rᵃ<sub>b</sub> = dωᵃ<sub>b</sub>+ωᵃ<sub>c</sub>∧ωᶜ<sub>b</sub>; Cartan–Bianchi DTᵃ = Rᵃ<sub>b</sub>∧θᵇ, DRᵃ<sub>b</sub> = 0 <span class="tag CP">CP</span>. Pure-gauge theorem 4.VIII.P4: ω = B⁻¹dB ⇒ R = 0 <span class="tag CP">CP</span>. Negative theorem 4.VIII.N1: B(q) = B̂(φ(q)) ⇒ ω = A(φ)dφ ⇒ R = 0 <span class="tag CP">CP</span>. Theorem 4.VIII.P5: the flat anholonomic example θ¹ = dr, θ² = r dφ, θ³ = dz with dθ² ≠ 0, ω¹₂ = −dφ, T = 0, R = 0 <span class="tag CP">CP</span> — each identity additionally re-verified symbolically <span class="tag CS">CS</span>. Angular gradient / "angular shear" vocabulary (4.VIII.E), vector curl (curl v)♭ = ⋆d(v♭) (4.VIII.F), local holonomy (4.VIII.G), distinction ledger (4.VIII.H) <span class="tag MA">manuscript assertion</span>.</p>
 
-<h3>4.IX — Metric freedom, frame redundancy, what must be declared <span class="tag CP">CP</span></h3>
+<h3 id="4-ix-metric-freedom-frame-redundancy-what-must-be-declared-cp">4.IX — Metric freedom, frame redundancy, what must be declared <span class="tag CP">CP</span></h3>
 <p>Flower reference metric h_F (G₂, G₃ forms); Theorem 4.IX.P1: positive definite via leading principal minors r², 3r⁴/4, r⁶/2 &gt; 0 <span class="tag CP">CP</span>; orientation not needed to define h_F <span class="tag CP">CP</span>. General coframe metrics h = H<sub>ab</sub>θᵃ⊗θᵇ with [h]<sub>ij</sub> = (EᵀHE)<sub>ij</sub>; Theorem 4.IX.P2: positive-definite H + det E ≠ 0 ⇒ nondegenerate h <span class="tag CP">CP</span>. Frame-change redundancy; coordinate change ≠ metric change; genuine metric deformation; Levi–Civita after the metric is declared <span class="tag ST">standard imported theorem</span> as the existence/uniqueness claim; metric change ≠ curvature <span class="tag CP">CP</span>. Projection-scalar metric ansätze, necessity barrier for Projection couplings, signature boundary, metric ledger <span class="tag MA">manuscript assertion</span>.</p>
 
-<h3>4.X — Flower foundations, Cartesian nonprimacy, Euclidean postulate audit <span class="tag MA">MA</span></h3>
+<h3 id="4-x-flower-foundations-cartesian-nonprimacy-euclidean-postulate-audit-ma">4.X — Flower foundations, Cartesian nonprimacy, Euclidean postulate audit <span class="tag MA">MA</span></h3>
 <p>Pre-metric synthetic substrate; the congruence debt; the exact point where metric enters; Flower vs Cartesian coordinates; local vs global Euclidean completion (global flatness and unique parallels need the separate declaration P4.3) <span class="tag AA">AA</span>. No-Euclid-wholesale theorem (4.X.H); no-novelty-from-coordinate-change rule (4.X.I = Gate H) — isometry identity additionally re-verified <span class="tag CN">CN</span>; foundational failure ledger; section closure <span class="tag MA">manuscript assertion</span>.</p>
 
-<h3>4.XI — Curvature without assuming spacetime <span class="tag CP">CP</span></h3>
+<h3 id="4-xi-curvature-without-assuming-spacetime-cp">4.XI — Curvature without assuming spacetime <span class="tag CP">CP</span></h3>
 <p>Curvature is well-defined on the spatial carrier with a declared connection/metric alone — no time direction needed (4.XI.P1); curved ≠ gravitational <span class="tag CP">CP</span>. Flat geometry can look nontrivial (cylindrical coframe; spherical-coordinate Euclidean components) <span class="tag CP">CP</span>. Negative theorem 4.XI.N1: coefficient variation, rotating frames, gauge coefficients, anholonomy, non-Cartesian bases, nonconstant conformal factors do not certify curvature <span class="tag CP">CP</span>. Theorem 4.XI.P2/P3: h<sub>H</sub> = (L²/z²)(dx²+dy²+dz²) has ω¹₃ = −(1/L)θ¹, ω²₃ = −(1/L)θ², ω¹₂ = 0 and Rᵃ<sub>b</sub> = −(1/L²)θᵃ∧θᵇ, K = −1/L², scalar curvature −6/L² <span class="tag CP">CP</span> — torsion-free equation and curvature law additionally re-verified symbolically <span class="tag CS">CS</span>. Theorem 4.XI.P4: ω = A(φ)dφ ⇒ R = 0 for any smooth A (dω = 0 and ω∧ω = 0 by the wedge) <span class="tag CP">CP</span>; one scalar cannot supply two independent connection directions; locally pure-gauge representation <span class="tag CP">CP</span>. Scalar metric modulation escapes the obstruction only by acting on an independent coframe — it is additional geometric data, not a scalar-only connection (4.XI.E) <span class="tag CP">CP</span>. Discrete curvature requires metric gluing data; smooth vs discrete defect; gravity firewall (4.XI.J) <span class="tag MA">manuscript assertion</span>.</p>
 
-<h3>4.XII — Orientation, volume forms, handed frames <span class="tag CP">CP</span></h3>
+<h3 id="4-xii-orientation-volume-forms-handed-frames-cp">4.XII — Orientation, volume forms, handed frames <span class="tag CP">CP</span></h3>
 <p>Exactly two ordered-frame orientation classes (4.XII.P1); mirror frame = opposite class after a declared positive orientation <span class="tag CP">CP</span>. Determinant transformation law 4.XII.P2: θ′ = Aθ ⇒ vol′ = (det A)·vol <span class="tag CP">CP</span> — additionally re-verified over 1,999 random matrices <span class="tag CN">CN</span>. Tetrahedral Flower volume (4.XII.P3); Hodge star and cross product need metric + orientation; pseudoscalar/pseudovector sign behavior <span class="tag CP">CP</span>. Theorem 4.XIII.P10: representation is complete (the b↔c swap is an orientation-reversing isometry of G₃ and automorphism of Λ₃) while canonical preference stays obstructed — the symmetric carrier selects no handedness <span class="tag CP">CP</span>. Orientation failure ledger: FlatWave sign, cophase, π half-turn, q↦−q, cross-product sign, and spatial orientation are none of them a preferred physical chirality <span class="tag CP">CP</span>.</p>
 
-<h3>4.XIII — Dependency audit, failure ledger, certification <span class="tag CP">CP</span></h3>
+<h3 id="4-xiii-dependency-audit-failure-ledger-certification-cp">4.XIII — Dependency audit, failure ledger, certification <span class="tag CP">CP</span></h3>
 <p>Master dependency chain one-generator calculus → rank obstruction → P4.1 → Flower → right angle → rank-two → Flower metric → S1–S6 → tetrahedron → rank-three carrier → lattices → connection/torsion/curvature → orientation (no arrow reversible without a new theorem) <span class="tag CP">CP</span>. Theorem 4.XIII.P1: all certified rank comes from independent carrier data; dA = A′(x)dx ⇒ rank ≤ 1 <span class="tag CP">CP</span>. Rank audit (P3: Gram determinant r⁶/2 &gt; 0 certifies rank three); coordinate audit (P5: continuous Flower coordinates locally isometric to Cartesian — additionally re-verified <span class="tag CN">CN</span>); discrete audit (P6: finite clusters need extra boundary data); connection audit (P7: the six typed objects may not be identified by shared visual language); Theorem 4.XIII.P8: the one-generator connection obstruction is closed, ω = A(φ)dφ ⇒ R = 0 on every regular chart <span class="tag CP">CP</span>; Theorem 4.XIII.P9: curvature is geometry, not gravity <span class="tag CP">CP</span>; P10: representation complete, preference obstructed <span class="tag CP">CP</span>. Physical-status audit: physics imports 0, Projection contracts 0, empirical calibrations 0, units 0, equations of motion 0, time variables 0, Lorentzian metrics 0, gravitational field equations 0, electromagnetic identifications 0, quantum postulates 0, parity-violating laws 0, empirical predictions 0 <span class="tag CP">CP</span> (ledger audit). New Projection-specific scalar identities: 0. Theorem 4.XIII.P11: geometric-extension certification plus eight negative conclusions <span class="tag CP">CP</span>.</p>
 
 <hr>
 <h2 id="p3">Part III — What Book 4 establishes, and what it doesn't</h2>
-<h3>Established</h3>
+<h3 id="established">Established</h3>
 <p class="small">The rank obstruction (one-generator scalars, covers, sheets, projective lifts, cophase copies, finite labels add no local differential rank); the synthetic Flower plane with sixfold closure and a synthetic right angle (earned before any metric); the planar and tetrahedral Gram forms with certified spectra, determinants, inverses, altitude, and volume; the independent rank-three carrier via explicitly admitted solid postulates; the coframe criterion θ¹∧⋯∧θⁿ ≠ 0 and its realization η¹∧η²∧η³ ≠ 0 on F³; anholonomy = dual-frame commutator coefficients; the flat anholonomic example (dθ² ≠ 0 with T = R = 0); pure-gauge and one-generator connection flatness (ω = A(φ)dφ ⇒ R = 0, closed); the curved spatial metric h<sub>H</sub> with K = −1/L²; curvature-without-spacetime with the curved ≠ gravitational firewall; two orientation classes with the volume transformation law; orientation nonselection. Scopes: surveyed proofs <span class="tag CP">checked proof</span> unless marked <span class="tag CN">CN</span>/<span class="tag CS">CS</span> above; admitted premises <span class="tag AA">assumption or axiom</span>; standard results <span class="tag ST">standard imported theorem</span>.</p>
-<h3>Not derived</h3>
+<h3 id="not-derived">Not derived</h3>
 <p class="small">Rank from scalar multiplicity (retired); a canonical coframe from Books 0–3 (4.II.1 negative theorem); a canonical preferred orientation or physical chirality (obstruction certified, not overcome); curvature from coefficient variation (4.XI.N1); physical space, physical time, Lorentzian signature, gravity, electromagnetism, quantum dynamics, action principles, or field equations (Gate G — all outside the certified layer); any identification of the Flower coordinates, tetrahedral lattice, or vector-equilibrium shell with a physical substrate (supplementary diagnostics only); canonical finite-cluster counts; canonical connection rules at lattice defects; any canonical raw crossing law. The mathematics is closed at the level of geometry; the physics has not started.</p>
 
 <hr>
@@ -315,5 +336,27 @@ setTimeout(function(){
   }
 }, 12000);
 </script>
+<!-- BOOKNAV-NAV-START -->
+<nav class="booknav" aria-label="Book navigation">
+<a class="booknav-panel booknav-prev" rel="prev" href="../book3/">
+<span class="booknav-eyebrow">← Previous</span>
+<span class="booknav-title">Book 3 — Projective Phase, Orientation, and Lift Structure</span>
+<span class="booknav-vol">Volume I</span>
+</a>
+<a class="booknav-panel booknav-center" href="../">
+<span class="booknav-eyebrow">Series</span>
+<span class="booknav-title">Index</span>
+</a>
+<a class="booknav-panel booknav-center" href="../contents/">
+<span class="booknav-eyebrow">Series</span>
+<span class="booknav-title">Contents</span>
+</a>
+<a class="booknav-panel booknav-next" rel="next" href="../book5/">
+<span class="booknav-eyebrow">Next →</span>
+<span class="booknav-title">Book 5 — Axiom Zero and the Decadic Carrier</span>
+<span class="booknav-vol">Volume I</span>
+</a>
+</nav>
+<!-- BOOKNAV-NAV-END -->
 </body>
 </html>

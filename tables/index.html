@@ -42,7 +42,7 @@ a{color:#0645ad}
 <nav class="sitenav" aria-label="Site navigation">
 <a class="sitenav-brand" href="../">R Theory — Rewrite</a>
 <span class="sitenav-links">
-<a href="../#hard">Hard&nbsp;science</a><a href="../#theoretical">Theoretical</a><a href="../vol0/">Vol&nbsp;0</a><a href="../vol4/">Vol&nbsp;IV</a><a href="../tables/">Tables</a>
+<a href="../contents/">Contents</a><a href="../index/">Index</a><a href="../contents/#vol-0">Vol&nbsp;0</a><a href="../contents/#vol-1">Vol&nbsp;I</a><a href="../contents/#vol-2">Vol&nbsp;II</a><a href="../contents/#vol-3">Vol&nbsp;III</a><a href="../contents/#vol-4">Vol&nbsp;IV</a><a href="../tables/">Tables</a><a href="../research/">Research</a>
 </span>
 <form class="sitenav-search" action="https://www.google.com/search" method="get" target="_blank" role="search"
  onsubmit="if(!this.q.value.trim())return false;this.q.value='site:cosbykit-afk.github.io/r-theory-rewrite '+this.q.value">
@@ -54,7 +54,7 @@ a{color:#0645ad}
 <h1>Pre-computed Tables</h1>
 <p><i>Every large numerical object the audit built and checked, ready to load — so no
 result below has to be recomputed before it can be used. The E8 30380 weight table and the
-so(16) generator critical-subset table are downloadable here; the larger binaries (~800&nbsp;MB total) live in the audit workspace
+so(16) generator critical-subset table are downloadable here; the larger binaries (~900&nbsp;MB total) live in the audit workspace
 and are available on request. Each entry carries the status the audit actually earned it.</i></p>
 
 <p class="small"><b>Scope discipline</b> (same as the whole series): <span class="tag CP">CP</span>
@@ -65,7 +65,7 @@ manuscript assertion · <span class="tag AX">AX</span> assumption or axiom ·
 <span class="tag IC">IC</span> incorrect result. A downloaded table is exactly the
 array the check ran on; it inherits the check's status, nothing more.</p>
 
-<h2>E8 weight table — the 30380</h2>
+<h2 id="e8-weight-table-the-30380">E8 weight table — the 30380</h2>
 <p>The full weight/multiplicity table for the E8 irreducible representation of dimension
 30380, highest Dynkin label (0,0,0,0,0,0,1,0), Bourbaki labeling
 (chain 1-3-4-5-6-7-8, node 2 on 4). Computed by exact big-integer Freudenthal recursion.</p>
@@ -82,7 +82,7 @@ complete by box bound bA⁻¹bᵀ ≤ (λ,λ) = 6. Dominant multiplicities:
 (stabilizers E6×A1, D7, E7, E8). Two failed constructions along the way are recorded
 in the audit log and establish nothing.</p>
 
-<h2>Clifford / so(16) / Casimir constructions</h2>
+<h2 id="clifford-so-16-casimir-constructions">Clifford / so(16) / Casimir constructions</h2>
 <table>
 <tr><th>Table</th><th>Shape</th><th>Status</th><th>What it is</th></tr>
 <tr><td><code>gammas.npy</code></td><td>16 × 256 × 256</td><td><span class="tag NC">NC</span></td><td>The 16 Clifford generators. <b>Tuning note:</b> the manuscript's Wolfram module as written is algebraically wrong (Clifford violation 2.0 at pair (1,3) against its own 1e-10 tolerance). These use the one-line fix — the standard one-sided σ₃ string — giving Clifford violation 0, BγB⁻¹ = −γᵀ violation 0, γ₁₇² = I violation 0. <b>Critical subset, downloadable:</b> <a href="gammas_critical.csv">gammas_critical.csv</a> — every nonzero entry of all 16 generators (4,096 rows, 76&nbsp;KB; lossless, rebuilds the 16.8&nbsp;MB binary exactly). Each γ is a signed permutation: exactly one nonzero per row and column, values ±1, ±i.</td></tr>
@@ -93,18 +93,23 @@ in the audit log and establish nothing.</p>
 <tr><td><code>C.npz</code> (sparse)</td><td>8256 × 8256</td><td><span class="tag NC">NC</span></td><td>The corrected Casimir on Sym²(128): C = −Σρ(M)² built directly in an orthonormal basis — no post-hoc symmetrization. Spectrum {0:1, 48:1820, 64:6435}; C(C−48I)(C−64I) = 0 on all 8256 basis vectors. Odd-subspace invariance 0.0; so(16) commutator violation 0.0; centrality ~2.8e-14.</td></tr>
 <tr><td><code>P1.npz</code>, <code>P1820.npz</code>, <code>P6435.npz</code> (sparse)</td><td>8256 × 8256</td><td><span class="tag NC">NC</span></td><td>Casimir eigenspace projectors. Hermitian, idempotent, orthogonal, complete; traces 1 / 1820 / 6435.</td></tr>
 <tr><td><code>basis_1820.npy</code></td><td>1820 × 16384</td><td><span class="tag NC">NC</span></td><td>The 1820 B-mapped four-forms in the full 128² coordinate basis. <b>Removed 2026-09-19:</b> superseded by the canonical <code>E1820_basis.npy</code> + <code>fourform_Bmapped.npy</code>; binary (477&nbsp;MB) moved to recoverable trash. Diagonal entries preserved in the workspace as <code>basis_1820_diagonals.csv</code> (232,960 entries, 12&nbsp;MB; diagonals carry on average 1.5% of each basis vector's squared norm — the off-diagonal part is discarded with the binary).</td></tr>
-<tr><td><code>fourform_Bmapped.npy</code></td><td>1820 × 8256</td><td><span class="tag NC">NC</span></td><td>The same 1820 four-forms in the Sym²(128) basis. Every one lies in the Casimir 48-eigenspace (worst violation 6.3e-15) and they span it (rank 1820 = tr P₁₈₂₀). Basis bug found and fixed during construction: coordinate-basis four-forms must be conjugated as G<sub>I</sub> = UᵀΓ⁴U before mixing with U-basis operators.</td></tr>
+<tr><td><code>fourform_Bmapped.npy</code></td><td>1820 × 8256</td><td><span class="tag NC">NC</span></td><td>The same 1820 four-forms in the Sym²(128) basis. Every one lies in the Casimir 48-eigenspace (worst violation 6.3e-15) and they span it (rank 1820 = tr P₁₈₂₀). Basis bug found and fixed during construction: coordinate-basis four-forms must be conjugated as G<sub>I</sub> = UᵀΓ⁴U before mixing with U-basis operators. <b>Scope:</b> this is the corrected-convention construction — distinct from the manuscript's Module 12 <code>projectToSplus</code> projection, whose image check on the same corrected Casimir fails (see the audit appendix, follow-up item B-1).</td></tr>
 <tr><td><code>singlet.npy</code></td><td>16384-vector</td><td><span class="tag NC">NC</span></td><td>The true Casimir singlet: the B₊ bilinear, |⟨B₊|singlet⟩| = 1.000000000000. The naive guess (1/√128)Σ|a,a⟩ is refuted — it lies in the 64-eigenspace (measured ||Cs|| = 64). <b>Critical subset, downloadable:</b> <a href="singlet_critical.csv">singlet_critical.csv</a> — the 128 significant entries (128 rows, 4&nbsp;KB), every one exactly ±1/√128; all remaining entries are numerical dust below 5×10⁻¹⁷.</td></tr>
+<tr><td><code>P54_135.npy</code></td><td>135 × 135</td><td><span class="tag SC">SC</span></td><td>The (54,1) ⊂ 135 projector: the so(10)-Casimir 54-dimensional eigenspace (eigenvalue 20) inside the 135 of so(16) — equivalently the closed form P<sub>54</sub>(T) = P<sub>10</sub>·T·P<sub>10</sub> − (1/10)·tr(P<sub>10</sub>·T·P<sub>10</sub>)·P<sub>10</sub> on 16×16 traceless symmetric matrices. Two independent routes agree to 4.4e-15; Hermitian, idempotent, trace 54, commutes with so(10)⊕so(6) (3.4e-15). The closed form is <b>proved</b> by trace-cyclicity and block algebra; the Casimir constituent identification is a float64 diagonalization. <b>Diagonals, downloadable:</b> <a href="P54_135_diag.csv">P54_135_diag.csv</a> (135 rows). The physical embedding choice (which 10 of the 16 is "the" SO(10)) stays open — the E/B/O operators will fix it when defined. The manuscript's "P<sub>1820→54</sub>" framing stays unimplementable: the 1820 has no 54 constituent under so(10)⊕so(6).</td></tr>
+<tr><td><code>Pi0_grade_1820.npy</code>, <code>Pi2_grade_1820.npy</code>, <code>Pi_rest_grade_1820.npy</code></td><td>1820 × 1820</td><td><span class="tag CP">CP</span></td><td>Horn-1 grade-sector projectors on 1820 ≅ Λ⁴(16): Π₀ = P₂+P₆ (rank 368), Π₂ = P₄+P₀ (rank 556), Π<sub>rest</sub> (rank 896), built from the eight Fourier projectors P<sub>k</sub> of an order-8 element acting as π/4 rotations in four coordinate 2-planes (exact ranks [554,416,184,32,2,32,184,416]). The projector algebra (P<sub>k</sub>²=P<sub>k</sub>, pairwise orthogonality) is <b>proved</b> from four checked premises (Hermiticity 3.2e-15, completeness 1.9e-15, ρP<sub>k</sub>=ω<sup>k</sup>P<sub>k</sub> 8.1e-16, exact traces). <b>Diagonals, downloadable:</b> <a href="Pi0_grade_diag.csv">Pi0_grade_diag.csv</a>, <a href="Pi2_grade_diag.csv">Pi2_grade_diag.csv</a>, <a href="Pi_rest_grade_diag.csv">Pi_rest_grade_diag.csv</a> (1820 rows each). A symmetric M<sub>e</sub> with distinct grade masses cannot commute with the full so(16) action (Schur — the 1820 is irreducible); the projectors select extra structure.</td></tr>
+<tr><td><code>Me_reference_1820.npy</code></td><td>1820 × 1820</td><td><span class="tag NC">NC</span></td><td>Reference instance M<sub>e</sub>(m₀,m₂,M<sub>rest</sub>) = m₀Π₀ + m₂Π₂ + M<sub>rest</sub> with m₀=2.0, m₂=5.0, M<sub>rest</sub> positive-definite (seed 20260924). [M<sub>e</sub>,Γ<sub>oct</sub>] = 1.3e-15; the inverse formula M<sub>e</sub>⁻¹ = m₀⁻¹Π₀ + m₂⁻¹Π₂ + M<sub>rest</sub>⁺ checks at 4.2e-15. <b>This is a construction, not the physical M<sub>e</sub>:</b> the theory does not supply m₀, m₂ — and non-equivariance is <span class="tag NC">NC</span> (‖[M<sub>e</sub>,dρ(X)]‖<sub>F</sub> = 54.81 ≫ 0, consistent with the proved no-go: no nonzero symmetric SO(16)-equivariant operator on the 1820 transforms as the 120). <b>Diagonals and parameters, downloadable:</b> <a href="Me_reference_diag.csv">Me_reference_diag.csv</a> (1820 rows), <a href="Me_reference_params.json">Me_reference_params.json</a>.</td></tr>
 </table>
 
-<h2>Deliberately absent</h2>
+<h2 id="deliberately-absent">Deliberately absent</h2>
 <p class="small">These are not pre-computable — the inputs do not exist in any source the audit
-could reach, or exist only as a mock: M<sub>e</sub>, O<sub>prop</sub>, P₅₄
-(a hardcoded T<sub>diag</sub> = [1,1,−1/4×8] plus a seeded-random mock, not derived),
-the C8 contraction, and the S_F / N₁₈₂₀ closure. They are recorded as missing inputs
-in the dependency chain, not as missing computation.</p>
+could reach, or exist only as a mock: O<sub>prop</sub>, the C8 contraction, and the
+S_F / N₁₈₂₀ closure. <b>Update 2026-09-25:</b> P₅₄ is no longer absent — the
+(54,1) ⊂ 135 projector is constructed above (the physical embedding choice stays open);
+M<sub>e</sub> has an explicit reference construction above (the physical m₀, m₂ are still
+not supplied by theory). They are recorded as missing inputs in the dependency chain,
+not as missing computation.</p>
 
-<h2>Loading them</h2>
+<h2 id="loading-them">Loading them</h2>
 <pre>import numpy as np, csv
 # E8 30380 (this page)
 rows = list(csv.DictReader(open('table_30380_full.csv')))

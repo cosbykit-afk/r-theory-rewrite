@@ -41,13 +41,34 @@ blockquote{border-left:3px solid #aaa;margin:1em 0;padding:.4em 1em;color:#333;b
  border:1px solid #666;border-radius:3px;background:#eee;cursor:pointer;color:#1a1a1a}
 </style>
 <!-- SITENAV-END -->
+<!-- BOOKNAV-CSS-START -->
+<style>
+.booknav{font-family:Georgia,serif;display:grid;grid-template-columns:1.35fr .85fr .85fr 1.35fr;gap:10px;margin:2.5em 0 0}
+.booknav-panel{display:flex;flex-direction:column;justify-content:center;text-decoration:none;color:#1a1a1a;
+ background:linear-gradient(180deg,#ffffff 0%,#f4f7fb 60%,#e7edf4 100%);
+ border:1px solid #c7d2de;border-radius:8px;padding:12px 16px;
+ box-shadow:inset 0 1px 0 #ffffff,0 2px 6px rgba(27,95,170,.10);
+ transition:border-color .15s ease,box-shadow .15s ease,transform .15s ease}
+a.booknav-panel:hover{border-color:#1b5faa;transform:translateY(-1px);
+ box-shadow:inset 0 1px 0 #ffffff,0 4px 12px rgba(27,95,170,.18)}
+a.booknav-panel:focus-visible{outline:2px solid #1b5faa;outline-offset:2px}
+.booknav-eyebrow{font-size:.7em;letter-spacing:.09em;text-transform:uppercase;color:#5a5a5a}
+.booknav-title{font-weight:bold;color:#1b5faa;margin-top:3px;line-height:1.35}
+.booknav-vol{font-size:.78em;color:#5a5a5a;margin-top:2px}
+.booknav-next{text-align:right}
+.booknav-center{text-align:center}
+.booknav-panel.is-disabled{opacity:.45;cursor:default}
+.booknav-panel.is-disabled .booknav-title{color:#5a5a5a}
+@media (max-width:640px){.booknav{grid-template-columns:1fr 1fr}.booknav-next{text-align:left}}
+</style>
+<!-- BOOKNAV-CSS-END -->
 </head>
 <body>
 <!-- SITENAV-NAV-START -->
 <nav class="sitenav" aria-label="Site navigation">
 <a class="sitenav-brand" href="../">R Theory — Rewrite</a>
 <span class="sitenav-links">
-<a href="../#hard">Hard&nbsp;science</a><a href="../#theoretical">Theoretical</a><a href="../vol0/">Vol&nbsp;0</a><a href="../vol4/">Vol&nbsp;IV</a><a href="../tables/">Tables</a>
+<a href="../contents/">Contents</a><a href="../index/">Index</a><a href="../contents/#vol-0">Vol&nbsp;0</a><a href="../contents/#vol-1">Vol&nbsp;I</a><a href="../contents/#vol-2">Vol&nbsp;II</a><a href="../contents/#vol-3">Vol&nbsp;III</a><a href="../contents/#vol-4">Vol&nbsp;IV</a><a href="../tables/">Tables</a><a href="../research/">Research</a>
 </span>
 <form class="sitenav-search" action="https://www.google.com/search" method="get" target="_blank" role="search"
  onsubmit="if(!this.q.value.trim())return false;this.q.value='site:cosbykit-afk.github.io/r-theory-rewrite '+this.q.value">
@@ -93,7 +114,7 @@ audit verdicts; they are not the proofs.</p>
 <p>Two figures. The first resolves a real tension in the manuscript; the second is the book's verdict,
 drawn.</p>
 
-<h3>Figure 1 — Line 3542: 4 vs 16 vs 638.78, resolved</h3>
+<h3 id="figure-1-line-3542-4-vs-16-vs-638-78-resolved">Figure 1 — Line 3542: 4 vs 16 vs 638.78, resolved</h3>
 <div class="graph" id="d1"></div>
 <img class="fallback" id="f1" src="graphs/b19_tension.png" alt="y=x^4 with the three tension values marked">
 <div class="caption"><b>What you see.</b> <span class="formula">y = x⁴</span> with the three numbers from
@@ -108,7 +129,7 @@ rounding). <b>What it doesn't show.</b> The line's "this factors out of S_F" —
 <span class="tag MA">MA</span>, unsupported, and it conflicts with §17.3.5's honest "its role in the
 Clifford contraction remains to be determined."</div>
 
-<h3>Figure 2 — The UV boundary: Δ_op = ∅</h3>
+<h3 id="figure-2-the-uv-boundary-op">Figure 2 — The UV boundary: Δ_op = ∅</h3>
 <div class="graph" id="d2"></div>
 <img class="fallback" id="f2" src="graphs/b19_deltaop.png" alt="Empty established corridor with open gates above">
 <div class="caption"><b>What you see.</b> The black line is the established physical promotion of Volume IV:
@@ -120,14 +141,14 @@ schematic, not a measurement: the honest content is that the line is empty, and 
 says so. <span class="tag MA">MA</span> (the manuscript's own admissions, confirmed).</div>
 
 <h2 id="p2">Part II — Then earn it</h2>
-<h3>§§19.1–19.6 — The boundary sections</h3>
+<h3 id="19-1-19-6-the-boundary-sections">§§19.1–19.6 — The boundary sections</h3>
 <p>The audit's verdict on the book's core: <b>no physical promotion is established anywhere in Volume IV</b>
 — <span class="formula">Δ_{op}(\text{Volume IV}) = ∅</span> — and this is also what the manuscript itself
 says. The sections' gate admissions (§19.2 uniform-action premise OPEN, §19.3 Distler–Garibaldi not
 evaded, §19.4 Airy transition not established with only J₀ unconditional) are consistent with Appendix B's
 no-go ledger. <span class="tag MA">MA</span> (confirmed admissions) / <span class="tag CP">CP</span> (the
 empty-promotion accounting).</p>
-<h3>The line-3542 tension — resolved as IC-18</h3>
+<h3 id="the-line-3542-tension-resolved-as-ic-18">The line-3542 tension — resolved as IC-18</h3>
 <p>Exact text (Addendum 4.A item 5, "Dominant Function and Rapidity"):</p>
 <blockquote>"At the four spatial decay octants, the dominant trigonometric envelope takes the same value.
 Its product over the four decay octants is 638.78. This factors out of S_F, preserving
@@ -148,7 +169,7 @@ stated). The established propagator cosh product is <span class="formula">(√2)
 §17.7.2, §17.18.9.3); 16 matches the all-eight product <span class="formula">(√2)⁸</span>, and Book 17's
 own terminology forecloses the charitable all-eight reading.</li>
 </ul>
-<h3>Appendix A — status-row cross-check</h3>
+<h3 id="appendix-a-status-row-cross-check">Appendix A — status-row cross-check</h3>
 <p>Five rows labeled EXACT overstate what the audit establishes
 (<b>FLAG-A1…A5</b>); three rows are unverified but softly labeled
 (<b>FLAG-A6…A8</b>):</p>
@@ -172,7 +193,7 @@ unaudited — unverified; the soft label does not overclaim.</li>
 <li><b>FLAG-A8</b> — Functional form <span class="formula">1/S = cosh w</span> (CONDITIONAL): bridge
 import, unaudited — unverified; CONDITIONAL is a fair soft label.</li>
 </ul>
-<h3>Appendix B — no-go ledger: verified accurate</h3>
+<h3 id="appendix-b-no-go-ledger-verified-accurate">Appendix B — no-go ledger: verified accurate</h3>
 <ul class="tight">
 <li><b>B1</b> — "C8 ↔ octant correspondence is not a theorem. The C3/C4 forcing question remains OPEN":
 accurate. <span class="tag CP">CP</span></li>
@@ -183,11 +204,11 @@ matches §19.3. <span class="tag CP">CP</span></li>
 <li><b>B4</b> — "The Airy transition is not established. Only J₀ is unconditional": accurate — matches
 §19.4. <span class="tag CP">CP</span></li>
 </ul>
-<h3>Appendix C — codebase skeleton: defects carry over by reference</h3>
+<h3 id="appendix-c-codebase-skeleton-defects-carry-over-by-reference">Appendix C — codebase skeleton: defects carry over by reference</h3>
 <p>Appendix C duplicates the §17.18.8.2 skeleton and thereby carries IC-13…IC-16 by reference
 (the NullSpace/8255 defect, the Kronecker/sandwich mismatch, the −(1/256) double count, the unassigned
 <span class="formula">wickSign</span>). <span class="tag IC">IC</span></p>
-<h3>Addendum 4.A — two internal contradictions</h3>
+<h3 id="addendum-4-a-two-internal-contradictions">Addendum 4.A — two internal contradictions</h3>
 <ul class="tight">
 <li><b>CONTR-1</b> (item 6, C8↔octant "Theorem"): states as a theorem with "Proof sketch. ∎" that
 EBEOEBEO is "the unique cyclic word preserving parity and boundary continuity" — directly contradicting
@@ -201,16 +222,24 @@ B2 ("not evaded… candidate, not a resolution"). The mechanism is at best a pro
 <span class="tag MA">MA</span>; the E8(−24) host itself is <span class="tag MA">MA</span> per the Volume III
 ledger.</li>
 </ul>
+<p><b>2026-09-27 (run 25) — the 8-cycle itself falsified against established witnesses.</b>
+The IO-word sweep evaluated the §19.4 8-cycle operator EBEOEBEO on the established IO-word
+projector witnesses: it is <em>exactly zero</em> (‖·‖_F = 1.99e-61, all eight cyclic junctions
+≤ 2.1e-14, 24/24 checks), robust under <em>any</em> letter↔projector bijection. The full
+cyclic-word classification over {E,B,O,M_e} (87,380 words; 85,866 exactly zero; 32 nonzero
+classes) carries only sector-dimension and rest-spectrum content — no graph invariant survives.
+<b>REFUTED</b> as a route to N_1820 (scope: the established witness
+identification). N_1820 itself stays <b>OPEN</b>.</p>
 
 <h2 id="p3">Part III — Open gates and unresolved items</h2>
-<h3>Open gates</h3>
+<h3 id="open-gates">Open gates</h3>
 <p class="small"><span class="tag MA">MA</span> per the manuscript's own admissions, confirmed:
 <span class="formula">S_F</span>, <span class="formula">N_{1820}</span>,
 <span class="formula">ζ_{parent}</span> (k₀ power), <span class="formula">η_{-4}</span> (UV selection),
 <span class="formula">c_{ord}/K_{parent}</span> values, <span class="formula">P_{54}</span> location (135 vs
 1820 unreconciled), the <span class="formula">N_{1820}</span> 1/2 → 1/4 gap, <span class="formula">P_{6435}</span>,
 the explicit 1820 projector, the Frobenius norms, the role of 638.78, the C3/C4 forcing question.</p>
-<h3>Unresolved</h3>
+<h3 id="unresolved">Unresolved</h3>
 <ul class="tight">
 <li class="small">The v3 draft claims <span class="formula">S_F = 0.48958371</span>,
 <span class="formula">N_{1820} = 3</span>, <span class="formula">c_{rest} = 1.30555656</span> EXACT/CERTIFIED
@@ -230,6 +259,27 @@ Book 19 is the boundary where the volume's honesty is tested: it passes, because
 The full Volume IV record — audit progress, the IC-1…IC-18 findings list, the four-version table, and the
 OI-01…OI-29 open-issue chain — is on the <a href="../vol4/">Volume IV overview</a> page.</p>
 
+<!-- BOOKNAV-NAV-START -->
+<nav class="booknav" aria-label="Book navigation">
+<a class="booknav-panel booknav-prev" rel="prev" href="../book18/">
+<span class="booknav-eyebrow">← Previous</span>
+<span class="booknav-title">Book 18 — The Contraction Module</span>
+<span class="booknav-vol">Volume IV</span>
+</a>
+<a class="booknav-panel booknav-center" href="../">
+<span class="booknav-eyebrow">Series</span>
+<span class="booknav-title">Index</span>
+</a>
+<a class="booknav-panel booknav-center" href="../contents/">
+<span class="booknav-eyebrow">Series</span>
+<span class="booknav-title">Contents</span>
+</a>
+<span class="booknav-panel booknav-next is-disabled" aria-disabled="true">
+<span class="booknav-eyebrow">Next →</span>
+<span class="booknav-title">End of series</span>
+</span>
+</nav>
+<!-- BOOKNAV-NAV-END -->
 <footer>
 <p>Book 19 of the R Theory Volume IV rewrite. Chunk 5 (audit_19.py) — 108 assertions, 0 failed.
 v1 is the sole audit authority. Figure validation:

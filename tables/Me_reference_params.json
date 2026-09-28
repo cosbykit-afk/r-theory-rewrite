@@ -1,0 +1,13 @@
+{
+  "construction": "M_e(m0,m2,M_rest) = m0*Pi0 + m2*Pi2 + M_rest; Pi0=P2+P6 (rank 368), Pi2=P4+P0 (rank 556), Pi_rest (rank 896)",
+  "m0": 2.0,
+  "m2": 5.0,
+  "m0_m2_status": "REFERENCE numeric choices only; symbolic form keeps m0, m2 free (manuscript-unspecified)",
+  "M_rest": "2*Re(P1 S_A P1 + P3 S_B P3); P7/P5 blocks are conjugates (reality); commutes with every P_k",
+  "M_rest_blocks": "S = X X^T/N + 1.5 I, X ~ N(0,1) i.i.d., seed=20260924 -> PD, eig >= ~1.5",
+  "M_rest_status": "fine grade-preserving family (block-diagonal in P_k); a fully arbitrary symmetric operator on Pi_rest would preserve only the coarse {Pi0,Pi2,Pi_rest} partition -- documented, not hidden",
+  "delta_convention": "position j <-> Fourier k=j mod 8; displacement from B(2): {0: -2, 1: -1, 2: 0, 3: 1, 4: 2, 5: 3, 6: 0, 7: -3}",
+  "g_convention": "block-diag R(pi/4) in planes (0,1),(2,3),(4,5),(6,7), I on rest; R=[[c,-s],[s,c]], c=s=sqrt2/2",
+  "basis": "lex wedge basis, order = icloud_pyto/rebuilt/fourform_order.json",
+  "W6c_note": "M_e is NOT so(16)-equivariant for m0 != m2 (S-0 corollary, CHECKED [M_e,d rho(X)]>>0); the 120-block structure (Lambda^2(16) hookrightarrow 1820 embedding) is Tier-1 OPEN and NOT constructed here"
+}

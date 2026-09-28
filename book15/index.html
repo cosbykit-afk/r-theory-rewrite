@@ -39,13 +39,34 @@ footer{margin-top:3em;color:#555;font-size:.9em;border-top:1px solid #bbb;paddin
  border:1px solid #666;border-radius:3px;background:#eee;cursor:pointer;color:#1a1a1a}
 </style>
 <!-- SITENAV-END -->
+<!-- BOOKNAV-CSS-START -->
+<style>
+.booknav{font-family:Georgia,serif;display:grid;grid-template-columns:1.35fr .85fr .85fr 1.35fr;gap:10px;margin:2.5em 0 0}
+.booknav-panel{display:flex;flex-direction:column;justify-content:center;text-decoration:none;color:#1a1a1a;
+ background:linear-gradient(180deg,#ffffff 0%,#f4f7fb 60%,#e7edf4 100%);
+ border:1px solid #c7d2de;border-radius:8px;padding:12px 16px;
+ box-shadow:inset 0 1px 0 #ffffff,0 2px 6px rgba(27,95,170,.10);
+ transition:border-color .15s ease,box-shadow .15s ease,transform .15s ease}
+a.booknav-panel:hover{border-color:#1b5faa;transform:translateY(-1px);
+ box-shadow:inset 0 1px 0 #ffffff,0 4px 12px rgba(27,95,170,.18)}
+a.booknav-panel:focus-visible{outline:2px solid #1b5faa;outline-offset:2px}
+.booknav-eyebrow{font-size:.7em;letter-spacing:.09em;text-transform:uppercase;color:#5a5a5a}
+.booknav-title{font-weight:bold;color:#1b5faa;margin-top:3px;line-height:1.35}
+.booknav-vol{font-size:.78em;color:#5a5a5a;margin-top:2px}
+.booknav-next{text-align:right}
+.booknav-center{text-align:center}
+.booknav-panel.is-disabled{opacity:.45;cursor:default}
+.booknav-panel.is-disabled .booknav-title{color:#5a5a5a}
+@media (max-width:640px){.booknav{grid-template-columns:1fr 1fr}.booknav-next{text-align:left}}
+</style>
+<!-- BOOKNAV-CSS-END -->
 </head>
 <body>
 <!-- SITENAV-NAV-START -->
 <nav class="sitenav" aria-label="Site navigation">
 <a class="sitenav-brand" href="../">R Theory — Rewrite</a>
 <span class="sitenav-links">
-<a href="../#hard">Hard&nbsp;science</a><a href="../#theoretical">Theoretical</a><a href="../vol0/">Vol&nbsp;0</a><a href="../vol4/">Vol&nbsp;IV</a><a href="../tables/">Tables</a>
+<a href="../contents/">Contents</a><a href="../index/">Index</a><a href="../contents/#vol-0">Vol&nbsp;0</a><a href="../contents/#vol-1">Vol&nbsp;I</a><a href="../contents/#vol-2">Vol&nbsp;II</a><a href="../contents/#vol-3">Vol&nbsp;III</a><a href="../contents/#vol-4">Vol&nbsp;IV</a><a href="../tables/">Tables</a><a href="../research/">Research</a>
 </span>
 <form class="sitenav-search" action="https://www.google.com/search" method="get" target="_blank" role="search"
  onsubmit="if(!this.q.value.trim())return false;this.q.value='site:cosbykit-afk.github.io/r-theory-rewrite '+this.q.value">
@@ -78,7 +99,7 @@ conditional physics, or admitted input, and later books may inherit only what th
 The graphs below are live Desmos calculators (drag to pan, scroll to zoom); if Desmos cannot load,
 a static rendering appears instead, generated from the same formulas.</p>
 
-<h3>Figure 1 — The four canonical primitives and their complement swap</h3>
+<h3 id="figure-1-the-four-canonical-primitives-and-their-complement-swap">Figure 1 — The four canonical primitives and their complement swap</h3>
 <div class="graph" id="d1"></div>
 <img class="fallback" id="f1" src="graphs/g1_primitives.png" alt="the four canonical primitives on (0, pi/2)">
 <div class="caption"><b>What you see.</b> On the principal quadrant the four primitives
@@ -89,7 +110,7 @@ complementary interchange (Thm 15.I.T1). <span class="tag CP">CP</span>
 <b>What it doesn't show.</b> The swap is a substitution law, not a propagation equation; nothing moves.
 <span class="tag MA">MA</span> (firewall, M15-A)</div>
 
-<h3>Figure 2 — The aligned primitive-difference hyperbola</h3>
+<h3 id="figure-2-the-aligned-primitive-difference-hyperbola">Figure 2 — The aligned primitive-difference hyperbola</h3>
 <div class="graph" id="d2"></div>
 <img class="fallback" id="f2" src="graphs/g2_hyperbola.png" alt="D2 versus K2 tracing the hyperbola D2^2-K2^2=16">
 <div class="caption"><b>What you see.</b> The parametric curve
@@ -100,7 +121,7 @@ complementary interchange (Thm 15.I.T1). <span class="tag CP">CP</span>
 <b>What it doesn't show.</b> Algebraic state geometry only — not energy, momentum, or a boost.
 <span class="tag MA">MA</span> (firewall, M15-B1)</div>
 
-<h3>Figure 3 — The double-angle phasor</h3>
+<h3 id="figure-3-the-double-angle-phasor">Figure 3 — The double-angle phasor</h3>
 <div class="graph" id="d3"></div>
 <img class="fallback" id="f3" src="graphs/g3_phasor.png" alt="Z2 = e^{2ix} on the unit circle">
 <div class="caption"><b>What you see.</b> <span class="formula">Z<sub>2</sub>(x) = (K<sub>2</sub>+4i)/D<sub>2</sub> = e<sup>2ix</sup></span>
@@ -109,7 +130,7 @@ traces the unit circle; complement sends <span class="formula">Z<sub>2</sub> →
 <b>What it doesn't show.</b> A mathematical phase coordinate — not yet a quantum phase, gauge phase, clock,
 or Hodge phase. <span class="tag MA">MA</span> (firewall, M15-B2)</div>
 
-<h3>Figure 4 — The signed Saw complement</h3>
+<h3 id="figure-4-the-signed-saw-complement">Figure 4 — The signed Saw complement</h3>
 <div class="graph" id="d4"></div>
 <img class="fallback" id="f4" src="graphs/g4_saw.png" alt="sawup, sawdown and ln Omega on (0, pi/2)">
 <div class="caption"><b>What you see.</b> On the positive chart the Saw shares
@@ -120,7 +141,7 @@ under <span class="formula">λ ↔ 1−λ</span> they exchange, <span class="for
 <b>What it doesn't show.</b> Saw complement is an involutive chart swap, not a Hodge/product duality —
 the order-two vs order-four distinction is proved in §15.VI. <span class="tag MA">MA</span> (firewall, M15-C)</div>
 
-<h3>Figure 5 — The Saw–Hodge meridian</h3>
+<h3 id="figure-5-the-saw-hodge-meridian">Figure 5 — The Saw–Hodge meridian</h3>
 <div class="graph" id="d5"></div>
 <img class="fallback" id="f5" src="graphs/g5_meridian.png" alt="Bloch meridian in the Y-Z plane with the two sign choices">
 <div class="caption"><b>What you see.</b> The square-root lift
@@ -133,7 +154,7 @@ the sign choice <span class="formula">s<sub>Ω</sub> = ±1</span> selects the
 <b>What it doesn't show.</b> No closed R_Y-even Hamiltonian confined to the I/Y operator algebra can traverse
 this meridian (Thm 15.V.T3) — the obstruction is proved, not assumed. <span class="tag CP">CP</span></div>
 
-<h3>Figure 6 — The even-exterior ratio and its unique minimum</h3>
+<h3 id="figure-6-the-even-exterior-ratio-and-its-unique-minimum">Figure 6 — The even-exterior ratio and its unique minimum</h3>
 <div class="graph" id="d6"></div>
 <img class="fallback" id="f6" src="graphs/g6_exterior.png" alt="Q_M(r^2)/(4 r^2) with minimum at r=1">
 <div class="caption"><b>What you see.</b> <span class="formula">Q<sub>M</sub>(r²)/(4r²) = (cosh v+3)/2</span>,
@@ -156,7 +177,7 @@ confined to (1−cos x)/sin x-type reciprocal forms near seams (floating-point c
 are exact algebra). Live Desmos rendering was verified by static ID/expression checks only, not by
 browser rendering.</p>
 
-<h3>15.I — Canonical UNA complementary-swap closure</h3>
+<h3 id="15-i-canonical-una-complementary-swap-closure">15.I — Canonical UNA complementary-swap closure</h3>
 <p><b>Theorem 15.I.T1</b> (primitive complementary interchange): complementation exchanges the primitive pairs
 <span class="formula">srx ↔ cxp</span> and <span class="formula">sxp ↔ crx</span>, hence
 <span class="formula">urx(Cx) = uxp(x)</span>, <span class="formula">uxp(Cx) = urx(x)</span>. Direct trig
@@ -168,7 +189,7 @@ propagation equation. <span class="tag CP">CP</span>
 The M15-A contract/firewall: the swap is usable downstream; it generates no time, transport, Hamiltonian,
 chirality, Hodge structure, or product duality. <span class="tag MA">MA</span></p>
 
-<h3>15.II — Aligned primitive-difference hyperbola</h3>
+<h3 id="15-ii-aligned-primitive-difference-hyperbola">15.II — Aligned primitive-difference hyperbola</h3>
 <p><b>Definition 15.II.D1</b>: <span class="formula">A = srx−sxp = 2cot x</span>,
 <span class="formula">B = cxp−crx = 2tan x</span>; <b>Theorem 15.II.T1</b>:
 <span class="formula">AB = 4</span> (one line). <span class="tag CP">CP</span>
@@ -178,7 +199,7 @@ chirality, Hodge structure, or product duality. <span class="tag MA">MA</span></
 D<sub>2</sub>, negates K<sub>2</sub>. <span class="tag CP">CP</span>
 The M15-B1 firewall: algebraic state geometry, not energy/momentum/boost. <span class="tag MA">MA</span></p>
 
-<h3>15.III — Canonical double-angle decomposition and phasor</h3>
+<h3 id="15-iii-canonical-double-angle-decomposition-and-phasor">15.III — Canonical double-angle decomposition and phasor</h3>
 <p><b>Theorem 15.III.T1</b>: <span class="formula">D<sub>2</sub> = 4/sin 2x</span>,
 <span class="formula">K<sub>2</sub> = 4cot 2x</span>. <span class="tag CP">CP</span>
 <b>Theorem 15.III.T2</b>: <span class="formula">Z<sub>2</sub> = (K<sub>2</sub>+4i)/D<sub>2</sub> = e<sup>2ix</sup></span>.
@@ -192,7 +213,7 @@ The M15-B1 firewall: algebraic state geometry, not energy/momentum/boost. <span 
 The M15-B2 firewall: Z<sub>2</sub> is a mathematical phase coordinate, not yet quantum/gauge/clock/Hodge/E8.
 <span class="tag MA">MA</span></p>
 
-<h3>15.IV — Signed Saw complement and transfer</h3>
+<h3 id="15-iv-signed-saw-complement-and-transfer">15.IV — Signed Saw complement and transfer</h3>
 <p><b>Theorem 15.IV.T1</b> (signed Saw complement): on the positive bounded chart the Saw reduces exactly to
 <span class="formula">saw<sub>up</sub> = ελ</span>, <span class="formula">saw<sub>down</sub> = ε(1−λ)</span>;
 under <span class="formula">λ ↔ 1−λ</span>, the shares exchange, <span class="formula">Ω ↔ Ω⁻¹</span>,
@@ -208,7 +229,7 @@ under <span class="formula">λ ↔ 1−λ</span>, the shares exchange, <span cla
 The M15-C firewall: ε is factored out <i>before</i> squaring; Saw complement is not Hodge or product duality.
 <span class="tag MA">MA</span></p>
 
-<h3>15.V — Quarter-phase Saw–Hodge lift and complementary sign visibility</h3>
+<h3 id="15-v-quarter-phase-saw-hodge-lift-and-complementary-sign-visibility">15.V — Quarter-phase Saw–Hodge lift and complementary sign visibility</h3>
 <p><b>Theorem 15.V.T1</b> (Saw–Hodge meridian): the quarter-phase lift
 <span class="formula">ψ = (√λ, e<sup>iφ</sup>√(1−λ))</span> projects to
 <span class="formula">ρ = ½[I + (2λ−1)Z + 2s<sub>Ω</sub>√H<sub>Saw</sub>·Y]</span>, a Bloch meridian with the
@@ -226,7 +247,7 @@ confined to the I/Y operator algebra produces only X-type commutators, hence can
 <span class="tag CP">CP</span> The M15-D firewall: "Hodge" remains a conditional bridge interpretation until the
 gateway supplies operator matching. <span class="tag MA">MA</span></p>
 
-<h3>15.VI — Saw complement, native quarter-turn, and product-duality bridge</h3>
+<h3 id="15-vi-saw-complement-native-quarter-turn-and-product-duality-bridge">15.VI — Saw complement, native quarter-turn, and product-duality bridge</h3>
 <p><b>Definition 15.VI.D1–D2</b>: the native transfer doublet (p, q) with <span class="formula">p²+q² = 2</span>,
 <span class="formula">p′ = −q</span>, <span class="formula">q′ = p</span>, and the native quarter-turn generator
 <span class="formula">J² = −I</span> with <span class="formula">t′ = Jt</span>.
@@ -246,7 +267,7 @@ J²=−I algebra — explicitly conditional; E8 realization is downstream. <span
 The M15-E firewall: do not identify Saw complement with product duality; the native J is not automatically
 Hodge or E8. <span class="tag MA">MA</span></p>
 
-<h3>15.VII — Dual-mode operator bigrading and bridge polarization</h3>
+<h3 id="15-vii-dual-mode-operator-bigrading-and-bridge-polarization">15.VII — Dual-mode operator bigrading and bridge polarization</h3>
 <p><b>Theorem 15.VII.T1</b> (dual-mode bigrading): two commuting involutions
 <span class="formula">σ<sub>ext</sub></span>, <span class="formula">σ<sub>int</sub></span> split End(V) into
 four parity eigenspaces with multiplicative parity rules. <span class="tag CP">CP</span>
@@ -269,7 +290,7 @@ is conditional on the purity contract, not derived. <span class="tag CP">CP</spa
 The M15-F firewall: the bigrading is an operator bridge awaiting representation realization — no unconditional
 E8 theorem. <span class="tag MA">MA</span></p>
 
-<h3>15.VIII — Four-dimensional even-exterior and geometric-amplitude bridge</h3>
+<h3 id="15-viii-four-dimensional-even-exterior-and-geometric-amplitude-bridge">15.VIII — Four-dimensional even-exterior and geometric-amplitude bridge</h3>
 <p><b>Definition 15.VIII.D1</b>: the amplitude dictionary χ=r², λ=1/(1+r²), v=ln[λ/(1−λ)]=−2ln r, reciprocal
 exchange r↔r⁻¹. <b>Theorem 15.VIII.T1</b>: the even-exterior polynomial
 <span class="formula">Q<sub>M</sub>(χ) = 1+6χ+χ²</span> from dim Λ<sup>0,2,4</sup>M = 1, 6, 1.
@@ -285,7 +306,7 @@ exchange r↔r⁻¹. <b>Theorem 15.VIII.T1</b>: the even-exterior polynomial
 The M15-G firewall: the 4-manifold is not yet the tangent space; no cosmology implied.
 <span class="tag MA">MA</span></p>
 
-<h3>15.IX — Representation bridge to the E8 threshold</h3>
+<h3 id="15-ix-representation-bridge-to-the-e8-threshold">15.IX — Representation bridge to the E8 threshold</h3>
 <p><b>Threshold Statement 15.IX.T1</b>: the Books 14–15 structures may be carried into the E8(−24) gateway
 analysis without status change; admitting the host adds no dynamics and does not make E8(−24) a consequence of
 Volumes I–II. <span class="tag MA">MA</span> (dependency/scope declaration, correctly labeled as admission)
@@ -307,14 +328,14 @@ The existence/use of E8(−24) as the next representation host is admitted input
 not derived in Book 15. <span class="tag MA">MA</span> The generator tables are downloadable from the
 <a href="../tables/">pre-computed tables</a> page.</p>
 
-<h3>15.X — Operational status and handoff</h3>
+<h3 id="15-x-operational-status-and-handoff">15.X — Operational status and handoff</h3>
 <p><span class="formula">Δ<sub>op</sub>(Book 15) = ∅</span>: the bridges of Book 15 predict no new independently
 measured observable — correctly scoped as a status declaration; the local negative theorems (15.V.T3, 15.VI.T1,
 15.VII firewall) are retained in the stack. <span class="tag MA">MA</span></p>
 
 <hr>
 <h2 id="p3">Part III — What is established, what is conditional, what is not</h2>
-<h3>Established internally</h3>
+<h3 id="established-internally">Established internally</h3>
 <ul>
 <li>The primitive complementary interchange and its involutive complex closure. <span class="tag CP">CP</span></li>
 <li>The aligned primitive-difference hyperbola D<sub>2</sub>²−K<sub>2</sub>²=16 and the product closure AB=4.
@@ -332,7 +353,7 @@ lift with Q<sub>t</sub>″+4Q<sub>t</sub>=0. <span class="tag CP">CP</span></li>
 <span class="tag CP">CP</span></li>
 <li>Canonical round-trip normalization c=1. <span class="tag CP">CP</span></li>
 </ul>
-<h3>True only under additional contracts (explicitly conditional in the source)</h3>
+<h3 id="true-only-under-additional-contracts-explicitly-conditional-in-the-source">True only under additional contracts (explicitly conditional in the source)</h3>
 <ul>
 <li>Quarter-phase selection θ<sub>*</sub>=±π/2 — conditional on enforced B-purity. <span class="tag CP">CP</span>
 (conditional theorem)</li>
@@ -341,7 +362,7 @@ lift with Q<sub>t</sub>″+4Q<sub>t</sub>=0. <span class="tag CP">CP</span></li>
 <li>Any "Hodge" reading of the quarter-phase lift — awaits gateway operator matching. <span class="tag MA">MA</span></li>
 <li>The E8(−24) representation host — admitted input, not derived. <span class="tag MA">MA</span></li>
 </ul>
-<h3>Remains un-derived</h3>
+<h3 id="remains-un-derived">Remains un-derived</h3>
 <ul>
 <li>A physical Hodge star, a Hamiltonian, physical traversal or time, bridge purity, quarter-phase selection
 without its stated condition, an E8 realization of the abstract bigrading, a unified physical action,
@@ -368,6 +389,28 @@ operational prediction of its own (<span class="formula">Δ<sub>op</sub>(Book 15
 representation gateway of Book 16 may inherit only the certified mathematical identities and the explicitly
 labeled conditional physics established here. <span class="tag MA">MA</span> (status declaration)</p>
 
+<!-- BOOKNAV-NAV-START -->
+<nav class="booknav" aria-label="Book navigation">
+<a class="booknav-panel booknav-prev" rel="prev" href="../book14/">
+<span class="booknav-eyebrow">← Previous</span>
+<span class="booknav-title">Book 14 — Two-Fermion Mass Geometry and the Spinor Bridge</span>
+<span class="booknav-vol">Volume III</span>
+</a>
+<a class="booknav-panel booknav-center" href="../">
+<span class="booknav-eyebrow">Series</span>
+<span class="booknav-title">Index</span>
+</a>
+<a class="booknav-panel booknav-center" href="../contents/">
+<span class="booknav-eyebrow">Series</span>
+<span class="booknav-title">Contents</span>
+</a>
+<a class="booknav-panel booknav-next" rel="next" href="../book16/">
+<span class="booknav-eyebrow">Next →</span>
+<span class="booknav-title">Book 16 — The Microscopic</span>
+<span class="booknav-vol">Volume III</span>
+</a>
+</nav>
+<!-- BOOKNAV-NAV-END -->
 <footer>
 <p>Rewrite of Book 15 of <i>R Theory — Volume III</i> (working manuscript).
 Restructured: pictures and intuition first (Part I), formal audit second (Part II). All theorems, ledgers,

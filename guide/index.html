@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Guide to Creative Reason (after Euclid) &mdash; R Theory Rewrite Series</title>
+<style>
+body{font-family:Georgia,serif;max-width:880px;margin:0 auto;padding:24px;line-height:1.65;color:#1a1a1a;background:#fdfdfb}
+h1{font-size:1.9em;border-bottom:2px solid #333;padding-bottom:8px}
+h2{font-size:1.45em;margin-top:2.2em;border-bottom:1px solid #aaa;padding-bottom:4px}
+h3{font-size:1.15em;margin-top:1.7em}
+p.lead{font-size:1.02em;color:#333}
+blockquote{border-left:3px solid #999;margin:1.2em 0;padding:.5em 1.2em;color:#333;background:#f7f7f4}
+blockquote p{margin:.4em 0}
+.tag{display:inline-block;font-size:.78em;font-weight:bold;border:1px solid #666;border-radius:3px;padding:0 6px;margin-right:4px;background:#eee}
+.tag.t-source{background:#dff0d8}
+.tag.t-synthesis{background:#e3f2fd}
+.tag.t-incomplete{background:#fbdcdc}
+.small{font-size:.9em;color:#444}
+footer{margin-top:3em;color:#555;font-size:.9em;border-top:1px solid #bbb;padding-top:1em}
+a{color:#0645ad}
+</style>
+<!-- SITENAV-START -->
+<style>
+.sitenav{font-family:Georgia,serif;font-size:.88em;background:#f4f4f0;border:1px solid #bbb;
+ border-radius:4px;padding:8px 14px;margin:0 0 1.5em;display:flex;flex-wrap:wrap;
+ align-items:center;gap:8px 16px;line-height:1.4}
+.sitenav a{color:#0645ad;text-decoration:none;white-space:nowrap}
+.sitenav a:hover{text-decoration:underline}
+.sitenav .sitenav-brand{font-weight:bold;color:#1a1a1a}
+.sitenav .sitenav-links{display:flex;flex-wrap:wrap;gap:8px 14px}
+.sitenav-search{margin-left:auto;display:flex;gap:6px;align-items:center}
+.sitenav-search input{font-family:Georgia,serif;font-size:.95em;padding:4px 8px;
+ border:1px solid #999;border-radius:3px;width:170px;background:#fff;color:#1a1a1a}
+.sitenav-search button{font-family:Georgia,serif;font-size:.95em;padding:4px 12px;
+ border:1px solid #666;border-radius:3px;background:#eee;cursor:pointer;color:#1a1a1a}
+</style>
+<!-- SITENAV-END -->
+</head>
+<body>
+<!-- SITENAV-NAV-START -->
+<nav class="sitenav" aria-label="Site navigation">
+<a class="sitenav-brand" href="../">R Theory — Rewrite</a>
+<span class="sitenav-links">
+<a href="../contents/">Contents</a><a href="../index/">Index</a><a href="../contents/#vol-0">Vol&nbsp;0</a><a href="../contents/#vol-1">Vol&nbsp;I</a><a href="../contents/#vol-2">Vol&nbsp;II</a><a href="../contents/#vol-3">Vol&nbsp;III</a><a href="../contents/#vol-4">Vol&nbsp;IV</a><a href="../tables/">Tables</a><a href="../research/">Research</a>
+</span>
+<form class="sitenav-search" action="https://www.google.com/search" method="get" target="_blank" role="search"
+ onsubmit="if(!this.q.value.trim())return false;this.q.value='site:cosbykit-afk.github.io/r-theory-rewrite '+this.q.value">
+<input type="text" name="q" placeholder="Search this site&#8230;" aria-label="Search this site">
+<button type="submit">Search</button>
+</form>
+</nav>
+<!-- SITENAV-NAV-END -->
+<h1>A Guide to Creative Reason (after Euclid)</h1>
+<p class="lead">Built from three sources: Euclid's Elements (Fitzpatrick/Heiberg edition), a Euclid encyclopedia article, and the TESS-India pedagogy unit "Developing creative thinking in mathematics: trigonometry." Every claim below is labeled <strong><span class="tag t-source">SOURCE</span></strong> (directly in a reference), <strong><span class="tag t-synthesis">SYNTHESIS</span></strong> (the guide's interpretive combination, marked as such), or <strong><span class="tag t-incomplete">INCOMPLETE</span></strong> (could not verify). Quotations are verbatim from the reference as read; everything else is paraphrase with a location citation.</p>
+<hr />
+<h2 id="why-euclid">Why Euclid</h2>
+<p>Reasoning is often taught as a finished product: definitions to memorize, theorems to apply, proofs to reproduce. Euclid's <em>Elements</em> offers a different model — a workshop in which reason is <em>constructed</em>. Its subject is geometry, but its durable invention is a method: begin with almost nothing, say exactly what you mean, state what you are allowed to assume, and build proposition on proposition until the complex is shown to follow from the simple.</p>
+<p>This guide extracts that method as a toolkit for creative reason — not just geometric proof, but any disciplined thinking that has to be original and also correct.</p>
+<hr />
+<h2 id="the-toolkit-with-cited-elements-examples">The Toolkit (with cited Elements examples)</h2>
+<h3 id="1-define-before-you-reason">1. Define before you reason</h3>
+<p>Book 1 opens not with a theorem but with 23 definitions. "A point is that of which there is no part." (Book 1, Def. 1, <span class="tag t-source">SOURCE</span>) A line is "a length without breadth" (Def. 2), a circle a figure "such that all of the straight-lines radiating towards [the circumference] from one point amongst those lying inside the figure are equal to one another" (Def. 15).</p>
+<p>Notice what Euclid is doing: he is not describing things found in nature. He is <em>stipulating</em> the objects his reasoning will be about. Nothing in the 465 propositions can wobble, because every term was fixed at the door.</p>
+<p><strong>Habit (<span class="tag t-synthesis">SYNTHESIS</span>):</strong> Before arguing anything, write down your definitions. If you cannot define "fair," "done," "safe," or "proved" to your own satisfaction, you are not ready to reason about them — you are ready to define them. Vagueness upstream becomes contradiction downstream.</p>
+<h3 id="2-declare-your-permissions-the-postulates">2. Declare your permissions: the Postulates</h3>
+<p>After definitions come the five Postulates — things Euclid asks to be granted:</p>
+<ol>
+<li>"Let it have been postulated to draw a straight-line from any point to any point." (Book 1, Post. 1, <span class="tag t-source">SOURCE</span>)</li>
+<li>"And to produce a finite straight-line continuously in a straight-line." (Post. 2, <span class="tag t-source">SOURCE</span>)</li>
+<li>"And to draw a circle with any center and radius." (Post. 3, <span class="tag t-source">SOURCE</span>)</li>
+<li>"And that all right-angles are equal to one another." (Post. 4, <span class="tag t-source">SOURCE</span>)</li>
+<li>The parallel postulate: if a straight line falling across two others makes the interior angles on one side less than two right angles, the two lines meet on that side. (Post. 5, paraphrased from Book 1, <span class="tag t-source">SOURCE</span>)</li>
+</ol>
+<p>The postulates are not claimed truths — they are <em>permissions to act</em>. The first three are literally construction licenses: draw, extend, sweep a circle. Euclid's reason is creative in the most literal sense: it makes things.</p>
+<p><strong>Habit (<span class="tag t-synthesis">SYNTHESIS</span>):</strong> Separate your assumptions from your conclusions, and write the assumptions down as permissions. "What am I allowed to suppose here?" is a more productive question than "What is true?" — because it makes the foundations negotiable rather than invisible. Euclid's fifth postulate shows why: stating it openly is what eventually let others vary it and discover non-Euclidean geometry.</p>
+<h3 id="3-agree-on-the-moves-the-common-notions">3. Agree on the moves: the Common Notions</h3>
+<p>The five Common Notions are Euclid's rules of inference:</p>
+<ol>
+<li>"Things equal to the same thing are also equal to one another." (C.N. 1, <span class="tag t-source">SOURCE</span>)</li>
+<li>"And if equal things are added to equal things then the wholes are equal." (C.N. 2, <span class="tag t-source">SOURCE</span>)</li>
+<li>"And if equal things are subtracted from equal things then the remainders are equal." (C.N. 3, <span class="tag t-source">SOURCE</span>)</li>
+<li>"And things coinciding with one another are equal to one another." (C.N. 4, <span class="tag t-source">SOURCE</span>)</li>
+<li>"And the whole is greater than the part." (C.N. 5, paraphrased, <span class="tag t-source">SOURCE</span>)</li>
+</ol>
+<p>These look trivial — and that is the point. Every sophisticated proof in the <em>Elements</em> is made of trivial steps. The genius is that the steps are <em>explicit</em>.</p>
+<p><strong>Habit (<span class="tag t-synthesis">SYNTHESIS</span>):</strong> Break your argument into steps small enough to be boring. If a step feels clever, it is probably doing undeclared work. Cleverness belongs in the <em>design</em> of the argument (which lemma to prove next); the <em>steps</em> themselves should be checkable by a child.</p>
+<h3 id="4-construct-before-you-conclude">4. Construct before you conclude</h3>
+<p>The very first proposition does not prove a fact — it <em>builds something</em>:</p>
+<blockquote>
+<p>"To construct an equilateral triangle on a given finite straight-line." (Book 1, Prop. 1, <span class="tag t-source">SOURCE</span>)</p>
+</blockquote>
+<p>Euclid draws a circle with center A and radius AB, another with center B and radius BA, joins their intersection C to A and B — and then proves the result equilateral, using the circle definition (the radii are equal) and Common Notion 1 (things equal to the same thing are equal to one another). The proof <em>ends</em> with "which was required to construct" (ὅπερ ἔδει ποιῆσαι), not "which was required to prove."</p>
+<p>Construction-first is the creative move. Instead of asking "is there an equilateral triangle?", Euclid shows how to make one. Existence is established by production.</p>
+<p><strong>Habit (<span class="tag t-synthesis">SYNTHESIS</span>):</strong> When stuck on whether something is possible, try to build an instance. A constructed example settles more than a paragraph of plausibility. (And when construction is impossible, the <em>failure</em> of the attempt often reveals the hidden obstruction — Euclid's successors learned this with angle trisection.)</p>
+<h3 id="5-chain-every-step-to-its-predecessors">5. Chain every step to its predecessors</h3>
+<p>Consider Proposition 47 — the Pythagorean theorem: "In right-angled triangles, the square on the side subtending the right-angle is equal to the (sum of the) squares on the sides containing the right-angle." (Book 1, Prop. 47, <span class="tag t-source">SOURCE</span>)</p>
+<p>Euclid's proof builds squares on all three sides (citing Prop. 1.46, which constructs a square), draws a parallel through the right-angle vertex (Prop. 1.31), uses congruent triangles (Prop. 1.4, the side-angle-side criterion), the fact that a parallelogram is double a triangle on the same base (Prop. 1.41), and finishes by adding equals to equals (C.N. 2). Every single move cites its warrant.</p>
+<p>This is the <em>Elements</em>' most remarkable feature, in the encyclopedia article's words: "the arrangement of the matter so that one proposition follows on another in a strictly logical order, with the minimum of assumption and very little that is superfluous." (encyclopedia article, "The Elements" section, <span class="tag t-source">SOURCE</span>)</p>
+<p><strong>Habit (<span class="tag t-synthesis">SYNTHESIS</span>):</strong> Keep a dependency ledger for your own reasoning. When you claim something, note what it rests on. Chains expose two things: circular arguments (a claim resting on itself through intermediaries) and load-bearing assumptions (the one unproved link everything hangs from). Both are worth knowing.</p>
+<h3 id="6-equality-by-coincidence-test-against-reality">6. Equality by coincidence — test against reality</h3>
+<p>Common Notion 4 — things that coincide are equal — is Euclid's empirical anchor. Superposition is how triangles are shown congruent: lay one upon the other and see whether they match. It is the closest the <em>Elements</em> comes to an experiment.</p>
+<p><strong>Habit (<span class="tag t-synthesis">SYNTHESIS</span>):</strong> Prefer coincidence-tests to authority-tests. Don't ask "does the expert agree?" — ask "if I lay my claim over the evidence, do they coincide?" A prediction that matches observation is superposition made modern.</p>
+<hr />
+<h2 id="the-historical-frame">The Historical Frame</h2>
+<p>The encyclopedia article is blunt about what we know of Euclid himself: "Although Euclid (Latinized as Euclides) is the most celebrated mathematician of all time, whose name became a synonym for geometry until the twentieth century, only two facts of his life are known, and even these are not beyond dispute. One is that he was intermediate in date between the pupils of Plato (d. 347 b.c.) and Archimedes (b. ca. 287 b.c.); the other is that he taught in Alexandria." ("Life and Works" section, <span class="tag t-source">SOURCE</span>)</p>
+<p>Everything else is reconstruction — including the famous anecdote, reported from Proclus, that when Ptolemy asked whether there was a shorter way to study geometry than the <em>Elements</em>, Euclid replied "that there was no royal road to geometry." (encyclopedia article, "Life and Works," quoting Proclus, <span class="tag t-source">SOURCE</span>) The article cautions that Proclus, writing six centuries later, "had no independent knowledge" — the story is tradition, not documentation. It is included here as tradition, not fact.</p>
+<p>What the article <em>does</em> establish about the <em>Elements</em>:</p>
+<ul>
+<li><strong>It is largely a compilation.</strong> "The Elements is on the whole a compilation of things already known." Proclus records that Euclid arranged "many of Eudoxus' theorems" in order and perfected "many of Theaetetus'" — bringing "to irrefutable demonstration the things which had been only loosely proved by his predecessors." ("The Elements" section, quoting Proclus, <span class="tag t-source">SOURCE</span>)</li>
+<li><strong>The arrangement is the achievement.</strong> A scholiast attributes Book 5 to Eudoxus but adds "that the ascription to Euclid is not false, for although there is nothing to prevent the discovery from being the work of another man, 'The arrangement of the book with a view to the elements and the orderly sequence of theorems is recognized by all as the work of Euclid.'" ("The Elements" section, <span class="tag t-source">SOURCE</span>)</li>
+</ul>
+<p><strong>The lesson (<span class="tag t-synthesis">SYNTHESIS</span>):</strong> Euclid's creativity was editorial and architectural. He did not discover most of the theorems; he discovered the <em>order</em> in which they make each other inevitable. For creative reason today: gathering scattered, loosely-proved ideas into a strict dependency order is itself original work — and often the most valuable kind. You do not need a new theorem to do new mathematics; you can need a new arrangement.</p>
+<hr />
+<h2 id="the-learning-framework-possibility-thinking">The Learning Framework: possibility thinking</h2>
+<p>The <em>Elements</em> shows the disciplined half of creative reason. The TESS-India unit "Developing creative thinking in mathematics: trigonometry" supplies the playful half — and argues the two belong together.</p>
+<p><strong>Core concept (<span class="tag t-source">SOURCE</span>):</strong> The unit "builds on the perspective of creativity as 'possibility thinking' (Aristeidou, 2011), using 'What if?' scenarios." Research identifies the features involved: "posing questions, experimenting with ideas, taking risks, playing around and working collaboratively" (citing Grainger et al., 2007; Craft et al., 2012).</p>
+<p><strong>Key moves from the unit:</strong></p>
+<ol>
+<li><strong>Give choices.</strong> "When students are allowed to make more choices and decisions themselves, they can enjoy trigonometry and feel empowered by their mathematics learning." ("What this unit is about" section, <span class="tag t-source">SOURCE</span>) Small changes to tasks — not new tasks — unlock creativity.</li>
+<li><strong>Play is divergent thinking.</strong> "Playfulness is considered important to support creativity because in play you explore many possible solutions in a spontaneous way." ("2 The role of choice" section, <span class="tag t-source">SOURCE</span>) The unit insists play is not for children only: "Play is about exploring and experimenting, which anyone of any age can do."</li>
+<li><strong>Ask "what happens if I change…?"</strong> The unit's Activity 2 is built around exactly this question — students vary a situation and watch what breaks or holds. ("Activity 2: Students discover asking 'What happens if …?'" <span class="tag t-source">SOURCE</span>)</li>
+<li><strong>Investigate before formalizing.</strong> Activity 1 has students "investigate triangles in polygons" — exploring "in how many ways…?" before any formula is stated. Activity 3 has students "make a clinometer" — building an instrument that measures angles in the real world. (unit activity list, <span class="tag t-source">SOURCE</span>)</li>
+</ol>
+<p><strong>The synthesis (<span class="tag t-synthesis">SYNTHESIS</span>):</strong> Euclid's postulates and the TESS "what if?" are the same move in opposite directions. A postulate says: <em>fix this, and see what follows.</em> A "what if?" says: <em>vary this, and see what changes.</em> Creative reason needs both — the discipline to follow consequences strictly, and the playfulness to choose which assumptions to vary. The <em>Elements</em> is what you get when you fix the assumptions and follow through completely; non-Euclidean geometry is what you get when you "what if?" the fifth postulate.</p>
+<hr />
+<h2 id="habits-and-exercises">Habits and Exercises</h2>
+<h3 id="daily-habits-synthesis">Daily habits (<span class="tag t-synthesis">SYNTHESIS</span>)</h3>
+<ol>
+<li><strong>Define one term a day.</strong> Pick a word you used loosely today — "obvious," "fair," "enough" — and write a definition Euclid would accept. If you can't, you found a leak.</li>
+<li><strong>List your postulates.</strong> Before starting a piece of work, write the 3–5 things you are taking as given. Revisit the list at the end; circle anything that turned out to be load-bearing and unproved.</li>
+<li><strong>Shrink a step.</strong> Find one "clever" step in something you wrote and split it into two boring steps. Repeat until every step is boring.</li>
+<li><strong>Ask the parallel-postulate question.</strong> Identify the assumption in your work that feels most like Postulate 5 — the one everyone accepts but nobody proved. Ask: what would follow if it were false?</li>
+<li><strong>Construct an instance.</strong> For every abstract claim you make this week, build one concrete example. If you can't build one, downgrade the claim.</li>
+</ol>
+<h3 id="exercises">Exercises</h3>
+<ol>
+<li><strong>The Prop-1 exercise (Elements, <span class="tag t-source">SOURCE</span> material).</strong> On paper, with a real compass: given a segment AB, construct the equilateral triangle exactly as Book 1, Prop. 1 does — two circles, join the intersection. Then write the proof that your triangle is equilateral, citing the circle definition and C.N. 1 at each step. Notice how the <em>doing</em> precedes the <em>proving</em>.</li>
+<li><strong>The Prop-47 walkthrough (Elements, <span class="tag t-source">SOURCE</span> material).</strong> Read the proof of Prop. 47 in Book 1 and list every proposition it cites (1.46, 1.31, 1.14, 1.4, 1.41 among them). For each cited proposition, note what <em>it</em> cites. You have just drawn a dependency graph — the skeleton of the <em>Elements</em>' architecture. (<span class="tag t-synthesis">SYNTHESIS</span>: try the same for one of your own arguments.)</li>
+<li><strong>The "in how many ways?" investigation (TESS-India, <span class="tag t-source">SOURCE</span> activity pattern).</strong> Take Activity 1's question shape — "In how many ways…?" — and apply it to a polygon: in how many ways can you divide a hexagon into triangles from one vertex? From any interior point? Count, draw, compare. Generalize to n sides. (This is the play-first, formula-later order the unit recommends.)</li>
+<li><strong>The clinometer build (TESS-India, <span class="tag t-source">SOURCE</span> activity pattern).</strong> Make a simple angle-measuring instrument (protractor, straw, string, weight — per the unit's Activity 3 pattern) and measure the height of a tree or building using angle observations from two positions. You are re-enacting Euclid's Common Notion 4: laying mathematics onto the world and checking coincidence.</li>
+<li><strong>The what-if postulate (<span class="tag t-synthesis">SYNTHESIS</span> of both references).</strong> Take one rule you live by in your work — a "postulate" — and spend 20 minutes seriously developing its negation. What breaks? What survives? (Euclid's fifth postulate took two thousand years to get this treatment; yours can have twenty minutes.)</li>
+</ol>
+<hr />
+<h2 id="limits-what-this-method-cannot-do">Limits: what this method cannot do</h2>
+<p>Honesty requires stating where the toolkit stops.</p>
+<ol>
+<li><strong>Stated assumptions can still be wrong.</strong> Euclid stated his fifth postulate openly — and it turned out to be independent of the others, describing only one possible geometry. Rigor of arrangement does not certify truth of foundations. (<span class="tag t-synthesis">SYNTHESIS</span> from the postulates' history; the encyclopedia article notes Euclid's postulates and their relation to Aristotle's framework in "Life and Works," <span class="tag t-source">SOURCE</span>.)</li>
+<li><strong>Definitions are stipulations, not discoveries.</strong> "A point is that of which there is no part" tells you how Euclid will use the word "point"; it tells you nothing about whether points exist. Creative reason must eventually touch the world — hence the clinometer, hence coincidence-testing. (<span class="tag t-synthesis">SYNTHESIS</span>)</li>
+<li><strong>Arrangement is not discovery.</strong> The encyclopedia article's central caution: the <em>Elements</em> compiles; Eudoxus and Theaetetus discovered. If you only ever arrange, you inherit other people's raw material. The "what if?" play of the TESS unit is the corrective — variation and experiment are where new content comes from. (<span class="tag t-synthesis">SYNTHESIS</span> from "The Elements" section, <span class="tag t-source">SOURCE</span>)</li>
+<li><strong>The method is slow.</strong> "No royal road" cuts both ways: there is no shortcut <em>through</em> rigor either. A fully chained argument takes longer than an intuitive leap — and sometimes the leap is what you need first, with the chaining afterward. Euclid shows the finished architecture, not the scaffolding of discovery. (<span class="tag t-synthesis">SYNTHESIS</span>; anecdote status per the historical frame above)</li>
+<li><strong><span class="tag t-incomplete">INCOMPLETE</span>:</strong> This guide's account of Euclid's other works (the <em>Data</em>, <em>Optics</em>, lost <em>Porisms</em>) and of the <em>Elements</em>' transmission history was not verified against the references during assembly; the encyclopedia article contains both, but they were not extracted for this guide. A reader wanting them should consult the article's "Euclid's Other Works" and "Transmission" sections directly.</li>
+</ol>
+<hr />
+<h2 id="adjudication">Adjudication</h2>
+<p>No draft (<code>workspace/euclid_work/guide/draft_guide.md</code>) and no critique (<code>workspace/euclid_work/guide/critique.md</code>) existed at assembly time — the guide directory was empty and the workflow's upstream extract/draft/critique stages left no files. There was therefore no feedback to address. The guide above was assembled directly from the three references, with every claim scope-labeled and every quotation verbatim from text actually read. If a draft and critique surface later, this guide should be re-checked against them.</p>
+<hr />
+<h2 id="sources">Sources</h2>
+<ol>
+<li><b>Euclid's <i>Elements</i> &mdash; the Fitzpatrick/Heiberg bilingual edition</b> (Greek text of J.L. Heiberg, 1883&ndash;1885, with a modern English translation by Richard Fitzpatrick), 13 books. Cited in this guide: Book 1, Definitions 1&ndash;17, Postulates 1&ndash;5, Common Notions 1&ndash;5, Propositions 1, 4, 14, 31, 41, 46, 47. (<a href="https://u.math.biu.ac.il/~margolis/Euclidean%20Geometry/Euclid's%20Elements.pdf">online copy, verified live</a>)</li>
+<li><b>Euclid encyclopedia article</b> &mdash; biographical and critical material drawn from its &ldquo;Life and Works&rdquo; and &ldquo;The Elements&rdquo; sections (Proclus quotations as cited in the article; the &ldquo;no royal road&rdquo; anecdote flagged as tradition).</li>
+<li><b>TESS-India, &ldquo;Developing creative thinking in mathematics: trigonometry&rdquo;</b> &mdash; Secondary Mathematics, Teacher Education through School-based Support; CC BY-SA 3.0. The creativity-as-possibility-thinking framework, the role of choice and play, and the activity patterns of Activities 1&ndash;3.</li>
+</ol>
+<footer>
+<p>Part of the R Theory rewrite series. <a href="../">&larr; Series index</a></p>
+<p>By <a href="https://orcid.org/0009-0003-5392-2359">Christopher Cosby</a> &middot; ORCID <a href="https://orcid.org/0009-0003-5392-2359">0009-0003-5392-2359</a></p>
+</footer>
+</body>
+</html>

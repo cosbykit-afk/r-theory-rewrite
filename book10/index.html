@@ -45,6 +45,9 @@
   .nav a { text-decoration:none; border:1px solid var(--line); border-radius:20px; padding:.3em 1em;
            font-size:.9em; color:var(--accent); background:var(--wash); }
   footer { margin-top:3em; color:var(--muted); font-size:.9em; border-top:1px solid var(--line); padding-top:1em; }
+.toc{background:#f4f4f0;border:1px solid #ccc;border-radius:4px;padding:8px 14px;margin:1.2em 0}
+.toc a{color:#0645ad;text-decoration:none}
+.toc a:hover{text-decoration:underline}
 </style>
 <!-- SITENAV-START -->
 <style>
@@ -62,13 +65,34 @@
  border:1px solid #666;border-radius:3px;background:#eee;cursor:pointer;color:#1a1a1a}
 </style>
 <!-- SITENAV-END -->
+<!-- BOOKNAV-CSS-START -->
+<style>
+.booknav{font-family:Georgia,serif;display:grid;grid-template-columns:1.35fr .85fr .85fr 1.35fr;gap:10px;margin:2.5em 0 0}
+.booknav-panel{display:flex;flex-direction:column;justify-content:center;text-decoration:none;color:#1a1a1a;
+ background:linear-gradient(180deg,#ffffff 0%,#f4f7fb 60%,#e7edf4 100%);
+ border:1px solid #c7d2de;border-radius:8px;padding:12px 16px;
+ box-shadow:inset 0 1px 0 #ffffff,0 2px 6px rgba(27,95,170,.10);
+ transition:border-color .15s ease,box-shadow .15s ease,transform .15s ease}
+a.booknav-panel:hover{border-color:#1b5faa;transform:translateY(-1px);
+ box-shadow:inset 0 1px 0 #ffffff,0 4px 12px rgba(27,95,170,.18)}
+a.booknav-panel:focus-visible{outline:2px solid #1b5faa;outline-offset:2px}
+.booknav-eyebrow{font-size:.7em;letter-spacing:.09em;text-transform:uppercase;color:#5a5a5a}
+.booknav-title{font-weight:bold;color:#1b5faa;margin-top:3px;line-height:1.35}
+.booknav-vol{font-size:.78em;color:#5a5a5a;margin-top:2px}
+.booknav-next{text-align:right}
+.booknav-center{text-align:center}
+.booknav-panel.is-disabled{opacity:.45;cursor:default}
+.booknav-panel.is-disabled .booknav-title{color:#5a5a5a}
+@media (max-width:640px){.booknav{grid-template-columns:1fr 1fr}.booknav-next{text-align:left}}
+</style>
+<!-- BOOKNAV-CSS-END -->
 </head>
 <body>
 <!-- SITENAV-NAV-START -->
 <nav class="sitenav" aria-label="Site navigation">
 <a class="sitenav-brand" href="../">R Theory — Rewrite</a>
 <span class="sitenav-links">
-<a href="../#hard">Hard&nbsp;science</a><a href="../#theoretical">Theoretical</a><a href="../vol0/">Vol&nbsp;0</a><a href="../vol4/">Vol&nbsp;IV</a><a href="../tables/">Tables</a>
+<a href="../contents/">Contents</a><a href="../index/">Index</a><a href="../contents/#vol-0">Vol&nbsp;0</a><a href="../contents/#vol-1">Vol&nbsp;I</a><a href="../contents/#vol-2">Vol&nbsp;II</a><a href="../contents/#vol-3">Vol&nbsp;III</a><a href="../contents/#vol-4">Vol&nbsp;IV</a><a href="../tables/">Tables</a><a href="../research/">Research</a>
 </span>
 <form class="sitenav-search" action="https://www.google.com/search" method="get" target="_blank" role="search"
  onsubmit="if(!this.q.value.trim())return false;this.q.value='site:cosbykit-afk.github.io/r-theory-rewrite '+this.q.value">
@@ -97,6 +121,10 @@ note:</b> live Desmos rendering was <i>not</i> verified in a browser from the bu
 (no live browser is available to this worker); the static PNGs carry the verified numbers,
 and every plotted expression was executed and numerically checked — see the audit in Part II.</p>
 </div>
+<div class="toc">
+<p><b>Contents.</b> <a href="#part1">I. See it first</a> · <a href="#part2">II. Then earn it: the audit</a> · <a href="#part3">III. The firewalls</a> · <a href="#part4">IV. Close the book</a></p>
+</div>
+
 
 <div class="nav">
 <a href="#part1">I. See it first</a><a href="#part2">II. Then earn it</a>
@@ -105,7 +133,7 @@ and every plotted expression was executed and numerically checked — see the au
 
 <h2 id="part1">Part I — See it first</h2>
 
-<h3>§1. One coordinate is not two</h3>
+<h3 id="1-one-coordinate-is-not-two">§1. One coordinate is not two</h3>
 
 <figure class="graph">
 <div class="calc" id="d1"></div>
@@ -137,7 +165,7 @@ the <span class="math">(x,φ)</span> chart has <span class="math">[0.5, 0.479]</
 complex state with <span class="math">q</span> alone selects a one-dimensional subfamily or
 silently supplies a phase rule. A representation-rank statement, not a quantum-probability one.</div>
 
-<h3>§2. The spinor ratio, read two ways</h3>
+<h3 id="2-the-spinor-ratio-read-two-ways">§2. The spinor ratio, read two ways</h3>
 
 <figure class="graph">
 <div class="calc" id="d2"></div>
@@ -175,7 +203,7 @@ ratio magnitude (max error 1.5e-15 over 300 samples; canonical identity
 6e-14). This does <i>not</i> derive the Dirac equation, the mass shell, spin one-half, or any
 interpretation of the components. Conditional on the import — as the manuscript states.</div>
 
-<h3>§3. The ground sector sits at one fixed angle</h3>
+<h3 id="3-the-ground-sector-sits-at-one-fixed-angle">§3. The ground sector sits at one fixed angle</h3>
 
 <figure class="graph">
 <div class="calc" id="d3"></div>
@@ -211,7 +239,7 @@ over six decades of <span class="math">r</span>).
 <span class="math">|G/F| = tan(x/2) = sxp(x)</span> under the half-angle parameterization —
 conditional on the import, exact to 1e-14.</div>
 
-<h3>§4. Excited states need a running phase</h3>
+<h3 id="4-excited-states-need-a-running-phase">§4. Excited states need a running phase</h3>
 
 <figure class="graph">
 <div class="calc" id="d4"></div>
@@ -255,7 +283,7 @@ verified exactly (1e-9) on both states; <span class="math">tan Θ = G/F</span> w
 is well-defined through the sign changes. Ground state: <span class="math">Θ</span> constant
 (range 0.000 rad) — the fixed angle of §3, recovered.</div>
 
-<h3>§5. Four charts, one area element</h3>
+<h3 id="5-four-charts-one-area-element">§5. Four charts, one area element</h3>
 
 <figure class="graph">
 <div class="calc" id="d5"></div>
@@ -293,7 +321,7 @@ path-integral measure.</div>
 
 <h2 id="part2">Part II — Then earn it: the audit</h2>
 
-<h3>§6. What the book is allowed to use</h3>
+<h3 id="6-what-the-book-is-allowed-to-use">§6. What the book is allowed to use</h3>
 <div class="formal"><span class="tag ok">GOVERNING RULES (Volume II front matter)</span>
 <p>Volume II inherits <b>only</b> results already earned in Volume I (Books 0–6), plus
 ordinary background mathematics and explicitly named physics imports. A familiar physical
@@ -344,7 +372,7 @@ EXPLICIT IMPORTS: 3 (10.III.P1, 10.IV.P1, 10.VII.P1).  DECLARED CONTRACTS: 1 (10
 CLAIMED-INHERITED-BUT-MISSING-FROM-LEDGER: none.
 UNNAMED PHYSICS: none.  FLATWAVE CONFLATIONS: none.</div>
 
-<h3>§7. Claim-by-claim scope ledger</h3>
+<h3 id="7-claim-by-claim-scope-ledger">§7. Claim-by-claim scope ledger</h3>
 <table class="scope">
 <tr><th>Claim</th><th>Scope label</th><th>Basis</th></tr>
 <tr><td>10.II.T1 projective-rank obstruction</td><td><span class="tag ok">checked proof</span></td><td>dimension count; SVD rank check (1 vs 2)</td></tr>
@@ -366,7 +394,7 @@ UNNAMED PHYSICS: none.  FLATWAVE CONFLATIONS: none.</div>
 <span class="tag inc">incomplete or failed computation</span> labels. Every computation in
 this audit ran to completion; nothing timed out.</p>
 
-<h3>§8. Gaps, precision notes, and what was not proved</h3>
+<h3 id="8-gaps-precision-notes-and-what-was-not-proved">§8. Gaps, precision notes, and what was not proved</h3>
 <ul class="tight">
 <li><b>10.IV.N1's "generic".</b> Circular excited states (<span class="math">n_r = 0</span>,
 e.g. <span class="math">2P_{3/2}</span>) also have <span class="math">r</span>-independent
@@ -395,7 +423,7 @@ computation failed or timed out</b> in this audit.</li>
 <p>Two sections of Book 10 have no figures, deliberately: they are delimiting statements, and
 a picture of them would be decorative rather than mathematical.</p>
 
-<h3>§9. Chirality is not selected upstream (10.VII)</h3>
+<h3 id="9-chirality-is-not-selected-upstream-10-vii">§9. Chirality is not selected upstream (10.VII)</h3>
 <div class="thm">
 <p class="tname">Negative Theorem 10.VII.N1 — Chirality is not selected upstream</p>
 <p>The symmetric Projection carrier does not select <span class="math">P_L</span> over
@@ -410,7 +438,7 @@ interaction from an orientation sign, cophase label, or FlatWave sign alone.</p>
 <span class="tag man">MANUSCRIPT ASSERTION</span> <span class="tag niv">not independently verified</span> <b>10.VII.N1</b> as above: representation of
 chiral weighting is lawful; derivation of the chirality choice from it is not.</div>
 
-<h3>§10. Measurement, probability, and QFT ontology (10.VIII)</h3>
+<h3 id="10-measurement-probability-and-qft-ontology-10-viii">§10. Measurement, probability, and QFT ontology (10.VIII)</h3>
 <p>Not derived in Book 10: the Born rule; repeated-preparation probability; state-vector
 collapse; decoherence; empirical uncertainty relations; entanglement preparation or
 measurement protocols; a path-integral measure; Grassmann variables; fermionic statistics;
@@ -430,7 +458,7 @@ not, by itself, quantum mechanics.</div>
 
 <h2 id="part4">Part IV — Close the book</h2>
 
-<h3>§11. What Book 10 retains</h3>
+<h3 id="11-what-book-10-retains">§11. What Book 10 retains</h3>
 <ol>
 <li>The real half-angle coordinate covers a real projective meridian, not generic
 <span class="math">ℂP¹</span> — <span class="tag ok">checked proof</span>.</li>
@@ -459,7 +487,7 @@ NEW OPERATIONAL PREDICTIONS: none.
 Δ_op(Book 10) = ∅.
 Therefore Book 10 closes as a quantum-kinematic and representation bridge.</div>
 
-<h3>§12. Dependency lock — Book 10 → Book 11</h3>
+<h3 id="12-dependency-lock-book-10-book-11">§12. Dependency lock — Book 10 → Book 11</h3>
 <div class="formal"><span class="tag ok">DEPENDENCY LOCK</span>
 Book 11 may inherit the certified complex carrier and exact spinorial/projective coordinate
 architecture. Book 10 does <b>not</b> supply measurement rules, quantum-field ontology,
@@ -475,6 +503,28 @@ numeric; complex rank 5 MANUSCRIPT). Embed consistency checked by
 validation/book10/test_embeds.py. Pictures illustrate checked statements; they are not
 the proofs. Live Desmos rendering was not browser-verified from the build machine.</p>
 
+<!-- BOOKNAV-NAV-START -->
+<nav class="booknav" aria-label="Book navigation">
+<a class="booknav-panel booknav-prev" rel="prev" href="../book9/">
+<span class="booknav-eyebrow">← Previous</span>
+<span class="booknav-title">Book 9 — Relativity and Gravitation: Conditional Reconstruction</span>
+<span class="booknav-vol">Volume II</span>
+</a>
+<a class="booknav-panel booknav-center" href="../">
+<span class="booknav-eyebrow">Series</span>
+<span class="booknav-title">Index</span>
+</a>
+<a class="booknav-panel booknav-center" href="../contents/">
+<span class="booknav-eyebrow">Series</span>
+<span class="booknav-title">Contents</span>
+</a>
+<a class="booknav-panel booknav-next" rel="next" href="../book11/">
+<span class="booknav-eyebrow">Next →</span>
+<span class="booknav-title">Book 11 — Particle Architecture and Standard Model Comparison (Restructured)</span>
+<span class="booknav-vol">Volume II</span>
+</a>
+</nav>
+<!-- BOOKNAV-NAV-END -->
 <footer>
 <p>Rewrite of Book 10 of <i>R Theory — Volume II</i> (working manuscript). Restructured:
 pictures and intuition first (Part I), formal audit second (Part II). All theorems, imports,

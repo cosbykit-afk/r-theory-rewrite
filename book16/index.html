@@ -39,13 +39,34 @@ footer{margin-top:3em;color:#555;font-size:.9em;border-top:1px solid #bbb;paddin
  border:1px solid #666;border-radius:3px;background:#eee;cursor:pointer;color:#1a1a1a}
 </style>
 <!-- SITENAV-END -->
+<!-- BOOKNAV-CSS-START -->
+<style>
+.booknav{font-family:Georgia,serif;display:grid;grid-template-columns:1.35fr .85fr .85fr 1.35fr;gap:10px;margin:2.5em 0 0}
+.booknav-panel{display:flex;flex-direction:column;justify-content:center;text-decoration:none;color:#1a1a1a;
+ background:linear-gradient(180deg,#ffffff 0%,#f4f7fb 60%,#e7edf4 100%);
+ border:1px solid #c7d2de;border-radius:8px;padding:12px 16px;
+ box-shadow:inset 0 1px 0 #ffffff,0 2px 6px rgba(27,95,170,.10);
+ transition:border-color .15s ease,box-shadow .15s ease,transform .15s ease}
+a.booknav-panel:hover{border-color:#1b5faa;transform:translateY(-1px);
+ box-shadow:inset 0 1px 0 #ffffff,0 4px 12px rgba(27,95,170,.18)}
+a.booknav-panel:focus-visible{outline:2px solid #1b5faa;outline-offset:2px}
+.booknav-eyebrow{font-size:.7em;letter-spacing:.09em;text-transform:uppercase;color:#5a5a5a}
+.booknav-title{font-weight:bold;color:#1b5faa;margin-top:3px;line-height:1.35}
+.booknav-vol{font-size:.78em;color:#5a5a5a;margin-top:2px}
+.booknav-next{text-align:right}
+.booknav-center{text-align:center}
+.booknav-panel.is-disabled{opacity:.45;cursor:default}
+.booknav-panel.is-disabled .booknav-title{color:#5a5a5a}
+@media (max-width:640px){.booknav{grid-template-columns:1fr 1fr}.booknav-next{text-align:left}}
+</style>
+<!-- BOOKNAV-CSS-END -->
 </head>
 <body>
 <!-- SITENAV-NAV-START -->
 <nav class="sitenav" aria-label="Site navigation">
 <a class="sitenav-brand" href="../">R Theory — Rewrite</a>
 <span class="sitenav-links">
-<a href="../#hard">Hard&nbsp;science</a><a href="../#theoretical">Theoretical</a><a href="../vol0/">Vol&nbsp;0</a><a href="../vol4/">Vol&nbsp;IV</a><a href="../tables/">Tables</a>
+<a href="../contents/">Contents</a><a href="../index/">Index</a><a href="../contents/#vol-0">Vol&nbsp;0</a><a href="../contents/#vol-1">Vol&nbsp;I</a><a href="../contents/#vol-2">Vol&nbsp;II</a><a href="../contents/#vol-3">Vol&nbsp;III</a><a href="../contents/#vol-4">Vol&nbsp;IV</a><a href="../tables/">Tables</a><a href="../research/">Research</a>
 </span>
 <form class="sitenav-search" action="https://www.google.com/search" method="get" target="_blank" role="search"
  onsubmit="if(!this.q.value.trim())return false;this.q.value='site:cosbykit-afk.github.io/r-theory-rewrite '+this.q.value">
@@ -84,7 +105,7 @@ occurrence at its own line location and flags the collisions. Per the manuscript
 the standalone Book 16 text is authoritative through §16.I.57 where it conflicts with earlier frontier summaries.</p>
 <h2 id="p1">Part I — See it first</h2>
 <p>Fifteen figures, three per audited block, in source order. Each caption carries the status of what the figure shows.</p>
-<h3>Figure 1 — Covariant 45-degree stationarity of the diagonal Z bridge</h3>
+<h3 id="figure-1-covariant-45-degree-stationarity-of-the-diagonal-z-bridge">Figure 1 — Covariant 45-degree stationarity of the diagonal Z bridge</h3>
 <div class="graph" id="d1"></div>
 <img class="fallback" id="f1" src="graphs/g1_zbridge.png" alt="cos 2x, sin 2x and H(x)=sin 2x/4 with the stationary point x=pi/4 marked">
 <div class="caption"><b>What you see.</b> The components of
@@ -94,7 +115,7 @@ the standalone Book 16 text is authoritative through §16.I.57 where it conflict
 covariantly, <span class="formula">nabla_x B_Z = H' calZ_2 = 0</span>, because
 <span class="formula">H'(pi/4) = 0</span>. <span class="tag NC">NC</span></div>
 
-<h3>Figure 2 — qSaw rapidity doubling on one fixed hyperbola</h3>
+<h3 id="figure-2-qsaw-rapidity-doubling-on-one-fixed-hyperbola">Figure 2 — qSaw rapidity doubling on one fixed hyperbola</h3>
 <div class="graph" id="d2"></div>
 <img class="fallback" id="f2" src="graphs/g2_qsaw.png" alt="Sigma=mu cosh zeta, Delta=mu sinh zeta, Pi_C=tanh zeta at mu=2">
 <div class="caption"><b>What you see.</b> At fixed radius <span class="formula">mu = 2</span>, the qSaw lift sends
@@ -103,7 +124,7 @@ polarization <span class="formula">Pi_C = Delta/Sigma = tanh zeta</span> doubles
 <span class="formula">qSaw(tanh w) = tanh 2w</span>. The radius is invariant; only the angle moves.
 <span class="tag NC">NC</span></div>
 
-<h3>Figure 3 — D4 polarization responses from the trace pair</h3>
+<h3 id="figure-3-d4-polarization-responses-from-the-trace-pair">Figure 3 — D4 polarization responses from the trace pair</h3>
 <div class="graph" id="d3"></div>
 <img class="fallback" id="f3" src="graphs/g3_d4response.png" alt="Pi_C=tanh zeta and Xi_C=4 cosh w/(cosh zeta+3) with the D4 point marked">
 <div class="caption"><b>What you see.</b> The two D4 polarization responses
@@ -114,7 +135,7 @@ polarization <span class="formula">Pi_C = Delta/Sigma = tanh zeta</span> doubles
 The trace-pair identity behind this figure was verified symbolically.
 <span class="tag SC">SC</span></div>
 
-<h3>Figure 4 — The quasi-linear Saw–Hodge doublet</h3>
+<h3 id="figure-4-the-quasi-linear-saw-hodge-doublet">Figure 4 — The quasi-linear Saw–Hodge doublet</h3>
 <div class="graph" id="d4"></div>
 <img class="fallback" id="f4" src="graphs/g4_saw_hodge.png" alt="Pi_C and Xi_C versus rapidity w">
 <div class="caption"><b>What you see.</b> The two quasi-linear response coefficients of §§16.I.72–74:
@@ -127,7 +148,7 @@ rapidity points, max error &lt; 1e-10). <b>What it doesn't show.</b> A nonzero i
 a nonzero action coefficient: <span class="formula">ρ<sub>PK</sub> ≠ 0</span> remains an open gate, and the
 fixed-polynomial no-goes of §§16.I.67–71 still hold on their own hypothesis class. <span class="tag MA">MA</span></div>
 
-<h3>Figure 5 — Nonseparable Hessian determinant along the quasi-linear orbit</h3>
+<h3 id="figure-5-nonseparable-hessian-determinant-along-the-quasi-linear-orbit">Figure 5 — Nonseparable Hessian determinant along the quasi-linear orbit</h3>
 <div class="graph" id="d5"></div>
 <img class="fallback" id="f5" src="graphs/g5_hessian_factor.png" alt="Hessian determinant factor versus w">
 <div class="caption"><b>What you see.</b> The determinant factor
@@ -140,7 +161,7 @@ not fine-tuned. <span class="tag NC">NC</span> <b>What it doesn't show.</b> A no
 not by itself activate the base Pfaffian or supply the missing Hodge 12 plane at seed level — those gates stay
 open. <span class="tag MA">MA</span></div>
 
-<h3>Figure 6 — Radial stabilization of the hard-flux saddle</h3>
+<h3 id="figure-6-radial-stabilization-of-the-hard-flux-saddle">Figure 6 — Radial stabilization of the hard-flux saddle</h3>
 <div class="graph" id="d6"></div>
 <img class="fallback" id="f6" src="graphs/g6_radial_stab.png" alt="V(q) = A q^2 + B q^4 with minimum at q*">
 <div class="caption"><b>What you see.</b> The radial potential
@@ -151,7 +172,7 @@ term, with the finite-rank minimum at <span class="formula">q*<sup>2</sup> = −
 <span class="tag NC">NC</span> <b>What it doesn't show.</b> Radial stabilization is not a health theorem: ghost
 survival, exactly one healthy spin-2, and mirror selection remain downstream open gates. <span class="tag MA">MA</span></div>
 
-<h3>Figure 7 — The selector ratio is strictly monotone: exactly one finite stationary point</h3>
+<h3 id="figure-7-the-selector-ratio-is-strictly-monotone-exactly-one-finite-stationary-point">Figure 7 — The selector ratio is strictly monotone: exactly one finite stationary point</h3>
 <div class="graph" id="d7"></div>
 <img class="fallback" id="f7" src="graphs/g7_selector_R.png" alt="R(y) strictly decreasing from +infinity to 0">
 <div class="caption"><b>What you see.</b> The stationarity ratio
@@ -165,7 +186,7 @@ one finite nonzero solution for every nonzero <span class="formula">v/u</span>.
 <span class="formula">B<sub>4</sub> &gt; 0</span> hypothesis, and the joint radial branch needs
 <span class="formula">v &gt; 0</span>. <span class="tag MA">MA</span></div>
 
-<h3>Figure 8 — Unique finite selector extremum with positive Schur Hessian</h3>
+<h3 id="figure-8-unique-finite-selector-extremum-with-positive-schur-hessian">Figure 8 — Unique finite selector extremum with positive Schur Hessian</h3>
 <div class="graph" id="d8"></div>
 <img class="fallback" id="f8" src="graphs/g8_selector_minimum.png" alt="A(w) with a single minimum at w*">
 <div class="caption"><b>What you see.</b> The reduced selector potential
@@ -181,7 +202,7 @@ one finite nonzero solution for every nonzero <span class="formula">v/u</span>.
 <span class="formula">q<sub>*</sub><sup>2</sup> = −A<sub>*</sub>/(2B)</span> is not simultaneously finite here;
 that needs the <span class="formula">v &gt; 0</span> sign branch. <span class="tag MA">MA</span></div>
 
-<h3>Figure 9 — The primitive fermionic dihedral double cover (order 16 → D<sub>4</sub>)</h3>
+<h3 id="figure-9-the-primitive-fermionic-dihedral-double-cover-order-16-d4">Figure 9 — The primitive fermionic dihedral double cover (order 16 → D<sub>4</sub>)</h3>
 <div class="graph" id="d9"></div>
 <img class="fallback" id="f9" src="graphs/g9_dihedral.png" alt="Eighth roots of unity: powers of R, with P reflection axis">
 <div class="caption"><b>What you see.</b> The eight powers of
@@ -195,7 +216,7 @@ on explicit 2×2 matrices). <b>What it doesn't show.</b> The picture is the prim
 group; full action/vacuum symmetry of the lift <span class="formula">q<sub>ℓ</sub></span> and the twisted
 global anomaly remain open. <span class="tag MA">MA</span></div>
 
-<h3>Figure 10 — Quarter-null branches and the (π/4)ℤ phase lattice</h3>
+<h3 id="figure-10-quarter-null-branches-and-the-4-phase-lattice">Figure 10 — Quarter-null branches and the (π/4)ℤ phase lattice</h3>
 <div class="graph" id="d10"></div>
 <img class="fallback" id="f10" src="graphs/g10_quarter_null_lattice.png" alt="Quarter-null branches phi_a - phi_b = ±pi/2 mod pi with the (pi/4)Z lattice">
 <div class="caption"><b>What you see.</b> The quarter-null branches
@@ -212,7 +233,7 @@ available real vacua, not a selection: the declared S82 parent is exactly common
 (Theorem 16.I.110.T1), and picking the odd-quarter branch requires the nonzero heavy-selector
 coefficient λ<sub>2</sub>, which no theorem in this chunk derives. <span class="tag MA">MA</span></div>
 
-<h3>Figure 11 — Oriented vs unoriented Fujikawa phases</h3>
+<h3 id="figure-11-oriented-vs-unoriented-fujikawa-phases">Figure 11 — Oriented vs unoriented Fujikawa phases</h3>
 <div class="graph" id="d11"></div>
 <img class="fallback" id="f11" src="graphs/g11_fujikawa_phases.png" alt="Unit circle: J(R_D)=1 for all k, J(U)=(-1)^k alternating">
 <div class="caption"><b>What you see.</b> The Fujikawa phase on the unit circle (§16.I.104):
@@ -225,7 +246,7 @@ sign). <span class="tag SC">SC</span> (exact complex arithmetic for
 <span class="formula">Ind(D<sub>16</sub>) ∈ 4ℤ</span> (Theorem 16.I.104.T1), whose topological proof is
 asserted, not re-derived, in this chunk. <span class="tag MA">MA</span></div>
 
-<h3>Figure 12 — Heavy-selector induced quartic selects the odd-quarter lattice</h3>
+<h3 id="figure-12-heavy-selector-induced-quartic-selects-the-odd-quarter-lattice">Figure 12 — Heavy-selector induced quartic selects the odd-quarter lattice</h3>
 <div class="graph" id="d12"></div>
 <img class="fallback" id="f12" src="graphs/g12_odd_quarter_selection.png" alt="V_4^ind proportional to -(1-cos 4phi_a) with minima at pi/4 mod pi/2">
 <div class="caption"><b>What you see.</b> The induced static selector potential of §16.I.112,
@@ -244,7 +265,7 @@ negative semidefinite so it does not stabilize the radius by itself. <span class
      Live graphs are Desmos calculators driven by frag_e_graphs.js; each has a
      static PNG fallback with the same formulas. -->
 
-<h3>Figure 13 — The critical hyperbola r²−u²=1</h3>
+<h3 id="figure-13-the-critical-hyperbola-r-u-1">Figure 13 — The critical hyperbola r²−u²=1</h3>
 <div class="graph" id="d13"></div>
 <img class="fallback" id="f13" src="graphs/g13_hyperbola.png" alt="critical hyperbola r^2-u^2=1 with asymptotes">
 <div class="caption"><b>What you see.</b> The two branches <span class="formula">r = ±√(1+u²)</span> of the
@@ -257,7 +278,7 @@ and the RG flow is tangent to the hyperbola (<span class="formula">β<sub>R+</su
 that keeps the flow on this curve is an earned-once input from the earlier reduced formulas, not proved here.
 <span class="tag MA">MA</span></div>
 
-<h3>Figure 14 — Nonlinear kinetic rapidity</h3>
+<h3 id="figure-14-nonlinear-kinetic-rapidity">Figure 14 — Nonlinear kinetic rapidity</h3>
 <div class="graph" id="d14"></div>
 <img class="fallback" id="f14" src="graphs/g14_rapidity.png" alt="delta_Z = atanh(eta_N sinh omega) and linear approximations">
 <div class="caption"><b>What you see.</b> The kinetic rapidity
@@ -270,7 +291,7 @@ a constant anomalous dimension is impossible in the odd-kinetic sector. <span cl
 <b>What it doesn't show.</b> The map is the leading odd-kinetic truncation; higher odd kinetic operators can
 modify the global function while preserving the linear term. <span class="tag MA">MA</span></div>
 
-<h3>Figure 15 — Positive-feedback pitchfork potential</h3>
+<h3 id="figure-15-positive-feedback-pitchfork-potential">Figure 15 — Positive-feedback pitchfork potential</h3>
 <div class="graph" id="d15"></div>
 <img class="fallback" id="f15" src="graphs/g15_pitchfork.png" alt="pitchfork potential V(delta) for three values of a">
 <div class="caption"><b>What you see.</b> The fixed-point potential
@@ -288,7 +309,7 @@ firewall requires pair dynamics to pin <span class="formula">y<sub>B</sub></span
 
 <h2 id="p2">Part II — Then earn it</h2>
 <p>Section-by-section audit of every numbered claim, in five blocks matching the audit workers' spans. Assertion counts: audit_16a.py 249 passed; audit_16b.py 43 passed; audit_16c.py 127 passed; audit_16d.py 173 passed; audit_16e.py 98 passed — 690 total, 0 failed.</p>
-<h3>16.0.A.1 — Rapidity normalization</h3>
+<h3 id="16-0-a-1-rapidity-normalization">16.0.A.1 — Rapidity normalization</h3>
 <p>The normalization identities check out numerically: with <span class="formula">zeta = 2w</span>,
 <span class="formula">Q = tanh w = tanh(zeta/2)</span>, <span class="formula">S = sech w</span>,
 <span class="formula">qSaw(Q) = 2Q/(1+Q^2) = tanh 2w</span>,
@@ -296,7 +317,7 @@ firewall requires pair dynamics to pin <span class="formula">y<sub>B</sub></span
 <span class="formula">Sigma = mu cosh zeta</span>, <span class="formula">Delta = mu sinh zeta</span>,
 <span class="formula">Pi_C = Delta/Sigma = tanh zeta</span>. <span class="tag NC">NC</span></p>
 
-<h3>16.I.49 — Diagonal Z bridge and covariant 45-degree stationarity</h3>
+<h3 id="16-i-49-diagonal-z-bridge-and-covariant-45-degree-stationarity">16.I.49 — Diagonal Z bridge and covariant 45-degree stationarity</h3>
 <p><span class="formula">J^2 = -I</span> exactly. <span class="tag CP">CP</span>
 <span class="formula">exp(2xJ) = cos(2x)I + sin(2x)J</span>,
 <span class="formula">U^{-1}JU = diag(i,-i)</span>,
@@ -315,7 +336,7 @@ minus sign while fixing <span class="formula">calZ_2</span> at <span class="form
 <span class="formula">-2I</span>, as the manuscript states. Phase transport alone does not select the flux
 magnitude; that remains open. <span class="tag MA">MA</span></p>
 
-<h3>Synchronization checkpoint — Heavy/Schur audit (line 1614)</h3>
+<h3 id="synchronization-checkpoint-heavy-schur-audit-line-1614">Synchronization checkpoint — Heavy/Schur audit (line 1614)</h3>
 <p>The double-angle transfer identities
 <span class="formula">cos 2theta = (b_0^2-b_H^2)/(b_0^2+b_H^2)</span>,
 <span class="formula">sin 2theta = 2b_0b_H/(b_0^2+b_H^2)</span> are true. <span class="tag NC">NC</span>
@@ -328,7 +349,7 @@ adjoint, since <span class="formula">B^dagger = R_B e^{-theta_B J}</span> cancel
 (carrier to E8(-24), E8(-24) to the physical subgroups) are recorded as manuscript assertions;
 they were not independently derived here. <span class="tag MA">MA</span></p>
 
-<h3>16.I.57 — Reduced G_C square-root / Chayet–Garibaldi audit</h3>
+<h3 id="16-i-57-reduced-g-c-square-root-chayet-garibaldi-audit">16.I.57 — Reduced G_C square-root / Chayet–Garibaldi audit</h3>
 <p>Status section: the square-root identity, the Hodge-completion identity
 <span class="formula">*_L^2 = -1</span>, and the orientation-sign bookkeeping are asserted, not derived, in
 this chunk. <span class="tag MA">MA</span> The synchronization note (standalone Book 16 authoritative
@@ -336,7 +357,7 @@ through §16.I.57, superseding earlier frontier summaries) and the canonical UNA
 (<span class="formula">urx = srx - crx</span>, <span class="formula">uxp = cxp - sxp</span>) are taken as
 given boundary conditions for the audit. <span class="tag AX">AX</span></p>
 
-<h3>16.I.58 — Real-form role correction: rapidity as E8 transport</h3>
+<h3 id="16-i-58-real-form-role-correction-rapidity-as-e8-transport">16.I.58 — Real-form role correction: rapidity as E8 transport</h3>
 <p><span class="formula">Z^T X = -XZ</span> exactly. <span class="tag CP">CP</span>
 The transported-projector theorem: <span class="formula">P(w) = e^{-wZ/2}P_0 e^{wZ/2}
 = (1/2)[I + cosh w X - sinh w J]</span>, <span class="formula">P(w)^2 = P(w)</span>,
@@ -353,7 +374,7 @@ arithmetic; <span class="tag CP">CP</span> the counit algebra <span class="formu
 <span class="tag NC">NC</span> The literal constitutive Chayet–Garibaldi no-go depends on imported real-form
 facts and is not proved by the 2x2 algebra alone. <span class="tag MA">MA</span></p>
 
-<h3>16.I.59(a) — Single-hyperbola qSaw lift</h3>
+<h3 id="16-i-59-a-single-hyperbola-qsaw-lift">16.I.59(a) — Single-hyperbola qSaw lift</h3>
 <p>Fixed-radius hyperbola <span class="formula">Sigma^2 - Delta^2 = mu^2</span>, the qSaw lift
 <span class="formula">A_+' = 2A_+^2/mu</span>, <span class="formula">A_-' = 2A_-^2/mu</span>, mu-invariance,
 <span class="formula">Delta'/Sigma' = tanh 2r</span>, the inverse descent inverting the lift, and the
@@ -376,7 +397,7 @@ Heavy-field rank protection <span class="formula">K^T M^{-1} K = (u^T M^{-1} u) 
 <span class="tag NC">NC</span> The remaining amplitude gate (radial activation) is open.
 <span class="tag MA">MA</span></p>
 
-<h3>16.I.60(a) — Projective algebraic full-E8 lift and A4</h3>
+<h3 id="16-i-60-a-projective-algebraic-full-e8-lift-and-a4">16.I.60(a) — Projective algebraic full-E8 lift and A4</h3>
 <p>Spectral subtraction: <span class="formula">spec S(W_-)|_{PK} = {120, 600}</span>,
 <span class="formula">E_0|_{PK} = -480 P_+</span>, <span class="formula">-480 = -16 h^vee</span>.
 <span class="tag NC">NC</span> Transport: <span class="formula">E(w)| = -240[[1,e^{-w}],[e^w,1]]</span>,
@@ -405,7 +426,7 @@ the kernel projector polynomial <span class="formula">Pi_0</span> taking values
 <span class="tag CP">CP</span> The full E8 spectrum and branching multiplicities themselves are manuscript
 assertions; checking their arithmetic does not establish them. <span class="tag MA">MA</span></p>
 
-<h3>16.I.60.9–12 — D4 trace pair, PhiBB no-go, exchange reflection, compensated involution</h3>
+<h3 id="16-i-60-9-12-d4-trace-pair-phibb-no-go-exchange-reflection-compensated-involution">16.I.60.9–12 — D4 trace pair, PhiBB no-go, exchange reflection, compensated involution</h3>
 <p>D4 trace pair: <span class="formula">Khat_w = (1/2)(AI + BZ + EX)</span>,
 <span class="formula">Pi_C = tanh 2w</span>, <span class="formula">Xi_C = 4e_P cosh w/(cosh zeta + 3)</span>,
 <span class="formula">R_Z[K] = Pi_C</span>. <span class="tag NC">NC</span>
@@ -426,7 +447,7 @@ Compensated involution: the Spin(10)xSpin(4,2) branching dimensions sum to 248 a
 <span class="tag CP">CP</span> The PASS/NO-GO/OPEN verdicts (genuine involutive lift, bare reflection not an
 automorphism, action invariance still open) are manuscript assertions. <span class="tag MA">MA</span></p>
 
-<h3>2026-08-25 addendum — 3875 BB coefficient</h3>
+<h3 id="2026-08-25-addendum-3875-bb-coefficient">2026-08-25 addendum — 3875 BB coefficient</h3>
 <p>At <span class="formula">g_{PhiBB} Sigma_I/alpha = 7/48</span>:
 <span class="formula">m_D = 0</span>, <span class="formula">m_I = alpha/5</span>. <span class="tag CP">CP</span>
 At the D4 point <span class="formula">Sigma_I = 3mu = 6|y|</span>; the filtered D-soft condition
@@ -437,7 +458,7 @@ two critical conditions via <span class="formula">1050/144 = 175/24</span>. <spa
 The overlap value, nonzero activation, and <span class="formula">N_4 &gt; 0</span> remain conditional or open.
 <span class="tag MA">MA</span></p>
 
-<h3>16.I.59(b) — Quartic 135 necessity and existence</h3>
+<h3 id="16-i-59-b-quartic-135-necessity-and-existence">16.I.59(b) — Quartic 135 necessity and existence</h3>
 <p><span class="formula">C(16,4) = 1820</span>, <span class="formula">16x17/2 - 1 = 135</span>,
 <span class="formula">Sym^2(128) = 8256 = 1+1820+6435</span>,
 <span class="formula">Alt^2(128) = 8128 = 120+8008</span>. <span class="tag CP">CP</span>
@@ -452,23 +473,23 @@ Weyl dimensions check: <span class="formula">dim(10000000) = 3875</span>,
 That the 135 route is the physical one (<span class="formula">pi_{135} Phi J = cQ</span>) is open.
 <span class="tag MA">MA</span></p>
 
-<h3>16.I.60(b) — SO(16) quartic-135 uniqueness</h3>
+<h3 id="16-i-60-b-so-16-quartic-135-uniqueness">16.I.60(b) — SO(16) quartic-135 uniqueness</h3>
 <p><span class="formula">C(16,6) = 8008</span>. <span class="tag CP">CP</span>
 The 6-form <span class="formula">Q_6(C,D)</span> is symmetric, traceless, and nonzero on a basis 6-wedge
 (<span class="formula">Q_{00} = 75</span>, <span class="formula">Q_{66} = -45</span>). <span class="tag NC">NC</span>
 Whether the six-form reduction selects the live E8 route is open. <span class="tag MA">MA</span></p>
 
-<h3>16.I.61 — 1820 to 30380 linear no-go</h3>
+<h3 id="16-i-61-1820-to-30380-linear-no-go">16.I.61 — 1820 to 30380 linear no-go</h3>
 <p><span class="formula">120+1920+7020+8008+13312 = 30380</span>,
 <span class="formula">248 = 120+128</span>,
 <span class="formula">Alt^2(248) = 30628 = 248+30380</span>. <span class="tag CP">CP</span>
 The common-parent bifurcation claim is a manuscript assertion. <span class="tag MA">MA</span></p>
 
-<h3>16.I.62 — 8008 quartic-135 uniqueness</h3>
+<h3 id="16-i-62-8008-quartic-135-uniqueness">16.I.62 — 8008 quartic-135 uniqueness</h3>
 <p>Covered under §16.I.60(b) above: the six-form witness is nonzero and traceless.
 <span class="tag NC">NC</span> The physical selection claim is open. <span class="tag MA">MA</span></p>
 
-<h3>16.I.63 — Two-frame fermion Veronese lift</h3>
+<h3 id="16-i-63-two-frame-fermion-veronese-lift">16.I.63 — Two-frame fermion Veronese lift</h3>
 <p><span class="formula">T(chi) = r^2 T_+ + rs T_0 + s^2 T_-</span> with the stated
 <span class="formula">T_pm, T_0</span>. <span class="tag NC">NC</span>
 Half-rung weights <span class="formula">(+1,0,-1)</span> from
@@ -485,7 +506,7 @@ Quartic descendants inherit the weight set
 Selection of the frames <span class="formula">A, B</span> and nonzero 8008 projection are open.
 <span class="tag MA">MA</span></p>
 
-<h3>Defects, flags, and audit corrections</h3>
+<h3 id="defects-flags-and-audit-corrections">Defects, flags, and audit corrections</h3>
 <p>1. Line 1614: the Schur-complement formula is <span class="tag IC">IC</span> as printed; the correct
 value is <span class="formula">(R_B^2/R_D)e^{-theta_D J}</span>.
 2. Line 1925: the <span class="formula">rank K_action = 1</span> iff
@@ -502,7 +523,7 @@ error — the identity is correct (<span class="tag SC">SC</span>). A draft §16
 <span class="formula">U(theta)^2 = I</span> check and a draft addendum <span class="formula">delta_w(T)</span>
 check were based on misreadings; no such formulas occur in the source. Both were removed, not the source.</p>
 
-<h3>Frontier addendum, first block — §§16.I.61–16.I.77 (source lines 3197–6964)</h3>
+<h3 id="frontier-addendum-first-block-16-i-61-16-i-77-source-lines-3197-6964">Frontier addendum, first block — §§16.I.61–16.I.77 (source lines 3197–6964)</h3>
 <p>Every source line in the interval was read continuously. The check script
 <code>audit_16b.py</code> ran 43 assertions: <b>43 passed, 0 failed</b> (one initial
 failure was a substitution bug in the check itself — the manuscript identity held; the
@@ -513,7 +534,7 @@ check was fixed and re-run green). The full claim-by-claim ledger is
 <span class="tag AX">AX</span>, <span class="tag IN">IN</span>, or
 <span class="tag IC">IC</span>.</p>
 
-<h3>§16.I.57 addendum — algebraic gates (authoritative per the 2026-08-21 note)</h3>
+<h3 id="16-i-57-addendum-algebraic-gates-authoritative-per-the-2026-08-21-note">§16.I.57 addendum — algebraic gates (authoritative per the 2026-08-21 note)</h3>
 <ul>
 <li>Algebraic null-shift collapse of the soft-B escape (T1): exactness
 <span class="formula">δB₀ = dv</span> forces <span class="formula">Λ₂ = −B<sub>s</sub></span>,
@@ -526,7 +547,7 @@ quadratic curvature order given <span class="formula">[D,M] = 0</span>. <span cl
 Palatini parent. <span class="tag CP">CP</span></li>
 </ul>
 
-<h3>§§16.I.61–62 — exterior-rank firewall and auxiliary-B closure</h3>
+<h3 id="16-i-61-62-exterior-rank-firewall-and-auxiliary-b-closure">§§16.I.61–62 — exterior-rank firewall and auxiliary-B closure</h3>
 <ul>
 <li>Pullback rank obstruction (16.I.61.T1): rank <span class="formula">φ*</span> &lt; 4 kills
 pullback four-forms; rapidity alone cannot supply the missing rank (C3). <span class="tag CP">CP</span></li>
@@ -540,7 +561,7 @@ positive-degree activation from this class (C1–C3). <span class="tag CP">CP</s
 (C4–C5): <span class="formula">dw∧dw = 0</span> does the work. <span class="tag CP">CP</span></li>
 </ul>
 
-<h3>§§16.I.64–66 — moment-map source, Hodge gates, topology gap</h3>
+<h3 id="16-i-64-66-moment-map-source-hodge-gates-topology-gap">§§16.I.64–66 — moment-map source, Hodge gates, topology gap</h3>
 <ul>
 <li>Same-exterior-form preservation (16.I.64.D): <span class="formula">J<sub>C</sub> = XF ⇒
 H<sub>C</sub>(XF) = (H<sub>C</sub>X)F</span>. <span class="tag CP">CP</span> (conditional on the branch factorization)</li>
@@ -560,7 +581,7 @@ audited-parent closure (16.I.66.3): status statements with the undetermined coef
 explicitly disclosed. <span class="tag MA">MA</span></li>
 </ul>
 
-<h3>§§16.I.67–70 — the linear/quadratic zero-form firewall</h3>
+<h3 id="16-i-67-70-the-linear-quadratic-zero-form-firewall">§§16.I.67–70 — the linear/quadratic zero-form firewall</h3>
 <ul>
 <li>Multiplicity-one 3875 BF contraction (16.I.67.1) and multiplicity-one linear-30380 BF
 channel (16.I.68.1): follow from <span class="formula">Sym²(248) = 1⊕3875⊕27000</span> and
@@ -579,7 +600,7 @@ Spin(16) center, so no 1920 component (16.I.70.3); the sandwich cannot close the
 status, correctly scoped to the audited class. <span class="tag MA">MA</span></li>
 </ul>
 
-<h3>§16.I.71 (three blocks) — exact 27000 multiplicity and exhaustive quadratic no-go</h3>
+<h3 id="16-i-71-three-blocks-exact-27000-multiplicity-and-exhaustive-quadratic-no-go">§16.I.71 (three blocks) — exact 27000 multiplicity and exhaustive quadratic no-go</h3>
 <ul>
 <li>Two copies of 27000 in <span class="formula">30380⊗30380</span>, both symmetric
 (Thm 16.I.71.1, all three blocks). <span class="tag SC">SC</span> — the cited LieART 2.1.1
@@ -613,7 +634,7 @@ no symmetric zero-form quadratic constitutive operator supplies the missing Hodg
 <span class="tag CP">CP</span></li>
 </ul>
 
-<h3>§§16.I.72–74 — quasi-linear Saw–Hodge descent (the surviving branch)</h3>
+<h3 id="16-i-72-74-quasi-linear-saw-hodge-descent-the-surviving-branch">§§16.I.72–74 — quasi-linear Saw–Hodge descent (the surviving branch)</h3>
 <ul>
 <li>Fixed-polynomial firewall separation (16.I.72.1): the no-goes neither produce nor forbid
 the descended response. <span class="tag MA">MA</span> (scope declaration)</li>
@@ -632,7 +653,7 @@ spectrum. <span class="tag CP">CP</span> (polynomials checked at all five eigenv
 <span class="tag CP">CP</span></li>
 </ul>
 
-<h3>§§16.I.75–76 — tangent extraction, Hessian, auxiliary elimination</h3>
+<h3 id="16-i-75-76-tangent-extraction-hessian-auxiliary-elimination">§§16.I.75–76 — tangent extraction, Hessian, auxiliary elimination</h3>
 <ul>
 <li>Tangent norm closure (16.I.75.1, both blocks): <span class="formula">s<sub>C</sub> =
 γ|c|² ≠ 0</span> conditional on real invertible <span class="formula">T<sub>N</sub></span>
@@ -657,7 +678,7 @@ mirror-even, so the Hodge-12 term keeps its sign. <span class="tag CP">CP</span>
 narrower than a full spectrum/BRST theorem. <span class="tag MA">MA</span></li>
 </ul>
 
-<h3>§16.I.77 — principal-symbol spin-two audit</h3>
+<h3 id="16-i-77-principal-symbol-spin-two-audit">§16.I.77 — principal-symbol spin-two audit</h3>
 <ul>
 <li>Unique Einstein-type principal-symbol theorem (16.I.77.6): exactly one candidate
 corridor carries the correct <span class="formula">(6,2)</span> principal symbol; the
@@ -665,7 +686,7 @@ corridor carries the correct <span class="formula">(6,2)</span> principal symbol
 <i>candidate</i> blocks; weaker than a full BRST spectrum theorem, which is not claimed.</li>
 </ul>
 
-<h3>Defects found</h3>
+<h3 id="defects-found">Defects found</h3>
 <ul>
 <li>Duplicate <b>§16.I.61</b>: line 2953 ("1820→30380 Linear No-Go and Common-Parent
 Bifurcation") and line 3361 ("Pullback Exterior-Rank Obstruction…"). References to
@@ -683,7 +704,7 @@ map uses <span class="formula">ν<sub>F</sub></span>, which is never defined. Li
 <span class="formula">ν<sub>F</sub> := P<sub>F</sub>D<sub>A</sub>C</span>.</li>
 </ul>
 
-<h3>Remains open (manuscript's own ledger, confirmed)</h3>
+<h3 id="remains-open-manuscript-s-own-ledger-confirmed">Remains open (manuscript's own ledger, confirmed)</h3>
 <ul>
 <li>A correctly typed lower-exterior-degree orientation-odd microscopic parent for
 <span class="formula">ρ<sub>PK</sub></span>; common-action normalization of the
@@ -692,7 +713,7 @@ map uses <span class="formula">ν<sub>F</sub></span>, which is never defined. Li
 spin-2; absolute mirror selection. None of these are closed by the material in this chunk.</li>
 </ul>
 
-<h3>§§16.I.78–16.I.98 (source lines 6965–14042)</h3>
+<h3 id="16-i-78-16-i-98-source-lines-6965-14042">§§16.I.78–16.I.98 (source lines 6965–14042)</h3>
 <p>Every source line in the interval was read continuously (ending immediately before
 <code>§16.I.99</code> at line 14043). The check script <code>audit_16c.py</code> ran
 127 assertions: <b>127 passed, 0 failed</b>. One initial failure was a check-script bug
@@ -702,7 +723,7 @@ script correctly rejecting the manuscript's <span class="formula">h<sub>R</sub>(
 derivation, which is the documented <span class="tag IC">IC</span> defect below. The full
 claim-by-claim ledger is <code>LEDGER_c.md</code>.</p>
 
-<h3>§16.I.78 — Moving-projector equivariance and the spin-two BRST theorem (6965)</h3>
+<h3 id="16-i-78-moving-projector-equivariance-and-the-spin-two-brst-theorem-6965">§16.I.78 — Moving-projector equivariance and the spin-two BRST theorem (6965)</h3>
 <ul>
 <li>Moving-projector conjugation law and filtered-derivative homogeneity: the operator identity
 <span class="formula">δν<sub>F</sub> = [E,P<sub>F</sub>]D<sub>AC</sub> + P<sub>F</sub>ED<sub>AC</sub> = Eν<sub>F</sub></span>
@@ -715,7 +736,7 @@ argument is complete only given the §§16.I.76–77 transport and BRST premises
 chunk. <span class="tag MA">MA</span></li>
 </ul>
 
-<h3>§16.I.79 — Effective Newton sign (7322)</h3>
+<h3 id="16-i-79-effective-newton-sign-7322">§16.I.79 — Effective Newton sign (7322)</h3>
 <ul>
 <li>Coefficient-reduction theorem (7536): action-coefficient algebra resting on §16.I.76 premises.
 <span class="tag MA">MA</span></li>
@@ -727,7 +748,7 @@ rescaling: <span class="formula">(sβ)(sg<sub>J</sub>)/(s<sup>2</sup>α) = βg<s
 chunk, so the sign stays relative. <span class="tag MA">MA</span></li>
 </ul>
 
-<h3>§16.I.80 — Scalar principal-symbol reduction (7580)</h3>
+<h3 id="16-i-80-scalar-principal-symbol-reduction-7580">§16.I.80 — Scalar principal-symbol reduction (7580)</h3>
 <ul>
 <li><b>Defect.</b> Boxed <span class="formula">h<sub>R</sub>(v<sub>a</sub>,C) = 0</span> (7646–7653):
 <span class="tag IC">IC</span>. Setting <span class="formula">u = v = C</span> in
@@ -751,7 +772,7 @@ otherwise an action-relative manuscript theorem. <span class="tag MA">MA</span><
 <span class="tag CP">CP</span></li>
 </ul>
 
-<h3>§16.I.81 — Fixed-ray selector Hessian (7861)</h3>
+<h3 id="16-i-81-fixed-ray-selector-hessian-7861">§16.I.81 — Fixed-ray selector Hessian (7861)</h3>
 <ul>
 <li><span class="formula">y</span>-forms of <span class="formula">Π<sub>C</sub>, Ξ<sub>C</sub></span> match the
 <span class="formula">w</span>-forms. <span class="tag NC">NC</span></li>
@@ -770,7 +791,7 @@ at a sampled point. <span class="tag SC">SC</span></li>
 reduction. <span class="tag CP">CP</span></li>
 </ul>
 
-<h3>§16.I.82 — Quasi-linear projectivization (8208)</h3>
+<h3 id="16-i-82-quasi-linear-projectivization-8208">§16.I.82 — Quasi-linear projectivization (8208)</h3>
 <ul>
 <li><span class="formula">κ(ℙ<sub>L</sub>J̶ ∧ ℙ<sub>L</sub>J̶) = 0</span>: the
 <span class="formula">(η<sub>ac</sub>η<sub>bd</sub> − η<sub>ad</sub>η<sub>bc</sub>)e<sup>a</sup> ∧ e<sup>b</sup> ∧ e<sup>c</sup> ∧ e<sup>d</sup></span>
@@ -783,7 +804,7 @@ new <span class="formula">S<sub>82</sub></span> parent — not a theorem about t
 <span class="formula">S<sub>76</sub></span>. <span class="tag MA">MA</span></li>
 </ul>
 
-<h3>§16.I.83 — Vector no-go (8668)</h3>
+<h3 id="16-i-83-vector-no-go-8668">§16.I.83 — Vector no-go (8668)</h3>
 <ul>
 <li>E8 branching dimensions <span class="formula">248 = 45+15+60+64+64</span>,
 <span class="formula">15 = 6+4+4+1</span>: <span class="tag NC">NC</span></li>
@@ -795,7 +816,7 @@ mode. <span class="tag MA">MA</span></li>
 <span class="tag MA">MA</span></li>
 </ul>
 
-<h3>§16.I.84 — Residual-internal projector (8910)</h3>
+<h3 id="16-i-84-residual-internal-projector-8910">§16.I.84 — Residual-internal projector (8910)</h3>
 <ul>
 <li><span class="formula">Π<sub>10</sub><sup>2</sup> = Π<sub>10</sub></span>,
 <span class="formula">Π<sub>10</sub>Π<sub>L</sub> = 0</span>, rank
@@ -806,7 +827,7 @@ mode. <span class="tag MA">MA</span></li>
 <span class="tag MA">MA</span></li>
 </ul>
 
-<h3>§16.I.85 — Spinorial decomposition (9196)</h3>
+<h3 id="16-i-85-spinorial-decomposition-9196">§16.I.85 — Spinorial decomposition (9196)</h3>
 <ul>
 <li>Lorentz Clebsch dimensions <span class="formula">8 = 6+2</span> both chiralities.
 <span class="tag NC">NC</span></li>
@@ -815,7 +836,7 @@ the firewall argument is sound but the premises are manuscript action-level; spi
 standard import. <span class="tag MA">MA</span> / <span class="tag ST">ST</span></li>
 </ul>
 
-<h3>§16.I.86 — Connection Hessian rank bound (9418)</h3>
+<h3 id="16-i-86-connection-hessian-rank-bound-9418">§16.I.86 — Connection Hessian rank bound (9418)</h3>
 <ul>
 <li><span class="formula">rank R<sub>C</sub> ≤ 4</span>: rests on the manuscript premise
 <span class="formula">rank P<sub>F</sub> = 4</span>. <span class="tag MA">MA</span></li>
@@ -825,7 +846,7 @@ standard import. <span class="tag MA">MA</span> / <span class="tag ST">ST</span>
 read as null directions of the fixed-condensate connection block. Source qualification recorded.</li>
 </ul>
 
-<h3>§16.I.87 — Mixed bracket Hessian, 61-direction bound (9751)</h3>
+<h3 id="16-i-87-mixed-bracket-hessian-61-direction-bound-9751">§16.I.87 — Mixed bracket Hessian, 61-direction bound (9751)</h3>
 <ul>
 <li>Scope correction (9754): the manuscript explicitly narrows §16.I.86 — fixed-condensate block only,
 until coupled Schur analysis. Recorded as the source's own qualification.</li>
@@ -839,7 +860,7 @@ arithmetic, conditional on the nonzero-seed hypotheses. <span class="tag NC">NC<
 <span class="tag MA">MA</span></li>
 </ul>
 
-<h3>§16.I.88 — Vector-spinor seed pairing (10140)</h3>
+<h3 id="16-i-88-vector-spinor-seed-pairing-10140">§16.I.88 — Vector-spinor seed pairing (10140)</h3>
 <ul>
 <li><span class="formula">γ<sup>μν</sup>γ<sub>ν</sub> = 3γ<sup>μ</sup></span>,
 <span class="formula">T = −I</span> on gamma-traceless spin-3/2,
@@ -852,7 +873,7 @@ in the manuscript's <span class="formula">η = diag(−1,−1,−1,+1)</span> co
 argument. <span class="tag CP">CP</span></li>
 </ul>
 
-<h3>§16.I.89 — 228-component coupled-kernel theorem (10506)</h3>
+<h3 id="16-i-89-228-component-coupled-kernel-theorem-10506">§16.I.89 — 228-component coupled-kernel theorem (10506)</h3>
 <ul>
 <li><span class="formula">dim K<sub>A</sub> ≥ 4 × 61 = 244</span>, mixed response through the 16-dimensional
 <span class="formula">Ω<sup>1</sup> ⊗ V<sub>C</sub></span>, nullity
@@ -864,7 +885,7 @@ particles. Recorded as the source's own qualification.</li>
 <li>Contact-exclusion no-goes: depend on the declared branch. <span class="tag MA">MA</span></li>
 </ul>
 
-<h3>§16.I.90 — Primitive so(11,1) closure (10868)</h3>
+<h3 id="16-i-90-primitive-so-11-1-closure-10868">§16.I.90 — Primitive so(11,1) closure (10868)</h3>
 <ul>
 <li>Lagrange projectors <span class="formula">Π<sub>(1/4)</sub>, Π<sub>(5/4)</sub></span> and
 <span class="formula">Π<sub>G</sub> = −(4/15)T(T−I)(4T−11I)(4T−3I)</span>: polynomial identities verified
@@ -881,14 +902,14 @@ spectrum, <span class="formula">(ad D)<sup>2</sup> = I</span> on <span class="fo
 manuscript E8-computation premises. <span class="tag MA">MA</span></li>
 </ul>
 
-<h3>§16.I.91 — Normal-selector Stückelberg (11342)</h3>
+<h3 id="16-i-91-normal-selector-st-ckelberg-11342">§16.I.91 — Normal-selector Stückelberg (11342)</h3>
 <ul>
 <li>Algebraic combination <span class="formula">B<sub>N</sub> = dπ + A<sub>N</sub></span> and local BRST
 triviality of the <span class="formula">N<sub>20</sub></span> sector: formal, conditional on the new
 conditional action term. <span class="tag MA">MA</span></li>
 </ul>
 
-<h3>§16.I.92 — Relational rapidity (11757)</h3>
+<h3 id="16-i-92-relational-rapidity-11757">§16.I.92 — Relational rapidity (11757)</h3>
 <ul>
 <li><span class="formula">w<sub>rel</sub> = ½artanh(Π<sub>C</sub>)</span> inverts
 <span class="formula">Π<sub>C</sub> = tanh(2w)</span>. <span class="tag NC">NC</span></li>
@@ -897,7 +918,7 @@ rapidity kinetic term in the declared action as written: formal/manuscript-level
 <span class="tag MA">MA</span></li>
 </ul>
 
-<h3>§16.I.93 — D-grade odd projectors (12124)</h3>
+<h3 id="16-i-93-d-grade-odd-projectors-12124">§16.I.93 — D-grade odd projectors (12124)</h3>
 <ul>
 <li><span class="formula">Π<sub>sp</sub> = (1/3)Z<sup>2</sup>(4I − Z<sup>2</sup))</span>,
 <span class="formula">Π<sub>±</sub> = ½(I ± Z)Π<sub>sp</sub></span>: projector identities verified
@@ -911,7 +932,7 @@ symbolically on grades <span class="formula">−2…2</span>. <span class="tag S
 <span class="tag MA">MA</span></li>
 </ul>
 
-<h3>§16.I.94 — Normal exchange and the 8008 (12310)</h3>
+<h3 id="16-i-94-normal-exchange-and-the-8008-12310">§16.I.94 — Normal exchange and the 8008 (12310)</h3>
 <ul>
 <li><span class="formula">β<sub>N</sub></span> annihilates the 8008 because
 <span class="formula">ker β = 30380</span> in <span class="formula">Λ<sup>2</sup>(248) = 248 ⊕ 30380</span>
@@ -920,7 +941,7 @@ symbolically on grades <span class="formula">−2…2</span>. <span class="tag S
 application manuscript-level. <span class="tag MA">MA</span></li>
 </ul>
 
-<h3>§16.I.95 — Falsified Q<sub>Y</sub> lift candidate (12400)</h3>
+<h3 id="16-i-95-falsified-qy-lift-candidate-12400">§16.I.95 — Falsified Q<sub>Y</sub> lift candidate (12400)</h3>
 <ul>
 <li>Theorem 16.I.95.T1 (12559): the candidate <span class="formula">q<sub>Y</sub> = exp[iπ(ad D)/4]𝒳</span>
 is falsified — an eigenspace-exchanging operator cannot equal the eigenspace-preserving
@@ -929,7 +950,7 @@ is falsified — an eigenspace-exchanging operator cannot equal the eigenspace-p
 <li>Corollary C1 (12577): scalar grade dressing cannot repair it. <span class="tag CP">CP</span></li>
 </ul>
 
-<h3>§16.I.96 — Replacement lift and the contact no-go (12609)</h3>
+<h3 id="16-i-96-replacement-lift-and-the-contact-no-go-12609">§16.I.96 — Replacement lift and the contact no-go (12609)</h3>
 <ul>
 <li>Theorem 16.I.96.T1 (12852): the dihedral relations
 <span class="formula">R<sup>2</sup> = K</span>, <span class="formula">R<sup>8</sup> = I</span>,
@@ -944,7 +965,7 @@ contact norm <span class="formula">Q<sub>Y</sub></span>-even, so no ordinary War
 elementary and complete from the orthogonality premise. <span class="tag CP">CP</span></li>
 </ul>
 
-<h3>§16.I.97 — Gauge class and Jacobian (13070)</h3>
+<h3 id="16-i-97-gauge-class-and-jacobian-13070">§16.I.97 — Gauge class and Jacobian (13070)</h3>
 <ul>
 <li>Theorem 16.I.97.T1 (13156) gauge-canonical lift: manuscript-level. <span class="tag MA">MA</span></li>
 <li><span class="formula">det q = (−1)<sup>64</sup> = +1</span> for the <span class="formula">64 + 64</span>
@@ -957,7 +978,7 @@ cancellation (the global anomaly is stated open). <span class="tag CP">CP</span>
 explicit assumption <span class="tag AX">AX</span>.</li>
 </ul>
 
-<h3>§16.I.98 — Primitive fermionic dihedral double cover (13539)</h3>
+<h3 id="16-i-98-primitive-fermionic-dihedral-double-cover-13539">§16.I.98 — Primitive fermionic dihedral double cover (13539)</h3>
 <ul>
 <li>Theorem 16.I.98.T1 (13636): <span class="formula">R<sup>8</sup> = 1</span>,
 <span class="formula">P<sup>2</sup> = 1</span>, <span class="formula">PRP<sup>−1</sup> = R<sup>−1</sup></span>
@@ -970,7 +991,7 @@ verified centrality. <span class="tag CP">CP</span></li>
 <span class="tag MA">MA</span></li>
 </ul>
 
-<h3>E8 30380 table citation</h3>
+<h3 id="e8-30380-table-citation">E8 30380 table citation</h3>
 <ul>
 <li>The completed exact weight/multiplicity table
 (<code>~/workspace/e8/table_30380_summary.json</code>) was re-read: Weyl dimension 30380, multiplicity
@@ -979,14 +1000,14 @@ sum 30380, 4 dominant weights, 9121 distinct weights, histogram
 (per the assignment's labeling convention for this completed table).</li>
 </ul>
 
-<h3>§§16.I.99–16.I.117 (source lines 14043–20324)</h3>
+<h3 id="16-i-99-16-i-117-source-lines-14043-20324">§§16.I.99–16.I.117 (source lines 14043–20324)</h3>
 <p><b>Coverage.</b> Every line of the chunk was read. 47 numbered claims ledgered in
 <span class="formula">LEDGER_d.md</span>; computation in <span class="formula">audit_16d.py</span>:
 <b>173 assertions, 173 pass, 0 fail</b> (exit 0). Exact integer arithmetic where feasible;
 float checks at tol = 1e-9 unless noted. Line 20324 is the heading of §16.I.118 — inspected,
 not audited.</p>
 
-<h3>What the math established</h3>
+<h3 id="what-the-math-established">What the math established</h3>
 <ul>
 <li><b>Quarter dressing is not in the Spin(12,4) normalizer</b> (100.T1, <span class="tag CP">CP</span>).
 The quarter involution <span class="formula">R<sub>D</sub> = (1+K)/√2</span> conjugates
@@ -1045,7 +1066,7 @@ Dynkin labels established computationally, not guessed. The 30380 table summary 
 as a completed exact computation (<span class="tag NC">NC</span>), never as proof.</li>
 </ul>
 
-<h3>What the math did not establish (firewalls preserved)</h3>
+<h3 id="what-the-math-did-not-establish-firewalls-preserved">What the math did not establish (firewalls preserved)</h3>
 <ul>
 <li><b>Activation.</b> §16.I.114: <span class="formula">λ<sub>2</sub> ≠ 0</span> is NOT forced by E8
 covariance, T<sub>w</sub> kinematics, D4 covariance, reduced q parity, or common fermion-pair
@@ -1072,7 +1093,7 @@ parent Gram matrix, and the conditional heavy-selector phase selection — is ve
 manuscript's proofs are complete, and every conditional is labeled as conditional. The one genuine
 defect (the 106.T2 sign error) was caught and retracted by the manuscript itself at §16.I.107.</p>
 
-<h3>§§16.I.118–16.I.133 and synchronization notes (source lines 20324–23018)</h3>
+<h3 id="16-i-118-16-i-133-and-synchronization-notes-source-lines-20324-23018">§§16.I.118–16.I.133 and synchronization notes (source lines 20324–23018)</h3>
 <p>Source: <span class="formula">~/workspace/vol3/volume_iii.txt</span> lines
 <strong>20324–23018 inclusive</strong> (read in full, four sequential passes).
 Audit script: <span class="formula">vol3/book16/audit_16e.py</span> —
@@ -1170,7 +1191,7 @@ J<sub>0</sub>/j<sub>inc</sub> standard</td>
 <td><span class="tag SC">SC</span>; correction verdict <span class="tag MA">MA</span> (see below)</td></tr>
 </table>
 
-<h3>Volume III synchronization</h3>
+<h3 id="volume-iii-synchronization">Volume III synchronization</h3>
 <p>The manuscript's <strong>September 15, 2026 synchronization update</strong> (lines 22969–23018)
 explicitly corrects earlier normalization-closure claims, and this audit records the correction as the
 manuscript's own verdict. <span class="tag MA">MA</span> The update states: <span class="formula">c<sub>ord</sub>=1</span>
@@ -1188,7 +1209,7 @@ charged datum. The stated next work is: reconstruct ordered witness overlap, aud
 parent-action normalization, then independently match the charged UV interaction. No superseded numerical
 closure is reproduced in this audit.</p>
 
-<h3>Defects found in this chunk</h3>
+<h3 id="defects-found-in-this-chunk">Defects found in this chunk</h3>
 <ul>
 <li><strong>Numbering defect (source).</strong> §16.I.119 is used for two different sections (line 20779:
 inverse post-soldering critical hyperbola; line 21515: three-contact triangle). §16.I.120 is likewise reused
@@ -1208,7 +1229,7 @@ only; §16.I.133's R<sub>2</sub>/R<sub>3</sub> signs are open.</li>
 </ul>
 
 <h2 id="p3">Part III — What is established, what is conditional, what is not</h2>
-<h3>Established</h3>
+<h3 id="established">Established</h3>
 <ul>
 <li><b>Two-fermion bridge arithmetic (core).</b> Covariant 45° stationarity of the diagonal Z bridge, the transported-projector theorem, qSaw lift/inverse/uniqueness, the D4 trace-pair reconstruction, and the addendum BB-soft point are verified. <span class="tag NC">NC</span>/<span class="tag CP">CP</span></li>
 <li><b>E8 dimension arithmetic.</b> Weyl-dimension-formula checks for the 248, 3875, 27000, 30380, and 146325270 irreps; dim Sym²(30380) = 461,487,390; the full 30380⊗30380 decomposition sums to 922,944,400 with a consistent symmetric/antisymmetric allocation; the completed exact Freudenthal 30380 weight table (4 dominant weights, 9121 distinct weights, exact total 30380) underwrites the E8 numerics. <span class="tag NC">NC</span></li>
@@ -1219,12 +1240,12 @@ only; §16.I.133's R<sub>2</sub>/R<sub>3</sub> signs are open.</li>
 <li><b>Anomaly and phase arithmetic.</b> J(R_D)=1 for k=−5…5; so(10) d^ABC=0 in exact integer arithmetic; the μ4 phase lattice; the 243/1024 transverse coefficient; det D(p)=[Z_+Z_−p²−m²]²; pitchfork threshold a_c=1/2 and the saddle-node location. <span class="tag SC">SC</span>/<span class="tag NC">NC</span></li>
 <li><b>Sept 15 correction recorded.</b> The manuscript's own synchronization update retracts earlier normalization-closure claims; the ordered-response conversions' internal agreement is checked. <span class="tag SC">SC</span> (conversions); the retraction itself <span class="tag MA">MA</span></li>
 </ul>
-<h3>Conditional</h3>
+<h3 id="conditional">Conditional</h3>
 <ul>
 <li>Every physical identification — the E8(−24) host realization, Lorentz–Hodge transfer, BRST ghost-number-zero survival, N₄&gt;0, exactly one healthy spin-2, absolute mirror selection, the D3-normal-to-true-conformal map T_N — remains conditional on imports and open gates the manuscript itself lists. <span class="tag MA">MA</span></li>
 <li>The 16×16 Hessian spectrum, LieART tensor products, and frozen-Chevalley projected vectors are the manuscript's completed symbolic computations, cited as such; independent dimension-count and ratio consistency checks agree. <span class="tag SC">SC</span> (cited) with <span class="tag NC">NC</span> consistency checks</li>
 </ul>
-<h3>Not established</h3>
+<h3 id="not-established">Not established</h3>
 <ul>
 <li><span class="tag IC">IC</span> §16.I.80, lines 7646–7660: the boxed h_R(v_a,C)=0 derivation contains a sign error (setting u=v=C gives 0=0, not 2h_R(h_aC,C)=0); an explicit skew counterexample is in audit_16c.py. Consequences: the boxed P_F C=0 and N_scalar,radial=0 are incorrect as proved; §16.I.82's δ_σν_F rests on the incorrect lemma.</li>
 <li><span class="tag IC">IC</span> Line 1614: the printed Schur formula is wrong under the ordinary real adjoint (the 2θ_B term cancels; correct form in audit_16a.py).</li>
@@ -1248,7 +1269,7 @@ microscopic parent) stays open and unbuilt.</p>
 
 <hr>
 <h2 id="p5">Part V — Volume III closure — Books 14–16</h2>
-<h3>Publication ledger</h3>
+<h3 id="publication-ledger">Publication ledger</h3>
 <ul>
 <li><b>Book 14</b> establishes the two-fermion mass geometry: the rapidity coordinate q_m=tanh(λ_m/2), the pair
 invariant in two exact forms, the continued invariant, and the bound-mass identities (50 assertions, all pass).
@@ -1266,16 +1287,16 @@ above (690 assertions across five check scripts, all pass; 495 ledgered claims:
 representation theory behind the firewall is the manuscript's exact computation, not independently rerun; the
 microscopic parent, normalization, and all action-level gates remain open.</li>
 </ul>
-<h3>Operational closure</h3>
+<h3 id="operational-closure">Operational closure</h3>
 <p>No book in Volume III establishes a nonempty operational difference set: the manuscript's own frontier note
 authorizes no empirical promotion and records Δ_op(Book 16)=∅. <span class="tag MA">MA</span> (manuscript's own
 status declaration, recorded — not independently established).</p>
-<h3>Three-Volume Boundary</h3>
+<h3 id="three-volume-boundary">Three-Volume Boundary</h3>
 <p>Volume III depends only on Volumes I–II, ordinary background mathematics, and explicitly declared external
 imports. The E8 numerics cite the independently completed exact Freudenthal 30380 weight table. Future
 extensions may cite these three volumes but must not silently alter their theorem status, numbering, or
 dependency order. <span class="tag MA">MA</span> (procedural)</p>
-<h3>Master-Retirement Condition</h3>
+<h3 id="master-retirement-condition">Master-Retirement Condition</h3>
 <p>The former consolidated master manuscript <b>may be retired to archive status only after</b> (a) Volume I
 receives the same publication audit <i>and</i> (b) a final cross-volume comparison confirms that no unique
 authoritative theorem, obstruction, caveat, dependency, or status qualification remains only in the master.
@@ -1284,6 +1305,28 @@ ledger still lists open items (Wolfram Engine unlicensed; original Modules 6, 8�
 II and III are now published with their audits. <span class="tag MA">MA</span> (procedural condition; antecedent
 currently unmet)</p>
 
+<!-- BOOKNAV-NAV-START -->
+<nav class="booknav" aria-label="Book navigation">
+<a class="booknav-panel booknav-prev" rel="prev" href="../book15/">
+<span class="booknav-eyebrow">← Previous</span>
+<span class="booknav-title">Book 15 — Saw Interchanges, Double-Angle Decomposition, and the Bridge to E8</span>
+<span class="booknav-vol">Volume III</span>
+</a>
+<a class="booknav-panel booknav-center" href="../">
+<span class="booknav-eyebrow">Series</span>
+<span class="booknav-title">Index</span>
+</a>
+<a class="booknav-panel booknav-center" href="../contents/">
+<span class="booknav-eyebrow">Series</span>
+<span class="booknav-title">Contents</span>
+</a>
+<a class="booknav-panel booknav-next" rel="next" href="../book17/">
+<span class="booknav-eyebrow">Next →</span>
+<span class="booknav-title">Book 17 — The Discrete Octant</span>
+<span class="booknav-vol">Volume IV</span>
+</a>
+</nav>
+<!-- BOOKNAV-NAV-END -->
 <footer>
 <p>Rewrite of Book 16 of <i>R Theory — Volume III</i> (working manuscript), with the Volume III closure.
 Restructured: pictures and intuition first (Part I), formal audit second (Part II). All theorems, ledgers,

@@ -38,13 +38,34 @@ hr{margin:2.5em 0;border:none;border-top:1px solid #bbb}
  border:1px solid #666;border-radius:3px;background:#eee;cursor:pointer;color:#1a1a1a}
 </style>
 <!-- SITENAV-END -->
+<!-- BOOKNAV-CSS-START -->
+<style>
+.booknav{font-family:Georgia,serif;display:grid;grid-template-columns:1.35fr .85fr .85fr 1.35fr;gap:10px;margin:2.5em 0 0}
+.booknav-panel{display:flex;flex-direction:column;justify-content:center;text-decoration:none;color:#1a1a1a;
+ background:linear-gradient(180deg,#ffffff 0%,#f4f7fb 60%,#e7edf4 100%);
+ border:1px solid #c7d2de;border-radius:8px;padding:12px 16px;
+ box-shadow:inset 0 1px 0 #ffffff,0 2px 6px rgba(27,95,170,.10);
+ transition:border-color .15s ease,box-shadow .15s ease,transform .15s ease}
+a.booknav-panel:hover{border-color:#1b5faa;transform:translateY(-1px);
+ box-shadow:inset 0 1px 0 #ffffff,0 4px 12px rgba(27,95,170,.18)}
+a.booknav-panel:focus-visible{outline:2px solid #1b5faa;outline-offset:2px}
+.booknav-eyebrow{font-size:.7em;letter-spacing:.09em;text-transform:uppercase;color:#5a5a5a}
+.booknav-title{font-weight:bold;color:#1b5faa;margin-top:3px;line-height:1.35}
+.booknav-vol{font-size:.78em;color:#5a5a5a;margin-top:2px}
+.booknav-next{text-align:right}
+.booknav-center{text-align:center}
+.booknav-panel.is-disabled{opacity:.45;cursor:default}
+.booknav-panel.is-disabled .booknav-title{color:#5a5a5a}
+@media (max-width:640px){.booknav{grid-template-columns:1fr 1fr}.booknav-next{text-align:left}}
+</style>
+<!-- BOOKNAV-CSS-END -->
 </head>
 <body>
 <!-- SITENAV-NAV-START -->
 <nav class="sitenav" aria-label="Site navigation">
 <a class="sitenav-brand" href="../">R Theory — Rewrite</a>
 <span class="sitenav-links">
-<a href="../#hard">Hard&nbsp;science</a><a href="../#theoretical">Theoretical</a><a href="../vol0/">Vol&nbsp;0</a><a href="../vol4/">Vol&nbsp;IV</a><a href="../tables/">Tables</a>
+<a href="../contents/">Contents</a><a href="../index/">Index</a><a href="../contents/#vol-0">Vol&nbsp;0</a><a href="../contents/#vol-1">Vol&nbsp;I</a><a href="../contents/#vol-2">Vol&nbsp;II</a><a href="../contents/#vol-3">Vol&nbsp;III</a><a href="../contents/#vol-4">Vol&nbsp;IV</a><a href="../tables/">Tables</a><a href="../research/">Research</a>
 </span>
 <form class="sitenav-search" action="https://www.google.com/search" method="get" target="_blank" role="search"
  onsubmit="if(!this.q.value.trim())return false;this.q.value='site:cosbykit-afk.github.io/r-theory-rewrite '+this.q.value">
@@ -65,32 +86,32 @@ hr{margin:2.5em 0;border:none;border-top:1px solid #bbb}
 <h2 id="p1">Part I — See it first</h2>
 <p>Six pictures. The first four draw what the book constructs; the last two draw the dimension identities the book checks. The graphs below are live Desmos calculators (drag to pan, scroll to zoom); if Desmos cannot load, a static rendering appears instead. Every caption carries the scope of what is shown.</p>
 
-<h3>Figure 1 — U = E ⊕ V: the inherited real-form seam <span class="tag D">D</span> / <span class="tag P">P</span></h3>
+<h3 id="figure-1-u-e-v-the-inherited-real-form-seam-d-p">Figure 1 — U = E ⊕ V: the inherited real-form seam <span class="tag D">D</span> / <span class="tag P">P</span></h3>
 <div class="graph" id="d1"></div>
 <img class="fallback" id="f1" src="graphs/b5_u.png" alt="E rank 2 and V rank 3 blocks, no identification between them">
 <div class="caption"><b>What you see.</b> The retained M3 real rank-2 carrier E and the independent M4 real rank-3 geometric carrier V, drawn as disjoint blocks. The dashed arrow between them is crossed out: no preferred identification E→V or V→E is inherited from the frozen M0–M4 spine <span class="tag M">M</span> — that absence is a declared fact of the inheritance, not something the picture proves. <b>The arithmetic.</b> U = E ⊕ V is a definition <span class="tag D">D</span>; dim<sub>ℝ</sub>U = 2 + 3 = 5 is then elementary addition <span class="tag P">P</span>. <b>What it doesn't show.</b> This five is a bookkeeping rank of the neutral real-form carrier — it is not a claim that physical spacetime has five dimensions <span class="tag M">M</span>.</div>
 
-<h3>Figure 2 — Axiom Zero: the doubled carrier <span class="tag A">A</span></h3>
+<h3 id="figure-2-axiom-zero-the-doubled-carrier-a">Figure 2 — Axiom Zero: the doubled carrier <span class="tag A">A</span></h3>
 <div class="graph" id="d2"></div>
 <img class="fallback" id="f2" src="graphs/b5_axiom.png" alt="U and independent partner U-sharp with block-compatible pairing">
 <div class="caption"><b>What you see.</b> U on the left and its independent isomorphic partner U<sup>♯</sup> on the right, with the declared block-compatible linear isomorphism ι: U → U<sup>♯</sup> drawn as the pairing that respects the earned block ancestry — ι(E) = E<sup>♯</sup>, ι(V) = V<sup>♯</sup>. The red dashed diagonals are maps in Hom(U,U<sup>♯</sup>): they may exist mathematically, but A0.2 declares they are <i>not active primitive couplings</i>. Any later U↔U<sup>♯</sup> coupling must be declared as additional structure. <b>The identity.</b> With the pairing, I<sub>ι</sub>(u,v) = (−ι<sup>−1</sup>v, ιu) satisfies I<sub>ι</sub>² = −1, verified below <span class="tag P">P</span> — so W has complex rank five, canonical <i>relative to the declared pairing</i>, not from U<sup>♯</sup> ≅ U alone. <b>Scope.</b> The pairing, the independence, and the noncoupling are the Axiom-Zero datum <span class="tag A">A</span> — granted, not proved. The notation U<sup>♯</sup> (not U<sup>∗</sup> or similar) keeps the independent partner distinct from the internal M3 operator J <span class="tag D">D</span>.</div>
 
-<h3>Figure 3 — The decadic theorem and the minimality ladder <span class="tag P">P</span></h3>
+<h3 id="figure-3-the-decadic-theorem-and-the-minimality-ladder-p">Figure 3 — The decadic theorem and the minimality ladder <span class="tag P">P</span></h3>
 <div class="graph" id="d3"></div>
 <img class="fallback" id="f3" src="graphs/b5_decadic.png" alt="Rank number line: 5, 10, then 10+2m extensions">
 <div class="caption"><b>What you see.</b> The rank number line. At 5: the neutral carrier U. At 10: the certified M5 carrier W = U ⊕ U<sup>♯</sup>, real rank ten and complex rank five — the Decadic Carrier Theorem, a direct consequence of Axiom Zero: dim<sub>ℝ</sub>W = 5 + 5 = 10 <span class="tag P">P</span>. To the right, the extended carriers W<sub>ext</sub> = W<sub>0</sub> ⊕ Z at ranks 10 + 2m for m = 1, 2, … (Corollary 5.3.1 <span class="tag P">P</span>). Equality with ten holds exactly when Z = {0}: ten is the <i>smallest</i> completed carrier rank forced by the construction, not a proof that every admissible future realization has exactly ten real dimensions <span class="tag P">P</span>. Any added sector Z must re-enter through the extension ledger <span class="tag M">M</span>.</div>
 
-<h3>Figure 4 — Rival overlap completions: k ∈ {0, 2, 4} <span class="tag P">P</span></h3>
+<h3 id="figure-4-rival-overlap-completions-k-0-2-4-p">Figure 4 — Rival overlap completions: k ∈ {0, 2, 4} <span class="tag P">P</span></h3>
 <div class="graph" id="d4"></div>
 <img class="fallback" id="f4" src="graphs/b5_overlap.png" alt="Carrier ranks 10, 8, 6 for overlap parameters k=0,2,4">
 <div class="caption"><b>What you see.</b> The counterfactual: suppose the real five-space U is allowed to overlap its complex image IU, with k = dim<sub>ℝ</sub>(U ∩ IU). Because U ∩ IU is I-invariant its real dimension is even (<span class="tag S">S</span> standard linear algebra), and because U has odd real dimension five, U cannot itself be I-invariant — hence k ∈ {0, 2, 4} <span class="tag P">P</span>. The completed carrier U + IU then has dim<sub>ℝ</sub> = 10 − k: ranks 10, 8, 6 with complex ranks 5, 4, 3 <span class="tag P">P</span>. <b>The point.</b> k = 0 is exactly Axiom Zero. The k = 2 and k = 4 cases are <i>lawful mathematical completions</i>, excluded only by the adopted independence axiom — not contradictions, not failed mathematics <span class="tag M">M</span>.</div>
 
-<h3>Figure 5 — Supporting check: 2n = n(n−1)/2 singles out n = 5 <span class="tag N">N</span></h3>
+<h3 id="figure-5-supporting-check-2n-n-n-1-2-singles-out-n-5-n">Figure 5 — Supporting check: 2n = n(n−1)/2 singles out n = 5 <span class="tag N">N</span></h3>
 <div class="graph" id="d5"></div>
 <img class="fallback" id="f5" src="graphs/b5_checks.png" alt="Curves 2n and n(n-1)/2 intersecting at n=5, value 10">
 <div class="caption"><b>What you see.</b> The dimension of a doubled n-space, 2n, against the dimension of its bivector space, n(n−1)/2. They meet at n = 5 (value 10), the unique positive-integer solution <span class="tag N">N</span> — verified exactly below. <b>The point, stated carefully.</b> These are structural corroboration, not a necessity proof: they explain why five and ten recur naturally once U has been earned, but they do not derive Axiom Zero and are not premises of Theorem 5.3 <span class="tag M">M</span>. The manuscript calls them "nonfoundational" consistency checks, and the picture honors that label.</div>
 
-<h3>Figure 6 — Supporting check: exterior-algebra dims of a five-space <span class="tag N">N</span></h3>
+<h3 id="figure-6-supporting-check-exterior-algebra-dims-of-a-five-space-n">Figure 6 — Supporting check: exterior-algebra dims of a five-space <span class="tag N">N</span></h3>
 <div class="graph" id="d6"></div>
 <img class="fallback" id="f6" src="graphs/b5_exterior.png" alt="Exterior algebra dimensions (1,5,10,10,5,1)">
 <div class="caption"><b>What you see.</b> (dim Λ<sup>0</sup>U, …, dim Λ<sup>5</sup>U) = (1, 5, 10, 10, 5, 1) <span class="tag N">N</span> — the binomial coefficients, exact. And the Hodge condition: asking the Hodge dual of a quadratic bivector product to return to the vector degree in one step, ∗(Λ²U ∧ Λ²U) ⊂ Λ<sup>n−4</sup>U, demands n − 4 = 1, i.e. n = 5 <span class="tag N">N</span>. <b>Same caveat as Figure 5:</b> exact dimension checks that corroborate the architecture but do not exhaust rival carrier constructions <span class="tag M">M</span>.</div>
@@ -99,29 +120,29 @@ hr{margin:2.5em 0;border:none;border-top:1px solid #bbb}
 <h2 id="p2">Part II — Then earn it</h2>
 <p>The formal audit, section by section, condensed. Notation: E = retained M3 real rank-2 carrier, V = independent M4 real rank-3 carrier, U = E ⊕ V, W = U ⊕ U<sup>♯</sup>, ι: U → U<sup>♯</sup> the declared pairing.</p>
 
-<h3>5.1 — The inherited real-form seam <span class="tag D">D</span> / <span class="tag M">M</span> / <span class="tag P">P</span></h3>
+<h3 id="5-1-the-inherited-real-form-seam-d-m-p">5.1 — The inherited real-form seam <span class="tag D">D</span> / <span class="tag M">M</span> / <span class="tag P">P</span></h3>
 <p>E and V are inherited from the frozen M0–M4 spine with no preferred identification E→V or V→E <span class="tag M">M</span> — a fact about the inheritance, declared. U = E ⊕ V is introduced by definition <span class="tag D">D</span>; dim<sub>ℝ</sub>U = 2 + 3 = 5 follows by elementary rank addition <span class="tag P">P</span>. This five is bookkeeping rank of the neutral real-form carrier; the manuscript explicitly disavows reading it as physical spacetime dimensionality <span class="tag M">M</span>.</p>
 
-<h3>5.2 — Axiom Zero <span class="tag A">A</span> — real–imaginary independence and primitive noncoupling</h3>
+<h3 id="5-2-axiom-zero-a-real-imaginary-independence-and-primitive-noncoupling">5.2 — Axiom Zero <span class="tag A">A</span> — real–imaginary independence and primitive noncoupling</h3>
 <p><b>A0.1.</b> An independent isomorphic partner carrier U<sup>♯</sup> is introduced together with a declared block-compatible linear isomorphism ι: U → U<sup>♯</sup>; U ∩ U<sup>♯</sup> = {0}; W = U ⊕ U<sup>♯</sup>; the pairing preserves the earned block ancestry, ι(E) = E<sup>♯</sup>, ι(V) = V<sup>♯</sup> <span class="tag A">A</span>. <b>A0.2.</b> Primitive admissible symmetry or dynamical operators preserve the two summands separately and lift through the declared pairing as A ⊕ ιAι<sup>−1</sup>; mathematical off-diagonal maps in Hom(U,U<sup>♯</sup>) and Hom(U<sup>♯</sup>,U) may exist but are not active primitive couplings; any later U↔U<sup>♯</sup> coupling is additional structure, not inherited <span class="tag A">A</span>. The <sup>♯</sup> notation keeps the independent partner distinct from the internal M3 operator J; the pairing ι is pairing data, not a collapse of U and U<sup>♯</sup> into one real subspace <span class="tag D">D</span>. This is the first R-specific mathematical axiom in the revised dependency chain <span class="tag M">M</span>. It imports no Standard Model, Spin(10), gauge theory, quantum probability, dynamics, or empirical calibration <span class="tag M">M</span>.</p>
 
-<h3>5.3 — Decadic Carrier Theorem <span class="tag P">P</span> (conditional on the axiom)</h3>
+<h3 id="5-3-decadic-carrier-theorem-p-conditional-on-the-axiom">5.3 — Decadic Carrier Theorem <span class="tag P">P</span> (conditional on the axiom)</h3>
 <p>Since U<sup>♯</sup> ≅ U and the sum is direct, dim<sub>ℝ</sub>W = dim<sub>ℝ</sub>U + dim<sub>ℝ</sub>U<sup>♯</sup> = 5 + 5 = 10 <span class="tag P">P</span>. With the declared pairing ι, define I<sub>ι</sub>(u,v) = (−ι<sup>−1</sup>v, ιu); then I<sub>ι</sub>² = −1 by direct block computation <span class="tag P">P</span>, so W has complex rank five. The minimal doubled completion is therefore real rank ten and complex rank five. The complex structure is canonical relative to the declared pairing ι — not determined by the bare statement U<sup>♯</sup> ≅ U alone <span class="tag P">P</span>. Corollary 5.3.1 (minimality, not ambient uniqueness) <span class="tag P">P</span>: for W<sub>ext</sub> = W<sub>0</sub> ⊕ Z with an additional independent sector Z, dim<sub>ℝ</sub>W<sub>ext</sub> ≥ 10 with equality exactly when Z = {0}; if the complex structure must extend to all of Z, Z is real-even-dimensional, so dim<sub>ℝ</sub>W<sub>ext</sub> = 10 + 2m for m = 0, 1, 2, … . Ten is the smallest forced rank — not a proof that every future realization has exactly ten real dimensions. Added sectors re-enter through the extension ledger <span class="tag M">M</span>.</p>
 
-<h3>5.4 — Rival overlap completions and supporting consistency checks <span class="tag P">P</span> / <span class="tag N">N</span></h3>
+<h3 id="5-4-rival-overlap-completions-and-supporting-consistency-checks-p-n">5.4 — Rival overlap completions and supporting consistency checks <span class="tag P">P</span> / <span class="tag N">N</span></h3>
 <p>Theorem 5.4.1 (even-overlap alternatives) <span class="tag P">P</span>: with k = dim<sub>ℝ</sub>(U ∩ IU), I-invariance forces k even (<span class="tag S">S</span> standard), and odd dim U = 5 forces k ≠ 5, so k ∈ {0, 2, 4}; then dim<sub>ℝ</sub>(U + IU) = 10 − k gives ranks 10, 8, 6 with complex ranks 5, 4, 3. k = 0 is Axiom Zero; k = 2, 4 are lawful counterfactuals excluded only by the adopted axiom <span class="tag M">M</span>. The supporting consistency checks are exact identities, verified: 2n = n(n−1)/2 has unique positive-integer solution n = 5 (value 10) <span class="tag N">N</span>; exterior-algebra dims of a five-space are (1, 5, 10, 10, 5, 1) <span class="tag N">N</span>; the Hodge one-step condition n − 4 = 1 gives n = 5 <span class="tag N">N</span>. They corroborate but do not derive Axiom Zero and are not premises of Theorem 5.3 — the manuscript labels them nonfoundational, and the audit keeps that label <span class="tag M">M</span>.</p>
 
-<h3>5.5 — Status and exclusions <span class="tag M">M</span></h3>
+<h3 id="5-5-status-and-exclusions-m">5.5 — Status and exclusions <span class="tag M">M</span></h3>
 <p>M5 is mathematical carrier structure, not a statement of physical spacetime dimensionality <span class="tag M">M</span>. The previously studied 6D and 8D overlap completions remain lawful mathematical counterfactuals; they are excluded from M5 because they violate the adopted direct-independence condition, not because they are impossible mathematics <span class="tag M">M</span>. Foundational cross-bivector or SO(5)-type mixing is not inherited at M5 — such mixing can be studied later only as explicitly added structure <span class="tag M">M</span>.</p>
 
-<h3>5.6 — Anti-circularity firewall <span class="tag M">M</span></h3>
+<h3 id="5-6-anti-circularity-firewall-m">5.6 — Anti-circularity firewall <span class="tag M">M</span></h3>
 <p>Standard Model content, Spin(10), SU(5), E6/E8, generation counting, CKM structure, string dimensionality, and cosmological coincidences may later test or contextualize the decadic carrier. None may be used retroactively to justify Axiom Zero <span class="tag M">M</span>. This firewall is a methodological declaration of the manuscript — a rule about how the argument may be read, not a mathematical theorem. The regular-simplex 10→11 common-mode construction, the C³⊕C²→C⁵ comparison, the 16+16 half-spin structure, and the bivector/Hodge coincidences are downstream corollaries or comparisons only <span class="tag M">M</span>.</p>
 
 <hr>
 <h2 id="p3">Part III — What Book 5 establishes, and what it doesn't</h2>
-<h3>Established (conditional on Axiom Zero)</h3>
+<h3 id="established-conditional-on-axiom-zero">Established (conditional on Axiom Zero)</h3>
 <p class="small">U = E ⊕ V with dim<sub>ℝ</sub>U = 5, with no inherited E↔V identification <span class="tag D">D</span>/<span class="tag M">M</span>; Axiom Zero (A0.1, A0.2): independent partner U<sup>♯</sup>, declared block-compatible pairing ι, direct sum W = U ⊕ U<sup>♯</sup>, primitive diagonal noncoupling <span class="tag A">A</span>; dim<sub>ℝ</sub>W = 10 and complex rank 5, with I<sub>ι</sub>(u,v) = (−ι<sup>−1</sup>v, ιu), I<sub>ι</sub>² = −1, canonical relative to the declared pairing <span class="tag P">P</span>; minimality corollary: extended carriers have dim 10 + 2m, equality at ten iff no added sector <span class="tag P">P</span>; even-overlap enumeration k ∈ {0,2,4} → ranks 10, 8, 6 (complex 5, 4, 3) <span class="tag P">P</span>; exact dimension identities 2n = n(n−1)/2 at n = 5, exterior dims (1,5,10,10,5,1), Hodge n − 4 = 1 → n = 5 <span class="tag N">N</span>; the anti-circularity firewall and downstream-only status of the 10→11, C³⊕C²→C⁵, and 16+16 comparisons <span class="tag M">M</span>.</p>
-<h3>Not derived</h3>
+<h3 id="not-derived">Not derived</h3>
 <p class="small">Axiom Zero itself — the independence, the pairing data, and the primitive noncoupling are granted, not proved <span class="tag A">A</span>; no physical spacetime dimensionality of any kind; no dynamics, no quantum probability, no Standard Model content (all fenced out by 5.6); no 10→11 common-mode construction as a theorem of this book (downstream comparison only <span class="tag M">M</span>); no cross-bivector or SO(5)-type mixing at M5; no claim that ten is the unique admissible carrier rank for all future realizations — Corollary 5.3.1 bounds this explicitly.</p>
 
 <hr>
@@ -262,5 +283,27 @@ setTimeout(function(){
   }
 }, 12000);
 </script>
+<!-- BOOKNAV-NAV-START -->
+<nav class="booknav" aria-label="Book navigation">
+<a class="booknav-panel booknav-prev" rel="prev" href="../book4/">
+<span class="booknav-eyebrow">← Previous</span>
+<span class="booknav-title">Book 4 — Geometric Rank, Coframes, and Connection</span>
+<span class="booknav-vol">Volume I</span>
+</a>
+<a class="booknav-panel booknav-center" href="../">
+<span class="booknav-eyebrow">Series</span>
+<span class="booknav-title">Index</span>
+</a>
+<a class="booknav-panel booknav-center" href="../contents/">
+<span class="booknav-eyebrow">Series</span>
+<span class="booknav-title">Contents</span>
+</a>
+<a class="booknav-panel booknav-next" rel="next" href="../book6/">
+<span class="booknav-eyebrow">Next →</span>
+<span class="booknav-title">Book 6 — Local Symmetry and Carrier Mathematics</span>
+<span class="booknav-vol">Volume I</span>
+</a>
+</nav>
+<!-- BOOKNAV-NAV-END -->
 </body>
 </html>

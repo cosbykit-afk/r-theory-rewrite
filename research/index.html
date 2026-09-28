@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>R Theory — Active Research</title>
+<style>
+  :root { --ink:#1a1a1a; --muted:#5a5a5a; --accent:#1b5faa; --paper:#fff; --wash:#f6f8fb; --line:#dfe5ec;
+          --ok:#1c7a3d; --chk:#8a6d00; --ass:#7a4d00; --ref:#a02020; --inc:#555; }
+  body { font-family: -apple-system, "Segoe UI", Georgia, serif; color:var(--ink); background:var(--paper);
+         max-width: 900px; margin:0 auto; padding: 24px 20px 80px; line-height:1.65; }
+  h1 { font-size:1.9em; line-height:1.25; margin-bottom:.2em; }
+  h2 { margin-top:2em; border-bottom:1px solid var(--line); padding-bottom:.3em; }
+  h3 { margin-top:1.4em; }
+  .sub { color:var(--muted); font-size:1.05em; margin-top:0; }
+  .about { background:var(--wash); border:1px solid var(--line); border-radius:8px; padding:14px 18px; margin:1.5em 0; }
+  .about p { margin:.5em 0; }
+  .boundary { background:#fff8e6; border:2px solid #d8a900; border-radius:8px; padding:14px 18px; margin:1.5em 0; }
+  .boundary p { margin:.5em 0; }
+  .tag { display:inline-block; font-size:.72em; font-weight:700; border:1px solid var(--line); border-radius:3px;
+         padding:1px 7px; margin-right:5px; background:var(--wash); color:var(--muted); vertical-align:middle; }
+  .tag.proved { color:var(--ok); border-color:var(--ok); }
+  .tag.checked { color:var(--chk); border-color:var(--chk); }
+  .tag.asserted { color:var(--ass); border-color:var(--ass); }
+  .tag.refuted { color:var(--ref); border-color:var(--ref); }
+  .tag.incomplete { color:var(--inc); border-color:var(--inc); }
+  table { border-collapse:collapse; width:100%; margin:1em 0; font-size:.93em; }
+  th, td { border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top; }
+  th { background:var(--wash); }
+  code { background:var(--wash); padding:1px 5px; border-radius:3px; font-size:.92em; }
+  a { color:var(--accent); }
+  footer { margin-top:3em; color:var(--muted); font-size:.88em; border-top:1px solid var(--line); padding-top:1em; }
+  .date { display:block; font-size:.8em; color:var(--muted); margin-top:.6em; }
+</style>
+<!-- SITENAV-START -->
+<style>
+.sitenav{font-family:Georgia,serif;font-size:.88em;background:#f4f4f0;border:1px solid #bbb;
+ border-radius:4px;padding:8px 14px;margin:0 0 1.5em;display:flex;flex-wrap:wrap;
+ align-items:center;gap:8px 16px;line-height:1.4}
+.sitenav a{color:#0645ad;text-decoration:none;white-space:nowrap}
+.sitenav a:hover{text-decoration:underline}
+.sitenav .sitenav-brand{font-weight:bold;color:#1a1a1a}
+.sitenav .sitenav-links{display:flex;flex-wrap:wrap;gap:8px 14px}
+.sitenav-search{margin-left:auto;display:flex;gap:6px;align-items:center}
+.sitenav-search input{font-family:Georgia,serif;font-size:.95em;padding:4px 8px;
+ border:1px solid #999;border-radius:3px;width:170px;background:#fff;color:#1a1a1a}
+.sitenav-search button{font-family:Georgia,serif;font-size:.95em;padding:4px 12px;
+ border:1px solid #666;border-radius:3px;background:#eee;cursor:pointer;color:#1a1a1a}
+</style>
+<!-- SITENAV-END -->
+</head>
+<body>
+<!-- SITENAV-NAV-START -->
+<nav class="sitenav" aria-label="Site navigation">
+<a class="sitenav-brand" href="../">R Theory — Rewrite</a>
+<span class="sitenav-links">
+<a href="../contents/">Contents</a><a href="../index/">Index</a><a href="../contents/#vol-0">Vol&nbsp;0</a><a href="../contents/#vol-1">Vol&nbsp;I</a><a href="../contents/#vol-2">Vol&nbsp;II</a><a href="../contents/#vol-3">Vol&nbsp;III</a><a href="../contents/#vol-4">Vol&nbsp;IV</a><a href="../tables/">Tables</a><a href="../research/">Research</a>
+</span>
+<form class="sitenav-search" action="https://www.google.com/search" method="get" target="_blank" role="search"
+ onsubmit="if(!this.q.value.trim())return false;this.q.value='site:cosbykit-afk.github.io/r-theory-rewrite '+this.q.value">
+<input type="text" name="q" placeholder="Search this site&#8230;" aria-label="Search this site">
+<button type="submit">Search</button>
+</form>
+</nav>
+<!-- SITENAV-NAV-END -->
+
+<h1>R Theory — Active Research</h1>
+<p class="sub">The live research front: what the math has proven, what it has checked, what it has refuted, and what is still open.</p>
+<span class="date">Last updated: 2026-09-25</span>
+
+<div class="boundary">
+<p><strong>Scope boundary.</strong> The results below are findings of the <em>Una operator theory</em> (the trigonometric operator program: Unaexpon/Unainverex and derived channels). They are being tested as possible research inputs to R Theory. <strong>No Una result changes any established R Theory result until a derivation proves the connection.</strong> Operator-theory theorems live in the Una ledger; R Theory theorems live in the R Theory audit. The two are not mixed.</p>
+<p>Every claim carries a scope label: <span class="tag proved">PROVED</span> <span class="tag checked">CHECKED</span> <span class="tag asserted">ASSERTED</span> <span class="tag refuted">REFUTED</span> <span class="tag incomplete">INCOMPLETE</span>. A numerical check is never presented as a proof; a proof is never followed by redundant sampling.</p>
+</div>
+
+<p><strong>New:</strong> the <a href="calibration.html">Calibration Predictions ledger</a> — falsifiable predictions from the three-anchor calibration program (opened 2026-09-28; six entries: CAL-P1–P5 <span class="tag open">OPEN</span>, CAL-P6 <span class="tag checked">CONFIRMED</span>; plus the model's dimensionless inventory and the known-physics comparison theory).</p>
+
+<h2 id="1-critical-path-double-angle-elliptic-conic">1. Critical path: double-angle → elliptic → conic</h2>
+<div class="about">
+<p>The active program follows one line of identities outward. The double-angle formulas generate an elliptic (rotation) flow; the elliptic flow is the rational parametrization of a conic; the conic carries the full operator set. Each step below is proved from the previous one.</p>
+<p><strong>Chain (all <span class="tag proved">PROVED</span>):</strong></p>
+<ol>
+<li><strong>Double angle.</strong> <code>H(2x) = 4H(x)V(x)</code>, <code>V(2x) = 4V(x)² − 1/2</code>, where <code>H(x) = sin(2x)/4</code> and <code>V(x) = H′(x) = cos(2x)/2</code>. The pair <code>(H,V)</code> traces the ellipse <code>V² + 4H² = 1/4</code> — the projective image of the circle conic <code>X² + Y² = Z²</code>.</li>
+<li><strong>Elliptic flow.</strong> The Δ = −1 Riccati equations generate rotation flows; uniform circular motion on the transfer conic: <code>(p′,q′) = (−q,p)</code>, speed √2, <code>p″ + p = 0</code>, <code>λ″ + λ = 1/2</code>.</li>
+<li><strong>Conic.</strong> Möbius chart transitions are conic automorphisms; the transition group <code>G = ⟨a,b⟩ ⊂ PGL(2,ℝ)</code> is finite of order 8, isomorphic to <code>D₄</code> (presentation <code>⟨a,b | a² = b² = (ab)⁴ = 1⟩</code>). Transfer geometry is a conic with chordal parameter <code>λ = (1−p)/2</code>.</li>
+<li><strong>Phase.</strong> The complex-pair phase has the closed form <code>φ = arg(W/U) = 2·arctan p</code>, with <code>tan(φ/2) = p</code> — the Weierstrass uniformization tying the phase to the transfer coordinate.</li>
+<li><strong>Transverse / radial.</strong> The x-flow splits as rotation × scaling: <code>2∂_θ − cosh(ℓs)∂_{ℓs} + cosh(ℓc)∂_{ℓc}</code>, with radial flow <code>ℓs′ = −cosh(ℓs)</code>, <code>ℓc′ = +cosh(ℓc)</code>.</li>
+<li><strong>Spinor.</strong> <code>Cl(1,1) ≅ M₂(ℝ)</code> proved from scratch (γ¹ = σ₃, γ² = iσ₂); the adjoint double cover <code>SL(2,ℝ) → SO⁺(2,1)</code> with kernel <code>{±I}</code>; the conic action is literally this adjoint action.</li>
+</ol>
+<p>Full document: <code>una_operators/CHAIN_conic_unification.md</code> (7 links, 7 independent verifiers, all exit 0).</p>
+</div>
+
+<h2 id="2-proved-results">2. Proved results</h2>
+<h3 id="seven-gate-campaign-2026-09-22-all-crossed">Seven-gate campaign (2026-09-22) — all crossed</h3>
+<table>
+<tr><th>Gate</th><th>Result</th></tr>
+<tr><td>1 — locus</td><td><span class="tag proved">PROVED</span> Complete pair|locus|status table, analytic Proofs 1–7: (H,V) traces the full ellipse <code>V²+4H²=1/4</code>; (p,q) traces the open arc <code>{p²+q²=2, q&gt;1}</code>; (sawr,sawx) lies on the degenerate conic <code>(sawr+sawx)²=1</code>; (srx,cxp) traces two branches of the rectangular hyperbola <code>(z−ε)(C−ε)=2</code>; (ℓs,ℓc) traces the transcendental curve <code>sinh(ℓs)·sinh(ℓc)=1</code>, proved not algebraic by infinite descent. <span class="tag checked">CHECKED</span> supporting: the verifier's numeric residuals and coverage sweeps are evidence for the proofs, not the proofs themselves.</td></tr>
+<tr><td>2 — transition group</td><td><span class="tag proved">PROVED</span> <code>G = ⟨a,b⟩</code> is finite of order 8, ≅ <code>D₄</code>; third generator redundant (<code>c = ab</code> exactly); a,b are reflections; <code>r = ab</code> is an elliptic quarter-turn of order 4; five conjugacy classes; no parabolic or hyperbolic elements; one D₄ serves all quadrants; explicit D₄-valued transition cocycle on the four charts, all 64 cocycle identities exact.</td></tr>
+<tr><td>3 — transfer dynamics</td><td><span class="tag proved">PROVED</span> Uniform circular motion <code>(p′,q′) = (−q,p)</code>, speed √2, <code>p″ + p = 0</code>, <code>λ″ + λ = 1/2</code>; λ chordal affine diffeomorphism per quadrant; conic reflection <code>R:(p,q) ↦ (−p,q)</code> with <code>λ ↔ 1−λ</code>, <code>φ ↦ −φ</code>; max-transfer point triply characterized (max rate / inflection <code>λ″=0</code> / fixed point of R on the orbit arc); x-lift <code>(p,q)(2x_k−x) = R(p,q)(x)</code> by symbolic per-quadrant case analysis; <code>tan(φ/2) = p</code> and <code>φ = 2·arctan p</code> by half-angle/Weierstrass algebra; quarter-arc orbit table formulas with exact seam limits. <span class="tag checked">CHECKED</span> 400-pt/quadrant orbit-table confirmation; 200-pt x-lift confirmation; 2000-pt <code>arg(W/U) = 2·arctan p</code> confirmation; numeric max-|saw′| location (the <code>|saw′| ≤ 1/√2</code> bound itself is proved in the parent chain).</td></tr>
+<tr><td>4 — iteration</td><td><span class="tag proved">PROVED</span> Tripling <code>H(3x) = 3H − 64H³</code>, <code>V(3x) = 16V³ − 3V</code> via the conic addition law; semigroup law <code>D_m ∘ D_n = D_{mn}</code>; unique doubling fixed point <code>(0,1/2)</code> by exact solve; rational-orbit classification (periodic iff denominator odd, period ord<sub>q</sub>(2); preperiodic iff denominator even); density on the ellipse. <span class="tag checked">CHECKED</span> grid confirmations of the composition laws and the depth-10 dyadic mesh — supporting evidence only.</td></tr>
+<tr><td>5 — polar</td><td><span class="tag proved">PROVED</span> Projective uniformization <code>Ψ: p ↦ [(1−p²):(2p):(1+p²)]</code> on <code>X²+Y²−Z²=0</code> with rational inverse <code>p = Y/(X+Z)</code>; φ-native compact forms (<code>urx = 2ε/(1−p)</code>, <code>uxp = 2ε/(1+p)</code>, <code>Flatwave = ε</code>); polar factorization of every S0/S2/S3 core identity into compact × radial × bridge; Riccati discriminant <code>Δ = −1</code> (symbolic). <span class="tag checked">CHECKED</span> 2400-pt grid confirmations of the factored identities (S4–S9, S11 blocks) and the |csc|-Chebyshev spot check at 210°. The bare-csc global form is <span class="tag refuted">REFUTED</span> (see Refuted).</td></tr>
+<tr><td>6 — transverse</td><td><span class="tag proved">PROVED</span> Four scaling laws (<code>srx′/srx = −|csc x|</code>, <code>sxp′/sxp = +|csc x|</code>, <code>cxp′/cxp = +|sec x|</code>, <code>crx′/crx = −|sec x|</code>, two independent proofs each); radial flow equations; rotation×scaling reconstruction; hyperbolic polar forms; S0 product as the polar constraint <code>sinh²((ℓs+ℓc)/2) = 1/|sin 2x|</code>.</td></tr>
+<tr><td>7 — spinor / E8</td><td><span class="tag proved">PROVED</span> All four primitives plus saws lifted to explicit irrational functions of the spinor bilinears <code>X = sin 2x</code>, <code>Y = cos 2x</code>; no-polynomial-lift theorem; <code>Cl(1,1) ≅ M₂(ℝ)</code> proved from scratch (γ¹ = σ₃, γ² = iσ₂); adjoint double cover <code>SL(2,ℝ) → SO⁺(2,1)</code> with kernel <code>{±I}</code>; the conic action is literally this adjoint action. <span class="tag checked">CHECKED</span> 512-pt lift confirmation at 60 d.p.; 8-random-element adjoint-agreement checks; E8 existence parts (a D₄ ≤ W(E₈) exists; order-8 conjugacy classes exist). <span class="tag refuted">REFUTED</span> the distinguished versions — see Refuted.</td></tr>
+</table>
+<p><strong>Theorem ledger:</strong> 41 theorems <code>T1–T41</code> in the theorems spreadsheet (35 added by this campaign). Scope counts: 38 <span class="tag proved">PROVED</span> (analytic, complete), 1 infinite-descent proof, 1 analytic proof with numeric confirmation, 1 analytic proof whose bare global form is <span class="tag refuted">REFUTED</span>. The <em>R Theory scaffold</em> column reads <em>N/A (operator theory)</em> for the 35 new rows; <code>T1–T6</code> carry R Theory scaffold entries (Books 1–2). Proof-pointer audit 2026-09-22: all 35 new rows point to existing PROVED sections in the gate documents (35/35 resolve); the gate verifiers were independently re-run the same day, all exit 0.</p>
+<h3 id="bilinear-odd-campaign-2026-09-26-27">The 1820 bilinear-odd campaign (2026-09-26/27) — conditional theorems</h3>
+<p>Proving-ground results on the 1820 from the IO-word sweep. Conditional throughout on the adopted g block form, the adopted u-basis phase convention, and Π₀=P₂+P₆ / Π₂=P₄+P₀ (run-4b); the octant ε-sign pattern is Kit's definitional input (<span class="tag asserted">ASSERTED</span>) and is unused where noted. Full reports in the audit goal's <code>hidden_files/io_word_sweep/</code>.</p>
+<ul>
+<li><span class="tag proved">PROVED</span> <strong>Conditional collapse (runs 12–15).</strong> IF Oprop is an antisymmetric so(16) fermion bilinear (MA1) AND a pure grade-{0,2} flip (MA2, manuscript-literal v1:1730/1738), THEN Oprop ∈ 𝔟 := span{X̃_ab}, dim_ℝ 𝔟 = 12, with explicit orthogonal basis {d_pq, o_pq} (norm² 188, Gram 188·I₁₂); f₀₂ = 47/182 exactly; pairing relations from the g² symmetry.</li>
+<li><span class="tag proved">PROVED</span> <strong>Reality theorem (run 21).</strong> Every real X ∈ 𝔟 has ρ(g)-Fourier weights w₂ = w₆ exactly (X^{(−m)} = conj(X^{(m)}), 6 ≡ −2 mod 8) — run 18's observed 94/94 split is a theorem of the real space. No nonzero real mode-pure element exists; the 6+6 decomposition lives only in 𝔟_ℂ.</li>
+<li><span class="tag proved">PROVED</span> <strong>Cross-phase (run 24).</strong> o_{pq}^{(2)} = i·d_{pq}^{(2)} for all six plane pairs, by exact v/w algebra at the 16-dim level lifted through dρ linearity. Per-pair Q₂ block [[94,+94i],[−94i,94]] uniform; Q₂+Q₆ = 188·I₁₂; spec(Q₂−Q₆) = ±188 ×6. Run 18's T8 94 identified as Cauchy–Schwarz equality.</li>
+<li><span class="tag proved">PROVED</span> <strong>The 752 identity (omnibus Q1).</strong> For every pure Π₀↔Π₂ flip, ‖[X̃,M_ε]‖_F = 2‖X̃‖_F by exact block algebra, hence 752 = 4·188 for all 24 generators; the basis-correct real commutator Gram is 752·I₁₂ — the norm is constant on the real unit sphere of 𝔟.</li>
+<li><span class="tag proved">PROVED</span> <strong>M_ε commutant on the pure slot (run 22).</strong> ker([·,M_ε]) = {0} on the entire pure Π₀↔Π₂ slot (block algebra + basis-consistent check). Run 21's 6-dim kernel was a basis-mismatch bug (u-wedge reps vs standard-wedge M_ε), diagnosed and withdrawn. Full commutant (omnibus Q2): M₈₁₆(ℂ)⊕M₁₀₀₄(ℂ); all four real transfer slots {0}.</li>
+<li><span class="tag proved">PROVED</span> <strong>m₀/m₂ decoupling (omnibus Q4).</strong> [M_e,M_ε] = i·[M_rest,K] for <em>all</em> real m₀,m₂ — the masses are absent from the commutator (stronger than run 3: not even m₀≠m₂ required).</li>
+<li><span class="tag proved">PROVED</span> <strong>Saw firewall FW-T12 (run 16).</strong> No real scalar g on an open quadrant satisfies S′ = g·X(S) for the Saw pair; saw_r+saw_x = ε, Σ_saw²−Δ_saw² = 4|H|. Saw complementation is algebraic and generates no transfer.</li>
+<li><span class="tag proved">PROVED</span> <strong>W4 (C2a) discharged (run 19).</strong> Pinned P₅₄ discharges W4 condition (C2a); and the deferred W4 skeleton substitution evaluates to exactly 0 on the established witness inputs (conditional on the run-4b E/B/O identification) — not 0.48958371.</li>
+<li><span class="tag proved">PROVED</span> <strong>ε-survivor o-spectral-invisibility (run 17, corrected scope).</strong> The two DA-survivor positive-ε projectors are isospectral for real symmetric/Hermitian observables. (The earlier "every real operator" statement was too broad and is withdrawn; complex-Hermitian probes distinguish the sectors.)</li>
+<li><span class="tag checked">CHECKED</span> <strong>Selection census (omnibus Q3) — complete negative.</strong> Every established operator (C₁, K, M_e, M_ε, ρ(g), ε-parity, DA patterns, σ̃, C₃) tabulated against 𝔟: none selects a vector or proper subspace of the real 12-dim space. Physical Oprop selection stays OPEN — now the cleanly isolated hard core.</li>
+</ul>
+
+<h2 id="3-checked-computed-not-proved">3. Checked (computed, not proved)</h2>
+<ul>
+<li><span class="tag checked">CHECKED</span> Gate-1 supporting: numeric residuals and coverage sweeps for all 7 loci (evidence for Proofs 1–7, not the proofs).</li>
+<li><span class="tag checked">CHECKED</span> Gate-3 confirmations: quarter-arc orbit table (400 pts/quadrant), x-lift (200 pts), <code>arg(W/U) = 2·arctan p</code> (2000 pts, worst deviation 9.3e−14).</li>
+<li><span class="tag checked">CHECKED</span> Gate-4 confirmations: composition-law grids, depth-10 dyadic mesh.</li>
+<li><span class="tag checked">CHECKED</span> Gate-5 confirmations: factored S0/S2/S3 identities on 2400-pt grids (S4–S9, S11 blocks); |csc|-Chebyshev spot check at 210°.</li>
+<li><span class="tag checked">CHECKED</span> Gate-7 confirmations: spinor-bilinear lift at 60 d.p. (512 pts); adjoint-action agreement (8 random elements).</li>
+<li><span class="tag checked">CHECKED</span> Transfer x-lift: <code>(p,q)(2x_k−x) = R(p,q)(x)</code> with <code>λ ↔ 1−λ</code>, <code>φ ↦ −φ</code> — 200 points.</li>
+<li><span class="tag checked">CHECKED</span> Phase uniformization: <code>arg(W/U) = 2·arctan p</code> and <code>tan(φ/2) = p</code> — 2000 points, worst deviation 9.3e−14, <code>|φ| &lt; π/2</code> strict.</li>
+<li><span class="tag checked">CHECKED</span> E8 probe, existence parts only: a D₄ subgroup of W(E₈) exists; an order-8 conjugacy class exists. (The <em>distinguished</em> versions are refuted — see below.)</li>
+</ul>
+
+<h2 id="4-asserted-open-honestly-labeled">4. Asserted (open, honestly labeled)</h2>
+<ul>
+<li><span class="tag asserted">ASSERTED</span> The D₄ quarter-turn <code>r = ab</code> is identified with the domain eighth-turn <code>x ↦ x + π/4</code>. Gate: <strong>GATE-12</strong>.</li>
+<li><span class="tag asserted">ASSERTED</span> The ledger's channel-spinor construction (component formulas, domain/codomain of <code>S</code>, seam equation) — the three missing definiens are named exactly; the construction is absent from all workspace materials, not contradicted. Gate: <strong>GATE-34</strong>.</li>
+<li><span class="tag asserted">ASSERTED</span> Seam-crossing continuity of the polar <code>(θ,ℓs,ℓc)</code> lift. Gates: <strong>GATE-22</strong>, <strong>GATE-27</strong>.</li>
+</ul>
+
+<h2 id="5-refuted">5. Refuted</h2>
+<ul>
+<li><span class="tag refuted">REFUTED</span> The bare-cosecant / bare-secant Chebyshev forms as <em>global</em> statements: <code>srxⁿ+sxpⁿ = 2Tₙ(csc x)</code> fails outside Q1 (Q3 counterexample: <code>2T₃(csc x) = −52</code> vs true <code>+52</code>). Valid only Q1-scoped; globally the argument must be <code>|csc x|</code> / <code>|sec x|</code>.</li>
+<li><span class="tag refuted">REFUTED</span> <code>M_ε</code> is elliptic — it is a projective reflection/involution.</li>
+<li><span class="tag refuted">REFUTED</span> <code>(sawr,sawx)</code> lies on a non-degenerate conic — the locus is the degenerate line conic <code>(sawr+sawx)²=1</code>.</li>
+<li><span class="tag refuted">REFUTED</span> The phase <code>φ</code> is linear in <code>x</code> — it is <code>2·arctan p</code>.</li>
+<li><span class="tag refuted">REFUTED</span> E8 distinguished-symmetry hypotheses (pre-registered, all three): no distinguished D₄ ≤ W(E₈); no distinguished order-8 class; no distinguished chain integer in the exact 30380 table (multiplicities <code>{1:6720, 7:2160, 35:240, 140:1}</code>). Narrow verdict: <em>the preregistered probe found no distinguished chain symmetry in the E8 data.</em> This does not refute every possible relationship.</li>
+<li><span class="tag refuted">REFUTED</span> Manuscript §19.4's <strong>N_1820 8-cycle</strong> (run 25, 2026-09-27): the 8-cycle operator EBEOEBEO is exactly zero (‖·‖_F = 1.99e-61, all eight cyclic junctions ≤ 2.1e-14, 24/24 checks) against the established IO-word projector witnesses, robust under <em>any</em> letter↔projector bijection. The full cyclic-word classification over {E,B,O,M_e} (87,380 words; 85,866 exactly zero; 32 nonzero classes) carries only sector-dimension and rest-spectrum content — no graph invariant survives. Falsification scope: the established witness identification; if the manuscript's E/B/O meant different operators that claim needs its own witnesses. N_1820 itself stays OPEN.</li>
+<li><span class="tag refuted">REFUTED</span> <strong>M_ε-commutant selection inside 𝔟</strong> (the 12→6 reduction): run 21's 6-dim kernel was a basis-mismatch bug (u-wedge reps commuted against standard-wedge M_ε with no transformation), diagnosed and withdrawn; the basis-correct kernel on the pure Π₀↔Π₂ slot is {0} (run 22), and the full commutant is M₈₁₆(ℂ)⊕M₁₀₀₄(ℂ) with every real transfer slot {0} (omnibus Q2).</li>
+<li><span class="tag refuted">REFUTED</span> <strong>Mode-pure real Oprop construction:</strong> the reality theorem (run 21) freezes w₂ = w₆ for every real X ∈ 𝔟, so no nonzero real mode-pure element exists — the 6+6 decomposition lives only in 𝔟_ℂ.</li>
+<li><span class="tag refuted">REFUTED</span> <strong>The W4 (C4)/Schur route to the m₂⁻⁴ convention</strong> (run 19): full SO(16)-equivariance would force scalar M_e, contradicting m₀≠m₂; the m₂⁻⁴ reattachment stays a manuscript convention.</li>
+</ul>
+
+<h2 id="6-incomplete">6. Incomplete</h2>
+<ul>
+<li><span class="tag incomplete">INCOMPLETE</span> None in the gate-campaign scope. Process note: the gate-3 worker's report omitted the required "new gates opened" section, so no follow-up gates were recorded from gate 3; none were invented afterward.</li>
+</ul>
+
+<h2 id="7-open-gates-the-research-to-do-ledger">7. Open gates — the research to-do ledger</h2>
+<p>29 open gates, GATE-8 through GATE-36, each with a precise crossing criterion. This is the current research task list.</p>
+<table>
+<tr><th>Gate</th><th>Task</th><th>Crossing criterion</th></tr>
+<tr><td>GATE-8</td><td>biquadratic-components</td><td>Classify all real components of <code>(z²−1)(C²−1) = 4zC</code>; proved traced/untraced verdict per component.</td></tr>
+<tr><td>GATE-9</td><td>urx-uxp-rational</td><td>Closed-form rational parametrization of both (urx,uxp) hyperbola branches; proved onto-branch coverage per quadrant.</td></tr>
+<tr><td>GATE-10</td><td>ell-faithful</td><td>Proved bijection between (ℓs,ℓc)-values and <code>x mod 2π</code> with explicit inverse formula.</td></tr>
+<tr><td>GATE-11</td><td>phase-circle</td><td>Proved verdict: does <code>(cos φ, sin φ)</code> trace the full unit circle or an arc, with exact preimage description.</td></tr>
+<tr><td>GATE-12</td><td>eighth-turn-realization</td><td>Prove <code>srx(x+π/4) = r^{±1}(srx(x))</code> per quadrant, linking the domain eighth-turn to the D₄ quarter-turn (currently ASSERTED).</td></tr>
+<tr><td>GATE-13</td><td>d4-lorentz-lift</td><td>Push all 8 elements of G through the symmetric-square representation to explicit 3×3 matrices preserving <code>X²+Y²−Z²</code>; verifier exit 0.</td></tr>
+<tr><td>GATE-14</td><td>transfer-chart-transition-group</td><td>Run the gate-2 classification on the λ/saw chart transition maps: finite-or-infinite verdict.</td></tr>
+<tr><td>GATE-15</td><td>r2-antipode</td><td>Prove <code>r²(z) = −1/z</code> is exactly the half-turn antipode on the (H,V) ellipse; exact commuting diagram verified symbolically.</td></tr>
+<tr><td>GATE-16</td><td>seam-degeneration</td><td>Exact one-sided limits of chart-transition maps at seams; verdict on parabolic degeneration.</td></tr>
+<tr><td>GATE-17</td><td>periodic-point-census</td><td>Prove exact-period-n points of D are the angles <code>2πk/(2ⁿ−1)</code>; closed-form count proved; verifier exit 0.</td></tr>
+<tr><td>GATE-18</td><td>2adic-completion</td><td>Prove the dyadic backward tree completed under <code>d = 2^{−v₂}</code> is the 2-adic integer ring; describe D's extension.</td></tr>
+<tr><td>GATE-19</td><td>centralizer</td><td>Prove the centralizer of the doubling endomorphism in the conic automorphism group is exactly <code>{D_n}</code> plus orientation-reversing reflections.</td></tr>
+<tr><td>GATE-20</td><td>transfer-chart-iteration</td><td>Push D through (p,q) transfer coordinates; prove the induced λ-map with its fixed points; verifier exit 0.</td></tr>
+<tr><td>GATE-21</td><td>spinor-lift-iteration</td><td>Lift D_n to the spinor <code>ψ = (cos x, sin x)</code>; prove the lift is rotation by <code>n·x</code> on the double cover, tracking <code>ψ(x+π) = −ψ(x)</code>.</td></tr>
+<tr><td>GATE-22</td><td>seam-polar</td><td>One-sided limits of <code>(φ,ℓs,ℓc)</code> at all four seam types plus the base-point limit; complete limit table proved; verifier exit 0.</td></tr>
+<tr><td>GATE-23</td><td>doubling-polar</td><td>Closed-form doubling law for <code>(φ(2x), ℓs(2x), ℓc(2x))</code> derived from <code>H(2x) = 4HV</code>; verifier exit 0.</td></tr>
+<tr><td>GATE-24</td><td>mobius-polar</td><td>Explicit (φ,ℓ) transformation law under the M_ε chart reflections and <code>z ↦ 1/z</code>; verifier exit 0.</td></tr>
+<tr><td>GATE-25</td><td>s1-polar</td><td>Classify every S1-block identity (currently ASSERTED) as compact / radial / bridge; full classification table; verifier exit 0.</td></tr>
+<tr><td>GATE-26</td><td>spinor-polar</td><td>Explicit <code>ψ(φ,ℓ)</code> formula factoring the spinor lift through (φ,ℓ); deck transformation in polar form; verifier exit 0.</td></tr>
+<tr><td>GATE-27</td><td>seam-polar-lift</td><td>One-sided limits of <code>(θ,ℓs,ℓc)</code> at the four seam types; continuous extension vs jump rule; verifier exit 0.</td></tr>
+<tr><td>GATE-28</td><td>radial-flow-time</td><td>Exhibit the explicit reparametrization <code>τ(x)</code> solving <code>dℓ/dτ = −cosh ℓ</code> along the operator curve, or prove no global C¹ reparametrization exists across a quadrant.</td></tr>
+<tr><td>GATE-29</td><td>total-scale-dynamics</td><td>For <code>m = e^{ℓs+ℓc}</code>: prove <code>m′/m = cosh(ℓc) − cosh(ℓs)</code>; classify critical points per quadrant.</td></tr>
+<tr><td>GATE-30</td><td>riccati-radial-equivalence</td><td>Prove for all four primitives that the S3 Riccati form <code>f′ = ±(1+f²)/2</code> is exactly the log-derivative form <code>ℓ′ = ∓cosh ℓ</code>.</td></tr>
+<tr><td>GATE-31</td><td>relative-scale-sectors</td><td>Re-derive the 8-sector dominance codes as <code>(a,b)</code> orderings; the 45° balance <code>urx = uxp = 2</code> as <code>a = 0, b = ln(1+√2)</code>; verifier exit 0.</td></tr>
+<tr><td>GATE-32</td><td>p-branch-section</td><td>Explicit inverse <code>(X,Y) → ±ψ</code> with sign pinned by quadrant data; global branch section of the double cover per quadrant; verifier exit 0.</td></tr>
+<tr><td>GATE-33</td><td>dirac-attempt</td><td>Build an explicit Dirac-type operator from the proved <code>Cl(1,1) ⊂ M₂(ℝ)</code> representation whose square encodes the Riccati discriminant −1 — or prove a no-go theorem (also crosses).</td></tr>
+<tr><td>GATE-34</td><td>seam-spec</td><td>Write the missing definiens for <code>S = −iγ¹</code> (component formulas, domain/codomain, seam equation) as a precise falsifiable conjecture a future gate can verify or refute.</td></tr>
+<tr><td>GATE-35</td><td>e8-centralizer</td><td>Compute the centralizer in W(E₈) of the explicit order-8 element σ; test a pre-registered invariant for chain-distinguished structure.</td></tr>
+<tr><td>GATE-36</td><td>a7-branching</td><td>Branch the exact 30380 to the explicit A₇ subsystem carrying the 8-cycle; test the pre-registered hypothesis of no distinguished dyadic signature in the branching multiplicities.</td></tr>
+</table>
+<p><strong>Proving-ground open gates (2026-09-27, from the omnibus wave):</strong> physical Oprop selection within the exact 12-dim 𝔟 — <span class="tag incomplete">OPEN</span> (the complete selection census found no established operator that selects; the next valid move is a physical input, not another internal screen); m₀/m₂ selection — <span class="tag incomplete">OPEN</span> (IO-word angles exhausted: [M_e,M_ε] = i·[M_rest,K] for all real m₀,m₂; missing: physical C8, Prop 30, or a manuscript mass-ratio datum); the explicit Λ²(16) ↪ 1820 branching — <span class="tag incomplete">OPEN</span> (the manuscript's own named missing input, v1 §17.18.4.3; no 120-dim block exists in any archived artifact); S_F gate (C1) — <span class="tag incomplete">INCOMPLETE</span> (E_k, Oprop matrix, 128-dim gammas, C^t_2222/F_C8 absent); <strong>label conflict awaiting ruling:</strong> run 19's "(C1)" gloss (the R̃^t_2222 = a·T + R⊥ decomposition) is W4's (C3) — blocker set identical, verdict label-invariant, but future (C3) work must use W4's numbering.</p>
+
+<h2 id="8-notation">8. Notation</h2>
+<div class="about">
+<p>Canonical operator notation (locked 2026-09-22; the sign-flipped T-paper variant is superseded):</p>
+<p><code>srx = |csc x| + cot x</code>, <code>sxp = 1/srx</code>, <code>cxp = |sec x| + tan x</code>, <code>crx = 1/cxp</code>, <code>urx = srx − crx</code>, <code>uxp = cxp − sxp</code>.</p>
+<p>Collision resolutions: <code>V = H′ = cos(2x)/2</code> owns <code>V</code> (S2 carrier velocity); <code>W = uxp + i·urx</code>; <code>U = urx + i·uxp</code>; <code>φ = arg(W/U)</code>.</p>
+<p>Source of truth: <code>una_operators/NOTATION.md</code>. Gate ledger: <code>una_operators/further/GATES.md</code>. Refinement log: <code>una_operators/further/REFINEMENTS.md</code>. Chain document: <code>una_operators/CHAIN_conic_unification.md</code>.</p>
+</div>
+
+<h2 id="9-related-literature">9. Related literature</h2>
+<ul>
+<li><strong>Shilin Yu, "Interactions between Lie Theory and Algebraic Geometry"</strong> (research statement, UPenn) — <a href="https://www2.math.upenn.edu/~shilinyu/files/research.pdf">research.pdf</a>. Used here as the structural model for this page (program → proved results → open directions) and as background for the representation-theoretic direction: the statement discusses the PBW/Duflo isomorphism alongside the HKR isomorphism and Todd-class parallels between Lie theory and algebraic geometry. Cited as literature only; none of its results are imported as ours, and no connection to our operator set is claimed.</li>
+<li><strong>Garrett Lisi, "An Exceptionally Simple Theory of Everything"</strong> — the E8 reference point our 30380 weight table and the gate-7 probe are measured against.</li>
+<li><strong>Euclid's Elements</strong> (Fitzpatrick/Heiberg) — the extension program: R Theory is built as an extension of Euclid, so proofs are carried through from the Elements outward.</li>
+</ul>
+
+<h2 id="10-r-theory-audit-front-2026-09-25">10. R Theory audit front — 2026-09-25</h2>
+<p class="small">These are <strong>R Theory audit</strong> findings (Casimir/Clifford computation modules, manuscript methodology, Euclid extension) — not Una operator-theory results. Same scope discipline: <span class="tag proved">PROVED</span> <span class="tag checked">CHECKED</span> <span class="tag asserted">ASSERTED</span> <span class="tag refuted">REFUTED</span> <span class="tag incomplete">INCOMPLETE</span>.</p>
+<h3 id="computation-modules-7-12-clean-slate-rebuild">Computation Modules 7–12 — clean-slate rebuild</h3>
+<p>The manuscript's Modules 7–12 as encoded did not establish their claims; corrected replacements were drafted 2026-09-25 and verified against the B-6/Casimir framework:</p>
+<ul>
+<li><span class="tag proved">PROVED</span> / <span class="tag checked">CHECKED</span> M7′: orthonormal basis of Sym²(128), dimension 8256.</li>
+<li><span class="tag proved">PROVED</span> M8′: the corrected congruence-action Casimir C′(M) = −Σ<sub>a</sub>(A<sub>a</sub>²M + 2A<sub>a</sub>MA<sub>a</sub><sup>T</sup> + M(A<sub>a</sub><sup>T</sup>)²) — exact derivation.</li>
+<li><span class="tag proved">PROVED</span> rule / <span class="tag checked">CHECKED</span> implementation M9′: matrix assembly with the p=q input handled once (deviation 3.7e-13 vs the literal operator).</li>
+<li><span class="tag proved">PROVED</span> M10′: the {0:1, 48:1820, 64:6435} spectrum, analytic (B-6).</li>
+<li><span class="tag proved">PROVED</span> algebra / <span class="tag checked">CHECKED</span> implementation M11′: the Lagrange projectors p₀, p₄₈, p₆₄.</li>
+<li><span class="tag checked">CHECKED</span> M12′: the B-mapped embedding Φ<sub>I</sub> = sym(B₊Γ<sub>I</sub>) puts all 1820 four-forms in and spanning the 48-eigenspace — verified twice independently (zero vanishing forms, rank 1820, residuals ~1e-15).</li>
+<li><span class="tag refuted">REFUTED</span> the naive Module-12 image claim: 896 symmetrization-zero / 140 pure-48 / 784 pure-64 / 0 mixed, with an exact per-quad classification (the 140 pure-48 forms are uniform-parity words, two per each of 70 four-slot sets).</li>
+<li><span class="tag incomplete">INCOMPLETE</span> B-7: the half-page analytic proof that Φ: Λ⁴(16) → Sym²(S₊) is so(16)-equivariant is not yet written (skeleton proposed).</li>
+</ul>
+<h3 id="manuscript-methodology-sweep">Manuscript methodology sweep</h3>
+<ul>
+<li>58 findings across Volumes I–IV. Highest value: Vol III's <span class="tag proved">PROVED</span> Lagrange-polynomial grade-projector method; Vol IV v1's <span class="tag incomplete">INCOMPLETE</span> seven-step C8-contraction skeleton with its missing inputs enumerated.</li>
+<li>No Volume 0 document exists in any volume; no Freudenthal/weight-table methodology and no 120-generator program appear anywhere — the E8 30380 table and the generator program are audit constructions.</li>
+<li>Flagged contradiction: the Vol IV draft certifies S<sub>F</sub> = 0.48958371 EXACT while v1 says S<sub>F</sub> "remains OPEN" — both are manuscript claims only.</li>
+</ul>
+<h3 id="euclid-extension">Euclid extension</h3>
+<ul>
+<li>Book 13 P21: the missing right-hand side was <strong>recovered from the archived consolidated draft</strong> (not reconstructed) and recorded as <span class="tag proved">PROVED</span> conditional on P20's <span class="tag asserted">ASSERTED</span> slow-driving Fisher-form premise — the Cauchy–Schwarz implication from the premise is exact; the end-to-end physical claim inherits ASSERTED.</li>
+<li>The 120-generator so(16) violation scan on the Horn-1 M<sub>e</sub> reference construction is running (2026-09-25 relaunch; the 2026-09-24 run never completed).</li>
+</ul>
+
+<footer>
+<p>R Theory — Active Research. Status discipline: proved / checked / asserted / incomplete / refuted — nothing rounded up or down. Operator-theory findings do not alter R Theory's established results until a derivation proves the connection.</p>
+<p>Christopher Cosby · <a href="https://orcid.org/0009-0003-5392-2359">ORCID 0009-0003-5392-2359</a></p>
+</footer>
+</body>
+</html>

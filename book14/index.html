@@ -39,13 +39,34 @@ footer{margin-top:3em;color:#555;font-size:.9em;border-top:1px solid #bbb;paddin
  border:1px solid #666;border-radius:3px;background:#eee;cursor:pointer;color:#1a1a1a}
 </style>
 <!-- SITENAV-END -->
+<!-- BOOKNAV-CSS-START -->
+<style>
+.booknav{font-family:Georgia,serif;display:grid;grid-template-columns:1.35fr .85fr .85fr 1.35fr;gap:10px;margin:2.5em 0 0}
+.booknav-panel{display:flex;flex-direction:column;justify-content:center;text-decoration:none;color:#1a1a1a;
+ background:linear-gradient(180deg,#ffffff 0%,#f4f7fb 60%,#e7edf4 100%);
+ border:1px solid #c7d2de;border-radius:8px;padding:12px 16px;
+ box-shadow:inset 0 1px 0 #ffffff,0 2px 6px rgba(27,95,170,.10);
+ transition:border-color .15s ease,box-shadow .15s ease,transform .15s ease}
+a.booknav-panel:hover{border-color:#1b5faa;transform:translateY(-1px);
+ box-shadow:inset 0 1px 0 #ffffff,0 4px 12px rgba(27,95,170,.18)}
+a.booknav-panel:focus-visible{outline:2px solid #1b5faa;outline-offset:2px}
+.booknav-eyebrow{font-size:.7em;letter-spacing:.09em;text-transform:uppercase;color:#5a5a5a}
+.booknav-title{font-weight:bold;color:#1b5faa;margin-top:3px;line-height:1.35}
+.booknav-vol{font-size:.78em;color:#5a5a5a;margin-top:2px}
+.booknav-next{text-align:right}
+.booknav-center{text-align:center}
+.booknav-panel.is-disabled{opacity:.45;cursor:default}
+.booknav-panel.is-disabled .booknav-title{color:#5a5a5a}
+@media (max-width:640px){.booknav{grid-template-columns:1fr 1fr}.booknav-next{text-align:left}}
+</style>
+<!-- BOOKNAV-CSS-END -->
 </head>
 <body>
 <!-- SITENAV-NAV-START -->
 <nav class="sitenav" aria-label="Site navigation">
 <a class="sitenav-brand" href="../">R Theory — Rewrite</a>
 <span class="sitenav-links">
-<a href="../#hard">Hard&nbsp;science</a><a href="../#theoretical">Theoretical</a><a href="../vol0/">Vol&nbsp;0</a><a href="../vol4/">Vol&nbsp;IV</a><a href="../tables/">Tables</a>
+<a href="../contents/">Contents</a><a href="../index/">Index</a><a href="../contents/#vol-0">Vol&nbsp;0</a><a href="../contents/#vol-1">Vol&nbsp;I</a><a href="../contents/#vol-2">Vol&nbsp;II</a><a href="../contents/#vol-3">Vol&nbsp;III</a><a href="../contents/#vol-4">Vol&nbsp;IV</a><a href="../tables/">Tables</a><a href="../research/">Research</a>
 </span>
 <form class="sitenav-search" action="https://www.google.com/search" method="get" target="_blank" role="search"
  onsubmit="if(!this.q.value.trim())return false;this.q.value='site:cosbykit-afk.github.io/r-theory-rewrite '+this.q.value">
@@ -80,7 +101,7 @@ vol3/book14/audit_book14.py (50 assertions, all passed; tolerances 1e-6–1e-12)
 The graphs below are live Desmos calculators (drag to pan, scroll to zoom); if Desmos cannot load,
 a static rendering appears instead, generated from the same formulas.</p>
 
-<h3>Figure 1 — The relational mass coordinate</h3>
+<h3 id="figure-1-the-relational-mass-coordinate">Figure 1 — The relational mass coordinate</h3>
 <div class="graph" id="d1"></div>
 <img class="fallback" id="f1" src="graphs/g1_mass_rapidity.png" alt="q_m versus mass ratio, two forms overlaid">
 <div class="caption"><b>What you see.</b> <span class="formula">q_m = (m_1-m_2)/(m_1+m_2)</span>
@@ -90,7 +111,7 @@ a static rendering appears instead, generated from the same formulas.</p>
 <b>What it doesn't show.</b> The coordinate is bounded bookkeeping of supplied masses; it does not
 generate either mass. <span class="tag MA">MA</span></div>
 
-<h3>Figure 2 — The pair invariant in two exact forms</h3>
+<h3 id="figure-2-the-pair-invariant-in-two-exact-forms">Figure 2 — The pair invariant in two exact forms</h3>
 <div class="graph" id="d2"></div>
 <img class="fallback" id="f2" src="graphs/g2_pair_invariant.png" alt="pair invariant versus eta, two forms overlaid">
 <div class="caption"><b>What you see.</b> For fixed <span class="formula">q_m = 0.6</span>,
@@ -101,7 +122,7 @@ generate either mass. <span class="tag MA">MA</span></div>
 <span class="formula">\eta</span> free — mass asymmetry does not determine relative motion.
 <span class="tag MA">MA</span> (14.II.N1)</div>
 
-<h3>Figure 3 — The exact bound-mass geometry</h3>
+<h3 id="figure-3-the-exact-bound-mass-geometry">Figure 3 — The exact bound-mass geometry</h3>
 <div class="graph" id="d3"></div>
 <img class="fallback" id="f3" src="graphs/g3_bound_mass.png" alt="M^2/(m1+m2)^2 versus u">
 <div class="caption"><b>What you see.</b> <span class="formula">M^2/(m_1+m_2)^2 = (1+q_m^2u^2)/(1+u^2)</span>
@@ -111,7 +132,7 @@ the central exact, invertible mass geometry of the book. <span class="tag CP">CP
 <span class="formula">u</span> and vice versa; the equation predicts neither the existence nor the
 value of a physical bound-state mass. <span class="tag MA">MA</span></div>
 
-<h3>Figure 4 — Weak binding approaches the reduced-mass line</h3>
+<h3 id="figure-4-weak-binding-approaches-the-reduced-mass-line">Figure 4 — Weak binding approaches the reduced-mass line</h3>
 <div class="graph" id="d4"></div>
 <img class="fallback" id="f4" src="graphs/g4_weak_binding.png" alt="u^2 versus B with reduced-mass line">
 <div class="caption"><b>What you see.</b> For <span class="formula">m_1=m_2=1</span>,
@@ -122,7 +143,7 @@ value of a physical bound-state mass. <span class="tag MA">MA</span></div>
 <b>What it doesn't show.</b> The Coulomb <span class="formula">u \approx Z\alpha/(2n)</span> check needs
 the imported Coulomb law; the half-angle scaling is only its coordinate image. <span class="tag ST">ST</span></div>
 
-<h3>Figure 5 — Heavy-source convergence</h3>
+<h3 id="figure-5-heavy-source-convergence">Figure 5 — Heavy-source convergence</h3>
 <div class="graph" id="d5"></div>
 <img class="fallback" id="f5" src="graphs/g5_heavy_source.png" alt="u^2 versus m1 converging to limit">
 <div class="caption"><b>What you see.</b> <span class="formula">u^2(m_1)</span> with
@@ -132,7 +153,7 @@ the limit equals <span class="formula">\tan^2(\chi_E/2)</span>, <span class="for
 <span class="tag CP">CP</span> <b>What it doesn't show.</b> The identification with the Dirac–Coulomb
 <span class="formula">|G/F|</span> ratio needs the standard Dirac–Coulomb import. <span class="tag ST">ST</span></div>
 
-<h3>Figure 6 — The double-angle carrier</h3>
+<h3 id="figure-6-the-double-angle-carrier">Figure 6 — The double-angle carrier</h3>
 <div class="graph" id="d6"></div>
 <img class="fallback" id="f6" src="graphs/g6_double_angle.png" alt="cos 2alpha and sin 2alpha">
 <div class="caption"><b>What you see.</b>
@@ -148,14 +169,14 @@ new correlation structure, not produced here. <span class="tag CP">CP</span> (14
 <p>Section by section. Each claim carries one status tag. Numerical/symbolic checks below were run in
 vol3/book14/audit_book14.py (50 assertions, all passed; tolerances 1e-6–1e-12).</p>
 
-<h3>14.0 — Purpose, source retirement, dependency boundary</h3>
+<h3 id="14-0-purpose-source-retirement-dependency-boundary">14.0 — Purpose, source retirement, dependency boundary</h3>
 <p>Book 14 consolidates the surviving part of historical T5 (two-fermion mass/binding geometry) and
 retires its independent C³ color declaration, tetrahedral color interpretation, confinement analogies,
 and harmonic mass hypotheses to archival provenance. It inherits only the certified Books 0–7 and 9–10
 calculus, standard two-body kinematics, named bound-state/Dirac–Coulomb imports, and the
 empirical-promotion firewall. <span class="tag MA">MA</span> (boundary/status declaration, correctly scoped)</p>
 
-<h3>14.I — Relational mass rapidity</h3>
+<h3 id="14-i-relational-mass-rapidity">14.I — Relational mass rapidity</h3>
 <p><b>Theorem 14.I.T1.</b> <span class="formula">q_m = (m_1-m_2)/(m_1+m_2) = \tanh(\lambda_m/2)</span>,
 <span class="formula">\lambda_m = \ln(m_1/m_2)</span>, with inverse
 <span class="formula">m_1/m_2 = (1+q_m)/(1-q_m)</span>. <span class="tag CP">CP</span>
@@ -168,7 +189,7 @@ gives <span class="formula">\Omega_2=\Omega^2</span>, <span class="formula">\eta
 <span class="tag CP">CP</span> The identification with Book 15's qSaw is a forward reference.
 <span class="tag MA">MA</span></p>
 
-<h3>14.II — Two-body invariant and independence of motion</h3>
+<h3 id="14-ii-two-body-invariant-and-independence-of-motion">14.II — Two-body invariant and independence of motion</h3>
 <p><b>Physics Import 14.II.P1.</b> Standard two-particle relativity:
 <span class="formula">p_1\cdot p_2 = m_1m_2\cosh\eta</span>,
 <span class="formula">s = m_1^2+m_2^2+2m_1m_2\cosh\eta</span>,
@@ -178,7 +199,7 @@ gives <span class="formula">\Omega_2=\Omega^2</span>, <span class="formula">\eta
 <b>Negative Theorem 14.II.N1.</b> <span class="formula">q_m \not\to q_v</span>: no mass-only rule of
 Book 14 determines relative velocity or interaction dynamics. <span class="tag MA">MA</span></p>
 
-<h3>14.III — Elliptic continuation below threshold</h3>
+<h3 id="14-iii-elliptic-continuation-below-threshold">14.III — Elliptic continuation below threshold</h3>
 <p><b>Declared Continuation 14.III.E1.</b> <span class="formula">\eta = i\theta</span>,
 <span class="formula">u = \tan(\theta/2)</span>,
 <span class="formula">\cosh\eta = \cos\theta = (1-u^2)/(1+u^2)</span>. The continuation is mathematics;
@@ -191,7 +212,7 @@ real and positive for <span class="formula">|m_1-m_2| &lt; M &lt; m_1+m_2</span>
 <span class="formula">M^2 = (m_1+m_2)^2(1+q_m^2u^2)/(1+u^2)</span>; invertible both ways, predicts no
 bound-state mass by itself. <span class="tag CP">CP</span></p>
 
-<h3>14.IV — Binding energy and reduced-mass limit</h3>
+<h3 id="14-iv-binding-energy-and-reduced-mass-limit">14.IV — Binding energy and reduced-mass limit</h3>
 <p>With <span class="formula">M = m_1+m_2-B</span>:
 <span class="formula">u^2 = B[2(m_1+m_2)-B]/[(2m_1-B)(2m_2-B)]</span>. <span class="tag CP">CP</span>
 <b>Theorem 14.IV.T1.</b> For small <span class="formula">B</span>:
@@ -204,7 +225,7 @@ scaling is its coordinate image. <span class="tag NC">NC</span> (algebra) / <spa
 <b>Negative Theorem 14.IV.N1.</b> Binding is independent data: <span class="formula">q_m</span> does not
 determine <span class="formula">u</span>. <span class="tag MA">MA</span></p>
 
-<h3>14.V — Heavy-source convergence and the Dirac bridge</h3>
+<h3 id="14-v-heavy-source-convergence-and-the-dirac-bridge">14.V — Heavy-source convergence and the Dirac bridge</h3>
 <p><b>Theorem 14.V.T1.</b> For <span class="formula">m_1\to\infty</span>, <span class="formula">M=m_1+E</span>:
 <span class="formula">u^2 \to (m_2-E)/(m_2+E) = \tan^2(\chi_E/2)</span>,
 <span class="formula">\cos\chi_E = E/m_2</span> — monotone numerical convergence verified.
@@ -219,7 +240,7 @@ here means <span class="formula">\tan(\chi_E/2)</span> by the Book 7 convention,
 <b>Negative Theorem 14.V.N1.</b> The constant-ratio identification does not extend unchanged to
 excited radial states (running Pr&uuml;fer phase). <span class="tag MA">MA</span></p>
 
-<h3>14.VI — Two-component operator form</h3>
+<h3 id="14-vi-two-component-operator-form">14.VI — Two-component operator form</h3>
 <p>With <span class="formula">u=\tan\alpha</span>,
 <span class="formula">\chi_u = (1,u)^T/\sqrt{1+u^2} = (\cos\alpha,\sin\alpha)^T</span> and
 <span class="formula">K_m = \mathrm{diag}(1,q_m^2)</span>:
@@ -229,7 +250,7 @@ fixes the state, neither fixes the other. <span class="tag CP">CP</span>
 <b>Corollary 14.VI.C1.</b> <span class="formula">= (1+q_m^2)/2 + (1-q_m^2)\cos(2\alpha)/2</span> and
 <span class="formula">d/d\alpha = -(1-q_m^2)\sin(2\alpha)</span>. <span class="tag CP">CP</span></p>
 
-<h3>14.VII — Square-root mass state and the Veronese embedding</h3>
+<h3 id="14-vii-square-root-mass-state-and-the-veronese-embedding">14.VII — Square-root mass state and the Veronese embedding</h3>
 <p><b>Theorem 14.VII.T1.</b> For <span class="formula">\chi_m = (\sqrt{m_1},\sqrt{m_2})^T/\sqrt{m_1+m_2}
 = (\cos\theta_m,\sin\theta_m)^T</span>:
 <span class="formula">\cos(2\theta_m) = q_m = \tanh(\lambda_m/2)</span>,
@@ -241,7 +262,7 @@ Veronese map <span class="formula">\mathbf{CP}^1\to\mathbf{CP}^2</span>; for the
 <b>Clarification 14.VII.CL1.</b> The Veronese image is a conic; it does not by itself derive three
 physical generations — firewall inherited by Book 15. <span class="tag MA">MA</span></p>
 
-<h3>14.VIII — Symmetric-square one-body lift</h3>
+<h3 id="14-viii-symmetric-square-one-body-lift">14.VIII — Symmetric-square one-body lift</h3>
 <p><b>Theorem 14.VIII.T1.</b> For <span class="formula">K^{(2)} = \tfrac12(K\otimes I+I\otimes K)|_{\mathrm{Sym}^2}</span>:
 <span class="formula">\langle\Phi|K^{(2)}|\Phi\rangle = \langle\chi|K|\chi\rangle</span> for
 <span class="formula">\Phi = \chi\odot\chi</span> — verified on 60 random Hermitian
@@ -252,7 +273,7 @@ For the mass operator: <span class="formula">K_m^{(2)} = \mathrm{diag}(1,(1+q_m^
 <span class="formula">\langle\Phi_u|J_x|\Phi_u\rangle = \sin(2\alpha)</span> with the standard spin-1
 <span class="formula">J_x</span>. <span class="tag CP">CP</span></p>
 
-<h3>14.IX — One-body lift and the correlation boundary</h3>
+<h3 id="14-ix-one-body-lift-and-the-correlation-boundary">14.IX — One-body lift and the correlation boundary</h3>
 <p>A general <span class="formula">K = k_0I + k_i\sigma_i/2</span> lifts to
 <span class="formula">K^{(2)} = k_0I + \tfrac12k_iJ_i</span>. <span class="tag CP">CP</span>
 <b>Theorem 14.IX.T1 — One-Body Lift No-Quadrupole.</b> The image of
@@ -266,13 +287,13 @@ traceless, and orthogonal to <span class="formula">\{I,J_i\}</span>. <span class
 representation theory. <span class="tag ST">ST</span> This is the exact Book 14/15 boundary: any later
 flavor structure needing the <span class="formula">5</span> requires genuinely new correlation dynamics.</p>
 
-<h3>14.X — Empirical control and failure discipline</h3>
+<h3 id="14-x-empirical-control-and-failure-discipline">14.X — Empirical control and failure discipline</h3>
 <p>Historical control ladder (positronium <span class="formula">q_m=0</span>, muonium, hydrogen, deuteron)
 retained for status discipline only; nine-bullet negative ledger (transition frequencies, harmonic/rational
 coincidences, fitted mass relations are not dynamics; no new spectrum or interaction law is supplied).
 <span class="tag MA">MA</span> — correctly scoped; nothing is promoted.</p>
 
-<h3>14.XI — Operational promotion audit</h3>
+<h3 id="14-xi-operational-promotion-audit">14.XI — Operational promotion audit</h3>
 <p>Named reference: standard special relativity, ordinary bound-state kinematics, QED/Dirac–Coulomb where
 imported, standard nuclear physics for hadronic controls. Projection-specific contribution: relational
 Cayley coordinates, hyperbolic/elliptic organization, the Dirac half-angle convergence, operator/state
@@ -280,7 +301,7 @@ separation, the symmetric-square lift, the one-body/correlation decomposition. N
 of motion, new invariant observable: none. <span class="formula">\Delta_{\mathrm{op}}(\text{Book 14})=\emptyset</span>.
 <span class="tag MA">MA</span> (status declaration)</p>
 
-<h3>14.XII — Book 14 closure theorem</h3>
+<h3 id="14-xii-book-14-closure-theorem">14.XII — Book 14 closure theorem</h3>
 <p><b>Theorem 14.XII.T1.</b> Twelve-point closure summary: the bounded mass coordinate and its rapidity;
 mass/motion separation; the exact invertible elliptic coordinate; the weak-binding expansion; the
 heavy-source convergence; the conditional Dirac equality; the operator representation; the
@@ -288,7 +309,7 @@ Mass–Veronese embedding; expectation preservation under the lift; the no-quadr
 frozen negative ledger; <span class="formula">\Delta_{\mathrm{op}}=\emptyset</span>.
 <span class="tag MA">MA</span> (bookkeeping summary; items inherit the tags above)</p>
 
-<h3>14.XIII — Retirement and handoff</h3>
+<h3 id="14-xiii-retirement-and-handoff">14.XIII — Retirement and handoff</h3>
 <p>Historical T5.III–T5.VI and the standalone radial Dirac–Coulomb paper retire to provenance.
 Book 15 may inherit only: <span class="formula">\mathbf{C}^2</span> two-channel state
 → <span class="formula">\mathrm{Sym}^2(\mathbf{C}^2)</span> spin-1 module → one-body image
@@ -299,7 +320,7 @@ Book 15 may not infer generations from <span class="formula">\dim\mathrm{Sym}^2(
 
 <hr>
 <h2 id="p3">Part III — What is established, what is conditional, what is not</h2>
-<h3>Established (checked proofs of exact identities)</h3>
+<h3 id="established-checked-proofs-of-exact-identities">Established (checked proofs of exact identities)</h3>
 <ul>
 <li>Relational mass coordinate, its rapidity form, hyperbolic identities, normalized-square calculus. <span class="tag CP">CP</span></li>
 <li>Exact pair-invariant rational form and its elliptic continuation. <span class="tag CP">CP</span></li>
@@ -310,7 +331,7 @@ Book 15 may not infer generations from <span class="formula">\dim\mathrm{Sym}^2(
 <li>Symmetric-square expectation preservation; spin-1 double-angle expectation geometry. <span class="tag CP">CP</span></li>
 <li>One-body lift no-quadrupole theorem: image exactly <span class="formula">1\oplus3</span>; the <span class="formula">5</span> is genuine correlation structure. <span class="tag CP">CP</span></li>
 </ul>
-<h3>True only under declared imports or conditions</h3>
+<h3 id="true-only-under-declared-imports-or-conditions">True only under declared imports or conditions</h3>
 <ul>
 <li>Standard two-particle relativity (14.II.P1). <span class="tag ST">ST</span></li>
 <li>Dirac–Coulomb circular-branch ratio; hence the conditional <span class="formula">u=|G/F|</span> equality (14.V.P1/T2). <span class="tag ST">ST</span></li>
@@ -318,7 +339,7 @@ Book 15 may not infer generations from <span class="formula">\dim\mathrm{Sym}^2(
 <li><span class="formula">\mathrm{Herm}(\mathrm{Sym}^2(\mathbf{C}^2)) = 1\oplus3\oplus5</span> (standard representation theory). <span class="tag ST">ST</span></li>
 <li>The <span class="formula">\mathrm{sxp}(\chi_E)=\tan(\chi_E/2)</span> reading (Book 7 notation). <span class="tag MA">MA</span></li>
 </ul>
-<h3>Remains un-derived</h3>
+<h3 id="remains-un-derived">Remains un-derived</h3>
 <ul>
 <li>Any relation determining relative motion from mass asymmetry, or binding from mass asymmetry. <span class="tag MA">MA</span> (negative results 14.II.N1, 14.IV.N1)</li>
 <li>Extension of the Dirac constant-ratio identification to excited states. <span class="tag MA">MA</span> (14.V.N1)</li>
@@ -339,6 +360,28 @@ The quadrupole <span class="formula">5</span> may be used as physical family or 
 through an independently lawful correlation mechanism; dimensional coincidence and the Veronese conic
 do not cross the gate. <span class="tag MA">MA</span></p>
 
+<!-- BOOKNAV-NAV-START -->
+<nav class="booknav" aria-label="Book navigation">
+<a class="booknav-panel booknav-prev" rel="prev" href="../book13/">
+<span class="booknav-eyebrow">← Previous</span>
+<span class="booknav-title">Book 13 — Thermodynamics, Information, and the Arrow of Time</span>
+<span class="booknav-vol">Volume II</span>
+</a>
+<a class="booknav-panel booknav-center" href="../">
+<span class="booknav-eyebrow">Series</span>
+<span class="booknav-title">Index</span>
+</a>
+<a class="booknav-panel booknav-center" href="../contents/">
+<span class="booknav-eyebrow">Series</span>
+<span class="booknav-title">Contents</span>
+</a>
+<a class="booknav-panel booknav-next" rel="next" href="../book15/">
+<span class="booknav-eyebrow">Next →</span>
+<span class="booknav-title">Book 15 — Saw Interchanges, Double-Angle Decomposition, and the Bridge to E8</span>
+<span class="booknav-vol">Volume III</span>
+</a>
+</nav>
+<!-- BOOKNAV-NAV-END -->
 <footer>
 <p>Rewrite of Book 14 of <i>R Theory — Volume III</i> (working manuscript).
 Restructured: pictures and intuition first (Part I), formal audit second (Part II). All theorems, ledgers,

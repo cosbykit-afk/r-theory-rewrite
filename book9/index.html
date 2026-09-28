@@ -41,13 +41,34 @@ hr{margin:2.5em 0;border:none;border-top:1px solid #bbb}
  border:1px solid #666;border-radius:3px;background:#eee;cursor:pointer;color:#1a1a1a}
 </style>
 <!-- SITENAV-END -->
+<!-- BOOKNAV-CSS-START -->
+<style>
+.booknav{font-family:Georgia,serif;display:grid;grid-template-columns:1.35fr .85fr .85fr 1.35fr;gap:10px;margin:2.5em 0 0}
+.booknav-panel{display:flex;flex-direction:column;justify-content:center;text-decoration:none;color:#1a1a1a;
+ background:linear-gradient(180deg,#ffffff 0%,#f4f7fb 60%,#e7edf4 100%);
+ border:1px solid #c7d2de;border-radius:8px;padding:12px 16px;
+ box-shadow:inset 0 1px 0 #ffffff,0 2px 6px rgba(27,95,170,.10);
+ transition:border-color .15s ease,box-shadow .15s ease,transform .15s ease}
+a.booknav-panel:hover{border-color:#1b5faa;transform:translateY(-1px);
+ box-shadow:inset 0 1px 0 #ffffff,0 4px 12px rgba(27,95,170,.18)}
+a.booknav-panel:focus-visible{outline:2px solid #1b5faa;outline-offset:2px}
+.booknav-eyebrow{font-size:.7em;letter-spacing:.09em;text-transform:uppercase;color:#5a5a5a}
+.booknav-title{font-weight:bold;color:#1b5faa;margin-top:3px;line-height:1.35}
+.booknav-vol{font-size:.78em;color:#5a5a5a;margin-top:2px}
+.booknav-next{text-align:right}
+.booknav-center{text-align:center}
+.booknav-panel.is-disabled{opacity:.45;cursor:default}
+.booknav-panel.is-disabled .booknav-title{color:#5a5a5a}
+@media (max-width:640px){.booknav{grid-template-columns:1fr 1fr}.booknav-next{text-align:left}}
+</style>
+<!-- BOOKNAV-CSS-END -->
 </head>
 <body>
 <!-- SITENAV-NAV-START -->
 <nav class="sitenav" aria-label="Site navigation">
 <a class="sitenav-brand" href="../">R Theory — Rewrite</a>
 <span class="sitenav-links">
-<a href="../#hard">Hard&nbsp;science</a><a href="../#theoretical">Theoretical</a><a href="../vol0/">Vol&nbsp;0</a><a href="../vol4/">Vol&nbsp;IV</a><a href="../tables/">Tables</a>
+<a href="../contents/">Contents</a><a href="../index/">Index</a><a href="../contents/#vol-0">Vol&nbsp;0</a><a href="../contents/#vol-1">Vol&nbsp;I</a><a href="../contents/#vol-2">Vol&nbsp;II</a><a href="../contents/#vol-3">Vol&nbsp;III</a><a href="../contents/#vol-4">Vol&nbsp;IV</a><a href="../tables/">Tables</a><a href="../research/">Research</a>
 </span>
 <form class="sitenav-search" action="https://www.google.com/search" method="get" target="_blank" role="search"
  onsubmit="if(!this.q.value.trim())return false;this.q.value='site:cosbykit-afk.github.io/r-theory-rewrite '+this.q.value">
@@ -79,24 +100,24 @@ hr{margin:2.5em 0;border:none;border-top:1px solid #bbb}
 <h2 id="p1">Part I — See it first</h2>
 <p>Four pictures — one for each section of Book 9 that contains a plottable exact identity (§§9.1, 9.3, 9.4, 9.6). The obstruction and import sections (§§9.2, 9.5, 9.7) and the closure ledger (§9.8) carry no new plottable curve, so no figure is forced for them. The graphs below are live Desmos calculators (drag to pan, scroll to zoom); if Desmos cannot load, a static rendering appears instead. <b>Honesty note:</b> live Desmos rendering was not browser-verified from this environment; every figure has a static PNG fallback, and every plotted expression was executed and numerically verified before drawing.</p>
 
-<h3>Figure 1 — Boost weights are reciprocal exponentials (§9.1)</h3>
+<h3 id="figure-1-boost-weights-are-reciprocal-exponentials-9-1">Figure 1 — Boost weights are reciprocal exponentials (§9.1)</h3>
 <div class="graph" id="d1"></div>
 <img class="fallback" id="f1" src="graphs/b9_rapidity.png" alt="Rapidity weights cxp=e^eta, crx=e^-eta">
 <div class="caption"><b>What you see.</b> Writing β = tanh η, the canonical primitives become
 <span class="formula">c<sub>xp</sub>(χ) = e<sup>η</sup>, &nbsp; c<sub>rx</sub>(χ) = e<sup>−η</sup></span>
 and their product is the dashed line 1. The identity c<sub>xp</sub>·c<sub>rx</sub> = 1 is exactly the normalized factorization of the mass shell E²−p²c² = m²c⁴. <b>Scope.</b> <span class="tag nc">completed numerical check</span> (max error 1.2e−16 over 2000 sample points). <b>What it doesn't show.</b> The mass shell itself is not derived here — it enters through the declared relativistic projection contract (sin χ = β, cos χ = mc²/E). The picture is conditional on that contract.</div>
 
-<h3>Figure 2 — The half-weight curve rides the hyperbola (§9.3)</h3>
+<h3 id="figure-2-the-half-weight-curve-rides-the-hyperbola-9-3">Figure 2 — The half-weight curve rides the hyperbola (§9.3)</h3>
 <div class="graph" id="d2"></div>
 <img class="fallback" id="f2" src="graphs/b9_hyperbola.png" alt="Half-weight hyperbola Er^2-Or^2=4">
 <div class="caption"><b>What you see.</b> The dashed hyperbola E<sub>r</sub>²−O<sub>r</sub>² = 4 and, riding its upper branch, the traced pair (E<sub>r</sub>(q), O<sub>r</sub>(q)) = (q<sup>−1/2</sup>+q<sup>1/2</sup>, q<sup>−1/2</sup>−q<sup>1/2</sup>). The traced curve <i>is</i> the hyperbola branch, exactly — the identity E<sub>r</sub>²−O<sub>r</sub>² = 4uv = 4 is pure algebra. (Drawn via a display reparametrization t ↦ (2cosh(3t−3/2), 2sinh(3t−3/2)), so the branch is traced regardless of Desmos's parametric-domain handling.) <b>Scope.</b> <span class="tag nc">completed numerical check</span> (max error 1.5e−14). <b>What it doesn't show.</b> Calling N = O<sub>r</sub>/E<sub>r</sub> a "lapse" and r = aE<sub>r</sub>² an "areal radius" is a projection contract <span class="tag ax">assumption or axiom</span>, not something the curve establishes.</div>
 
-<h3>Figure 3 — The reciprocal defect is the Schwarzschild lapse (§9.4)</h3>
+<h3 id="figure-3-the-reciprocal-defect-is-the-schwarzschild-lapse-9-4">Figure 3 — The reciprocal defect is the Schwarzschild lapse (§9.4)</h3>
 <div class="graph" id="d3"></div>
 <img class="fallback" id="f3" src="graphs/b9_defect.png" alt="Schwarzschild defect f=1-4a/r">
 <div class="caption"><b>What you see.</b> The defect N² = 1−4a/r (in units a = 1), rising to asymptotic flatness f → 1, with the horizon at r = 4a marked. The conserved quantity r(1−f) = 4a is exactly the vacuum first integral: d[r(1−f)]/dr = 0 is the same equation as rf′+f−1 = 0. <b>Scope.</b> The defect algebra is <span class="tag nc">completed numerical check</span> (max error 5.2e−16); the reduction rf′+f−1 = 0 is <span class="tag st">standard imported theorem</span> inside imported general relativity. <b>What it doesn't show.</b> The calibration a = GM/(2c²) is an external calibration <span class="tag ax">assumption or axiom</span>; Einstein's equations are imported, not derived.</div>
 
-<h3>Figure 4 — The exact (q, σ) chart (§9.6)</h3>
+<h3 id="figure-4-the-exact-q-chart-9-6">Figure 4 — The exact (q, σ) chart (§9.6)</h3>
 <div class="graph" id="d4"></div>
 <img class="fallback" id="f4" src="graphs/b9_chart.png" alt="Exact chart q=(1-N)/(1+N), sigma=0 vacuum line">
 <div class="caption"><b>What you see.</b> The solid curve q = (1−N)/(1+N), which inverts N = (1−q)/(1+q) exactly, and the dashed line σ = ln(AN) = 0 — the vacuum locus, where the imported field equations give σ′ = 0. The chart separates the reciprocal lapse/redshift variable q from the independent radial-strain variable σ. <b>Scope.</b> The inversion is <span class="tag nc">completed numerical check</span> (max error 1.7e−16); σ′ = 0 in vacuum is <span class="tag st">standard imported theorem</span> (follows from AN = 1, §9.5). <b>What it doesn't show.</b> A non-vacuum σ curve is not drawn: matter need not keep σ = 0, and the one-scalar matter claims of §9.6 are <span class="tag ma">manuscript assertion</span> <span class="tag niv">not independently verified</span>, not checked here.</div>
@@ -105,36 +126,36 @@ and their product is the dashed line 1. The identity c<sub>xp</sub>·c<sub>rx</s
 <h2 id="p2">Part II — Then earn it</h2>
 <p>The formal audit, section by section, with source line references (source.txt = volume lines 2094–2264). Notation: s<sub>rx</sub> = |csc x|+cot x, s<sub>xp</sub> = |csc x|−cot x, c<sub>xp</sub> = |sec x|+tan x, c<sub>rx</sub> = |sec x|−tan x (global conventions, Volume II front matter).</p>
 
-<h3>9.1 — Local Lorentz witness <span class="tag nc">completed numerical check</span> / <span class="tag ax">assumption or axiom</span></h3>
+<h3 id="9-1-local-lorentz-witness-completed-numerical-check-assumption-or-axiom">9.1 — Local Lorentz witness <span class="tag nc">completed numerical check</span> / <span class="tag ax">assumption or axiom</span></h3>
 <p>On the declared positive-energy timelike chart (lines 12–15) the contract sin χ = β = p<sub>phys</sub>c/E, cos χ = mc²/E is <span class="tag ax">assumption or axiom</span> — a projection contract, honestly labeled as such by the book ("These are exact conditional correspondences after the relativistic projection contract is declared… They do not derive the mass shell," lines 35–37). Given the contract, the four identities (lines 19–27) — s<sub>xp</sub> = pc/(E+mc²), s<sub>rx</sub> = (E+mc²)/(pc), c<sub>xp</sub> = (E+pc)/(mc²), c<sub>rx</sub> = (E−pc)/(mc²) — are <span class="tag nc">completed numerical check</span> (2000 random β ∈ (0.01, 0.99), max error 5.7e−14; the s<sub>xp</sub> form uses E²−p²c² = m²c⁴, which is part of the contract). With β = tanh η: c<sub>xp</sub> = e<sup>η</sup>, c<sub>rx</sub> = e<sup>−η</sup> <span class="tag nc">completed numerical check</span> (max error 1.5e−14), and c<sub>xp</sub>·c<sub>rx</sub> = 1 reproduces the mass shell exactly (max error 1.2e−16). The reciprocal identities s<sub>rx</sub>s<sub>xp</sub> = c<sub>xp</sub>c<sub>rx</sub> = 1 are earned upstream <span class="tag cp">checked proof</span> (Volume I ledger: Book 2 algebraic spine, independently verified to ~1e−13).</p>
 <p><b>Dependency flag.</b> The provenance sentence (lines 5–8) cites "the exact Lorentz witness already isolated in the reconstructed mathematics, together with the later conditional calculations in Towards Unification, Reverse Engineering Einstein, T4, and T6." None of T4, T6, Towards Unification, or Reverse Engineering Einstein are Books 0–6, and no "Lorentz witness" appears as earned in the Volume I theorem ledger — so under the volume's own dependency rule (front matter: "Volume II inherits only results already earned in Volume I… and explicitly named physics imports") these are <b>not valid upstream dependencies</b>. The identities themselves are self-contained in the book and re-verified here, so this is a dependency-labeling defect, not a mathematical error: the "Lorentz witness" label is unsupported by the dependency chain. <b>Minor gap:</b> dropping the absolute values in s<sub>xp</sub>, c<sub>xp</sub> requires sin χ, cos χ ≥ 0; the declared chart does not state the β ≥ 0 (or branch) restriction explicitly (lines 12–15). The identities hold on that branch; the restriction is unstated.</p>
 
-<h3>9.2 — Rank and curvature firewall <span class="tag cp">checked proof</span></h3>
+<h3 id="9-2-rank-and-curvature-firewall-checked-proof">9.2 — Rank and curvature firewall <span class="tag cp">checked proof</span></h3>
 <p>Both obstructions (lines 43–55) are elementary. If every coframe one-form is e<sup>a</sup> = f<sup>a</sup>(x)dx, all are multiples of dx, so the coframe spans at most one dimension at each point — rank ≤ 1 <span class="tag cp">checked proof</span> (background linear algebra). For ω = K dη with K a fixed algebra element: dω = K d²η = 0 and ω∧ω ∝ dη∧dη = 0, so R = dω+ω∧ω = 0 on smooth regions <span class="tag cp">checked proof</span> (wedge algebra; the Volume I ledger independently records this one-generator flatness as proved in the Book 4 audit). "Scalar rapidity variation by itself is pure gauge" follows. The disjunction "nonzero curvature requires additional independent connection directions, singular/global structure, or an imported geometric field law" is the correct contrapositive <span class="tag cp">checked proof</span>.</p>
 
-<h3>9.3 — Reciprocal half-weight theorem <span class="tag nc">completed numerical check</span> / <span class="tag ax">assumption or axiom</span></h3>
+<h3 id="9-3-reciprocal-half-weight-theorem-completed-numerical-check-assumption-or-axiom">9.3 — Reciprocal half-weight theorem <span class="tag nc">completed numerical check</span> / <span class="tag ax">assumption or axiom</span></h3>
 <p>With q = s<sub>xp</sub> &gt; 0, u = q<sup>−1/2</sup>, v = q<sup>1/2</sup> (lines 59–61): uv = 1 and E<sub>r</sub>²−O<sub>r</sub>² = 4uv = 4 <span class="tag nc">completed numerical check</span> (max error 1.1e−14 over 2000 points) — in fact exact algebra. Declaring N = O<sub>r</sub>/E<sub>r</sub> and r = aE<sub>r</sub>² (lines 65–67) is <span class="tag ax">assumption or axiom</span> (readout declarations; the book says so: "after the two readouts are declared," line 76). Then N = (1−q)/(1+q) <span class="tag nc">completed numerical check</span> (max error 2.3e−16), and the less obvious identity (1−q)/(1+q) = c<sub>rx</sub> on the first exterior chart (line 71) is a genuine trigonometric identity — <span class="tag nc">completed numerical check</span> (max error 3.4e−16; verified algebraically: both sides equal (sinχ+cosχ−1)/(sinχ−cosχ+1) vs (1−sinχ)/cosχ, cross-multiplication is exact). Finally r(1−N²) = 4a and N² = 1−4a/r <span class="tag nc">completed numerical check</span> (max errors 1.4e−14, 5.2e−16). The identification of r as physical areal radius and N as gravitational lapse "remains a projection contract" (line 78) <span class="tag ax">assumption or axiom</span> — honestly labeled.</p>
 
-<h3>9.4 — Vacuum Einstein first-integral theorem <span class="tag nc">completed numerical check</span> / <span class="tag st">standard imported theorem</span> / <span class="tag ax">assumption or axiom</span></h3>
+<h3 id="9-4-vacuum-einstein-first-integral-theorem-completed-numerical-check-standard-imported-theorem-assumption-or-axiom">9.4 — Vacuum Einstein first-integral theorem <span class="tag nc">completed numerical check</span> / <span class="tag st">standard imported theorem</span> / <span class="tag ax">assumption or axiom</span></h3>
 <p>The static reciprocal spherical metric is <b>imported</b> (line 90: "Import the static reciprocal spherical metric") — an explicit physics import, as the book states. The vacuum reduction rf′+f−1 = 0 (line 94) is <span class="tag st">standard imported theorem</span> (temporal/radial Einstein equations for ds² = −f c²dt²+f⁻¹dr²+r²dΩ²). The book's move — d[r(1−f)]/dr = 0 "is the same equation" (lines 96–98) — is <span class="tag nc">completed numerical check</span> (verified: (1−f)−rf′ = 0 ⟺ rf′+f−1 = 0, max error 1.8e−13 on the gradient check). With f = N² = 1−4a/r from §9.3, the external calibration a = GM/(2c²) (line 100) is <span class="tag ax">assumption or axiom</span> (external calibration, not derived), and then f = 1−2GM/(rc²) <span class="tag nc">completed numerical check</span> (exact: 0.0 residual in G = M = c = 1 units). Status sentence (lines 104–105: "a conditional theorem inside imported general relativity, not a derivation of Einstein's equations") is accurate — the book does not present this as deriving GR. No scope violation.</p>
 
-<h3>9.5 — Reciprocity is selected on shell, not before variation <span class="tag sc">completed symbolic check</span> / <span class="tag st">standard imported theorem</span></h3>
+<h3 id="9-5-reciprocity-is-selected-on-shell-not-before-variation-completed-symbolic-check-standard-imported-theorem">9.5 — Reciprocity is selected on shell, not before variation <span class="tag sc">completed symbolic check</span> / <span class="tag st">standard imported theorem</span></h3>
 <p>For ds² = −N(r)²c²dt²+A(r)²dr²+r²dΩ² with N, A independent (lines 113–115), the claim that the vacuum Einstein equations imply AN = 1 after asymptotic normalization (lines 115–119) was re-derived symbolically here: with SymPy, G<sup>r</sup><sub>r</sub> − G<sup>t</sup><sub>t</sub> = 2(NA)′/(rNA³) exactly (equivalently, with covariant components, G<sub>rr</sub>/A² + G<sub>tt</sub>/N² = 2(NA)′/(rNA³)), so vacuum G<sup>t</sup><sub>t</sub> = G<sup>r</sup><sub>r</sub> = 0 forces (NA)′ = 0, i.e. NA = const = 1 after N, A → 1 at infinity <span class="tag sc">completed symbolic check</span> (this is also <span class="tag st">standard imported theorem</span> — a classical GR result). <b>Correction 2026-09-19:</b> an earlier wording quoted this identity as G<sup>t</sup><sub>t</sub>/N² + G<sup>r</sup><sub>r</sub>/A² = 2(NA)′/(rNA³) with mixed components, which is incorrect as stated; the vacuum AN = 1 conclusion is unaffected. The methodological claim (lines 119–120) — imposing A = N⁻¹ <i>before</i> variation collapses the reduced bulk Lagrangian to a boundary term — was verified symbolically: with A = 1/N the density √(−g)R equals sinθ·dB/dr with B = −r²f′−2r(f−1), i.e. a total derivative modulo the standard angular volume factor <span class="tag sc">completed symbolic check</span>. The "discards an independent field equation" half is the direct methodological consequence <span class="tag st">standard imported theorem</span> (variational principle). No gap found; the rule stated (lines 122–124) is sound.</p>
 
-<h3>9.6 — Sourced transfer and the one-scalar matter obstruction <span class="tag ma">manuscript assertion</span> <span class="tag niv">not independently verified</span> / <span class="tag nc">completed numerical check</span></h3>
+<h3 id="9-6-sourced-transfer-and-the-one-scalar-matter-obstruction-manuscript-assertion-not-independently-verified-completed-numerical-check">9.6 — Sourced transfer and the one-scalar matter obstruction <span class="tag ma">manuscript assertion</span> <span class="tag niv">not independently verified</span> / <span class="tag nc">completed numerical check</span></h3>
 <p>The exact chart (lines 138–140): q = (1−N)/(1+N) inverts N = (1−q)/(1+q) <span class="tag nc">completed numerical check</span> (max error 1.7e−16); σ = ln(AN) with σ = 0 ⟺ AN = 1, and σ′ = 0 in vacuum follows from §9.5 <span class="tag st">standard imported theorem</span>. The two physical claims are <b>not computed in this span</b>: (i) "the sourced transfer variable q reproduces the correctly normalized Newtonian Poisson equation in the weak-field, nonrelativistic limit after the exterior mass calibration is fixed" (lines 130–132) — <span class="tag ma">manuscript assertion</span> <span class="tag niv">not independently verified</span> (conditional recovery; no derivation shown, not checked here); (ii) "the static-dust test collapses to the vacuum branch" and "a second coframe variable is therefore necessary for general matter" (lines 134–136) — <span class="tag ma">manuscript assertion</span> <span class="tag niv">not independently verified</span> (obstruction claim; no computation shown, not checked here). The book does not mislabel them as proved, but they are unproved <i>in this book</i> — flag for any reader who needs them upstream.</p>
 
-<h3>9.7 — Torsion and spin boundary <span class="tag st">standard imported theorem</span> / <span class="tag ma">manuscript assertion</span> <span class="tag niv">not independently verified</span></h3>
+<h3 id="9-7-torsion-and-spin-boundary-standard-imported-theorem-manuscript-assertion-not-independently-verified">9.7 — Torsion and spin boundary <span class="tag st">standard imported theorem</span> / <span class="tag ma">manuscript assertion</span> <span class="tag niv">not independently verified</span></h3>
 <p>"Metric-compatible Lorentz transport does not itself imply zero torsion" (line 146) — <span class="tag st">standard imported theorem</span> (metric compatibility constrains the symmetric part of the connection; torsion is the antisymmetric part). "Under the imported minimal first-order Palatini action, independent connection variation gives T<sup>a</sup> = 0 only when the coframe is nondegenerate and matter carries no intrinsic spin current" (lines 146–148) — <span class="tag st">standard imported theorem</span>, explicitly labeled as imported ("Under the imported minimal first-order Palatini action"). <b>Dependency flag:</b> "the T6 Einstein–Cartan witness" (lines 148–149) cites T6, which is not a Book 0–6 result and does not appear as earned in the Volume I ledger — <span class="tag ma">manuscript assertion</span> <span class="tag niv">not independently verified</span> at best, not a valid upstream dependency under the volume's dependency rule.</p>
 
-<h3>9.8 — Book 9 closure ledger (lines 152–165) — audit of the audit</h3>
+<h3 id="9-8-book-9-closure-ledger-lines-152-165-audit-of-the-audit">9.8 — Book 9 closure ledger (lines 152–165) — audit of the audit</h3>
 <p><b>Certified mathematical or representation results</b> (lines 154–156): reciprocal/rapidity coordinate identities ✓ (<span class="tag nc">completed numerical check</span> here); one-scalar coframe-rank obstruction ✓ (<span class="tag cp">checked proof</span>); fixed-generator pure-gauge obstruction ✓ (<span class="tag cp">checked proof</span>, also ledger-proved in Book 4); reciprocal half-weight hyperbola ✓ (<span class="tag nc">completed numerical check</span>); algebraic defect r(1−N²) = 4a ✓ (<span class="tag nc">completed numerical check</span>). <b>Conditional physical results</b> (lines 158–160): mass-shell interpretation, Schwarzschild realization, AN = 1 on shell, weak-field Poisson recovery, spherical matter obstruction, Palatini torsion statement, spin/coframe interface — all correctly conditional; the Poisson and matter-obstruction items rest on <span class="tag ma">manuscript assertion</span> <span class="tag niv">not independently verified</span> as noted in §9.6. <b>Not derived</b> (lines 162–164): the nine-item list is consistent with the audit — nothing here derives physical time, Lorentzian signature as fact about nature, Einstein/Palatini dynamics, Newton's constant, a unique areal-radius contract, nonspherical gravity, gravitational waves, fermionic matter, or any observable differing from accepted relativity. The conclusion (lines 166–168: "representation and conditional reconstruction, not replacement of general relativity… The operational prediction-difference set remains empty") is an accurate summary of what the mathematics above establishes.</p>
 
 <hr>
 <h2 id="p3">Part III — What Book 9 establishes, and what it doesn't</h2>
-<h3>Established</h3>
+<h3 id="established">Established</h3>
 <p class="small">Exact conditional rapidity/rapidity-weight identities (c<sub>xp</sub> = e<sup>η</sup>, c<sub>rx</sub> = e<sup>−η</sup>, mass-shell factorization) given the relativistic projection contract; the coframe-rank-≤-1 obstruction for single-function coframes; the fixed-generator pure-gauge result R = 0 for ω = K dη; the reciprocal half-weight hyperbola E<sub>r</sub>²−O<sub>r</sub>² = 4 and the exact defect r(1−N²) = 4a after declared readouts; the first-integral equivalence d[r(1−f)]/dr = 0 ⟺ rf′+f−1 = 0; on-shell selection of AN = 1 in vacuum (symbolically re-derived) and the boundary-term collapse when A = N⁻¹ is imposed before variation. Statuses: checked proof, completed symbolic/numerical check, or standard imported theorem as tagged above.</p>
-<h3>Not derived (the book's own list, verified consistent)</h3>
+<h3 id="not-derived-the-book-s-own-list-verified-consistent">Not derived (the book's own list, verified consistent)</h3>
 <p class="small">Physical time; Lorentzian signature as a fact about nature; Einstein or Palatini dynamics; Newton's constant; a unique areal-radius contract; generic nonspherical gravity; gravitational-wave dynamics; fermionic quantum matter; any invariant observable differing from accepted relativity. The Poisson-recovery and one-scalar matter-obstruction claims are manuscript assertions pending in-book computation. The T4/T6/Towards-Unification/Reverse-Engineering-Einstein provenance references are not valid Volume II upstream dependencies (dependency-labeling defects, not math errors).</p>
 
 <hr>
@@ -206,5 +227,27 @@ setTimeout(function(){
   }
 }, 12000);
 </script>
+<!-- BOOKNAV-NAV-START -->
+<nav class="booknav" aria-label="Book navigation">
+<a class="booknav-panel booknav-prev" rel="prev" href="../book8/">
+<span class="booknav-eyebrow">← Previous</span>
+<span class="booknav-title">Book 8 — Pre-Maxwell Geometry and the Compact-Carrier Field Boundary (Restructured)</span>
+<span class="booknav-vol">Volume II</span>
+</a>
+<a class="booknav-panel booknav-center" href="../">
+<span class="booknav-eyebrow">Series</span>
+<span class="booknav-title">Index</span>
+</a>
+<a class="booknav-panel booknav-center" href="../contents/">
+<span class="booknav-eyebrow">Series</span>
+<span class="booknav-title">Contents</span>
+</a>
+<a class="booknav-panel booknav-next" rel="next" href="../book10/">
+<span class="booknav-eyebrow">Next →</span>
+<span class="booknav-title">Book 10 — Quantum Kinematics and the Measurement Boundary (Restructured)</span>
+<span class="booknav-vol">Volume II</span>
+</a>
+</nav>
+<!-- BOOKNAV-NAV-END -->
 </body>
 </html>
