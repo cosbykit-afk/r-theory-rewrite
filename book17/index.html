@@ -125,6 +125,13 @@ a.booknav-panel.booknav-handoff:hover{border-color:#b85f1d;
  box-shadow:inset 0 1px 0 #ffffff,0 4px 12px rgba(184,95,29,.22)}
 </style>
 <!-- BOOKNAV-CSS-END -->
+<!-- TAGLINK-CSS-START -->
+<style>
+a.taglink{text-decoration:none}
+a.taglink:hover .tag{filter:brightness(.94)}
+a.taglink:focus-visible{outline:3px solid #0e7c86;outline-offset:2px;border-radius:4px}
+</style>
+<!-- TAGLINK-CSS-END -->
 </head>
 <body>
 <!-- SITENAV-NAV-START -->
@@ -181,10 +188,10 @@ a.booknav-panel.booknav-handoff:hover{border-color:#b85f1d;
 <h1>Book 17 — The Discrete Octant</h1>
 <p><i>A restructured rewrite of Book 17 of R Theory — Volume IV (v1, the audit authority).
 Pictures and intuition first; the formal audit second. Every claim carries exactly one status:
-<span class="tag CP">CP</span> checked proof, <span class="tag SC">SC</span> completed symbolic check,
-<span class="tag NC">NC</span> completed numerical check, <span class="tag ST">ST</span> standard imported theorem,
-<span class="tag MA">MA</span> manuscript assertion, <span class="tag AX">AX</span> assumption or axiom,
-<span class="tag IN">IN</span> incomplete or failed computation, <span class="tag IC">IC</span> incorrect result.
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> checked proof, <a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">SC</span></a> completed symbolic check,
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> completed numerical check, <a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">ST</span></a> standard imported theorem,
+<a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> manuscript assertion, <a class="taglink" href="../ledger/#tag-AX" title="Status key: assumption or axiom"><span class="tag AX">AX</span></a> assumption or axiom,
+<a class="taglink" href="../ledger/#tag-IN" title="Status key: incomplete or failed computation"><span class="tag IN">IN</span></a> incomplete or failed computation, <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a> incorrect result.
 A sampled numerical agreement (~1e-10) is a completed numerical check, never a proof.</i></p>
 <p class="small"><b>Reading this page.</b> The manuscript's own words EXACT / CONDITIONAL / OPEN are its
 self-labels, never the audit's verdicts — they are quoted, not endorsed. Figures are live Desmos
@@ -218,13 +225,13 @@ on <span class="formula">(0, 2π)</span> with octant boundaries at multiples of
 <span class="formula">V_E = √(4+2√2)+1+√2 ≈ 5.0273</span> at 22.5° and 202.5°,
 <span class="formula">1/V_E ≈ 0.1989</span> at 112.5° and 292.5°. On each open octant exactly two
 primitives exceed 1 — the active pair, alternating every two octants: (srx, cxp) on octants
-1, 2, 5, 6 and (crx, sxp) on octants 3, 4, 7, 8. <span class="tag CP">CP</span>
+1, 2, 5, 6 and (crx, sxp) on octants 3, 4, 7, 8. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 (octant-table ordering and the active-pair structure proved via the
 <span class="formula">t = tan(x/2)</span> substitution; plotted curves re-checked numerically at
-60,001 grid points, max error &lt; 4e-14 <span class="tag NC">NC</span>).
+60,001 grid points, max error &lt; 4e-14 <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a>).
 <b>What it doesn't show.</b> The plotted curves carry no physics; the carrier identities they
 feed (Figure 2) are trigonometry, and the Clifford contraction that would use them is open.
-<span class="tag MA">MA</span></div>
+<a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></div>
 
 <h3 id="figure-2-the-elliptic-carrier-and-its-2-1-map">Figure 2 — The elliptic carrier and its 2:1 map</h3>
 <div class="graph" id="d2"></div>
@@ -236,10 +243,10 @@ feed (Figure 2) are trigonometry, and the Clifford contraction that would use th
 <span class="formula">(V_R, H)(x+π) = (V_R, H)(x)</span>. The four E-contact midpoints land on only
 <b>two</b> ellipse points, <span class="formula">(±√2/4, ±√2/8)</span> (green): 22.5° and 202.5°
 coincide, as do 112.5° and 292.5° — that is the 2:1 sheet structure, drawn.
-<span class="tag CP">CP</span> (identity, deck invariance, and midpoint values exact).
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> (identity, deck invariance, and midpoint values exact).
 <b>What it doesn't show.</b> The branch sign <span class="formula">ε = sgn(sin 2x)</span> does
 <b>not</b> record which sheet you are on — it is deck-invariant,
-<span class="formula">sin(2(x+π)) = sin(2x)</span>; it records ellipse halves. <span class="tag IC">IC</span>
+<span class="formula">sin(2(x+π)) = sin(2x)</span>; it records ellipse halves. <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a>
 (see IC-1).</div>
 
 <h3 id="figure-3-flatwave-1-on-quadrants-1-and-3-1-on-2-and-4">Figure 3 — Flatwave: +1 on quadrants 1 and 3, −1 on 2 and 4</h3>
@@ -249,16 +256,16 @@ coincide, as do 112.5° and 292.5° — that is the 2:1 sheet structure, drawn.
 <span class="formula">1/urx + 1/uxp,&nbsp;&nbsp;urx = srx − crx,&nbsp;uxp = cxp − sxp</span>
 is <span class="formula">+1</span> on Q1 and Q3 (green) and <span class="formula">−1</span> on Q2 and Q4
 (red) — a step function, not the constant <span class="formula">1</span> the manuscript's wording suggests.
-<span class="tag CP">CP</span> on Q1/Q3; the Q2/Q4 value is <span class="tag NC">NC</span> from the audit
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> on Q1/Q3; the Q2/Q4 value is <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> from the audit
 (counterexamples), and is in fact <span class="formula">−1</span> exactly.
-<b>Page-level finding</b> <span class="tag SC">SC</span>: per-quadrant exact symbolic simplification gives
+<b>Page-level finding</b> <a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">SC</span></a>: per-quadrant exact symbolic simplification gives
 <span class="formula">1/urx + 1/uxp − 1 = 0</span> on Q1/Q3 and <span class="formula">−2</span> on Q2/Q4,
 so the §17.1.4 Flatwave is <span class="formula">sgn(sin 2x)</span> <i>exactly</i> — the same function as
 Books 2–3's FlatWave (via the audit's symbolic identity
 <span class="formula">1/urx + 1/uxp = (srx+cxp)/(srx·cxp − 1)</span>).
 The flagged "Flatwave name collision" is therefore an identity, not a collision: one function,
 two definitions. <b>What it doesn't show.</b> This is algebra, not physics; it establishes nothing
-about any contraction. <span class="tag MA">MA</span></div>
+about any contraction. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></div>
 
 <h3 id="figure-4-the-paired-footprint-zeros-at-midpoints-not-boundaries-ic-4">Figure 4 — The paired footprint: zeros at midpoints, not boundaries (IC-4)</h3>
 <div class="graph" id="d4"></div>
@@ -268,11 +275,11 @@ the 2:1 kernel <span class="formula">x → x+π</span> with minimal period <span
 Its zeros (green) sit at the octant <b>midpoints</b> <span class="formula">22.5° + k·45°</span> — all eight
 of them. At the octant <b>boundaries</b> (red) it takes <span class="formula">±1</span>, not zero:
 <span class="formula">cos(4·45°) = cos(4·135°) = −1</span>.
-<span class="tag CP">CP</span> The manuscript's §17.6.2 bullet "vanishes at the octant boundaries
-(45°, 135°, …)" is <span class="tag IC">IC</span> as stated — this figure is the exhibit.
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> The manuscript's §17.6.2 bullet "vanishes at the octant boundaries
+(45°, 135°, …)" is <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a> as stated — this figure is the exhibit.
 <b>What it doesn't show.</b> Evenness under <span class="formula">x → x+π</span> is proved; "even under
 the code group" is unverifiable as stated — the code group is never defined as an x-map.
-<span class="tag MA">MA</span></div>
+<a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></div>
 
 <h3 id="figure-5-the-rapidity-ladder-at-e-contacts">Figure 5 — The rapidity ladder at E-contacts</h3>
 <div class="graph" id="d5"></div>
@@ -282,12 +289,12 @@ the code group" is unverifiable as stated — the code group is never defined as
 <span class="formula">±w₀</span>, <span class="formula">w₀ = ln(1+√2) ≈ 0.8814</span> (green),
 with <span class="formula">sinh w₀ = 1</span>, <span class="formula">cosh w₀ = √2</span>; the sign
 pattern is <span class="formula">+,−,−,+,+,−,−,+</span> across the octants.
-<span class="tag CP">CP</span> The E-contact cosh product is
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> The E-contact cosh product is
 <span class="formula">(√2)⁴ = 4</span>, the all-eight product <span class="formula">(√2)⁸ = 16</span>,
 and the dominant value's fourth power <span class="formula">V_E⁴ = 638.7823</span>
-<span class="tag NC">NC</span>. <b>What it doesn't show.</b> What 638.78 <i>does</i> in the contraction —
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a>. <b>What it doesn't show.</b> What 638.78 <i>does</i> in the contraction —
 §17.3.5's honest line is "its role in the Clifford contraction remains to be determined."
-<span class="tag MA">MA</span></div>
+<a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></div>
 
 <h2 id="p2">Part II — Then earn it</h2>
 <p>Section-by-section audit of every numbered claim. Assertion counts: chunk 1 (audit_17_1.py)
@@ -299,24 +306,24 @@ and the dominant value's fourth power <span class="formula">V_E⁴ = 638.7823</s
 <span class="formula">srx − 1/srx = 2cos x/sin x</span>,
 <span class="formula">cxp − 1/cxp = 2sin x/cos x</span>, hence
 <span class="formula">urx + uxp = 2/(sin x cos x) = 4/sin(2x)</span> and
-<span class="formula">sin(2x)/4 = 1/(urx+uxp)</span>. <span class="tag CP">CP</span>
-(dense numeric tripwire: max relative error 3.3e-14 over 60,001 grid points <span class="tag NC">NC</span>).
+<span class="formula">sin(2x)/4 = 1/(urx+uxp)</span>. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
+(dense numeric tripwire: max relative error 3.3e-14 over 60,001 grid points <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a>).
 <b>17.1.2 imbalance.</b> <span class="formula">K₂ = 2cos(2x)/(sin x cos x)</span>,
 <span class="formula">D₂ = 2/(sin x cos x)</span>,
-<span class="formula">K₂/(2D₂) = cos(2x)/2</span>. <span class="tag CP">CP</span>
+<span class="formula">K₂/(2D₂) = cos(2x)/2</span>. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 <b>17.1.3 elliptic carrier.</b> <span class="formula">V_R² + 4H² = 1/4</span> and the stub-proof route
-<span class="formula">D₂² − K₂² = 16</span>. <span class="tag CP">CP</span>
+<span class="formula">D₂² − K₂² = 16</span>. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 <b>17.1.4 octant table.</b> The dominant-ordering formulas per octant pair —
 e.g. octants 1–2: <span class="formula">srx − cxp = (cos x − sin x)(1 + cos x + sin x)/(sin x cos x)</span> —
-and all eight per-octant derivative signs are exact. <span class="tag CP">CP</span>
+and all eight per-octant derivative signs are exact. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 <b>Active pair.</b> Via <span class="formula">t = tan(x/2)</span>, on each open octant exactly the two
 named active primitives exceed 1 and the other two lie in <span class="formula">(0,1)</span>; e.g.
 octant 1: <span class="formula">srx − 1 = (1−t)/t &gt; 0</span>,
 <span class="formula">cxp − 1 = 2t/(1−t) &gt; 0</span> for
-<span class="formula">t ∈ (0, √2−1)</span>. <span class="tag CP">CP</span>
+<span class="formula">t ∈ (0, √2−1)</span>. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 <b>17.1.5–6 three-bit code.</b> The eight codes are distinct and cover
 <span class="formula">ℤ₂³</span>; each octant decodes from (half-quadrant, sgn cos 2x, sgn cos x).
-<span class="tag CP">CP</span></p>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></p>
 
 <h3 id="17-2-the-2-1-elliptic-map-chunk-1">§17.2 — The 2:1 elliptic map (chunk 1)</h3>
 <p><span class="formula">V_R(x+π) = V_R(x)</span>, <span class="formula">H(x+π) = H(x)</span>.
@@ -324,9 +331,9 @@ The eight octant midpoints land on four ellipse points
 <span class="formula">(±√2/4, ±√2/8)</span>, concyclic at distance
 <span class="formula">√10/8</span>; boundary points
 <span class="formula">(±1/2, 0)</span>, <span class="formula">(0, ±1/4)</span> at
-<span class="formula">x = 0°, 45°, 90°, 135°, 180°</span>. <span class="tag CP">CP</span>
+<span class="formula">x = 0°, 45°, 90°, 135°, 180°</span>. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 The deck map <span class="formula">x → x+π</span> fixes
-<span class="formula">ε = sgn(sin 2x)</span> — the IC-1 exhibit. <span class="tag CP">CP</span></p>
+<span class="formula">ε = sgn(sin 2x)</span> — the IC-1 exhibit. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></p>
 
 <h3 id="17-3-rapidity-values-chunk-1">§17.3 — Rapidity values (chunk 1)</h3>
 <p><span class="formula">w₀ = ln(1+√2)</span>: <span class="formula">sinh w₀ = 1</span>,
@@ -335,77 +342,77 @@ The deck map <span class="formula">x → x+π</span> fixes
 <span class="formula">+,−,−,+,+,−,−,+</span> pattern; E-contact and propagator cosh products
 <span class="formula">(√2)⁴ = 4</span>, all-eight product <span class="formula">(√2)⁸ = 16</span>;
 <span class="formula">d/dx ln(cot x) = −1/(sin x cos x) = −2/sin(2x)</span> per quadrant.
-<span class="tag CP">CP</span>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 <span class="formula">V_E = √(4+2√2)+1+√2 ≈ 5.02734</span>,
 <span class="formula">V_E⁴ ≈ 638.7823</span>; all four E-contact dominant values coincide.
-<span class="tag NC">NC</span>
-The printed §17.3.5 radical for crx(112.5°) evaluates ≈ 0.6682, not ≈ 5.027 — <span class="tag IC">IC</span>
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a>
+The printed §17.3.5 radical for crx(112.5°) evaluates ≈ 0.6682, not ≈ 5.027 — <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a>
 (IC-2); the correct value is <span class="formula">1/cxp(112.5°) = V_E</span>.</p>
 
 <h3 id="17-4-c8-octant-correspondence-chunk-1">§17.4 — C8 ↔ octant correspondence (chunk 1)</h3>
 <p>The cyclic word is exactly <span class="formula">(E,B,E,O)×2</span>; E sits on the decay octants
 1, 3, 5, 7, B on growth octants 2, 6 (<span class="formula">ε = +1</span>), O on growth octants 4, 8
-(<span class="formula">ε = −1</span>). <span class="tag CP">CP</span>
+(<span class="formula">ε = −1</span>). <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 (The word's internal consistency is checked; whether the correspondence is a <i>theorem</i> is
 disputed inside the manuscript itself — see CONTR-1 on the <a href="../book19/">Book 19</a> page.)</p>
 
 <h3 id="17-5-open-gates-chunk-1">§17.5 — Open gates (chunk 1)</h3>
 <p>The section's gate admissions are consistent with the rest of the audit: the numerical value of
 <span class="formula">S_F</span>, the 1820 projector, and the downstream contraction inputs are all
-declared open, honestly. <span class="tag MA">MA</span> (the manuscript's own admissions, confirmed).</p>
+declared open, honestly. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> (the manuscript's own admissions, confirmed).</p>
 
 <h3 id="stub-17-1-4-flatwave-carrier-duality-chunk-1">Stub §17.1.4 — Flatwave / carrier duality (chunk 1)</h3>
 <p>Algebra: <span class="formula">1/urx + 1/uxp = (srx+cxp)/(srx·cxp − 1)</span> and
-<span class="formula">Flatwave·H = 1/(urx·uxp)</span> exactly. <span class="tag CP">CP</span>
+<span class="formula">Flatwave·H = 1/(urx·uxp)</span> exactly. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 Wording: <span class="formula">1/(urx·uxp)</span> is the reciprocal of the <i>product</i>, not of the
-geometric mean — <span class="tag IC">IC</span> (IC-3). Flatwave ≡ 1 exactly on Q1 and Q3
-<span class="tag CP">CP</span>, not on Q2/Q4 — <span class="tag NC">NC</span> counterexamples; the exact
-Q2/Q4 value is −1 (Figure 3, <span class="tag SC">SC</span>).</p>
+geometric mean — <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a> (IC-3). Flatwave ≡ 1 exactly on Q1 and Q3
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>, not on Q2/Q4 — <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> counterexamples; the exact
+Q2/Q4 value is −1 (Figure 3, <a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">SC</span></a>).</p>
 
 <h3 id="17-6-uv-footprint-classification-chunk-2">§17.6 — UV footprint classification (chunk 2)</h3>
 <p><b>17.6.1 five types.</b> The E/B/O contact sets are each invariant under the 2:1 kernel
 <span class="formula">x → x+π</span>; the balanced footprint <span class="formula">1</span> is trivially
-invariant; the C8 shift by 4 octants <i>is</i> the kernel map. <span class="tag CP">CP</span>
+invariant; the C8 shift by 4 octants <i>is</i> the kernel map. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 "Even under the code group" is unverifiable as stated — the code group is never defined as an
-x-map. <span class="tag MA">MA</span>
+x-map. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>
 <b>17.6.2 paired footprint.</b> <span class="formula">cos(4(x+π)) = cos(4x)</span>, minimal period
 <span class="formula">π/2</span> (π/4 is not a period); zeros at all eight octant midpoints.
-<span class="tag CP">CP</span> The "vanishes at the octant boundaries" bullet is
-<span class="tag IC">IC</span> (IC-4). The charge-matching
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> The "vanishes at the octant boundaries" bullet is
+<a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a> (IC-4). The charge-matching
 <span class="formula">y₂ ∼ η₋₄·ζ_parent·n̂₅₄</span> substitution is the
-<span class="formula">η₋₄ = η₀cos(4x)</span> ansatz — a manuscript assertion. <span class="tag MA">MA</span>
+<span class="formula">η₋₄ = η₀cos(4x)</span> ansatz — a manuscript assertion. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>
 <b>17.6.3 E-localized.</b> E contacts are exactly the decay-octant midpoints, strictly inside their
-octants. <span class="tag CP">CP</span></p>
+octants. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></p>
 
 <h3 id="17-7-the-open-clifford-contraction-chunk-2">§17.7 — The open Clifford contraction (chunk 2)</h3>
 <p><b>17.7.1 what remains.</b> <span class="formula">S_F = ⟨Q_F, a·T + R_⊥⟩ = 3a</span> given
 <span class="formula">Q_F = (6/5)T</span>, <span class="formula">‖T‖² = 5/2</span>,
 <span class="formula">⟨T, R_⊥⟩ = 0</span>; <span class="formula">⟨Q_F, R_⊥⟩ = 0</span> follows.
-<span class="tag CP">CP</span>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 <b>17.7.2 what is known.</b> <span class="formula">T = diag(1, 1, −1/4×8)</span> (10×10 — the
 <span class="formula">‖T‖² = 5/2</span> forces eight <span class="formula">−1/4</span> entries):
 traceless, <span class="formula">‖T‖² = 5/2</span>, <span class="formula">‖Q_F‖² = 18/5</span>,
 four-contact factor <span class="formula">(1/4)⁴ = 1/256</span>, propagator product
-<span class="formula">(√2)⁴ = 4</span>. <span class="tag CP">CP</span>
-<span class="formula">srx(22.5°) = √(4+2√2)+1+√2</span> exactly <span class="tag SC">SC</span>;
-<span class="formula">V_E⁴ = 638.7823</span> <span class="tag NC">NC</span>; the printed "638.7" is a
-truncation, not a rounding. <span class="tag NC">NC</span>
+<span class="formula">(√2)⁴ = 4</span>. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
+<span class="formula">srx(22.5°) = √(4+2√2)+1+√2</span> exactly <a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">SC</span></a>;
+<span class="formula">V_E⁴ = 638.7823</span> <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a>; the printed "638.7" is a
+truncation, not a rounding. <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a>
 <b>17.7.3 conversion chain.</b> <span class="formula">S_F = 3a</span>,
 <span class="formula">a = (6/5)c</span>, <span class="formula">c = 5S_F/18</span> close algebraically:
 the three <span class="formula">n̂₅₄</span> forms coincide under substitution, and
-<span class="formula">−(1/256)(√10/6) = −√10/1536</span> exactly. <span class="tag CP">CP</span>
+<span class="formula">−(1/256)(√10/6) = −√10/1536</span> exactly. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 The physical content of the <span class="formula">−(√10/1536)</span> prefactor is a manuscript
-assertion. <span class="tag MA">MA</span>
+assertion. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>
 <b>17.7.4 bounds.</b> <span class="formula">(1/256)(18/5)(4) = 0.05625 = 9/160</span> exactly.
-<span class="tag CP">CP</span> The bound's <i>form</i> is heuristic — open. <span class="tag MA">MA</span></p>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> The bound's <i>form</i> is heuristic — open. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></p>
 
 <h3 id="17-8-summary-cross-check-chunk-2">§17.8 — Summary cross-check (chunk 2)</h3>
 <p>The 8-row octant-to-ellipse table, the <span class="formula">√10/8</span> concyclicity, and the
-boundary points all check against the proved carrier formulas. <span class="tag CP">CP</span>
+boundary points all check against the proved carrier formulas. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 §17.9 is handoff prose with no new mathematical claims.</p>
 
 <h3 id="17-18-the-contraction-module-chunk-3">§17.18 — The contraction module (chunk 3)</h3>
-<p>85 assertions, 0 failed — <span class="tag CP">CP</span> 83 · <span class="tag NC">NC</span> 2.
+<p>85 assertions, 0 failed — <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> 83 · <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> 2.
 Established: the formal projector algebra, the conversion chain, and the stripped-response
 definition <span class="formula">S_F := ⟨Q_F, R̃⟩</span> (stripped of the <span class="formula">−1</span>
 and <span class="formula">1/256</span>). The Wolfram skeleton §17.18.8.2 does <b>not</b> execute its
@@ -418,48 +425,48 @@ boundaries (IN-1…IN-3, below). <b>The honest finding: the numerical value of
 <ul class="tight">
 <li><b>IC-1</b> (§17.2): <span class="formula">ε = sgn(sin 2x)</span> does <b>not</b> record the 2:1
 sheet — it is invariant under the deck map <span class="formula">x → x+π</span>. It records ellipse
-halves. <span class="tag IC">IC</span></li>
+halves. <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
 <li><b>IC-2</b> (§17.3.5): the printed radical for crx(112.5°) evaluates ≈ 0.6682, not ≈ 5.027.
-Correct: <span class="formula">1/cxp(112.5°) = √(4+2√2)+1+√2 ≈ 5.0273</span>. <span class="tag IC">IC</span></li>
+Correct: <span class="formula">1/cxp(112.5°) = √(4+2√2)+1+√2 ≈ 5.0273</span>. <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
 <li><b>IC-3</b> (§17.1.4): <span class="formula">1/(urx·uxp)</span> is the reciprocal of the
-<b>product</b>, not of the geometric mean. <span class="tag IC">IC</span></li>
+<b>product</b>, not of the geometric mean. <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
 <li><b>IC-4</b> (§17.6.2): "cos(4x) vanishes at the octant boundaries" is <b>false</b> — it vanishes at
 the octant <b>midpoints</b> <span class="formula">(22.5° + k·45°)</span>; at the boundaries it is
-<span class="formula">±1</span>. Figure 4 is the exhibit. <span class="tag IC">IC</span></li>
+<span class="formula">±1</span>. Figure 4 is the exhibit. <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
 <li><b>IC-5</b> (§17.18): "all four O propagators" — the C8 word contains exactly <b>two</b> O's.
-<span class="tag IC">IC</span></li>
+<a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
 <li><b>IC-6</b> (§17.18): "the 120 sits inside Sym²(128)" — false; the 120 lives in
 <span class="formula">Λ²(128) = 120 ⊕ 8008</span>, while
-<span class="formula">Sym²(128) = 1 ⊕ 1820 ⊕ 6435</span> has no 120. <span class="tag IC">IC</span></li>
+<span class="formula">Sym²(128) = 1 ⊕ 1820 ⊕ 6435</span> has no 120. <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
 <li><b>IC-7</b> (§17.18): "the 135 is the adjoint of SO(16)" — false; the adjoint has dimension
 <span class="formula">16·15/2 = 120</span>. The 135 is <span class="formula">Sym²₀(16)</span>, the
-traceless symmetric square of the vector. <span class="tag IC">IC</span></li>
+traceless symmetric square of the vector. <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
 <li><b>IC-8</b> (skeleton Step 1): <span class="formula">NullSpace[Transpose[{traceVector}]]</span> as
 written yields <span class="formula">{}</span> (rank 1 ⇒ nullity 0); the intended reading yields an
 8255-dimensional space, not 1820. The correct construction needs <span class="formula">P₆₄₃₅</span>,
-which v1 says is not in the authoritative documents — <b>unfixable within v1</b>. <span class="tag IC">IC</span></li>
+which v1 says is not in the authoritative documents — <b>unfixable within v1</b>. <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
 <li><b>IC-9</b> (skeleton Steps 2–3): the <span class="formula">128⁴×128⁴</span> Kronecker product
 (268,435,456 × 268,435,456) cannot be sandwiched by an <span class="formula">1820×8256</span> basis —
-dimensionally incompatible as written. <span class="tag IC">IC</span></li>
+dimensionally incompatible as written. <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
 <li><b>IC-10</b> (skeleton Steps 6–7): <span class="formula">−(1/256)</span> is double-counted — Step 6
 dresses the stripped <span class="formula">S_F</span>, and Step 7's
 <span class="formula">−(√10/1536) = −(1/256)(√10/6)</span> presumes a stripped input, violating
-§17.18.10's own "counted exactly once" regression requirement. <span class="tag IC">IC</span></li>
+§17.18.10's own "counted exactly once" regression requirement. <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
 <li><b>IC-11</b> (skeleton Step 5): <span class="formula">wickSign</span> is never assigned anywhere in
-the skeleton. <span class="tag IC">IC</span></li>
+the skeleton. <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
 </ul>
 <h3 id="incomplete-exact-boundaries-in-1-in-3">Incomplete — exact boundaries (IN-1…IN-3)</h3>
 <ul class="tight">
 <li><b>IN-1:</b> the Frobenius norms <span class="formula">⟨Γ,Γ⟩_F = 128</span>,
 <span class="formula">⟨Γ,PKPK⟩_F = 64</span> cannot be recomputed in v1 — the
 <span class="formula">γᵢ</span>, <span class="formula">B</span>, <span class="formula">Π₋</span>,
-ordering and chirality conventions are OPEN in v1. <span class="tag IN">IN</span></li>
+ordering and chirality conventions are OPEN in v1. <a class="taglink" href="../ledger/#tag-IN" title="Status key: incomplete or failed computation"><span class="tag IN">IN</span></a></li>
 <li><b>IN-2:</b> the explicit 1820 projector is blocked at <span class="formula">P₆₄₃₅</span>.
-<span class="tag IN">IN</span></li>
-<li><b>IN-3:</b> the numerical value of <span class="formula">S_F</span> — OPEN. <span class="tag IN">IN</span></li>
+<a class="taglink" href="../ledger/#tag-IN" title="Status key: incomplete or failed computation"><span class="tag IN">IN</span></a></li>
+<li><b>IN-3:</b> the numerical value of <span class="formula">S_F</span> — OPEN. <a class="taglink" href="../ledger/#tag-IN" title="Status key: incomplete or failed computation"><span class="tag IN">IN</span></a></li>
 </ul>
 <h3 id="open-gates-carried-forward">Open gates carried forward</h3>
-<p class="small"><span class="tag MA">MA</span> per the manuscript's own admissions, confirmed by the audit:
+<p class="small"><a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> per the manuscript's own admissions, confirmed by the audit:
 <span class="formula">S_F</span>, <span class="formula">N_{1820}</span>, <span class="formula">ζ_{parent}</span>,
 <span class="formula">η_{-4}</span>, the <span class="formula">c_{ord}/K_{parent}</span> values, the
 <span class="formula">P_{54}</span> location (135 vs 1820 unreconciled), the

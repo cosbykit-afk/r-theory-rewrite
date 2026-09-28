@@ -100,6 +100,13 @@ html.rth-large-text body{font-size:21.333px;line-height:1.65}
 (function(){try{if(localStorage.getItem('rth-large-text')==='1'){document.documentElement.classList.add('rth-large-text');}}catch(e){}})();
 </script>
 <!-- SITENAV-END -->
+<!-- TAGLINK-CSS-START -->
+<style>
+a.taglink{text-decoration:none}
+a.taglink:hover .tag{filter:brightness(.94)}
+a.taglink:focus-visible{outline:3px solid #0e7c86;outline-offset:2px;border-radius:4px}
+</style>
+<!-- TAGLINK-CSS-END -->
 </head>
 <body>
 <!-- SITENAV-NAV-START -->
@@ -161,11 +168,11 @@ context only; nothing in them is promoted beyond what v1 establishes. The manusc
 EXACT / CONDITIONAL / OPEN are self-labels, never the audit's verdicts.</i></p>
 
 <p class="small"><b>Scope discipline</b> (applies to the whole volume): every claim carries exactly one
-status — <span class="tag CP">CP</span> checked proof · <span class="tag SC">SC</span> completed symbolic
-check · <span class="tag NC">NC</span> completed numerical check · <span class="tag ST">ST</span> standard
-imported theorem · <span class="tag MA">MA</span> manuscript assertion · <span class="tag AX">AX</span>
-assumption or axiom · <span class="tag IN">IN</span> incomplete or failed computation ·
-<span class="tag IC">IC</span> incorrect result. Sampled numerical agreement (~1e-10) is a completed
+status — <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> checked proof · <a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">SC</span></a> completed symbolic
+check · <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> completed numerical check · <a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">ST</span></a> standard
+imported theorem · <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> manuscript assertion · <a class="taglink" href="../ledger/#tag-AX" title="Status key: assumption or axiom"><span class="tag AX">AX</span></a>
+assumption or axiom · <a class="taglink" href="../ledger/#tag-IN" title="Status key: incomplete or failed computation"><span class="tag IN">IN</span></a> incomplete or failed computation ·
+<a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a> incorrect result. Sampled numerical agreement (~1e-10) is a completed
 numerical check, never a proof.</p>
 
 <h2 id="audit-progress-cp-10-cp-13">Audit progress: CP-10 … CP-13</h2>
@@ -205,45 +212,45 @@ Addendum contradictions, and the empty promotion accounting. <a href="../book19/
 <h2 id="incorrect-as-stated-ic-1-ic-18">Incorrect as stated: IC-1 … IC-18</h2>
 <ul class="tight">
 <li><b>IC-1</b> (§17.2): <span class="formula">ε = sgn(sin 2x)</span> does not record the 2:1 sheet — it is
-deck-invariant; it records ellipse halves. <span class="tag IC">IC</span></li>
+deck-invariant; it records ellipse halves. <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
 <li><b>IC-2</b> (§17.3.5): printed radical for crx(112.5°) evaluates ≈ 0.6682, not ≈ 5.027. Correct:
-<span class="formula">1/cxp(112.5°) = √(4+2√2)+1+√2 ≈ 5.0273</span>. <span class="tag IC">IC</span></li>
+<span class="formula">1/cxp(112.5°) = √(4+2√2)+1+√2 ≈ 5.0273</span>. <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
 <li><b>IC-3</b> (§17.1.4): <span class="formula">1/(urx·uxp)</span> is the reciprocal of the product, not of
-the geometric mean. <span class="tag IC">IC</span></li>
+the geometric mean. <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
 <li><b>IC-4</b> (§17.6.2): "cos(4x) vanishes at the octant boundaries" is false — it vanishes at the octant
-midpoints (22.5° + k·45°); at boundaries it is ±1. <span class="tag IC">IC</span></li>
+midpoints (22.5° + k·45°); at boundaries it is ±1. <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
 <li><b>IC-5</b> (§17.18.5.2): "all four O propagators" — the C8 word (E,B,E,O)×2 contains exactly two O's.
-<span class="tag IC">IC</span></li>
+<a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
 <li><b>IC-6</b> (§17.18, Tier 1.3): "The 120 = Λ²(16) sits inside Sym²(128)" — false; the 120 lives in
-<span class="formula">Λ²(128) = 120 ⊕ 8008</span>, per v1's own §17.18.4.1. <span class="tag IC">IC</span></li>
+<span class="formula">Λ²(128) = 120 ⊕ 8008</span>, per v1's own §17.18.4.1. <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
 <li><b>IC-7</b> (§17.18, Tier 2.4): "The 135 is the adjoint of SO(16)" — the adjoint is
-<span class="formula">16·15/2 = 120</span>; the 135 is Sym²₀(16). <span class="tag IC">IC</span></li>
+<span class="formula">16·15/2 = 120</span>; the 135 is Sym²₀(16). <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
 <li><b>IC-8</b> (§17.18.8.2 Step 1): 1820-basis construction as written yields nullity 0; the intended
 reading yields 8255, not 1820; needs <span class="formula">P_{6435}</span>, unavailable in v1.
-<span class="tag IC">IC</span></li>
+<a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
 <li><b>IC-9</b> (§17.18.8.2 Steps 2–3): four 128×128 Kronecker factors give a 128⁴×128⁴ matrix,
-incompatible with the 1820×8256 sandwich. <span class="tag IC">IC</span></li>
+incompatible with the 1820×8256 sandwich. <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
 <li><b>IC-10</b> (§17.18.8.2 Steps 6–7): <span class="formula">−(1/256)</span> double-counted (stripped
-input fed to a stripping formula). <span class="tag IC">IC</span></li>
+input fed to a stripping formula). <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
 <li><b>IC-11</b> (§17.18.8.2 Step 5): <span class="formula">wickSign</span> never assigned.
-<span class="tag IC">IC</span></li>
-<li><b>IC-12</b> (§18.4): the 120-in-Sym²(128) error recurs, = IC-6. <span class="tag IC">IC</span></li>
-<li><b>IC-13</b> (§18.8 Step 1): recurs IC-8 in the skeleton duplicate. <span class="tag IC">IC</span></li>
-<li><b>IC-14</b> (§18.8 Steps 2–3): recurs IC-9 in the skeleton duplicate. <span class="tag IC">IC</span></li>
-<li><b>IC-15</b> (§18.8 Steps 6–7): recurs IC-10 in the skeleton duplicate. <span class="tag IC">IC</span></li>
+<a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
+<li><b>IC-12</b> (§18.4): the 120-in-Sym²(128) error recurs, = IC-6. <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
+<li><b>IC-13</b> (§18.8 Step 1): recurs IC-8 in the skeleton duplicate. <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
+<li><b>IC-14</b> (§18.8 Steps 2–3): recurs IC-9 in the skeleton duplicate. <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
+<li><b>IC-15</b> (§18.8 Steps 6–7): recurs IC-10 in the skeleton duplicate. <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
 <li><b>IC-16</b> (§18.8 Step 5): recurs IC-11 in the skeleton duplicate; Step-5 sum ranges further
-abbreviated away. <span class="tag IC">IC</span></li>
+abbreviated away. <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
 <li><b>IC-17</b> (§18.2, new): the "standard construction"
 <span class="formula">γᵢ = σ_x^{⊗(i−1)} ⊗ σ_a ⊗ I^{⊗(8−i)}</span> has 8 qubit factors → 256×256
 matrices, but the section requires 128×128; <span class="formula">σ_a</span> undefined, only i = 1…8
-shown for 16 matrices. The printed template cannot produce what the section asks for. <span class="tag IC">IC</span></li>
+shown for 16 matrices. The printed template cannot produce what the section asks for. <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
 <li><b>IC-18</b> (Addendum 4.A line 3542): "the propagator rapidity product is 16" — incorrect as stated;
 the established propagator product is <span class="formula">(√2)⁴ = 4</span>; 16 is the all-eight
-product. <span class="tag IC">IC</span></li>
+product. <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a></li>
 </ul>
 
 <h2 id="open-gates">Open gates</h2>
-<p class="small"><span class="tag MA">MA</span> per the manuscript's own admissions, confirmed by the audit:
+<p class="small"><a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> per the manuscript's own admissions, confirmed by the audit:
 <span class="formula">S_F</span>, <span class="formula">N_{1820}</span>, <span class="formula">ζ_{parent}</span>
 (k₀ power), <span class="formula">η_{-4}</span> (UV selection), <span class="formula">c_{ord}/K_{parent}</span>
 values, <span class="formula">P_{54}</span> location (135 vs 1820 unreconciled), the <span class="formula">N_{1820}</span>
@@ -259,7 +266,7 @@ both printings).</li>
 <li class="small">Flatwave naming: formerly flagged as a collision with Books 2–3 "FlatWave = sgn(sin 2x)".
 <b>Resolved 2026-09-19 as an exact identity, not a collision:</b> the audit's new symbolic computation
 proved Volume IV <span class="formula">Flatwave = 1/urx + 1/uxp ≡ sgn(sin 2x)</span> exactly
-(<span class="tag SC">SC</span>). Same function, two definitions.</li>
+(<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">SC</span></a>). Same function, two definitions.</li>
 </ul>
 
 <h2 id="the-four-versions">The four versions</h2>

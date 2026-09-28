@@ -124,6 +124,13 @@ a.booknav-panel.booknav-handoff:hover{border-color:#b85f1d;
  box-shadow:inset 0 1px 0 #ffffff,0 4px 12px rgba(184,95,29,.22)}
 </style>
 <!-- BOOKNAV-CSS-END -->
+<!-- TAGLINK-CSS-START -->
+<style>
+a.taglink{text-decoration:none}
+a.taglink:hover .tag{filter:brightness(.94)}
+a.taglink:focus-visible{outline:3px solid #0e7c86;outline-offset:2px;border-radius:4px}
+</style>
+<!-- TAGLINK-CSS-END -->
 </head>
 <body>
 <!-- SITENAV-NAV-START -->
@@ -180,10 +187,10 @@ a.booknav-panel.booknav-handoff:hover{border-color:#b85f1d;
 <h1>Book 15 — Saw Interchanges, Double-Angle Decomposition, and the Bridge to E8</h1>
 <p><i>A restructured rewrite of Book 15 of R Theory — Volume III.
 Pictures and intuition first; the formal audit second. Every claim carries exactly one status:
-<span class="tag CP">CP</span> checked proof, <span class="tag SC">SC</span> completed symbolic check,
-<span class="tag NC">NC</span> completed numerical check, <span class="tag ST">ST</span> standard imported theorem,
-<span class="tag MA">MA</span> manuscript assertion, <span class="tag AX">AX</span> assumption or axiom,
-<span class="tag IN">IN</span> incomplete or failed computation, <span class="tag IC">IC</span> incorrect result.
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> checked proof, <a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">SC</span></a> completed symbolic check,
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> completed numerical check, <a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag ST">ST</span></a> standard imported theorem,
+<a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> manuscript assertion, <a class="taglink" href="../ledger/#tag-AX" title="Status key: assumption or axiom"><span class="tag AX">AX</span></a> assumption or axiom,
+<a class="taglink" href="../ledger/#tag-IN" title="Status key: incomplete or failed computation"><span class="tag IN">IN</span></a> incomplete or failed computation, <a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a> incorrect result.
 A sampled numerical agreement (~1e-9) is a completed numerical check, never a proof.</i></p>
 <div class="toc">
 <p><b>Contents.</b> <a href="#p1">I. See it first</a> · <a href="#p2">II. Then earn it</a> ·
@@ -208,9 +215,9 @@ a static rendering appears instead, generated from the same formulas.</p>
 <span class="formula">srx = cot(x/2), sxp = tan(x/2), cxp = tan(π/4+x/2), crx = tan(π/4−x/2)</span>.
 Complementation <span class="formula">Cx = π/2 − x</span> swaps the pairs
 <span class="formula">srx ↔ cxp</span> and <span class="formula">sxp ↔ crx</span> — the primitive
-complementary interchange (Thm 15.I.T1). <span class="tag CP">CP</span>
+complementary interchange (Thm 15.I.T1). <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 <b>What it doesn't show.</b> The swap is a substitution law, not a propagation equation; nothing moves.
-<span class="tag MA">MA</span> (firewall, M15-A)</div>
+<a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> (firewall, M15-A)</div>
 
 <h3 id="figure-2-the-aligned-primitive-difference-hyperbola">Figure 2 — The aligned primitive-difference hyperbola</h3>
 <div class="graph" id="d2"></div>
@@ -219,18 +226,18 @@ complementary interchange (Thm 15.I.T1). <span class="tag CP">CP</span>
 <span class="formula">(D<sub>2</sub>, K<sub>2</sub>) = (4/sin 2x, 4cot 2x)</span> riding the hyperbola
 <span class="formula">D<sub>2</sub>² − K<sub>2</sub>² = 16</span> (dashed). Complement swaps
 <span class="formula">A ↔ B</span>, fixes <span class="formula">D<sub>2</sub></span>, negates
-<span class="formula">K<sub>2</sub></span>. <span class="tag CP">CP</span> (Thm 15.II.T2)
+<span class="formula">K<sub>2</sub></span>. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> (Thm 15.II.T2)
 <b>What it doesn't show.</b> Algebraic state geometry only — not energy, momentum, or a boost.
-<span class="tag MA">MA</span> (firewall, M15-B1)</div>
+<a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> (firewall, M15-B1)</div>
 
 <h3 id="figure-3-the-double-angle-phasor">Figure 3 — The double-angle phasor</h3>
 <div class="graph" id="d3"></div>
 <img class="fallback" id="f3" src="graphs/g3_phasor.png" alt="Z2 = e^{2ix} on the unit circle">
 <div class="caption"><b>What you see.</b> <span class="formula">Z<sub>2</sub>(x) = (K<sub>2</sub>+4i)/D<sub>2</sub> = e<sup>2ix</sup></span>
 traces the unit circle; complement sends <span class="formula">Z<sub>2</sub> → −conj(Z<sub>2</sub>) = e<sup>i(π−2x)</sup></span>.
-<span class="tag CP">CP</span> (Thm 15.III.T2, Cor 15.III.C1)
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> (Thm 15.III.T2, Cor 15.III.C1)
 <b>What it doesn't show.</b> A mathematical phase coordinate — not yet a quantum phase, gauge phase, clock,
-or Hodge phase. <span class="tag MA">MA</span> (firewall, M15-B2)</div>
+or Hodge phase. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> (firewall, M15-B2)</div>
 
 <h3 id="figure-4-the-signed-saw-complement">Figure 4 — The signed Saw complement</h3>
 <div class="graph" id="d4"></div>
@@ -239,9 +246,9 @@ or Hodge phase. <span class="tag MA">MA</span> (firewall, M15-B2)</div>
 <span class="formula">saw<sub>up</sub> = ελ, saw<sub>down</sub> = ε(1−λ)</span> (here ε=+1, λ=cos²x);
 under <span class="formula">λ ↔ 1−λ</span> they exchange, <span class="formula">Ω ↔ Ω⁻¹</span>,
 <span class="formula">ln Ω</span> (dashed) is odd about the midpoint, and ε stays fixed.
-<span class="tag SC">SC</span> (Thm 15.IV.T1; core reduction proved symbolically)
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">SC</span></a> (Thm 15.IV.T1; core reduction proved symbolically)
 <b>What it doesn't show.</b> Saw complement is an involutive chart swap, not a Hodge/product duality —
-the order-two vs order-four distinction is proved in §15.VI. <span class="tag MA">MA</span> (firewall, M15-C)</div>
+the order-two vs order-four distinction is proved in §15.VI. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> (firewall, M15-C)</div>
 
 <h3 id="figure-5-the-saw-hodge-meridian">Figure 5 — The Saw–Hodge meridian</h3>
 <div class="graph" id="d5"></div>
@@ -252,9 +259,9 @@ the order-two vs order-four distinction is proved in §15.VI. <span class="tag M
 the sign choice <span class="formula">s<sub>Ω</sub> = ±1</span> selects the
 <span class="formula">s<sub>Ω</sub> = +1</span> (right, orange) or <span class="formula">s<sub>Ω</sub> = −1</span>
 (left, green) half-meridian (dots).
-<span class="tag CP">CP</span> (Thm 15.V.T1, proved symbolically)
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> (Thm 15.V.T1, proved symbolically)
 <b>What it doesn't show.</b> No closed R_Y-even Hamiltonian confined to the I/Y operator algebra can traverse
-this meridian (Thm 15.V.T3) — the obstruction is proved, not assumed. <span class="tag CP">CP</span></div>
+this meridian (Thm 15.V.T3) — the obstruction is proved, not assumed. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></div>
 
 <h3 id="figure-6-the-even-exterior-ratio-and-its-unique-minimum">Figure 6 — The even-exterior ratio and its unique minimum</h3>
 <div class="graph" id="d6"></div>
@@ -262,9 +269,9 @@ this meridian (Thm 15.V.T3) — the obstruction is proved, not assumed. <span cl
 <div class="caption"><b>What you see.</b> <span class="formula">Q<sub>M</sub>(r²)/(4r²) = (cosh v+3)/2</span>,
 with <span class="formula">Q<sub>M</sub>(χ) = 1+6χ+χ²</span> the even-exterior polynomial of a 4-dimensional
 manifold (dim Λ<sup>0,2,4</sup>M = 1, 6, 1). The unique positive minimum is at
-<span class="formula">r = 1 ↔ χ = 1 ↔ λ = 1/2 ↔ v = 0</span>. <span class="tag CP">CP</span> (Thm 15.VIII.T2)
+<span class="formula">r = 1 ↔ χ = 1 ↔ λ = 1/2 ↔ v = 0</span>. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> (Thm 15.VIII.T2)
 <b>What it doesn't show.</b> The 4-manifold is not yet identified with a spacetime tangent space; no
-cosmology follows. <span class="tag MA">MA</span> (firewall, M15-G)</div>
+cosmology follows. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> (firewall, M15-G)</div>
 
 <hr>
 <h2 id="p2">Part II — Then earn it</h2>
@@ -283,71 +290,71 @@ browser rendering.</p>
 <p><b>Theorem 15.I.T1</b> (primitive complementary interchange): complementation exchanges the primitive pairs
 <span class="formula">srx ↔ cxp</span> and <span class="formula">sxp ↔ crx</span>, hence
 <span class="formula">urx(Cx) = uxp(x)</span>, <span class="formula">uxp(Cx) = urx(x)</span>. Direct trig
-substitution, verified on a 1600-point grid. <span class="tag CP">CP</span>
+substitution, verified on a 1600-point grid. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 <b>Definition 15.I.D1</b>: the complex package <span class="formula">Ψ<sub>U</sub> = urx + i·uxp</span> with
 <span class="formula">Ψ<sub>U</sub>(Cx) = i·conj(Ψ<sub>U</sub>(x))</span>.
 <b>Corollary 15.I.C1</b>: complementation is an involution (<span class="formula">C² = id</span>), not a
-propagation equation. <span class="tag CP">CP</span>
+propagation equation. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 The M15-A contract/firewall: the swap is usable downstream; it generates no time, transport, Hamiltonian,
-chirality, Hodge structure, or product duality. <span class="tag MA">MA</span></p>
+chirality, Hodge structure, or product duality. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></p>
 
 <h3 id="15-ii-aligned-primitive-difference-hyperbola">15.II — Aligned primitive-difference hyperbola</h3>
 <p><b>Definition 15.II.D1</b>: <span class="formula">A = srx−sxp = 2cot x</span>,
 <span class="formula">B = cxp−crx = 2tan x</span>; <b>Theorem 15.II.T1</b>:
-<span class="formula">AB = 4</span> (one line). <span class="tag CP">CP</span>
+<span class="formula">AB = 4</span> (one line). <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 <b>Definition 15.II.D2</b>: <span class="formula">D<sub>2</sub> = A+B = urx+uxp</span>,
 <span class="formula">K<sub>2</sub> = A−B</span>; <b>Theorem 15.II.T2</b> (UNA hyperbola):
 <span class="formula">D<sub>2</sub>² − K<sub>2</sub>² = 4AB = 16</span>; complement swaps A↔B, fixes
-D<sub>2</sub>, negates K<sub>2</sub>. <span class="tag CP">CP</span>
-The M15-B1 firewall: algebraic state geometry, not energy/momentum/boost. <span class="tag MA">MA</span></p>
+D<sub>2</sub>, negates K<sub>2</sub>. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
+The M15-B1 firewall: algebraic state geometry, not energy/momentum/boost. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></p>
 
 <h3 id="15-iii-canonical-double-angle-decomposition-and-phasor">15.III — Canonical double-angle decomposition and phasor</h3>
 <p><b>Theorem 15.III.T1</b>: <span class="formula">D<sub>2</sub> = 4/sin 2x</span>,
-<span class="formula">K<sub>2</sub> = 4cot 2x</span>. <span class="tag CP">CP</span>
+<span class="formula">K<sub>2</sub> = 4cot 2x</span>. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 <b>Theorem 15.III.T2</b>: <span class="formula">Z<sub>2</sub> = (K<sub>2</sub>+4i)/D<sub>2</sub> = e<sup>2ix</sup></span>.
-<span class="tag CP">CP</span> <b>Definition 15.III.D1</b>: real/imaginary parts
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> <b>Definition 15.III.D1</b>: real/imaginary parts
 <span class="formula">H<sub>R</sub> = 1/D<sub>2</sub> = sin 2x/4</span>,
 <span class="formula">V<sub>R</sub> = K<sub>2</sub>/2D<sub>2</sub> = cos 2x/2</span> with
 <span class="formula">H<sub>R</sub>′ = V<sub>R</sub></span>, <span class="formula">V<sub>R</sub>′ = −4H<sub>R</sub></span>,
 <span class="formula">Z<sub>2</sub>′ = 2iZ<sub>2</sub></span>.
 <b>Corollary 15.III.C1</b>: complement parity — H<sub>R</sub> even, V<sub>R</sub> odd,
-<span class="formula">Z<sub>2</sub>(Cx) = −conj(Z<sub>2</sub>)</span>. <span class="tag CP">CP</span>
+<span class="formula">Z<sub>2</sub>(Cx) = −conj(Z<sub>2</sub>)</span>. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 The M15-B2 firewall: Z<sub>2</sub> is a mathematical phase coordinate, not yet quantum/gauge/clock/Hodge/E8.
-<span class="tag MA">MA</span></p>
+<a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></p>
 
 <h3 id="15-iv-signed-saw-complement-and-transfer">15.IV — Signed Saw complement and transfer</h3>
 <p><b>Theorem 15.IV.T1</b> (signed Saw complement): on the positive bounded chart the Saw reduces exactly to
 <span class="formula">saw<sub>up</sub> = ελ</span>, <span class="formula">saw<sub>down</sub> = ε(1−λ)</span>;
 under <span class="formula">λ ↔ 1−λ</span>, the shares exchange, <span class="formula">Ω ↔ Ω⁻¹</span>,
 <span class="formula">ln Ω</span> is odd, and the chart sign ε is even.
-<span class="tag SC">SC</span> (core reduction proved symbolically in sympy; complement parities verified numerically).
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">SC</span></a> (core reduction proved symbolically in sympy; complement parities verified numerically).
 <b>Corollary 15.IV.C1</b> (square-root transfer angle): with <span class="formula">θ = π−2θ<sub>λ</sub></span>,
 <span class="formula">λ = sin²(θ/2)</span>, <span class="formula">q = −cos θ</span>,
 <span class="formula">2√H<sub>Saw</sub> = sin θ</span>, <span class="formula">Ω = tan²(θ/2)</span>.
-<span class="tag CP">CP</span> <b>Definition 15.IV.D1</b> (qSaw normalized square):
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> <b>Definition 15.IV.D1</b> (qSaw normalized square):
 <span class="formula">qSaw(q) = 2q/(1+q²)</span>, <span class="formula">qSaw² + c<sub>q</sub>² = 1</span>,
 <span class="formula">Ω<sub>2</sub> = Ω²</span>, <span class="formula">η<sub>2</sub> = 2η</span>,
-<span class="formula">q<sub>2</sub> = 2q/(1+q²) = tanh η</span>. <span class="tag CP">CP</span>
+<span class="formula">q<sub>2</sub> = 2q/(1+q²) = tanh η</span>. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 The M15-C firewall: ε is factored out <i>before</i> squaring; Saw complement is not Hodge or product duality.
-<span class="tag MA">MA</span></p>
+<a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></p>
 
 <h3 id="15-v-quarter-phase-saw-hodge-lift-and-complementary-sign-visibility">15.V — Quarter-phase Saw–Hodge lift and complementary sign visibility</h3>
 <p><b>Theorem 15.V.T1</b> (Saw–Hodge meridian): the quarter-phase lift
 <span class="formula">ψ = (√λ, e<sup>iφ</sup>√(1−λ))</span> projects to
 <span class="formula">ρ = ½[I + (2λ−1)Z + 2s<sub>Ω</sub>√H<sub>Saw</sub>·Y]</span>, a Bloch meridian with the
-sign choice <span class="formula">s<sub>Ω</sub></span> visible in ⟨Y⟩. <span class="tag CP">CP</span> (proof
+sign choice <span class="formula">s<sub>Ω</sub></span> visible in ⟨Y⟩. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> (proof
 computation checked symbolically).
 <b>Corollary 15.V.C1</b>: balance states <span class="formula">ρ = ½(I±Y)</span> at λ=½; R_Y reflection maps
-<span class="formula">ρ(λ) → ρ(1−λ)</span> preserving the sign choice. <span class="tag CP">CP</span>
+<span class="formula">ρ(λ) → ρ(1−λ)</span> preserving the sign choice. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 <b>Theorem 15.V.T2</b> (sign visibility): the Hermitian projector ξξ† = ρ is blind to ε, while the componentwise
 symmetric square <span class="formula">Q<sub>C</sub>(ξ) = (ελ, −ε(1−λ))</span> is blind to s<sub>Ω</sub> — jointly
-they recover (ε, s<sub>Ω</sub>), neither alone. <span class="tag CP">CP</span>
-<b>Corollary 15.V.C2</b>: the minus sign is the mandatory π/2-phase residue. <span class="tag CP">CP</span>
+they recover (ε, s<sub>Ω</sub>), neither alone. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
+<b>Corollary 15.V.C2</b>: the minus sign is the mandatory π/2-phase residue. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 <b>Theorem 15.V.T3</b> (protected-traversal obstruction): meridian motion is generated by
 <span class="formula">dρ/dθ = −i[(s<sub>Ω</sub>/2)X, ρ]</span> (proved symbolically); an R_Y-even Hamiltonian
 confined to the I/Y operator algebra produces only X-type commutators, hence cannot traverse the meridian.
-<span class="tag CP">CP</span> The M15-D firewall: "Hodge" remains a conditional bridge interpretation until the
-gateway supplies operator matching. <span class="tag MA">MA</span></p>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> The M15-D firewall: "Hodge" remains a conditional bridge interpretation until the
+gateway supplies operator matching. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></p>
 
 <h3 id="15-vi-saw-complement-native-quarter-turn-and-product-duality-bridge">15.VI — Saw complement, native quarter-turn, and product-duality bridge</h3>
 <p><b>Definition 15.VI.D1–D2</b>: the native transfer doublet (p, q) with <span class="formula">p²+q² = 2</span>,
@@ -355,114 +362,114 @@ gateway supplies operator matching. <span class="tag MA">MA</span></p>
 <span class="formula">J² = −I</span> with <span class="formula">t′ = Jt</span>.
 <b>Theorem 15.VI.T1</b>: the order-two Saw complement on λ and the order-four quarter-turn
 (<span class="formula">C<sub>J</sub>²: t → −t</span>) are <i>distinct</i> transformations — conflating them is
-an error. <span class="tag CP">CP</span>
+an error. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 <b>Definition 15.VI.D3 / Theorem 15.VI.T2</b>: the symmetric-square readout
 <span class="formula">Q<sub>t</sub> = (ε/2)[sin 2x·Z + cos 2x·X]</span> satisfies
 <span class="formula">Q<sub>t</sub>′ = [J, Q<sub>t</sub>]</span>,
 <span class="formula">Q<sub>t</sub>″ + 4Q<sub>t</sub> = 0</span>, <span class="formula">Q<sub>t</sub>² = ¼I</span>.
-<span class="tag CP">CP</span>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 <b>Corollary 15.VI.C1</b>: <span class="formula">JQ<sub>t</sub>Jᵀ = −Q<sub>t</sub></span>.
-<span class="tag CP">CP</span> <b>Corollary 15.VI.C2</b>: the (sin 2x, cos 2x) pair from Q<sub>t</sub> coincides
-with the 15.III phasor route — one harmonic structure, two routes. <span class="tag CP">CP</span>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> <b>Corollary 15.VI.C2</b>: the (sin 2x, cos 2x) pair from Q<sub>t</sub> coincides
+with the 15.III phasor route — one harmonic structure, two routes. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 <b>Bridge 15.VI.B1</b>: a later physical normal-plane quotient <i>may</i> realize product duality with the same
-J²=−I algebra — explicitly conditional; E8 realization is downstream. <span class="tag MA">MA</span>
+J²=−I algebra — explicitly conditional; E8 realization is downstream. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>
 The M15-E firewall: do not identify Saw complement with product duality; the native J is not automatically
-Hodge or E8. <span class="tag MA">MA</span></p>
+Hodge or E8. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></p>
 
 <h3 id="15-vii-dual-mode-operator-bigrading-and-bridge-polarization">15.VII — Dual-mode operator bigrading and bridge polarization</h3>
 <p><b>Theorem 15.VII.T1</b> (dual-mode bigrading): two commuting involutions
 <span class="formula">σ<sub>ext</sub></span>, <span class="formula">σ<sub>int</sub></span> split End(V) into
-four parity eigenspaces with multiplicative parity rules. <span class="tag CP">CP</span>
+four parity eigenspaces with multiplicative parity rules. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 <b>Corollary 15.VII.C1</b>: product-parity coarsening <span class="formula">K = I<sub>ext</sub>J<sub>int</sub></span>,
-<span class="formula">K² = I</span>. <span class="tag CP">CP</span>
-<b>Corollary 15.VII.C2</b>: relative complex-structure orientation on K sectors. <span class="tag CP">CP</span>
+<span class="formula">K² = I</span>. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
+<b>Corollary 15.VII.C2</b>: relative complex-structure orientation on K sectors. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 <b>Witness 15.VII.1</b>: the minimal real 4×4 witness has four 4-dimensional parity spaces.
-<span class="tag CP">CP</span> (exact finite-dimensional computation, verified exactly)
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> (exact finite-dimensional computation, verified exactly)
 <b>Witness 15.VII.2</b>: the orthogonal bridge-polarization witness
 <span class="formula">B = −σ<sub>y</sub></span>, <span class="formula">{K,B} = {H,B} = 0</span>,
 <span class="formula">H(θ) = cosθ·H − sinθ·B</span>, <span class="formula">⟨B,H(θ)⟩ = −sinθ</span>.
-<span class="tag CP">CP</span> (exact symbolic 2×2 computation)
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> (exact symbolic 2×2 computation)
 <b>Corollary 15.VII.C3</b>: a generic bridge polarization only shifts phase,
-<span class="formula">⟨B<sub>δ</sub>,H(θ)⟩ = cos(δ+θ)</span>. <span class="tag CP">CP</span> (exact)
+<span class="formula">⟨B<sub>δ</sub>,H(θ)⟩ = cos(δ+θ)</span>. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> (exact)
 <b>Conditional Theorem 15.VII.CT1</b>: <i>if</i> B-purity is enforced (κ<sub>x</sub>=0), the stationary branch is
 <span class="formula">θ<sub>*</sub> = ±π/2</span> by sign of s<sub>Ω</sub>κ<sub>y</sub> — quarter-phase selection
-is conditional on the purity contract, not derived. <span class="tag CP">CP</span>
+is conditional on the purity contract, not derived. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 <b>Result 15.VII.3</b>: hyperbolic double-angle compatibility <span class="formula">v = 2u</span> exact.
-<span class="tag CP">CP</span>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 The M15-F firewall: the bigrading is an operator bridge awaiting representation realization — no unconditional
-E8 theorem. <span class="tag MA">MA</span></p>
+E8 theorem. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></p>
 
 <h3 id="15-viii-four-dimensional-even-exterior-and-geometric-amplitude-bridge">15.VIII — Four-dimensional even-exterior and geometric-amplitude bridge</h3>
 <p><b>Definition 15.VIII.D1</b>: the amplitude dictionary χ=r², λ=1/(1+r²), v=ln[λ/(1−λ)]=−2ln r, reciprocal
 exchange r↔r⁻¹. <b>Theorem 15.VIII.T1</b>: the even-exterior polynomial
 <span class="formula">Q<sub>M</sub>(χ) = 1+6χ+χ²</span> from dim Λ<sup>0,2,4</sup>M = 1, 6, 1.
-<span class="tag CP">CP</span> <b>Corollary 15.VIII.C1</b>: reciprocal covariance
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> <b>Corollary 15.VIII.C1</b>: reciprocal covariance
 <span class="formula">χ²Q(χ⁻¹) = Q(χ)</span>, <span class="formula">Q/χ = 2cosh v + 6</span>.
-<span class="tag CP">CP</span>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 <b>Definition 15.VIII.D2</b>: the mirror-weighted family
 <span class="formula">P<sub>δ</sub> = 1+4δr+6r²+4δr³+r⁴</span> with P₀=Q<sub>M</sub>(r²), P<sub>±1</sub>=(1±r)⁴.
 <b>Theorem 15.VIII.T2</b>: the parent identity
 <span class="formula">P<sub>δ</sub> = A<sub>δ</sub>² + (1−δ²)(1+r²)²</span>, and at δ=0 the ratio
 <span class="formula">Q<sub>M</sub>(r²)/4r² = (cosh v+3)/2</span> has its unique positive minimum at r=1
-(χ=1, λ=½, v=0). <span class="tag CP">CP</span>
+(χ=1, λ=½, v=0). <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 The M15-G firewall: the 4-manifold is not yet the tangent space; no cosmology implied.
-<span class="tag MA">MA</span></p>
+<a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></p>
 
 <h3 id="15-ix-representation-bridge-to-the-e8-threshold">15.IX — Representation bridge to the E8 threshold</h3>
 <p><b>Threshold Statement 15.IX.T1</b>: the Books 14–15 structures may be carried into the E8(−24) gateway
 analysis without status change; admitting the host adds no dynamics and does not make E8(−24) a consequence of
-Volumes I–II. <span class="tag MA">MA</span> (dependency/scope declaration, correctly labeled as admission)
+Volumes I–II. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> (dependency/scope declaration, correctly labeled as admission)
 <b>Threshold Closure 15.IX.T2</b>: the pre-E8 chain and its status accounting — a meta-summary, asserted not
-proved. <span class="tag MA">MA</span>
+proved. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>
 <b>Theorem 15.IX.T3</b> (canonical round-trip normalization): exact canonical recovery forces the common scalar
-factor c=1. <span class="tag CP">CP</span> (two-line proof)
-The M15-H contract constrains Book-16 ordering; no backward strengthening. <span class="tag MA">MA</span>
+factor c=1. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> (two-line proof)
+The M15-H contract constrains Book-16 ordering; no backward strengthening. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a>
 The 30,380-dimensional E8 representation numerics cited here — Weyl dimension 30380, 4 dominant weights,
 exact multiplicity sum 30380 — come from a completed exact integer (Freudenthal) computation.
-<span class="tag SC">SC</span> Update 2026-09-19: explicit E8 generators are now constructed and numerically
+<a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">SC</span></a> Update 2026-09-19: explicit E8 generators are now constructed and numerically
 verified. The 248 adjoint matrices from the so(16)⊕S⁺ spinor construction satisfy the full Jacobi
 identity — the 3-spinor Fierz check is exactly 0.0 over 341,376 triples — and yield 240 roots with the
-E8 Cartan matrix. <span class="tag NC">NC</span> The 30380 representation's 248 generators are built as
+E8 Cartan matrix. <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> The 30380 representation's 248 generators are built as
 sparse matrices (44.4M nonzeros): Casimir eigenvalue exactly 120 (measured deviation 4.0e-10), Serre
 relations 1.7e-14, and the Cartan diagonals reproduce the SC weight table exactly.
-<span class="tag NC">NC</span> Both constructions are complexified (no real-form reality condition imposed).
+<a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> Both constructions are complexified (no real-form reality condition imposed).
 The existence/use of E8(−24) as the next representation host is admitted input,
-not derived in Book 15. <span class="tag MA">MA</span> The generator tables are downloadable from the
+not derived in Book 15. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> The generator tables are downloadable from the
 <a href="../tables/">pre-computed tables</a> page.</p>
 
 <h3 id="15-x-operational-status-and-handoff">15.X — Operational status and handoff</h3>
 <p><span class="formula">Δ<sub>op</sub>(Book 15) = ∅</span>: the bridges of Book 15 predict no new independently
 measured observable — correctly scoped as a status declaration; the local negative theorems (15.V.T3, 15.VI.T1,
-15.VII firewall) are retained in the stack. <span class="tag MA">MA</span></p>
+15.VII firewall) are retained in the stack. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></p>
 
 <hr>
 <h2 id="p3">Part III — What is established, what is conditional, what is not</h2>
 <h3 id="established-internally">Established internally</h3>
 <ul>
-<li>The primitive complementary interchange and its involutive complex closure. <span class="tag CP">CP</span></li>
+<li>The primitive complementary interchange and its involutive complex closure. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></li>
 <li>The aligned primitive-difference hyperbola D<sub>2</sub>²−K<sub>2</sub>²=16 and the product closure AB=4.
-<span class="tag CP">CP</span></li>
-<li>The double-angle phasor Z<sub>2</sub>=e<sup>2ix</sup> with complement parity. <span class="tag CP">CP</span></li>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></li>
+<li>The double-angle phasor Z<sub>2</sub>=e<sup>2ix</sup> with complement parity. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></li>
 <li>The signed Saw complement saw<sub>up</sub>=ελ, saw<sub>down</sub>=ε(1−λ) (symbolic core) and the qSaw
-normalized-square identities. <span class="tag SC">SC</span>/<span class="tag CP">CP</span></li>
+normalized-square identities. <a class="taglink" href="../ledger/#tag-SC" title="Status key: completed symbolic check"><span class="tag SC">SC</span></a>/<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></li>
 <li>The Saw–Hodge meridian, the sign-visibility theorem, and the protected-traversal obstruction.
-<span class="tag CP">CP</span></li>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></li>
 <li>Saw complement (order 2) vs native quarter-turn (order 4) are distinct; the symmetric-square double-angle
-lift with Q<sub>t</sub>″+4Q<sub>t</sub>=0. <span class="tag CP">CP</span></li>
-<li>The dual-mode operator bigrading and its parity rules. <span class="tag CP">CP</span> (witnesses
-<span class="tag CP">CP</span>)</li>
+lift with Q<sub>t</sub>″+4Q<sub>t</sub>=0. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></li>
+<li>The dual-mode operator bigrading and its parity rules. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a> (witnesses
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>)</li>
 <li>The even-exterior polynomial 1+6χ+χ², its reciprocal covariance, and the unique minimum at r=1.
-<span class="tag CP">CP</span></li>
-<li>Canonical round-trip normalization c=1. <span class="tag CP">CP</span></li>
+<a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></li>
+<li>Canonical round-trip normalization c=1. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a></li>
 </ul>
 <h3 id="true-only-under-additional-contracts-explicitly-conditional-in-the-source">True only under additional contracts (explicitly conditional in the source)</h3>
 <ul>
-<li>Quarter-phase selection θ<sub>*</sub>=±π/2 — conditional on enforced B-purity. <span class="tag CP">CP</span>
+<li>Quarter-phase selection θ<sub>*</sub>=±π/2 — conditional on enforced B-purity. <a class="taglink" href="../ledger/#tag-CP" title="Status key: checked proof"><span class="tag CP">CP</span></a>
 (conditional theorem)</li>
 <li>Product-duality realization by a physical normal-plane quotient — bridge statement, downstream.
-<span class="tag MA">MA</span></li>
-<li>Any "Hodge" reading of the quarter-phase lift — awaits gateway operator matching. <span class="tag MA">MA</span></li>
-<li>The E8(−24) representation host — admitted input, not derived. <span class="tag MA">MA</span></li>
+<a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></li>
+<li>Any "Hodge" reading of the quarter-phase lift — awaits gateway operator matching. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></li>
+<li>The E8(−24) representation host — admitted input, not derived. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a></li>
 </ul>
 <h3 id="remains-un-derived">Remains un-derived</h3>
 <ul>
@@ -471,7 +478,7 @@ without its stated condition, an E8 realization of the abstract bigrading, a uni
 physical spacetime, soldering, a healthy spectrum, chirality, or cosmology. The book's firewalls forbid
 inheriting any of these from the mathematics alone.</li>
 </ul>
-<p>No incorrect (<span class="tag IC">IC</span>) and no incomplete (<span class="tag IN">IN</span>) claims were
+<p>No incorrect (<a class="taglink" href="../ledger/#tag-IC" title="Status key: incorrect result"><span class="tag IC">IC</span></a>) and no incomplete (<a class="taglink" href="../ledger/#tag-IN" title="Status key: incomplete or failed computation"><span class="tag IN">IN</span></a>) claims were
 found in Book 15. The upstream audit's 240 assertions all passed, and the rewrite's two new suites pass
 completely (220 verification assertions + 13 embed-consistency assertions, no timeouts, worst measured
 error 2.5e-8 on cancellation-prone reciprocal forms near seams). The two subtle spots (exact Saw reduction
@@ -489,7 +496,7 @@ polynomial with a unique minimum. Every physical identification — Hodge struct
 purity, the E8 host — is labeled at introduction as downstream, conditional, or admitted. The book adds no
 operational prediction of its own (<span class="formula">Δ<sub>op</sub>(Book 15) = ∅</span>), and the
 representation gateway of Book 16 may inherit only the certified mathematical identities and the explicitly
-labeled conditional physics established here. <span class="tag MA">MA</span> (status declaration)</p>
+labeled conditional physics established here. <a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag MA">MA</span></a> (status declaration)</p>
 
 <!-- BOOKNAV-NAV-START -->
 <nav class="booknav" aria-label="Book navigation">
