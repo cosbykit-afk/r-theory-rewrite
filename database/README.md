@@ -6,6 +6,10 @@ Per-table SQL dumps of `rtheory.db` (SQLite), zipped and split for upload.
 11 tables: theorems, status_codes, theorem_deps, prose, prose_theorems,
 prose_chunks, desmos_graphs, embeddings, prose_embeddings, terms, changelog.
 
+`SAD-architecture.md` — the repo's system-analysis diagrams (context diagram,
+level-1 data-flow diagram, entity-relationship diagram), copied from
+`docs/architecture.md`.
+
 ## Reassemble
 ```sh
 cat rtheory-tables.zip.part-* > rtheory-tables.zip
