@@ -142,9 +142,9 @@ def parse_ledger(path=LEDGER):
         if h2:
             section, subsection = h2.group(1).strip(), ""
             skip = any(s in section.lower() for s in SKIP_SECTIONS)
-            b = _book_from_heading(section)
-            if b is not None:
-                book = b
+            # Reset: a section that names no book must not inherit the
+            # previous section's book (cross-cutting sections get book None).
+            book = _book_from_heading(section)
             i += 1
             continue
         if h3:
@@ -475,7 +475,7 @@ def cmd_render(reg=None):
 
     # per-book audit tables, injected at the end of each Part III section
     n_audit = 0
-    for b, claims in sorted(by_book.items()):
+    for b, claims in sorted(by_book.items(), key=lambda kv: (kv[0] is None, kv[0])):
         if b is None:
             continue
         page = os.path.join(ROOT, f"book{b}", "index.html")

@@ -188,6 +188,9 @@ NAV_TMPL = """<!-- SITENAV-NAV-START -->
 def crumb_for(key, prefix):
     if key.startswith("book") and key[4:].isdigit():
         n = int(key[4:])
+        if n not in BOOK_VOLUME:
+            # Companion/unlisted book (e.g. book23): volume-less crumb.
+            return '<span>Book {n}</span>'.format(n=n)
         vol_name, vol_books, vol_dest = BOOK_VOLUME[n]
         pos = vol_books.index(n) + 1
         return (
