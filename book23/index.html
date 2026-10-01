@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chirality Anchors — the C-1 Physics Interface — Book 23</title>
+<style>
+  :root { --ink:#1a1a1a; --muted:#5a5a5a; --accent:#1b5faa; --paper:#fff; --wash:#f6f8fb; --line:#dfe5ec; }
+  body { font-family: -apple-system, "Segoe UI", Georgia, serif; color:var(--ink); background:var(--paper);
+         max-width: 860px; margin:0 auto; padding: 24px 20px 80px; line-height:1.65; }
+  h1 { font-size:1.9em; line-height:1.25; margin-bottom:.2em; }
+  h2 { font-size:1.45em; margin-top:2.2em; border-bottom:2px solid var(--line); padding-bottom:.3em; }
+  h3 { font-size:1.15em; margin-top:1.8em; color:var(--accent); }
+  .sub { color:var(--muted); font-size:1.05em; margin-top:0; }
+  .about { background:var(--wash); border:1px solid var(--line); border-radius:8px; padding:14px 18px; margin:1.5em 0; }
+  .about p { margin:.5em 0; }
+  .intuition { border-left:3px solid var(--accent); padding:.2em 0 .2em 1em; margin:1em 0; }
+  .formal { background:var(--wash); border:1px solid var(--line); border-radius:8px; padding:12px 18px; margin:1.2em 0; }
+  .thm { border:1px solid var(--accent); border-radius:8px; padding:14px 18px; margin:1.4em 0; background:#fbfdff; }
+  .thm .tname { font-weight:700; color:var(--accent); }
+  .ledger { font-family: ui-monospace, Menlo, monospace; font-size:.85em; background:#0f1720; color:#d7e3f0;
+            border-radius:8px; padding:14px 18px; overflow-x:auto; white-space:pre-wrap; margin:1.2em 0; }
+  .tag { display:inline-block; font-size:.75em; font-weight:700; letter-spacing:.06em; border-radius:4px;
+         padding:.15em .6em; margin-right:.4em; vertical-align:middle; }
+  .tag.exact { background:#e6f4ea; color:#146c2e; border:1px solid #b7dfc0; }
+  .tag.cond { background:#e8f0fe; color:#1b5faa; border:1px solid #bcd6f5; }
+  .tag.imp { background:#f3e8fd; color:#6a1fb0; border:1px solid #d9c2f2; }
+  .tag.neg { background:#fdecea; color:#a32b1e; border:1px solid #f2c4bd; }
+  code, .math { font-family: ui-monospace, Menlo, monospace; }
+  .math { background:#f2f5f9; padding:.1em .35em; border-radius:4px; font-size:.95em; }
+  ul.tight li { margin:.35em 0; }
+  .nav { display:flex; flex-wrap:wrap; gap:.5em; margin:1.2em 0 2em; }
+  .nav a { text-decoration:none; border:1px solid var(--line); border-radius:20px; padding:.3em 1em;
+           font-size:.9em; color:var(--accent); background:var(--wash); }
+  footer { margin-top:3em; color:var(--muted); font-size:.9em; border-top:1px solid var(--line); padding-top:1em; }
+  footer a { color:var(--accent); }
+.toc{background:#f4f4f0;border:1px solid #ccc;border-radius:4px;padding:8px 14px;margin:1.2em 0}
+.toc a{color:#0645ad;text-decoration:none}
+.toc a:hover{text-decoration:underline}
+table { border-collapse:collapse; width:100%; margin:1em 0; font-size:.93em; }
+  th, td { border:1px solid var(--line); padding:7px 10px; text-align:left; vertical-align:top; }
+  th { background:var(--wash); }
+</style>
+<!-- SITENAV-START -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Source+Sans+3:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+body{overflow-x:clip}
+.sitebar{background:#092d32;color:#eaf5f4;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw)}
+.sitebar-inner{max-width:860px;margin:0 auto;padding:11px 24px;min-height:52px;box-sizing:border-box;
+ display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+ font-family:'Source Sans 3',system-ui,-apple-system,'Segoe UI',sans-serif}
+.site-mark{font-family:'Libre Baskerville',Georgia,serif;font-weight:700;font-size:.92rem;
+ color:#fff;text-decoration:none;white-space:nowrap}
+.site-mark:hover{text-decoration:underline}
+.site-select-wrap{position:relative;flex:none}
+.site-select-wrap::after{content:"";position:absolute;right:12px;top:50%;width:7px;height:7px;
+ border-right:2px solid #c6dcda;border-bottom:2px solid #c6dcda;
+ transform:translateY(-70%) rotate(45deg);pointer-events:none}
+.site-dest{appearance:none;-webkit-appearance:none;background:#123d43;border:1px solid #38636a;
+ border-radius:6px;color:#fff;font-family:inherit;font-weight:600;font-size:.88rem;
+ padding:7px 34px 7px 11px;min-height:36px;width:min(240px,100%);cursor:pointer}
+.site-dest:hover{background:#164a51;border-color:#5f858a}
+.site-search{display:flex;align-items:center;height:36px;min-width:280px;margin-left:auto;flex:1 1 auto;max-width:340px}
+.site-search input[type=text]{flex:1;min-width:0;height:36px;box-sizing:border-box;
+ border:1px solid #38636a;border-right:none;border-radius:6px 0 0 6px;padding:7px 10px;
+ font-family:inherit;font-weight:500;font-size:.84rem;color:#10262b;background:#fff}
+.site-search input[type=text]::placeholder{color:#66777a}
+.site-search button{height:36px;box-sizing:border-box;border:1px solid #38636a;border-radius:0 6px 6px 0;
+ background:#165159;color:#fff;font-family:inherit;font-weight:700;font-size:.84rem;
+ padding:0 12px;cursor:pointer;flex:none}
+.site-search button:hover{background:#1b626b}
+.text-toggle{display:flex;align-items:center;gap:8px;color:#eaf5f4;font-size:.84rem;
+ font-weight:600;cursor:pointer;white-space:nowrap;flex:none}
+.text-toggle input{appearance:none;-webkit-appearance:none;width:38px;height:22px;border-radius:999px;
+ background:#123d43;border:1px solid #5f858a;position:relative;cursor:pointer;margin:0;flex:none;
+ transition:background .18s,border-color .18s}
+.text-toggle input::after{content:"";position:absolute;left:2px;top:2px;width:16px;height:16px;
+ border-radius:50%;background:#c6dcda;transition:transform .18s,background .18s}
+.text-toggle input:checked{background:#b85f1d;border-color:#b85f1d}
+.text-toggle input:checked::after{transform:translateX(16px);background:#fff}
+.site-dest:focus-visible,.site-search input[type=text]:focus-visible,
+.site-search button:focus-visible,.text-toggle input:focus-visible,.site-mark:focus-visible,
+.crumbbar a:focus-visible{outline:3px solid #4fc3b8;outline-offset:2px}
+.crumbbar{background:#f5f8f8;border-bottom:1px solid #c9d6d8;
+ margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);margin-bottom:1.5em}
+.crumbbar-inner{max-width:860px;margin:0 auto;padding:8px 24px;box-sizing:border-box;
+ display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+ font-family:'Source Sans 3',system-ui,-apple-system,'Segoe UI',sans-serif;
+ font-size:.8rem;color:#52676b}
+.crumbbar a{color:#0b6866;text-decoration:none;font-weight:600}
+.crumbbar a:hover{text-decoration:underline}
+.crumb-vol{background:#0b6866;color:#fff !important;border-radius:6px;padding:3px 10px;font-weight:700}
+.crumb-vol:hover{background:#084c4b;text-decoration:none !important}
+.crumb-sep{color:#8aa0a3}
+.crumb-pill{font-size:.72rem;font-weight:700;background:#e3ecec;color:#10262b;
+ border-radius:999px;padding:2px 10px}
+.rth-toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(8px);
+ background:#092d32;color:#fff;font-family:'Source Sans 3',system-ui,sans-serif;
+ font-size:.85rem;font-weight:600;padding:10px 18px;border-radius:8px;opacity:0;
+ pointer-events:none;transition:opacity .2s,transform .2s;z-index:9999}
+.rth-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+html.rth-large-text body{font-size:21.333px;line-height:1.65}
+@media (max-width:600px){
+ .sitebar-inner{gap:8px;padding:10px 14px}
+ .site-select-wrap{order:3;width:100%}
+ .site-dest{width:100%}
+ .site-search{order:4;width:100%;min-width:0;max-width:none;margin-left:0}
+ .text-toggle{margin-left:auto}
+ .crumbbar-inner{padding:8px 14px}
+}
+</style>
+<script>
+(function(){try{if(localStorage.getItem('rth-large-text')==='1'){document.documentElement.classList.add('rth-large-text');}}catch(e){}})();
+</script>
+<!-- SITENAV-END -->
+<!-- BOOKNAV-CSS-START -->
+<style>
+.booknav{font-family:Georgia,serif;display:grid;grid-template-columns:1.35fr .85fr .85fr 1.35fr;gap:10px;margin:2.5em 0 0}
+.booknav-panel{display:flex;flex-direction:column;justify-content:center;text-decoration:none;color:#1a1a1a;
+ background:linear-gradient(180deg,#ffffff 0%,#f4f7fb 60%,#e7edf4 100%);
+ border:1px solid #c7d2de;border-radius:8px;padding:12px 16px;
+ box-shadow:inset 0 1px 0 #ffffff,0 2px 6px rgba(27,95,170,.10);
+ transition:border-color .15s ease,box-shadow .15s ease,transform .15s ease}
+a.booknav-panel:hover{border-color:#1b5faa;transform:translateY(-1px);
+ box-shadow:inset 0 1px 0 #ffffff,0 4px 12px rgba(27,95,170,.18)}
+a.booknav-panel:focus-visible{outline:2px solid #1b5faa;outline-offset:2px}
+.booknav-eyebrow{font-size:.7em;letter-spacing:.09em;text-transform:uppercase;color:#5a5a5a}
+.booknav-title{font-weight:bold;color:#1b5faa;margin-top:3px;line-height:1.35}
+.booknav-vol{font-size:.78em;color:#5a5a5a;margin-top:2px}
+.booknav-next{text-align:right}
+.booknav-center{text-align:center}
+.booknav-panel.is-disabled{opacity:.45;cursor:default}
+.booknav-panel.is-disabled .booknav-title{color:#5a5a5a}
+@media (max-width:640px){.booknav{grid-template-columns:1fr 1fr}.booknav-next{text-align:left}}
+
+.booknav-panel.booknav-handoff{border-color:#b85f1d;
+ background:linear-gradient(180deg,#fffaf5 0%,#f7e7d9 60%,#f3ddc6 100%)}
+.booknav-panel.booknav-handoff .booknav-eyebrow{color:#b85f1d}
+a.booknav-panel.booknav-handoff:hover{border-color:#b85f1d;
+ box-shadow:inset 0 1px 0 #ffffff,0 4px 12px rgba(184,95,29,.22)}
+</style>
+<!-- BOOKNAV-CSS-END -->
+<!-- TAGLINK-CSS-START -->
+<style>
+a.taglink{text-decoration:none}
+a.taglink:hover .tag{filter:brightness(.94)}
+a.taglink:focus-visible{outline:3px solid #0e7c86;outline-offset:2px;border-radius:4px}
+</style>
+<!-- TAGLINK-CSS-END -->
+</head>
+<body>
+<!-- SITENAV-NAV-START -->
+<nav class="sitebar" aria-label="Proposed global navigation">
+<div class="sitebar-inner">
+<a class="site-mark" href="../">R Theory</a>
+<span class="site-select-wrap"><select class="site-dest" id="rthSiteDest" aria-label="Go to section">
+<option value="../contents/" selected>Contents</option>
+<option value="../vol0/">Volume 0</option>
+<option value="../contents/#vol-1">Volume I</option>
+<option value="../contents/#vol-2">Volume II</option>
+<option value="../contents/#vol-3">Volume III</option>
+<option value="../vol4/">Volume IV</option>
+<option value="../index/">Index</option>
+</select></span>
+<form class="site-search" id="rthSiteSearch" action="https://www.google.com/search" method="get" target="_blank" rel="noopener" role="search">
+<input type="hidden" name="q" id="rthSearchQ" value="">
+<input type="text" id="rthSearchTerm" placeholder="Search R Theory" aria-label="Search R Theory" autocomplete="off">
+<button type="submit">Search</button>
+</form>
+<label class="text-toggle"><span>Large text</span><input type="checkbox" id="rthLargeText" role="switch" aria-label="Large text"></label>
+</div>
+</nav>
+<div class="crumbbar"><div class="crumbbar-inner">
+<span>Book 23</span>
+</div></div>
+<div class="rth-toast" id="rthToast" role="status" aria-live="polite"></div>
+<script>
+(function(){
+ var toast=document.getElementById('rthToast'),t=null;
+ function say(m){toast.textContent=m;toast.classList.add('show');clearTimeout(t);
+  t=setTimeout(function(){toast.classList.remove('show');},1500);}
+ var sel=document.getElementById('rthSiteDest');
+ sel.addEventListener('change',function(){if(sel.value)location.href=sel.value;});
+ var form=document.getElementById('rthSiteSearch'),
+     term=document.getElementById('rthSearchTerm'),
+     q=document.getElementById('rthSearchQ');
+ form.addEventListener('submit',function(e){
+  var v=term.value.trim();
+  if(!v){e.preventDefault();term.focus();say('Enter a search term');return;}
+  q.value='site:cosbykit-afk.github.io/r-theory-rewrite '+v;
+ });
+ var tg=document.getElementById('rthLargeText');
+ tg.checked=document.documentElement.classList.contains('rth-large-text');
+ tg.addEventListener('change',function(){
+  var on=tg.checked;
+  document.documentElement.classList.toggle('rth-large-text',on);
+  try{localStorage.setItem('rth-large-text',on?'1':'0');}catch(e){}
+  say(on?'Large text on':'Large text off');
+ });
+})();
+</script>
+<!-- SITENAV-NAV-END -->
+<h1>Chirality Anchors — the C-1 Physics Interface</h1>
+<p class="sub">Book 23. The first book of the physics-interface program: the
+empirical anchors that calibrate the C-1 chirality import — a scale anchor and
+a sector anchor, each with its declared scope.</p>
+<span class="date">First published 2026-09-29</span>
+
+<div class="about">
+<p><b>About this book.</b> The C-1 chirality law is an <i>import</i> — accepted
+physics taken as input, not derived — and an import needs declared empirical
+anchors: stated calibration points that say which measured numbers the
+import&#x27;s equations may touch, and which questions they do not answer.
+This book publishes the first two anchors: the 21&nbsp;cm neutral-hydrogen
+hyperfine line as the scale anchor, and the imaginary-negative-volume sector
+occupancy as the orientation-breaking content. Every number is labeled with
+where it came from; nothing here is promoted beyond its scope.</p>
+<p><b>Research handover.</b> This is the book where Muse Cosby took over as
+Kit Cosby&#x27;s research assistant. Material from this book onward is drafted,
+checked, and published under that arrangement. The standard does not change:
+every claim carries its PROVED / CHECKED / ASSERTED / INCOMPLETE scope, and
+nothing is rounded up.</p>
+<p><b>Status key.</b> <span class="tag exact">EXACT</span> proved mathematics ·
+<span class="tag cond">CONDITIONAL</span> exact after a declared import or contract ·
+<span class="tag imp">IMPORT</span> accepted physics taken as input, not derived ·
+<span class="tag neg">OBSTRUCTION</span> a proved or retained negative result.</p>
+<p><b>Depends on:</b> the C-1 import contract
+(<i>vol4/physics_interface/IMPORT_CONTRACTS_DRAFT.md</i>); the calibration
+program (<a href="../research/calibration.html">research/calibration.html</a>);
+Axiom Zero (manuscript Book&nbsp;5).</p>
+<p><b>Source data:</b> <a href="CHIRAL-ANCHOR-01.json">CHIRAL-ANCHOR-01.json</a>
+(v0.2.0) · <a href="CHIRAL-ANCHOR-02.json">CHIRAL-ANCHOR-02.json</a> (v0.1.0)</p>
+</div>
+<div class="toc">
+<p><b>Contents.</b> <a href="#s1">§1 — The C-1 import contract and what an anchor is</a> ·
+<a href="#s2">§2 — Anchor 01: the 21 cm line (scale anchor)</a> ·
+<a href="#s3">§3 — Anchor 02: sector occupancy (orientation anchor)</a> ·
+<a href="#s4">§4 — Scope ledger</a> ·
+<a href="#s5">§5 — Book closure: what remains open</a></p>
+</div>
+
+<h2 id="s1">§1 — The C-1 import contract and what an anchor is</h2>
+<div class="formal">
+<p>Contract reference: <b>C-1 (chirality law)</b> in
+<i>vol4/physics_interface/IMPORT_CONTRACTS_DRAFT.md</i>. An <b>anchor</b> is a
+declared empirical calibration point for an import. It fixes, in writing, which
+measured numbers the import&#x27;s bridge equations are allowed to use — and,
+just as importantly, which questions the import does not answer. Anchors do not
+derive the import; they discipline it.</p>
+<p>This book publishes two anchors for C-1:</p>
+<ul>
+<li><b>CHIRAL-ANCHOR-01</b> — the 21&nbsp;cm neutral-hydrogen hyperfine line:
+the <span class="tag imp">scale anchor</span>.</li>
+<li><b>CHIRAL-ANCHOR-02</b> — the imaginary-negative-volume sector occupancy:
+the <span class="tag imp">orientation anchor</span>.</li>
+</ul>
+</div>
+
+<h2 id="s2">§2 — Anchor 01: the 21 cm line <span class="tag imp">IMPORT</span></h2>
+<div class="about">
+<p><b>Principle.</b> The C-1 physics-interface import is calibrated against the
+measured 21&nbsp;cm hyperfine line of neutral hydrogen. The line anchors scale
+(frequency, wavelength, time) as dimensionless ratios against explicitly
+declared references; orientation content is carried separately by the sector
+assignment (Anchor&nbsp;02).</p>
+</div>
+<h3>History and transition</h3>
+<ul>
+<li>Predicted 1944 — H.&nbsp;van de Hulst.</li>
+<li>Observed 1951 — Ewen &amp; Purcell; Muller &amp; Oort; Christiansen et&nbsp;al.</li>
+<li>Species: neutral atomic hydrogen (H&nbsp;I).</li>
+<li>Transition: ground-state (1s) hyperfine spin-flip, F=1&nbsp;→&nbsp;F=0
+(electron spin reversed relative to proton spin).</li>
+<li>Radiation type: magnetic dipole (highly forbidden) — mean lifetime on the
+order of eleven million years.</li>
+</ul>
+<h3>Parameters <span class="tag imp">measured, except A<sub>10</sub></span></h3>
+<table>
+<tr><th>Quantity</th><th>Value</th><th>Standing</th></tr>
+<tr><td><b>ν<sub>21</sub></b> (frequency)</td><td>1420405751.768(2)&nbsp;Hz (laboratory)</td><td>Measured; 1.4×10<sup>−12</sup> relative — the most precise input</td></tr>
+<tr><td><b>λ<sub>21</sub></b> (wavelength)</td><td>21.106114054160(30)&nbsp;cm = 0.2110611405416&nbsp;m</td><td>c/ν<sub>21</sub>; c exact (SI&nbsp;2019) — inherits ν<sub>21</sub>&#x27;s precision exactly</td></tr>
+<tr><td><b>E<sub>21</sub></b> (photon energy)</td><td>9.411708152678(13)×10<sup>−25</sup>&nbsp;J = 5.8743261841116(81)&nbsp;μeV</td><td>h·ν<sub>21</sub>; h exact (SI&nbsp;2019)</td></tr>
+<tr><td><b>T<sub>*</sub></b> = E<sub>10</sub>/k<sub>B</sub></td><td>68&nbsp;mK</td><td>Transition energy as a temperature; T<sub>*</sub> ≪ T<sub>S</sub> in all plausible astrophysical settings</td></tr>
+<tr><td><b>A<sub>10</sub></b> (Einstein A)</td><td>2.85×10<sup>−15</sup>&nbsp;s<sup>−1</sup> (literature range 2.85–2.9×10<sup>−15</sup>; adopted 2.86888×10<sup>−15</sup> from the vdhulst H&nbsp;I notes)</td><td>Theoretical — <i>less precise than ν<sub>21</sub></i>; flagged, not hidden</td></tr>
+<tr><td><b>g<sub>1</sub>/g<sub>0</sub></b></td><td>3</td><td>Statistical weights</td></tr>
+</table>
+<h3>Dimensionless representation</h3>
+<div class="formal">
+<p>Ratio rule: <span class="math">dimensionless_ratio := Q / Q_ref</span>,
+where Q_ref is the explicitly declared reference. Anchor ratios:</p>
+<ul>
+<li><span class="math">ν_21_over_Hz</span> = 1420405751.768 (dimensionless count of SI seconds<sup>−1</sup>)</li>
+<li><span class="math">lambda_21_over_m</span> = 0.2110611405416 (dimensionless count of SI meters)</li>
+</ul>
+</div>
+<h3>Chirality readout</h3>
+<div class="intuition">
+<p>In a magnetic field the line splits into Zeeman components; the σ+ and σ−
+components are circularly polarized with <b>opposite handedness</b>. The
+assigned handedness of each σ component reverses with the sign of the
+line-of-sight field B<sub>los</sub>. The observable is the <b>handedness of the
+Zeeman σ components</b> — this is the chirality-sensitive observable built on
+the anchor. Scope note: the bare line frequency itself carries no orientation
+content; it is a scalar standard.</p>
+</div>
+<h3>Numerical root <span class="tag cond">ASSERTED-by-Kit (directive)</span></h3>
+<div class="about">
+<p>Kit&#x27;s directive (2026-09-28): <b>all numerical values in the
+calibration program are driven off this anchor.</b> The anchor values
+themselves are empirical (measured); the <i>root</i> status — that every
+calibration number chains back to ν<sub>21</sub> — is Kit&#x27;s asserted
+directive, not a derived result.</p>
+</div>
+<h3>References</h3>
+<ul>
+<li>Hydrogen line — Wikipedia (frequency 1420.405751768(2)&nbsp;MHz; wavelength 21.106114054160(30)&nbsp;cm; photon energy 5.8743261841116(81)&nbsp;μeV = 9.411708152678(13)×10<sup>−25</sup>&nbsp;J).</li>
+<li>arXiv 1909.13740 ch.&nbsp;1 (ν<sub>21</sub> = 1420.4057&nbsp;MHz; A<sub>10</sub> = 2.85×10<sup>−15</sup>&nbsp;s<sup>−1</sup>; g<sub>1</sub>/g<sub>0</sub> = 3; T<sub>*</sub> = 68&nbsp;mK).</li>
+<li>vdhulst H&nbsp;I physics notes (A<sub>10</sub> = 2.86888×10<sup>−15</sup>&nbsp;s<sup>−1</sup>; ν<sub>10</sub> = 1.420405751786(30)&nbsp;GHz).</li>
+</ul>
+
+<h2 id="s3">§3 — Anchor 02: sector occupancy <span class="tag imp">IMPORT</span> + <span class="tag cond">ASSERTED</span></h2>
+<div class="about">
+<p><b>Principle.</b> Physical chirality enters as the empirical fact of sector
+occupancy: the observable universe inhabits the imaginary-negative-volume
+sector of the Axiom Zero doubled carrier; the positive-orientation sector is
+weakly coupled across the primitive-noncoupling firewall.</p>
+</div>
+<h3>Axiom Zero (manuscript Book 5) <span class="tag imp">IMPORT</span></h3>
+<div class="formal">
+<p>From the real rank-five carrier U = E&nbsp;⊕&nbsp;V, Axiom Zero adds an
+independent paired copy U<sup>♯</sup> with U&nbsp;∩&nbsp;U<sup>♯</sup> = {0} and
+primitive noncoupling, yielding the minimal doubled carrier
+W = U&nbsp;⊕&nbsp;U<sup>♯</sup>.</p>
+<p>Kit&#x27;s reading: the two orientation sectors <i>are</i> the Axiom Zero
+pair — weakly coupled in the physical reading, with the manuscript&#x27;s
+primitive noncoupling preserved as the firewall.</p>
+</div>
+<h3>The sectors</h3>
+<table>
+<tr><th>Sector</th><th>Condition</th><th>Quadrants</th><th>Occupancy</th></tr>
+<tr><td><b>Imaginary-negative-volume</b></td><td>Re(z)·Im(z) &lt; 0</td><td>II and IV</td><td><span class="tag checked">Observed — ours</span></td></tr>
+<tr><td><b>Positive-orientation</b></td><td>Re(z)·Im(z) &gt; 0</td><td>I and III</td><td>Not observed (coupled sector)</td></tr>
+</table>
+<h3>Coupling</h3>
+<ul>
+<li>Strength: <b>weak</b>, across the primitive-noncoupling firewall, per Axiom Zero.</li>
+<li>Mirror note (Kit, 2026-09-28): each sector&#x27;s internal physics behaves as ours does from its own perspective.</li>
+</ul>
+<h3>Occupancy record <span class="tag cond">ASSERTED-by-Kit</span></h3>
+<div class="about">
+<p>Recorded 2026-09-28. This is Kit&#x27;s physical content, <b>not derived from
+the mathematics</b>: Theorem 0.III.T1 (Representation-Preference Separation)
+<i>forbids</i> deriving sector occupancy from the admitted structures alone.
+The occupancy is therefore asserted empirical content — which sector we
+inhabit — rather than a theorem.</p>
+</div>
+<h3>Falsification conditions <span class="tag neg">DRAFT — Kit&#x27;s call to finalize</span></h3>
+<ul>
+<li>A reproducible chirality-sensitive observation requiring Re(z)·Im(z) &gt; 0
+for our sector <b>kills the occupancy assignment</b>.</li>
+<li>Detection of strong (non-weak) cross-sector coupling <b>kills the
+weak-coupling reading</b> of Axiom Zero.</li>
+</ul>
+
+<h2 id="s4">§4 — Scope ledger</h2>
+<table>
+<tr><th>Anchor</th><th>Establishes</th><th>Does not establish</th></tr>
+<tr><td><b>CHIRAL-ANCHOR-01</b> (21&nbsp;cm)</td><td>Scale calibration for the C-1 bridge equations; a chirality-sensitive readout (Zeeman σ handedness) on the same line</td><td>Orientation breaking by itself — the bare line is a scalar standard; the orientation content is the sector occupancy in Anchor&nbsp;02</td></tr>
+<tr><td><b>CHIRAL-ANCHOR-02</b> (sector occupancy)</td><td>The orientation-breaking empirical content of C-1 as sector occupancy — <i>which</i> sector we inhabit — rather than a derivation</td><td>A derivation of the occupancy from R Theory mathematics (forbidden by 0.III.T1); the receiving block and bridge equations remain open</td></tr>
+</table>
+
+<h2 id="s5">§5 — Book closure: what remains open</h2>
+<div class="about">
+<p><b>Open.</b> The C-1 receiving block and bridge equations; finalization of
+the §3 falsification conditions (Kit&#x27;s call); the A<sub>10</sub> adoption
+is theoretical and less precise than ν<sub>21</sub> — recorded as a standing
+caveat, not a hidden one.</p>
+<p><b>Standing.</b> Both anchors remain labeled imports. Nothing in this book
+upgrades an import to a theorem, and no physical promotion is claimed. The
+falsification conditions in §3 are the mechanism by which the occupancy
+assignment stays honest.</p>
+</div>
+
+
+<!-- FOOTER-START -->
+<footer class="rth-footer" id="rth-footer">
+<style>
+.rth-footer{max-width:860px;margin:2.5em auto 1.5em;padding:1em 1.2em 0;
+ border-top:1px solid #ddd;text-align:center;font-family:Georgia,serif;
+ font-size:.92em;color:#555}
+.rth-footer a{color:#1b5faa;text-decoration:none;margin:0 .8em}
+.rth-footer a:hover{text-decoration:underline}
+.rth-footer .rth-footer-sep{color:#aaa}
+</style>
+<a href="https://www.facebook.com/profile.php?id=61594635330402" target="_blank" rel="noopener">Contact us</a><span class="rth-footer-sep" id="rth-footer-sep">&middot;</span><a href="/app/register" id="rth-forum-signup">Sign up for the forum</a>
+<script>
+(function(){
+  // Hide the forum sign-up link where the forum isn't reachable
+  // (e.g. the GitHub Pages copy); the Contact-us link always stays.
+  var link=document.getElementById('rth-forum-signup');
+  var sep=document.getElementById('rth-footer-sep');
+  if(!link) return;
+  try{
+    var ctl=new AbortController();
+    var t=setTimeout(function(){ctl.abort();},6000);
+    fetch('/app/api/comments?page=index',{signal:ctl.signal}).then(function(r){
+      clearTimeout(t);
+      if(!r.ok) throw 0;
+    }).catch(function(){
+      link.style.display='none';
+      if(sep) sep.style.display='none';
+    });
+  }catch(e){
+    link.style.display='none';
+    if(sep) sep.style.display='none';
+  }
+})();
+</script>
+</footer>
+<!-- FOOTER-END -->
+<!-- COMMENTS-START -->
+<style>
+.rth-comments{font-family:Georgia,serif;max-width:860px;margin:2.5em auto 1em;
+ padding:1.2em 1.4em;background:linear-gradient(180deg,#fbfbf9,#f0f0eb);
+ border:1px solid #0f4c5c;border-radius:8px;box-shadow:0 2px 8px rgba(13,59,108,.15);
+ line-height:1.6;color:#1a1a1a}
+.rth-comments h2{margin:0 0 .2em;font-size:1.25em;color:#0d3b6c;
+ border-bottom:2px solid #1b5faa;padding-bottom:.3em}
+.rth-comments-on{font-size:.9em;color:#555;margin:.4em 0 1em}
+.rth-comments-on span{font-weight:bold;color:#1a1a1a}
+.rth-comments-list{margin:0 0 1em}
+.rth-comments-loading,.rth-comments-empty,.rth-comments-note{color:#777;font-style:italic}
+.rth-comment{border-top:1px dotted #ccc;padding:.6em 0}
+.rth-comment-head{font-size:.9em;color:#444}
+.rth-comment-date{color:#888}
+.rth-comment-body{white-space:pre-wrap;margin:.3em 0 .6em;overflow-wrap:break-word}
+.rth-comment-form{display:flex;flex-direction:column;gap:.6em;margin-top:1em}
+.rth-comment-name,.rth-comment-body-input{font-family:Georgia,serif;font-size:1em;
+ padding:.5em .7em;border:1px solid #999;border-radius:4px;background:#fff;
+ color:#1a1a1a;width:100%;box-sizing:border-box}
+.rth-comment-form button{align-self:flex-start;font-family:Georgia,serif;font-size:1em;
+ padding:.5em 1.4em;color:#fff;background:linear-gradient(180deg,#2a7ab8,#0d3b6c);
+ border:1px solid #0d3b6c;border-radius:5px;cursor:pointer}
+.rth-comment-form button:hover{filter:brightness(1.12)}
+.rth-comment-status{min-height:1.2em;font-size:.9em;color:#0d3b6c;margin:0}
+.rth-comment-error{color:#a00}
+.rth-comments-forum{margin:1em 0 0;font-size:.95em}
+.rth-comments-forum a{color:#1b5faa;text-decoration:none}
+.rth-comments-forum a:hover{text-decoration:underline}
+.rth-comments-login{font-size:.95em}
+.rth-comments-login a{color:#1b5faa}
+</style>
+<section class="rth-comments" id="comments" aria-label="Comments">
+<h2>Comments</h2>
+<p class="rth-comments-on">Commenting on: <span id="comment-page-title"></span></p>
+<div class="rth-comments-list" id="comments-list"><p class="rth-comments-loading">Loading&#8230;</p></div>
+<form class="rth-comment-form" id="rth-comment-form">
+<input id="comment-name" class="rth-comment-name" placeholder="Display name (optional)" maxlength="60" autocomplete="nickname">
+<textarea id="comment-body" class="rth-comment-body-input" rows="4" placeholder="Write a comment&#8230;" required maxlength="5000"></textarea>
+<button type="submit">Post comment</button>
+<p class="rth-comment-status" role="status"></p>
+</form>
+<p class="rth-comments-forum" hidden><a id="comments-forum-link" href="#">Continue the discussion in the forum &#8594;</a></p>
+</section>
+<script>
+(function(){
+"use strict";
+var section=document.getElementById("comments");
+if(!section)return;
+/* Page slug, mount-agnostic: last path segment, "index" for site roots. */
+var segs=location.pathname.replace(/\/+$/,"").split("/").filter(function(s){return s.length;});
+var slug=segs.length?segs[segs.length-1]:"index";
+if(slug==="r-theory"||slug==="r-theory-rewrite")slug="index";
+var mode="login",csrfToken="";
+var listEl=document.getElementById("comments-list");
+var formEl=document.getElementById("rth-comment-form");
+var nameEl=document.getElementById("comment-name");
+var bodyEl=document.getElementById("comment-body");
+var statusEl=section.querySelector(".rth-comment-status");
+var forumLink=document.getElementById("comments-forum-link");
+var titleEl=document.getElementById("comment-page-title");
+if(titleEl)titleEl.textContent=document.title;
+function setStatus(msg,isError){
+  if(!statusEl)return;
+  statusEl.textContent=msg||"";
+  statusEl.className="rth-comment-status"+(isError?" rth-comment-error":"");
+}
+function fmtDate(iso){
+  try{return new Date(iso).toLocaleString();}
+  catch(e){return iso||"";}
+}
+function renderPost(p){
+  var wrap=document.createElement("article");
+  wrap.className="rth-comment";
+  var head=document.createElement("div");
+  head.className="rth-comment-head";
+  var who=document.createElement("strong");
+  who.textContent=p.guest_name?(p.guest_name+" (guest)"):(p.author||"Anonymous");
+  head.appendChild(who);
+  var when=document.createElement("span");
+  when.className="rth-comment-date";
+  when.textContent=" — "+fmtDate(p.created_at);
+  head.appendChild(when);
+  var body=document.createElement("div");
+  body.className="rth-comment-body";
+  body.textContent=p.body||"";
+  wrap.appendChild(head);
+  wrap.appendChild(body);
+  return wrap;
+}
+function renderPosts(posts){
+  listEl.textContent="";
+  if(!posts||!posts.length){
+    var none=document.createElement("p");
+    none.className="rth-comments-empty";
+    none.textContent="No comments yet — start the discussion.";
+    listEl.appendChild(none);
+    return;
+  }
+  posts.forEach(function(p){listEl.appendChild(renderPost(p));});
+}
+function setForumLink(thread){
+  if(!forumLink||!thread)return;
+  forumLink.href=thread.url||("/app/thread/"+thread.id);
+  var p=forumLink.parentElement;
+  if(p&&p.hasAttribute("hidden"))p.removeAttribute("hidden");
+}
+function showLoginPrompt(){
+  formEl.style.display="none";
+  if(section.querySelector(".rth-comments-login"))return;
+  var p=document.createElement("p");
+  p.className="rth-comments-login";
+  var a=document.createElement("a");
+  /* Return here after login: the forum honors ?next= for relative paths. */
+  a.href="/app/login?next="+encodeURIComponent(
+    location.pathname+location.search+location.hash);
+  a.textContent="Log in to the forum";
+  p.appendChild(a);
+  p.appendChild(document.createTextNode(" to comment — you will be brought back here."));
+  formEl.parentNode.insertBefore(p,formEl);
+}
+/* Graceful degradation: no /app on this host (e.g. GitHub Pages copy). */
+function degrade(){
+  listEl.textContent="";
+  var note=document.createElement("p");
+  note.className="rth-comments-note";
+  note.textContent="Comments are available on the Lampy-hosted copy of this site.";
+  listEl.appendChild(note);
+  formEl.style.display="none";
+  var fp=forumLink?forumLink.parentElement:null;
+  if(fp)fp.style.display="none";
+}
+fetch("/app/api/comments?page="+encodeURIComponent(slug),{credentials:"same-origin"})
+.then(function(resp){if(!resp.ok)throw new Error("http "+resp.status);return resp.json();})
+.then(function(data){
+  mode=data.mode||"login";
+  csrfToken=data.csrf_token||"";
+  if(mode==="guest"){nameEl.style.display="";}
+  else{nameEl.style.display="none";if(!data.logged_in)showLoginPrompt();}
+  renderPosts(data.posts);
+  if(data.thread)setForumLink(data.thread);
+})
+.catch(function(){degrade();});
+formEl.addEventListener("submit",function(ev){
+  ev.preventDefault();
+  var body=bodyEl.value.trim();
+  if(!body){setStatus("Please write a comment first.",true);return;}
+  var payload={page:slug,page_title:document.title,body:body};
+  if(mode==="guest"){var nm=nameEl.value.trim();if(nm)payload.name=nm;}
+  setStatus("Posting…");
+  fetch("/app/api/comments",{
+    method:"POST",
+    headers:{"Content-Type":"application/json","X-CSRF-Token":csrfToken},
+    body:JSON.stringify(payload),
+    credentials:"same-origin"
+  }).then(function(resp){
+    if(resp.status===401){showLoginPrompt();setStatus("Please log in to comment.",true);return null;}
+    if(resp.status===429){setStatus("Too many comments — please wait a bit and try again.",true);return null;}
+    if(resp.status===400){return resp.json().then(function(d){
+      setStatus((d&&d.error)||"Could not post the comment.",true);return null;},
+      function(){setStatus("Could not post the comment.",true);return null;});}
+    if(!resp.ok){setStatus("Could not post the comment. Please try again.",true);return null;}
+    return resp.json();
+  }).then(function(data){
+    if(!data)return;
+    var empty=listEl.querySelector(".rth-comments-empty");
+    if(empty)empty.remove();
+    var post=data.post||data;
+    listEl.insertBefore(renderPost(post),listEl.firstChild);
+    bodyEl.value="";
+    if(nameEl)nameEl.value="";
+    setStatus("Comment posted.");
+    if(data.thread)setForumLink(data.thread);
+  }).catch(function(){setStatus("Could not post the comment. Please try again.",true);});
+});
+})();
+</script>
+<!-- COMMENTS-END -->
+</body>
+</html>

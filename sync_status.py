@@ -142,9 +142,9 @@ def parse_ledger(path=LEDGER):
         if h2:
             section, subsection = h2.group(1).strip(), ""
             skip = any(s in section.lower() for s in SKIP_SECTIONS)
-            b = _book_from_heading(section)
-            if b is not None:
-                book = b
+            # Reset: a section that names no book must not inherit the
+            # previous section's book (cross-cutting sections get book None).
+            book = _book_from_heading(section)
             i += 1
             continue
         if h3:
@@ -278,13 +278,24 @@ def cmd_refresh():
             merged.append(c)
     removed = [cid for cid in old if cid not in new_ids]
     manual = [c for c in reg.get("claims", []) if c.get("source") == "manual"]
+    old_meta = reg.get("meta", {}) or {}
+    sources = ["~/workspace/wolfram/theorem_ledger.md"]
+    note = ("Machine mirror of the ledger's structured verdicts (tables + status "
+            "bullets). The prose ledger is the human record; entries with "
+            "source 'manual' are hand-curated and preserved across refreshes. "
+            "Proof sessions: update the LEDGER, then run sync_status.py all.")
+    unchanged = (added == 0 and changed == 0 and not removed
+                 and reg.get("key") == KEY
+                 and old_meta.get("sources") == sources
+                 and old_meta.get("note") == note)
     reg["meta"] = {
-        "generated": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "sources": ["~/workspace/wolfram/theorem_ledger.md"],
-        "note": ("Machine mirror of the ledger's structured verdicts (tables + status "
-                 "bullets). The prose ledger is the human record; entries with "
-                 "source 'manual' are hand-curated and preserved across refreshes. "
-                 "Proof sessions: update the LEDGER, then run sync_status.py all."),
+        # strict idempotence: a no-change refresh keeps the old timestamp so
+        # the registry file (and everything downstream) is byte-identical
+        "generated": (old_meta.get("generated")
+                      if unchanged
+                      else datetime.now(timezone.utc).isoformat(timespec="seconds")),
+        "sources": sources,
+        "note": note,
     }
     reg["key"] = KEY
     reg["claims"] = merged + manual
@@ -464,7 +475,7 @@ def cmd_render(reg=None):
 
     # per-book audit tables, injected at the end of each Part III section
     n_audit = 0
-    for b, claims in sorted(by_book.items()):
+    for b, claims in sorted(by_book.items(), key=lambda kv: (kv[0] is None, kv[0])):
         if b is None:
             continue
         page = os.path.join(ROOT, f"book{b}", "index.html")

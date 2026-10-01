@@ -1,0 +1,178 @@
+{
+  "anchor": {
+    "history": {
+      "observed": "1951 \u2014 Ewen & Purcell; Muller & Oort; Christiansen et al.",
+      "predicted": "H. van de Hulst, 1944"
+    },
+    "parameters": {
+      "T_star": {
+        "definition": "T_* = E_10/k_B",
+        "note": "transition energy expressed as a temperature; T_* << T_S in all plausible astrophysical settings",
+        "unit": "mK",
+        "value_mK": 68
+      },
+      "einstein_A": {
+        "note": "spontaneous transition probability; literature range 2.85e-15 to 2.9e-15 s^-1 across sources \u2014 adopted value from the vdhulst HI notes; the ~11-million-year mean lifetime is why the line is collisionally pumped in the ISM",
+        "unit": "s^-1",
+        "value_s-1": 2.86888e-15
+      },
+      "frequency": {
+        "note": "Hz = s^-1; the second is anchored to the Cs-133 hyperfine transition per SI-DIMLESS-01",
+        "reference_anchor_id": "SI-DIMLESS-01#second",
+        "unit": "Hz",
+        "value_Hz": 1420405751.768
+      },
+      "photon_energy": {
+        "note": "E = h*nu; kilogram anchored by fixing h",
+        "reference_anchor_id": "SI-DIMLESS-01#kilogram",
+        "unit": "J (ueV)",
+        "value_J": 9.411708152678e-25,
+        "value_ueV": 5.8743261841116
+      },
+      "statistical_weights": {
+        "g0": 1,
+        "g1": 3,
+        "note": "g = 2F+1; equilibrium aligned-to-opposed population ratio 3:1"
+      },
+      "wavelength": {
+        "note": "21.106114054160 cm in vacuum; meter anchored via c and the second",
+        "reference_anchor_id": "SI-DIMLESS-01#meter",
+        "unit": "m",
+        "vacuum": true,
+        "value_m": 0.2110611405416
+      }
+    },
+    "radiation_type": "magnetic dipole (highly forbidden)",
+    "species": "neutral atomic hydrogen (H I)",
+    "transition": "ground-state (1s) hyperfine spin-flip, F=1 -> F=0 (electron spin reversed relative to proton spin)"
+  },
+  "chirality_readout": {
+    "comparison": "line-of-sight magnetic field direction",
+    "mechanism": "in a magnetic field the line splits into Zeeman components; the sigma+ and sigma- components are circularly polarized with opposite handedness",
+    "observable": "handedness of the Zeeman sigma components of the 21 cm line",
+    "rule": "the assigned handedness of each sigma component reverses with the sign of B_los",
+    "scope_note": "this is the chirality-sensitive observable built on the anchor; the bare line frequency itself carries no handedness",
+    "status": "standard radio-astronomical technique for measuring interstellar magnetic fields"
+  },
+  "contract_ref": "C-1 (chirality law) in vol4/physics_interface/IMPORT_CONTRACTS_DRAFT.md",
+  "dimensionless_representation": {
+    "anchor_ratios": {
+      "lambda_21_over_m": "0.2110611405416 (dimensionless count of SI meters)",
+      "nu_21_over_Hz": "1420405751.768 (dimensionless count of SI seconds^-1)"
+    },
+    "quantity_object_shape": {
+      "dimensionless_ratio": "number",
+      "notes": "string|null",
+      "reference_anchor_id": "string",
+      "unit_vector": "{m: int, kg: int, s: int, A: int, K: int, mol: int, cd: int}",
+      "value": {
+        "base10": true,
+        "exponent": "integer",
+        "mantissa": "number"
+      }
+    },
+    "ratio_rule": "dimensionless_ratio := Q / Q_ref where Q_ref has the same unit_vector and is explicitly declared"
+  },
+  "id": "CHIRAL-ANCHOR-01",
+  "imported_tables": {
+    "fields": [
+      "symbol",
+      "raw (mantissa*2^exponent)",
+      "sci10"
+    ],
+    "rows": [
+      {
+        "raw": {
+          "base": 2,
+          "exponent": 30,
+          "mantissa": 1.322855941735208
+        },
+        "sci10": {
+          "exponent": 9,
+          "mantissa": 1.420405751768
+        },
+        "symbol": "nu_21",
+        "unit": "Hz"
+      },
+      {
+        "raw": {
+          "base": 2,
+          "exponent": -3,
+          "mantissa": 1.6884891243328
+        },
+        "sci10": {
+          "exponent": -1,
+          "mantissa": 2.110611405416
+        },
+        "symbol": "lambda_21",
+        "unit": "m"
+      },
+      {
+        "raw": {
+          "base": 2,
+          "exponent": -80,
+          "mantissa": 1.137805699244994
+        },
+        "sci10": {
+          "exponent": -25,
+          "mantissa": 9.411708152678
+        },
+        "symbol": "E_21",
+        "unit": "J"
+      },
+      {
+        "raw": {
+          "base": 2,
+          "exponent": -49,
+          "mantissa": 1.615035862371334
+        },
+        "sci10": {
+          "exponent": -15,
+          "mantissa": 2.86888
+        },
+        "symbol": "A_10",
+        "unit": "s^-1"
+      }
+    ],
+    "source_file": "CHIRAL-ANCHOR-01.json (this file)",
+    "table_id": "line_parameters_01"
+  },
+  "principle": "The C-1 physics-interface import is calibrated against the measured 21 cm hyperfine line of neutral hydrogen. The line anchors scale (frequency, wavelength, time) as dimensionless ratios against explicitly declared references; orientation content is carried separately by the sector assignment (CHIRAL-ANCHOR-02). A frequency standard is a scalar: it does not by itself break orientation.",
+  "references": [
+    "Hydrogen line \u2014 Wikipedia (frequency 1420.405751768(2) MHz; wavelength 21.106114054160(30) cm; photon energy 5.8743261841116(81) ueV = 9.411708152678(13)e-25 J)",
+    "arXiv 1909.13740 ch.1 (nu_21 = 1420.4057 MHz; A_10 = 2.85e-15 s^-1; g1/g0 = 3; T_* = 68 mK)",
+    "vdhulst HI physics notes (A_10 = 2.86888e-15 s^-1; nu_10 = 1.420405751786(30) GHz)"
+  ],
+  "scope": {
+    "does_not_establish": "orientation breaking by itself \u2014 the bare line is a scalar standard; the orientation content is the sector occupancy in CHIRAL-ANCHOR-02",
+    "establishes": "scale calibration for the C-1 bridge equations; a chirality-sensitive readout (Zeeman sigma handedness) on the same anchor",
+    "provenance": "Kit's C-1 physical content, supplied 2026-09-28",
+    "status": "empirical (measured)"
+  },
+  "title": "21 cm Neutral-Hydrogen Hyperfine Line as Empirical P0 Anchor (C-1 Calibration)",
+  "version": "0.2.0",
+  "numerical_root": {
+    "directive": "all numerical values in the calibration program are driven off this anchor (Kit, 2026-09-28)",
+    "status": "ASSERTED-by-Kit (directive); the anchor values themselves are empirical (measured)",
+    "root_quantity": "nu_21 = 1420405751.768(2) Hz (laboratory; relative uncertainty 1.4e-12)",
+    "precision_hierarchy": {
+      "nu_21": "measured; 1.4e-12 relative (the most precise input)",
+      "lambda_21": "c/nu_21, c exact (SI 2019) \u2014 inherits nu_21's 1.4e-12 exactly",
+      "E_21": "h*nu_21, h exact (SI 2019) \u2014 inherits nu_21's 1.4e-12 exactly",
+      "A_10": "theoretical (2.86888e-15 s^-1); less precise \u2014 rate quantities routed through A_10 carry its larger uncertainty"
+    },
+    "metrological_chain": {
+      "principle": "every physical quantity Q = (dimensionless theory ratio) x (power of anchor ratio) x (anchor quantity); the theory supplies dimensionless numbers, Kit supplies two dimensionless ratios, the anchor supplies all SI values",
+      "unknown_ratios": {
+        "rho_E": "mc^2/E_21 \u2014 system rest energy in anchor units (Kit's call; open slot)",
+        "rho_V": "V_min/lambda_21^3 \u2014 minimum volume in anchor units (Kit's call; open slot)"
+      },
+      "energy": "E = (E/mc^2) * rho_E * E_21",
+      "mass": "m = (m/m_sys) * rho_E * (E_21/c^2)",
+      "rate": "r = (r/nu_21) * nu_21  [via A_10 only where spontaneous-emission physics enters]",
+      "time": "t = (t*nu_21)/nu_21",
+      "volume": "V = (V/V_min) * rho_V * lambda_21^3"
+    },
+    "consistency_check": "E_21 = h*nu_21 and lambda_21 = c/nu_21 recomputed 2026-09-28 from exact SI h, c: match the recorded values to all quoted digits (CHECKED)"
+  }
+}
