@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Canonical Spin–Geometry and the Primitive Symplectic Atlas — Volume 0</title>
+<title>Volume V — The Physics Interface</title>
 <style>
   :root { --ink:#1a1a1a; --muted:#5a5a5a; --accent:#1b5faa; --paper:#fff; --wash:#f6f8fb; --line:#dfe5ec; }
   body { font-family: -apple-system, "Segoe UI", Georgia, serif; color:var(--ink); background:var(--paper);
@@ -14,29 +14,15 @@
   .sub { color:var(--muted); font-size:1.05em; margin-top:0; }
   .about { background:var(--wash); border:1px solid var(--line); border-radius:8px; padding:14px 18px; margin:1.5em 0; }
   .about p { margin:.5em 0; }
-  .intuition { border-left:3px solid var(--accent); padding:.2em 0 .2em 1em; margin:1em 0; }
   .formal { background:var(--wash); border:1px solid var(--line); border-radius:8px; padding:12px 18px; margin:1.2em 0; }
-  .thm { border:1px solid var(--accent); border-radius:8px; padding:14px 18px; margin:1.4em 0; background:#fbfdff; }
-  .thm .tname { font-weight:700; color:var(--accent); }
-  .ledger { font-family: ui-monospace, Menlo, monospace; font-size:.85em; background:#0f1720; color:#d7e3f0;
-            border-radius:8px; padding:14px 18px; overflow-x:auto; white-space:pre-wrap; margin:1.2em 0; }
-  .tag { display:inline-block; font-size:.75em; font-weight:700; letter-spacing:.06em; border-radius:4px;
-         padding:.15em .6em; margin-right:.4em; vertical-align:middle; }
-  .tag.exact { background:#e6f4ea; color:#146c2e; border:1px solid #b7dfc0; }
-  .tag.cond { background:#e8f0fe; color:#1b5faa; border:1px solid #bcd6f5; }
-  .tag.imp { background:#f3e8fd; color:#6a1fb0; border:1px solid #d9c2f2; }
-  .tag.neg { background:#fdecea; color:#a32b1e; border:1px solid #f2c4bd; }
+  .books { display:grid; gap:1em; margin:1.5em 0; }
+  .book { border:1px solid var(--line); border-radius:8px; padding:14px 18px; background:#fbfdff; }
+  .book h3 { margin-top:0; }
+  .book p { margin:.5em 0; }
   code, .math { font-family: ui-monospace, Menlo, monospace; }
   .math { background:#f2f5f9; padding:.1em .35em; border-radius:4px; font-size:.95em; }
-  ul.tight li { margin:.35em 0; }
-  .nav { display:flex; flex-wrap:wrap; gap:.5em; margin:1.2em 0 2em; }
-  .nav a { text-decoration:none; border:1px solid var(--line); border-radius:20px; padding:.3em 1em;
-           font-size:.9em; color:var(--accent); background:var(--wash); }
   footer { margin-top:3em; color:var(--muted); font-size:.9em; border-top:1px solid var(--line); padding-top:1em; }
   footer a { color:var(--accent); }
-.toc{background:#f4f4f0;border:1px solid #ccc;border-radius:4px;padding:8px 14px;margin:1.2em 0}
-.toc a{color:#0645ad;text-decoration:none}
-.toc a:hover{text-decoration:underline}
 </style>
 <!-- SITENAV-START -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -112,33 +98,6 @@ html.rth-large-text body{font-size:21.333px;line-height:1.65}
 (function(){try{if(localStorage.getItem('rth-large-text')==='1'){document.documentElement.classList.add('rth-large-text');}}catch(e){}})();
 </script>
 <!-- SITENAV-END -->
-<!-- BOOKNAV-CSS-START -->
-<style>
-.booknav{font-family:Georgia,serif;display:grid;grid-template-columns:1.35fr .85fr .85fr 1.35fr;gap:10px;margin:2.5em 0 0}
-.booknav-panel{display:flex;flex-direction:column;justify-content:center;text-decoration:none;color:#1a1a1a;
- background:linear-gradient(180deg,#ffffff 0%,#f4f7fb 60%,#e7edf4 100%);
- border:1px solid #c7d2de;border-radius:8px;padding:12px 16px;
- box-shadow:inset 0 1px 0 #ffffff,0 2px 6px rgba(27,95,170,.10);
- transition:border-color .15s ease,box-shadow .15s ease,transform .15s ease}
-a.booknav-panel:hover{border-color:#1b5faa;transform:translateY(-1px);
- box-shadow:inset 0 1px 0 #ffffff,0 4px 12px rgba(27,95,170,.18)}
-a.booknav-panel:focus-visible{outline:2px solid #1b5faa;outline-offset:2px}
-.booknav-eyebrow{font-size:.7em;letter-spacing:.09em;text-transform:uppercase;color:#5a5a5a}
-.booknav-title{font-weight:bold;color:#1b5faa;margin-top:3px;line-height:1.35}
-.booknav-vol{font-size:.78em;color:#5a5a5a;margin-top:2px}
-.booknav-next{text-align:right}
-.booknav-center{text-align:center}
-.booknav-panel.is-disabled{opacity:.45;cursor:default}
-.booknav-panel.is-disabled .booknav-title{color:#5a5a5a}
-@media (max-width:640px){.booknav{grid-template-columns:1fr 1fr}.booknav-next{text-align:left}}
-
-.booknav-panel.booknav-handoff{border-color:#b85f1d;
- background:linear-gradient(180deg,#fffaf5 0%,#f7e7d9 60%,#f3ddc6 100%)}
-.booknav-panel.booknav-handoff .booknav-eyebrow{color:#b85f1d}
-a.booknav-panel.booknav-handoff:hover{border-color:#b85f1d;
- box-shadow:inset 0 1px 0 #ffffff,0 4px 12px rgba(184,95,29,.22)}
-</style>
-<!-- BOOKNAV-CSS-END -->
 <!-- TAGLINK-CSS-START -->
 <style>
 a.taglink{text-decoration:none}
@@ -171,7 +130,7 @@ a.taglink:focus-visible{outline:3px solid #0e7c86;outline-offset:2px;border-radi
 </div>
 </nav>
 <div class="crumbbar"><div class="crumbbar-inner">
-<a class="crumb-vol" href="../vol0/">Volume 0</a><span class="crumb-sep">/</span><span>Book 22</span><span class="crumb-pill">3 of 3</span>
+<a href="../">Home</a><span class="crumb-sep">/</span><span>Volume V</span>
 </div></div>
 <div class="rth-toast" id="rthToast" role="status" aria-live="polite"></div>
 <script>
@@ -201,249 +160,65 @@ a.taglink:focus-visible{outline:3px solid #0e7c86;outline-offset:2px;border-radi
 </script>
 <!-- SITENAV-NAV-END -->
 
-<h1>Canonical Spin–Geometry and the Primitive Symplectic Atlas</h1>
-<p class="sub">Volume 0. The volume's strongest exact result: the four primitives are
-canonical charts on one radial-spinor phase plane — and the audit that keeps the
-imported machinery honest.</p>
-<p><a href="../pdf/volume-0-book22.pdf">Download this book as PDF</a> (frozen snapshot, generated 2026-09-19).</p>
+<h1>Volume V — The Physics Interface</h1>
+<p class="sub">Where the mathematics meets measurement: what can be anchored, what can be measured, and what cannot.</p>
 
 <div class="about">
-<p><b>About this book.</b> Rebuilt as standalone R Theory from the former T6 essay-book,
-the "canonical" book of the Projection Craft series — its declared job was to make the
-primitive functions canonical coordinates on the radial-spinor phase space. That core
-is proved. Around it sits heavy imported machinery (Dirac–Coulomb theory, the
-first-order Einstein–Hilbert action, Maxwell, rotation, Einstein–Cartan, Kerr), and this
-book labels every layer: what is proved internally, what is conditional on import,
-and what is not established here. The "promotion" of earlier results is explained
-precisely: it means <i>restriction to a specialized setting and reuse of existing
-proofs</i> — never a status upgrade and never new evidence.</p>
-<p><b>Status key.</b> <span class="tag exact">EXACT</span> proved mathematics ·
-<span class="tag cond">CONDITIONAL</span> exact after a declared import or contract ·
-<span class="tag imp">IMPORT</span> accepted physics taken as input, not derived ·
-<span class="tag neg">OBSTRUCTION</span> a proved or retained negative result.</p>
-<p><b>Depends on:</b> <a href="../book0/">Book 0</a>; <a href="../book20/">Book 20</a>
-(§4's two-angle structure); the internal radial Dirac–Coulomb paper.</p>
-</div>
-<div class="toc">
-<p><b>Contents.</b> <a href="#s1">§1 — Radial coframe and spin transport (imported machinery, labeled)</a> · <a href="#s2">§2 — The Prüfer canonical pair (exact conditional)</a> · <a href="#s3">§3 — The primitive symplectic atlas (the volume&#x27;s strongest exact result)</a> · <a href="#s4">§4 — The first-order spherical defect action (conditional reconstruction)</a> · <a href="#s5">§5 — Gauge, rotation, and spin: conditional channels</a> · <a href="#s6">§6 — Kerr/Kerr–Newman half-angle identities (with guards)</a> · <a href="#s7">§7 — The spherical-spin obstruction</a> · <a href="#s8">§8 — The does-not-establish ledger and book closure</a></p>
+<p><b>What this volume is.</b> Two books about the boundary between proved mathematics and
+physical measurement. <a href="../book23/">Book 23</a> sets the anchors: the C-1 chirality
+import needs a scale anchor — the 21&nbsp;cm line — and an orientation anchor — the
+imaginary-negative-volume sector occupancy — each with its declared scope.
+<a href="../book24/">Book 24</a> runs the measurement campaign: the IO-word sweep that
+corrected the mass law, built the dial as a working instrument, and proved, one by one,
+the things the 1820 cannot select.</p>
+<p><b>Why they belong together.</b> An anchor says "this is where the theory touches the
+world." A campaign says "this is what the touching can and cannot establish." Book 23
+declares the contact points; Book 24 stress-tests them with 189 ledger claims, full
+derivations in <a href="../appendix-proofs/">Appendix P</a>, and a run-61 correction
+that withdrew a published-worthy claim rather than defend it.</p>
+<p><b>Dependencies.</b> Book 23 depends on the C-1 chirality import contract and measured
+atomic data (declared per section). Book 24 depends on the Volume I audit's 1820
+machinery — the Casimir construction, the C8 candidate space, the epsilon operator —
+and nothing else. Neither book promotes a result past its scope.</p>
 </div>
 
-
-<div class="nav">
-<a href="#s1">§1 Spin transport</a><a href="#s2">§2 Prüfer pair</a><a href="#s3">§3 Symplectic atlas</a>
-<a href="#s4">§4 Defect action</a><a href="#s5">§5 Gauge & rotation</a>
-<a href="#s6">§6 Kerr</a><a href="#s7">§7 Spin obstruction</a><a href="#s8">§8 Audit</a>
+<h2 id="the-shared-discipline">The shared discipline</h2>
+<div class="formal">
+<p>Every contact point between the mathematics and physics in this volume carries a scope
+label, and the label is the content:</p>
+<p><b>PROVED</b> — the mathematics establishes it (the corrected mass law, the dial
+inequality, the no-go theorems). <b>CHECKED</b> — numerically verified to stated precision
+with tripwires disclosed. <b>IMPORT</b> — brought in from measured physics or Kit's
+directive, never derived (the 21&nbsp;cm parameters, the sector occupancy record).
+<b>ASSERTED / CONDITIONAL / INCOMPLETE</b> — exactly what the words say.
+<b>FALSIFIED</b> — withdrawn in the open, with the correction recorded (the m&#8322;&#8315;&#8308;
+law, the scalar pair, the uniform bridges).</p>
+<p>Proved negatives are first-class results here. "No IO-word measurement can select
+m&#8320;/m&#8322;" and "nothing selects inside the 12-dimensional candidate space" are
+theorems, not disappointments — they close doors the theory must stop knocking on.</p>
 </div>
 
-<h2 id="s1">§1 — Radial coframe and spin transport (imported machinery, labeled)</h2>
-
-<div class="intuition">
-<p>The book's canonical apparatus starts from accepted background: <span class="tag imp">IMPORT</span>
-the radial coframe e^a (flat at η=0, with defect δ_e = e^0−dr), the torsion-free spin
-connection, and the Dirac spinor Ψ in the projected chart. Two declared contracts carry
-the whole book: <b>C6a</b>, the radial two-component chart <span class="math">Ψ →
-(r, F, G, …)</span>, and <b>C6b</b>, that F and G are independent on open sets. Two
-obstructions are kept permanently: the spherical-to-Cartesian map is not a global
-diffeomorphism (origin and polar axis excluded), and C6a/C6b fix the <i>reading</i> of
-the geometry but <i>not</i> the physical meaning of F and G — importing the radial
-Dirac–Coulomb paper promotes the chart, never the book's own assumptions.</p>
+<h2 id="the-books">The books</h2>
+<div class="books">
+  <div class="book">
+    <h3 id="chirality-anchors">Chirality Anchors — the C-1 Physics Interface</h3>
+    <p>The first book of the physics-interface program: the 21&nbsp;cm line as scale anchor
+    and the imaginary-negative-volume sector occupancy as orientation anchor for the C-1
+    chirality import — each with declared scope, falsification conditions, and a scope
+    ledger. The book where Muse Cosby took over as Kit's research assistant.</p>
+    <p><a href="../book23/">Read Book 23 &rarr;</a></p>
+  </div>
+  <div class="book">
+    <h3 id="the-io-word-campaign">The IO-Word Campaign — Mass, the Dial, and the No-Go Results</h3>
+    <p>The complete IO-word measurement campaign: the mass question settled (m&#8322;&#8315;&#8308;
+    falsified, the (m&#8320;m&#8322;)&#8315;&#185; law proved), the dial built as a working
+    instrument with its closed forms and the D<sub>W</sub>&middot;D<sub>B</sub> inequality,
+    the no-go results (bilinear rigidity, the complete selection census), epsilon and C8,
+    the run-61 correction — and the open gates. Full derivations in Appendix&nbsp;P.</p>
+    <p><a href="../book24/">Read Book 24 &rarr;</a></p>
+  </div>
 </div>
 
-<h2 id="s2">§2 — The Prüfer canonical pair (exact conditional)</h2>
-
-<div class="intuition">
-<p>The transport operator on (F, G) has exact zero trace, which yields the exact
-radial invariant</p>
-<p class="math">F F′ + G G′ = −A²/(2r)</p>
-<p>and a canonical pair: the Prüfer angle <span class="math">Θ = arg(G + iF)</span>
-and the spin density <span class="math">A² = F² + G²</span>. Under C6a/C6b the pair is
-regular on open sets and the spin phase space carries</p>
-<p class="math">ω_spin = 4 dF ∧ dG</p>
-<p>— exactly canonical. This is exact <i>after</i> importing the radial Dirac dynamics;
-the symplectic form is a conditional theorem, not a derivation of Dirac theory.</p>
-</div>
-
-<div class="thm"><span class="tname">Canonical spin phase space</span> <span class="tag cond">CONDITIONAL</span>
-<p>Under C6a/C6b and the imported radial Dirac equations, (Θ, A²) is a canonical pair
-on the radial-spinor phase plane with symplectic form 4 dF∧dG. <span class="tag neg">OBSTRUCTION</span>
-Does not derive the Dirac equation, spin-½, the spin-statistics connection, or the
-fine-structure constant.</p>
-</div>
-
-<h2 id="s3">§3 — The primitive symplectic atlas (the volume's strongest exact result)</h2>
-
-<div class="intuition">
-<p>The centerpiece. The four primitive functions are <b>canonical charts on the same
-(F, G) plane</b> — four Darboux-compatible coordinate systems with a common spin
-one-form:</p>
-<p class="math">p_sxp = 2F²,&nbsp;&nbsp; p_srx = −2G²,&nbsp;&nbsp;
-p_cxp = (F−G)²,&nbsp;&nbsp; p_crx = −(F+G)²</p>
-<p class="math">p_Q dQ = −2G dF + 2F dG</p>
-<p>and the common symplectic form <span class="math">ω_spin = 4 dF∧dG</span>, already
-established in §2. The atlas maps cover all four quadrants; the reciprocal and
-complementary identities are exact differential identities. On the circular
-Dirac–Coulomb branch the atlas charts meet the radial paper's spinor-ratio theorem,
-so the atlas variables and the spinor-ratio results are cross-checked against the
-same imported dynamics. No new physics is claimed: the primitives were already
-canonical coordinate expressions; the atlas shows they are canonical <i>together</i>.</p>
-</div>
-
-<div class="thm"><span class="tname">Primitive symplectic atlas</span> <span class="tag exact">EXACT</span>
-<p>The four primitive momentum charts with common one-form and common symplectic form
-constitute an exact internal theorem, conditional only on the declared C6a/C6b chart
-and the imported radial dynamics. The chart transition identities, reciprocal relations,
-and amplitude-ratio readings are exact. This is a representation result: it changes
-no prediction of the imported theory.</p>
-</div>
-
-<h2 id="s4">§4 — The first-order spherical defect action (conditional reconstruction)</h2>
-
-<div class="intuition">
-<p>Now the imported gravitational machinery. <span class="tag imp">IMPORT</span> the
-first-order Einstein–Hilbert action in the spherical defect variables
-<span class="math">(δ_e, δ_f, δ_ω)</span>, with a regularized radial measure
-η²(r)dr on (r_UV, ∞) and the standard asymptotically flat falloff conditions
-declared. Exact reductions under these imports: the gravitational defect kinetic
-structure; the boundary term; and the vanishing of the on-shell defect action in the
-massless flat defect-free limit. What remains outside the reduction: the
-regularization contract, the falloff conditions, and the accepted
-Einstein–Hilbert machinery itself — conditional reconstruction, not a derivation
-of GR. The mass parameter m appearing in the defect action is imported through the
-contract; the defect action does not compute it.</p>
-</div>
-
-<div class="formal"><span class="tag cond">CONDITIONAL</span> <b>Spherical defect reduction.</b>
-Exact reduction of the imported first-order Einstein–Hilbert action in the defect
-variables under declared regularization and falloff. <span class="tag neg">OBSTRUCTION</span>
-Does not derive the Einstein field equations, Newton’s constant, or the mass
-parameter.</div>
-
-<h2 id="s5">§5 — Gauge, rotation, and spin: conditional channels</h2>
-
-<div class="intuition">
-<p>Three more channels, each exact after its own import:</p>
-<ul class="tight">
-<li><b>Gauge (Maxwell as a channel):</b> after the gauge import, the radial electric
-charge appears as the cyclic radial momentum p_Φ conjugate to the radial gauge phase
-— the Maxwell field-strength dynamics and the coupling e are imported; the book
-supplies the canonical reading, not the theory.</li>
-<li><b>Rotation:</b> angular momentum enters as the canonical momentum p_Ω conjugate
-to frame dragging — exact in the imported Kerr-geometry channel.</li>
-<li><b>Spin (Einstein–Cartan):</b> the axial contorsion channel is exactly auxiliary:
-the torsion equation is algebraic and the torsion is solved out in favor of the spin
-current — so the spin sector carries no independent propagating degree beyond the
-imported one.</li>
-</ul>
-<p>Each channel is a representation of imported physics in the book's canonical
-coordinates. None derives its import.</p>
-</div>
-
-<h2 id="s6">§6 — Kerr/Kerr–Newman half-angle identities (with guards)</h2>
-
-<div class="intuition">
-<p>On the imported Kerr geometry, the horizon radii satisfy exact half-angle
-identities in the book's coordinates — and the same identities extend to
-Kerr–Newman after the electromagnetic import. The guards are part of the result:
-the identities live on the declared equatorial/chart domain (coordinate
-singularities excluded), they are consequences of the imported metric, and they
-establish no new black-hole physics. The spherical-spin obstruction (§7) is the
-reason these identities do not become a spin law.</p>
-</div>
-
-<div class="formal"><span class="tag cond">CONDITIONAL</span> <b>Kerr/Kerr–Newman identities.</b>
-Exact coordinate identities on the imported geometries, valid on the declared
-regular domain. <span class="tag neg">OBSTRUCTION</span> No new black-hole physics;
-no spin dynamics derived.</div>
-
-<h2 id="s7">§7 — The spherical-spin obstruction</h2>
-
-<div class="intuition">
-<p>The book's hardest negative, and its most load-bearing. The spherical symmetry
-used throughout forces the total spin current to integrate to zero over the sphere
-— a spherically symmetric configuration cannot carry net spin. The canonical spin
-apparatus of §§1–3 therefore <b>cannot be promoted to a theory of spin in the
-spherical sector</b>. This is not a defect of the atlas; it is a theorem about the
-domain: the spin variables are exact internal coordinates of the radial-spinor phase
-plane, and the spherical obstruction says exactly where they stop being physics.
-Any future spin program must begin by leaving spherical symmetry.</p>
-</div>
-
-<div class="formal"><span class="tag neg">OBSTRUCTION</span> <b>Spherical spin cancellation.</b>
-Spherical symmetry kills net spin current. The atlas is exact where it applies and
-silent where it cannot speak.</div>
-
-<h2 id="s8">§8 — The does-not-establish ledger and book closure</h2>
-
-<div class="intuition">
-<p>The source book's §6.XV is preserved verbatim in spirit: the does-not-establish
-ledger. This book does not derive: the Dirac equation; spin-½; the fine-structure
-constant; the Coulomb interaction; the Einstein field equations; Newton’s constant;
-the Maxwell equations; the charge e; the Kerr metric; the Einstein–Cartan spin
-coupling; particle masses; couplings; or new observables. "Promotion" of earlier
-results (Books 20–21, the radial paper) means restriction to a specialized setting
-with reuse of existing proofs — a status-preserving operation, never a status
-upgrade and never new evidence. The Yang–Mills attribution from the source preamble
-is <b>not</b> repeated: the cited result is absent from the cited text (see the
-<a href="../vol0/">Volume 0 provenance note</a>).</p>
-</div>
-
-<div class="ledger">Book 22 promotion audit
-─────────────────────────────────────────────
-Exact internal theorems:        spin invariant, Prüfer pair,
-                                primitive symplectic atlas,
-                                atlas transition identities.
-Exact after declared import:    Kerr/KN identities, defect-action
-                                reduction, gauge/rotation/spin channels.
-New equation of motion:         none.
-New coupling or mass parameter: none.
-New invariant observable:       none.
-Prediction difference:          Δ_op = ∅.  C0 retained.
-─────────────────────────────────────────────</div>
-
-<div class="thm"><span class="tname">Book 22 closure</span> <span class="tag exact">EXACT</span>
-<p>The four primitives are canonical charts on one radial-spinor phase plane — the
-primitive symplectic atlas is the strongest exact result of Volume 0, and it changes
-nothing it did not already change: it is a representation theorem inside imported
-physics. With the obstructions kept (spherical spin cancellation, coordinate-domain
-guards, the does-not-establish ledger), <span class="math">Δ_op = ∅</span> and C0 —
-<i>Projection Craft changes representation but not physics</i> — is retained,
-undefeated, and still falsifiable.</p>
-</div>
-
-<div class="formal"><b>Forward boundary.</b> The book's own reopening rule: C0 is defeated
-only by a future fully specified Class-C model with a stated measurement contract —
-a new invariant observable that survives the redundancies this volume catalogued.
-The spherical-spin obstruction marks where any spin program must start: outside
-spherical symmetry.</div>
-
-<!-- BOOKNAV-NAV-START -->
-<nav class="booknav" aria-label="Book navigation">
-<a class="booknav-panel booknav-prev" rel="prev" href="../book21/">
-<span class="booknav-eyebrow">← Previous</span>
-<span class="booknav-title">Fermion Composition, Color Closure, and Bound-State Geometry — Volume 0</span>
-<span class="booknav-vol">Volume 0</span>
-</a>
-<a class="booknav-panel booknav-center" href="../">
-<span class="booknav-eyebrow">Series</span>
-<span class="booknav-title">Index</span>
-</a>
-<a class="booknav-panel booknav-center" href="../contents/">
-<span class="booknav-eyebrow">Series</span>
-<span class="booknav-title">Contents</span>
-</a>
-<a class="booknav-panel booknav-next" rel="next" href="../book0/">
-<span class="booknav-eyebrow">Next →</span>
-<span class="booknav-title">Book 0 — Source Boundary and the Orientation Question (Restructured)</span>
-<span class="booknav-vol">Volume I</span>
-</a>
-</nav>
-<!-- BOOKNAV-NAV-END -->
-<footer>
-<p>A Volume 0 book of the R Theory rewrite. Source: the former T6 essay-book, rebuilt standalone.
-Status discipline: exact / conditional / import / obstruction — nothing promoted beyond
-its support. Δ_op = ∅ throughout.</p>
-</footer>
-<!-- COMMENTS-START -->
 <style>
 .rth-comments{font-family:Georgia,serif;max-width:860px;margin:2.5em auto 1em;
  padding:1.2em 1.4em;background:linear-gradient(180deg,#fbfbf9,#f0f0eb);
@@ -657,5 +432,183 @@ formEl.addEventListener("submit",function(ev){
 </script>
 </footer>
 <!-- FOOTER-END -->
+<!-- COMMENTS-START -->
+<style>
+.rth-comments{font-family:Georgia,serif;max-width:860px;margin:2.5em auto 1em;
+ padding:1.2em 1.4em;background:linear-gradient(180deg,#fbfbf9,#f0f0eb);
+ border:1px solid #0f4c5c;border-radius:8px;box-shadow:0 2px 8px rgba(13,59,108,.15);
+ line-height:1.6;color:#1a1a1a}
+.rth-comments h2{margin:0 0 .2em;font-size:1.25em;color:#0d3b6c;
+ border-bottom:2px solid #1b5faa;padding-bottom:.3em}
+.rth-comments-on{font-size:.9em;color:#555;margin:.4em 0 1em}
+.rth-comments-on span{font-weight:bold;color:#1a1a1a}
+.rth-comments-list{margin:0 0 1em}
+.rth-comments-loading,.rth-comments-empty,.rth-comments-note{color:#777;font-style:italic}
+.rth-comment{border-top:1px dotted #ccc;padding:.6em 0}
+.rth-comment-head{font-size:.9em;color:#444}
+.rth-comment-date{color:#888}
+.rth-comment-body{white-space:pre-wrap;margin:.3em 0 .6em;overflow-wrap:break-word}
+.rth-comment-form{display:flex;flex-direction:column;gap:.6em;margin-top:1em}
+.rth-comment-name,.rth-comment-body-input{font-family:Georgia,serif;font-size:1em;
+ padding:.5em .7em;border:1px solid #999;border-radius:4px;background:#fff;
+ color:#1a1a1a;width:100%;box-sizing:border-box}
+.rth-comment-form button{align-self:flex-start;font-family:Georgia,serif;font-size:1em;
+ padding:.5em 1.4em;color:#fff;background:linear-gradient(180deg,#2a7ab8,#0d3b6c);
+ border:1px solid #0d3b6c;border-radius:5px;cursor:pointer}
+.rth-comment-form button:hover{filter:brightness(1.12)}
+.rth-comment-status{min-height:1.2em;font-size:.9em;color:#0d3b6c;margin:0}
+.rth-comment-error{color:#a00}
+.rth-comments-forum{margin:1em 0 0;font-size:.95em}
+.rth-comments-forum a{color:#1b5faa;text-decoration:none}
+.rth-comments-forum a:hover{text-decoration:underline}
+.rth-comments-login{font-size:.95em}
+.rth-comments-login a{color:#1b5faa}
+</style>
+<section class="rth-comments" id="comments" aria-label="Comments">
+<h2>Comments</h2>
+<p class="rth-comments-on">Commenting on: <span id="comment-page-title"></span></p>
+<div class="rth-comments-list" id="comments-list"><p class="rth-comments-loading">Loading&#8230;</p></div>
+<form class="rth-comment-form" id="rth-comment-form">
+<input id="comment-name" class="rth-comment-name" placeholder="Display name (optional)" maxlength="60" autocomplete="nickname">
+<textarea id="comment-body" class="rth-comment-body-input" rows="4" placeholder="Write a comment&#8230;" required maxlength="5000"></textarea>
+<button type="submit">Post comment</button>
+<p class="rth-comment-status" role="status"></p>
+</form>
+<p class="rth-comments-forum" hidden><a id="comments-forum-link" href="#">Continue the discussion in the forum &#8594;</a></p>
+</section>
+<script>
+(function(){
+"use strict";
+var section=document.getElementById("comments");
+if(!section)return;
+/* Page slug, mount-agnostic: last path segment, "index" for site roots. */
+var segs=location.pathname.replace(/\/+$/,"").split("/").filter(function(s){return s.length;});
+var slug=segs.length?segs[segs.length-1]:"index";
+if(slug==="r-theory"||slug==="r-theory-rewrite")slug="index";
+var mode="login",csrfToken="";
+var listEl=document.getElementById("comments-list");
+var formEl=document.getElementById("rth-comment-form");
+var nameEl=document.getElementById("comment-name");
+var bodyEl=document.getElementById("comment-body");
+var statusEl=section.querySelector(".rth-comment-status");
+var forumLink=document.getElementById("comments-forum-link");
+var titleEl=document.getElementById("comment-page-title");
+if(titleEl)titleEl.textContent=document.title;
+function setStatus(msg,isError){
+  if(!statusEl)return;
+  statusEl.textContent=msg||"";
+  statusEl.className="rth-comment-status"+(isError?" rth-comment-error":"");
+}
+function fmtDate(iso){
+  try{return new Date(iso).toLocaleString();}
+  catch(e){return iso||"";}
+}
+function renderPost(p){
+  var wrap=document.createElement("article");
+  wrap.className="rth-comment";
+  var head=document.createElement("div");
+  head.className="rth-comment-head";
+  var who=document.createElement("strong");
+  who.textContent=p.guest_name?(p.guest_name+" (guest)"):(p.author||"Anonymous");
+  head.appendChild(who);
+  var when=document.createElement("span");
+  when.className="rth-comment-date";
+  when.textContent=" — "+fmtDate(p.created_at);
+  head.appendChild(when);
+  var body=document.createElement("div");
+  body.className="rth-comment-body";
+  body.textContent=p.body||"";
+  wrap.appendChild(head);
+  wrap.appendChild(body);
+  return wrap;
+}
+function renderPosts(posts){
+  listEl.textContent="";
+  if(!posts||!posts.length){
+    var none=document.createElement("p");
+    none.className="rth-comments-empty";
+    none.textContent="No comments yet — start the discussion.";
+    listEl.appendChild(none);
+    return;
+  }
+  posts.forEach(function(p){listEl.appendChild(renderPost(p));});
+}
+function setForumLink(thread){
+  if(!forumLink||!thread)return;
+  forumLink.href=thread.url||("/app/thread/"+thread.id);
+  var p=forumLink.parentElement;
+  if(p&&p.hasAttribute("hidden"))p.removeAttribute("hidden");
+}
+function showLoginPrompt(){
+  formEl.style.display="none";
+  if(section.querySelector(".rth-comments-login"))return;
+  var p=document.createElement("p");
+  p.className="rth-comments-login";
+  var a=document.createElement("a");
+  /* Return here after login: the forum honors ?next= for relative paths. */
+  a.href="/app/login?next="+encodeURIComponent(
+    location.pathname+location.search+location.hash);
+  a.textContent="Log in to the forum";
+  p.appendChild(a);
+  p.appendChild(document.createTextNode(" to comment — you will be brought back here."));
+  formEl.parentNode.insertBefore(p,formEl);
+}
+/* Graceful degradation: no /app on this host (e.g. GitHub Pages copy). */
+function degrade(){
+  listEl.textContent="";
+  var note=document.createElement("p");
+  note.className="rth-comments-note";
+  note.textContent="Comments are available on the Lampy-hosted copy of this site.";
+  listEl.appendChild(note);
+  formEl.style.display="none";
+  var fp=forumLink?forumLink.parentElement:null;
+  if(fp)fp.style.display="none";
+}
+fetch("/app/api/comments?page="+encodeURIComponent(slug),{credentials:"same-origin"})
+.then(function(resp){if(!resp.ok)throw new Error("http "+resp.status);return resp.json();})
+.then(function(data){
+  mode=data.mode||"login";
+  csrfToken=data.csrf_token||"";
+  if(mode==="guest"){nameEl.style.display="";}
+  else{nameEl.style.display="none";if(!data.logged_in)showLoginPrompt();}
+  renderPosts(data.posts);
+  if(data.thread)setForumLink(data.thread);
+})
+.catch(function(){degrade();});
+formEl.addEventListener("submit",function(ev){
+  ev.preventDefault();
+  var body=bodyEl.value.trim();
+  if(!body){setStatus("Please write a comment first.",true);return;}
+  var payload={page:slug,page_title:document.title,body:body};
+  if(mode==="guest"){var nm=nameEl.value.trim();if(nm)payload.name=nm;}
+  setStatus("Posting…");
+  fetch("/app/api/comments",{
+    method:"POST",
+    headers:{"Content-Type":"application/json","X-CSRF-Token":csrfToken},
+    body:JSON.stringify(payload),
+    credentials:"same-origin"
+  }).then(function(resp){
+    if(resp.status===401){showLoginPrompt();setStatus("Please log in to comment.",true);return null;}
+    if(resp.status===429){setStatus("Too many comments — please wait a bit and try again.",true);return null;}
+    if(resp.status===400){return resp.json().then(function(d){
+      setStatus((d&&d.error)||"Could not post the comment.",true);return null;},
+      function(){setStatus("Could not post the comment.",true);return null;});}
+    if(!resp.ok){setStatus("Could not post the comment. Please try again.",true);return null;}
+    return resp.json();
+  }).then(function(data){
+    if(!data)return;
+    var empty=listEl.querySelector(".rth-comments-empty");
+    if(empty)empty.remove();
+    var post=data.post||data;
+    listEl.insertBefore(renderPost(post),listEl.firstChild);
+    bodyEl.value="";
+    if(nameEl)nameEl.value="";
+    setStatus("Comment posted.");
+    if(data.thread)setForumLink(data.thread);
+  }).catch(function(){setStatus("Could not post the comment. Please try again.",true);});
+});
+})();
+</script>
+<!-- COMMENTS-END -->
 </body>
 </html>

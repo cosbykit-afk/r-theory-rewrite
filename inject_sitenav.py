@@ -4,7 +4,7 @@
 Replaces the old .sitenav bar with the Navigation Panel Wireframe design
 (artifact slug: navigation-panel-wireframe):
   - flat deep-teal (#092d32) top bar: "R Theory" wordmark (Libre Baskerville),
-    native <select> dropdown (Contents, Volume 0-IV, Index), Google
+    native <select> dropdown (Contents, Volume 0-V, Index), Google
     site-restricted search, "Large text" pill switch (role=switch,
     localStorage-persisted across pages)
   - breadcrumb strip below the bar (volume button / book / position pill)
@@ -36,6 +36,7 @@ VOLUMES = [
     ("Volume II", [7, 8, 9, 10, 11, 12, 13], "contents/#vol-2"),
     ("Volume III", [14, 15, 16], "contents/#vol-3"),
     ("Volume IV", [17, 18, 19], "vol4/"),
+    ("Volume V", [23, 24], "vol5/"),
 ]
 BOOK_VOLUME = {}
 for _name, _books, _dest in VOLUMES:
@@ -55,6 +56,7 @@ LABELS = {
     "title": "Title page",
     "vol0": "Volume 0",
     "vol4": "Volume IV",
+    "vol5": "Volume V",
 }
 
 CSS_BLOCK = """<!-- SITENAV-START -->
@@ -143,6 +145,7 @@ NAV_TMPL = """<!-- SITENAV-NAV-START -->
 <option value="{p}contents/#vol-2">Volume II</option>
 <option value="{p}contents/#vol-3">Volume III</option>
 <option value="{p}vol4/">Volume IV</option>
+<option value="{p}vol5/">Volume V</option>
 <option value="{p}index/">Index</option>
 </select></span>
 <form class="site-search" id="rthSiteSearch" action="https://www.google.com/search" method="get" target="_blank" rel="noopener" role="search">
