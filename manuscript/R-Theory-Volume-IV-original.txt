@@ -1,0 +1,2533 @@
+BOOK 17 — THE MICROSCOPIC OCTANT AND THE DISCRETE ORIGIN OF THE C8 RECOUPLING
+
+ACTIVE RESEARCH STATUS
+
+Transfer state: September 15, 2026
+
+---
+
+PURPOSE AND AUTHORITY
+
+This document opens Book 17 of Projection Craft / Revised R Theory. It is the first book of Volume IV. It reorganizes the surviving results of the Volume III / Book 16 frontier by dependency and extends them into a discrete octant decomposition of the primitive UNA/Saw state geometry.
+
+Authority order:
+
+1. Active standalone Books 14–17.
+2. This active research file.
+3. The preceding Book 16 Frontier and its Appendix A computational ledger, as provenance and calculation record.
+4. Older snapshots only for provenance, never as authority over a later closed gate.
+
+The aim of Book 17 is not to invent a new mechanism. The aim is to identify the discrete structure already implicit in the earned continuous geometry, determine what it forces at the microscopic level, and descend to coefficient detail only where genuine freedom remains.
+
+---
+
+STATUS LABELS
+
+EXACT — proved inside the stated mathematical setup and independent of unresolved UV selection questions.
+
+CONDITIONAL — proved once an explicitly named structural assumption or parent operator is admitted.
+
+STRUCTURAL IDENTIFICATION — a correspondence that organizes earned results into a discrete pattern but is not itself a derivation from first principles.
+
+OPEN — not yet established.
+
+CLOSED / NO-GO — a branch has been excluded for the purpose stated. A closed branch is not to be reopened merely because it appears in older notes.
+
+---
+
+DEPENDENCY BOUNDARY
+
+Book 17 inherits from Books 14–16 only results already earned, plus ordinary background mathematics. Whenever a later section uses a result from Books 0–16, that result is treated as an upstream dependency rather than silently re-derived.
+
+Inherited as EXACT from Book 15:
+
+· The primitive transfer circle (p, q) with p² + q² = 2
+· The traceless symmetric-square map Q = εpq, S = (ε/2)(q² − p²)
+· The normalized doubled-angle circle Q² + S² = 1
+· The exact quadratic conjugacy between the Saw transfer circle and the doubled-angle circle
+· The native conic character K_u(x) = exp[−iuQ(x)] and its rotational average J₀
+· The conditional jinc descent 2J₁(u)/u under uniform disk completion
+
+Inherited as EXACT from Book 16 Frontier:
+
+· The harmonic carrier H = sin(2x)/4 and its elliptic partner V_R = cos(2x)/2
+· The hyperbolic parent D₂² − K₂² = 16
+· The C8 cyclic word (E,B,E,O,E,B,E,O)
+· The four-contact magnitude (1/4)⁴ = 1/256
+· The isolated m₂⁻⁴ monomial in the crossed-t route
+· The charge firewall: q_F(C_χ) = 2, q_F(Y₅₄) = 4, q_F(y₂) = −4
+· The reduced-matrix-element firewall and the ancestry criterion
+
+Inherited as CONDITIONAL from Book 16 Frontier:
+
+· The graded-connection rigidity theorem λ = ±1
+· The quasi-linear parent magnitude k₀ = β²/(2α)
+· The functional form 1/S = cosh w of the parent normalization
+
+Not inherited. Book 17 does not assume:
+
+· That the complete microscopic theory retains the full-E8 parent class
+· That the uniform-action premise holds for the selected parent
+· That any UV completion supplies the q_F = −4 datum
+· That the octant correspondence is a derivation rather than a structural identification
+
+---
+
+GOVERNING STATUS RULE
+
+Every result in Book 17 occupies exactly one of the labels above. The default null hypothesis remains that Projection Craft may change representation without changing operational physics; a physical promotion requires a nonempty operational difference set Δ_op.
+
+Δ_op(Book 17) = ∅ at the opening of this book. No empirical promotion is authorized by anything in the following sections.
+
+No physical interpretation of the octant structure is asserted. The octant decomposition is a discrete reorganization of earned continuous geometry. Its connection to the C8 recoupling is a structural identification, not a physical derivation.
+
+---
+
+0. STRATEGY
+
+Book 17 does not search the full space of microscopic mechanisms. It carries forward the constraints, symmetries, representation facts, sign structures, and no-go results already established in Books 14–16, and it asks what discrete structure those constraints force.
+
+The cascade principle remains in force:
+
+```
+earned constraints
+→ admissible operator class
+→ selected parent / minimal allowed family
+→ induced bridge
+→ grade-resolved C8 recoupling
+→ physical 54
+→ q_F-breaking UV matching
+→ normalized y₂
+→ activation / BRST-BV / gravitational closure
+```
+
+The cascade succeeds only if later stages inherit the restrictions of earlier stages. A mechanism that solves one local problem but violates an already-earned upstream condition is not a candidate.
+
+The immediate frontier of Book 17 is the residual neutral normalization problem and the discrete structure that constrains it. The book does not attempt to derive q_F = −4. It attempts to identify the geometric footprint that any q_F = −4 datum must respect.
+
+---
+
+17.1 — THE PRIMITIVE OCTANT DECOMPOSITION
+
+17.1.1 — The harmonic carrier identity
+
+Status: EXACT.
+
+For x in the common domain where sin x ≠ 0 and cos x ≠ 0,
+
+```
+sin(2x)/4 = 1/(urx(x) + uxp(x))
+```
+
+where
+
+```
+urx(x) = srx(x) − crx(x) = |csc x| + cot x − 1/(|sec x| + tan x)
+uxp(x) = cxp(x) − sxp(x) = |sec x| + tan x − 1/(|csc x| + cot x)
+```
+
+Equivalently,
+
+```
+4/sin(2x) = srx(x) + cxp(x) − 1/srx(x) − 1/cxp(x)
+```
+
+Proof. Direct substitution using sxp = 1/srx and crx = 1/cxp, then combining over the common denominator cxp·srx − 1. ∎
+
+This is the same carrier H = sin(2x)/4 earned in Book 7 and reconstructed through the native primitive-difference route in Book 15 (§15.III). Book 17 records it here as the entry point of the octant decomposition.
+
+17.1.2 — The corrected imbalance formula
+
+Status: EXACT.
+
+```
+cos(2x)/2 = (srx(x) + crx(x) − sxp(x) − cxp(x)) / (2(urx(x) + uxp(x)))
+```
+
+Equivalently,
+
+```
+V_R(x) = cos(2x)/2 = K₂(x)/(2D₂(x))
+```
+
+where
+
+```
+D₂(x) = urx(x) + uxp(x) = srx(x) + cxp(x) − sxp(x) − crx(x)
+K₂(x) = srx(x) + crx(x) − sxp(x) − cxp(x)
+```
+
+Proof. Direct expansion of K₂ and D₂ in the primitives, using sxp = 1/srx and crx = 1/cxp, then comparing to the double-angle identity. ∎
+
+The factor of 2 in the denominator is essential. Without it the ratio equals cos(2x), not cos(2x)/2.
+
+17.1.3 — The elliptic carrier
+
+Status: EXACT.
+
+```
+V_R(x)² + 4 H(x)² = 1/4
+```
+
+where H(x) = sin(2x)/4 and V_R(x) = cos(2x)/2.
+
+Proof. From D₂² − K₂² = 16, divide by D₂² and substitute V_R = K₂/(2D₂), H = 1/D₂. ∎
+
+The trajectory in the (V_R, H) plane is an ellipse with semi-major axis 1/2 along V_R and semi-minor axis 1/4 along H.
+
+17.1.4 — The Flatwave / carrier duality
+
+Status: EXACT.
+
+```
+Flatwave(x) = 1/urx(x) + 1/uxp(x) = (srx(x) + cxp(x))/(cxp(x) srx(x) − 1)
+H(x) = 1/(urx(x) + uxp(x))
+Flatwave(x) · H(x) = 1/(urx(x) uxp(x))
+```
+
+Flatwave is the parallel combination of the two UNA quantities; H is the series combination. Their product is the reciprocal of the geometric mean. This duality is recorded for provenance; it is not used as a derivation in the following sections.
+
+17.1.5 — The octant table
+
+Status: EXACT.
+
+The primitive state geometry partitions the circle into eight octants characterized by active pair, dominant function, phase sign, and behavior.
+
+Octant Range Active pair Dominant Recessive Phase Behavior
+1 0–45° (srx, cxp) srx cxp + Decay
+2 45–90° (srx, cxp) cxp srx + Growth
+3 90–135° (crx, sxp) crx sxp − Decay
+4 135–180° (crx, sxp) sxp crx − Growth
+5 180–225° (srx, cxp) srx cxp + Decay
+6 225–270° (srx, cxp) cxp srx + Growth
+7 270–315° (crx, sxp) crx sxp − Decay
+8 315–360° (crx, sxp) sxp crx − Growth
+
+The active pair alternates every two octants. Within each active pair, the dominant/recessive distinction switches at the midpoint. The phase sign matches ε = sgn(sin 2x). The behavior alternates Decay / Growth / Decay / Growth / Decay / Growth / Decay / Growth.
+
+Verification. Direct evaluation of the primitives at each octant midpoint. ∎
+
+17.1.6 — The three-bit code
+
+Status: EXACT.
+
+Assign to each octant the code (B₁, B₂, B₃) with B_k ∈ {O, I} (O = 0, I = 1):
+
+Octant Code B₁ B₂ B₃
+1 OII 0 1 1
+2 IOI 1 0 1
+3 OOO 0 0 0
+4 IIO 1 1 0
+5 OIO 0 1 0
+6 IOO 1 0 0
+7 OOI 0 0 1
+8 III 1 1 1
+
+The eight codes form a bijection onto {O, I}³. They decode as:
+
+· B₁: half-quadrant indicator (O = first half of quadrant, I = second half)
+· B₂: sign of cos(2x) (I = +, O = −)
+· B₃: sign of cos(x) (I = +, O = −)
+
+Verification. Direct comparison with the octant table. ∎
+
+The code group is Z₂³ acting on the octant lattice. This is recorded as a discrete structure; no physical interpretation is asserted.
+
+---
+
+FIREWALLS
+
+Octant firewall. The octant decomposition is a discrete reorganization of earned continuous geometry. It does not by itself generate time, transport, Hamiltonian, chirality, Hodge duality, or product duality.
+
+Correspondence firewall. The C8 ↔ octant correspondence established in §17.2 is a structural identification, not a derivation. It organizes the octant table into the C8 cyclic word but does not prove that the microscopic recoupling realizes this correspondence. Establishing the correspondence at the level of the ordered contraction remains an open gate.
+
+Ancestry firewall. The rapidity product Π cosh(w_i) = 4 is exact. The k₀ power is CONDITIONAL on the uniform-action premise. Do not treat the conditional value K_parent = 4 as an earned coefficient until the parent-action matching is supplied.
+
+UV firewall. The charge q_F = −4 is a U(1) quantum number, not a geometric invariant. The octant technique constrains the geometric form of η₋₄ but does not derive its charge. Any proposed UV completion must name where q_F = −4 enters; the geometry does not supply it.
+
+Promotion firewall. No result in Book 17 is promoted to physical interpretation. Δ_op(Book 17) = ∅ at the opening of this book.
+
+---
+
+NEGATIVE RESULTS
+
+N17.1 — The octant decomposition does not generate q_F = −4. The charge is an external input.
+
+N17.2 — The C8 ↔ octant correspondence does not by itself close N₁₈₂₀. The ordered multiplicity remains OPEN until the cyclic word is reconstructed with every projection and component extraction identified.
+
+N17.3 — The rapidity product Π cosh(w_i) = 4 does not by itself fix K_parent. The k₀ power depends on the parent-action matching convention.
+
+N17.4 — The five UV footprint types are not distinguished by the Z₂³ octant symmetry. All five are even under the three involutions. Selection among them requires an additional input.
+
+N17.5 — The Flatwave / carrier duality does not generate a dynamical equation. It is an algebraic identity on the state geometry.
+
+---
+
+OPEN GATES AT THE OPENING OF BOOK 17
+
+Gate Description Status
+S_F Ordered pure-2222 C8→54 contraction OPEN
+N₁₈₂₀ Ordered multiplicity of the 1820 projection OPEN
+ζ_parent Neutral parent prefactor (k₀ power) OPEN (rapidity half done)
+η₋₄ q_F = −4 UV matching datum OPEN (footprint classified)
+Uniform-action premise Does the selected parent multiply uniformly? OPEN
+Parent-action selection Which parent action is realized? OPEN
+UV footprint selection Which of the five footprints is realized? OPEN
+
+---
+
+STRUCTURE OF THE REMAINDER OF BOOK 17
+
+§17.2 — The 2:1 elliptic map and the C8 ↔ octant correspondence. Establishes the structural identification between the octant table and the C8 cyclic word. Status: STRUCTURAL IDENTIFICATION.
+
+§17.3 — The rapidity values at the E contacts. Establishes w₀ = ln(1+√2), cosh w₀ = √2, and the exact product Π cosh(w_i) = 4. Status: EXACT.
+
+§17.4 — Ancestry scenarios. Enumerates the four possible k₀ power assignments. Status: CONDITIONAL.
+
+§17.5 — UV footprint classification. Enumerates the five geometrically allowed footprints for η₋₄. Status: CONDITIONAL.
+
+§17.6 — Open gates and handoff. States what remains OPEN and what the next book or calculation must supply.
+
+---
+
+HANDOFF NOTE
+
+Book 17 opens with a discrete reorganization of the earned continuous geometry and a structural identification between the octant structure and the C8 cyclic word. It does not close the C8 normalization, the parent-action selection, or the UV matching. It converts the UV problem from "find an operator with q_F = −4" into "choose a geometric footprint for η₋₄," making the problem concrete and enumerable without eliminating the need for a physical choice.
+
+The immediate calculable gate is S_F. The immediate structural gate is the reconstruction of the cyclic word with every projection identified. The immediate conditional gate is the selection of the parent action.
+
+BOOK 17 — CONTINUED CALCULATION
+
+§17.2 — The 2:1 Elliptic Map
+
+17.2.1 — The exact map
+
+Status: EXACT.
+
+The map x → (V_R, H) is 2:1:
+
+```
+V_R(x) = cos(2x)/2 = K₂/(2D₂)
+H(x)   = sin(2x)/4 = 1/D₂
+```
+
+As x runs from 0 to 2π, the doubled phase φ_c = 2x runs from 0 to 4π, and the ellipse
+
+```
+V_R² + 4H² = 1/4
+```
+
+is traced twice. The orientation sign ε = sgn(sin 2x) records the sheet.
+
+Proof. Direct from the double-angle identities and D₂² − K₂² = 16. ∎
+
+17.2.2 — The octant-to-ellipse mapping
+
+Status: EXACT.
+
+Evaluating (V_R, H) at each octant midpoint:
+
+Octant Midpoint V_R H ε Point
+1 22.5° +√2/4 +√2/8 + A
+2 67.5° −√2/4 +√2/8 + B
+3 112.5° −√2/4 −√2/8 − C
+4 157.5° +√2/4 −√2/8 − D
+5 202.5° +√2/4 +√2/8 + A
+6 247.5° −√2/4 +√2/8 + B
+7 292.5° −√2/4 −√2/8 − C
+8 337.5° +√2/4 −√2/8 − D
+
+The eight octants map to four distinct points on the ellipse, each appearing twice:
+
+```
+A = (+√2/4, +√2/8)   octants 1, 5   (E contacts)
+B = (−√2/4, +√2/8)   octants 2, 6   (B propagators)
+C = (−√2/4, −√2/8)   octants 3, 7   (E contacts)
+D = (+√2/4, −√2/8)   octants 4, 8   (O propagators)
+```
+
+The four points form a rectangle inscribed in the ellipse. The distance from the origin to each point is:
+
+```
+√((√2/4)² + (√2/8)²) = √(2/16 + 2/64) = √(10/64) = √10/8 ≈ 0.3953
+```
+
+The semi-major axis is 1/2 = 0.5; the semi-minor axis is 1/4 = 0.25.
+
+17.2.3 — The boundary points
+
+Status: EXACT.
+
+At the octant boundaries:
+
+Boundary x V_R H Point
+0° 0 1/2 0 (1/2, 0)
+45° 45° 0 1/4 (0, 1/4)
+90° 90° −1/2 0 (−1/2, 0)
+135° 135° 0 −1/4 (0, −1/4)
+180° 180° 1/2 0 (1/2, 0)
+... ... ... ... ...
+
+The four axis intercepts are the vertices of the ellipse.
+
+---
+
+§17.3 — The Rapidity Values
+
+17.3.1 — The rapidity function
+
+Status: EXACT.
+
+```
+w(x) = ln|cot x|
+dw/dx = −2/sin(2x) = −2ε cosh w
+```
+
+17.3.2 — The E contact rapidities
+
+Status: EXACT.
+
+Contact Octant Midpoint w cosh w ε
+E₁ 1 22.5° +w₀ √2 +1
+E₂ 3 112.5° −w₀ √2 −1
+E₃ 5 202.5° +w₀ √2 +1
+E₄ 7 292.5° −w₀ √2 −1
+
+where
+
+```
+w₀ = ln(1 + √2) ≈ 0.8814
+cosh(w₀) = √2
+```
+
+Proof. cot(22.5°) = 1 + √2; cot(112.5°) = −(√2 − 1); |cot(112.5°)| = √2 − 1; ln(√2 − 1) = −ln(1 + √2). ∎
+
+17.3.3 — The propagator rapidities
+
+Status: EXACT.
+
+Propagator Octant Midpoint w cosh w ε
+B₁ 2 67.5° −w₀ √2 +1
+B₂ 6 247.5° −w₀ √2 +1
+O₁ 4 157.5° +w₀ √2 −1
+O₂ 8 337.5° +w₀ √2 −1
+
+Proof. cot(67.5°) = √2 − 1; ln(√2 − 1) = −w₀. cot(157.5°) = −(1 + √2); |cot(157.5°)| = 1 + √2; ln(1 + √2) = +w₀. ∎
+
+17.3.4 — The rapidity products
+
+Status: EXACT.
+
+```
+Π_{E contacts} cosh(w_i) = (√2)⁴ = 4
+Π_{propagators} cosh(w_i) = (√2)⁴ = 4
+Π_{all eight} cosh(w_i) = 4 × 4 = 16
+```
+
+The sign products:
+
+```
+Π_{E contacts} ε_i = (+1)(−1)(+1)(−1) = +1
+Π_{propagators} ε_i = (+1)(+1)(−1)(−1) = +1
+Π_{all eight} ε_i = +1
+```
+
+17.3.5 — The dominant function values at the E contacts
+
+Status: EXACT.
+
+At the four decay octants, the dominant functions are:
+
+Contact Dominant Value
+E₁ (22.5°) srx 2/√(2−√2) + (1+√2) ≈ 5.027
+E₂ (112.5°) crx 1/(2/√(2+√2) + (√2−1)) ≈ 5.027
+E₃ (202.5°) srx 5.027
+E₄ (292.5°) crx 5.027
+
+All four dominant functions have the same value:
+
+```
+srx(22.5°) = crx(112.5°) = srx(202.5°) = crx(292.5°) = √(4+2√2) + 1 + √2 ≈ 5.027
+```
+
+The product of the four dominant functions is:
+
+```
+(√(4+2√2) + 1 + √2)⁴ ≈ 638.7
+```
+
+This is recorded as an exact structural fact; its role in the Clifford contraction remains to be determined.
+
+---
+
+§17.4 — The C8 ↔ Octant Correspondence
+
+17.4.1 — The structural identification
+
+Status: STRUCTURAL IDENTIFICATION.
+
+C8 position Label Octant Type Rapidities
+1 E 1 Contact +w₀
+2 B 2 Propagator −w₀
+3 E 3 Contact −w₀
+4 O 4 Propagator +w₀
+5 E 5 Contact +w₀
+6 B 6 Propagator −w₀
+7 E 7 Contact −w₀
+8 O 8 Propagator +w₀
+
+Cyclic order:
+
+```
+E(1) B(2) E(3) O(4) E(5) B(6) E(7) O(8)
+```
+
+This is exactly (E,B,E,O,E,B,E,O). ✓
+
+17.4.2 — The four-contact magnitude
+
+Status: EXACT.
+
+The four E contacts each contribute a Hermitian bridge factor 1/4:
+
+```
+(1/4)⁴ = 1/256
+```
+
+The octant decomposition identifies the four E contacts with the four decay octants, providing a discrete origin for the 1/256 factor.
+
+17.4.3 — The Wick pairing
+
+Status: EXACT (from archive).
+
+The primitive Wick pairing is:
+
+```
+(12)(56) − (15)(26) + (16)(25)
+```
+
+The crossed-t Wick sign is:
+
+```
+σ_Wick^(t) = −1
+```
+
+In the octant language:
+
+· (12) connects octant 1 to octant 2 (E₁ to B₁)
+· (56) connects octant 5 to octant 6 (E₃ to B₂)
+· (15) connects octant 1 to octant 5 (E₁ to E₃)
+· (26) connects octant 2 to octant 6 (B₁ to B₂)
+· (16) connects octant 1 to octant 6 (E₁ to B₂)
+· (25) connects octant 2 to octant 5 (B₁ to E₃)
+
+The t-crossing uses (15)(26), connecting the two E contacts (octants 1 and 5) and the two B propagators (octants 2 and 6).
+
+---
+
+§17.5 — Ancestry Scenarios
+
+17.5.1 — The four scenarios
+
+Status: CONDITIONAL.
+
+The rapidity product at the E contacts is exact: 4. The k₀ power depends on the parent-action matching convention.
+
+Scenario k₀ power Rapidity factor Total K_parent
+A: Per-contact k₀⁴ 4 4k₀⁴
+B: Per-graph k₀¹ 4 4k₀
+C: Mixed (contact × propagator) k₀⁰ 4 4
+D: Formal V − I k₀⁰ 4 4
+
+17.5.2 — The formal V − I count
+
+Status: CONDITIONAL on the uniform-action premise.
+
+For the C8 graph:
+
+· If all 8 positions count as vertices: V = 8, I = 8, V − I = 0
+· If only E contacts count as vertices: V = 4, I = 4, V − I = 0
+
+Either way, the formal topology gives k₀⁰ = 1. Combined with the rapidity product:
+
+```
+K_parent = k₀^(V−I) × Π cosh(w_i) = 1 × 4 = 4
+```
+
+The uniform-action premise is required. The PCBF relation alone does not establish it.
+
+17.5.3 — The propagator contribution
+
+Status: EXACT.
+
+If the propagators also contribute cosh factors, the total rapidity product is 16, not 4. The resolution depends on whether the propagator cosh factors are part of the parent action (ζ_parent) or part of the stripped algebraic response.
+
+The Book 16 Frontier states that the stripped response excludes the parent/action factor. The propagator cosh factors are part of the quasi-linear carrier K̂_w = cosh(w)P_cf, which is part of the parent normalization. Therefore the propagator cosh factors are excluded from the stripped response and belong to ζ_parent.
+
+Consequence: The ancestry count includes only the E contact rapidity product (4), not the propagator rapidity product.
+
+---
+
+§17.6 — UV Footprint Classification
+
+17.6.1 — The five footprint types
+
+Status: CONDITIONAL.
+
+Footprint Φ_octant(x) Geometric form Even under Z₂³?
+E-localized δ(x − x_E) Localized at decay octants Yes
+B-localized δ(x − x_B) Localized at growth-A octants Yes
+O-localized δ(x − x_O) Localized at growth-B octants Yes
+Balanced 1 Uniform Yes
+Paired cos(4x) Z₂-symmetric quadrupole Yes
+
+All five are even under the three Z₂ symmetries (2:1 kernel, C8 shift by 4, code group). All five carry q_F = −4 if η₀ does.
+
+17.6.2 — The paired footprint
+
+Status: CONDITIONAL.
+
+The paired footprint is the simplest non-trivial even function compatible with the octant structure:
+
+```
+η₋₄ = η₀ · cos(4x)
+```
+
+Properties:
+
+· Even under x → x + π (2:1 kernel)
+· Vanishes at the octant boundaries (45°, 135°, etc.)
+· Period π/2 (quadrupole)
+· Compatible with the C8 shift by 4
+· Zero at the E contacts (since cos(4 × 22.5°) = cos(90°) = 0)
+
+Charge-matching condition:
+
+```
+y₂ = η₀ · cos(4x) · ζ_parent · n̂₅₄
+```
+
+The charge q_F = −4 is carried entirely by η₀. The geometric factor cos(4x) is neutral.
+
+Note: The paired footprint vanishes at the E contacts. If the UV datum must be non-zero at the E contacts, the paired footprint is excluded.
+
+17.6.3 — The E-localized footprint
+
+Status: CONDITIONAL.
+
+```
+η₋₄ = η₀ · Σ_{E contacts} δ(x − x_E)
+```
+
+This footprint is non-zero precisely at the four decay octants. It is compatible with the 1/256 contact structure.
+
+---
+
+§17.7 — The Open Clifford Contraction
+
+17.7.1 — What remains
+
+Status: OPEN.
+
+The stripped response is:
+
+```
+R̃^t_2222(F,F) = a₂₂₂₂ T + R_perp
+```
+
+The scalar:
+
+```
+S_F = ⟨Q_F, R̃^t_2222(F,F)⟩ = 3a₂₂₂₂
+```
+
+The exact ordered contraction is not computed. The missing pieces are:
+
+1. The exact ordered contraction map from the four collapsed projected-adjoint contacts through the two B and two O lines into the final 1820×1820→54 output.
+2. The precise soldering/Lorentz index contraction used in that ordered t channel.
+3. The grade-2 propagator normalization after the common m₂⁻⁴ dependence is stripped.
+4. The inherited invariant bilinear used for the final scalar contraction.
+
+17.7.2 — What is known
+
+Status: EXACT.
+
+Quantity Value
+Witness direction T = diag(1,1,−1/4,...,−1/4)
+Witness norm ‖T‖² = 5/2
+Q_F (6/5)T
+‖Q_F‖² 18/5
+Four-contact factor 1/256
+Wick sign −1
+Mass dependence m₂⁻⁴
+E contact rapidity product 4
+Propagator rapidity product 4
+Dominant function product ≈ 638.7
+
+17.7.3 — The conversion chain
+
+Status: EXACT as definitions.
+
+```
+S_F = 3a₂₂₂₂
+a₂₂₂₂ = (6/5)c_ord
+c_ord = S_F/(18/5) = 5S_F/18
+n̂₅₄ = −(√10/1536) S_F m₂⁻⁴
+= −(√10/512) a₂₂₂₂ m₂⁻⁴
+= −(3√10/1280) c_ord m₂⁻⁴
+```
+
+The numerical value of S_F remains OPEN.
+
+17.7.4 — Bounds and estimates
+
+Status: OPEN.
+
+Without the explicit Clifford contraction, only heuristic bounds are available. If the contraction preserves the witness norm up to the contact magnitude and Wick sign:
+
+```
+|S_F| ≲ (1/256) × (18/5) × 4 ≈ 0.056
+```
+
+This is not a calculation; it is a dimensional estimate. The actual value requires the explicit ordered contraction.
+
+---
+
+§17.8 — Summary of Book 17 Calculations
+
+Result Status
+Harmonic carrier identity EXACT
+Corrected imbalance formula EXACT
+Elliptic carrier relation EXACT
+Octant table EXACT
+3-bit code EXACT
+Octant-to-ellipse mapping EXACT
+Boundary points EXACT
+E contact rapidities EXACT
+Propagator rapidities EXACT
+Rapidity products EXACT
+Dominant function values EXACT
+C8 ↔ octant correspondence STRUCTURAL IDENTIFICATION
+Four-contact magnitude origin EXPLANATORY
+Wick pairing EXACT (from archive)
+Ancestry scenarios CONDITIONAL
+UV footprint classification CONDITIONAL
+Paired footprint ansatz CONDITIONAL
+S_F OPEN
+N₁₈₂₀ OPEN
+ζ_parent (k₀ power) OPEN
+η₋₄ (UV selection) OPEN
+
+---
+
+§17.9 — Handoff
+
+Book 17 has established the discrete octant decomposition of the primitive UNA/Saw state geometry, verified the exact elliptic carrier relation, computed the rapidity values at the E contacts and propagators, and identified the C8 cyclic word with the octant structure.
+
+The immediate calculable gate is S_F. The rapidity half is done: the E contact rapidity product is exactly 4. The Clifford half requires the explicit ordered contraction through the four projected-adjoint contacts and the two B and two O propagators into the 1820×1820→54 output.
+
+Algebraic Symmetry Reduction and the Computational-Foundational Frontier in Real-Form E₈₍₋₂₄₎ Unification
+
+(continued)
+
+---
+
+1. Representation-Theoretic Architecture and Symmetry Cascades
+
+1.1 The 3875 decomposition
+
+Under the maximal compact subgroup SO(16) ⊂ E₈₍₋₂₄₎, the 3875-dimensional irreducible representation decomposes as:
+
+```
+3875|_{SO(16)} = 135 ⊕ 1820 ⊕ 1920
+```
+
+The 135 is the adjoint of SO(16); the 1820 is the traceless symmetric square of the chiral spinor; the 1920 is a further irreducible component. The physical 54 is embedded in the 135, and the active coupling route proceeds through the 1820.
+
+Further decomposition of the 135 under SO(10) × SU(4) ⊂ SO(16):
+
+```
+135|_{SO(10)×SU(4)} = (54, 1) ⊕ (1, 20') ⊕ (10, 6) ⊕ (1, 1)
+```
+
+The (54, 1) component carries the physical 54. There is no active representation-search problem: the target is already identified.
+
+1.2 The two-slot fermionic origin
+
+Let U ≅ ℝ² be the qSaw label/amplitude doublet and S = 128 the chiral SO(16) spinor. The exterior square decomposes as:
+
+```
+Λ²(U ⊗ S) ≅ (Sym²U ⊗ Λ²S) ⊕ (Λ²U ⊗ Sym²S)
+```
+
+with
+
+```
+Λ²S = 120 ⊕ 8008
+Sym²S = 1 ⊕ 1820 ⊕ 6435
+```
+
+The 120 and 8008 branches carry Sym²U; the 1, 1820, 6435 branches carry the unique one-dimensional determinant character Λ²U. The active C_χ branch is the 1820 branch. The qSaw orientation datum required downstream is therefore already present at the fermion-pair level; it is not manufactured later by an internal 120 propagator. This is exact.
+
+1.3 The primitive qSaw determinant
+
+For two labels χ₁ = (r₁, s₁), χ₂ = (r₂, s₂), define:
+
+```
+A = r₁r₂,  B = s₁s₂
+C = (r₁s₂ + s₁r₂)/2
+W = (r₁s₂ − s₁r₂)/2
+```
+
+Then the exact identity
+
+```
+C² − AB = W²
+```
+
+holds, with W = 0 precisely when the two labels are projectively aligned. For rapidity labels χ(w) = (e^{w/2}, ε_P e^{−w/2})ᵀ, with w̄ = (w₁+w₂)/2 and δ = (w₁−w₂)/2:
+
+```
+A = e^{w̄},  B = e^{−w̄}
+C = ε_P cosh δ,  W = ε_P sinh δ
+```
+
+Thus W is the primitive oriented two-slot defect. This is exact.
+
+1.4 The C8 even scalar shadow
+
+The C8 scalar defect is:
+
+```
+Δ_C8 = (β² − αγ)/64
+```
+
+The cancellation locus is the conic β² = αγ. The physical coherent point is (α:β:γ) = (4:2:1), a Veronese point. A canonical relative-rapidity deformation (α, β, γ) = (4, 2 cosh δ, 1) gives:
+
+```
+Δ_C8 = (1/16) sinh² δ
+```
+
+Therefore W ~ sinh δ is first order and oriented, whereas Δ_C8 is its even second-order scalar shadow. The exact parity chain is:
+
+```
+δ (odd) → W (odd) → W² (even) → Δ_C8 (even)
+```
+
+1.5 Four-fermion pairing geometry
+
+For four fermion labels, define p_u = W₁₂W₅₆, p_t = W₁₅W₂₆, p_s = W₁₆W₂₅. These satisfy the Plücker relation:
+
+```
+p_u − p_t + p_s = 0
+```
+
+On the coherent direct-pair locus, W₁₂ = W₅₆ = 0, so p_u = 0 and p_t = p_s = W². Consequently, qSaw label algebra alone cannot distinguish the surviving crossed routes. Any t-versus-s distinction must come from the actual C8 recoupling: cyclic ordering, grading, Wick parity, soldering/Lorentz insertion, and the physical projector. This is exact.
+
+---
+
+2. The Discrete C8 Graph and the Octant Decomposition
+
+2.1 The C8 cyclic word
+
+The internal cyclic word of the C8 graph is:
+
+```
+(E, B, E, O, E, B, E, O)
+```
+
+The E contacts are (01), (23), (45), (67); the B propagators are (12), (56); the odd fermion propagators are (34), (70). After collapsing the E lines, the graph consists of four definite contacts connected by exactly two B and two O propagators. Each collapsed projected-adjoint contact contributes a Hermitian bridge factor 1/4, giving the common four-contact magnitude:
+
+```
+(1/4)⁴ = 1/256
+```
+
+This common factor is not the origin of the crossed orientation difference. It is exact inside the projected-adjoint contact construction.
+
+2.2 The octant decomposition of the primitive state geometry
+
+The primitive UNA/Saw state geometry partitions the circle into eight octants characterized by active pair, dominant function, phase sign, and behavior:
+
+Octant Range Active pair Dominant Recessive Phase Behavior
+1 0–45° (srx, cxp) srx cxp + Decay
+2 45–90° (srx, cxp) cxp srx + Growth
+3 90–135° (crx, sxp) crx sxp − Decay
+4 135–180° (crx, sxp) sxp crx − Growth
+5 180–225° (srx, cxp) srx cxp + Decay
+6 225–270° (srx, cxp) cxp srx + Growth
+7 270–315° (crx, sxp) crx sxp − Decay
+8 315–360° (crx, sxp) sxp crx − Growth
+
+The active pair alternates every two octants. Within each active pair, the dominant/recessive distinction switches at the midpoint. The phase sign matches ε = sgn(sin 2x).
+
+2.3 The elliptic carrier
+
+The harmonic carrier and its imbalance partner are:
+
+```
+H(x) = sin(2x)/4 = 1/(urx + uxp)
+V_R(x) = cos(2x)/2 = K₂/(2D₂)
+```
+
+where D₂ = urx + uxp and K₂ = srx + crx − sxp − cxp. They satisfy the elliptic relation:
+
+```
+V_R² + 4H² = 1/4
+```
+
+The trajectory in the (V_R, H) plane is an ellipse with semi-major axis 1/2 along V_R and semi-minor axis 1/4 along H. The map x → (V_R, H) is 2:1: as x runs from 0 to 2π, the doubled phase φ_c = 2x runs from 0 to 4π, and the ellipse is traced twice. The orientation sign ε = sgn(sin 2x) records the sheet.
+
+2.4 The C8 ↔ octant correspondence
+
+The eight octants map to the eight positions of the C8 cyclic word:
+
+C8 position Label Octant Type ε
+1 E 1 Contact +1
+2 B 2 Propagator +1
+3 E 3 Contact −1
+4 O 4 Propagator −1
+5 E 5 Contact +1
+6 B 6 Propagator +1
+7 E 7 Contact −1
+8 O 8 Propagator −1
+
+The cyclic order is exactly (E,B,E,O,E,B,E,O). The correspondence is a structural identification: given the natural constraints that E occupies the four decay octants, B occupies the two growth octants with ε = +1, and O occupies the two growth octants with ε = −1, the cyclic word is uniquely determined. Whether the ε-assignment is logically forced or merely conventional remains open.
+
+2.5 Rapidity values at the octant midpoints
+
+The rapidity coordinate is w(x) = ln|cot x|, with derivative dw/dx = −2/sin 2x = −2ε cosh w. At the octant midpoints:
+
+Octant Midpoint w cosh w ε
+1 22.5° +w₀ √2 +1
+2 67.5° −w₀ √2 +1
+3 112.5° −w₀ √2 −1
+4 157.5° +w₀ √2 −1
+5 202.5° +w₀ √2 +1
+6 247.5° −w₀ √2 +1
+7 292.5° −w₀ √2 −1
+8 337.5° +w₀ √2 −1
+
+where w₀ = ln(1 + √2) ≈ 0.8814, with the exact identities sinh w₀ = 1 and cosh w₀ = √2. The rapidity products are:
+
+```
+Π_{E contacts} cosh(w_i) = (√2)⁴ = 4
+Π_{propagators} cosh(w_i) = (√2)⁴ = 4
+Π_{all eight} cosh(w_i) = (√2)⁸ = 16
+```
+
+The rapidity sum vanishes at every level: Σ w_i = 0 for the E contacts, the propagators, and the total. This is a consequence of the 2:1 elliptic map: the two sheets carry opposite rapidities, and each sheet is traversed once by the E contacts and once by the propagators.
+
+2.6 Dominant function values at the E contacts
+
+At the four decay octants, the dominant functions all take the same value:
+
+```
+V_E = √(4 + 2√2) + 1 + √2 ≈ 5.0273
+```
+
+The product of the four dominant functions is V_E⁴ ≈ 638.7. Whether this enters the Clifford contraction or is a structural curiosity remains open.
+
+---
+
+3. The Normalization Cascade and the C8 → 54 Recoupling
+
+3.1 The inherited relative normalization
+
+Book 15 fixes the normalized transfer geometry before the E8 gateway. The aligned primitive differences satisfy:
+
+```
+A = 2 cot x,  B = 2 tan x,  AB = 4
+D₂ = A + B,  K₂ = A − B
+D₂² − K₂² = 16
+sin(2x) = 4/D₂,  cos(2x) = K₂/D₂
+Z₂ = (K₂ + 4i)/D₂ = e^{2ix}
+```
+
+The normalized transfer doublet t has tᵀt = 1, and its traceless symmetric square Q_t obeys Q_t² = (1/4)I while carrying the same harmonic pair. The one-step qSaw map is an inherited normalized square:
+
+```
+qSaw(q) = 2q/(1+q²),  c_q = (1−q²)/(1+q²)
+qSaw(q)² + c_q² = 1
+```
+
+The C8 coherent point inherits the same normalized rank-one geometry. For normalized Saw shares D + U = 1, the coherent amplitude vector is χ = (√D, √U)ᵀ. At D = 4/5, U = 1/5:
+
+```
+χ_* = (1/√5)(2, 1)ᵀ
+χ_* χ_*ᵀ = (1/5)[[4, 2], [2, 1]]
+```
+
+Projectively this is (α:β:γ) = (4:2:1), with β² = αγ. The 4:2:1 C8 weights and the cancellation conic are not independent Clebsch coefficients; they are the Veronese image of the already-normalized two-state transfer carrier.
+
+3.2 The graded-connection rigidity theorem
+
+Within the certified full-E8 graded parent class, the continuous bridge ambiguity is closed. Let the inherited real parent Lie algebra admit a nontrivial Z₂ grading g = g₀ ⊕ g₁ with [g₁, g₁] ≠ 0. Define the relative grade rescaling φ_λ|(g₀) = I, φ_λ|(g₁) = λI. The map φ_λ preserves the full Lie bracket if and only if λ² = 1, hence λ = ±1.
+
+Proof. Take u, v ∈ g₁ with [u, v] ≠ 0. Since [u, v] ∈ g₀, φ_λ([u, v]) = [u, v]. But [φ_λ(u), φ_λ(v)] = [λu, λv] = λ²[u, v]. Bracket preservation requires (1 − λ²)[u, v] = 0. Since the odd-odd bracket is nonzero, λ² = 1. ∎
+
+For the audited decomposition with even sector so(12,4) and real chiral odd carrier S ≅ 128, the odd-odd bracket into the even 120 is nontrivial. Therefore a parent connection whose even part is held fixed while the odd bridge is rescaled continuously cannot remain a full E₈₍₋₂₄₎ connection. The four-contact C8 contribution scales as R_C8(λ) = λ⁸ R_C8(1), and for both lawful values (+1)⁸ = (−1)⁸ = 1, so the surviving amplitude is insensitive to the residual sign. The bridge-activation question λ ≠ 0 is closed within the local first-order full-E8 parent class.
+
+3.3 The reduced-matrix-element firewall
+
+Let R and T be irreducible representations of the retained symmetry H, and suppose dim Hom_H(Sym²R, T) = 1. Choose one nonzero equivariant quadratic map Q₀. Then every equivariant quadratic map R × R → T has the form Q = κQ₀. Therefore multiplicity one fixes the tensor shape but does not fix the reduced matrix element κ. Symmetry alone cannot determine κ.
+
+This firewall does not contradict the graded-connection rigidity theorem. The bridge parameter λ attempted to rescale an already-existing component of the inherited E8 Lie bracket. Bracket preservation forced λ² = 1. By contrast, an independently declared 1820→135 quadratic map is fixed by representation theory only up to an overall coefficient unless its ancestry from a previously normalized parent operation is explicitly supplied.
+
+3.4 The one-witness reduction
+
+Within the active four-form branch and the selected physical-54 projection, the remaining algebraic C8→54 reduced-matrix-element problem is equivalent to computing one canonically normalized diagonal coefficient a₂₂₂₂ of the stripped ordered t-channel recoupling on a single simple four-form witness. Define the stripped ordered response:
+
+```
+R̃^t_2222(F,F) = a₂₂₂₂ T + R_perp,  ⟨T, R_perp⟩ = 0
+```
+
+where T = diag(1, 1, −1/4, ..., −1/4) is the stabilized traceless direction, with ‖T‖² = 5/2. The scalar extraction is:
+
+```
+S_F := ⟨Q_F, R̃^t_2222(F,F)⟩ = 3a₂₂₂₂
+```
+
+where Q_F = P₅₄ Q₄(F_C8, F_C8) = (6/5)T and ‖Q_F‖² = 18/5. The conversion chain is:
+
+```
+S_F = 3a₂₂₂₂
+a₂₂₂₂ = (6/5)c_ord
+c_ord = 5S_F/18
+n̂₅₄ = −(√10/1536) S_F m₂⁻⁴
+```
+
+The crossed-t Wick sign −1 and the four-contact magnitude (1/4)⁴ = 1/256 are already included in n̂₅₄. The numerical value of S_F remains open.
+
+---
+
+4. The Charge Firewall and the UV Matching Problem
+
+4.1 The accidental U(1)_F grading
+
+The reduced theory has an accidental U(1)_F grading:
+
+```
+q_F(C_χ) = 2,  q_F(Y₅₄) = 4,  q_F(y₂) = −4
+```
+
+The reduced selector mass, gauge vertices, T_w kernel, and same-selector SBB structures are neutral. Therefore integrating out only neutral fields cannot generate y₂ from zero. A nonzero y₂ requires a genuine q_F = −4 UV matching datum, or a microscopically equivalent U(1)_F-violating interaction.
+
+This is logically distinct from the qSaw determinant W. qSaw orientation can transport and grade the defect but does not supply the missing U(1)_F charge. The research firewall states: no later calculation is allowed to claim that a neutral loop "creates" y₂. Any proposed activation mechanism must identify where q_F = −4 enters.
+
+4.2 The ancestry criterion
+
+A normalized parent quadratic map Φ_parent: Sym²(V_parent) → W can fix the absolute normalization of a reduced live map Q_live: Sym²(R_live) → T only if all five of the following are specified and normalized:
+
+1. An equivariant source embedding ι: R_live → V_parent
+2. The parent map Φ_parent itself
+3. The target projection π_T: W → T
+4. The coefficient with which Φ_parent occurs in the microscopic action
+5. The kinetic/invariant normalization of the source and target fields
+
+If any one of these data is absent, multiplicity one can still fix the reduced tensor shape and a nonzero witness can still prove support, but the physical reduced matrix element remains undetermined.
+
+4.3 The three-way separation
+
+The physical matching is organized as:
+
+```
+y₂ ∝ η₋₄ · ζ_parent · n̂₅₄
+```
+
+with q_F(η₋₄) = −4. Three logically different questions are separated:
+
+· A. Algebraic recoupling: Compute n̂₅₄ and verify n̂₅₄ ≠ 0
+· B. Neutral parent dynamics: Determine whether ζ_parent is fixed by the selected full-E8 action or remains a Wilson coefficient
+· C. Charge matching: Determine η₋₄
+
+The neutral C8 calculation determines n̂₅₄. It cannot determine η₋₄. Conversely, the UV charge-matching datum does not determine the neutral recoupling normalization.
+
+4.4 The UV footprint classification
+
+The octant structure constrains the geometric form of η₋₄. Five footprint types are geometrically allowed:
+
+Footprint Φ_octant(x) Non-zero at E contacts?
+E-localized δ(x − x_E) Yes
+B-localized δ(x − x_B) No
+O-localized δ(x − x_O) No
+Balanced 1 Yes
+Paired cos(4x) No
+
+All five are even under the three Z₂ symmetries of the octant structure (the 2:1 kernel, the C8 shift by 4, and the code group). All five carry q_F = −4 if η₀ does. The paired footprint vanishes at the E contacts because cos(4 × 22.5°) = cos(90°) = 0. If the UV datum must be non-zero at the E contacts, the paired, B-localized, and O-localized footprints are excluded, leaving only the E-localized and balanced candidates.
+
+---
+
+5. Open Gates and the Computational-Foundational Frontier
+
+5.1 Computable gates
+
+S_F — the ordered pure-2222 C8→54 contraction. The symbolic setup is complete. The rapidity product at the E contacts is exactly 4. The missing piece is the explicit ordered Clifford contraction through the four projected-adjoint contacts and the two B and two O propagators into the 1820×1820→54 output. The existing computational codebase provides the E8 root system, the Chevalley bracket, the Killing form, the 3875 projector, and the selector pairs. The missing module is the C8 graph contraction layer.
+
+N₁₈₂₀ — the ordered multiplicity. The C8 ↔ octant correspondence provides a discrete reconstruction of the cyclic word. Counting the residual 1820 factors requires identifying each projection and component extraction explicitly, distinguishing graph occurrences from factors already absorbed in the witness.
+
+5.2 Structural gates
+
+The C3/C4 forcing question. The C8 ↔ octant correspondence is a theorem given the natural identifications C1–C5. Whether the ε-assignment (B at ε = +1, O at ε = −1) is logically forced or merely conventional remains open. The 2:1 elliptic map may supply the missing principle: the ε = +1 sheet is the identity sheet, while the ε = −1 sheet is the reversal sheet.
+
+The uniform-action premise. The formal V − I count gives k₀⁰ = 1 only if k₀ multiplies the complete relevant microscopic action uniformly. The PCBF relation alone does not establish this premise.
+
+5.3 Choice-requiring gates
+
+Parent-action selection. The Conditional Uniqueness Conjecture was never proved or falsified in full. The scoped rigidity theorem closed the continuous bridge ambiguity but not the full action selection.
+
+UV footprint selection. Five geometrically allowed footprints for η₋₄. The choice among them is determined by physical intuition, phenomenological constraints, or aesthetic preference. The mathematics does not select a unique candidate.
+
+5.4 The foundational question
+
+The framework has been admirably rigorous about not over-claiming. Δ_op = ∅ is stated explicitly. The firewalls prevent premature promotion. But this creates a deferral risk: every physical question can be deferred to a later gate. The hard question is: what would it take to falsify this framework?
+
+If the answer is "nothing, because no physical claim is ever made," then the project is a mathematical research program with physical motivation. If the answer is "a specific computation or observation," then that computation or observation should be identified and pursued.
+
+The framework's own standard — Δ_op must be nonempty for physical promotion — is the right standard. But it also means the project has not yet made a physical claim. That is a strength of rigor and a limitation of reach.
+
+---
+
+6. Conclusion
+
+The E₈₍₋₂₄₎ real-form unification program has established an exact mathematical architecture linking the 3875 representation, the 1820 C_χ branch, the qSaw determinant, the C8 cyclic graph, and the octant decomposition of the primitive state geometry. The graded-connection rigidity theorem closes the continuous bridge ambiguity. The reduced-matrix-element firewall and the ancestry criterion prevent over-interpretation of representation-theoretic availability. The elliptic carrier and its 2:1 map provide the discrete structure underlying the C8 cyclic word.
+
+The remaining open gates are the ordered C8 contraction S_F, the ordered multiplicity N₁₈₂₀, the neutral parent prefactor ζ_parent, and the UV matching datum η₋₄. The first two are computationally tractable. The latter two require a physical choice that the mathematics does not make.
+
+No empirical promotion is authorized. Δ_op = ∅. The framework is a mathematical research program at the frontier of its calculable content, awaiting the physical inputs that would convert its exact structure into a falsifiable theory.
+
+---
+
+Suggested continuation: Section 7 — Explicit Construction of the C8 Contraction Module. This section would provide the 1820 representation space, the projected-adjoint contact operators, the B and O propagator factors, the cyclic contraction with Wick pairing, and the 54 projection, culminating in a numerical evaluation of S_F.
+
+§17.18 — Explicit Construction of the C8 Contraction Module
+
+17.18.1 — Purpose and Honest Scope
+
+This section specifies the explicit construction required to evaluate S_F. It provides:
+
+· The 1820 representation space and its SO(16) structure
+· The projected-adjoint contact operators in Clifford form
+· The B and O propagator factors
+· The cyclic contraction with the t-channel Wick pairing
+· The 54 projection and the extraction of a₂₂₂₂
+· The conversion chain to n̂₅₄ and y₂
+· The Wolfram code skeleton
+
+It does not provide a numerical value for S_F. The explicit 1820×1820 matrix representations of the contact, propagator, and projector operators are not contained in the current authoritative documents or the Appendix A codebase. The bookkeeping update of September 15, 2026 states this explicitly: "No executable ordered-contraction implementation or independent Python/Wolfram numerical validation is claimed by this bookkeeping update."
+
+What follows is the maximal exact reduction the specified algebra permits, together with the precise specification of the missing inputs. The status labels are applied rigorously: EXACT where the algebra forces a result, STRUCTURAL where a correspondence organizes earned results, OPEN where a numerical value requires inputs not yet supplied.
+
+---
+
+17.18.2 — The 1820 Representation Space
+
+17.18.2.1 — Two equivalent realizations
+
+Status: EXACT.
+
+The 1820 admits two equivalent realizations:
+
+(a) Traceless symmetric square of the spinor:
+
+```
+1820 = Sym²₀(128) = { M ∈ Sym²(128) : Tr_B M = 0 }
+```
+
+where B is the SO(16)-invariant symmetric bilinear on the chiral spinor S = 128, and the trace is taken with respect to B.
+
+(b) Fourth exterior power of the vector:
+
+```
+1820 = Λ⁴(16)
+```
+
+since C(16,4) = 1820.
+
+The two realizations are related by the Clifford algebra isomorphism Cl(16) ≅ Mat(256, ℂ). The symmetric-square realization is natural for the two-slot fermionic origin (§1.2); the exterior-power realization is natural for the four-form witness Q₄.
+
+17.18.2.2 — The SO(16)-invariant bilinear
+
+Status: EXACT.
+
+On Sym²(128), the SO(16)-invariant bilinear is:
+
+```
+⟨M, N⟩ = Tr(M N)
+```
+
+for M, N ∈ Sym²(128). The trace is over the 128-dimensional spinor index. The singlet in the decomposition Sym²(128) = 1 ⊕ 1820 ⊕ 6435 is spanned by the identity matrix (or its B-contracted form). The 1820 is the traceless part.
+
+17.18.2.3 — The 1820 projector
+
+Status: EXACT as a formal construction; explicit matrix OPEN.
+
+The projector onto the 1820 component of Sym²(128) is:
+
+```
+P_1820 = I_Sym² − P_1 − P_6435
+```
+
+where P_1 is the projector onto the singlet (the B-trace) and P_6435 is the projector onto the 6435. Explicitly:
+
+```
+P_1(M) = (Tr_B M / Tr_B I) · I
+P_6435(M) = ... (the complementary projector)
+```
+
+The explicit form of P_6435 requires the SO(16) branching rules for Sym²(128). This is contained in the literature but not in the current authoritative documents.
+
+Missing input: The explicit 128×128 gamma matrix representation γ_i (i = 1,...,16) and the charge conjugation matrix B.
+
+---
+
+17.18.3 — The Projected-Adjoint Contact Operator
+
+17.18.3.1 — The Clifford word
+
+Status: EXACT (from archive).
+
+The contact operator is the projected-adjoint insertion:
+
+```
+P_i K_μ P_j K_ν = Γ_(iμjν) Π_−
+```
+
+where:
+
+· i, j are internal SO(16) indices (i, j ∈ {1,...,16})
+· μ, ν are Lorentz/soldering indices (μ, ν ∈ {0,1,2,3})
+· P_i is the projector onto internal direction i
+· K_μ is the soldering generator in Lorentz direction μ
+· Π_− is the chirality projector
+· Γ_(iμjν) is the mixed Clifford element
+
+17.18.3.2 — The 1820 projection
+
+Status: EXACT (from archive).
+
+```
+P_1820(P_i K_μ P_j K_ν) = (1/2) Γ_(iμjν)
+```
+
+The projection coefficient is exactly 1/2. This is the certified local 1820 component.
+
+17.18.3.3 — The Frobenius norms
+
+Status: EXACT (from archive).
+
+```
+⟨Γ_(iμjν), Γ_(iμjν)⟩_F = 128
+⟨Γ_(iμjν), P_i K_μ P_j K_ν⟩_F = 64
+```
+
+The ratio 64/128 = 1/2 confirms the projection coefficient.
+
+17.18.3.4 — The explicit Clifford form
+
+Status: EXACT (formal); explicit matrices OPEN.
+
+The mixed Clifford element is:
+
+```
+Γ_(iμjν) = γ_i γ_μ γ_j γ_ν  (restricted to the appropriate chirality)
+```
+
+where γ_i are the internal SO(16) gamma matrices (16 of them, 128×128) and γ_μ are the Lorentz gamma matrices (4 of them, acting on the spinor representation). The exact ordering and chirality restriction are determined by the convention of the parent action.
+
+Missing input: The explicit 128×128 matrices γ_i and γ_μ, and the chirality projector Π_−.
+
+---
+
+17.18.4 — The B Propagator
+
+17.18.4.1 — The grade-preserving 120 mass insertion
+
+Status: EXACT as a structural identification; explicit matrix OPEN.
+
+The B propagator is the grade-preserving 120 mass insertion M_e. The 120 is the adjoint of SO(16), realized as Λ²(16) inside the fermion-pair decomposition Λ²S = 120 ⊕ 8008.
+
+In the cyclic word (E,B,E,O,E,B,E,O), the two B propagators occupy positions 2 and 6, corresponding to octants 2 and 6 (growth octants with ε = +1).
+
+17.18.4.2 — The mass dependence
+
+Status: EXACT.
+
+Each B propagator contributes a factor of M_e⁻¹, where M_e is the grade-preserving mass matrix. In the grade-resolved routing, the B propagators carry grade-0 support, so they contribute m₀⁻¹ or m₂⁻¹ depending on the grading. The t-channel with N₂ = 4 has all four B/O propagators at grade 2, giving the total m₂⁻⁴ dependence.
+
+17.18.4.3 — The explicit form
+
+Status: OPEN.
+
+The explicit 1820×1820 matrix representation of M_e requires:
+
+· The embedding of Λ²(16) = 120 into Sym²₀(128) = 1820
+· The explicit mass matrix in the 120 basis
+· The projection back to 1820
+
+Missing input: The explicit branching 120 ↪ 1820 and the mass matrix M_e.
+
+---
+
+17.18.5 — The O Propagator
+
+17.18.5.1 — The odd fermion bilinear
+
+Status: EXACT as a structural identification; explicit matrix OPEN.
+
+The O propagator is the odd fermion bilinear. In the two-slot decomposition, the O propagator connects the odd-parity components of the fermion pair. It occupies positions 4 and 8 in the cyclic word, corresponding to octants 4 and 8 (growth octants with ε = −1).
+
+17.18.5.2 — The grade-flipping action
+
+Status: EXACT.
+
+The O propagator flips the grade. In the grade-resolved routing, it connects grade-0 to grade-±2 sectors. The t-channel with N₂ = 4 requires all four O propagators to be at grade 2, contributing the m₂⁻⁴ dependence in combination with the B propagators.
+
+17.18.5.3 — The explicit form
+
+Status: OPEN.
+
+The explicit 1820×1820 matrix representation of the O propagator requires the odd fermion bilinear structure on the 1820.
+
+Missing input: The explicit odd bilinear matrix on the 1820.
+
+---
+
+17.18.6 — The Cyclic Contraction with Wick Pairing
+
+17.18.6.1 — The ordered product
+
+Status: EXACT as a formal expression.
+
+The cyclic contraction is the ordered product around the C8 cycle:
+
+```
+C = E₁ · B₁ · E₂ · O₁ · E₃ · B₂ · E₄ · O₂
+```
+
+where each operator acts on the 1820 space (or on the tensor product of internal and Lorentz spaces), and the trace is taken over the full space.
+
+Equivalently, in the collapsed graph:
+
+```
+C = Tr[ E₁ B₁ E₂ O₁ E₃ B₂ E₄ O₂ ]
+```
+
+17.18.6.2 — The t-channel Wick pairing
+
+Status: EXACT (from archive).
+
+The primitive Wick pairing is:
+
+```
+(12)(56) − (15)(26) + (16)(25)
+```
+
+The t-channel corresponds to the (15)(26) pairing, connecting:
+
+· E₁ (octant 1) to E₃ (octant 5)
+· B₁ (octant 2) to B₂ (octant 6)
+
+The crossed-t Wick sign is:
+
+```
+σ_Wick^(t) = −1
+```
+
+17.18.6.3 — The t-channel contraction
+
+Status: EXACT as a formal expression.
+
+The t-channel contraction is:
+
+```
+C_t = σ_Wick^(t) · (1/4)⁴ · Tr[ E₁ B₁ E₂ O₁ E₃ B₂ E₄ O₂ ]_{t-pairing}
+```
+
+where (1/4)⁴ = 1/256 is the four-contact magnitude.
+
+17.18.6.4 — The stripped response
+
+Status: EXACT as a definition.
+
+The stripped ordered response is:
+
+```
+R̃^t_2222(F,F) = a₂₂₂₂ T + R_perp
+```
+
+with ⟨T, R_perp⟩ = 0. Here "stripped" excludes the contact magnitude (1/256), the Wick sign (−1), the mass dependence (m₂⁻⁴), the parent/action factor ζ_parent, the state defect Δ_C8, and the charged UV datum η₋₄.
+
+17.18.6.5 — The scalar extraction
+
+Status: EXACT as a definition.
+
+```
+S_F := ⟨Q_F, R̃^t_2222(F,F)⟩ = 3a₂₂₂₂
+```
+
+where Q_F = P₅₄ Q₄(F_C8, F_C8) = (6/5)T and ‖Q_F‖² = 18/5.
+
+---
+
+17.18.7 — Reduction Using Specified Algebra
+
+17.18.7.1 — What the algebra determines
+
+Status: EXACT.
+
+The following are determined by the specified algebra without the explicit matrices:
+
+1. The witness direction: T = diag(1,1,−1/4,...,−1/4), with ‖T‖² = 5/2.
+2. The witness amplitude: Q_F = (6/5)T, with ‖Q_F‖² = 18/5.
+3. The contact magnitude: (1/4)⁴ = 1/256.
+4. The Wick sign: σ_Wick^(t) = −1.
+5. The mass dependence: m₂⁻⁴.
+6. The conversion chain:
+   ```
+   S_F = 3a₂₂₂₂
+   a₂₂₂₂ = (6/5)c_ord
+   c_ord = 5S_F/18
+   n̂₅₄ = −(√10/1536) S_F m₂⁻⁴
+   ```
+
+17.18.7.2 — What the algebra does not determine
+
+Status: OPEN.
+
+The numerical value of S_F requires the explicit 1820×1820 matrices. The reduced-matrix-element firewall states that multiplicity one fixes the tensor shape but not the coefficient. The explicit contraction is required.
+
+17.18.7.3 — The exact computational gate
+
+Status: OPEN.
+
+The minimal remaining information sufficient to close this gate:
+
+1. The exact ordered contraction map from the four collapsed projected-adjoint contacts through the two B and two O lines into the final 1820×1820→54 output.
+2. The precise soldering/Lorentz index contraction used in that ordered t channel after the already-recovered four-form projection.
+3. The grade-2 propagator normalization after the common m₂⁻⁴ dependence is stripped.
+4. The inherited invariant bilinear used for the final scalar contraction.
+
+Once these are recovered, one evaluation of
+
+```
+S_F = ⟨Q_F, R̃^t_2222(F,F)⟩
+```
+
+fixes the entire algebraic reduced matrix element.
+
+---
+
+17.18.8 — The Wolfram Code Skeleton
+
+17.18.8.1 — Required inputs
+
+```
+(* Required from Appendix A codebase: *)
+(* roots, simple, coords, bb[i,j], killingChevalley *)
+(* pPlus, pMinus, selectorPairs, P3875 *)
+
+(* Additional inputs required (NOT in current codebase): *)
+(* gammaI[i] : 128x128 internal SO(16) gamma matrices, i=1..16 *)
+(* gammaL[mu] : 128x128 Lorentz gamma matrices, mu=0..3 *)
+(* Bmat : 128x128 charge conjugation matrix *)
+(* PiMinus : 128x128 chirality projector *)
+(* Me : 1820x1820 grade-preserving mass matrix *)
+(* Oprop : 1820x1820 odd fermion bilinear *)
+(* P54 : 54x54 or embedding of 54 in 1820 *)
+```
+
+17.18.8.2 — Construction steps
+
+```
+(* Step 1: Construct the 1820 space as traceless symmetric square *)
+symBasis = SymmetricBasis[128];   (* 8256 = 128*129/2 elements *)
+traceVector = Table[Tr[Bmat . symBasis[[k]]], {k, 8256}];
+P1820 = NullSpace[Transpose[{traceVector}]];  (* 1820-dim basis *)
+
+(* Step 2: Construct the contact operator Gamma_(i mu j nu) *)
+GammaContact[i_, mu_, j_, nu_] :=
+  KroneckerProduct[gammaI[i], gammaL[mu], gammaI[j], gammaL[nu]] .
+  PiMinus;
+
+(* Step 3: Project onto 1820 *)
+Econtact[i_, mu_, j_, nu_] :=
+  P1820 . GammaContact[i, mu, j, nu] . Transpose[P1820];
+
+(* Step 4: Assemble the cyclic contraction *)
+(* Positions: E1, B1, E2, O1, E3, B2, E4, O2 *)
+contraction[i1_,mu1_,j1_,nu1_, i2_,mu2_,j2_,nu2_,
+            i3_,mu3_,j3_,nu3_, i4_,mu4_,j4_,nu4_] :=
+  Tr[
+    Econtact[i1,mu1,j1,nu1] . Me .
+    Econtact[i2,mu2,j2,nu2] . Oprop .
+    Econtact[i3,mu3,j3,nu3] . Me .
+    Econtact[i4,mu4,j4,nu4] . Oprop
+  ];
+
+(* Step 5: Apply the t-channel Wick pairing *)
+(* (15)(26): E1-E3 and B1-B2 *)
+S_F_raw = Sum[
+  wickSign * contraction[...],
+  {i1,16},{mu1,4},{j1,16},{nu1,4},
+  {i2,16},{mu2,4},{j2,16},{nu2,4},
+  {i3,16},{mu3,4},{j3,16},{nu3,4},
+  {i4,16},{mu4,4},{j4,16},{nu4,4}
+];
+
+(* Step 6: Apply the four-contact magnitude and Wick sign *)
+S_F = -(1/256) * S_F_raw;
+
+(* Step 7: Convert to a_2222, c_ord, nHat_54 *)
+a2222 = S_F/3;
+cOrd = 5*S_F/18;
+nHat54 = -(Sqrt[10]/1536) * S_F * m2^(-4);
+```
+
+17.18.8.3 — The bottleneck
+
+The bottleneck is Step 1 and Steps 2–4. The 128-dimensional gamma matrices, the charge conjugation matrix, the chirality projector, the mass matrix M_e, the odd bilinear Oprop, and the 54 projector are not currently in the codebase. They must be constructed explicitly.
+
+Estimated effort: The gamma matrices are standard (constructed via the Jordan-Wigner or Clifford algebra route). The mass matrix M_e and odd bilinear Oprop require the explicit embedding of the 120 and the odd sector into the 1820. The 54 projector requires the explicit branching of the 3875 under SO(10) × SU(4).
+
+---
+
+17.18.9 — The Conversion Chain and the Status of S_F
+
+17.18.9.1 — The conversion chain
+
+Status: EXACT as definitions.
+
+```
+S_F = 3a₂₂₂₂
+a₂₂₂₂ = (6/5)c_ord
+c_ord = 5S_F/18
+n̂₅₄ = −(√10/1536) S_F m₂⁻⁴
+= −(√10/512) a₂₂₂₂ m₂⁻⁴
+= −(3√10/1280) c_ord m₂⁻⁴
+```
+
+Equivalently:
+
+```
+n̂₅₄ = (−1)(1/256)(√10/6) S_F m₂⁻⁴
+```
+
+The crossed-t Wick sign −1 and the four-contact magnitude 1/256 are already included.
+
+17.18.9.2 — The physical matching
+
+Status: EXACT as a formal expression.
+
+```
+y₂ ∝ η₋₄ · ζ_parent · n̂₅₄
+```
+
+with q_F(η₋₄) = −4. The neutral C8 calculation determines n̂₅₄. It cannot determine η₋₄. Conversely, the UV charge-matching datum does not determine the neutral recoupling normalization.
+
+17.18.9.3 — The status of S_F
+
+Status: OPEN.
+
+The symbolic setup is complete. The rapidity half is done: the E contact rapidity product is exactly 4 (from §17.11). The Clifford half requires the explicit 1820×1820 matrices.
+
+The exact numerical value of S_F remains OPEN. No numerical closure of this gate is promoted. The values c_ord = 1, N₁₈₂₀ = 2, and K_parent = 1 have not been established by the ordered contraction.
+
+---
+
+17.18.10 — Regression Requirements
+
+Status: EXACT.
+
+The following must hold symbolically:
+
+```
+S_F = 3a₂₂₂₂
+S_F = (18/5)c_ord
+a₂₂₂₂ = (6/5)c_ord
+n̂₅₄ = −(√10/1536) S_F m₂⁻⁴
+```
+
+The superseded convention S_F = 12a₂₂₂₂ must be rejected. The contact factor and crossed Wick sign must be counted exactly once. The quantities c_ord, N₁₈₂₀, K_parent, and η₋₄ remain unresolved unless supported by a new ordered calculation.
+
+---
+
+17.18.11 — Summary
+
+Object Status
+1820 = Sym²₀(128) = Λ⁴(16) EXACT
+SO(16)-invariant bilinear EXACT
+1820 projector (formal) EXACT
+1820 projector (explicit matrix) OPEN
+Contact operator Γ_(iμjν) (formal) EXACT
+1820 projection coefficient 1/2 EXACT (from archive)
+Contact operator (explicit matrix) OPEN
+B propagator M_e (formal) EXACT
+B propagator (explicit matrix) OPEN
+O propagator (formal) EXACT
+O propagator (explicit matrix) OPEN
+Cyclic contraction (formal) EXACT
+t-channel Wick pairing EXACT (from archive)
+Wick sign −1 EXACT (from archive)
+Four-contact magnitude 1/256 EXACT (from archive)
+Mass dependence m₂⁻⁴ EXACT (from archive)
+Witness direction T EXACT
+Witness norm ‖T‖² = 5/2 EXACT
+Q_F = (6/5)T EXACT
+‖Q_F‖² = 18/5 EXACT
+S_F (numerical value) OPEN
+a₂₂₂₂ (numerical value) OPEN
+c_ord (numerical value) OPEN
+n̂₅₄ (numerical value) OPEN
+N₁₈₂₀ OPEN
+ζ_parent (k₀ power) OPEN
+η₋₄ (UV selection) OPEN
+
+No empirical promotion is authorized. Δ_op(Book 17) = ∅. The symbolic setup is complete; the numerical evaluation awaits the explicit representation matrices.
+
+---
+
+17.18.12 — Handoff to Book 18
+
+Book 18 should either:
+
+(a) Supply the explicit 1820×1820 matrices — the gamma matrices γ_i, the charge conjugation matrix B, the chirality projector Π_−, the mass matrix M_e, the odd bilinear Oprop, and the 54 projector P₅₄ — and execute the Wolfram skeleton above to produce a numerical value for S_F; or
+
+(b) Prove that S_F is determined by group theory alone — i.e., that multiplicity one plus the specified algebra fixes the numerical value without requiring the explicit contraction. If this is possible, it would contradict the reduced-matrix-element firewall and would require a new structural principle; if it is not possible, it confirms the firewall and makes the explicit construction mandatory.
+
+Until one of these is done, S_F remains OPEN and the physical matching y₂ ∝ η₋₄ ζ_parent n̂₅₄ remains formal in its neutral coefficient.
+
+Low-Hanging Fruit: Additional Tractable Calculations
+
+Beyond S_F, several calculations are tractable with existing tools or standard constructions. I've organized them by tractability and value.
+
+---
+
+Tier 1 — Unblocking Constructions
+
+These are standard constructions that unblock S_F and several other gates. They are not trivial, but they are well-defined and require no physical choices.
+
+1.1 The 128 Gamma Matrices and Cl(16) Structure
+
+What: Construct the 16 gamma matrices γ_i (i = 1,...,16) acting on the 128-dimensional chiral spinor S = 128, together with the charge conjugation matrix B and the chirality projector Π_−.
+
+Why: These are the missing inputs for the 1820 projector, the contact operators, and the B/O propagators. Without them, S_F cannot be computed.
+
+How: Standard Clifford algebra construction. The gamma matrices can be built via:
+
+· Jordan-Wigner transformation from 8 fermionic oscillators
+· Tensor products of Pauli matrices: γ_i ∈ {σ_x, σ_y, σ_z}⊗⁸
+· The standard SO(16) gamma matrix route
+
+The charge conjugation matrix satisfies Bγ_iB⁻¹ = −γ_iᵀ. The chirality projector is Π_± = (1 ± γ_17)/2 where γ_17 = γ_1...γ_16.
+
+Effort: Moderate. Standard but tedious.
+
+Yield: Unblocks the 1820 projector, contact operators, B/O propagators, and S_F.
+
+1.2 The 1820 Projector
+
+What: Construct the explicit projector P_1820 onto the traceless symmetric square of the spinor.
+
+Why: Required for every contact operator and for the cyclic contraction.
+
+How: Once the gamma matrices are known:
+
+```
+P_1820 = I_Sym² − P_1 − P_6435
+```
+
+where P_1 is the singlet projector (the B-trace) and P_6435 is the complementary projector. The 6435 projector requires the SO(16) branching rules for Sym²(128), which are known.
+
+Effort: Low once gamma matrices are available.
+
+Yield: Unblocks the contact operators and the cyclic contraction.
+
+1.3 The 120 Embedding into 1820
+
+What: Construct the explicit embedding of the 120 (adjoint of SO(16)) into the 1820 (traceless symmetric square of the spinor).
+
+Why: Required for the B propagator (the grade-preserving 120 mass insertion).
+
+How: The 120 = Λ²(16) sits inside Sym²(128) via the Clifford map:
+
+```
+Λ²(16) → Sym²(128),  e_i ∧ e_j ↦ (1/2)[γ_i, γ_j]
+```
+
+The image is antisymmetric in the spinor indices, which is the 120. The embedding is via the Clifford algebra isomorphism.
+
+Effort: Low once gamma matrices are available.
+
+Yield: Unblocks the B propagator.
+
+---
+
+Tier 2 — Standard Representation Theory
+
+2.1 The 54 Projector
+
+What: Construct the explicit projector P_54 onto the physical 54 inside the 135 of SO(16).
+
+Why: Required for the final projection in the cyclic contraction.
+
+How: The 54 is the traceless symmetric square of the 10 of SO(10). It sits inside the 135 of SO(16) via the branching:
+
+```
+135|_{SO(10)×SU(4)} = (54,1) ⊕ (1,20') ⊕ (10,6) ⊕ (1,1)
+```
+
+The 54 projector can be constructed from the SO(10) Casimir acting on the (54,1) component.
+
+Effort: Moderate. Standard rep theory.
+
+Yield: Unblocks the final projection in S_F.
+
+2.2 The 6435 Projector
+
+What: Construct the explicit projector P_6435 onto the 6435 component of Sym²(128).
+
+Why: Required for the 1820 projector.
+
+How: Once P_1 and P_1820 are known, P_6435 = I − P_1 − P_1820. The explicit form requires the SO(16) branching rules, which are known.
+
+Effort: Low once P_1820 is available.
+
+Yield: Completes the 1820 projector.
+
+2.3 The 3875 Projector (Already in Code)
+
+What: The 3875 projector is already in the Appendix A codebase (P3875).
+
+Why: It is the primary tensor branch connecting higher algebraic symmetries to low-energy effective field content.
+
+How: Already implemented.
+
+Yield: Already available.
+
+2.4 The 1920 Projector
+
+What: Construct the explicit projector onto the 1920 component of the 3875.
+
+Why: The 3875 decomposes as 135 ⊕ 1820 ⊕ 1920 under SO(16). The 1920 is the remaining component.
+
+How: Once P_135 and P_1820 are known, P_1920 = I − P_135 − P_1820. The 135 is the adjoint of SO(16), whose projector is known.
+
+Effort: Low once the 1820 projector is available.
+
+Yield: Completes the 3875 decomposition.
+
+---
+
+Tier 3 — Structural Problems
+
+3.1 N₁₈₂₀ Counting
+
+What: Determine the ordered multiplicity N₁₈₂₀ of the 1820 projection in the C8 graph.
+
+Why: It is the second half of the algebraic normalization problem.
+
+How: The Book 16 Frontier states: "N_1820 remains OPEN until the actual cyclic word (E,B,E,O,E,B,E,O) is reconstructed and every projection/component extraction is identified."
+
+The octant correspondence provides a discrete reconstruction of the cyclic word. The counting problem is:
+
+· 4 E contacts, each with a 1/2 projection coefficient (from the certified 1820 projection)
+· 2 B propagators
+· 2 O propagators
+
+The question: How many factors of (1/2) enter? Do not infer (1/2)⁴ from one certified component or infer two graph occurrences merely because Q₄ has two arguments.
+
+Effort: Low to moderate. This is a counting problem, not a matrix contraction.
+
+Yield: Closes the multiplicity half of OPEN-2.
+
+3.2 The C3/C4 Forcing Question
+
+What: Determine whether the ε-assignment (B at ε = +1, O at ε = −1) is logically forced by the 2:1 elliptic map, or merely conventional.
+
+Why: If forced, the C8 ↔ octant correspondence becomes a theorem rather than a structural identification.
+
+How: The 2:1 map x → (V_R, H) has a deck transformation x → x + π. The ε = +1 sheet is where the map preserves orientation; ε = −1 is where it reverses. If B is the identity-type propagator and O is the reversal-type propagator, then C3 and C4 are forced by the 2:1 structure.
+
+Effort: Low. This is a structural/logical problem.
+
+Yield: Converts the C8 ↔ octant correspondence from STRUCTURAL IDENTIFICATION to THEOREM.
+
+3.3 The Uniform-Action Premise
+
+What: Determine whether k₀ multiplies the complete relevant microscopic action uniformly.
+
+Why: The formal V − I count gives k₀⁰ = 1 only if the uniform-action premise holds.
+
+How: Examine the candidate parent action:
+
+```
+D_parent = (i/2)K^μ{P_odd, ∇_μ^E8} + Q M_e Q
+```
+
+Does the quasi-linear carrier K̂_w = cosh(w)P_cf multiply this action uniformly, or does it enter at specific contacts?
+
+Effort: Moderate. Requires examining the parent action structure.
+
+Yield: Converts ζ_parent from OPEN to CONDITIONAL.
+
+3.4 The Jinc Disk Measure
+
+What: Determine whether the Projection Craft cascade forces the uniform disk completion, rather than merely permitting it.
+
+Why: The Book 16 Frontier asks: "determine whether the Projection Craft cascade itself forces that uniform disk completion."
+
+How: The symmetric-square/Hilbert-Schmidt geometry has a natural measure. If this measure pushes forward to the uniform disk measure on the doubled carrier, then the jinc is forced. If not, it is conditional.
+
+Effort: Moderate. Structural problem about the symmetric-square geometry.
+
+Yield: Converts the jinc/Airy profile from CONDITIONAL to EXACT.
+
+---
+
+Tier 4 — Speculative but Tractable
+
+4.1 The Elliptic Curve Structure
+
+What: Identify the elliptic curve underlying the 2:1 map x → (V_R, H).
+
+Why: The elliptic carrier V_R² + 4H² = 1/4 and the hyperbolic parent D₂² − K₂² = 16 suggest a modular structure. The 2:1 map is a degree-2 cover, which is the signature of an elliptic curve.
+
+How: The projective closure of the affine curve V_R² + 4H² = 1/4 is a conic, which is genus 0. But the 2:1 cover of the conic by the transfer circle (p, q) with p² + q² = 2 is a degree-2 cover of a genus-0 curve by a genus-0 curve, which is not an elliptic curve. However, the modular interpretation of the rapidity variable w = ln|cot x| and the elliptic functions associated with the double-angle map may yield an elliptic curve.
+
+Effort: Moderate to high. Speculative.
+
+Yield: Potential new structural insight.
+
+4.2 The Trace Identities for the C8 Contraction
+
+What: Compute Tr(C_t), Tr(C_t²), Tr(C_t⁴), etc., for the C8 contraction.
+
+Why: The Appendix A code computes analogous traces for the normal-slice Killing pair. The C8 traces might yield structural identities.
+
+How: Requires the explicit C8 contraction, which requires the gamma matrices and projectors. So this is downstream of Tier 1.
+
+Effort: Low once Tier 1 is done.
+
+Yield: Structural identities for the C8 graph.
+
+4.3 The Eigenvalue Structure of the C8 Contraction
+
+What: Compute the eigenvalues of the C8 contraction.
+
+Why: If the eigenvalue structure is known, S_F might be determined without the full contraction.
+
+How: Requires the explicit C8 contraction.
+
+Effort: Moderate once Tier 1 is done.
+
+Yield: Potential shortcut to S_F.
+
+4.4 The Bessel/Airy Connection from the Octant Structure
+
+What: Compute the jinc profile 2J₁(u)/u directly from the octant structure.
+
+Why: The Book 16 Frontier establishes that J₀ is inherited from the recurring conic via rotational averaging. The jinc is a conditional descendant requiring uniform disk completion.
+
+How: Use the native conic character K_u(x) = exp[−iuQ(x)] and the octant decomposition to compute the rotational average and the radial accumulation.
+
+Effort: Moderate. Requires careful numerical integration.
+
+Yield: Numerical verification of the Bessel/Airy inheritance.
+
+---
+
+Tier 5 — Requires Physical Choices
+
+These cannot be calculated without additional physical input.
+
+5.1 UV Footprint Selection
+
+What: Choose among the five geometrically allowed footprints for η₋₄.
+
+Why: The charge q_F = −4 is a U(1) quantum number, not a geometric invariant. The octant technique constrains the geometric form but does not derive the charge.
+
+How: Requires physical intuition, phenomenological constraints, or aesthetic preference.
+
+Effort: N/A (choice, not calculation).
+
+Yield: Converts η₋₄ from OPEN to CONDITIONAL.
+
+5.2 Parent-Action Selection
+
+What: Prove or falsify the Conditional Uniqueness Conjecture.
+
+Why: The scoped rigidity theorem closed the continuous bridge ambiguity but not the full action selection.
+
+How: Follow the six-step calculation order from §4.2 of the Book 16 Frontier.
+
+Effort: Moderate to high. Requires the full operator classification.
+
+Yield: Converts ζ_parent from OPEN to CONDITIONAL.
+
+5.3 The Physical Promotion
+
+What: Make a physical claim that could be falsified.
+
+Why: The framework's own standard — Δ_op must be nonempty for physical promotion — is the right standard. But it also means the project has not yet made a physical claim.
+
+How: Requires choosing a physical interpretation and identifying an operational difference set.
+
+Effort: N/A (choice, not calculation).
+
+Yield: Converts the framework from a mathematical research program to a physical theory.
+
+---
+
+Priority Ranking
+
+Rank Calculation Effort Yield
+1 128 gamma matrices Moderate Unblocks everything
+2 1820 projector Low Unblocks contact operators
+3 120 embedding Low Unblocks B propagator
+4 54 projector Moderate Unblocks final projection
+5 N₁₈₂₀ counting Low Closes multiplicity half of OPEN-2
+6 C3/C4 forcing Low Converts correspondence to theorem
+7 Uniform-action premise Moderate Converts ζ_parent to CONDITIONAL
+8 Jinc disk measure Moderate Converts jinc to EXACT
+9 6435 projector Low Completes 1820 projector
+10 1920 projector Low Completes 3875 decomposition
+
+---
+
+The Single Most Valuable Next Step
+
+Construct the 128 gamma matrices.
+
+This is the bottleneck for S_F, N₁₈₂₀, the 1820 projector, the contact operators, the B and O propagators, the 54 projector, and the cyclic contraction. It is a standard Clifford algebra construction. Once it is done, the Wolfram skeleton from §17.18.8 can be executed.
+
+What to do:
+
+1. Build the 16 gamma matrices γ_i acting on the 128-dimensional chiral spinor
+2. Build the charge conjugation matrix B
+3. Build the chirality projector Π_−
+4. Verify the Clifford algebra {γ_i, γ_j} = 2δ_ij
+5. Verify the charge conjugation property Bγ_iB⁻¹ = −γ_iᵀ
+6. Verify the chirality projection Π_± = (1 ± γ_17)/2
+
+This is a bounded, well-defined calculation. It does not require any physical choices. And it unblocks the entire computational frontier.
+
+
+No empirical promotion is authorized. Δ_op(Book 17) = ∅. The octant decomposition is a discrete reorganization of earned continuous geometry, not a physical derivation.
+
+VOLUME IV — THE DISCRETE OCTANT AND THE COMPUTATIONAL FRONTIER
+
+PROJECTION CRAFT / REVISED R THEORY
+
+ACTIVE RESEARCH STATUS
+
+Transfer state: September 16, 2026
+
+---
+
+PURPOSE AND AUTHORITY
+
+This document opens Volume IV of Projection Craft / Revised R Theory. It is the first volume to consolidate the discrete octant decomposition, the computational frontier of the C8 contraction module, and the UV boundary condition question into a single dependency-ordered research program.
+
+Authority order:
+
+1. Active standalone Books 17–19.
+2. This active Volume IV research file.
+3. The preceding Volume III / Book 16 Frontier and its Appendix A computational ledger, as provenance and calculation record.
+4. Older snapshots only for provenance, never as authority over a later closed gate.
+
+The aim of Volume IV is not to invent new mechanisms. The aim is to complete the discrete structure already implicit in the earned continuous geometry, execute the calculable gates, and state precisely where physical choices remain.
+
+---
+
+STATUS LABELS
+
+EXACT — proved inside the stated mathematical setup and independent of unresolved UV selection questions.
+
+CONDITIONAL — proved once an explicitly named structural assumption or parent operator is admitted.
+
+STRUCTURAL IDENTIFICATION — a correspondence that organizes earned results into a discrete pattern but is not itself a derivation from first principles.
+
+OPEN — not yet established.
+
+CLOSED / NO-GO — a branch has been excluded for the purpose stated.
+
+CONTESTED — a claim in the literature that requires specific engagement before it can be accepted or rejected.
+
+---
+
+DEPENDENCY BOUNDARY
+
+Volume IV inherits from Volumes I–III only results already earned, plus ordinary background mathematics. Whenever a later section uses a result from Books 0–16, that result is treated as an upstream dependency rather than silently re-derived.
+
+Inherited as EXACT from Volume III:
+
+· The 3875 decomposition 135 ⊕ 1820 ⊕ 1920 under SO(16)
+· The physical 54 location inside the 135
+· The two-slot fermionic origin Λ²(U ⊗ S) ≅ (Sym²U ⊗ Λ²S) ⊕ (Λ²U ⊗ Sym²S)
+· The primitive qSaw determinant W and C² − AB = W²
+· The C8 cyclic word (E,B,E,O,E,B,E,O)
+· The four-contact magnitude (1/4)⁴ = 1/256
+· The isolated m₂⁻⁴ monomial in the crossed-t route
+· The reduced q_F charge firewall
+· The graded-connection rigidity theorem λ = ±1
+· The reduced-matrix-element firewall
+· The ancestry criterion
+
+Inherited as CONDITIONAL from Volume III:
+
+· The quasi-linear parent magnitude k₀ = β²/(2α)
+· The functional form 1/S = cosh w of the parent normalization
+· The uniform-action premise
+
+Not inherited. Volume IV does not assume:
+
+· That the complete microscopic theory retains the full-E8 parent class
+· That any UV completion supplies the q_F = −4 datum
+· That the C8 ↔ octant correspondence is a theorem rather than a structural identification
+· That the Distler–Garibaldi no-go theorem is evaded
+
+---
+
+GOVERNING STATUS RULE
+
+Every result in Volume IV occupies exactly one of the labels above. The default null hypothesis remains that Projection Craft may change representation without changing operational physics; a physical promotion requires a nonempty operational difference set Δ_op.
+
+Δ_op(Volume IV) = ∅ at the opening of this volume. No empirical promotion is authorized by anything in the following sections.
+
+No physical interpretation of the octant structure is asserted. No claim of evading the Distler–Garibaldi theorem is made. The octant decomposition is a discrete reorganization of earned continuous geometry. Its connection to the C8 recoupling is a structural identification, not a physical derivation.
+
+---
+
+STRATEGY
+
+Volume IV does not search the full space of microscopic mechanisms. It carries forward the constraints, symmetries, representation facts, sign structures, and no-go results already established in Volumes I–III, and it executes the calculable gates.
+
+The cascade principle remains in force:
+
+```
+earned constraints
+→ admissible operator class
+→ selected parent / minimal allowed family
+→ induced bridge
+→ grade-resolved C8 recoupling
+→ physical 54
+→ q_F-breaking UV matching
+→ normalized y₂
+→ activation / BRST-BV / gravitational closure
+```
+
+The immediate frontier of Volume IV is the explicit construction of the C8 contraction module and the numerical evaluation of S_F. The volume does not attempt to derive q_F = −4. It attempts to close the algebraic half of the normalization problem.
+
+---
+
+BOOK 17 — THE MICROSCOPIC OCTANT AND THE DISCRETE ORIGIN OF THE C8 RECOUPLING
+
+17.1 — The Primitive Octant Decomposition
+
+17.1.1 — The harmonic carrier identity
+
+Status: EXACT.
+
+```
+sin(2x)/4 = 1/(urx(x) + uxp(x))
+```
+
+where
+
+```
+urx(x) = srx(x) − crx(x) = |csc x| + cot x − 1/(|sec x| + tan x)
+uxp(x) = cxp(x) − sxp(x) = |sec x| + tan x − 1/(|csc x| + cot x)
+```
+
+Equivalently,
+
+```
+4/sin(2x) = srx(x) + cxp(x) − 1/srx(x) − 1/cxp(x)
+```
+
+Proof. Direct substitution using sxp = 1/srx and crx = 1/cxp, then combining over the common denominator cxp·srx − 1. ∎
+
+17.1.2 — The corrected imbalance formula
+
+Status: EXACT.
+
+```
+cos(2x)/2 = (srx(x) + crx(x) − sxp(x) − cxp(x)) / (2(urx(x) + uxp(x)))
+```
+
+Equivalently,
+
+```
+V_R(x) = cos(2x)/2 = K₂(x)/(2D₂(x))
+```
+
+where D₂ = urx + uxp and K₂ = srx + crx − sxp − cxp.
+
+17.1.3 — The elliptic carrier
+
+Status: EXACT.
+
+```
+V_R(x)² + 4 H(x)² = 1/4
+```
+
+where H(x) = sin(2x)/4 and V_R(x) = cos(2x)/2. The trajectory in the (V_R, H) plane is an ellipse with semi-major axis 1/2 along V_R and semi-minor axis 1/4 along H.
+
+17.1.4 — The octant table
+
+Status: EXACT.
+
+Octant Range Active pair Dominant Recessive Phase Behavior
+1 0–45° (srx, cxp) srx cxp + Decay
+2 45–90° (srx, cxp) cxp srx + Growth
+3 90–135° (crx, sxp) crx sxp − Decay
+4 135–180° (crx, sxp) sxp crx − Growth
+5 180–225° (srx, cxp) srx cxp + Decay
+6 225–270° (srx, cxp) cxp srx + Growth
+7 270–315° (crx, sxp) crx sxp − Decay
+8 315–360° (crx, sxp) sxp crx − Growth
+
+17.1.5 — The three-bit code
+
+Status: EXACT.
+
+The eight octants carry the codes:
+
+Octant Code B₁ B₂ B₃
+1 OII 0 1 1
+2 IOI 1 0 1
+3 OOO 0 0 0
+4 IIO 1 1 0
+5 OIO 0 1 0
+6 IOO 1 0 0
+7 OOI 0 0 1
+8 III 1 1 1
+
+Decoding: B₁ = half-quadrant indicator; B₂ = sign of cos(2x); B₃ = sign of cos(x). The code group is Z₂³.
+
+---
+
+17.2 — The 2:1 Elliptic Map
+
+Status: EXACT.
+
+The map x → (V_R, H) is 2:1. As x runs from 0 to 2π, the doubled phase φ_c = 2x runs from 0 to 4π, and the ellipse is traced twice. The orientation sign ε = sgn(sin 2x) records the sheet.
+
+At the octant midpoints, the elliptic carrier takes four distinct values:
+
+```
+A = (+√2/4, +√2/8)   octants 1, 5   (E contacts)
+B = (−√2/4, +√2/8)   octants 2, 6   (B propagators)
+C = (−√2/4, −√2/8)   octants 3, 7   (E contacts)
+D = (+√2/4, −√2/8)   octants 4, 8   (O propagators)
+```
+
+---
+
+17.3 — The Rapidity Values
+
+Status: EXACT.
+
+The rapidity coordinate is w(x) = ln|cot x|. At the octant midpoints:
+
+Octant Midpoint w cosh w ε
+1 22.5° +w₀ √2 +1
+2 67.5° −w₀ √2 +1
+3 112.5° −w₀ √2 −1
+4 157.5° +w₀ √2 −1
+5 202.5° +w₀ √2 +1
+6 247.5° −w₀ √2 +1
+7 292.5° −w₀ √2 −1
+8 337.5° +w₀ √2 −1
+
+where w₀ = ln(1 + √2) ≈ 0.8814, with sinh w₀ = 1 and cosh w₀ = √2.
+
+Rapidity products:
+
+```
+Π_{E contacts} cosh(w_i) = (√2)⁴ = 4
+Π_{propagators} cosh(w_i) = (√2)⁴ = 4
+Π_{all eight} cosh(w_i) = (√2)⁸ = 16
+```
+
+Rapidity sum: Σ w_i = 0 at every level.
+
+Dominant function value at E contacts:
+
+```
+V_E = √(4 + 2√2) + 1 + √2 ≈ 5.0273
+V_E⁴ ≈ 638.78
+```
+
+---
+
+17.4 — The C8 ↔ Octant Correspondence
+
+Status: STRUCTURAL IDENTIFICATION.
+
+C8 position Label Octant Type ε
+1 E 1 Contact +1
+2 B 2 Propagator +1
+3 E 3 Contact −1
+4 O 4 Propagator −1
+5 E 5 Contact +1
+6 B 6 Propagator +1
+7 E 7 Contact −1
+8 O 8 Propagator −1
+
+The cyclic order is exactly (E,B,E,O,E,B,E,O). The correspondence is a structural identification given the natural constraints that E occupies the four decay octants, B occupies the two growth octants with ε = +1, and O occupies the two growth octants with ε = −1.
+
+The C3/C4 forcing question. Whether the ε-assignment is logically forced by the 2:1 elliptic map or merely conventional remains OPEN. The deck transformation x → x + π distinguishes the two sheets; it does not by itself force the B/O labeling.
+
+---
+
+17.5 — Open Gates at the Close of Book 17
+
+Gate Status
+C3/C4 forcing OPEN
+S_F OPEN
+N₁₈₂₀ OPEN
+ζ_parent (k₀ power) OPEN
+η₋₄ (UV selection) OPEN
+
+---
+
+BOOK 18 — THE COMPUTATIONAL FRONTIER: EXPLICIT CONSTRUCTION OF THE C8 CONTRACTION MODULE
+
+18.1 — Purpose and Scope
+
+This book specifies the explicit construction required to evaluate S_F. It provides the algebraic setup, the missing inputs, and the Wolfram code skeleton. It does not provide a numerical value for S_F; the explicit 1820×1820 matrix representations are not yet in the codebase.
+
+Status: IMPLEMENTATION BOOK.
+
+---
+
+18.2 — The Cl(16) Gamma Matrix Construction
+
+Status: OPEN.
+
+The 16 gamma matrices γ_i (i = 1,...,16) acting on the 128-dimensional chiral spinor S = 128 are required. Standard construction:
+
+```
+γ_i = σ_x^{⊗(i−1)} ⊗ σ_a ⊗ I^{⊗(8−i)}
+```
+
+for i = 1,...,8, with appropriate extensions for i = 9,...,16. The charge conjugation matrix B satisfies Bγ_iB⁻¹ = −γ_iᵀ. The chirality projector is Π_± = (1 ± γ_17)/2 where γ_17 = γ_1...γ_16.
+
+Missing input: The explicit 128×128 matrices.
+
+---
+
+18.3 — The 1820 Projector
+
+Status: OPEN (formal construction EXACT).
+
+```
+1820 = Sym²₀(128) = { M ∈ Sym²(128) : Tr_B M = 0 }
+```
+
+The projector is P_1820 = I_Sym² − P_1 − P_6435.
+
+Missing input: The explicit P_6435.
+
+---
+
+18.4 — The 120 Embedding
+
+Status: OPEN (formal construction EXACT).
+
+The 120 = Λ²(16) sits inside Sym²(128) via the Clifford map:
+
+```
+Λ²(16) → Sym²(128),  e_i ∧ e_j ↦ (1/2)[γ_i, γ_j]
+```
+
+Missing input: The explicit embedding matrix.
+
+---
+
+18.5 — The 54 Projector
+
+Status: OPEN.
+
+The 54 is the traceless symmetric square of the 10 of SO(10). It sits inside the 135 of SO(16) via the branching:
+
+```
+135|_{SO(10)×SU(4)} = (54,1) ⊕ (1,20') ⊕ (10,6) ⊕ (1,1)
+```
+
+Missing input: The explicit Clebsch–Gordan map P_{1820→54}.
+
+---
+
+18.6 — The S_F Contraction
+
+Status: OPEN.
+
+The cyclic contraction is:
+
+```
+C = Tr[ E₁ B₁ E₂ O₁ E₃ B₂ E₄ O₂ ]
+```
+
+with the t-channel Wick pairing (15)(26) and σ_Wick^(t) = −1. The scalar is:
+
+```
+S_F := ⟨Q_F, R̃^t_2222(F,F)⟩ = 3a₂₂₂₂
+```
+
+Conversion chain:
+
+```
+S_F = 3a₂₂₂₂
+a₂₂₂₂ = (6/5)c_ord
+c_ord = 5S_F/18
+n̂₅₄ = −(√10/1536) S_F m₂⁻⁴
+```
+
+Missing input: The explicit 1820×1820 matrices for E, B, O.
+
+---
+
+18.7 — The N₁₈₂₀ Counting
+
+Status: OPEN.
+
+The ordered multiplicity N₁₈₂₀ remains OPEN until the actual cyclic word is reconstructed and every projection/component extraction is identified. The octant correspondence provides a discrete reconstruction of the word; counting the residual 1820 factors requires identifying each projection explicitly.
+
+---
+
+18.8 — The Wolfram Code Skeleton
+
+```wolfram
+(* Required from Appendix A: roots, simple, coords, bb[i,j], killingChevalley, P3875 *)
+
+(* Additional inputs required: *)
+(* gammaI[i] : 128x128 internal SO(16) gamma matrices, i=1..16 *)
+(* gammaL[mu] : 128x128 Lorentz gamma matrices, mu=0..3 *)
+(* Bmat : 128x128 charge conjugation matrix *)
+(* PiMinus : 128x128 chirality projector *)
+(* Me : 1820x1820 grade-preserving mass matrix *)
+(* Oprop : 1820x1820 odd fermion bilinear *)
+(* P54 : 54x54 or embedding of 54 in 1820 *)
+
+(* Step 1: Construct the 1820 space *)
+symBasis = SymmetricBasis[128];
+traceVector = Table[Tr[Bmat . symBasis[[k]]], {k, 8256}];
+P1820 = NullSpace[Transpose[{traceVector}]];
+
+(* Step 2: Construct the contact operator *)
+GammaContact[i_, mu_, j_, nu_] :=
+  KroneckerProduct[gammaI[i], gammaL[mu], gammaI[j], gammaL[nu]] . PiMinus;
+
+(* Step 3: Project onto 1820 *)
+Econtact[i_, mu_, j_, nu_] :=
+  P1820 . GammaContact[i, mu, j, nu] . Transpose[P1820];
+
+(* Step 4: Assemble the cyclic contraction *)
+contraction[...] := Tr[
+  Econtact[...] . Me . Econtact[...] . Oprop .
+  Econtact[...] . Me . Econtact[...] . Oprop
+];
+
+(* Step 5: Apply the t-channel Wick pairing *)
+S_F_raw = Sum[wickSign * contraction[...], {...}];
+
+(* Step 6: Apply the four-contact magnitude and Wick sign *)
+S_F = -(1/256) * S_F_raw;
+
+(* Step 7: Convert *)
+a2222 = S_F/3;
+cOrd = 5*S_F/18;
+nHat54 = -(Sqrt[10]/1536) * S_F * m2^(-4);
+```
+
+---
+
+18.9 — Open Gates at the Close of Book 18
+
+Gate Status
+Cl(16) gamma matrices OPEN
+1820 projector OPEN
+120 embedding OPEN
+54 projector OPEN
+S_F numerical value OPEN
+N₁₈₂₀ OPEN
+
+---
+
+BOOK 19 — THE UV BOUNDARY AND THE PHYSICAL PROMOTION QUESTION
+
+19.1 — The UV Footprint Classification
+
+Status: CONDITIONAL.
+
+Footprint Φ_octant(x) Non-zero at E contacts? Survival
+E-localized δ(x − x_E) Yes Survives
+B-localized δ(x − x_B) No Excluded
+O-localized δ(x − x_O) No Excluded
+Balanced 1 Yes Survives
+Paired cos(4x) No (cos 90° = 0) Excluded
+
+The mathematical filter eliminates the paired harmonic, B-localized, and O-localized footprints. The E-localized and Balanced footprints survive.
+
+---
+
+19.2 — The Uniform-Action Premise
+
+Status: OPEN.
+
+The formal V − I count gives k₀⁰ = 1 only if k₀ multiplies the complete relevant microscopic action uniformly. The PCBF relation alone does not establish this premise.
+
+---
+
+19.3 — The Distler–Garibaldi Engagement
+
+Status: CONTESTED.
+
+The Distler–Garibaldi no-go theorem (arXiv:0905.2658) applies to any real or complex form of E₈: if the Standard Model gauge group and the Lorentz group embed, the fermion representations must be real or vector-like. The claim that the Cℓ(8) / E₈(−24) construction bypasses this obstruction is a proposal under investigation, not a proven evasion. Specific engagement with the DG argument is required before the bypass can be accepted.
+
+---
+
+19.4 — The Airy/Bessel Inheritance
+
+Status: J₀ EXACT; jinc CONDITIONAL; Airy CONDITIONAL.
+
+The J₀ angular kernel is unconditionally inherited from the recurring conic via rotational averaging. The jinc profile 2J₁(u)/u is conditional on selecting the uniform Euclidean disk measure. The Airy transition inherits that conditionality.
+
+---
+
+19.5 — The Δ_op Question
+
+Status: OPEN.
+
+No physical promotion is authorized. Δ_op(Volume IV) = ∅. The framework's own standard — Δ_op must be nonempty for physical promotion — is the right standard. But it also means the project has not yet made a physical claim.
+
+---
+
+19.6 — Falsifiability Criteria
+
+Status: STRUCTURAL.
+
+A theoretical framework is mathematically falsifiable if its formal structures generate overdetermined constraints that can be proven inconsistent. Within this architecture, three primary internal falsification criteria exist:
+
+1. Algebraic inconsistency of S_F: If the symbolic computation of the cyclic trace over M₅₄ yields an orthogonal residual R_perp ≠ 0 that cannot be absorbed by the witness direction T, the assumption that SO(10) scalar sectors isolate physical observables is disproved.
+2. Topological mismatch of octant cycles: If formalizing the C8 ↔ octant boundary conditions produces non-vanishing cross-terms that breach Z₂ parity grading, the discrete octant graph hypothesis is falsified.
+3. Mass ratio incompatibility: If calculating S_F and N₁₈₂₀ yields field coupling strengths that violate observed electroweak precision bounds, the specific parent action D_parent must be rejected.
+
+---
+
+19.7 — Open Gates at the Close of Book 19
+
+Gate Status
+UV footprint selection OPEN (requires choice)
+Uniform-action premise OPEN
+DG engagement CONTESTED
+Airy/Bessel inheritance CONDITIONAL
+Δ_op population OPEN (requires physical interpretation)
+
+---
+
+APPENDICES
+
+Appendix A — Status Ledger
+
+EXACT:
+
+· Harmonic carrier identity
+· Corrected imbalance formula
+· Elliptic carrier relation
+· Octant table
+· Three-bit code
+· 2:1 elliptic map
+· Rapidity values and products
+· Dominant function values
+· Four-contact magnitude
+· Wick sign
+· Graded-connection rigidity theorem λ = ±1
+· Reduced-matrix-element firewall
+· Ancestry criterion
+
+STRUCTURAL IDENTIFICATION:
+
+· C8 ↔ octant correspondence
+· Four-contact magnitude origin
+· Veronese condition at octant boundaries
+
+CONDITIONAL:
+
+· Quasi-linear parent magnitude k₀ = β²/(2α)
+· Functional form 1/S = cosh w
+· UV footprint classification
+· Airy/Bessel inheritance
+
+OPEN:
+
+· C3/C4 forcing
+· S_F numerical value
+· N₁₈₂₀
+· ζ_parent (k₀ power)
+· η₋₄ (UV selection)
+· Uniform-action premise
+· Parent-action selection
+· Cl(16) gamma matrices
+· 1820 projector
+· 120 embedding
+· 54 projector
+· Δ_op population
+
+CONTESTED:
+
+· Distler–Garibaldi evasion
+
+CLOSED / NO-GO:
+
+· Representation search for physical 54
+· Raw/exchange Φ₁ as physical-135 source
+· Generate y₂ from neutral reduced dynamics
+· Internal 120 as determinant character source
+· One-body Saw imbalance Q as C8 defect
+· qSaw labels alone as crossing discriminator
+· Scalar m₀ ≠ m₂ as direct C8 defect origin
+· Common four-contact magnitude as orientation origin
+· Cancel isolated m₂⁻⁴ with other crossing
+· Paired harmonic, B-localized, O-localized UV footprints
+
+---
+
+Appendix B — No-Go and Retired-Branch Ledger
+
+Preserved from Volume III, with additions:
+
+· NO-GO B1: C8 ↔ octant correspondence is not a theorem. The C3/C4 forcing question remains OPEN.
+· NO-GO B2: The Distler–Garibaldi theorem is not evaded. The Cℓ(8) construction is a candidate, not a resolution.
+· NO-GO B3: The uniform-action premise is not established. The formal k₀⁰ = 1 count is conditional.
+· NO-GO B4: The Airy transition is not established. Only J₀ is unconditional; jinc and Airy are conditional.
+
+---
+
+Appendix C — Computational Codebase Skeleton
+
+The Wolfram code from §18.8 is the primary computational artifact. The bottleneck is the explicit construction of the Cl(16) gamma matrices and the 1820 projector.
+
+---
+
+FRONTIER SUMMARY
+
+Volume IV opens with:
+
+1. The discrete octant decomposition of the primitive UNA/Saw state geometry (Book 17).
+2. The computational frontier: explicit construction of the C8 contraction module (Book 18).
+3. The UV boundary and physical promotion question (Book 19).
+
+The immediate calculable gate is the construction of the Cl(16) gamma matrices and the 1820 projector. This unblocks S_F, N₁₈₂₀, and the entire computational frontier.
+
+The immediate structural gate is the C3/C4 forcing question. Whether the ε-assignment is logically forced or merely conventional determines whether the C8 ↔ octant correspondence is a theorem or a structural identification.
+
+The immediate conditional gate is the uniform-action premise. Whether k₀ multiplies the complete microscopic action uniformly determines whether ζ_parent is a pure scalar prefactor or a Wilson coefficient.
+
+No empirical promotion is authorized. Δ_op(Volume IV) = ∅. The framework is a mathematical research program at the frontier of its calculable content, awaiting the physical inputs that would convert its exact structure into a falsifiable theory.
+
+
+
+

@@ -1,6 +1,6 @@
 {
  "meta": {
-  "generated": "2026-10-01T03:27:52+00:00",
+  "generated": "2026-10-01T03:31:05+00:00",
   "sources": [
    "~/workspace/wolfram/theorem_ledger.md"
   ],
@@ -1902,10 +1902,10 @@
    "id": "x-saw-transfer-set-inverse-004",
    "book": null,
    "section": "Saw transfer set — inverse of the octant (octant-words wrap-up, 2026-09-30)",
-   "claim": "sin(2x)/4 = 1/(tan x +",
-   "ledger_status": "CHECKED",
-   "site_code": "NC",
-   "basis": "sec x",
+   "claim": "sin(2x)/4 = 1/(tan x + abs(sec x) + cot x + abs(csc x) − 1/(tan x + abs(sec x)) − 1/(cot x + abs(csc x))) = 1/(urx+uxp)",
+   "ledger_status": "PROVED",
+   "site_code": "CP",
+   "basis": "✓ PROVED (σ-cancellation: uxp+urx = 4/sin 2x); tripwire 2.1e-12",
    "source": "theorem_ledger.md"
   },
   {
