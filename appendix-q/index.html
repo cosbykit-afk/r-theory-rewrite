@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Appendix Q — The Codebase — R Theory Rewrite Series</title>
+<style>
+body{font-family:Georgia,serif;max-width:900px;margin:0 auto;padding:24px;line-height:1.65;color:#1a1a1a;background:#fdfdfb}
+h1{font-size:1.9em;border-bottom:2px solid #333;padding-bottom:8px}
+h2{font-size:1.45em;margin-top:2.2em;border-bottom:1px solid #aaa;padding-bottom:4px}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.9em}
+th,td{border:1px solid #bbb;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#f0f0ec}
+.tag{display:inline-block;font-size:.78em;font-weight:bold;border:1px solid #666;border-radius:3px;padding:0 6px;margin-right:4px;background:#eee}
+.small{font-size:.9em;color:#444}
+.note{background:#f6f8fb;border:1px solid #dfe5ec;border-radius:8px;padding:10px 16px;margin:1em 0;font-size:.94em}
+pre{background:#f4f4f1;border:1px solid #ccc;border-radius:4px;padding:12px 14px;font-size:.85em;overflow-x:auto}
+code{font-size:.88em}
+footer{margin-top:3em;color:#555;font-size:.9em;border-top:1px solid #bbb;padding-top:1em}
+a{color:#0645ad}
+</style>
+<!-- SITENAV-START -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Source+Sans+3:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+body{overflow-x:clip}
+.sitebar{background:#092d32;color:#eaf5f4;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw)}
+.sitebar-inner{max-width:860px;margin:0 auto;padding:11px 24px;min-height:52px;box-sizing:border-box;
+ display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+ font-family:'Source Sans 3',system-ui,-apple-system,'Segoe UI',sans-serif}
+.site-mark{font-family:'Libre Baskerville',Georgia,serif;font-weight:700;font-size:.92rem;
+ color:#fff;text-decoration:none;white-space:nowrap}
+.site-mark:hover{text-decoration:underline}
+.site-select-wrap{position:relative;flex:none}
+.site-select-wrap::after{content:"";position:absolute;right:12px;top:50%;width:7px;height:7px;
+ border-right:2px solid #c6dcda;border-bottom:2px solid #c6dcda;
+ transform:translateY(-70%) rotate(45deg);pointer-events:none}
+.site-dest{appearance:none;-webkit-appearance:none;background:#123d43;border:1px solid #38636a;
+ border-radius:6px;color:#fff;font-family:inherit;font-weight:600;font-size:.88rem;
+ padding:7px 34px 7px 11px;min-height:36px;width:min(240px,100%);cursor:pointer}
+.site-dest:hover{background:#164a51;border-color:#5f858a}
+.site-search{display:flex;align-items:center;height:36px;min-width:280px;margin-left:auto;flex:1 1 auto;max-width:340px}
+.site-search input[type=text]{flex:1;min-width:0;height:36px;box-sizing:border-box;
+ border:1px solid #38636a;border-right:none;border-radius:6px 0 0 6px;padding:7px 10px;
+ font-family:inherit;font-weight:500;font-size:.84rem;color:#10262b;background:#fff}
+.site-search input[type=text]::placeholder{color:#66777a}
+.site-search button{height:36px;box-sizing:border-box;border:1px solid #38636a;border-radius:0 6px 6px 0;
+ background:#165159;color:#fff;font-family:inherit;font-weight:700;font-size:.84rem;
+ padding:0 12px;cursor:pointer;flex:none}
+.site-search button:hover{background:#1b626b}
+.text-toggle{display:flex;align-items:center;gap:8px;color:#eaf5f4;font-size:.84rem;
+ font-weight:600;cursor:pointer;white-space:nowrap;flex:none}
+.text-toggle input{appearance:none;-webkit-appearance:none;width:38px;height:22px;border-radius:999px;
+ background:#123d43;border:1px solid #5f858a;position:relative;cursor:pointer;margin:0;flex:none;
+ transition:background .18s,border-color .18s}
+.text-toggle input::after{content:"";position:absolute;left:2px;top:2px;width:16px;height:16px;
+ border-radius:50%;background:#c6dcda;transition:transform .18s,background .18s}
+.text-toggle input:checked{background:#b85f1d;border-color:#b85f1d}
+.text-toggle input:checked::after{transform:translateX(16px);background:#fff}
+.site-dest:focus-visible,.site-search input[type=text]:focus-visible,
+.site-search button:focus-visible,.text-toggle input:focus-visible,.site-mark:focus-visible,
+.crumbbar a:focus-visible{outline:3px solid #4fc3b8;outline-offset:2px}
+.crumbbar{background:#f5f8f8;border-bottom:1px solid #c9d6d8;
+ margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);margin-bottom:1.5em}
+.crumbbar-inner{max-width:860px;margin:0 auto;padding:8px 24px;box-sizing:border-box;
+ display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+ font-family:'Source Sans 3',system-ui,-apple-system,'Segoe UI',sans-serif;
+ font-size:.8rem;color:#52676b}
+.crumbbar a{color:#0b6866;text-decoration:none;font-weight:600}
+.crumbbar a:hover{text-decoration:underline}
+.crumb-vol{background:#0b6866;color:#fff !important;border-radius:6px;padding:3px 10px;font-weight:700}
+.crumb-vol:hover{background:#084c4b;text-decoration:none !important}
+.crumb-sep{color:#8aa0a3}
+.crumb-pill{font-size:.72rem;font-weight:700;background:#e3ecec;color:#10262b;
+ border-radius:999px;padding:2px 10px}
+.rth-toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(8px);
+ background:#092d32;color:#fff;font-family:'Source Sans 3',system-ui,sans-serif;
+ font-size:.85rem;font-weight:600;padding:10px 18px;border-radius:8px;opacity:0;
+ pointer-events:none;transition:opacity .2s,transform .2s;z-index:9999}
+.rth-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+html.rth-large-text body{font-size:21.333px;line-height:1.65}
+details.derivation{margin:1.4em 0;border:1px solid #c9d6d8;border-radius:8px;
+ background:#f7fafb;padding:0}
+details.derivation summary{cursor:pointer;padding:12px 16px;font-weight:600;
+ color:#0b3f3d;list-style:none;font-family:'Source Sans 3',system-ui,sans-serif}
+details.derivation summary::-webkit-details-marker{display:none}
+details.derivation summary::before{content:"\25b8  ";color:#0b6866}
+details.derivation[open] summary::before{content:"\25be  "}
+details.derivation .deriv-body{padding:2px 16px 14px;font-size:.95em}
+details.derivation .deriv-body p{margin:.6em 0}
+@media (max-width:600px){
+ .sitebar-inner{gap:8px;padding:10px 14px}
+ .site-select-wrap{order:3;width:100%}
+ .site-dest{width:100%}
+ .site-search{order:4;width:100%;min-width:0;max-width:none;margin-left:0}
+ .text-toggle{margin-left:auto}
+ .crumbbar-inner{padding:8px 14px}
+}
+</style>
+<script>
+(function(){try{if(localStorage.getItem('rth-large-text')==='1'){document.documentElement.classList.add('rth-large-text');}}catch(e){}})();
+</script>
+<!-- SITENAV-END -->
+</head>
+<body>
+<!-- SITENAV-NAV-START -->
+<nav class="sitebar" aria-label="Proposed global navigation">
+<div class="sitebar-inner">
+<a class="site-mark" href="../">R Theory</a>
+<span class="site-select-wrap"><select class="site-dest" id="rthSiteDest" aria-label="Go to section">
+<option value="../contents/" selected>Contents</option>
+<option value="../vol0/">Volume 0</option>
+<option value="../vol1/">Volume I</option>
+<option value="../vol2/">Volume II</option>
+<option value="../vol3/">Volume III</option>
+<option value="../vol4/">Volume IV</option>
+<option value="../vol5/">Volume V</option>
+<optgroup label="Companion pages">
+<option value="../tables/">Tables</option>
+<option value="../appendix/">Computational audit</option>
+<option value="../appendix-proofs/">Appendix P — Full derivations</option>
+<option value="../appendix-q/">Appendix Q — The codebase</option>
+<option value="../research/">Active research</option>
+<option value="../ledger/">Research ledger</option>
+<option value="../guide/">Guide to creative reason</option>
+</optgroup>
+<option value="../index/">Index</option>
+</select></span>
+<form class="site-search" id="rthSiteSearch" action="https://www.google.com/search" method="get" target="_blank" rel="noopener" role="search">
+<input type="hidden" name="q" id="rthSearchQ" value="">
+<input type="text" id="rthSearchTerm" placeholder="Search R Theory" aria-label="Search R Theory" autocomplete="off">
+<button type="submit">Search</button>
+</form>
+<label class="text-toggle"><span>Large text</span><input type="checkbox" id="rthLargeText" role="switch" aria-label="Large text"></label>
+</div>
+</nav>
+<div class="crumbbar"><div class="crumbbar-inner">
+<a href="../">Home</a><span class="crumb-sep">/</span><span>Appendix Q — The Codebase</span>
+</div></div>
+<div class="rth-toast" id="rthToast" role="status" aria-live="polite"></div>
+<script>
+(function(){
+ var toast=document.getElementById('rthToast'),t=null;
+ function say(m){toast.textContent=m;toast.classList.add('show');clearTimeout(t);
+  t=setTimeout(function(){toast.classList.remove('show');},1500);}
+ var sel=document.getElementById('rthSiteDest');
+ sel.addEventListener('change',function(){if(sel.value)location.href=sel.value;});
+ var form=document.getElementById('rthSiteSearch'),
+     term=document.getElementById('rthSearchTerm'),
+     q=document.getElementById('rthSearchQ');
+ form.addEventListener('submit',function(e){
+  var v=term.value.trim();
+  if(!v){e.preventDefault();term.focus();say('Enter a search term');return;}
+  q.value='site:cosbykit-afk.github.io/r-theory-rewrite '+v;
+ });
+ var tg=document.getElementById('rthLargeText');
+ tg.checked=document.documentElement.classList.contains('rth-large-text');
+ tg.addEventListener('change',function(){
+  var on=tg.checked;
+  document.documentElement.classList.toggle('rth-large-text',on);
+  try{localStorage.setItem('rth-large-text',on?'1':'0');}catch(e){}
+  say(on?'Large text on':'Large text off');
+ });
+})();
+</script>
+<!-- SITENAV-NAV-END -->
+<h1>Appendix Q — The Codebase</h1>
+<p class="small">A catalog of the programs behind the results on this site: what each one does, what it established, and how to re-run it. The published source lives in the <a href="../code/README.md"><code>code/</code> directory</a> of the site repository.</p>
+
+<div class="note">
+<strong>Why publish the code.</strong> A computation's output is only as trustworthy as the program that produced it — and a program the reader cannot see is an assertion, not evidence. These scripts are published so the audit trail does not depend on trusting their author: anyone can re-run them. Running a script establishes a <em>computed</em> result (CHECKED); it does not constitute a proof (CP). The scope labels used below follow the site's standard key.
+</div>
+
+<h2 id="Q-1">Q-1. The proving ground</h2>
+<p>The Casimir / representation computations: NumPy re-implementations and independent checks of the 12-module manuscript computation, exactly as run in September 2026. Source: <code>code/proving-ground/</code>.</p>
+<table>
+<tr><th>Program</th><th>Role</th><th>What it established</th></tr>
+<tr><td><code>run_modules.py</code></td><td>Faithful NumPy/SciPy port of the 12 Wolfram modules from the manuscript, 1-based WL indices noted in comments.</td><td>Recorded the original as-encoded results — including Modules 6, 8–12 <em>not</em> establishing their claims as encoded. CHECKED (computation).</td></tr>
+<tr><td><code>test_casimir2.py</code></td><td>Test of the corrected Casimir operator C′(M) = −Σ<sub>a</sub>(A<sub>a</sub>²M + 2A<sub>a</sub>MA<sub>a</sub><sup>T</sup> + M(A<sub>a</sub><sup>T</sup>)²).</td><td>The corrected operator the later checks run against. CHECKED (computation).</td></tr>
+<tr><td><code>verify_independent.py</code></td><td>From-definitions rebuild — not a re-run of the module port. Rebuilds gamma matrices, checks Clifford relations, guards the so(16) generators (S<sub>ii</sub> = 0, antisymmetric extension), assembles C′ fresh, cross-checks it entry-by-entry against the literal operator definition on random symmetric matrices, and computes the spectrum independently.</td><td>Clifford violation 0.0 on all 120 generators; so(16) relations 0.0 on all 7,140 pairs; full 8,256-dim spectrum {0:1, 48:1820, 64:6435} confirmed (max deviation 3.7e-13 vs the literal operator). Also exhibits the original Module 6 break exactly as diagnosed: 10 diagonal cases, violation exactly 1.0. CHECKED (numeric); the analytic proof remains an open item (B-6).</td></tr>
+<tr><td><code>diag_casimir.py</code></td><td>Diagnostics for the Casimir anomaly: verifies the representation and centrality.</td><td>Supporting diagnostics for the C′ construction. CHECKED (computation).</td></tr>
+<tr><td><code>b1_module12_image_check.py</code><br><code>b1_cprime_worker.py</code><br><code>b1_spotcheck.py</code></td><td>B-1: the Module 12 image check on the corrected operator. The original M12 failed on the wrong encoded Casimir (ImageInP1820=false, max_sampleVerify=21.0). These rebuild the 1820 projectToSplus(γ<sub>4</sub>(i,j,k,l)) exactly as in the original M12 and apply C′ matrix-free, batched over all 1820 forms, checking C′(v) = 48v per form; the spot-check independently attributes the worst forms' eigenspace content and cross-checks the parallel workers' residual numbers.</td><td>C′(v) = 48v per form across the 1820. CHECKED (computation).</td></tr>
+<tr><td><code>b2_projector_check.py</code></td><td>B-2: Lagrange projector identities on C′ — p<sub>0</sub>(M) = (C′−48)(C′−64)M/3072, p<sub>48</sub>(M) = C′(64−C′)M/768, p<sub>64</sub>(M) = C′(C′−48)M/1024 — tested matrix-free on ≥8 random symmetric matrices, real and complex.</td><td>Projector identities hold on the tested matrices. CHECKED (computation).</td></tr>
+<tr><td><code>b5_reality_check.py</code></td><td>B-5: the reality question — is the 128 (half-spin of so(16)) representation real? Numerical, fresh implementation: builds the 120 guarded so(16) generators and computes the Frobenius–Schur indicator via the invariant bilinear form (null space of G = Σ<sub>a</sub> L<sub>a</sub><sup>†</sup>L<sub>a</sub>, matrix-free with scipy eigsh).</td><td>Numerical indicator result as logged. CHECKED (computation).</td></tr>
+<tr><td><code>b6_weyl_check.py</code></td><td>B-6 support: independent check of the D8 Weyl dimensions and Casimir eigenvalues, in exact rational arithmetic (Fractions): dim V(λ) = ∏<sub>α&gt;0</sub> ⟨λ+ρ,α⟩/⟨ρ,α⟩ with ρ = (7,6,5,4,3,2,1,0), plus ⟨λ,λ+2ρ⟩ for the Casimir eigenvalue.</td><td>Expected: dim V(ω<sub>8</sub>)=128, dim V(ω<sub>4</sub>)=1820, dim V(2ω<sub>8</sub>)=6435. Exact — no floating-point error. CHECKED (exact computation).</td></tr>
+<tr><td><code>modules7_12_replacements.md</code></td><td>Notes on the replacement Modules 7–12.</td><td>Documentation of the corrected modules. ASSERTED (manuscript notes).</td></tr>
+</table>
+
+<h2 id="Q-2">Q-2. The book validation scripts</h2>
+<p>Each book's page carries machine-checked assertions, and the scripts that check them ship with the site in <code>validation/book*/</code> (<code>verify_bookN.py</code>, plus <code>make_graphs.py</code> and <code>test_embeds.py</code> where the book needs them). The pattern: the script prints its own scope-counted summary and exits 0 only if every check passes — the page footer reports the script's own numbers, not a hand count. Verified example: <code>verify_book8.py</code> executes 42 check executions with scope counts CP=45, SC=5, NC=22 (72 total scope attributions), confirmed by a fresh exit-0 run — static call-site counting undercounts it, which is why the runtime summary is the number of record.</p>
+
+<h2 id="Q-3">Q-3. The site builders</h2>
+<p>The programs that assemble this site, at the repository root:</p>
+<table>
+<tr><th>Program</th><th>Role</th></tr>
+<tr><td><code>inject_sitenav.py</code></td><td>Injects the navigation bar, breadcrumbs, search, tag links, comment hooks, and the <code>details.derivation</code> CSS into every page (idempotent marker blocks).</td></tr>
+<tr><td><code>sync_status.py</code></td><td>Refreshes the status registry from the audit ledger (the ledger → registry path).</td></tr>
+<tr><td><code>build_series_toc.py</code></td><td>Generates the series table of contents. <strong>Stale as of 2026-09-29</strong> — the contents page carries post-builder enhancements the script does not emit, so small additions are hand-edited into <code>contents/index.html</code> instead of rebuilt.</td></tr>
+<tr><td><code>build_series_index.py</code></td><td>Builds the series index page.</td></tr>
+<tr><td><code>inject_comments.py</code></td><td>Wires the site↔forum comment bridges.</td></tr>
+<tr><td><code>inject_footer.py</code></td><td>Injects the shared footer.</td></tr>
+<tr><td><code>inject_handoff.py</code></td><td>Injects handoff markers.</td></tr>
+<tr><td><code>verify_anchors.py</code></td><td>Checks that internal anchors resolve.</td></tr>
+</table>
+
+<h2 id="Q-4">Q-4. The R Theory database</h2>
+<p>The theorem database behind the site's status tags (<code>code/database/</code>):</p>
+<ul>
+<li><code>schema.sql</code> — the database contract.</li>
+<li><code>rtheory.py</code> — the CLI: <code>init</code>, <code>import-status-registry</code>, <code>set-status</code>, <code>add-prose</code>, <code>link-prose</code>, <code>export-feeds</code>, <code>render-ledger</code>.</li>
+</ul>
+<p>As imported: 86 theorems across 8 scope codes (33 NC, 29 SC, 20 CP, 2 ST, 1 MA, 1 IC), with draft prose seeds linked to theorems. Status changes propagate: <code>set-status</code> bumps the version and writes a changelog entry, and <code>export-feeds</code> carries the new code into the JSON feeds the site build reads.</p>
+
+<h2 id="Q-5">Q-5. The pre-computed tables</h2>
+<p>The numerical tables the books cite (17 entries, ~802 MB, cataloged in <code>TABLES.md</code> with <code>manifest.json</code>): the E8 30380 full table and R1/R2/R3a/R3b in the current tuning (one-sided sigma-3 fix, orthonormal Sym²(128), U-basis with the U-7 caution). The tables page carries the downloadable CSVs; the large binaries are available on request. The tables are data products of the proving-ground code above, not of separate generators shipped here.</p>
+
+<h2 id="Q-6">Q-6. How to re-run</h2>
+<p>The proving-ground scripts need Python 3 with NumPy (and SciPy for the B-5 indicator). The key checks, in dependency order:</p>
+<pre><code>python3 code/proving-ground/verify_independent.py   # from-definitions rebuild + spectrum
+python3 code/proving-ground/b2_projector_check.py   # Lagrange projectors on C'
+python3 code/proving-ground/b6_weyl_check.py        # exact Weyl dimensions
+python3 code/proving-ground/b1_module12_image_check.py  # B-1 image check (needs the forms data)
+python3 code/proving-ground/b5_reality_check.py     # B-5 reality indicator (needs scipy)</code></pre>
+<p>The B-1 scripts consume the pre-computed form arrays from the September 2026 runs; everything else builds its objects from the definitions in the script itself. The original Wolfram Language modules are not published here — the NumPy ports are the runnable record.</p>
+
+<h2 id="Q-7">Q-7. What is not in the repository</h2>
+<ul>
+<li><strong>Raw data products</strong> — <code>.npy</code>/<code>.npz</code> arrays, run logs, and the pre-computed table binaries are not shipped; their provenance is described above.</li>
+<li><strong>Machine-specific material</strong> — Wolfram Engine licensing and the deployment-only pieces are environment, not source, and are not published.</li>
+<li><strong>Frozen runs</strong> — the scripts are pinned to the September 2026 runs they document. Re-running on a different machine or library version should reproduce the numbers; if it does not, that is a finding, not a failure of the record.</li>
+</ul>
+
+<footer>
+<p>Appendix Q — The Codebase. First published 2026-09-30. Companion to <a href="../appendix/">the computational audit appendix</a> and <a href="../appendix-proofs/">Appendix P — Full Derivations</a>.</p>
+</footer>
+</body>
+</html>

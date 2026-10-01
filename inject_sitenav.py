@@ -46,6 +46,7 @@ for _name, _books, _dest in VOLUMES:
 LABELS = {
     "appendix": "Appendix",
     "appendix-proofs": "Appendix P — Full Derivations",
+    "appendix-q": "Appendix Q — The Codebase",
     "contents": "Contents",
     "guide": "Guide",
     "index": "Index",
@@ -162,6 +163,7 @@ NAV_TMPL = """<!-- SITENAV-NAV-START -->
 <option value="{p}tables/">Tables</option>
 <option value="{p}appendix/">Computational audit</option>
 <option value="{p}appendix-proofs/">Appendix P — Full derivations</option>
+<option value="{p}appendix-q/">Appendix Q — The codebase</option>
 <option value="{p}research/">Active research</option>
 <option value="{p}ledger/">Research ledger</option>
 <option value="{p}guide/">Guide to creative reason</option>
