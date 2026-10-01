@@ -1,6 +1,6 @@
 {
  "meta": {
-  "generated": "2026-10-01T02:49:11+00:00",
+  "generated": "2026-10-01T03:27:52+00:00",
   "sources": [
    "~/workspace/wolfram/theorem_ledger.md"
   ],
@@ -1866,6 +1866,66 @@
    "ledger_status": "INCOMPLETE",
    "site_code": "IN",
    "basis": "(Kit-directed, 2026-09-26)",
+   "source": "theorem_ledger.md"
+  },
+  {
+   "id": "x-saw-transfer-set-inverse-001",
+   "book": null,
+   "section": "Saw transfer set — inverse of the octant (octant-words wrap-up, 2026-09-30)",
+   "claim": "sawdown = srx/(cxp·srx−1) = 1/uxp",
+   "ledger_status": "PROVED",
+   "site_code": "CP",
+   "basis": "✓ PROVED by algebra (cross-multiply → srx·sxp = 1); tripwire 2.2e-16",
+   "source": "theorem_ledger.md"
+  },
+  {
+   "id": "x-saw-transfer-set-inverse-002",
+   "book": null,
+   "section": "Saw transfer set — inverse of the octant (octant-words wrap-up, 2026-09-30)",
+   "claim": "sawup = cxp/(cxp·srx−1) = 1/urx",
+   "ledger_status": "PROVED",
+   "site_code": "CP",
+   "basis": "✓ PROVED by algebra (cross-multiply → cxp·crx = 1); tripwire 2.2e-16",
+   "source": "theorem_ledger.md"
+  },
+  {
+   "id": "x-saw-transfer-set-inverse-003",
+   "book": null,
+   "section": "Saw transfer set — inverse of the octant (octant-words wrap-up, 2026-09-30)",
+   "claim": "FlatWave = sawdown+sawup = (srx+cxp)/(cxp·srx−1) = 1/urx+1/uxp",
+   "ledger_status": "PROVED",
+   "site_code": "CP",
+   "basis": "✓ PROVED by algebra (common denominator); tripwires 2.2e-16 / 4.4e-16",
+   "source": "theorem_ledger.md"
+  },
+  {
+   "id": "x-saw-transfer-set-inverse-004",
+   "book": null,
+   "section": "Saw transfer set — inverse of the octant (octant-words wrap-up, 2026-09-30)",
+   "claim": "sin(2x)/4 = 1/(tan x +",
+   "ledger_status": "CHECKED",
+   "site_code": "NC",
+   "basis": "sec x",
+   "source": "theorem_ledger.md"
+  },
+  {
+   "id": "x-saw-transfer-set-inverse-005",
+   "book": null,
+   "section": "Saw transfer set — inverse of the octant (octant-words wrap-up, 2026-09-30)",
+   "claim": "4/sin(2x) = srx + cxp − 1/srx − 1/cxp = urx + uxp",
+   "ledger_status": "PROVED",
+   "site_code": "CP",
+   "basis": "✓ PROVED (σ-cancellation)",
+   "source": "theorem_ledger.md"
+  },
+  {
+   "id": "x-saw-transfer-set-inverse-006",
+   "book": null,
+   "section": "Saw transfer set — inverse of the octant (octant-words wrap-up, 2026-09-30)",
+   "claim": "cos(2x) = (srx + crx − sxp − cxp)/(uxp + urx)",
+   "ledger_status": "PROVED",
+   "site_code": "CP",
+   "basis": "✓ PROVED (numerator 4cos 2x/sin 2x, denominator 4/sin 2x); tripwire 2.1e-15",
    "source": "theorem_ledger.md"
   },
   {
