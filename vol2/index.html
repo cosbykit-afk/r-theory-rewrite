@@ -3,31 +3,29 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>R Theory — A Visual Rewrite</title>
+<title>Volume II — From the Carrier to the Physics Boundary</title>
 <style>
   :root { --ink:#1a1a1a; --muted:#5a5a5a; --accent:#1b5faa; --paper:#fff; --wash:#f6f8fb; --line:#dfe5ec; }
   body { font-family: -apple-system, "Segoe UI", Georgia, serif; color:var(--ink); background:var(--paper);
          max-width: 860px; margin:0 auto; padding: 24px 20px 80px; line-height:1.65; }
   h1 { font-size:1.9em; line-height:1.25; margin-bottom:.2em; }
-  h2 { margin-top:2em; }
+  h2 { font-size:1.45em; margin-top:2.2em; border-bottom:2px solid var(--line); padding-bottom:.3em; }
   .sub { color:var(--muted); font-size:1.05em; margin-top:0; }
   .about { background:var(--wash); border:1px solid var(--line); border-radius:8px; padding:14px 18px; margin:1.5em 0; }
   .about p { margin:.5em 0; }
-  .books { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:1.5em 0; }
-  @media (max-width:640px){ .books{ grid-template-columns:1fr; } }
-  .book { border:1px solid var(--line); border-radius:8px; padding:16px 18px; background:var(--paper); }
-  .book.done { border-left:4px solid var(--accent); }
-  .book.volume { border-left:4px solid #0f4c5c; background:var(--wash); }
-  .book .tag { margin-bottom:2px; }
+  .books { display:grid; grid-template-columns:1fr; gap:14px; margin:1.5em 0; }
+  .book { border:1px solid var(--line); border-radius:8px; padding:16px 18px; background:var(--paper); border-left:4px solid var(--accent); }
   .book h3 { margin:.2em 0 .4em; font-size:1.1em; }
   .book p { margin:.4em 0; font-size:.94em; }
   .book a { color:var(--accent); text-decoration:none; font-weight:600; }
   .book a:hover { text-decoration:underline; }
-  .tag { display:inline-block; font-size:.75em; font-weight:700; border:1px solid var(--line); border-radius:3px;
-         padding:0 6px; margin-right:4px; background:var(--wash); color:var(--muted); }
-  .date { display:block; font-size:.8em; color:var(--muted); margin-top:.6em; }
-  .rule { background:var(--wash); border:1px solid var(--line); border-radius:8px; padding:10px 16px; margin:1em 0 0; font-size:.94em; }
-  footer { margin-top:3em; color:var(--muted); font-size:.88em; border-top:1px solid var(--line); padding-top:1em; }
+  .formal { background:var(--wash); border:1px solid var(--line); border-radius:8px; padding:12px 18px; margin:1.2em 0; }
+  .prov { border:1px solid #c9a227; border-radius:8px; padding:12px 18px; margin:1.2em 0; background:#fffdf4; }
+  .prov b { color:#7a5c00; }
+  code, .math { font-family: ui-monospace, Menlo, monospace; }
+  .math { background:#f2f5f9; padding:.1em .35em; border-radius:4px; font-size:.95em; }
+  footer { margin-top:3em; color:var(--muted); font-size:.9em; border-top:1px solid var(--line); padding-top:1em; }
+  footer a { color:var(--accent); }
 </style>
 <!-- SITENAV-START -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -115,16 +113,16 @@ a.taglink:focus-visible{outline:3px solid #0e7c86;outline-offset:2px;border-radi
 <!-- SITENAV-NAV-START -->
 <nav class="sitebar" aria-label="Proposed global navigation">
 <div class="sitebar-inner">
-<a class="site-mark" href="">R Theory</a>
+<a class="site-mark" href="../">R Theory</a>
 <span class="site-select-wrap"><select class="site-dest" id="rthSiteDest" aria-label="Go to section">
-<option value="contents/" selected>Contents</option>
-<option value="vol0/">Volume 0</option>
-<option value="contents/#vol-1">Volume I</option>
-<option value="contents/#vol-2">Volume II</option>
-<option value="contents/#vol-3">Volume III</option>
-<option value="vol4/">Volume IV</option>
-<option value="vol5/">Volume V</option>
-<option value="index/">Index</option>
+<option value="../contents/" selected>Contents</option>
+<option value="../vol0/">Volume 0</option>
+<option value="../contents/#vol-1">Volume I</option>
+<option value="../contents/#vol-2">Volume II</option>
+<option value="../contents/#vol-3">Volume III</option>
+<option value="../vol4/">Volume IV</option>
+<option value="../vol5/">Volume V</option>
+<option value="../index/">Index</option>
 </select></span>
 <form class="site-search" id="rthSiteSearch" action="https://www.google.com/search" method="get" target="_blank" rel="noopener" role="search">
 <input type="hidden" name="q" id="rthSearchQ" value="">
@@ -135,7 +133,7 @@ a.taglink:focus-visible{outline:3px solid #0e7c86;outline-offset:2px;border-radi
 </div>
 </nav>
 <div class="crumbbar"><div class="crumbbar-inner">
-<span>Home</span>
+<a href="../">Home</a><span class="crumb-sep">/</span><span>Vol2</span>
 </div></div>
 <div class="rth-toast" id="rthToast" role="status" aria-live="polite"></div>
 <script>
@@ -163,281 +161,72 @@ a.taglink:focus-visible{outline:3px solid #0e7c86;outline-offset:2px;border-radi
  });
 })();
 </script>
-<!-- SITENAV-NAV-END -->
-<h1>R Theory — A Visual Rewrite</h1>
-<p class="sub">Pictures and intuition first, the formal audit second. Arranged by subject: hard science vs. theoretical.</p>
+<!-- SITENAV-NAV-END --><!-- SITENAV-NAV-END -->
+
+<h1>Volume II — From the Carrier to the Physics Boundary</h1>
+<p class="sub">Books 7–13: classical dynamics through thermodynamics — physics enters only as declared import.</p>
 
 <div class="about">
-<p>Each book of the <i>R Theory</i> manuscript is restructured the same way: <b>Part I</b> leads with live, interactive graphs and the intuition each one carries; <b>Parts II–IV</b> carry the formal audit with every claim's proof status preserved.</p>
-<p>Graphs are live <a href="https://www.desmos.com">Desmos</a> calculators (internet required); where Desmos cannot load, a static rendering appears instead. Live rendering was not browser-verified from the build machine — the static fallbacks carry the verified numbers. The original manuscript is read-only and untouched — these pages are a separate commentary layer.</p>
-<p><span class="tag">Status discipline</span> Every claim carries its status: checked proof, completed symbolic check, completed numerical check, standard imported theorem, manuscript assertion, assumption/axiom — or marked incorrect/incomplete. Nothing is promoted beyond what the mathematics supports. <a href="WORKFLOW.md">How this series is made →</a> &middot; <a href="title/">Title page →</a> &middot; <a href="contents/">Full series contents →</a> &middot; <a href="index/">Series index →</a></p>
+<p><b>What this volume is.</b> The arc from the certified carrier to the boundary of physics. <a href="../book7/">Book 7</a> derives classical dynamics from the certified carrier with no physics imports. <a href="../book8/">Book 8</a> builds pre-Maxwell geometry; <a href="../book9/">Book 9</a> reconstructs relativity and gravitation conditionally on explicit import. <a href="../book10/">Book 10</a> sets out quantum kinematics and the measurement boundary; <a href="../book11/">Book 11</a> compares particle architecture with the Standard Model; <a href="../book12/">Book 12</a> calibrates mass and frequency; <a href="../book13/">Book 13</a> closes with thermodynamics, information, and the arrow of time.</p>
+<p><b>Dependencies.</b> Everything inherits the Volume I carrier. From Book 8 on, named physics imports (EM frame, charge, current, GR, measurement postulates, the Standard Model, QCD) are declared per section — conditional reconstruction, never derivation of the imported theory.</p>
 </div>
 
-<p class="sub">Reading order follows the volumes. Each book carries its scope: <span class="tag">Hard science</span> proved theorems, completed checks, exact tables, standard imports — no physical promotion claimed; <span class="tag">Theoretical</span> conditional on physics imports, manuscript assertions, or open constructions. Companion pages and the original manuscripts follow the books.</p>
-
-<h2 id="vol-0">Volume 0 — Exact Witnesses at the Physics Boundary</h2>
-<div class="books">
-<div class="book done volume">
-    <h3><a href="vol0/">Volume 0 — Exact Witnesses at the Physics Boundary</a></h3>
-    <p>The former T4–T6 essay-books rebuilt as standalone R Theory. Every fully specified construction: Δ_op = ∅. C0 retained, undefeated, still falsifiable. PDF snapshots available.</p>
-    <span class="date">First published 2026-09-19</span>
-  </div>
-<div class="book done">
-    <h3><a href="book20/">Relativistic and Spinor Witnesses</a></h3>
-    <p><span class="tag">Hard science</span></p>
-    <p>Kinematic dictionary, spinor completion, V−A helicity odds, the beta/Coulomb two-angle bridge, the adversarial EM audit — and the Δ_op closure audit.</p>
-    <span class="date">First published 2026-09-19</span>
-  </div>
-<div class="book done">
-    <h3><a href="book21/">Fermion Composition, Color Closure, Bound-State Geometry</a></h3>
-    <p><span class="tag">Hard science</span></p>
-    <p>Composition firewall, C³ → A₂ → su(3), the QCD import, verified hydrogen/deuteron numbers, frozen failures, firewalled E8 appendix.</p>
-    <span class="date">First published 2026-09-19</span>
-  </div>
-<div class="book done">
-    <h3><a href="book22/">Canonical Spin–Geometry and the Primitive Symplectic Atlas</a></h3>
-    <p><span class="tag">Hard science</span></p>
-    <p>Prüfer canonical pair, the exact symplectic atlas, defect action, Kerr identities, spherical-spin obstruction, closure audit.</p>
-    <span class="date">First published 2026-09-19</span>
-  </div>
+<h2 id="the-shared-discipline">The shared discipline</h2>
+<div class="formal">
+<p>Every structured claim in this volume carries a scope label — proved, checked, conditional on a declared import, asserted, or flagged incorrect/incomplete as stated. The <a href="../ledger/">research ledger</a> is the canonical key from status tags to audit verdicts. Pictures illustrate proved statements; they are not the proofs.</p>
 </div>
 
-<h2 id="vol-1">Volume I — Books 0–6</h2>
+<h2 id="the-books">The books</h2>
 <div class="books">
-<div class="book done volume">
-    <h3><a href="vol1/">Volume I — The Mathematical Constitution</a></h3>
-    <p>The entry page for Books 0–6: the R Theory carrier built from primitives — no physics, one granted axiom.</p>
-    <span class="date">First published 2026-09-30</span>
-  </div>
-<div class="book done">
-    <h3><a href="book0/">Book 0 — Source Boundary and the Orientation Question</a></h3>
-    <p><span class="tag">Hard science</span></p>
-    <p>Primitives, seams, the UNA construction, FlatWave, the carrier ellipse, transfer amplitudes, and the automorphism obstruction: what is proved, and what is not.</p>
-    <span class="date">First published 2026-09-18</span>
-  </div>
-<div class="book done">
-    <h3><a href="book1/">Book 1 — Mathematical Constitution</a></h3>
-    <p><span class="tag">Hard science</span></p>
-    <p>The lifted phase line, seam classes, branch signs, the four reciprocal-conjugate factors, half-angle charts, boundary traces, minimality — and the certification ledger. Zero axioms, zero physics.</p>
-    <span class="date">First published 2026-09-18</span>
-  </div>
-<div class="book done">
-    <h3><a href="book2/">Book 2 — Canonical R-Operator Calculus</a></h3>
-    <p><span class="tag">Hard science</span></p>
-    <p>The named R-operator quartet, Double Angle, FlatWave, and Möbius Reduction — 16 plotted identities numerically re-verified.</p>
-    <span class="date">First published 2026-09-18</span>
-  </div>
-<div class="book done">
-    <h3><a href="book3/">Book 3 — Projective Phase, Orientation, and Lift Structure</a></h3>
-    <p><span class="tag">Hard science</span></p>
-    <p>Möbius group action, octant atlas, spin-lift existence, covering-space obstructions and nonselection. "Wolfram verified" notes kept as manuscript assertions.</p>
-    <span class="date">First published 2026-09-18</span>
-  </div>
-<div class="book done">
-    <h3><a href="book4/">Book 4 — Geometric Rank, Coframes, and Connection</a></h3>
-    <p><span class="tag">Hard science</span></p>
-    <p>Rank-2/3 carriers, coframes, flat and curved transport (K = −1/L² checked symbolically) — 7 figures assertion-verified.</p>
-    <span class="date">First published 2026-09-18</span>
-  </div>
-<div class="book done">
-    <h3><a href="book5/">Book 5 — Axiom Zero and the Decadic Carrier</a></h3>
-    <p><span class="tag">Hard science</span></p>
-    <p>Axiom Zero is granted, not proved — the decadic carrier is conditional on it. A short book; the page says so plainly.</p>
-    <span class="date">First published 2026-09-18</span>
-  </div>
-<div class="book done">
-    <h3><a href="book6/">Book 6 — Local Symmetry and Carrier Mathematics</a></h3>
-    <p><span class="tag">Hard science</span></p>
-    <p>O(2)×O(3) block symmetry, automorphism envelopes, obstructions, terminal firewall — plus the Volume I closure and dependency boundary to Volume II.</p>
-    <span class="date">First published 2026-09-18</span>
-  </div>
-</div>
-
-<h2 id="vol-2">Volume II — Books 7–13</h2>
-<div class="books">
-<div class="book done volume">
-    <h3><a href="vol2/">Volume II — From the Carrier to the Physics Boundary</a></h3>
-    <p>The entry page for Books 7–13: classical dynamics through thermodynamics — physics enters only as declared import.</p>
-    <span class="date">First published 2026-09-30</span>
-  </div>
-<div class="book done">
-    <h3><a href="book7/">Book 7 — Classical Dynamics from the Certified Carrier</a></h3>
-    <p><span class="tag">Hard science</span></p>
+  <div class="book">
+    <h3 id="book-7">Book 7 — Classical Dynamics from the Certified Carrier</h3>
     <p>Reciprocal decomposition of the harmonic carrier, transfer-circle squaring map, primitive reconstruction — 78 numeric + 23 symbolic assertions pass. No physics imports.</p>
-    <span class="date">First published 2026-09-18</span>
+    <p><a href="../book7/">Read Book 7 &rarr;</a></p>
   </div>
-<div class="book done">
-    <h3><a href="book8/">Book 8 — Pre-Maxwell Geometry</a></h3>
-    <p><span class="tag">Theoretical</span></p>
+  <div class="book">
+    <h3 id="book-8">Book 8 — Pre-Maxwell Geometry and the Compact-Carrier Field Boundary</h3>
     <p>Covariant derivative, Hodge duality, F∧F, Fubini–Study geometry — 46/46 checks pass. EM frame, charge, and current are explicit imports; the field theory is conditional reconstruction.</p>
-    <span class="date">First published 2026-09-18</span>
+    <p><a href="../book8/">Read Book 8 &rarr;</a></p>
   </div>
-<div class="book done">
-    <h3><a href="book9/">Book 9 — Relativity and Gravitation</a></h3>
-    <p><span class="tag">Theoretical</span></p>
+  <div class="book">
+    <h3 id="book-9">Book 9 — Relativity and Gravitation: Conditional Reconstruction</h3>
     <p>Rapidity identities, rank firewall, Schwarzschild-chart algebra — verified. Gravity after explicit import is conditional reconstruction, not a derivation of GR.</p>
-    <span class="date">First published 2026-09-18</span>
+    <p><a href="../book9/">Read Book 9 &rarr;</a></p>
   </div>
-<div class="book done">
-    <h3><a href="book10/">Book 10 — Quantum Kinematics and the Measurement Boundary</a></h3>
-    <p><span class="tag">Theoretical</span></p>
+  <div class="book">
+    <h3 id="book-10">Book 10 — Quantum Kinematics and the Measurement Boundary</h3>
     <p>Projective-rank obstruction, Dirac-sector ratios, Prüfer reconstruction — all checks pass. Measurement postulates are kept as declared contracts.</p>
-    <span class="date">First published 2026-09-18</span>
+    <p><a href="../book10/">Read Book 10 &rarr;</a></p>
   </div>
-<div class="book done">
-    <h3><a href="book11/">Book 11 — Particle Architecture and Standard Model Comparison</a></h3>
-    <p><span class="tag">Theoretical</span></p>
+  <div class="book">
+    <h3 id="book-11">Book 11 — Particle Architecture and Standard Model Comparison</h3>
     <p>SU(2)/SU(3) structure, anomaly cancellation (exact), charge pattern — 37/37 checks pass. Every Standard Model comparison is conditional on explicit import.</p>
-    <span class="date">First published 2026-09-18</span>
+    <p><a href="../book11/">Read Book 11 &rarr;</a></p>
   </div>
-<div class="book done">
-    <h3><a href="book12/">Book 12 — Mass, Frequency, and Harmonic Calibration</a></h3>
-    <p><span class="tag">Theoretical</span></p>
+  <div class="book">
+    <h3 id="book-12">Book 12 — Mass, Frequency, and Harmonic Calibration</h3>
     <p>55 assertions pass — but one identity is incorrect as stated for general λ. Empirical mass matches are witnesses, not derivations.</p>
-    <span class="date">First published 2026-09-18</span>
+    <p><a href="../book12/">Read Book 12 &rarr;</a></p>
   </div>
-<div class="book done">
-    <h3><a href="book13/">Book 13 — Thermodynamics, Information, and the Arrow of Time</a></h3>
-    <p><span class="tag">Theoretical</span></p>
-    <p>80 assertions pass; two incorrect-as-stated claims and one incomplete bound flagged. The manuscript's own retirement condition is not satisfied.</p>
-    <span class="date">First published 2026-09-18</span>
-  </div>
-</div>
-
-<h2 id="vol-3">Volume III — Books 14–16</h2>
-<div class="books">
-<div class="book done volume">
-    <h3><a href="vol3/">Volume III — The Microscopic Turn</a></h3>
-    <p>The entry page for Books 14–16: two-fermion geometry, the bridge to E8, and the microscopic frontier.</p>
-    <span class="date">First published 2026-09-30</span>
-  </div>
-<div class="book done">
-    <h3><a href="book14/">Book 14 — Two-Fermion Mass Geometry and the Spinor Bridge</a></h3>
-    <p><span class="tag">Theoretical</span></p>
-    <p>Rapidity coordinate, pair invariant in two exact forms, bound-mass identities — 50 assertions pass. The Dirac–Coulomb bridge equality is proved conditional on its declared import.</p>
-    <span class="date">First published 2026-09-19</span>
-  </div>
-<div class="book done">
-    <h3><a href="book15/">Book 15 — Saw Interchanges and the Bridge to E8</a></h3>
-    <p><span class="tag">Theoretical</span></p>
-    <p>Saw complementation vs product duality, the Saw reduction proved symbolically, double-angle decomposition — 240 assertions pass. The E8(−24) host and all physical identifications are admitted input.</p>
-    <span class="date">First published 2026-09-18</span>
-  </div>
-<div class="book done">
-    <h3><a href="book16/">Book 16 — The Microscopic</a></h3>
-    <p><span class="tag">Theoretical</span></p>
-    <p>The E8 frontier: checked arithmetic spine, the exhaustive quadratic zero-form firewall, seven incorrect-as-stated claims flagged, and the September 15 normalization retraction recorded. 690 assertions pass.</p>
-    <span class="date">First published 2026-09-18</span>
+  <div class="book">
+    <h3 id="book-13">Book 13 — Thermodynamics, Information, and the Arrow of Time</h3>
+    <p>80 assertions pass; two incorrect-as-stated claims and one incomplete bound flagged. The manuscript’s own retirement condition is not satisfied.</p>
+    <p><a href="../book13/">Read Book 13 &rarr;</a></p>
   </div>
 </div>
 
-<h2 id="vol-4">Volume IV — The Discrete Octant and the Computational Frontier</h2>
-<div class="books">
-<div class="book done volume">
-    <h3><a href="vol4/">Volume IV — Audit Overview</a></h3>
-    <p><i>The Discrete Octant and the Computational Frontier.</i> The C8 contraction attempt: 18 incorrect-as-stated findings, empty physical promotion (Δ_op = ∅). v1 is the sole audit authority.</p>
-    <span class="date">First published 2026-09-19</span>
-  </div>
-<div class="book done">
-    <h3><a href="book17/">Book 17 — The Octant Decomposition</a></h3>
-    <p><span class="tag">Theoretical</span></p>
-    <p>Primitive octant structure, the 2:1 elliptic map, the rapidity ladder, the Flatwave identity (proved equivalent to sgn(sin 2x)), the C8↔octant word, and the §17.18 construction with its defects.</p>
-    <span class="date">First published 2026-09-19</span>
-  </div>
-<div class="book done">
-    <h3><a href="book18/">Book 18 — The Contraction Module</a></h3>
-    <p><span class="tag">Theoretical</span></p>
-    <p>Dimension spine (1820 = C(16,4), 8256 = 1+1820+6435), branching arithmetic, conversion chain, ordered-contraction roadmap — and IC-12…IC-17, with the skeleton defects recurring from §17.18.</p>
-    <span class="date">First published 2026-09-19</span>
-  </div>
-<div class="book done">
-    <h3><a href="book19/">Book 19 — The UV Boundary</a></h3>
-    <p><span class="tag">Theoretical</span></p>
-    <p>The line-3542 tension resolved, Appendix A flags, the verified Appendix B no-go ledger, two Addendum contradictions, and the empty promotion accounting: Δ_op(Volume IV) = ∅.</p>
-    <span class="date">First published 2026-09-19</span>
-  </div>
-<div class="book done">
-    <h3><a href="appendix/">Computational Audit Appendix</a></h3>
-    <p><span class="tag">Theoretical</span></p>
-    <p><span class="tag">Audit</span></p>
-    <p>The module-by-module audit of the 12-module computation: the corrected operator, the independent verification, and what the audit does not establish.</p>
-    <span class="date">First published 2026-09-19</span>
-  </div>
-<div class="book done">
-    <h3><a href="tables/">Pre-computed Tables</a></h3>
-    <p><span class="tag">Theoretical</span></p>
-    <p>Every large numerical object the audit built and checked, ready to load — including the downloadable exact E8 30380 weight table.</p>
-    <span class="date">First published 2026-09-19</span>
-  </div>
-</div>
-
-<h2 id="vol-5">Volume V — The Physics Interface</h2>
-<div class="books">
-<div class="book done volume">
-    <h3><a href="vol5/">Volume V — The Physics Interface</a></h3>
-    <p>Where the mathematics meets measurement: the chirality anchors (Book 23) and the IO-word measurement campaign (Book 24) — every contact point scope-labeled, proved negatives as first-class results.</p>
-    <span class="date">First published 2026-09-30</span>
-  </div>
-<div class="book done">
-    <h3><a href="book23/">Chirality Anchors — the C-1 Physics Interface</a></h3>
-    <p><span class="tag">Hard science</span></p>
-    <p>The first book of the physics-interface program: the 21 cm line as scale anchor and the imaginary-negative-volume sector occupancy as orientation anchor for the C-1 chirality import — each with declared scope. The book where Muse Cosby took over as research assistant.</p>
-    <span class="date">First published 2026-09-29</span>
-  </div>
-<div class="book done">
-    <h3><a href="book24/">The IO-Word Campaign — Mass, the Dial, and the No-Go Results</a></h3>
-    <p><span class="tag">Hard science</span></p>
-    <p>The mass law corrected, the dial built as a working instrument, the proved no-go results, epsilon and C8, the run-61 correction — and the open gates. Full derivations in Appendix P.</p>
-    <span class="date">First published 2026-09-30</span>
-  </div>
-</div>
-
-<h2 id="companions">Companion pages</h2>
-<div class="books">
-<div class="book done">
-    <h3><a href="research/">R Theory — Active Research</a></h3>
-    <p><span class="tag">Theoretical</span></p>
-    <p><span class="tag">Companion</span></p>
-    <p>The live research front: critical path, proved and checked results, asserted items, refutations, open gates, and notation.</p>
-    <span class="date">First published 2026-09-19</span>
-  </div>
-<div class="book done">
-    <h3><a href="ledger/">Research Ledger — Status Key & Claim Audit</a></h3>
-    <p><span class="tag">Theoretical</span></p>
-    <p><span class="tag">Companion</span></p>
-    <p>The canonical mapping from the website’s status tags (CP, SC, NC, ST, MA, AX, IN, IC) to the audit ledger’s verdicts.</p>
-    <span class="date">First published 2026-09-19</span>
-  </div>
-<div class="book done">
-    <h3><a href="appendix-proofs/">Appendix P — Full Derivations</a></h3>
-    <p><span class="tag">Theoretical</span></p>
-    <p><span class="tag">Companion</span></p>
-    <p>Full derivations for the proved results, each with its scope label — the place the “full derivation” boxes point.</p>
-    <span class="date">First published 2026-09-19</span>
-  </div>
-<div class="book done">
-    <h3><a href="guide/">A Guide to Creative Reason (after Euclid)</a></h3>
-    <p><span class="tag">Theoretical</span></p>
-    <p>Euclid's <i>Elements</i> as a toolkit for creative reason: six principles from define-before-you-reason to coincidence-testing, the TESS-India possibility-thinking frame, daily habits, exercises, and the method's limits — every claim scope-labeled SOURCE, SYNTHESIS, or INCOMPLETE.</p>
-    <span class="date">First published 2026-09-22</span>
-  </div>
-</div>
-
-<h2 id="manuscripts">Original manuscripts</h2>
-<p>The complete original manuscripts, included verbatim and read-only — the sources the rewrite above is based on. The rewrite is a separate commentary layer; nothing here edits them.</p>
-<ul>
-  <li><a href="manuscript/R-Theory-Volume-I-original.txt">Volume I</a> — Books 0–6</li>
-  <li><a href="manuscript/R-Theory-Volume-II-original.txt">Volume II</a> — Books 7–13</li>
-  <li><a href="manuscript/R-Theory-Volume-III-original.txt">Volume III</a> — Books 14–16</li>
-  <li><a href="manuscript/R-Theory-Volume-IV-original.txt">Volume IV</a> — Books 17–19</li>
-</ul>
-
-
-
+<!-- VOLBRIDGE-START -->
+<p style="margin:2.2em 0 0;text-align:center;font-family:Georgia,serif;font-size:1.05em;">
+<a href="../vol1/" style="color:#1b5faa;font-weight:bold;text-decoration:none;">&larr; Previous volume</a>
+&ensp;·&ensp;
+<a href="../vol3/" style="color:#1b5faa;font-weight:bold;text-decoration:none;">Continue the series &rarr;</a>
+</p>
+<!-- VOLBRIDGE-END -->
 <footer>
-<p>Rewrite series for the <i>R Theory</i> manuscript, Volumes 0, I, II, III, IV, and V. Pictures illustrate proved statements; they are not the proofs.</p>
-<p>Audit resources: <a href="tables/">Pre-computed tables</a> &middot; <a href="appendix/">Computational audit appendix</a></p>
-<p>By <a href="https://orcid.org/0009-0003-5392-2359">Christopher Cosby</a> &middot; ORCID <a href="https://orcid.org/0009-0003-5392-2359">0009-0003-5392-2359</a></p>
+<p><a href="../">&larr; Series index</a> &middot; <a href="../contents/">Contents</a> &middot; Volume II. Pictures illustrate proved
+statements; they are not the proofs. Status discipline: every claim is labeled proved,
+checked, conditional on import, or not established — nothing is promoted beyond its
+support.</p>
 </footer>
 <!-- COMMENTS-START -->
 <style>

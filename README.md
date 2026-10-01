@@ -48,9 +48,23 @@ mathematics supports.
 
 ## Audits
 
-- **Volume I** — independent audit complete.
+- **Volume I** (Books 0–6) — independent audit complete.
 - **Volume II** (Books 7–13) — pending: re-verification pass done, five open
   items remain in the ledger.
+
+## Status (2026-09-30)
+
+- 575-entry series index (A–Z) and full series contents with anchor links.
+- Live Desmos calculators in every book; static PNG fallbacks if Desmos
+  fails to load.
+- Theorem-status mirror: `sync_status.py` parses the audit ledger into
+  `status_registry.json` (86 claims, Books 2–6) and injects "Independent
+  audit verdicts" tables into the book pages; inline status pills link to
+  the canonical ledger.
+- R Theory database dump in `database/` (per-table SQL, reassemble script,
+  SAD architecture diagrams).
+- Site published via GitHub Pages; backup mirror in
+  [R-Theory](https://github.com/cosbykit-afk/R-Theory).
 
 ## Source
 

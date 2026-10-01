@@ -32,9 +32,9 @@ SITE_RESTRICTION = "cosbykit-afk.github.io/r-theory-rewrite"
 
 VOLUMES = [
     ("Volume 0", [20, 21, 22], "vol0/"),
-    ("Volume I", [0, 1, 2, 3, 4, 5, 6], "contents/#vol-1"),
-    ("Volume II", [7, 8, 9, 10, 11, 12, 13], "contents/#vol-2"),
-    ("Volume III", [14, 15, 16], "contents/#vol-3"),
+    ("Volume I", [0, 1, 2, 3, 4, 5, 6], "vol1/"),
+    ("Volume II", [7, 8, 9, 10, 11, 12, 13], "vol2/"),
+    ("Volume III", [14, 15, 16], "vol3/"),
     ("Volume IV", [17, 18, 19], "vol4/"),
     ("Volume V", [23, 24], "vol5/"),
 ]
@@ -55,6 +55,9 @@ LABELS = {
     "tables": "Tables",
     "title": "Title page",
     "vol0": "Volume 0",
+    "vol1": "Volume I",
+    "vol2": "Volume II",
+    "vol3": "Volume III",
     "vol4": "Volume IV",
     "vol5": "Volume V",
 }
@@ -120,6 +123,15 @@ body{overflow-x:clip}
  pointer-events:none;transition:opacity .2s,transform .2s;z-index:9999}
 .rth-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 html.rth-large-text body{font-size:21.333px;line-height:1.65}
+details.derivation{margin:1.4em 0;border:1px solid #c9d6d8;border-radius:8px;
+ background:#f7fafb;padding:0}
+details.derivation summary{cursor:pointer;padding:12px 16px;font-weight:600;
+ color:#0b3f3d;list-style:none;font-family:'Source Sans 3',system-ui,sans-serif}
+details.derivation summary::-webkit-details-marker{display:none}
+details.derivation summary::before{content:"\\25b8  ";color:#0b6866}
+details.derivation[open] summary::before{content:"\\25be  "}
+details.derivation .deriv-body{padding:2px 16px 14px;font-size:.95em}
+details.derivation .deriv-body p{margin:.6em 0}
 @media (max-width:600px){
  .sitebar-inner{gap:8px;padding:10px 14px}
  .site-select-wrap{order:3;width:100%}
@@ -141,11 +153,19 @@ NAV_TMPL = """<!-- SITENAV-NAV-START -->
 <span class="site-select-wrap"><select class="site-dest" id="rthSiteDest" aria-label="Go to section">
 <option value="{p}contents/" selected>Contents</option>
 <option value="{p}vol0/">Volume 0</option>
-<option value="{p}contents/#vol-1">Volume I</option>
-<option value="{p}contents/#vol-2">Volume II</option>
-<option value="{p}contents/#vol-3">Volume III</option>
+<option value="{p}vol1/">Volume I</option>
+<option value="{p}vol2/">Volume II</option>
+<option value="{p}vol3/">Volume III</option>
 <option value="{p}vol4/">Volume IV</option>
 <option value="{p}vol5/">Volume V</option>
+<optgroup label="Companion pages">
+<option value="{p}tables/">Tables</option>
+<option value="{p}appendix/">Computational audit</option>
+<option value="{p}appendix-proofs/">Appendix P — Full derivations</option>
+<option value="{p}research/">Active research</option>
+<option value="{p}ledger/">Research ledger</option>
+<option value="{p}guide/">Guide to creative reason</option>
+</optgroup>
 <option value="{p}index/">Index</option>
 </select></span>
 <form class="site-search" id="rthSiteSearch" action="https://www.google.com/search" method="get" target="_blank" rel="noopener" role="search">

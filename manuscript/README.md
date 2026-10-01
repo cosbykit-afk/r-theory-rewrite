@@ -9,6 +9,11 @@ rewrite series is based on. Included verbatim ("as is").
   2026-09-19; ends with "END OF VOLUME II".
 - `R-Theory-Volume-III-original.txt` — Volume III (Books 14–16). From the
   Volume III audit working copy.
+- `R-Theory-Volume-IV-original.txt` — Volume IV (Books 17–19). Text extracted
+  2026-09-30 from the author's `R_Theory_volume_IV.docx` (transfer state
+  September 15, 2026); verified near-identical to the read-only Google Doc
+  sync of 2026-09-22. Chosen over the shorter September 16 transfer-state
+  status summary, which is a status snapshot rather than the book text.
 
 These copies are never edited. The rewrite (books 0–22, vol0, vol4) is a
 separate commentary layer; nothing here changes the originals. Status tags
