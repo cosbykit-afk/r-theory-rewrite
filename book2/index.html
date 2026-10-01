@@ -82,6 +82,15 @@ body{overflow-x:clip}
  pointer-events:none;transition:opacity .2s,transform .2s;z-index:9999}
 .rth-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 html.rth-large-text body{font-size:21.333px;line-height:1.65}
+details.derivation{margin:1.4em 0;border:1px solid #c9d6d8;border-radius:8px;
+ background:#f7fafb;padding:0}
+details.derivation summary{cursor:pointer;padding:12px 16px;font-weight:600;
+ color:#0b3f3d;list-style:none;font-family:'Source Sans 3',system-ui,sans-serif}
+details.derivation summary::-webkit-details-marker{display:none}
+details.derivation summary::before{content:"\25b8  ";color:#0b6866}
+details.derivation[open] summary::before{content:"\25be  "}
+details.derivation .deriv-body{padding:2px 16px 14px;font-size:.95em}
+details.derivation .deriv-body p{margin:.6em 0}
 @media (max-width:600px){
  .sitebar-inner{gap:8px;padding:10px 14px}
  .site-select-wrap{order:3;width:100%}
@@ -138,11 +147,19 @@ a.taglink:focus-visible{outline:3px solid #0e7c86;outline-offset:2px;border-radi
 <span class="site-select-wrap"><select class="site-dest" id="rthSiteDest" aria-label="Go to section">
 <option value="../contents/" selected>Contents</option>
 <option value="../vol0/">Volume 0</option>
-<option value="../contents/#vol-1">Volume I</option>
-<option value="../contents/#vol-2">Volume II</option>
-<option value="../contents/#vol-3">Volume III</option>
+<option value="../vol1/">Volume I</option>
+<option value="../vol2/">Volume II</option>
+<option value="../vol3/">Volume III</option>
 <option value="../vol4/">Volume IV</option>
 <option value="../vol5/">Volume V</option>
+<optgroup label="Companion pages">
+<option value="../tables/">Tables</option>
+<option value="../appendix/">Computational audit</option>
+<option value="../appendix-proofs/">Appendix P — Full derivations</option>
+<option value="../research/">Active research</option>
+<option value="../ledger/">Research ledger</option>
+<option value="../guide/">Guide to creative reason</option>
+</optgroup>
 <option value="../index/">Index</option>
 </select></span>
 <form class="site-search" id="rthSiteSearch" action="https://www.google.com/search" method="get" target="_blank" rel="noopener" role="search">
@@ -154,7 +171,7 @@ a.taglink:focus-visible{outline:3px solid #0e7c86;outline-offset:2px;border-radi
 </div>
 </nav>
 <div class="crumbbar"><div class="crumbbar-inner">
-<a class="crumb-vol" href="../contents/#vol-1">Volume I</a><span class="crumb-sep">/</span><span>Book 2</span><span class="crumb-pill">3 of 7</span>
+<a class="crumb-vol" href="../vol1/">Volume I</a><span class="crumb-sep">/</span><span>Book 2</span><span class="crumb-pill">3 of 7</span>
 </div></div>
 <div class="rth-toast" id="rthToast" role="status" aria-live="polite"></div>
 <script>
@@ -283,6 +300,13 @@ Dashed gray is the ellipse; solid blue is the traced (H(x),V(x)) — one full tr
 
 <hr>
 <h2 id="p3">Part III — What Book 2 establishes, and what it doesn't</h2>
+
+<details class="derivation" id="deriv-p-7">
+<summary>Full derivations — open without leaving this page</summary>
+<div class="deriv-body">
+<p>The complete step-by-step derivations behind this book’s proved claims are written out in full in <a href="../appendix-proofs/#P-7">Appendix P, §P-7</a> — the audit-claim derivations for Books 2–6. See also <a href="../appendix-proofs/#P-6">§P-6</a> for the standalone L9 nonconstancy firewall. Each derivation carries its scope label; the appendix is the authority, this box is the doorway.</p>
+</div>
+</details>
 <h3 id="established-abridged">Established (abridged)</h3>
 <p class="small">Canonical names srx, sxp, cxp, crx on the four Book 1 factors — naming definitional, reciprocity theorem-level; maximal channel domains with opposite-seam regular value 1; half-angle atlas in named form with exact range/bijection theorems, two chart types, midpoint values √2±ε, octant order; symmetry orbit with Klein-four permutation group V<sub>4</sub> and ε transport laws; UNA differences with canonical sign lock uxp = cxp−sxp, common sign ε, nonvanishing, rational same-phase forms; double-angle closure urx+uxp = 4/sin 2x and urx·uxp = 4/|sin 2x|; FlatWave = sgn(sin 2x) ±1-valued, flat per quadrant, the quotient of signed by unsigned closure, carrying the V<sub>4</sub> sign character; same-phase Möbius reduction w = M<sub>ε</sub>(z), a branch-preserving involution with fixed points √2±ε; exact one-nonconstant-generator closure per open quadrant; smooth carrier H = sin 2x/4, V = cos 2x/2 uniquely extended through every seam, with carrier ellipse, unit circle, exact mod-π fibers, and FlatWave = sgn H; autonomous Riccati pairs, constant-slope arctangent coordinates, logarithmic antiderivatives, first-order seam asymptotics; complete named boundary atlas; complex audit retaining Z<sub>car</sub> = e<sup>2ix</sup> as optional; L-series complementary-swap audit — AB=4, Σ²−Δ²=16, Z₂=Z<sub>car</sub> identification, and the L9 firewall (swap closure is not propagation); certification with zero new axioms. Statuses: proved in text unless marked <a class="taglink" href="../ledger/#tag-ST" title="Status key: standard imported theorem"><span class="tag S">S</span></a>/<a class="taglink" href="../ledger/#tag-MA" title="Status key: manuscript assertion"><span class="tag M">M</span></a> above; the seven pictures additionally carry this page's own <a class="taglink" href="../ledger/#tag-NC" title="Status key: completed numerical check"><span class="tag NC">NC</span></a> numerical re-verification.</p>
 <h3 id="not-derived-abridged">Not derived (abridged)</h3>
