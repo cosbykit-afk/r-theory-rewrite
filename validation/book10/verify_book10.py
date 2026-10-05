@@ -225,8 +225,8 @@ check_bool("V11 ledger: Z_car row is CHECKED",
            "| Z_car = 2V+i·4H = e^{2ix} | 0.0 (exact) | CHECKED |" in led, "MA")
 check_bool("V11 ledger: complex rank 5 via I_iota is MANUSCRIPT",
            "complex rank 5 via I_ι" in led and "**MANUSCRIPT**" in led, "MA")
-check_bool("V11 ledger: Module 1 APPROVED FIX, PROVED independent",
-           "Module 1 — gamma matrices (APPROVED FIX, PROVED independent)" in led,
+check_bool("V11 ledger: Module 1 APPROVED FIX, CHECKED independent numeric",
+           "Module 1 — gamma matrices (APPROVED FIX, CHECKED independent numeric)" in led,
            "MA")
 check_bool("V11 ledger: Book 3 Moebius algebra PROVED independent-symbolic",
            "Book 3 Möbius / reciprocal-transform algebra (PROVED independent — symbolic)" in led,
